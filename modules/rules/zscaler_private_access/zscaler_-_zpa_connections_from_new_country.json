@@ -1,0 +1,32 @@
+{
+    "kind": "Scheduled",
+    "properties": {
+        "description": "Detects ZPA connections from new country.",
+        "displayName": "Zscaler - ZPA connections from new country",
+        "enabled": true,
+        "query": "let listCountries =\nZPAEvent \n| where TimeGenerated > ago(14d)\n| where DvcAction == 'open'\n| summarize ListofCountries = make_set(SrcGeoCountry) by DstUserName\n| project ListofCountries;\nZPAEvent\n| where isnotempty(SrcGeoCountry)\n| where SrcGeoCountry !in (listCountries)\n| summarize EventCount = count() by DstUserName, SrcGeoCountry\n| project-away EventCount\n| extend AccountCustomEntity = DstUserName\n",
+        "queryFrequency": "PT1H",
+        "queryPeriod": "P14D",
+        "severity": "Medium",
+        "suppressionDuration": "PT1H",
+        "suppressionEnabled": false,
+        "triggerOperator": "GreaterThan",
+        "triggerThreshold": 0,
+        "tactics": [
+            "InitialAccess"
+        ],
+        "entityMappings": [
+            {
+                "entityType": "Account",
+                "fieldMappings": [
+                    {
+                        "identifier": "Name",
+                        "columnName": "AccountCustomEntity"
+                    }
+                ]
+            }
+        ],
+        "alertRuleTemplateName": "c4902121-7a7e-44d1-810b-88d26db622ff",
+        "templateVersion": "1.0.0"
+    }
+}

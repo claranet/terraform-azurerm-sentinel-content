@@ -1,0 +1,2486 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "type": "String",
+            "minLength": 1,
+            "defaultValue": "[resourceGroup().location]",
+            "metadata": {
+                "description": "Not used, but needed to pass arm-ttk test `Location-Should-Not-Be-Hardcoded`.  We instead use the `workspace-location` which is derived from the LA workspace"
+            }
+        },
+        "workspace-location": {
+            "type": "String",
+            "defaultValue": "",
+            "metadata": {
+                "description": "[concat('Region to deploy solution resources -- separate from location selection',parameters('location'))]"
+            }
+        },
+        "workspace": {
+            "defaultValue": "",
+            "type": "String",
+            "metadata": {
+                "description": "Workspace name for Log Analytics where Microsoft Sentinel is setup"
+            }
+        }
+    },
+    "resources": [
+        {
+            "name": "pid-1cf1db80-d519-4f89-b498-e97385a7cbb6-partnercenter",
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-10-01",
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "resources": []
+                }
+            }
+        },
+        {
+            "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
+            "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-dc-',uniquestring('Syslog')))]",
+            "location": "[parameters('workspace-location')]",
+            "dependsOn": [
+                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
+            ],
+            "properties": {
+                "description": "Syslog data connector with template version 3.0.2",
+                "mainTemplate": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/','Syslog')]",
+                            "apiVersion": "2021-03-01-preview",
+                            "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
+                            "location": "[parameters('workspace-location')]",
+                            "kind": "StaticUI",
+                            "properties": {
+                                "connectorUiConfig": {
+                                    "id": "Syslog",
+                                    "title": "Syslog",
+                                    "publisher": "Microsoft",
+                                    "descriptionMarkdown": "Syslog is an event logging protocol that is common to Linux. Applications will send messages that may be stored on the local machine or delivered to a Syslog collector. When the Agent for Linux is installed, it configures the local Syslog daemon to forward messages to the agent. The agent then sends the message to the workspace. For more information, see the [Microsoft Sentinel documentation](https://go.microsoft.com/fwlink/p/?linkid=2223807&wt.mc_id=sentinel_dataconnectordocs_content_cnl_csasci).",
+                                    "graphQueries": [
+                                        {
+                                            "metricName": "Total data received",
+                                            "legend": "Syslog",
+                                            "baseQuery": "Syslog"
+                                        }
+                                    ],
+                                    "connectivityCriterias": [
+                                        {
+                                            "type": "IsConnectedQuery",
+                                            "value": [
+                                                "Syslog\n   | where TimeGenerated > ago(3d)\n       |take 1\n       | project IsConnected = true"
+                                            ]
+                                        }
+                                    ],
+                                    "dataTypes": [
+                                        {
+                                            "name": "Syslog",
+                                            "lastDataReceivedQuery": "Syslog\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
+                            "apiVersion": "2023-04-01-preview",
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('DataConnector-', last(split(extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'Syslog'),'/'))))]",
+                            "properties": {
+                                "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'Syslog')]",
+                                "contentId": "Syslog",
+                                "kind": "DataConnector",
+                                "version": "1.0.0",
+                                "source": {
+                                    "kind": "Solution",
+                                    "name": "Syslog",
+                                    "sourceId": "azuresentinel.azure-sentinel-solution-syslog"
+                                },
+                                "author": {
+                                    "name": "Microsoft",
+                                    "email": "support@microsoft.com"
+                                },
+                                "support": {
+                                    "name": "Microsoft Corporation",
+                                    "email": "support@microsoft.com",
+                                    "tier": "Microsoft",
+                                    "link": "https://support.microsoft.com"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "packageKind": "Solution",
+                "packageVersion": "3.0.2",
+                "packageName": "Syslog",
+                "packageId": "azuresentinel.azure-sentinel-solution-syslog",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "Syslog",
+                "contentKind": "DataConnector",
+                "displayName": "Syslog",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-syslog-dc-leiqyh5e3kqo2",
+                "id": "azuresentinel.azure-sentinel-solution-syslog-dc-leiqyh5e3kqo2",
+                "version": "1.0.0",
+                "isDeprecated": false
+            }
+        },
+        {
+            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
+            "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('DataConnector-', last(split(extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'Syslog'),'/'))))]",
+            "dependsOn": [
+                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'Syslog')]"
+            ],
+            "location": "[parameters('workspace-location')]",
+            "properties": {
+                "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'Syslog')]",
+                "contentId": "Syslog",
+                "kind": "DataConnector",
+                "version": "1.0.0",
+                "source": {
+                    "kind": "Solution",
+                    "name": "Syslog",
+                    "sourceId": "azuresentinel.azure-sentinel-solution-syslog"
+                },
+                "author": {
+                    "name": "Microsoft",
+                    "email": "support@microsoft.com"
+                },
+                "support": {
+                    "name": "Microsoft Corporation",
+                    "email": "support@microsoft.com",
+                    "tier": "Microsoft",
+                    "link": "https://support.microsoft.com"
+                }
+            }
+        },
+        {
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/','Syslog')]",
+            "apiVersion": "2021-03-01-preview",
+            "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
+            "location": "[parameters('workspace-location')]",
+            "kind": "StaticUI",
+            "properties": {
+                "connectorUiConfig": {
+                    "title": "Syslog",
+                    "publisher": "Microsoft",
+                    "descriptionMarkdown": "Syslog is an event logging protocol that is common to Linux. Applications will send messages that may be stored on the local machine or delivered to a Syslog collector. When the Agent for Linux is installed, it configures the local Syslog daemon to forward messages to the agent. The agent then sends the message to the workspace. For more information, see the [Microsoft Sentinel documentation](https://go.microsoft.com/fwlink/p/?linkid=2223807&wt.mc_id=sentinel_dataconnectordocs_content_cnl_csasci).",
+                    "graphQueries": [
+                        {
+                            "metricName": "Total data received",
+                            "legend": "Syslog",
+                            "baseQuery": "Syslog"
+                        }
+                    ],
+                    "dataTypes": [
+                        {
+                            "name": "Syslog",
+                            "lastDataReceivedQuery": "Syslog\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)"
+                        }
+                    ],
+                    "connectivityCriterias": [
+                        {
+                            "type": "IsConnectedQuery",
+                            "value": [
+                                "Syslog\n   | where TimeGenerated > ago(3d)\n       |take 1\n       | project IsConnected = true"
+                            ]
+                        }
+                    ],
+                    "id": "Syslog",
+                    "additionalRequirementBanner": "[Learn more](https://aka.ms/sysLogInfo)"
+                }
+            }
+        },
+        {
+            "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
+            "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-dc-',uniquestring('SyslogAma')))]",
+            "location": "[parameters('workspace-location')]",
+            "dependsOn": [
+                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
+            ],
+            "properties": {
+                "description": "Syslog data connector with template version 3.0.2",
+                "mainTemplate": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/','SyslogAma')]",
+                            "apiVersion": "2021-03-01-preview",
+                            "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
+                            "location": "[parameters('workspace-location')]",
+                            "kind": "GenericUI",
+                            "properties": {
+                                "connectorUiConfig": {
+                                    "id": "SyslogAma",
+                                    "title": "Syslog via AMA",
+                                    "publisher": "Microsoft",
+                                    "descriptionMarkdown": "Syslog is an event logging protocol that is common to Linux. Applications will send messages that may be stored on the local machine or delivered to a Syslog collector. When the Agent for Linux is installed, it configures the local Syslog daemon to forward messages to the agent. The agent then sends the message to the workspace.\n\n[Learn more >](https://aka.ms/sysLogInfo)",
+                                    "graphQueries": [
+                                        {
+                                            "metricName": "Total data received",
+                                            "legend": "Syslog",
+                                            "baseQuery": "Syslog"
+                                        }
+                                    ],
+                                    "sampleQueries": [
+                                        {
+                                            "description": "Last 1000 generated events",
+                                            "query": "Syslog\n            | top 1000 by TimeGenerated"
+                                        },
+                                        {
+                                            "description": "All events by facility except for cron",
+                                            "query": "Syslog\n            | summarize count() by Facility | where Facility != \"cron\""
+                                        }
+                                    ],
+                                    "connectivityCriterias": [
+                                        {
+                                            "type": "IsConnectedQuery",
+                                            "value": [
+                                                "Syslog | extend TimeGenerated = ingestion_time() \n        | where TimeGenerated > ago(7d) \n        | summarize by _ResourceId, bin(TimeGenerated, 1m) \n        | join kind=inner (Heartbeat \n            | where TimeGenerated > ago(7d) \n            | where Category == \"Azure Monitor Agent\" \n            | summarize by _ResourceId, bin(TimeGenerated, 1m)) on _ResourceId, TimeGenerated \n        | summarize LastLogReceived = max(TimeGenerated) \n        | project IsConnected = LastLogReceived > ago(7d) "
+                                            ]
+                                        }
+                                    ],
+                                    "dataTypes": [
+                                        {
+                                            "name": "Syslog",
+                                            "lastDataReceivedQuery": "Syslog\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)"
+                                        }
+                                    ],
+                                    "availability": {
+                                        "status": 2,
+                                        "isPreview": false,
+                                        "featureFlag": {
+                                            "feature": "SyslogAma",
+                                            "featureStates": {
+                                                "Dogfood": "PrivatePreview",
+                                                "MPAC": "PrivatePreview",
+                                                "Prod": "PrivatePreview"
+                                            }
+                                        }
+                                    },
+                                    "permissions": {
+                                        "resourceProvider": [
+                                            {
+                                                "provider": "Microsoft.OperationalInsights/workspaces/datasources",
+                                                "permissionsDisplayText": "read and write permissions.",
+                                                "providerDisplayName": "Workspace data sources",
+                                                "scope": "Workspace",
+                                                "requiredPermissions": {
+                                                    "read": true,
+                                                    "write": true
+                                                }
+                                            }
+                                        ],
+                                        "customs": [
+                                            {
+                                                "description": "To collect data from non-Azure VMs, they must have Azure Arc installed and enabled. [Learn more](https://docs.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-install?tabs=ARMAgentPowerShell,PowerShellWindows,PowerShellWindowsArc,CLIWindows,CLIWindowsArc)"
+                                            }
+                                        ]
+                                    },
+                                    "instructionSteps": [
+                                        {
+                                            "description": "You can collect Syslog events from your local machine by installing the agent on it. You can also collect Syslog generated on a different source by running the installation script below on the local machine, where the agent is installed.\n\n>  Syslog logs are collected only from **Linux** agents.",
+                                            "instructions": [
+                                                {
+                                                    "type": "SysLogAma"
+                                                }
+                                            ],
+                                            "title": "Enable data collection rule\u200b"
+                                        },
+                                        {
+                                            "instructions": [
+                                                {
+                                                    "parameters": {
+                                                        "linkType": "OpenCreateDataCollectionRule",
+                                                        "dataCollectionRuleType": 6
+                                                    },
+                                                    "type": "InstallAgent"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "description": "> To collect logs generated on a different machine run this script on the machine where the agent is installed.",
+                                            "instructions": [
+                                                {
+                                                    "parameters": {
+                                                        "fillWith": [
+                                                            "WorkspaceId",
+                                                            "PrimaryKey"
+                                                        ],
+                                                        "label": "",
+                                                        "value": "sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python Forwarder_AMA_installer.py"
+                                                    },
+                                                    "type": "CopyableLabel"
+                                                }
+                                            ],
+                                            "title": "Run the following command to install and apply the Syslog collector:"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
+                            "apiVersion": "2023-04-01-preview",
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('DataConnector-', last(split(extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'SyslogAma'),'/'))))]",
+                            "properties": {
+                                "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'SyslogAma')]",
+                                "contentId": "SyslogAma",
+                                "kind": "DataConnector",
+                                "version": "1.0.0",
+                                "source": {
+                                    "kind": "Solution",
+                                    "name": "Syslog",
+                                    "sourceId": "azuresentinel.azure-sentinel-solution-syslog"
+                                },
+                                "author": {
+                                    "name": "Microsoft",
+                                    "email": "support@microsoft.com"
+                                },
+                                "support": {
+                                    "name": "Microsoft Corporation",
+                                    "email": "support@microsoft.com",
+                                    "tier": "Microsoft",
+                                    "link": "https://support.microsoft.com"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "packageKind": "Solution",
+                "packageVersion": "3.0.2",
+                "packageName": "Syslog",
+                "packageId": "azuresentinel.azure-sentinel-solution-syslog",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "SyslogAma",
+                "contentKind": "DataConnector",
+                "displayName": "Syslog via AMA",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-syslog-dc-jy7tna7otagou",
+                "id": "azuresentinel.azure-sentinel-solution-syslog-dc-jy7tna7otagou",
+                "version": "1.0.0",
+                "isDeprecated": false
+            }
+        },
+        {
+            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
+            "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('DataConnector-', last(split(extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'SyslogAma'),'/'))))]",
+            "dependsOn": [
+                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'SyslogAma')]"
+            ],
+            "location": "[parameters('workspace-location')]",
+            "properties": {
+                "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'SyslogAma')]",
+                "contentId": "SyslogAma",
+                "kind": "DataConnector",
+                "version": "1.0.0",
+                "source": {
+                    "kind": "Solution",
+                    "name": "Syslog",
+                    "sourceId": "azuresentinel.azure-sentinel-solution-syslog"
+                },
+                "author": {
+                    "name": "Microsoft",
+                    "email": "support@microsoft.com"
+                },
+                "support": {
+                    "name": "Microsoft Corporation",
+                    "email": "support@microsoft.com",
+                    "tier": "Microsoft",
+                    "link": "https://support.microsoft.com"
+                }
+            }
+        },
+        {
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/','SyslogAma')]",
+            "apiVersion": "2021-03-01-preview",
+            "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
+            "location": "[parameters('workspace-location')]",
+            "kind": "GenericUI",
+            "properties": {
+                "connectorUiConfig": {
+                    "title": "Syslog via AMA",
+                    "publisher": "Microsoft",
+                    "descriptionMarkdown": "Syslog is an event logging protocol that is common to Linux. Applications will send messages that may be stored on the local machine or delivered to a Syslog collector. When the Agent for Linux is installed, it configures the local Syslog daemon to forward messages to the agent. The agent then sends the message to the workspace.\n\n[Learn more >](https://aka.ms/sysLogInfo)",
+                    "graphQueries": [
+                        {
+                            "metricName": "Total data received",
+                            "legend": "Syslog",
+                            "baseQuery": "Syslog"
+                        }
+                    ],
+                    "dataTypes": [
+                        {
+                            "name": "Syslog",
+                            "lastDataReceivedQuery": "Syslog\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)"
+                        }
+                    ],
+                    "connectivityCriterias": [
+                        {
+                            "type": "IsConnectedQuery",
+                            "value": [
+                                "Syslog | extend TimeGenerated = ingestion_time() \n        | where TimeGenerated > ago(7d) \n        | summarize by _ResourceId, bin(TimeGenerated, 1m) \n        | join kind=inner (Heartbeat \n            | where TimeGenerated > ago(7d) \n            | where Category == \"Azure Monitor Agent\" \n            | summarize by _ResourceId, bin(TimeGenerated, 1m)) on _ResourceId, TimeGenerated \n        | summarize LastLogReceived = max(TimeGenerated) \n        | project IsConnected = LastLogReceived > ago(7d) "
+                            ]
+                        }
+                    ],
+                    "sampleQueries": [
+                        {
+                            "description": "Last 1000 generated events",
+                            "query": "Syslog\n            | top 1000 by TimeGenerated"
+                        },
+                        {
+                            "description": "All events by facility except for cron",
+                            "query": "Syslog\n            | summarize count() by Facility | where Facility != \"cron\""
+                        }
+                    ],
+                    "availability": {
+                        "status": 2,
+                        "isPreview": false,
+                        "featureFlag": {
+                            "feature": "SyslogAma",
+                            "featureStates": {
+                                "Dogfood": "PrivatePreview",
+                                "MPAC": "PrivatePreview",
+                                "Prod": "PrivatePreview"
+                            }
+                        }
+                    },
+                    "permissions": {
+                        "resourceProvider": [
+                            {
+                                "provider": "Microsoft.OperationalInsights/workspaces/datasources",
+                                "permissionsDisplayText": "read and write permissions.",
+                                "providerDisplayName": "Workspace data sources",
+                                "scope": "Workspace",
+                                "requiredPermissions": {
+                                    "read": true,
+                                    "write": true
+                                }
+                            }
+                        ],
+                        "customs": [
+                            {
+                                "description": "To collect data from non-Azure VMs, they must have Azure Arc installed and enabled. [Learn more](https://docs.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-install?tabs=ARMAgentPowerShell,PowerShellWindows,PowerShellWindowsArc,CLIWindows,CLIWindowsArc)"
+                            }
+                        ]
+                    },
+                    "instructionSteps": [
+                        {
+                            "description": "You can collect Syslog events from your local machine by installing the agent on it. You can also collect Syslog generated on a different source by running the installation script below on the local machine, where the agent is installed.\n\n>  Syslog logs are collected only from **Linux** agents.",
+                            "instructions": [
+                                {
+                                    "type": "SysLogAma"
+                                }
+                            ],
+                            "title": "Enable data collection rule\u200b"
+                        },
+                        {
+                            "instructions": [
+                                {
+                                    "parameters": {
+                                        "linkType": "OpenCreateDataCollectionRule",
+                                        "dataCollectionRuleType": 6
+                                    },
+                                    "type": "InstallAgent"
+                                }
+                            ]
+                        },
+                        {
+                            "description": "> To collect logs generated on a different machine run this script on the machine where the agent is installed.",
+                            "instructions": [
+                                {
+                                    "parameters": {
+                                        "fillWith": [
+                                            "WorkspaceId",
+                                            "PrimaryKey"
+                                        ],
+                                        "label": "",
+                                        "value": "sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python Forwarder_AMA_installer.py"
+                                    },
+                                    "type": "CopyableLabel"
+                                }
+                            ],
+                            "title": "Run the following command to install and apply the Syslog collector:"
+                        }
+                    ],
+                    "id": "SyslogAma"
+                }
+            }
+        },
+        {
+            "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
+            "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-wb-',uniquestring('LinuxMachinesWorkbook')))]",
+            "location": "[parameters('workspace-location')]",
+            "dependsOn": [
+                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
+            ],
+            "properties": {
+                "description": "LinuxMachines Workbook with template version 3.0.2",
+                "mainTemplate": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.1.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.Insights/workbooks",
+                            "name": "LinuxMachinesWorkbook",
+                            "location": "[parameters('workspace-location')]",
+                            "kind": "shared",
+                            "apiVersion": "2021-08-01",
+                            "metadata": {
+                                "description": "Gain insights into your workspaces' Linux machines by connecting Microsoft Sentinel and using the logs to gather insights around Linux events and errors."
+                            },
+                            "properties": {
+                                "displayName": "Linux machines",
+                                "serializedData": "{\"version\":\"Notebook/1.0\",\"items\":[{\"type\":1,\"content\":{\"json\":\"## Linux Machines\"},\"name\":\"text - 0\"},{\"type\":9,\"content\":{\"version\":\"KqlParameterItem/1.0\",\"query\":\"\",\"parameters\":[{\"id\":\"1025a43d-241c-4e40-95dc-c9eb9c789bc5\",\"version\":\"KqlParameterItem/1.0\",\"name\":\"TimeRange\",\"type\":4,\"isRequired\":true,\"value\":{\"durationMs\":1209600000},\"typeSettings\":{\"selectableValues\":[{\"durationMs\":300000},{\"durationMs\":900000},{\"durationMs\":1800000},{\"durationMs\":3600000},{\"durationMs\":14400000},{\"durationMs\":43200000},{\"durationMs\":86400000},{\"durationMs\":172800000},{\"durationMs\":259200000},{\"durationMs\":604800000},{\"durationMs\":1209600000},{\"durationMs\":2419200000},{\"durationMs\":2592000000},{\"durationMs\":5184000000},{\"durationMs\":7776000000}],\"allowCustom\":true}},{\"id\":\"bc241870-7874-4927-8c74-d17e747522b1\",\"version\":\"KqlParameterItem/1.0\",\"name\":\"Computer\",\"type\":5,\"isRequired\":true,\"multiSelect\":true,\"quote\":\"'\",\"delimiter\":\",\",\"query\":\"Syslog\\r\\n| summarize syslogEventsCount = count() by Computer\\r\\n| sort by syslogEventsCount desc\\r\\n| project Computer\\r\\n\",\"value\":[\"value::all\"],\"typeSettings\":{\"additionalResourceOptions\":[\"value::all\"],\"selectAllValue\":\"All\"},\"queryType\":0,\"resourceType\":\"microsoft.operationalinsights/workspaces\"},{\"id\":\"e073f36e-2fb5-421d-9099-217205b247f5\",\"version\":\"KqlParameterItem/1.0\",\"name\":\"Severity\",\"type\":2,\"isRequired\":true,\"multiSelect\":true,\"quote\":\"'\",\"delimiter\":\",\",\"value\":[\"value::all\"],\"typeSettings\":{\"additionalResourceOptions\":[\"value::all\"],\"selectAllValue\":\"*\"},\"jsonData\":\"[\\\"Emergency\\\", \\\"Alert\\\", \\\"Critical\\\", \\\"Error\\\", \\\"Warning\\\", \\\"Notice\\\", \\\"Informational\\\", \\\"Debug\\\"]\",\"timeContext\":{\"durationMs\":0},\"timeContextFromParameter\":\"TimeRange\"}],\"style\":\"pills\",\"queryType\":0,\"resourceType\":\"microsoft.operationalinsights/workspaces\"},\"name\":\"parameters - 1\"},{\"type\":3,\"content\":{\"version\":\"KqlItem/1.0\",\"query\":\"Syslog\\r\\n| summarize count() by SeverityLevel\\r\\n| extend severityNumber = iif(SeverityLevel == 'emerg' or SeverityLevel == 'panic', 0, iif(SeverityLevel == 'alert', 1, iif(SeverityLevel == 'crit', 2, iif(SeverityLevel == 'err' or SeverityLevel == 'error', 3, iif(SeverityLevel == 'warning' or SeverityLevel == 'warn', 4, iif(SeverityLevel == 'notice', 5, iif(SeverityLevel == 'info', 6, iif(SeverityLevel == 'debug', 7, 8))))))))\\r\\n| sort by severityNumber asc\\r\\n| extend Severity = iif(SeverityLevel == 'emerg' or SeverityLevel == 'panic', 'Emergency', iif(SeverityLevel == 'alert', 'Alert', iif(SeverityLevel == 'crit', 'Critical', iif(SeverityLevel == 'err' or SeverityLevel == 'error', 'Error', iif(SeverityLevel == 'warning' or SeverityLevel == 'warn', 'Warning', iif(SeverityLevel == 'notice', 'Notice', iif(SeverityLevel == 'info', 'Informational', iif(SeverityLevel == 'debug', 'Debug', 'Unknown'))))))))\\r\\n| project-away severityNumber\\r\\n| where \\\"*\\\" in ({Severity}) or Severity in ({Severity})\\r\\n\",\"size\":4,\"exportToExcelOptions\":\"visible\",\"timeContext\":{\"durationMs\":0},\"timeContextFromParameter\":\"TimeRange\",\"queryType\":0,\"resourceType\":\"microsoft.operationalinsights/workspaces\",\"visualization\":\"tiles\",\"tileSettings\":{\"titleContent\":{\"columnMatch\":\"SeverityLevel\",\"formatter\":1,\"formatOptions\":{\"showIcon\":true}},\"leftContent\":{\"columnMatch\":\"count_\",\"formatter\":12,\"formatOptions\":{\"palette\":\"hotCold\",\"showIcon\":true},\"numberFormat\":{\"unit\":17,\"options\":{\"style\":\"decimal\",\"maximumFractionDigits\":2,\"maximumSignificantDigits\":3}}},\"showBorder\":false,\"sortOrderField\":2}},\"name\":\"query - 2\"},{\"type\":3,\"content\":{\"version\":\"KqlItem/1.0\",\"query\":\"Syslog\\r\\n| where \\\"{Computer:lable}\\\" == \\\"All\\\" or Computer in ({Computer})\\r\\n| extend Severity = iif(SeverityLevel == 'emerg' or SeverityLevel == 'panic', 'Emergency', iif(SeverityLevel == 'alert', 'Alert', iif(SeverityLevel == 'crit', 'Critical', iif(SeverityLevel == 'err' or SeverityLevel == 'error', 'Error', iif(SeverityLevel == 'warning' or SeverityLevel == 'warn', 'Warning', iif(SeverityLevel == 'notice', 'Notice', iif(SeverityLevel == 'info', 'Informational', iif(SeverityLevel == 'debug', 'Debug', 'Unknown'))))))))\\r\\n| where \\\"*\\\" in ({Severity}) or Severity in ({Severity})\\r\\n| where SeverityLevel in (\\\"emerg\\\")\\r\\n| summarize count() by Computer, TimeGenerated\\r\\n\",\"size\":1,\"exportToExcelOptions\":\"visible\",\"title\":\"\\\"Emergency\\\" level events, by computer\",\"noDataMessage\":\"No emergency events within the defined scope\",\"timeContext\":{\"durationMs\":0},\"timeContextFromParameter\":\"TimeRange\",\"queryType\":0,\"resourceType\":\"microsoft.operationalinsights/workspaces\",\"visualization\":\"timechart\"},\"customWidth\":\"33\",\"name\":\"query - 2 - Copy\"},{\"type\":3,\"content\":{\"version\":\"KqlItem/1.0\",\"query\":\"Syslog\\r\\n| where \\\"{Computer:lable}\\\" == \\\"All\\\" or Computer in ({Computer})\\r\\n| extend Severity = iif(SeverityLevel == 'emerg' or SeverityLevel == 'panic', 'Emergency', iif(SeverityLevel == 'alert', 'Alert', iif(SeverityLevel == 'crit', 'Critical', iif(SeverityLevel == 'err' or SeverityLevel == 'error', 'Error', iif(SeverityLevel == 'warning' or SeverityLevel == 'warn', 'Warning', iif(SeverityLevel == 'notice', 'Notice', iif(SeverityLevel == 'info', 'Informational', iif(SeverityLevel == 'debug', 'Debug', 'Unknown'))))))))\\r\\n| where \\\"*\\\" in ({Severity}) or Severity in ({Severity})\\r\\n| where SeverityLevel in (\\\"crit\\\")\\r\\n| summarize count() by Computer, TimeGenerated\\r\\n\",\"size\":1,\"exportToExcelOptions\":\"visible\",\"title\":\"\\\"Critical\\\" level events, by computer\",\"noDataMessage\":\"No critical events within the defined scope\",\"timeContext\":{\"durationMs\":0},\"timeContextFromParameter\":\"TimeRange\",\"queryType\":0,\"resourceType\":\"microsoft.operationalinsights/workspaces\",\"visualization\":\"timechart\"},\"customWidth\":\"33\",\"name\":\"query - 2 - Copy\"},{\"type\":3,\"content\":{\"version\":\"KqlItem/1.0\",\"query\":\"Syslog\\r\\n| where \\\"{Computer:lable}\\\" == \\\"All\\\" or Computer in ({Computer})\\r\\n| extend Severity = iif(SeverityLevel == 'emerg' or SeverityLevel == 'panic', 'Emergency', iif(SeverityLevel == 'alert', 'Alert', iif(SeverityLevel == 'crit', 'Critical', iif(SeverityLevel == 'err' or SeverityLevel == 'error', 'Error', iif(SeverityLevel == 'warning' or SeverityLevel == 'warn', 'Warning', iif(SeverityLevel == 'notice', 'Notice', iif(SeverityLevel == 'info', 'Informational', iif(SeverityLevel == 'debug', 'Debug', 'Unknown'))))))))\\r\\n| where \\\"*\\\" in ({Severity}) or Severity in ({Severity})\\r\\n| where SeverityLevel in (\\\"alert\\\")\\r\\n| summarize count() by Computer, TimeGenerated\\r\\n\",\"size\":1,\"exportToExcelOptions\":\"visible\",\"title\":\"\\\"Alert\\\" level events, by computer\",\"noDataMessage\":\"No alert events within the defined scope\",\"timeContext\":{\"durationMs\":0},\"timeContextFromParameter\":\"TimeRange\",\"queryType\":0,\"resourceType\":\"microsoft.operationalinsights/workspaces\",\"visualization\":\"timechart\"},\"customWidth\":\"33\",\"name\":\"query - 2 - Copy - Copy\"},{\"type\":3,\"content\":{\"version\":\"KqlItem/1.0\",\"query\":\"Syslog\\r\\n| where Computer in ({Computer})\\r\\n| extend Severity = iif(SeverityLevel == 'emerg' or SeverityLevel == 'panic', 'Emergency', iif(SeverityLevel == 'alert', 'Alert', iif(SeverityLevel == 'crit', 'Critical', iif(SeverityLevel == 'err' or SeverityLevel == 'error', 'Error', iif(SeverityLevel == 'warning' or SeverityLevel == 'warn', 'Warning', iif(SeverityLevel == 'notice', 'Notice', iif(SeverityLevel == 'info', 'Informational', iif(SeverityLevel == 'debug', 'Debug', 'Unknown'))))))))\\r\\n| extend SeverityNumber = iif(SeverityLevel == 'emerg' or SeverityLevel == 'panic', 0, iif(SeverityLevel == 'alert', 1, iif(SeverityLevel == 'crit', 2, iif(SeverityLevel == 'err' or SeverityLevel == 'error', 3, iif(SeverityLevel == 'warning' or SeverityLevel == 'warn', 4, iif(SeverityLevel == 'notice', 5, iif(SeverityLevel == 'info', 6, iif(SeverityLevel == 'debug', 7, 8))))))))\\r\\n| where Severity in ({Severity})\\r\\n|extend Computer = iif(isempty(_ResourceId), Computer, _ResourceId)\\r\\n| project TimeGenerated, Computer, SeverityLevel, SeverityNumber, Facility, HostIP, ProcessNameAndID = strcat(ProcessName, ' (', iff(isempty(ProcessID), \\\"-\\\", tostring(ProcessID)), ')')  \\r\\n\",\"size\":0,\"exportToExcelOptions\":\"visible\",\"title\":\"Events\",\"noDataMessage\":\"No events\",\"timeContext\":{\"durationMs\":0},\"timeContextFromParameter\":\"TimeRange\",\"queryType\":0,\"resourceType\":\"microsoft.operationalinsights/workspaces\",\"gridSettings\":{\"formatters\":[{\"columnMatch\":\"TimeGenerated\",\"formatter\":0,\"formatOptions\":{\"showIcon\":true}},{\"columnMatch\":\"Computer\",\"formatter\":0,\"formatOptions\":{\"showIcon\":true}},{\"columnMatch\":\"SeverityLevel\",\"formatter\":0,\"formatOptions\":{\"showIcon\":true}},{\"columnMatch\":\"SeverityNumber\",\"formatter\":8,\"formatOptions\":{\"min\":7,\"max\":0,\"palette\":\"redDark\",\"showIcon\":true}},{\"columnMatch\":\"Facility\",\"formatter\":0,\"formatOptions\":{\"showIcon\":true}},{\"columnMatch\":\"HostIP\",\"formatter\":0,\"formatOptions\":{\"showIcon\":true}},{\"columnMatch\":\"ProcessNameAndID\",\"formatter\":0,\"formatOptions\":{\"showIcon\":true}}]}},\"name\":\"query - 2 - Copy - Copy - Copy\"},{\"type\":3,\"content\":{\"version\":\"KqlItem/1.0\",\"query\":\"Syslog\\r\\n| where \\\"{Computer:lable}\\\" == \\\"All\\\" or Computer in ({Computer})\\r\\n| extend Severity = iif(SeverityLevel == 'emerg' or SeverityLevel == 'panic', 'Emergency', iif(SeverityLevel == 'alert', 'Alert', iif(SeverityLevel == 'crit', 'Critical', iif(SeverityLevel == 'err' or SeverityLevel == 'error', 'Error', iif(SeverityLevel == 'warning' or SeverityLevel == 'warn', 'Warning', iif(SeverityLevel == 'notice', 'Notice', iif(SeverityLevel == 'info', 'Informational', iif(SeverityLevel == 'debug', 'Debug', 'Unknown'))))))))\\r\\n| where \\\"*\\\" in ({Severity}) or Severity in ({Severity})\\r\\n| summarize count() by SyslogMessage\\r\\n\",\"size\":0,\"exportToExcelOptions\":\"visible\",\"title\":\"Syslog messages of events\",\"noDataMessage\":\"No messages\",\"timeContext\":{\"durationMs\":0},\"timeContextFromParameter\":\"TimeRange\",\"queryType\":0,\"resourceType\":\"microsoft.operationalinsights/workspaces\",\"visualization\":\"piechart\"},\"customWidth\":\"50\",\"name\":\"query - 7\"},{\"type\":3,\"content\":{\"version\":\"KqlItem/1.0\",\"query\":\"Syslog\\r\\n| where \\\"{Computer:lable}\\\" == \\\"All\\\" or Computer in ({Computer})\\r\\n| extend Severity = iif(SeverityLevel == 'emerg' or SeverityLevel == 'panic', 'Emergency', iif(SeverityLevel == 'alert', 'Alert', iif(SeverityLevel == 'crit', 'Critical', iif(SeverityLevel == 'err' or SeverityLevel == 'error', 'Error', iif(SeverityLevel == 'warning' or SeverityLevel == 'warn', 'Warning', iif(SeverityLevel == 'notice', 'Notice', iif(SeverityLevel == 'info', 'Informational', iif(SeverityLevel == 'debug', 'Debug', 'Unknown'))))))))\\r\\n| where \\\"*\\\" in ({Severity}) or Severity in ({Severity})\\r\\n| summarize count() by Facility, ProcessName\\r\\n| project Process = strcat(ProcessName, ' (', Facility, ')'), Count = count_  \\r\\n\",\"size\":0,\"exportToExcelOptions\":\"visible\",\"title\":\"Process names of events\",\"timeContext\":{\"durationMs\":0},\"timeContextFromParameter\":\"TimeRange\",\"queryType\":0,\"resourceType\":\"microsoft.operationalinsights/workspaces\",\"visualization\":\"piechart\"},\"customWidth\":\"50\",\"name\":\"query - 11\"},{\"type\":3,\"content\":{\"version\":\"KqlItem/1.0\",\"query\":\"Syslog\\r\\n| where \\\"{Computer:lable}\\\" == \\\"All\\\" or Computer in ({Computer})\\r\\n| extend Severity = iif(SeverityLevel == 'emerg' or SeverityLevel == 'panic', 'Emergency', iif(SeverityLevel == 'alert', 'Alert', iif(SeverityLevel == 'crit', 'Critical', iif(SeverityLevel == 'err' or SeverityLevel == 'error', 'Error', iif(SeverityLevel == 'warning' or SeverityLevel == 'warn', 'Warning', iif(SeverityLevel == 'notice', 'Notice', iif(SeverityLevel == 'info', 'Informational', iif(SeverityLevel == 'debug', 'Debug', 'Unknown'))))))))\\r\\n| where \\\"*\\\" in ({Severity}) or Severity in ({Severity})\\r\\n| summarize count() by Facility, SeverityLevel\\r\\n\",\"size\":0,\"exportToExcelOptions\":\"visible\",\"title\":\"Event distribution, by facility\",\"noDataMessage\":\"No events\",\"timeContext\":{\"durationMs\":0},\"timeContextFromParameter\":\"TimeRange\",\"queryType\":0,\"resourceType\":\"microsoft.operationalinsights/workspaces\",\"visualization\":\"piechart\"},\"customWidth\":\"50\",\"name\":\"query - 7 - Copy - Copy - Copy\"},{\"type\":3,\"content\":{\"version\":\"KqlItem/1.0\",\"query\":\"Syslog\\r\\n| where \\\"{Computer:lable}\\\" == \\\"All\\\" or Computer in ({Computer})\\r\\n| extend Severity = iif(SeverityLevel == 'emerg' or SeverityLevel == 'panic', 'Emergency', iif(SeverityLevel == 'alert', 'Alert', iif(SeverityLevel == 'crit', 'Critical', iif(SeverityLevel == 'err' or SeverityLevel == 'error', 'Error', iif(SeverityLevel == 'warning' or SeverityLevel == 'warn', 'Warning', iif(SeverityLevel == 'notice', 'Notice', iif(SeverityLevel == 'info', 'Informational', iif(SeverityLevel == 'debug', 'Debug', 'Unknown'))))))))\\r\\n| where \\\"*\\\" in ({Severity}) or Severity in ({Severity})\\r\\n| summarize count() by Facility, SeverityLevel\",\"size\":0,\"exportToExcelOptions\":\"visible\",\"title\":\"Severity levels, by facility\",\"timeContext\":{\"durationMs\":0},\"timeContextFromParameter\":\"TimeRange\",\"queryType\":0,\"resourceType\":\"microsoft.operationalinsights/workspaces\",\"visualization\":\"categoricalbar\"},\"customWidth\":\"50\",\"name\":\"query - 11 - Copy\"}],\"fromTemplateId\":\"sentinel-LinuxMachines\",\"$schema\":\"https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json\"}\r\n",
+                                "version": "1.0",
+                                "sourceId": "[resourceId('microsoft.OperationalInsights/Workspaces', parameters('workspace'))]",
+                                "category": "sentinel"
+                            }
+                        },
+                        {
+                            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
+                            "apiVersion": "2022-01-01-preview",
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('Workbook-', last(split(resourceId('Microsoft.Insights/workbooks', 'LinuxMachinesWorkbook'),'/'))))]",
+                            "properties": {
+                                "description": "@{workbookKey=LinuxMachinesWorkbook; logoFileName=azurevirtualmachine_logo.svg; description=Gain insights into your workspaces' Linux machines by connecting Microsoft Sentinel and using the logs to gather insights around Linux events and errors.; dataTypesDependencies=System.Object[]; dataConnectorsDependencies=System.Object[]; previewImagesFileNames=System.Object[]; version=1.1.0; title=Linux machines; templateRelativePath=LinuxMachines.json; subtitle=; provider=Microsoft}.description",
+                                "parentId": "[resourceId('Microsoft.Insights/workbooks', 'LinuxMachinesWorkbook')]",
+                                "contentId": "LinuxMachinesWorkbook",
+                                "kind": "Workbook",
+                                "version": "1.1.0",
+                                "source": {
+                                    "kind": "Solution",
+                                    "name": "Syslog",
+                                    "sourceId": "azuresentinel.azure-sentinel-solution-syslog"
+                                },
+                                "author": {
+                                    "name": "Microsoft",
+                                    "email": "support@microsoft.com"
+                                },
+                                "support": {
+                                    "name": "Microsoft Corporation",
+                                    "email": "support@microsoft.com",
+                                    "tier": "Microsoft",
+                                    "link": "https://support.microsoft.com"
+                                },
+                                "dependencies": {
+                                    "operator": "AND",
+                                    "criteria": [
+                                        {
+                                            "contentId": "Syslog",
+                                            "kind": "DataType"
+                                        },
+                                        {
+                                            "contentId": "Syslog",
+                                            "kind": "DataConnector"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                },
+                "packageKind": "Solution",
+                "packageVersion": "3.0.2",
+                "packageName": "Syslog",
+                "packageId": "azuresentinel.azure-sentinel-solution-syslog",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "LinuxMachinesWorkbook",
+                "contentKind": "Workbook",
+                "displayName": "Linux machines",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-syslog-wb-vmfey3smxzm22",
+                "id": "azuresentinel.azure-sentinel-solution-syslog-wb-vmfey3smxzm22",
+                "version": "1.1.0",
+                "isDeprecated": false
+            }
+        },
+        {
+            "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
+            "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-ar-',uniquestring('e7ec9fa6-e7f7-41ed-a34b-b956837a3ee6')))]",
+            "location": "[parameters('workspace-location')]",
+            "dependsOn": [
+                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
+            ],
+            "properties": {
+                "description": "FailedLogonAttempts_UnknownUser_AnalyticalRules Analytics Rule with template version 3.0.2",
+                "mainTemplate": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.3",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
+                            "name": "e7ec9fa6-e7f7-41ed-a34b-b956837a3ee6",
+                            "apiVersion": "2022-04-01-preview",
+                            "kind": "Scheduled",
+                            "location": "[parameters('workspace-location')]",
+                            "properties": {
+                                "description": "Identifies failed logon attempts from unknown users in Syslog authpriv logs. The unknown user means the account that tried to log in \nisn't provisioned on the machine. A few hits could indicate someone attempting to access a machine they aren't authorized to access. \nIf there are many of hits, especially from outside your network, it could indicate a brute force attack. \nDefault threshold for logon attempts is 15.",
+                                "displayName": "Failed logon attempts in authpriv",
+                                "enabled": false,
+                                "query": "let threshold = 15;\n// Below pulls messages from syslog-authpriv logs where there was an authentication failure with an unknown user.\n// IP address of system attempting logon is also extracted from the SyslogMessage field. Some of these messages\n// are aggregated.\nSyslog\n| where Facility =~ \"authpriv\"\n| where SyslogMessage has \"authentication failure\" and SyslogMessage has \" uid=0\"\n| extend RemoteIP = extract(@\".*?rhost=([\\d.]+).*?\", 1,SyslogMessage)\n| project TimeGenerated, Computer, ProcessName, HostIP, RemoteIP, ProcessID\n| join kind=innerunique (\n    // Below pulls messages from syslog-authpriv logs that show each instance an unknown user tried to logon. \n    Syslog \n    | where Facility =~ \"authpriv\"\n    | where SyslogMessage has \"user unknown\"\n    | project Computer, HostIP, ProcessID\n    ) on Computer, HostIP, ProcessID\n// Count the number of failed logon attempts by External IP and internal machine\n| summarize FirstLogonAttempt = min(TimeGenerated), LatestLogonAttempt = max(TimeGenerated), TotalLogonAttempts = count() by Computer, HostIP, RemoteIP\n// Calculate the time between first and last logon attempt (AttemptPeriodLength)\n| extend TimeBetweenLogonAttempts = LatestLogonAttempt - FirstLogonAttempt\n| where TotalLogonAttempts >= threshold\n| project FirstLogonAttempt, LatestLogonAttempt, TimeBetweenLogonAttempts, TotalLogonAttempts, SourceAddress = RemoteIP, DestinationHost = Computer, DestinationAddress = HostIP\n| sort by DestinationHost asc nulls last\n| extend timestamp = FirstLogonAttempt, HostCustomEntity = DestinationHost, IPCustomEntity = DestinationAddress\n",
+                                "queryFrequency": "P1D",
+                                "queryPeriod": "P1D",
+                                "severity": "Medium",
+                                "suppressionDuration": "PT1H",
+                                "suppressionEnabled": false,
+                                "triggerOperator": "GreaterThan",
+                                "triggerThreshold": 0,
+                                "status": "Available",
+                                "requiredDataConnectors": [
+                                    {
+                                        "dataTypes": [
+                                            "Syslog"
+                                        ],
+                                        "connectorId": "Syslog"
+                                    },
+                                    {
+                                        "dataTypes": [
+                                            "Syslog"
+                                        ],
+                                        "connectorId": "SyslogAma"
+                                    }
+                                ],
+                                "tactics": [
+                                    "CredentialAccess"
+                                ],
+                                "techniques": [
+                                    "T1110"
+                                ],
+                                "entityMappings": [
+                                    {
+                                        "entityType": "Host",
+                                        "fieldMappings": [
+                                            {
+                                                "columnName": "HostCustomEntity",
+                                                "identifier": "FullName"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "entityType": "IP",
+                                        "fieldMappings": [
+                                            {
+                                                "columnName": "IPCustomEntity",
+                                                "identifier": "Address"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
+                            "apiVersion": "2022-01-01-preview",
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('AnalyticsRule-', last(split(resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', 'e7ec9fa6-e7f7-41ed-a34b-b956837a3ee6'),'/'))))]",
+                            "properties": {
+                                "description": "Syslog Analytics Rule 1",
+                                "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', 'e7ec9fa6-e7f7-41ed-a34b-b956837a3ee6')]",
+                                "contentId": "e7ec9fa6-e7f7-41ed-a34b-b956837a3ee6",
+                                "kind": "AnalyticsRule",
+                                "version": "1.0.3",
+                                "source": {
+                                    "kind": "Solution",
+                                    "name": "Syslog",
+                                    "sourceId": "azuresentinel.azure-sentinel-solution-syslog"
+                                },
+                                "author": {
+                                    "name": "Microsoft",
+                                    "email": "support@microsoft.com"
+                                },
+                                "support": {
+                                    "name": "Microsoft Corporation",
+                                    "email": "support@microsoft.com",
+                                    "tier": "Microsoft",
+                                    "link": "https://support.microsoft.com"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "packageKind": "Solution",
+                "packageVersion": "3.0.2",
+                "packageName": "Syslog",
+                "packageId": "azuresentinel.azure-sentinel-solution-syslog",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "e7ec9fa6-e7f7-41ed-a34b-b956837a3ee6",
+                "contentKind": "AnalyticsRule",
+                "displayName": "Failed logon attempts in authpriv",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-syslog-ar-zfzcsm5h3nmwo",
+                "id": "azuresentinel.azure-sentinel-solution-syslog-ar-zfzcsm5h3nmwo",
+                "version": "1.0.3",
+                "isDeprecated": false
+            }
+        },
+        {
+            "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
+            "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-ar-',uniquestring('dd03057e-4347-4853-bf1e-2b2d21eb4e59')))]",
+            "location": "[parameters('workspace-location')]",
+            "dependsOn": [
+                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
+            ],
+            "properties": {
+                "description": "NRT_squid_events_for_mining_pools_AnalyticalRules Analytics Rule with template version 3.0.2",
+                "mainTemplate": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.1",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
+                            "name": "dd03057e-4347-4853-bf1e-2b2d21eb4e59",
+                            "apiVersion": "2022-04-01-preview",
+                            "kind": "NRT",
+                            "location": "[parameters('workspace-location')]",
+                            "properties": {
+                                "description": "Checks for Squid proxy events in Syslog associated with common mining pools .This query presumes the default Squid log format is being used.\n http://www.squid-cache.org/Doc/config/access_log/",
+                                "displayName": "NRT Squid proxy events related to mining pools",
+                                "enabled": false,
+                                "query": "let DomainList = dynamic([\"monerohash.com\", \"do-dear.com\", \"xmrminerpro.com\", \"secumine.net\", \"xmrpool.com\", \"minexmr.org\", \"hashanywhere.com\", \"xmrget.com\",\n\"mininglottery.eu\", \"minergate.com\", \"moriaxmr.com\", \"multipooler.com\", \"moneropools.com\", \"xmrpool.eu\", \"coolmining.club\", \"supportxmr.com\",\n\"minexmr.com\", \"hashvault.pro\", \"xmrpool.net\", \"crypto-pool.fr\", \"xmr.pt\", \"miner.rocks\", \"walpool.com\", \"herominers.com\", \"gntl.co.uk\", \"semipool.com\",\n\"coinfoundry.org\", \"cryptoknight.cc\", \"fairhash.org\", \"baikalmine.com\", \"tubepool.xyz\", \"fairpool.xyz\", \"asiapool.io\", \"coinpoolit.webhop.me\", \"nanopool.org\",\n\"moneropool.com\", \"miner.center\", \"prohash.net\", \"poolto.be\", \"cryptoescrow.eu\", \"monerominers.net\", \"cryptonotepool.org\", \"extrmepool.org\", \"webcoin.me\",\n\"kippo.eu\", \"hashinvest.ws\", \"monero.farm\", \"supportxmr.com\", \"xmrpool.eu\", \"linux-repository-updates.com\", \"1gh.com\", \"dwarfpool.com\", \"hash-to-coins.com\",\n\"hashvault.pro\", \"pool-proxy.com\", \"hashfor.cash\", \"fairpool.cloud\", \"litecoinpool.org\", \"mineshaft.ml\", \"abcxyz.stream\", \"moneropool.ru\", \"cryptonotepool.org.uk\",\n\"extremepool.org\", \"extremehash.com\", \"hashinvest.net\", \"unipool.pro\", \"crypto-pools.org\", \"monero.net\", \"backup-pool.com\", \"mooo.com\", \"freeyy.me\", \"cryptonight.net\",\n\"shscrypto.net\"]);\nSyslog\n| where ProcessName contains \"squid\"\n| extend URL = extract(\"(([A-Z]+ [a-z]{4,5}:\\\\/\\\\/)|[A-Z]+ )([^ :]*)\",3,SyslogMessage),\n        SourceIP = extract(\"([0-9]+ )(([0-9]{1,3})\\\\.([0-9]{1,3})\\\\.([0-9]{1,3})\\\\.([0-9]{1,3}))\",2,SyslogMessage),\n        Status = extract(\"(TCP_(([A-Z]+)(_[A-Z]+)*)|UDP_(([A-Z]+)(_[A-Z]+)*))\",1,SyslogMessage),\n        HTTP_Status_Code = extract(\"(TCP_(([A-Z]+)(_[A-Z]+)*)|UDP_(([A-Z]+)(_[A-Z]+)*))/([0-9]{3})\",8,SyslogMessage),\n        User = extract(\"(CONNECT |GET )([^ ]* )([^ ]+)\",3,SyslogMessage),\n        RemotePort = extract(\"(CONNECT |GET )([^ ]*)(:)([0-9]*)\",4,SyslogMessage),\n        Domain = extract(\"(([A-Z]+ [a-z]{4,5}:\\\\/\\\\/)|[A-Z]+ )([^ :\\\\/]*)\",3,SyslogMessage),\n        Bytes = toint(extract(\"([A-Z]+\\\\/[0-9]{3} )([0-9]+)\",2,SyslogMessage)),\n        contentType = extract(\"([a-z/]+$)\",1,SyslogMessage)\n| extend TLD = extract(\"\\\\.[a-z]*$\",0,Domain)\n| where HTTP_Status_Code == '200'\n| where Domain contains \".\"\n| where Domain has_any (DomainList)\n",
+                                "severity": "Low",
+                                "suppressionDuration": "PT1H",
+                                "suppressionEnabled": false,
+                                "status": "Available",
+                                "requiredDataConnectors": [
+                                    {
+                                        "dataTypes": [
+                                            "Syslog"
+                                        ],
+                                        "connectorId": "Syslog"
+                                    },
+                                    {
+                                        "dataTypes": [
+                                            "Syslog"
+                                        ],
+                                        "connectorId": "SyslogAma"
+                                    }
+                                ],
+                                "tactics": [
+                                    "CommandAndControl"
+                                ],
+                                "techniques": [
+                                    "T1102"
+                                ],
+                                "entityMappings": [
+                                    {
+                                        "entityType": "Account",
+                                        "fieldMappings": [
+                                            {
+                                                "columnName": "User",
+                                                "identifier": "FullName"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "entityType": "IP",
+                                        "fieldMappings": [
+                                            {
+                                                "columnName": "SourceIP",
+                                                "identifier": "Address"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "entityType": "URL",
+                                        "fieldMappings": [
+                                            {
+                                                "columnName": "URL",
+                                                "identifier": "Url"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
+                            "apiVersion": "2022-01-01-preview",
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('AnalyticsRule-', last(split(resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', 'dd03057e-4347-4853-bf1e-2b2d21eb4e59'),'/'))))]",
+                            "properties": {
+                                "description": "Syslog Analytics Rule 2",
+                                "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', 'dd03057e-4347-4853-bf1e-2b2d21eb4e59')]",
+                                "contentId": "dd03057e-4347-4853-bf1e-2b2d21eb4e59",
+                                "kind": "AnalyticsRule",
+                                "version": "1.0.1",
+                                "source": {
+                                    "kind": "Solution",
+                                    "name": "Syslog",
+                                    "sourceId": "azuresentinel.azure-sentinel-solution-syslog"
+                                },
+                                "author": {
+                                    "name": "Microsoft",
+                                    "email": "support@microsoft.com"
+                                },
+                                "support": {
+                                    "name": "Microsoft Corporation",
+                                    "email": "support@microsoft.com",
+                                    "tier": "Microsoft",
+                                    "link": "https://support.microsoft.com"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "packageKind": "Solution",
+                "packageVersion": "3.0.2",
+                "packageName": "Syslog",
+                "packageId": "azuresentinel.azure-sentinel-solution-syslog",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "dd03057e-4347-4853-bf1e-2b2d21eb4e59",
+                "contentKind": "AnalyticsRule",
+                "displayName": "NRT Squid proxy events related to mining pools",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-syslog-ar-n7rjj57f77jv4",
+                "id": "azuresentinel.azure-sentinel-solution-syslog-ar-n7rjj57f77jv4",
+                "version": "1.0.1",
+                "isDeprecated": false
+            }
+        },
+        {
+            "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
+            "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-ar-',uniquestring('80733eb7-35b2-45b6-b2b8-3c51df258206')))]",
+            "location": "[parameters('workspace-location')]",
+            "dependsOn": [
+                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
+            ],
+            "properties": {
+                "description": "squid_cryptomining_pools_AnalyticalRules Analytics Rule with template version 3.0.2",
+                "mainTemplate": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.1",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
+                            "name": "80733eb7-35b2-45b6-b2b8-3c51df258206",
+                            "apiVersion": "2022-04-01-preview",
+                            "kind": "Scheduled",
+                            "location": "[parameters('workspace-location')]",
+                            "properties": {
+                                "description": "Checks for Squid proxy events in Syslog associated with common mining pools .This query presumes the default Squid log format is being used. \n http://www.squid-cache.org/Doc/config/access_log/",
+                                "displayName": "Squid proxy events related to mining pools",
+                                "enabled": false,
+                                "query": "\nlet DomainList = dynamic([\"monerohash.com\", \"do-dear.com\", \"xmrminerpro.com\", \"secumine.net\", \"xmrpool.com\", \"minexmr.org\", \"hashanywhere.com\", \"xmrget.com\", \n\"mininglottery.eu\", \"minergate.com\", \"moriaxmr.com\", \"multipooler.com\", \"moneropools.com\", \"xmrpool.eu\", \"coolmining.club\", \"supportxmr.com\",\n\"minexmr.com\", \"hashvault.pro\", \"xmrpool.net\", \"crypto-pool.fr\", \"xmr.pt\", \"miner.rocks\", \"walpool.com\", \"herominers.com\", \"gntl.co.uk\", \"semipool.com\", \n\"coinfoundry.org\", \"cryptoknight.cc\", \"fairhash.org\", \"baikalmine.com\", \"tubepool.xyz\", \"fairpool.xyz\", \"asiapool.io\", \"coinpoolit.webhop.me\", \"nanopool.org\", \n\"moneropool.com\", \"miner.center\", \"prohash.net\", \"poolto.be\", \"cryptoescrow.eu\", \"monerominers.net\", \"cryptonotepool.org\", \"extrmepool.org\", \"webcoin.me\", \n\"kippo.eu\", \"hashinvest.ws\", \"monero.farm\", \"supportxmr.com\", \"xmrpool.eu\", \"linux-repository-updates.com\", \"1gh.com\", \"dwarfpool.com\", \"hash-to-coins.com\", \n\"hashvault.pro\", \"pool-proxy.com\", \"hashfor.cash\", \"fairpool.cloud\", \"litecoinpool.org\", \"mineshaft.ml\", \"abcxyz.stream\", \"moneropool.ru\", \"cryptonotepool.org.uk\",\n\"extremepool.org\", \"extremehash.com\", \"hashinvest.net\", \"unipool.pro\", \"crypto-pools.org\", \"monero.net\", \"backup-pool.com\", \"mooo.com\", \"freeyy.me\", \"cryptonight.net\",\n\"shscrypto.net\"]);\nSyslog\n| where ProcessName contains \"squid\"\n| extend URL = extract(\"(([A-Z]+ [a-z]{4,5}:\\\\/\\\\/)|[A-Z]+ )([^ :]*)\",3,SyslogMessage), \n        SourceIP = extract(\"([0-9]+ )(([0-9]{1,3})\\\\.([0-9]{1,3})\\\\.([0-9]{1,3})\\\\.([0-9]{1,3}))\",2,SyslogMessage), \n        Status = extract(\"(TCP_(([A-Z]+)(_[A-Z]+)*)|UDP_(([A-Z]+)(_[A-Z]+)*))\",1,SyslogMessage), \n        HTTP_Status_Code = extract(\"(TCP_(([A-Z]+)(_[A-Z]+)*)|UDP_(([A-Z]+)(_[A-Z]+)*))/([0-9]{3})\",8,SyslogMessage),\n        User = extract(\"(CONNECT |GET )([^ ]* )([^ ]+)\",3,SyslogMessage),\n        RemotePort = extract(\"(CONNECT |GET )([^ ]*)(:)([0-9]*)\",4,SyslogMessage),\n        Domain = extract(\"(([A-Z]+ [a-z]{4,5}:\\\\/\\\\/)|[A-Z]+ )([^ :\\\\/]*)\",3,SyslogMessage),\n        Bytes = toint(extract(\"([A-Z]+\\\\/[0-9]{3} )([0-9]+)\",2,SyslogMessage)),\n        contentType = extract(\"([a-z/]+$)\",1,SyslogMessage)\n| extend TLD = extract(\"\\\\.[a-z]*$\",0,Domain)\n| where HTTP_Status_Code == '200'\n| where Domain contains \".\"\n| where Domain has_any (DomainList)\n| extend timestamp = TimeGenerated, URLCustomEntity = URL, IPCustomEntity = SourceIP, AccountCustomEntity = User\n",
+                                "queryFrequency": "P1D",
+                                "queryPeriod": "P1D",
+                                "severity": "Low",
+                                "suppressionDuration": "PT1H",
+                                "suppressionEnabled": false,
+                                "triggerOperator": "GreaterThan",
+                                "triggerThreshold": 0,
+                                "status": "Available",
+                                "requiredDataConnectors": [
+                                    {
+                                        "dataTypes": [
+                                            "Syslog"
+                                        ],
+                                        "connectorId": "Syslog"
+                                    },
+                                    {
+                                        "dataTypes": [
+                                            "Syslog"
+                                        ],
+                                        "connectorId": "SyslogAma"
+                                    }
+                                ],
+                                "tactics": [
+                                    "CommandAndControl"
+                                ],
+                                "techniques": [
+                                    "T1102"
+                                ],
+                                "entityMappings": [
+                                    {
+                                        "entityType": "Account",
+                                        "fieldMappings": [
+                                            {
+                                                "columnName": "AccountCustomEntity",
+                                                "identifier": "FullName"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "entityType": "IP",
+                                        "fieldMappings": [
+                                            {
+                                                "columnName": "IPCustomEntity",
+                                                "identifier": "Address"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "entityType": "URL",
+                                        "fieldMappings": [
+                                            {
+                                                "columnName": "URLCustomEntity",
+                                                "identifier": "Url"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
+                            "apiVersion": "2022-01-01-preview",
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('AnalyticsRule-', last(split(resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '80733eb7-35b2-45b6-b2b8-3c51df258206'),'/'))))]",
+                            "properties": {
+                                "description": "Syslog Analytics Rule 3",
+                                "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '80733eb7-35b2-45b6-b2b8-3c51df258206')]",
+                                "contentId": "80733eb7-35b2-45b6-b2b8-3c51df258206",
+                                "kind": "AnalyticsRule",
+                                "version": "1.0.1",
+                                "source": {
+                                    "kind": "Solution",
+                                    "name": "Syslog",
+                                    "sourceId": "azuresentinel.azure-sentinel-solution-syslog"
+                                },
+                                "author": {
+                                    "name": "Microsoft",
+                                    "email": "support@microsoft.com"
+                                },
+                                "support": {
+                                    "name": "Microsoft Corporation",
+                                    "email": "support@microsoft.com",
+                                    "tier": "Microsoft",
+                                    "link": "https://support.microsoft.com"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "packageKind": "Solution",
+                "packageVersion": "3.0.2",
+                "packageName": "Syslog",
+                "packageId": "azuresentinel.azure-sentinel-solution-syslog",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "80733eb7-35b2-45b6-b2b8-3c51df258206",
+                "contentKind": "AnalyticsRule",
+                "displayName": "Squid proxy events related to mining pools",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-syslog-ar-dcw6k52czlnqe",
+                "id": "azuresentinel.azure-sentinel-solution-syslog-ar-dcw6k52czlnqe",
+                "version": "1.0.1",
+                "isDeprecated": false
+            }
+        },
+        {
+            "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
+            "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-ar-',uniquestring('90d3f6ec-80fb-48e0-9937-2c70c9df9bad')))]",
+            "location": "[parameters('workspace-location')]",
+            "dependsOn": [
+                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
+            ],
+            "properties": {
+                "description": "squid_tor_proxies_AnalyticalRules Analytics Rule with template version 3.0.2",
+                "mainTemplate": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.1",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
+                            "name": "90d3f6ec-80fb-48e0-9937-2c70c9df9bad",
+                            "apiVersion": "2022-04-01-preview",
+                            "kind": "Scheduled",
+                            "location": "[parameters('workspace-location')]",
+                            "properties": {
+                                "description": "Check for Squid proxy events associated with common ToR proxies. This query presumes the default squid log format is being used.\nhttp://www.squid-cache.org/Doc/config/access_log/",
+                                "displayName": "Squid proxy events for ToR proxies",
+                                "enabled": false,
+                                "query": "\nlet DomainList = dynamic([\"tor2web.org\", \"tor2web.com\", \"torlink.co\", \"onion.to\", \"onion.ink\", \"onion.cab\", \"onion.nu\", \"onion.link\", \n\"onion.it\", \"onion.city\", \"onion.direct\", \"onion.top\", \"onion.casa\", \"onion.plus\", \"onion.rip\", \"onion.dog\", \"tor2web.fi\", \n\"tor2web.blutmagie.de\", \"onion.sh\", \"onion.lu\", \"onion.pet\", \"t2w.pw\", \"tor2web.ae.org\", \"tor2web.io\", \"tor2web.xyz\", \"onion.lt\", \n\"s1.tor-gateways.de\", \"s2.tor-gateways.de\", \"s3.tor-gateways.de\", \"s4.tor-gateways.de\", \"s5.tor-gateways.de\", \"hiddenservice.net\"]);\nSyslog\n| where ProcessName contains \"squid\"\n| extend URL = extract(\"(([A-Z]+ [a-z]{4,5}:\\\\/\\\\/)|[A-Z]+ )([^ :]*)\",3,SyslogMessage), \n        SourceIP = extract(\"([0-9]+ )(([0-9]{1,3})\\\\.([0-9]{1,3})\\\\.([0-9]{1,3})\\\\.([0-9]{1,3}))\",2,SyslogMessage), \n        Status = extract(\"(TCP_(([A-Z]+)(_[A-Z]+)*)|UDP_(([A-Z]+)(_[A-Z]+)*))\",1,SyslogMessage), \n        HTTP_Status_Code = extract(\"(TCP_(([A-Z]+)(_[A-Z]+)*)|UDP_(([A-Z]+)(_[A-Z]+)*))/([0-9]{3})\",8,SyslogMessage),\n        User = extract(\"(CONNECT |GET )([^ ]* )([^ ]+)\",3,SyslogMessage),\n        RemotePort = extract(\"(CONNECT |GET )([^ ]*)(:)([0-9]*)\",4,SyslogMessage),\n        Domain = extract(\"(([A-Z]+ [a-z]{4,5}:\\\\/\\\\/)|[A-Z]+ )([^ :\\\\/]*)\",3,SyslogMessage),\n        Bytes = toint(extract(\"([A-Z]+\\\\/[0-9]{3} )([0-9]+)\",2,SyslogMessage)),\n        contentType = extract(\"([a-z/]+$)\",1,SyslogMessage)\n| extend TLD = extract(\"\\\\.[a-z]*$\",0,Domain)\n| where HTTP_Status_Code == \"200\"\n| where Domain contains \".\"\n| where Domain has_any (DomainList)\n| extend timestamp = TimeGenerated, URLCustomEntity = URL, IPCustomEntity = SourceIP, AccountCustomEntity = User\n",
+                                "queryFrequency": "P1D",
+                                "queryPeriod": "P1D",
+                                "severity": "Low",
+                                "suppressionDuration": "PT1H",
+                                "suppressionEnabled": false,
+                                "triggerOperator": "GreaterThan",
+                                "triggerThreshold": 0,
+                                "status": "Available",
+                                "requiredDataConnectors": [
+                                    {
+                                        "dataTypes": [
+                                            "Syslog"
+                                        ],
+                                        "connectorId": "Syslog"
+                                    },
+                                    {
+                                        "dataTypes": [
+                                            "Syslog"
+                                        ],
+                                        "connectorId": "SyslogAma"
+                                    }
+                                ],
+                                "tactics": [
+                                    "CommandAndControl"
+                                ],
+                                "techniques": [
+                                    "T1090",
+                                    "T1008"
+                                ],
+                                "entityMappings": [
+                                    {
+                                        "entityType": "Account",
+                                        "fieldMappings": [
+                                            {
+                                                "columnName": "AccountCustomEntity",
+                                                "identifier": "FullName"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "entityType": "IP",
+                                        "fieldMappings": [
+                                            {
+                                                "columnName": "IPCustomEntity",
+                                                "identifier": "Address"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "entityType": "URL",
+                                        "fieldMappings": [
+                                            {
+                                                "columnName": "URLCustomEntity",
+                                                "identifier": "Url"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
+                            "apiVersion": "2022-01-01-preview",
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('AnalyticsRule-', last(split(resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '90d3f6ec-80fb-48e0-9937-2c70c9df9bad'),'/'))))]",
+                            "properties": {
+                                "description": "Syslog Analytics Rule 4",
+                                "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '90d3f6ec-80fb-48e0-9937-2c70c9df9bad')]",
+                                "contentId": "90d3f6ec-80fb-48e0-9937-2c70c9df9bad",
+                                "kind": "AnalyticsRule",
+                                "version": "1.0.1",
+                                "source": {
+                                    "kind": "Solution",
+                                    "name": "Syslog",
+                                    "sourceId": "azuresentinel.azure-sentinel-solution-syslog"
+                                },
+                                "author": {
+                                    "name": "Microsoft",
+                                    "email": "support@microsoft.com"
+                                },
+                                "support": {
+                                    "name": "Microsoft Corporation",
+                                    "email": "support@microsoft.com",
+                                    "tier": "Microsoft",
+                                    "link": "https://support.microsoft.com"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "packageKind": "Solution",
+                "packageVersion": "3.0.2",
+                "packageName": "Syslog",
+                "packageId": "azuresentinel.azure-sentinel-solution-syslog",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "90d3f6ec-80fb-48e0-9937-2c70c9df9bad",
+                "contentKind": "AnalyticsRule",
+                "displayName": "Squid proxy events for ToR proxies",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-syslog-ar-hzfkvau77fqpg",
+                "id": "azuresentinel.azure-sentinel-solution-syslog-ar-hzfkvau77fqpg",
+                "version": "1.0.1",
+                "isDeprecated": false
+            }
+        },
+        {
+            "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
+            "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-ar-',uniquestring('e1ce0eab-10d1-4aae-863f-9a383345ba88')))]",
+            "location": "[parameters('workspace-location')]",
+            "dependsOn": [
+                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
+            ],
+            "properties": {
+                "description": "ssh_potentialBruteForce_AnalyticalRules Analytics Rule with template version 3.0.2",
+                "mainTemplate": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.1.3",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
+                            "name": "e1ce0eab-10d1-4aae-863f-9a383345ba88",
+                            "apiVersion": "2022-04-01-preview",
+                            "kind": "Scheduled",
+                            "location": "[parameters('workspace-location')]",
+                            "properties": {
+                                "description": "Identifies an IP address that had 15 failed attempts to sign in via SSH in a 4 hour block during a 24 hour time period.\n Please note that entity mapping for arrays is not supported, so when there is a single value in an array, we will pull that\n value from the array as a single string to populate the entity to support entity mapping features within Sentinel. Additionally,\n if the array is multivalued, we will input a string to indicate this with a unique hash so that matching will not occur.\n As an example - ComputerList is an array that we check for a single value and write that into the HostName field for use in \n the entity mapping within Sentinel.",
+                                "displayName": "SSH - Potential Brute Force",
+                                "enabled": false,
+                                "query": "\nlet threshold = 15;\nSyslog\n| where ProcessName =~ \"sshd\" \n| where SyslogMessage contains \"Failed password for invalid user\"\n| parse kind=relaxed SyslogMessage with * \"invalid user \" user \" from \" ip \" port\" port \" ssh2\" *\n// using distinct below as it has been seen that Syslog can duplicate entries depending on implementation\n| distinct TimeGenerated, Computer, user, ip, port, SyslogMessage, _ResourceId\n| summarize EventTimes = make_list(TimeGenerated), PerHourCount = count() by bin(TimeGenerated,4h), ip, Computer, user, _ResourceId\n| where PerHourCount > threshold\n| mvexpand EventTimes\n| extend EventTimes = tostring(EventTimes) \n| summarize StartTime = min(EventTimes), EndTime = max(EventTimes), UserList = make_set(user), ComputerList = make_set(Computer), ResourceIdList = make_set(_ResourceId), sum(PerHourCount) by IPAddress = ip\n// bringing through single computer and user if array only has 1, otherwise, referencing the column and hashing the ComputerList or UserList so we don't get accidental entity matches when reviewing alerts\n| extend HostName = iff(array_length(ComputerList) == 1, tostring(ComputerList[0]), strcat(\"SeeComputerListField\",\"_\", tostring(hash(tostring(ComputerList)))))\n| extend Account = iff(array_length(ComputerList) == 1, tostring(UserList[0]), strcat(\"SeeUserListField\",\"_\", tostring(hash(tostring(UserList)))))\n| extend ResourceId = iff(array_length(ResourceIdList) == 1, tostring(ResourceIdList[0]), strcat(\"SeeResourceIdListField\",\"_\", tostring(hash(tostring(ResourceIdList)))))\n",
+                                "queryFrequency": "P1D",
+                                "queryPeriod": "P1D",
+                                "severity": "Low",
+                                "suppressionDuration": "PT1H",
+                                "suppressionEnabled": false,
+                                "triggerOperator": "GreaterThan",
+                                "triggerThreshold": 0,
+                                "status": "Available",
+                                "requiredDataConnectors": [
+                                    {
+                                        "dataTypes": [
+                                            "Syslog"
+                                        ],
+                                        "connectorId": "Syslog"
+                                    },
+                                    {
+                                        "dataTypes": [
+                                            "Syslog"
+                                        ],
+                                        "connectorId": "SyslogAma"
+                                    }
+                                ],
+                                "tactics": [
+                                    "CredentialAccess"
+                                ],
+                                "techniques": [
+                                    "T1110"
+                                ],
+                                "entityMappings": [
+                                    {
+                                        "entityType": "Account",
+                                        "fieldMappings": [
+                                            {
+                                                "columnName": "Account",
+                                                "identifier": "Name"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "entityType": "IP",
+                                        "fieldMappings": [
+                                            {
+                                                "columnName": "IPAddress",
+                                                "identifier": "Address"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "entityType": "Host",
+                                        "fieldMappings": [
+                                            {
+                                                "columnName": "HostName",
+                                                "identifier": "HostName"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "entityType": "AzureResource",
+                                        "fieldMappings": [
+                                            {
+                                                "columnName": "ResourceId",
+                                                "identifier": "ResourceId"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
+                            "apiVersion": "2022-01-01-preview",
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('AnalyticsRule-', last(split(resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', 'e1ce0eab-10d1-4aae-863f-9a383345ba88'),'/'))))]",
+                            "properties": {
+                                "description": "Syslog Analytics Rule 5",
+                                "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', 'e1ce0eab-10d1-4aae-863f-9a383345ba88')]",
+                                "contentId": "e1ce0eab-10d1-4aae-863f-9a383345ba88",
+                                "kind": "AnalyticsRule",
+                                "version": "1.1.3",
+                                "source": {
+                                    "kind": "Solution",
+                                    "name": "Syslog",
+                                    "sourceId": "azuresentinel.azure-sentinel-solution-syslog"
+                                },
+                                "author": {
+                                    "name": "Microsoft",
+                                    "email": "support@microsoft.com"
+                                },
+                                "support": {
+                                    "name": "Microsoft Corporation",
+                                    "email": "support@microsoft.com",
+                                    "tier": "Microsoft",
+                                    "link": "https://support.microsoft.com"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "packageKind": "Solution",
+                "packageVersion": "3.0.2",
+                "packageName": "Syslog",
+                "packageId": "azuresentinel.azure-sentinel-solution-syslog",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "e1ce0eab-10d1-4aae-863f-9a383345ba88",
+                "contentKind": "AnalyticsRule",
+                "displayName": "SSH - Potential Brute Force",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-syslog-ar-z6cy5f2nlml2m",
+                "id": "azuresentinel.azure-sentinel-solution-syslog-ar-z6cy5f2nlml2m",
+                "version": "1.1.3",
+                "isDeprecated": false
+            }
+        },
+        {
+            "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
+            "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-ar-',uniquestring('bb6a74c8-889d-4c6e-8412-7d5efe33f4ed')))]",
+            "location": "[parameters('workspace-location')]",
+            "dependsOn": [
+                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
+            ],
+            "properties": {
+                "description": "sftp_file_transfer_above_threshold_AnalyticalRules Analytics Rule with template version 3.0.2",
+                "mainTemplate": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.1",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
+                            "name": "bb6a74c8-889d-4c6e-8412-7d5efe33f4ed",
+                            "apiVersion": "2022-04-01-preview",
+                            "kind": "Scheduled",
+                            "location": "[parameters('workspace-location')]",
+                            "properties": {
+                                "description": "Identifies SFTP File Transfers above certain threshold in a 15min time period. It requires SFTP VERBOSE loglevel to be enabled.\n Please note that entity mapping for arrays is not supported, so when there is a single value in an array, we will pull that\n value from the array as a single string to populate the entity to support entity mapping features within Sentinel. Additionally,\n if the array is multivalued, we will input a string to indicate this with a unique hash so that matching will not occur.",
+                                "displayName": "SFTP File transfer above threshold",
+                                "enabled": false,
+                                "query": "let threshold = 50;\nSyslog\n| where ProcessName has \"sftp\"\n    and SyslogMessage has \"close \"\n    and SyslogMessage has \" bytes read \"\n| parse SyslogMessage with \"close \\\"\" filepath \"\\\" bytes read \" readbytes: int \" written \" writtenbytes: int\n| join kind=leftouter (\n    Syslog\n    | where ProcessName has \"sftp\" and SyslogMessage has \"session opened for\"\n    | parse SyslogMessage with \"session opened for local user \" username: string \" from [\" src_ip \"]\"\n    | project username, src_ip, ProcessID\n    )\n    on ProcessID\n| project-away ProcessID1\n| summarize count_distinct_filepath=dcount(filepath), fileslist=make_set(filepath) by Computer, username, src_ip, bin(TimeGenerated, 15m)\n| where count_distinct_filepath >= threshold\n| extend FileSample = iff(array_length(fileslist) == 1, tostring(fileslist[0]), strcat(\"SeeFilesListField\",\"_\", tostring(hash(tostring(fileslist)))))\n",
+                                "queryFrequency": "PT15M",
+                                "queryPeriod": "PT15M",
+                                "severity": "Medium",
+                                "suppressionDuration": "PT1H",
+                                "suppressionEnabled": false,
+                                "triggerOperator": "GreaterThan",
+                                "triggerThreshold": 0,
+                                "status": "Available",
+                                "requiredDataConnectors": [
+                                    {
+                                        "dataTypes": [
+                                            "Syslog"
+                                        ],
+                                        "connectorId": "Syslog"
+                                    },
+                                    {
+                                        "dataTypes": [
+                                            "Syslog"
+                                        ],
+                                        "connectorId": "SyslogAma"
+                                    }
+                                ],
+                                "tactics": [
+                                    "Exfiltration"
+                                ],
+                                "techniques": [
+                                    "T1020"
+                                ],
+                                "entityMappings": [
+                                    {
+                                        "entityType": "Account",
+                                        "fieldMappings": [
+                                            {
+                                                "columnName": "username",
+                                                "identifier": "Name"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "entityType": "IP",
+                                        "fieldMappings": [
+                                            {
+                                                "columnName": "src_ip",
+                                                "identifier": "Address"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "entityType": "Host",
+                                        "fieldMappings": [
+                                            {
+                                                "columnName": "Computer",
+                                                "identifier": "HostName"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "entityType": "File",
+                                        "fieldMappings": [
+                                            {
+                                                "columnName": "FileSample",
+                                                "identifier": "Name"
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "customDetails": {
+                                    "TransferCount": "count_distinct_filepath",
+                                    "FilesList": "fileslist"
+                                },
+                                "incidentConfiguration": {
+                                    "createIncident": true,
+                                    "groupingConfiguration": {
+                                        "groupByEntities": [
+                                            "Account",
+                                            "Host"
+                                        ],
+                                        "enabled": true,
+                                        "matchingMethod": "Selected",
+                                        "lookbackDuration": "5h",
+                                        "reopenClosedIncident": false
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
+                            "apiVersion": "2022-01-01-preview",
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('AnalyticsRule-', last(split(resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', 'bb6a74c8-889d-4c6e-8412-7d5efe33f4ed'),'/'))))]",
+                            "properties": {
+                                "description": "Syslog Analytics Rule 6",
+                                "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', 'bb6a74c8-889d-4c6e-8412-7d5efe33f4ed')]",
+                                "contentId": "bb6a74c8-889d-4c6e-8412-7d5efe33f4ed",
+                                "kind": "AnalyticsRule",
+                                "version": "1.0.1",
+                                "source": {
+                                    "kind": "Solution",
+                                    "name": "Syslog",
+                                    "sourceId": "azuresentinel.azure-sentinel-solution-syslog"
+                                },
+                                "author": {
+                                    "name": "Microsoft",
+                                    "email": "support@microsoft.com"
+                                },
+                                "support": {
+                                    "name": "Microsoft Corporation",
+                                    "email": "support@microsoft.com",
+                                    "tier": "Microsoft",
+                                    "link": "https://support.microsoft.com"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "packageKind": "Solution",
+                "packageVersion": "3.0.2",
+                "packageName": "Syslog",
+                "packageId": "azuresentinel.azure-sentinel-solution-syslog",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "bb6a74c8-889d-4c6e-8412-7d5efe33f4ed",
+                "contentKind": "AnalyticsRule",
+                "displayName": "SFTP File transfer above threshold",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-syslog-ar-vhiqeeq6dazam",
+                "id": "azuresentinel.azure-sentinel-solution-syslog-ar-vhiqeeq6dazam",
+                "version": "1.0.1",
+                "isDeprecated": false
+            }
+        },
+        {
+            "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
+            "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-ar-',uniquestring('7355434e-09d5-4401-b56d-e03e9379dfb1')))]",
+            "location": "[parameters('workspace-location')]",
+            "dependsOn": [
+                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
+            ],
+            "properties": {
+                "description": "sftp_file_transfer_folders_above_threshold_AnalyticalRules Analytics Rule with template version 3.0.2",
+                "mainTemplate": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.1",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
+                            "name": "7355434e-09d5-4401-b56d-e03e9379dfb1",
+                            "apiVersion": "2022-04-01-preview",
+                            "kind": "Scheduled",
+                            "location": "[parameters('workspace-location')]",
+                            "properties": {
+                                "description": "Identifies SFTP File Transfers with distinct folder count above certain threshold in a 15min time period.\n It requires SFTP VERBOSE loglevel to be enabled.\n Please note that entity mapping for arrays is not supported, so when there is a single value in an array, we will pull that\n value from the array as a single string to populate the entity to support entity mapping features within Sentinel. Additionally,\n if the array is multivalued, we will input a string to indicate this with a unique hash so that matching will not occur.",
+                                "displayName": "SFTP File transfer folder count above threshold",
+                                "enabled": false,
+                                "query": "let threshold = 10;\nSyslog\n| where ProcessName has \"sftp\"\n    and SyslogMessage has \"close \"\n    and SyslogMessage has \" bytes read \"\n| parse SyslogMessage with \"close \\\"\" filepath \"\\\" bytes read \" readbytes: int \" written \" writtenbytes: int\n| parse kind=regex filepath with dirpath:string \"/\" filename:string\n| join kind=leftouter (\n    Syslog\n    | where ProcessName has \"sftp\" and SyslogMessage has \"session opened for\"\n    | parse SyslogMessage with \"session opened for local user \" username: string \" from [\" src_ip \"]\"\n    | project username, src_ip, ProcessID\n    )\n    on ProcessID\n| project-away ProcessID1\n| summarize count_distinct_dirpath=dcount(dirpath), dirlist=make_set(dirpath) by Computer, username, src_ip, bin(TimeGenerated, 15m)\n| where count_distinct_dirpath >= threshold\n| extend DirSample = iff(array_length(dirlist) == 1, tostring(dirlist[0]), strcat(\"SeeDirListField\",\"_\", tostring(hash(tostring(dirlist)))))\n",
+                                "queryFrequency": "PT15M",
+                                "queryPeriod": "PT15M",
+                                "severity": "Medium",
+                                "suppressionDuration": "PT1H",
+                                "suppressionEnabled": false,
+                                "triggerOperator": "GreaterThan",
+                                "triggerThreshold": 0,
+                                "status": "Available",
+                                "requiredDataConnectors": [
+                                    {
+                                        "dataTypes": [
+                                            "Syslog"
+                                        ],
+                                        "connectorId": "Syslog"
+                                    },
+                                    {
+                                        "dataTypes": [
+                                            "Syslog"
+                                        ],
+                                        "connectorId": "SyslogAma"
+                                    }
+                                ],
+                                "tactics": [
+                                    "Exfiltration"
+                                ],
+                                "techniques": [
+                                    "T1020"
+                                ],
+                                "entityMappings": [
+                                    {
+                                        "entityType": "Account",
+                                        "fieldMappings": [
+                                            {
+                                                "columnName": "username",
+                                                "identifier": "Name"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "entityType": "IP",
+                                        "fieldMappings": [
+                                            {
+                                                "columnName": "src_ip",
+                                                "identifier": "Address"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "entityType": "Host",
+                                        "fieldMappings": [
+                                            {
+                                                "columnName": "Computer",
+                                                "identifier": "HostName"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "entityType": "File",
+                                        "fieldMappings": [
+                                            {
+                                                "columnName": "DirSample",
+                                                "identifier": "Name"
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "customDetails": {
+                                    "TransferCount": "count_distinct_dirpath",
+                                    "FilesList": "dirlist"
+                                },
+                                "incidentConfiguration": {
+                                    "createIncident": true,
+                                    "groupingConfiguration": {
+                                        "groupByEntities": [
+                                            "Account",
+                                            "Host"
+                                        ],
+                                        "enabled": true,
+                                        "matchingMethod": "Selected",
+                                        "lookbackDuration": "5h",
+                                        "reopenClosedIncident": false
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
+                            "apiVersion": "2022-01-01-preview",
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('AnalyticsRule-', last(split(resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '7355434e-09d5-4401-b56d-e03e9379dfb1'),'/'))))]",
+                            "properties": {
+                                "description": "Syslog Analytics Rule 7",
+                                "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '7355434e-09d5-4401-b56d-e03e9379dfb1')]",
+                                "contentId": "7355434e-09d5-4401-b56d-e03e9379dfb1",
+                                "kind": "AnalyticsRule",
+                                "version": "1.0.1",
+                                "source": {
+                                    "kind": "Solution",
+                                    "name": "Syslog",
+                                    "sourceId": "azuresentinel.azure-sentinel-solution-syslog"
+                                },
+                                "author": {
+                                    "name": "Microsoft",
+                                    "email": "support@microsoft.com"
+                                },
+                                "support": {
+                                    "name": "Microsoft Corporation",
+                                    "email": "support@microsoft.com",
+                                    "tier": "Microsoft",
+                                    "link": "https://support.microsoft.com"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "packageKind": "Solution",
+                "packageVersion": "3.0.2",
+                "packageName": "Syslog",
+                "packageId": "azuresentinel.azure-sentinel-solution-syslog",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "7355434e-09d5-4401-b56d-e03e9379dfb1",
+                "contentKind": "AnalyticsRule",
+                "displayName": "SFTP File transfer folder count above threshold",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-syslog-ar-ujnzq3ukmwbka",
+                "id": "azuresentinel.azure-sentinel-solution-syslog-ar-ujnzq3ukmwbka",
+                "version": "1.0.1",
+                "isDeprecated": false
+            }
+        },
+        {
+            "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
+            "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-hq-',uniquestring('1ef1c38f-26dd-4e28-b884-5b3665352648')))]",
+            "location": "[parameters('workspace-location')]",
+            "dependsOn": [
+                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
+            ],
+            "properties": {
+                "description": "CryptoCurrencyMiners_HuntingQueries Hunting Query with template version 3.0.2",
+                "mainTemplate": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.1",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.OperationalInsights/savedSearches",
+                            "apiVersion": "2022-10-01",
+                            "name": "Syslog_Hunting_Query_1",
+                            "location": "[parameters('workspace-location')]",
+                            "properties": {
+                                "eTag": "*",
+                                "displayName": "Crypto currency miners EXECVE",
+                                "category": "Hunting Queries",
+                                "query": "// Extract EventType and EventData from AUOMS Syslog message\nSyslog\n| parse SyslogMessage with \"type=\" EventType \" audit(\" * \"): \" EventData\n| project TimeGenerated, EventType, Computer, EventData \n// Extract AUOMS_EXECVE details from EventData\n| where EventType =~ \"AUOMS_EXECVE\"\n| parse EventData with * \"syscall=\" syscall \" syscall_r=\" * \" success=\" success \" exit=\" exit \" a0\" * \" ppid=\" ppid \" pid=\" pid \" audit_user=\" audit_user \" auid=\" auid \" user=\" user \" uid=\" uid \" group=\" group \" gid=\" gid \"effective_user=\" effective_user \" euid=\" euid \" set_user=\" set_user \" suid=\" suid \" filesystem_user=\" filesystem_user \" fsuid=\" fsuid \" effective_group=\" effective_group \" egid=\" egid \" set_group=\" set_group \" sgid=\" sgid \" filesystem_group=\" filesystem_group \" fsgid=\" fsgid \" tty=\" tty \" ses=\" ses \" comm=\\\"\" comm \"\\\" exe=\\\"\" exe \"\\\"\" * \"cwd=\\\"\" cwd \"\\\"\" * \"name=\\\"\" name \"\\\"\" * \"cmdline=\\\"\" cmdline \"\\\" containerid=\" containerid\n// Find wget and curl commands\n| where comm in (\"wget\", \"curl\")\n// Find command lines featuring known crypto currency miner names\n| where cmdline contains \"nicehashminer\" or cmdline contains \"ethminer\" or cmdline contains \"equihash\" or cmdline contains \"NsCpuCNMiner64\" or cmdline contains \"minergate\" or cmdline contains \"minerd\" or cmdline contains \"cpuminer\" or cmdline contains \"xmr-stak-cpu\" or cmdline contains \"xmrig\" or cmdline contains \"stratum+tcp\" or cmdline contains \"cryptonight\" or cmdline contains \"monero\" or cmdline contains \"oceanhole\" or cmdline contains \"dockerminer\" or cmdline contains \"xmrdemo\"\n| project TimeGenerated, Computer, audit_user, user, cmdline\n| extend AccountCustomEntity = user, HostCustomEntity = Computer, timestamp = TimeGenerated\n| sort by TimeGenerated desc\n",
+                                "version": 2,
+                                "tags": [
+                                    {
+                                        "name": "description",
+                                        "value": "This query hunts through EXECVE syslog data generated by AUOMS to find instances of crypto currency miners being\n downloaded.It returns a table of suspicious command lines."
+                                    },
+                                    {
+                                        "name": "tactics",
+                                        "value": "Persistence,Execution"
+                                    },
+                                    {
+                                        "name": "techniques",
+                                        "value": "T1059,T1053"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
+                            "apiVersion": "2022-01-01-preview",
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('HuntingQuery-', last(split(resourceId('Microsoft.OperationalInsights/savedSearches', '1ef1c38f-26dd-4e28-b884-5b3665352648'),'/'))))]",
+                            "properties": {
+                                "description": "Syslog Hunting Query 1",
+                                "parentId": "[resourceId('Microsoft.OperationalInsights/savedSearches', '1ef1c38f-26dd-4e28-b884-5b3665352648')]",
+                                "contentId": "1ef1c38f-26dd-4e28-b884-5b3665352648",
+                                "kind": "HuntingQuery",
+                                "version": "1.0.1",
+                                "source": {
+                                    "kind": "Solution",
+                                    "name": "Syslog",
+                                    "sourceId": "azuresentinel.azure-sentinel-solution-syslog"
+                                },
+                                "author": {
+                                    "name": "Microsoft",
+                                    "email": "support@microsoft.com"
+                                },
+                                "support": {
+                                    "name": "Microsoft Corporation",
+                                    "email": "support@microsoft.com",
+                                    "tier": "Microsoft",
+                                    "link": "https://support.microsoft.com"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "packageKind": "Solution",
+                "packageVersion": "3.0.2",
+                "packageName": "Syslog",
+                "packageId": "azuresentinel.azure-sentinel-solution-syslog",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "1ef1c38f-26dd-4e28-b884-5b3665352648",
+                "contentKind": "HuntingQuery",
+                "displayName": "Crypto currency miners EXECVE",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-syslog-hq-32bchuqc3ddvg",
+                "id": "azuresentinel.azure-sentinel-solution-syslog-hq-32bchuqc3ddvg",
+                "version": "1.0.1",
+                "isDeprecated": false
+            }
+        },
+        {
+            "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
+            "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-hq-',uniquestring('0d298a1d-1a08-4f4b-8b28-687bfe0012e8')))]",
+            "location": "[parameters('workspace-location')]",
+            "dependsOn": [
+                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
+            ],
+            "properties": {
+                "description": "SCXExecuteRunAsProviders_HuntingQueries Hunting Query with template version 3.0.2",
+                "mainTemplate": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.2",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.OperationalInsights/savedSearches",
+                            "apiVersion": "2022-10-01",
+                            "name": "Syslog_Hunting_Query_2",
+                            "location": "[parameters('workspace-location')]",
+                            "properties": {
+                                "eTag": "*",
+                                "displayName": "SCX Execute RunAs Providers",
+                                "category": "Hunting Queries",
+                                "query": "let scx_execve=(){\nSyslog\n| where SyslogMessage has \"AUOMS_EXECVE\"\n| parse SyslogMessage with \"type=\" EventType \" audit(\" * \"): \" EventData\n| where EventType =~ \"AUOMS_EXECVE\" and EventData has '/var/opt/microsoft/scx/tmp'\n| project TimeGenerated, EventType, Computer, EventData\n| extend EventData = trim_end('containerid=',EventData)\n| parse kind=regex EventData with * \"success=\" success \" exit=\" * \"ppid=\" ppid \"pid=\" pid\n\"audit_user=\" * \"user=\" user \" uid=\" uid \" group=\" * \"comm=\\\"\" comm \"\\\" exe=\\\"\" exe \"\\\" subj=\" *\n\"cwd=\\\"\" cwd \"\\\" name=\\\"\" name \"\\\" (inode|nametype)=\" * \"(proctitle|cmdline)=\" cmdline\n  | extend cmdline = trim_end('redactors=.*',cmdline)\n  | where uid == '0'\n  | where cwd == '/var/opt/microsoft/scx/tmp'\n  | where success == 'yes'\n};\nscx_execve\n| where comm == 'sh' // ExecuteScript cmdline would trigger on /bin/sh /etc/opt/microsoft/scx/conf/tmpdir/scx_\n| join kind=leftouter ( scx_execve ) on $left.Computer == $right.Computer, $left.pid == $right.ppid\n| project-rename parentEventData=EventData,parentppid=ppid,parentpid=pid,parentcomm=comm,parentexe=exe,\n  parentname=name,parentcmdline=cmdline,childEventData=EventData1,childppid=ppid1,childpid=pid1,childcomm=comm1,\n  childexe=exe1,childname=name1,childcmdline=cmdline1\n| project TimeGenerated, Computer, user, parentEventData,parentppid,parentpid,parentcomm,parentexe,parentname,\n  parentcmdline,childEventData,childppid,childpid,childcomm,childexe,childname,childcmdline\n| extend Timestamp = TimeGenerated, HostCustomEntity = Computer, AccountCustomEntity = user,\n  ExecuteType = iff(parentcmdline contains '/etc/opt/microsoft/scx/conf/tmpdir/scx',\"ExecuteScript\",\"ExecuteShellCommand\")\n",
+                                "version": 2,
+                                "tags": [
+                                    {
+                                        "name": "description",
+                                        "value": "This query uses AUOMS security events to examine SCX Execute RunAs providers. These providers execute UNIX/Linux commands/scripts from /var/opt/microsoft/scx/tmp. SCXcore is used in various Microsoft products."
+                                    },
+                                    {
+                                        "name": "tactics",
+                                        "value": "InitialAccess,Execution"
+                                    },
+                                    {
+                                        "name": "techniques",
+                                        "value": "T1190,T1203"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
+                            "apiVersion": "2022-01-01-preview",
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('HuntingQuery-', last(split(resourceId('Microsoft.OperationalInsights/savedSearches', '0d298a1d-1a08-4f4b-8b28-687bfe0012e8'),'/'))))]",
+                            "properties": {
+                                "description": "Syslog Hunting Query 2",
+                                "parentId": "[resourceId('Microsoft.OperationalInsights/savedSearches', '0d298a1d-1a08-4f4b-8b28-687bfe0012e8')]",
+                                "contentId": "0d298a1d-1a08-4f4b-8b28-687bfe0012e8",
+                                "kind": "HuntingQuery",
+                                "version": "1.0.2",
+                                "source": {
+                                    "kind": "Solution",
+                                    "name": "Syslog",
+                                    "sourceId": "azuresentinel.azure-sentinel-solution-syslog"
+                                },
+                                "author": {
+                                    "name": "Microsoft",
+                                    "email": "support@microsoft.com"
+                                },
+                                "support": {
+                                    "name": "Microsoft Corporation",
+                                    "email": "support@microsoft.com",
+                                    "tier": "Microsoft",
+                                    "link": "https://support.microsoft.com"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "packageKind": "Solution",
+                "packageVersion": "3.0.2",
+                "packageName": "Syslog",
+                "packageId": "azuresentinel.azure-sentinel-solution-syslog",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "0d298a1d-1a08-4f4b-8b28-687bfe0012e8",
+                "contentKind": "HuntingQuery",
+                "displayName": "SCX Execute RunAs Providers",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-syslog-hq-5axhmzf5ikskg",
+                "id": "azuresentinel.azure-sentinel-solution-syslog-hq-5axhmzf5ikskg",
+                "version": "1.0.2",
+                "isDeprecated": false
+            }
+        },
+        {
+            "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
+            "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-hq-',uniquestring('005d6e3c-7453-46f6-aef3-f59695594545')))]",
+            "location": "[parameters('workspace-location')]",
+            "dependsOn": [
+                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
+            ],
+            "properties": {
+                "description": "CryptoThreatActivity_HuntingQueries Hunting Query with template version 3.0.2",
+                "mainTemplate": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.1",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.OperationalInsights/savedSearches",
+                            "apiVersion": "2022-10-01",
+                            "name": "Syslog_Hunting_Query_3",
+                            "location": "[parameters('workspace-location')]",
+                            "properties": {
+                                "eTag": "*",
+                                "displayName": "Suspicious crytocurrency mining related threat activity detected",
+                                "category": "Hunting Queries",
+                                "query": "Syslog\n| where Facility == 'user'\n| where SyslogMessage has \"AUOMS_EXECVE\"\n| parse SyslogMessage with \"type=\" EventType \" audit(\" * \"): \" EventData\n| where EventType =~ \"AUOMS_EXECVE\"\n| parse EventData with * \"syscall=\" syscall \" syscall_r=\" * \" success=\" success \" exit=\" exit \" a0\" * \" ppid=\" ppid \" pid=\" pid \" audit_user=\" audit_user \" auid=\" auid \" user=\" user \" uid=\" uid \" group=\" group \" gid=\" gid \"effective_user=\" effective_user \" euid=\" euid \" set_user=\" set_user \" suid=\" suid \" filesystem_user=\" filesystem_user \" fsuid=\" fsuid \" effective_group=\" effective_group \" egid=\" egid \" set_group=\" set_group \" sgid=\" sgid \" filesystem_group=\" filesystem_group \" fsgid=\" fsgid \" tty=\" tty \" ses=\" ses \" comm=\\\"\" comm \"\\\" exe=\\\"\" exe \"\\\"\" * \"cwd=\\\"\" cwd \"\\\"\" * \"name=\\\"\" name \"\\\"\" * \"cmdline=\\\"\" cmdline \"\\\" containerid=\" containerid\n| where exe has_any (\"pkill\",\"kill\",\"killall\")\n| where cmdline has_any (\"minerd\",\"minergate\",\"kworkerds\",\"xmr\",\"watchbug\",\"cryptonight\",\"stratum\",\"miner\",\"watchbog\")\n| project TimeGenerated, Computer, audit_user, user, cmdline\n| extend AccountCustomEntity = user, HostCustomEntity = Computer, timestamp = TimeGenerated\n| sort by TimeGenerated desc\n",
+                                "version": 2,
+                                "tags": [
+                                    {
+                                        "name": "description",
+                                        "value": "This query detects terminated suspicious crypto mining payloads/processes. Attackers often halt other mining processes to gain more resources on compromised systems for their payload."
+                                    },
+                                    {
+                                        "name": "tactics",
+                                        "value": "DefenseEvasion"
+                                    },
+                                    {
+                                        "name": "techniques",
+                                        "value": "T1489"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
+                            "apiVersion": "2022-01-01-preview",
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('HuntingQuery-', last(split(resourceId('Microsoft.OperationalInsights/savedSearches', '005d6e3c-7453-46f6-aef3-f59695594545'),'/'))))]",
+                            "properties": {
+                                "description": "Syslog Hunting Query 3",
+                                "parentId": "[resourceId('Microsoft.OperationalInsights/savedSearches', '005d6e3c-7453-46f6-aef3-f59695594545')]",
+                                "contentId": "005d6e3c-7453-46f6-aef3-f59695594545",
+                                "kind": "HuntingQuery",
+                                "version": "1.0.1",
+                                "source": {
+                                    "kind": "Solution",
+                                    "name": "Syslog",
+                                    "sourceId": "azuresentinel.azure-sentinel-solution-syslog"
+                                },
+                                "author": {
+                                    "name": "Microsoft",
+                                    "email": "support@microsoft.com"
+                                },
+                                "support": {
+                                    "name": "Microsoft Corporation",
+                                    "email": "support@microsoft.com",
+                                    "tier": "Microsoft",
+                                    "link": "https://support.microsoft.com"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "packageKind": "Solution",
+                "packageVersion": "3.0.2",
+                "packageName": "Syslog",
+                "packageId": "azuresentinel.azure-sentinel-solution-syslog",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "005d6e3c-7453-46f6-aef3-f59695594545",
+                "contentKind": "HuntingQuery",
+                "displayName": "Suspicious crytocurrency mining related threat activity detected",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-syslog-hq-iqnihwsy3xsyi",
+                "id": "azuresentinel.azure-sentinel-solution-syslog-hq-iqnihwsy3xsyi",
+                "version": "1.0.1",
+                "isDeprecated": false
+            }
+        },
+        {
+            "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
+            "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-hq-',uniquestring('d0ae35df-0eaf-491f-b23e-8190e4f3ffe9')))]",
+            "location": "[parameters('workspace-location')]",
+            "dependsOn": [
+                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
+            ],
+            "properties": {
+                "description": "RareProcess_ForLxHost_HuntingQueries Hunting Query with template version 3.0.2",
+                "mainTemplate": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.OperationalInsights/savedSearches",
+                            "apiVersion": "2022-10-01",
+                            "name": "Syslog_Hunting_Query_4",
+                            "location": "[parameters('workspace-location')]",
+                            "properties": {
+                                "eTag": "*",
+                                "displayName": "Rare process running on a Linux host",
+                                "category": "Hunting Queries",
+                                "query": "\nlet starttime = todatetime('{{StartTimeISO}}');\nlet endtime = todatetime('{{EndTimeISO}}');\nlet lookback = starttime - 14d;\nlet count_threshold = 100;\nlet perc_threshold = 0.01;\nlet host_threshold = 14;\nlet basic=materialize(\nSyslog | where TimeGenerated >= lookback\n| summarize FullCount = count(), Count= countif(TimeGenerated between (starttime .. endtime)), StartTime=min(TimeGenerated), EndTime=max(TimeGenerated) \nby Computer, ProcessName\n| where Count > 0 and Count < count_threshold);\nlet basic_avg = basic\n| summarize Avg = avg(FullCount) by  ProcessName;\nbasic | project-away FullCount\n| join kind=inner\nbasic_avg\non ProcessName | project-away ProcessName1\n| where Count < host_threshold or (Count <= Avg*perc_threshold and Count < count_threshold)\n| extend timestamp = StartTime, HostCustomEntity=Computer\n",
+                                "version": 2,
+                                "tags": [
+                                    {
+                                        "name": "description",
+                                        "value": "Looks for rare processes that are running on Linux hosts. Looks for process seen less than 14 times in last 7 days,\n or observed rate is less than 1% of of the average for the environment and fewer than 100."
+                                    },
+                                    {
+                                        "name": "tactics",
+                                        "value": "Execution,Persistence"
+                                    },
+                                    {
+                                        "name": "techniques",
+                                        "value": "T1059,T1053,T1037"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
+                            "apiVersion": "2022-01-01-preview",
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('HuntingQuery-', last(split(resourceId('Microsoft.OperationalInsights/savedSearches', 'd0ae35df-0eaf-491f-b23e-8190e4f3ffe9'),'/'))))]",
+                            "properties": {
+                                "description": "Syslog Hunting Query 4",
+                                "parentId": "[resourceId('Microsoft.OperationalInsights/savedSearches', 'd0ae35df-0eaf-491f-b23e-8190e4f3ffe9')]",
+                                "contentId": "d0ae35df-0eaf-491f-b23e-8190e4f3ffe9",
+                                "kind": "HuntingQuery",
+                                "version": "1.0.0",
+                                "source": {
+                                    "kind": "Solution",
+                                    "name": "Syslog",
+                                    "sourceId": "azuresentinel.azure-sentinel-solution-syslog"
+                                },
+                                "author": {
+                                    "name": "Microsoft",
+                                    "email": "support@microsoft.com"
+                                },
+                                "support": {
+                                    "name": "Microsoft Corporation",
+                                    "email": "support@microsoft.com",
+                                    "tier": "Microsoft",
+                                    "link": "https://support.microsoft.com"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "packageKind": "Solution",
+                "packageVersion": "3.0.2",
+                "packageName": "Syslog",
+                "packageId": "azuresentinel.azure-sentinel-solution-syslog",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "d0ae35df-0eaf-491f-b23e-8190e4f3ffe9",
+                "contentKind": "HuntingQuery",
+                "displayName": "Rare process running on a Linux host",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-syslog-hq-kgyqno22moezo",
+                "id": "azuresentinel.azure-sentinel-solution-syslog-hq-kgyqno22moezo",
+                "version": "1.0.0",
+                "isDeprecated": false
+            }
+        },
+        {
+            "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
+            "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-hq-',uniquestring('eb09da09-6f6c-4502-bf74-f7b9f1343539')))]",
+            "location": "[parameters('workspace-location')]",
+            "dependsOn": [
+                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
+            ],
+            "properties": {
+                "description": "SchedTaskAggregation_HuntingQueries Hunting Query with template version 3.0.2",
+                "mainTemplate": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.OperationalInsights/savedSearches",
+                            "apiVersion": "2022-10-01",
+                            "name": "Syslog_Hunting_Query_5",
+                            "location": "[parameters('workspace-location')]",
+                            "properties": {
+                                "eTag": "*",
+                                "displayName": "Linux scheduled task Aggregation",
+                                "category": "Hunting Queries",
+                                "query": "\n// Pull messages from Syslog-cron where the process name is \"CRON\" or \"CROND\", the severity level is info, and the SyslogMessage contains \"CMD\".\n// It also parses out the user and commandline from the message.\nlet RawCommands = Syslog \n| where Facility =~ \"cron\" \n| where SeverityLevel =~ \"info\" \n| where ProcessName =~ \"CRON\" or ProcessName =~ \"CROND\"  \n| where SyslogMessage contains \"CMD \" \n| project TenantId, TimeGenerated, Computer, SeverityLevel, ProcessName, SyslogMessage\n| extend TrimmedSyslogMsg = trim_end(@\"\\)\", SyslogMessage)\n| parse TrimmedSyslogMsg with * \"(\" user  \") CMD (\" cmdline \n| project TenantId, TimeGenerated, Computer, user, cmdline; \n// Count how many times a particular commandline has been seen based on unique Computer, User, and cmdline sets\nlet CommandCount = RawCommands\n| summarize StartTime = min(TimeGenerated), EndTime = max(TimeGenerated), CmdlineCount = count() by Computer, user, cmdline; \n// Count how many computers have run a particular user and cmdline pair\nlet DistComputerCount = RawCommands\n| summarize ComputerCount = dcount(Computer) by TenantId, user, cmdline; \n// Join above counts based on user and commandline pair\nlet CommandSummary = CommandCount | join (DistComputerCount) on user, cmdline\n| project StartTime, EndTime, TenantId, user, CmdlineCount, ComputerCount, cmdline;\n// Count the total number of computers reporting cron messages in the tenant\nlet TotalComputers = Syslog\n| where Facility =~ \"cron\"\n| summarize dcount(Computer) by TenantId ;\n// Join the previous counts with the total computers count. Calculate the percentage of total computers value.\nlet FinalSummary = CommandSummary | join kind= leftouter (TotalComputers) on TenantId\n| project StartTime, EndTime, user, TimesCmdlineSeen = CmdlineCount, CompsThatHaveRunCmdline = ComputerCount, \nAsPercentOfTotalComps = round(100 * (toreal(ComputerCount)/toreal(dcount_Computer)),2), cmdline\n| order by user asc, TimesCmdlineSeen desc;\nFinalSummary \n| extend timestamp = StartTime, AccountCustomEntity = user\n",
+                                "version": 2,
+                                "tags": [
+                                    {
+                                        "name": "description",
+                                        "value": "This query aggregates and charts cron job data based on unique user-command pairs. It shows the frequency of commands, the number of computers they've run on, and their percentage of total tenant computers."
+                                    },
+                                    {
+                                        "name": "tactics",
+                                        "value": "Persistence,Execution"
+                                    },
+                                    {
+                                        "name": "techniques",
+                                        "value": "T1059,T1053,T1037"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
+                            "apiVersion": "2022-01-01-preview",
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('HuntingQuery-', last(split(resourceId('Microsoft.OperationalInsights/savedSearches', 'eb09da09-6f6c-4502-bf74-f7b9f1343539'),'/'))))]",
+                            "properties": {
+                                "description": "Syslog Hunting Query 5",
+                                "parentId": "[resourceId('Microsoft.OperationalInsights/savedSearches', 'eb09da09-6f6c-4502-bf74-f7b9f1343539')]",
+                                "contentId": "eb09da09-6f6c-4502-bf74-f7b9f1343539",
+                                "kind": "HuntingQuery",
+                                "version": "1.0.0",
+                                "source": {
+                                    "kind": "Solution",
+                                    "name": "Syslog",
+                                    "sourceId": "azuresentinel.azure-sentinel-solution-syslog"
+                                },
+                                "author": {
+                                    "name": "Microsoft",
+                                    "email": "support@microsoft.com"
+                                },
+                                "support": {
+                                    "name": "Microsoft Corporation",
+                                    "email": "support@microsoft.com",
+                                    "tier": "Microsoft",
+                                    "link": "https://support.microsoft.com"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "packageKind": "Solution",
+                "packageVersion": "3.0.2",
+                "packageName": "Syslog",
+                "packageId": "azuresentinel.azure-sentinel-solution-syslog",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "eb09da09-6f6c-4502-bf74-f7b9f1343539",
+                "contentKind": "HuntingQuery",
+                "displayName": "Linux scheduled task Aggregation",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-syslog-hq-wl6dgjfxtfajo",
+                "id": "azuresentinel.azure-sentinel-solution-syslog-hq-wl6dgjfxtfajo",
+                "version": "1.0.0",
+                "isDeprecated": false
+            }
+        },
+        {
+            "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
+            "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-hq-',uniquestring('6f0f1821-5981-408a-930b-8b2ca60e9e6c')))]",
+            "location": "[parameters('workspace-location')]",
+            "dependsOn": [
+                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
+            ],
+            "properties": {
+                "description": "SchedTaskEditViaCrontab_HuntingQueries Hunting Query with template version 3.0.2",
+                "mainTemplate": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.1",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.OperationalInsights/savedSearches",
+                            "apiVersion": "2022-10-01",
+                            "name": "Syslog_Hunting_Query_6",
+                            "location": "[parameters('workspace-location')]",
+                            "properties": {
+                                "eTag": "*",
+                                "displayName": "Editing Linux scheduled tasks through Crontab",
+                                "category": "Hunting Queries",
+                                "query": "\n// Pull messages from Syslog-cron logs where the process is crontab and the severity level is \"info\". Extract the User and Action information from the SyslogMessage\nSyslog \n| where Facility =~ \"cron\" \n| where ProcessName =~ \"crontab\" \n| where SeverityLevel =~ \"info\" \n| project TimeGenerated, Computer, SeverityLevel, ProcessName, SyslogMessage\n| parse SyslogMessage with * \"(\" user  \") \" Action \" (\" *\n// Only look for messages that contain edit or replace\n| where Action contains \"EDIT\" or Action contains \"REPLACE\"\n//| summarize all the actions into a single set based on 10 minute time intervals\n| summarize ListOfActions = makeset(Action) by EventTime10MinInterval = bin(TimeGenerated, 10m), Computer, user   \n| order by Computer asc nulls last, EventTime10MinInterval asc\n| extend timestamp = EventTime10MinInterval, AccountCustomEntity = user, HostCustomEntity = Computer\n",
+                                "version": 2,
+                                "tags": [
+                                    {
+                                        "name": "description",
+                                        "value": "This query displays user edits to scheduled tasks via crontab, bucketed into 10-min intervals. It collects all actions by a user over seven days."
+                                    },
+                                    {
+                                        "name": "tactics",
+                                        "value": "Persistence,Execution"
+                                    },
+                                    {
+                                        "name": "techniques",
+                                        "value": "T1059,T1053,T1037"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
+                            "apiVersion": "2022-01-01-preview",
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('HuntingQuery-', last(split(resourceId('Microsoft.OperationalInsights/savedSearches', '6f0f1821-5981-408a-930b-8b2ca60e9e6c'),'/'))))]",
+                            "properties": {
+                                "description": "Syslog Hunting Query 6",
+                                "parentId": "[resourceId('Microsoft.OperationalInsights/savedSearches', '6f0f1821-5981-408a-930b-8b2ca60e9e6c')]",
+                                "contentId": "6f0f1821-5981-408a-930b-8b2ca60e9e6c",
+                                "kind": "HuntingQuery",
+                                "version": "1.0.1",
+                                "source": {
+                                    "kind": "Solution",
+                                    "name": "Syslog",
+                                    "sourceId": "azuresentinel.azure-sentinel-solution-syslog"
+                                },
+                                "author": {
+                                    "name": "Microsoft",
+                                    "email": "support@microsoft.com"
+                                },
+                                "support": {
+                                    "name": "Microsoft Corporation",
+                                    "email": "support@microsoft.com",
+                                    "tier": "Microsoft",
+                                    "link": "https://support.microsoft.com"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "packageKind": "Solution",
+                "packageVersion": "3.0.2",
+                "packageName": "Syslog",
+                "packageId": "azuresentinel.azure-sentinel-solution-syslog",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "6f0f1821-5981-408a-930b-8b2ca60e9e6c",
+                "contentKind": "HuntingQuery",
+                "displayName": "Editing Linux scheduled tasks through Crontab",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-syslog-hq-wnrw5fra3vsxk",
+                "id": "azuresentinel.azure-sentinel-solution-syslog-hq-wnrw5fra3vsxk",
+                "version": "1.0.1",
+                "isDeprecated": false
+            }
+        },
+        {
+            "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
+            "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-hq-',uniquestring('7aaa7675-1580-47d8-a404-039cb7284279')))]",
+            "location": "[parameters('workspace-location')]",
+            "dependsOn": [
+                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
+            ],
+            "properties": {
+                "description": "squid_abused_tlds_HuntingQueries Hunting Query with template version 3.0.2",
+                "mainTemplate": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.1",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.OperationalInsights/savedSearches",
+                            "apiVersion": "2022-10-01",
+                            "name": "Syslog_Hunting_Query_7",
+                            "location": "[parameters('workspace-location')]",
+                            "properties": {
+                                "eTag": "*",
+                                "displayName": "Squid commonly abused TLDs",
+                                "category": "Hunting Queries",
+                                "query": "\nlet suspicious_tlds = dynamic([ \".click\", \".club\", \".download\",  \".xxx\", \".xyz\"]);\nSyslog\n| where ProcessName contains \"squid\"\n| extend URL = extract(\"(([A-Z]+ [a-z]{4,5}:\\\\/\\\\/)|[A-Z]+ )([^ :]*)\",3,SyslogMessage), \n         SourceIP = extract(\"([0-9]+ )(([0-9]{1,3})\\\\.([0-9]{1,3})\\\\.([0-9]{1,3})\\\\.([0-9]{1,3}))\",2,SyslogMessage), \n         Status = extract(\"(TCP_(([A-Z]+)(_[A-Z]+)*)|UDP_(([A-Z]+)(_[A-Z]+)*))\",1,SyslogMessage), \n         HTTP_Status_Code = extract(\"(TCP_(([A-Z]+)(_[A-Z]+)*)|UDP_(([A-Z]+)(_[A-Z]+)*))/([0-9]{3})\",8,SyslogMessage),\n         User = extract(\"(CONNECT |GET )([^ ]* )([^ ]+)\",3,SyslogMessage),\n         RemotePort = extract(\"(CONNECT |GET )([^ ]*)(:)([0-9]*)\",4,SyslogMessage),\n         Domain = extract(\"(([A-Z]+ [a-z]{4,5}:\\\\/\\\\/)|[A-Z]+ )([^ :\\\\/]*)\",3,SyslogMessage)\n| extend TLD = extract(\"\\\\.[a-z]*$\",0,Domain)\n| where TLD in (suspicious_tlds)\n| summarize StartTime = min(TimeGenerated), EndTime = max(TimeGenerated), clientCount = dcount(SourceIP) by TLD, User, URL\n| order by TLD asc, clientCount desc\n| extend timestamp = StartTime, AccountCustomEntity = User, URLCustomEntity = URL\n",
+                                "version": 2,
+                                "tags": [
+                                    {
+                                        "name": "description",
+                                        "value": "Some TLDs, often linked to malware due to ease of obtaining, may be undesirable for enterprises. The 'clientCount' column shows domain usage across the estate. Assumes default squid log format."
+                                    },
+                                    {
+                                        "name": "tactics",
+                                        "value": "CommandAndControl"
+                                    },
+                                    {
+                                        "name": "techniques",
+                                        "value": "T1568,T1008"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
+                            "apiVersion": "2022-01-01-preview",
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('HuntingQuery-', last(split(resourceId('Microsoft.OperationalInsights/savedSearches', '7aaa7675-1580-47d8-a404-039cb7284279'),'/'))))]",
+                            "properties": {
+                                "description": "Syslog Hunting Query 7",
+                                "parentId": "[resourceId('Microsoft.OperationalInsights/savedSearches', '7aaa7675-1580-47d8-a404-039cb7284279')]",
+                                "contentId": "7aaa7675-1580-47d8-a404-039cb7284279",
+                                "kind": "HuntingQuery",
+                                "version": "1.0.1",
+                                "source": {
+                                    "kind": "Solution",
+                                    "name": "Syslog",
+                                    "sourceId": "azuresentinel.azure-sentinel-solution-syslog"
+                                },
+                                "author": {
+                                    "name": "Microsoft",
+                                    "email": "support@microsoft.com"
+                                },
+                                "support": {
+                                    "name": "Microsoft Corporation",
+                                    "email": "support@microsoft.com",
+                                    "tier": "Microsoft",
+                                    "link": "https://support.microsoft.com"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "packageKind": "Solution",
+                "packageVersion": "3.0.2",
+                "packageName": "Syslog",
+                "packageId": "azuresentinel.azure-sentinel-solution-syslog",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "7aaa7675-1580-47d8-a404-039cb7284279",
+                "contentKind": "HuntingQuery",
+                "displayName": "Squid commonly abused TLDs",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-syslog-hq-mgiyhkuqlpphg",
+                "id": "azuresentinel.azure-sentinel-solution-syslog-hq-mgiyhkuqlpphg",
+                "version": "1.0.1",
+                "isDeprecated": false
+            }
+        },
+        {
+            "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
+            "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-hq-',uniquestring('edbeec9f-86b9-475d-8a42-cc7b95ad2baa')))]",
+            "location": "[parameters('workspace-location')]",
+            "dependsOn": [
+                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
+            ],
+            "properties": {
+                "description": "squid_malformed_requests_HuntingQueries Hunting Query with template version 3.0.2",
+                "mainTemplate": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.1",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.OperationalInsights/savedSearches",
+                            "apiVersion": "2022-10-01",
+                            "name": "Syslog_Hunting_Query_8",
+                            "location": "[parameters('workspace-location')]",
+                            "properties": {
+                                "eTag": "*",
+                                "displayName": "Squid malformed requests",
+                                "category": "Hunting Queries",
+                                "query": "\nSyslog\n| where ProcessName contains \"squid\"\n| extend URL = extract(\"(([A-Z]+ [a-z]{4,5}:\\\\/\\\\/)|[A-Z]+ )([^ :]*)\",3,SyslogMessage), \n         SourceIP = extract(\"([0-9]+ )(([0-9]{1,3})\\\\.([0-9]{1,3})\\\\.([0-9]{1,3})\\\\.([0-9]{1,3}))\",2,SyslogMessage), \n         Status = extract(\"(TCP_(([A-Z]+)(_[A-Z]+)*)|UDP_(([A-Z]+)(_[A-Z]+)*))\",1,SyslogMessage), \n         HTTP_Status_Code = extract(\"(TCP_(([A-Z]+)(_[A-Z]+)*)|UDP_(([A-Z]+)(_[A-Z]+)*))/([0-9]{3})\",8,SyslogMessage),\n         User = extract(\"(CONNECT |GET )([^ ]* )([^ ]+)\",3,SyslogMessage),\n         RemotePort = extract(\"(CONNECT |GET )([^ ]*)(:)([0-9]*)\",4,SyslogMessage),\n         Domain = extract(\"(([A-Z]+ [a-z]{4,5}:\\\\/\\\\/)|[A-Z]+ )([^ :\\\\/]*)\",3,SyslogMessage),\n         Bytes = toint(extract(\"([A-Z]+\\\\/[0-9]{3} )([0-9]+)\",2,SyslogMessage)),\n         contentType = extract(\"([a-z/]+$)\",1,SyslogMessage)\n| extend TLD = extract(\"\\\\.[a-z]*$\",0,Domain)\n| where Domain !contains '.' and isnotempty(Domain)\n| summarize StartTime = min(TimeGenerated), EndTime = max(TimeGenerated), badRequestCount = count() by Domain, SourceIP, User, URL\n| order by badRequestCount desc\n| extend timestamp = StartTime, AccountCustomEntity = User, IPCustomEntity = SourceIP, URLCustomEntity = URL\n",
+                                "version": 2,
+                                "tags": [
+                                    {
+                                        "name": "description",
+                                        "value": "Malformed web requests are sometimes used for reconnaissance to detect the presence of network security devices. A large number of requests from a single source may indicate compromised hosts. Assumes default squid log format."
+                                    },
+                                    {
+                                        "name": "tactics",
+                                        "value": "Discovery"
+                                    },
+                                    {
+                                        "name": "techniques",
+                                        "value": "T1046"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
+                            "apiVersion": "2022-01-01-preview",
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('HuntingQuery-', last(split(resourceId('Microsoft.OperationalInsights/savedSearches', 'edbeec9f-86b9-475d-8a42-cc7b95ad2baa'),'/'))))]",
+                            "properties": {
+                                "description": "Syslog Hunting Query 8",
+                                "parentId": "[resourceId('Microsoft.OperationalInsights/savedSearches', 'edbeec9f-86b9-475d-8a42-cc7b95ad2baa')]",
+                                "contentId": "edbeec9f-86b9-475d-8a42-cc7b95ad2baa",
+                                "kind": "HuntingQuery",
+                                "version": "1.0.1",
+                                "source": {
+                                    "kind": "Solution",
+                                    "name": "Syslog",
+                                    "sourceId": "azuresentinel.azure-sentinel-solution-syslog"
+                                },
+                                "author": {
+                                    "name": "Microsoft",
+                                    "email": "support@microsoft.com"
+                                },
+                                "support": {
+                                    "name": "Microsoft Corporation",
+                                    "email": "support@microsoft.com",
+                                    "tier": "Microsoft",
+                                    "link": "https://support.microsoft.com"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "packageKind": "Solution",
+                "packageVersion": "3.0.2",
+                "packageName": "Syslog",
+                "packageId": "azuresentinel.azure-sentinel-solution-syslog",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "edbeec9f-86b9-475d-8a42-cc7b95ad2baa",
+                "contentKind": "HuntingQuery",
+                "displayName": "Squid malformed requests",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-syslog-hq-eny53ccungzqu",
+                "id": "azuresentinel.azure-sentinel-solution-syslog-hq-eny53ccungzqu",
+                "version": "1.0.1",
+                "isDeprecated": false
+            }
+        },
+        {
+            "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
+            "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-hq-',uniquestring('e472c490-4792-4f12-8b6b-6ab3e0404d35')))]",
+            "location": "[parameters('workspace-location')]",
+            "dependsOn": [
+                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
+            ],
+            "properties": {
+                "description": "squid_volume_anomalies_HuntingQueries Hunting Query with template version 3.0.2",
+                "mainTemplate": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.1",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.OperationalInsights/savedSearches",
+                            "apiVersion": "2022-10-01",
+                            "name": "Syslog_Hunting_Query_9",
+                            "location": "[parameters('workspace-location')]",
+                            "properties": {
+                                "eTag": "*",
+                                "displayName": "Squid data volume timeseries anomalies",
+                                "category": "Hunting Queries",
+                                "query": "\nlet starttime = todatetime('{{StartTimeISO}}');\nlet endtime = todatetime('{{EndTimeISO}}');\nlet timeframe = 1h;\nlet TimeSeriesData =\nSyslog\n| where TimeGenerated between(starttime..endtime)\n| where ProcessName contains \"squid\"\n| extend URL = extract(\"(([A-Z]+ [a-z]{4,5}:\\\\/\\\\/)|[A-Z]+ )([^ :]*)\",3,SyslogMessage),\n         SourceIP = extract(\"([0-9]+ )(([0-9]{1,3})\\\\.([0-9]{1,3})\\\\.([0-9]{1,3})\\\\.([0-9]{1,3}))\",2,SyslogMessage),\n         Status = extract(\"(TCP_(([A-Z]+)(_[A-Z]+)*)|UDP_(([A-Z]+)(_[A-Z]+)*))\",1,SyslogMessage),\n         HTTP_Status_Code = extract(\"(TCP_(([A-Z]+)(_[A-Z]+)*)|UDP_(([A-Z]+)(_[A-Z]+)*))/([0-9]{3})\",8,SyslogMessage),\n         User = extract(\"(CONNECT |GET )([^ ]* )([^ ]+)\",3,SyslogMessage),\n         RemotePort = extract(\"(CONNECT |GET )([^ ]*)(:)([0-9]*)\",4,SyslogMessage),\n         Domain = extract(\"(([A-Z]+ [a-z]{4,5}:\\\\/\\\\/)|[A-Z]+ )([^ :\\\\/]*)\",3,SyslogMessage),\n         Bytes = toint(extract(\"([A-Z]+\\\\/[0-9]{3} )([0-9]+)\",2,SyslogMessage)),\n         contentType = extract(\"([a-z/]+$)\",1,SyslogMessage)\n| extend TLD = extract(\"\\\\.[a-z]*$\",0,Domain)\n| where isnotempty(Bytes)\n| make-series TotalBytesSent=sum(Bytes) on TimeGenerated from startofday(starttime) to startofday(endtime) step timeframe by ProcessName;\nTimeSeriesData\n| extend (anomalies, score, baseline) = series_decompose_anomalies(TotalBytesSent,3, -1, 'linefit')\n| extend timestamp = TimeGenerated\n| render timechart with (title=\"Squid Time Series anomalies\")\n",
+                                "version": 2,
+                                "tags": [
+                                    {
+                                        "name": "description",
+                                        "value": "Malware or data exfiltration can cause network data volume anomalies. This query detects such anomalies in volume of bytes traversing a squid proxy. Anomalies require further investigation. Assumes default squid log format."
+                                    },
+                                    {
+                                        "name": "tactics",
+                                        "value": "CommandAndControl,Exfiltration"
+                                    },
+                                    {
+                                        "name": "techniques",
+                                        "value": "T1071,T1030"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
+                            "apiVersion": "2022-01-01-preview",
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('HuntingQuery-', last(split(resourceId('Microsoft.OperationalInsights/savedSearches', 'e472c490-4792-4f12-8b6b-6ab3e0404d35'),'/'))))]",
+                            "properties": {
+                                "description": "Syslog Hunting Query 9",
+                                "parentId": "[resourceId('Microsoft.OperationalInsights/savedSearches', 'e472c490-4792-4f12-8b6b-6ab3e0404d35')]",
+                                "contentId": "e472c490-4792-4f12-8b6b-6ab3e0404d35",
+                                "kind": "HuntingQuery",
+                                "version": "1.0.1",
+                                "source": {
+                                    "kind": "Solution",
+                                    "name": "Syslog",
+                                    "sourceId": "azuresentinel.azure-sentinel-solution-syslog"
+                                },
+                                "author": {
+                                    "name": "Microsoft",
+                                    "email": "support@microsoft.com"
+                                },
+                                "support": {
+                                    "name": "Microsoft Corporation",
+                                    "email": "support@microsoft.com",
+                                    "tier": "Microsoft",
+                                    "link": "https://support.microsoft.com"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "packageKind": "Solution",
+                "packageVersion": "3.0.2",
+                "packageName": "Syslog",
+                "packageId": "azuresentinel.azure-sentinel-solution-syslog",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "e472c490-4792-4f12-8b6b-6ab3e0404d35",
+                "contentKind": "HuntingQuery",
+                "displayName": "Squid data volume timeseries anomalies",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-syslog-hq-jpt76ggw4tvgy",
+                "id": "azuresentinel.azure-sentinel-solution-syslog-hq-jpt76ggw4tvgy",
+                "version": "1.0.1",
+                "isDeprecated": false
+            }
+        },
+        {
+            "type": "Microsoft.OperationalInsights/workspaces/providers/contentPackages",
+            "apiVersion": "2023-04-01-preview",
+            "location": "[parameters('workspace-location')]",
+            "properties": {
+                "version": "3.0.2",
+                "kind": "Solution",
+                "contentSchemaVersion": "3.0.0",
+                "displayName": "Syslog",
+                "publisherDisplayName": "Microsoft Sentinel, Microsoft Corporation",
+                "descriptionHtml": "<p><strong>Note:</strong> Please refer to the following before installing the solution:</p><p>\u2022 Review the solution <a target=\"_blank\" href=\"https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Syslog/ReleaseNotes.md\" rel=\"noopener\">Release Notes</a></p><p>\u2022 There may be <a target=\"_blank\" href=\"https://aka.ms/sentinelsolutionsknownissues\" rel=\"noopener\">known issues</a> pertaining to this Solution, please refer to them before installing.</p><p>The Syslog solution allows you to ingest events from applications or appliances that generate and can forward logs in the Syslog format to a Syslog Forwarder. The Agent for Linux is then able to forward these logs to the Log Analytics/Microsoft Sentinel workspace.</p><p>Installing this solution will deploy two data connectors,</p><ol><li><p><strong>Syslog via AMA</strong> - This data connector helps in ingesting syslog messages into your Log Analytics Workspace using the new Azure Monitor Agent. Learn more about ingesting using the new Azure Monitor Agent <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/azure-monitor/agents/data-collection-syslog?WT.mc_id=Portal-fx\" rel=\"noopener\">here</a>. Microsoft recommends using this Data Connector.</p></li><li><p><strong>Syslog via Legacy Agent</strong> - This data connector helps in ingesting syslog messages into your Log Analytics Workspace using the legacy Log Analytics agent.</p></li></ol><p></p><p><strong>NOTE</strong>: After the solution is installed, Microsoft recommends configuring and leveraging the Syslog via AMA connector for log ingestion. Legacy connector uses the Log Analytics agent, which is about to be deprecated by <strong>Aug 31, 2024,</strong> and thus should only be installed where AMA is not supported.</p><p><strong>Data Connectors:</strong> 2, <strong>Workbooks:</strong> 1, <strong>Analytic Rules:</strong> 7, <strong>Hunting Queries:</strong> 9<br></p><p><a target=\"_blank\" href=\"https://aka.ms/azuresentinel\" rel=\"noopener\">Learn more about Microsoft Sentinel</a> | <a target=\"_blank\" href=\"https://aka.ms/azuresentinelsolutionsdoc\" rel=\"noopener\">Learn more about Solutions</a></p>",
+                "contentKind": "Solution",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-syslog-sl-pnzr2boszam5k",
+                "id": "azuresentinel.azure-sentinel-solution-syslog-sl-pnzr2boszam5k",
+                "icon": "https://store-images.s-microsoft.com/image/apps.64133.1cf1db80-d519-4f89-b498-e97385a7cbb6.00ac11e4-21c8-47b0-ab43-475209e03029.5e427df2-0e9b-48fb-af6e-c626abf79bc5",
+                "contentId": "azuresentinel.azure-sentinel-solution-syslog",
+                "parentId": "azuresentinel.azure-sentinel-solution-syslog",
+                "source": {
+                    "kind": "Solution",
+                    "name": "Syslog",
+                    "sourceId": "azuresentinel.azure-sentinel-solution-syslog"
+                },
+                "author": {
+                    "name": "Microsoft",
+                    "email": "support@microsoft.com"
+                },
+                "support": {
+                    "name": "Microsoft Corporation",
+                    "email": "support@microsoft.com",
+                    "tier": "Microsoft",
+                    "link": "https://support.microsoft.com"
+                },
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "kind": "DataConnector",
+                            "contentId": "Syslog",
+                            "version": "1.0.0"
+                        },
+                        {
+                            "kind": "DataConnector",
+                            "contentId": "SyslogAma",
+                            "version": "1.0.0"
+                        },
+                        {
+                            "kind": "Workbook",
+                            "contentId": "LinuxMachinesWorkbook",
+                            "version": "1.1.0"
+                        },
+                        {
+                            "kind": "AnalyticsRule",
+                            "contentId": "e7ec9fa6-e7f7-41ed-a34b-b956837a3ee6",
+                            "version": "1.0.3"
+                        },
+                        {
+                            "kind": "AnalyticsRule",
+                            "contentId": "dd03057e-4347-4853-bf1e-2b2d21eb4e59",
+                            "version": "1.0.1"
+                        },
+                        {
+                            "kind": "AnalyticsRule",
+                            "contentId": "80733eb7-35b2-45b6-b2b8-3c51df258206",
+                            "version": "1.0.1"
+                        },
+                        {
+                            "kind": "AnalyticsRule",
+                            "contentId": "90d3f6ec-80fb-48e0-9937-2c70c9df9bad",
+                            "version": "1.0.1"
+                        },
+                        {
+                            "kind": "AnalyticsRule",
+                            "contentId": "e1ce0eab-10d1-4aae-863f-9a383345ba88",
+                            "version": "1.1.3"
+                        },
+                        {
+                            "kind": "AnalyticsRule",
+                            "contentId": "bb6a74c8-889d-4c6e-8412-7d5efe33f4ed",
+                            "version": "1.0.1"
+                        },
+                        {
+                            "kind": "AnalyticsRule",
+                            "contentId": "7355434e-09d5-4401-b56d-e03e9379dfb1",
+                            "version": "1.0.1"
+                        },
+                        {
+                            "kind": "HuntingQuery",
+                            "contentId": "1ef1c38f-26dd-4e28-b884-5b3665352648",
+                            "version": "1.0.1"
+                        },
+                        {
+                            "kind": "HuntingQuery",
+                            "contentId": "0d298a1d-1a08-4f4b-8b28-687bfe0012e8",
+                            "version": "1.0.2"
+                        },
+                        {
+                            "kind": "HuntingQuery",
+                            "contentId": "005d6e3c-7453-46f6-aef3-f59695594545",
+                            "version": "1.0.1"
+                        },
+                        {
+                            "kind": "HuntingQuery",
+                            "contentId": "d0ae35df-0eaf-491f-b23e-8190e4f3ffe9",
+                            "version": "1.0.0"
+                        },
+                        {
+                            "kind": "HuntingQuery",
+                            "contentId": "eb09da09-6f6c-4502-bf74-f7b9f1343539",
+                            "version": "1.0.0"
+                        },
+                        {
+                            "kind": "HuntingQuery",
+                            "contentId": "6f0f1821-5981-408a-930b-8b2ca60e9e6c",
+                            "version": "1.0.1"
+                        },
+                        {
+                            "kind": "HuntingQuery",
+                            "contentId": "7aaa7675-1580-47d8-a404-039cb7284279",
+                            "version": "1.0.1"
+                        },
+                        {
+                            "kind": "HuntingQuery",
+                            "contentId": "edbeec9f-86b9-475d-8a42-cc7b95ad2baa",
+                            "version": "1.0.1"
+                        },
+                        {
+                            "kind": "HuntingQuery",
+                            "contentId": "e472c490-4792-4f12-8b6b-6ab3e0404d35",
+                            "version": "1.0.1"
+                        }
+                    ]
+                },
+                "firstPublishDate": "2022-05-23",
+                "providers": [
+                    "Microsoft"
+                ],
+                "categories": {
+                    "domains": [
+                        "IT Operations"
+                    ]
+                },
+                "isPreview": false,
+                "isDeprecated": false
+            },
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', 'azuresentinel.azure-sentinel-solution-syslog')]"
+        }
+    ],
+    "variables": {}
+}

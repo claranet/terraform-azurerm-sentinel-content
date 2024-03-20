@@ -1,0 +1,52 @@
+{
+    "kind": "Scheduled",
+    "properties": {
+        "description": "This query detects cases in which Okta FastPass effectively prevented access to a known phishing website.",
+        "displayName": "Okta Fast Pass phishing Detection",
+        "enabled": true,
+        "query": "OktaSSO\n| where eventType_s == 'user.authentication.auth_via_mfa'\n| where outcome_result_s == 'FAILURE'\n| where outcome_reason_s == 'FastPass declined phishing attempt'\n| summarize StartTime = min(TimeGenerated), EndTime = max(TimeGenerated) by actor_alternateId_s, actor_displayName_s, client_userAgent_os_s, client_ipAddress_s, client_geographicalContext_state_s,displayMessage_s, outcome_result_s,\n outcome_reason_s, column_ifexists('debugContext_debugData_logOnlySecurityData_s', \"\"), debugContext_debugData_threatSuspected_s, client_userAgent_rawUserAgent_s,client_userAgent_browser_s, severity_s, client_geographicalContext_city_s, client_geographicalContext_country_s\n| extend Location = strcat(client_geographicalContext_city_s, \"-\", client_geographicalContext_country_s)\n",
+        "queryFrequency": "PT1H",
+        "queryPeriod": "PT1H",
+        "severity": "Medium",
+        "suppressionDuration": "PT1H",
+        "suppressionEnabled": false,
+        "triggerOperator": "GreaterThan",
+        "triggerThreshold": 0,
+        "tactics": [
+            "InitialAccess"
+        ],
+        "techniques": [
+            "T1566"
+        ],
+        "entityMappings": [
+            {
+                "entityType": "Account",
+                "fieldMappings": [
+                    {
+                        "identifier": "Name",
+                        "columnName": "actor_alternateId_s"
+                    },
+                    {
+                        "identifier": "DisplayName",
+                        "columnName": "actor_displayName_s"
+                    }
+                ]
+            },
+            {
+                "entityType": "IP",
+                "fieldMappings": [
+                    {
+                        "identifier": "Address",
+                        "columnName": "client_ipAddress_s"
+                    }
+                ]
+            }
+        ],
+        "customDetails": {
+            "UserAgent": "client_userAgent_rawUserAgent_s",
+            "Location": "Location"
+        },
+        "alertRuleTemplateName": "78d2b06c-8dc0-40e1-91c8-66d916c186f3",
+        "templateVersion": "1.1.0"
+    }
+}

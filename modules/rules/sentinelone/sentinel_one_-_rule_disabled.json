@@ -1,0 +1,35 @@
+{
+    "kind": "Scheduled",
+    "properties": {
+        "description": "Detects when a rule was disabled.",
+        "displayName": "Sentinel One - Rule disabled",
+        "enabled": true,
+        "query": "SentinelOne\n| where ActivityType == 3603\n| project EventCreationTime, DataRuleName, DataRuleQueryDetails, DataUserName\n| extend AccountCustomEntity = DataUserName\n",
+        "queryFrequency": "PT1H",
+        "queryPeriod": "PT1H",
+        "severity": "Medium",
+        "suppressionDuration": "PT1H",
+        "suppressionEnabled": false,
+        "triggerOperator": "GreaterThan",
+        "triggerThreshold": 0,
+        "tactics": [
+            "DefenseEvasion"
+        ],
+        "techniques": [
+            "T1070"
+        ],
+        "entityMappings": [
+            {
+                "entityType": "Account",
+                "fieldMappings": [
+                    {
+                        "columnName": "AccountCustomEntity",
+                        "identifier": "Name"
+                    }
+                ]
+            }
+        ],
+        "alertRuleTemplateName": "84e210dd-8982-4398-b6f3-264fd72d036c",
+        "templateVersion": "1.0.0"
+    }
+}

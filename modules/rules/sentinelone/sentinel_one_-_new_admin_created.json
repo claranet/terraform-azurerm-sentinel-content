@@ -1,0 +1,35 @@
+{
+    "kind": "Scheduled",
+    "properties": {
+        "description": "Detects when new admin user is created.",
+        "displayName": "Sentinel One - New admin created",
+        "enabled": true,
+        "query": "SentinelOne\n| where ActivityType == 23\n| extend AccountCustomEntity = SrcUserName\n",
+        "queryFrequency": "PT1H",
+        "queryPeriod": "PT1H",
+        "severity": "Medium",
+        "suppressionDuration": "PT1H",
+        "suppressionEnabled": false,
+        "triggerOperator": "GreaterThan",
+        "triggerThreshold": 0,
+        "tactics": [
+            "PrivilegeEscalation"
+        ],
+        "techniques": [
+            "T1078"
+        ],
+        "entityMappings": [
+            {
+                "entityType": "Account",
+                "fieldMappings": [
+                    {
+                        "columnName": "AccountCustomEntity",
+                        "identifier": "Name"
+                    }
+                ]
+            }
+        ],
+        "alertRuleTemplateName": "e73d293d-966c-47ec-b8e0-95255755f12c",
+        "templateVersion": "1.0.0"
+    }
+}

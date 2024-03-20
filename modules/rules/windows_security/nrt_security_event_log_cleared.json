@@ -1,0 +1,40 @@
+{
+    "kind": "NRT",
+    "properties": {
+        "description": "Checks for event id 1102 which indicates the security event log was cleared.\nIt uses Event Source Name \"Microsoft-Windows-Eventlog\" to avoid generating false positives from other sources, like AD FS servers for instance.",
+        "displayName": "NRT Security Event log cleared",
+        "enabled": true,
+        "query": "SecurityEvent\n| where EventID == 1102 and EventSourceName == \"Microsoft-Windows-Eventlog\"\n| summarize StartTimeUtc = min(TimeGenerated), EndTimeUtc = max(TimeGenerated), EventCount = count() by Computer, Account, EventID, Activity\n",
+        "severity": "Medium",
+        "suppressionDuration": "PT1H",
+        "suppressionEnabled": false,
+        "tactics": [
+            "DefenseEvasion"
+        ],
+        "techniques": [
+            "T1070"
+        ],
+        "entityMappings": [
+            {
+                "entityType": "Account",
+                "fieldMappings": [
+                    {
+                        "columnName": "Account",
+                        "identifier": "FullName"
+                    }
+                ]
+            },
+            {
+                "entityType": "Host",
+                "fieldMappings": [
+                    {
+                        "columnName": "Computer",
+                        "identifier": "FullName"
+                    }
+                ]
+            }
+        ],
+        "alertRuleTemplateName": "508cef41-2cd8-4d40-a519-b04826a9085f",
+        "templateVersion": "1.0.0"
+    }
+}

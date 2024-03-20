@@ -1,0 +1,35 @@
+{
+    "kind": "Scheduled",
+    "properties": {
+        "description": "Triggers on two-step authentification disabled for a user.",
+        "displayName": "GWorkspace - Two-step authentification disabled for a user",
+        "enabled": true,
+        "query": "GWorkspaceActivityReports \n| where EventMessage =~ 'TURN_OFF_2_STEP_VERIFICATION'\n| extend AccountCustomEntity = ActorEmail\n",
+        "queryFrequency": "PT1H",
+        "queryPeriod": "PT1H",
+        "severity": "Medium",
+        "suppressionDuration": "PT1H",
+        "suppressionEnabled": false,
+        "triggerOperator": "GreaterThan",
+        "triggerThreshold": 0,
+        "tactics": [
+            "CredentialAccess"
+        ],
+        "techniques": [
+            "T1111"
+        ],
+        "entityMappings": [
+            {
+                "fieldMappings": [
+                    {
+                        "identifier": "Name",
+                        "columnName": "AccountCustomEntity"
+                    }
+                ],
+                "entityType": "Account"
+            }
+        ],
+        "alertRuleTemplateName": "c8cc02d0-5da6-11ec-bf63-0242ac130002",
+        "templateVersion": "1.0.0"
+    }
+}
