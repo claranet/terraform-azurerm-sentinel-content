@@ -20,7 +20,7 @@ repos:
       - id: terraform_docs
         args:
           - --args=--config=.config/terraform-docs.yml
-        exclude: '^example|^tools'
+        exclude: '^modules|^example|^tools'
       - id: terraform_validate
         exclude: ^examples
       - id: terraform_tflint
