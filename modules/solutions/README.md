@@ -103,7 +103,7 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | location | Azure location. | `string` | n/a | yes |
 | log\_analytics\_workspace\_name | The Log Analytics Workspace name. | `string` | n/a | yes |
-| log\_sources | Log sources retrieved in Microsoft Sentinel. Possible values are `azure_firewall`, `cef`, `cisco_meraki`, `entra_id`, `fortigate`, `gworkspace`, `m365`, `okta`, `sentinelone`, `syslog`, `ti`, `windows_security`, `xdr`, `zscaler_internet_access` and `zscaler_private_access`. | `list(string)` | n/a | yes |
+| log\_sources | Log sources retrieved in Microsoft Sentinel. | `list(string)` | n/a | yes |
 | resource\_group\_name | Resource Group the resources will belong to | `string` | n/a | yes |
 
 ## Outputs
