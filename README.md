@@ -5,6 +5,28 @@ This module deploys [Microsoft Sentinel Solutions](https://learn.microsoft.com/e
 
 Solutions and rules are directly retrieved from the [Microsoft Sentinel content hub catalog](https://learn.microsoft.com/en-us/azure/sentinel/sentinel-solutions-catalog).
 
+
+Current log sources supported :
+- _azure\_firewall_
+- _cef_
+- _cisco\_meraki_
+- _entra\_id_
+- _fortigate_
+- _gworkspace_
+- _m365_
+- _okta_
+- _sentinelone_
+- _syslog_
+- _ti_
+- _windows\_security_
+- _xdr_
+- _zscaler\_internet\_access_
+- _zscaler\_private\_access_
+
+These are the values that can be set in the `log_source` variable.
+
+:information_source: Some solutions have no built-in default rules.
+
 <!-- BEGIN_TF_DOCS -->
 ## Global versioning rule for Claranet Azure modules
 
@@ -106,7 +128,7 @@ No resources.
 | location | Azure location. | `string` | n/a | yes |
 | log\_analytics\_workspace\_id | The Log Analytics Workspace ID. | `string` | n/a | yes |
 | log\_analytics\_workspace\_name | The Log Analytics Workspace name. | `string` | n/a | yes |
-| log\_sources | Log sources retrieved in Microsoft Sentinel. Possible values are `azure_firewall`, `cef`, `cisco_meraki`, `entra_id`, `fortigate`, `gworkspace`, `m365`, `okta`, `sentinelone`, `syslog`, `ti`, `windows_security`, `xdr`, `zscaler_internet_access` and `zscaler_private_access`. | `list(string)` | n/a | yes |
+| log\_sources | Log sources retrieved in Microsoft Sentinel. | `list(string)` | n/a | yes |
 | resource\_group\_name | Resource Group the resources will belong to | `string` | n/a | yes |
 | rules\_enable | Whether the Rules should be deployed. | `bool` | `false` | no |
 | solutions\_enable | Whether the Solutions should be deployed. | `bool` | `true` | no |
@@ -118,4 +140,5 @@ No outputs.
 
 ## Related documentation
 
-Microsoft Azure documentation: xxxx
+Microsoft Sentinel Content Hub: [learn.microsoft.com/en-us/azure/sentinel/sentinel-solutions-catalog](https://learn.microsoft.com/en-us/azure/sentinel/sentinel-solutions-catalog)
+Microsoft Sentinel Rules: [learn.microsoft.com/en-us/azure/sentinel/detect-threats-built-in](https://learn.microsoft.com/en-us/azure/sentinel/detect-threats-built-in)
