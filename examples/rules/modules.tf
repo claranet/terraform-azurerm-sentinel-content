@@ -42,9 +42,6 @@ module "rules" {
   source  = "claranet/sentinel-content/azurerm//modules/rules"
   version = "x.x.x"
 
-  location            = module.azure_region.location
-  resource_group_name = module.rg.resource_group_name
-
   log_analytics_workspace_id = module.logs.log_analytics_workspace_id
   log_sources                = ["entra_id", "ti", "xdr"]
 }
