@@ -38,7 +38,7 @@ module "sentinel" {
   data_connector_aad_enabled = true
 }
 
-module "sentinel-content" {
+module "sentinel_content" {
   source  = "claranet/sentinel-content/azurerm"
   version = "x.x.x"
 
