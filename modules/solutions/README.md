@@ -2,6 +2,8 @@
 
 This module deploys [Microsoft Sentinel Solutions](https://learn.microsoft.com/en-us/azure/sentinel/sentinel-solutions).
 
+Values that can be set in the `log_source` variable are listed [here](../../README.md).
+
 <!-- BEGIN_TF_DOCS -->
 ## Global versioning rule for Claranet Azure modules
 

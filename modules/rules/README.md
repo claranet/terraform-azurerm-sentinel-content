@@ -4,6 +4,8 @@ This module deploys [Microsoft Sentinel Rules](https://learn.microsoft.com/en-us
 
 Some rules have been modified to fix errors in the original template.
 
+Values that can be set in the `log_source` variable are listed [here](../../README.md).
+
 <!-- BEGIN_TF_DOCS -->
 ## Global versioning rule for Claranet Azure modules
 
