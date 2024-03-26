@@ -24,3 +24,9 @@ variable "rules_enable" {
   default     = false
   description = "Whether the Rules should be deployed."
 }
+
+variable "rules_excluded" {
+  type        = list(string)
+  default     = []
+  description = "Rules that will not be deployed in Microsoft Sentinel."
+}

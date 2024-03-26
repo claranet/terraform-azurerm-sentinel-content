@@ -132,6 +132,7 @@ No resources.
 | log\_sources | Log sources retrieved in Microsoft Sentinel. | `list(string)` | n/a | yes |
 | resource\_group\_name | Resource Group the resources will belong to | `string` | n/a | yes |
 | rules\_enable | Whether the Rules should be deployed. | `bool` | `false` | no |
+| rules\_excluded | Rules that will not be deployed in Microsoft Sentinel. | `list(string)` | `[]` | no |
 | solutions\_enable | Whether the Solutions should be deployed. | `bool` | `true` | no |
 
 ## Outputs

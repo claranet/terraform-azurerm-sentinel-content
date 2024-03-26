@@ -106,6 +106,7 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | log\_analytics\_workspace\_id | The Log Analytics Workspace ID. | `string` | n/a | yes |
 | log\_sources | Log sources retrieved in Microsoft Sentinel. | `list(string)` | n/a | yes |
+| rules\_excluded | Rules that will not be deployed in Microsoft Sentinel. | `list(string)` | [] | no |
 
 ## Outputs
 
