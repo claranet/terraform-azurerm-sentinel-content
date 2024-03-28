@@ -46,7 +46,7 @@
                 "entityType": "Account",
                 "fieldMappings": [
                     {
-                        "columnName": "AccountUpn",
+                        "columnName": "AccountFullName",
                         "identifier": "FullName"
                     },
                     {

@@ -12,7 +12,6 @@
         "suppressionEnabled": false,
         "triggerOperator": "GreaterThan",
         "triggerThreshold": 0,
-        "status": "Available",
         "tactics": [
             "DefenseEvasion",
             "Persistence"

@@ -16,7 +16,6 @@
             "Persistence"
         ],
         "techniques": [
-            "T1543",
             "T1543"
         ],
         "entityMappings": [
