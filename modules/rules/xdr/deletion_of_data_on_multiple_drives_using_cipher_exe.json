@@ -1,0 +1,43 @@
+{
+    "kind": "Scheduled",
+    "properties": {
+        "description": "This query checks for attempts to delete data on multiple drives using cipher.exe. This activity is typically done by ransomware to prevent recovery of data after encryption.",
+        "displayName": "Deletion of data on multiple drives using cipher exe",
+        "enabled": true,
+        "query": "// Look for cipher.exe deleting data from multiple drives\nDeviceProcessEvents\n| where FileName =~ \"cipher.exe\" \n// cipher.exe /w flag used for deleting data \n| where ProcessCommandLine has \"/w\" \n| summarize CipherCount = dcount(ProcessCommandLine), CipherList = make_set(ProcessCommandLine, 1000) by DeviceId, DeviceName, bin(TimeGenerated, 1m) \n// cipher.exe accessing multiple drives in a short timeframe  \n| where CipherCount > 1\n| extend HostName = iff(DeviceName has '.', substring(DeviceName, 0, indexof(DeviceName, '.')), DeviceName)\n| extend DnsDomain = iff(DeviceName has '.', substring(DeviceName, indexof(DeviceName, '.') + 1), \"\")\n",
+        "queryFrequency": "PT1H",
+        "queryPeriod": "PT1H",
+        "severity": "Medium",
+        "suppressionDuration": "PT1H",
+        "suppressionEnabled": false,
+        "triggerOperator": "GreaterThan",
+        "triggerThreshold": 0,
+        "tactics": [
+            "Impact"
+        ],
+        "techniques": [
+            "T1485"
+        ],
+        "entityMappings": [
+            {
+                "entityType": "Host",
+                "fieldMappings": [
+                    {
+                        "columnName": "DeviceName",
+                        "identifier": "FullName"
+                    },
+                    {
+                        "columnName": "HostName",
+                        "identifier": "HostName"
+                    },
+                    {
+                        "columnName": "DnsDomain",
+                        "identifier": "DnsDomain"
+                    }
+                ]
+            }
+        ],
+        "alertRuleTemplateName": "03caa992-477f-4b19-8e2a-8cd58f8f9652",
+        "templateVersion": "1.0.0"
+    }
+}

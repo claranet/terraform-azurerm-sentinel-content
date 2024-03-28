@@ -7,6 +7,7 @@ Solutions and rules are directly retrieved from the [Microsoft Sentinel content 
 
 
 Current log sources supported :
+- _aws_
 - _azure\_firewall_
 - _cef_
 - _cisco\_meraki_

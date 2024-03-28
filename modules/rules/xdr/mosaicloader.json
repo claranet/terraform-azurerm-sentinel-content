@@ -1,0 +1,56 @@
+{
+    "kind": "Scheduled",
+    "properties": {
+        "description": "This query looks Malware Hides Itself Among Windows Defender Exclusions to Evade Detection.",
+        "displayName": "MosaicLoader",
+        "enabled": true,
+        "query": "DeviceRegistryEvents \n| where ((ActionType == \"RegistryValueSet\") and (RegistryKey startswith @\"HKEY_LOCAL_MACHINE\\\\SOFTWARE\\\\Microsoft\\\\Windows Defender\\\\Exclusions\\\\Paths\" \nor RegistryKey startswith @\"HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows Defender\\Exclusions\\Extensions\"\nor RegistryKey startswith @\"HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows Defender\\Exclusions\\Processes\"))\n| extend HostName = iff(DeviceName has '.', substring(DeviceName, 0, indexof(DeviceName, '.')), DeviceName)\n| extend DnsDomain = iff(DeviceName has '.', substring(DeviceName, indexof(DeviceName, '.') + 1), \"\")\n",
+        "queryFrequency": "PT1H",
+        "queryPeriod": "PT1H",
+        "severity": "High",
+        "suppressionDuration": "PT1H",
+        "suppressionEnabled": false,
+        "triggerOperator": "GreaterThan",
+        "triggerThreshold": 0,
+        "tactics": [
+            "DefenseEvasion"
+        ],
+        "techniques": [
+            "T1562"
+        ],
+        "entityMappings": [
+            {
+                "entityType": "Host",
+                "fieldMappings": [
+                    {
+                        "columnName": "DeviceName",
+                        "identifier": "FullName"
+                    },
+                    {
+                        "columnName": "HostName",
+                        "identifier": "HostName"
+                    },
+                    {
+                        "columnName": "DnsDomain",
+                        "identifier": "DnsDomain"
+                    }
+                ]
+            },
+            {
+                "entityType": "RegistryValue",
+                "fieldMappings": [
+                    {
+                        "columnName": "RegistryValueName",
+                        "identifier": "Name"
+                    },
+                    {
+                        "columnName": "RegistryValueData",
+                        "identifier": "Value"
+                    }
+                ]
+            }
+        ],
+        "alertRuleTemplateName": "506f4d6b-3864-4bb1-8f75-a13fb066f97a",
+        "templateVersion": "1.0.0"
+    }
+}
