@@ -1,0 +1,35 @@
+{
+    "kind": "Scheduled",
+    "properties": {
+        "description": "Detects when a rule was deleted.",
+        "displayName": "Sentinel One - Rule deleted",
+        "enabled": true,
+        "query": "SentinelOne\n| where ActivityType == 3602\n| project EventCreationTime, DataRuleName, DataRuleQueryDetails, DataUserName\n| extend AccountCustomEntity = DataUserName\n",
+        "queryFrequency": "PT1H",
+        "queryPeriod": "PT1H",
+        "severity": "Medium",
+        "suppressionDuration": "PT1H",
+        "suppressionEnabled": false,
+        "triggerOperator": "GreaterThan",
+        "triggerThreshold": 0,
+        "tactics": [
+            "DefenseEvasion"
+        ],
+        "techniques": [
+            "T1070"
+        ],
+        "entityMappings": [
+            {
+                "entityType": "Account",
+                "fieldMappings": [
+                    {
+                        "columnName": "AccountCustomEntity",
+                        "identifier": "Name"
+                    }
+                ]
+            }
+        ],
+        "alertRuleTemplateName": "e171b587-22bd-46ec-b96c-7c99024847a7",
+        "templateVersion": "1.0.0"
+    }
+}

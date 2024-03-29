@@ -1,0 +1,43 @@
+{
+    "kind": "Scheduled",
+    "properties": {
+        "description": "This query checks for attempts to clear at least 10 log entries from event logs using wevtutil. Clearing event logs can be a sign of ransomware activity, as ransomware often attempts to cover its tracks by deleting logs.",
+        "displayName": "Clearing of forensic evidence from event logs using wevtutil",
+        "enabled": true,
+        "query": "// Look for use of wevtutil to clear multiple logs\nDeviceProcessEvents\n| where ProcessCommandLine has \"WEVTUTIL\" and ProcessCommandLine has \"CL\"\n| summarize LogClearCount = dcount(tostring(ProcessCommandLine)), ClearedLogList = make_set(ProcessCommandLine, 100000) by DeviceId, DeviceName, bin(TimeGenerated, 5m)\n| where LogClearCount > 10\n| extend HostName = iff(DeviceName has '.', substring(DeviceName, 0, indexof(DeviceName, '.')), DeviceName)\n| extend DnsDomain = iff(DeviceName has '.', substring(DeviceName, indexof(DeviceName, '.') + 1), \"\")\n",
+        "queryFrequency": "P1D",
+        "queryPeriod": "P1D",
+        "severity": "High",
+        "suppressionDuration": "PT1H",
+        "suppressionEnabled": false,
+        "triggerOperator": "GreaterThan",
+        "triggerThreshold": 0,
+        "tactics": [
+            "DefenseEvasion"
+        ],
+        "techniques": [
+            "T1070"
+        ],
+        "entityMappings": [
+            {
+                "entityType": "Host",
+                "fieldMappings": [
+                    {
+                        "columnName": "DeviceName",
+                        "identifier": "FullName"
+                    },
+                    {
+                        "columnName": "HostName",
+                        "identifier": "HostName"
+                    },
+                    {
+                        "columnName": "DnsDomain",
+                        "identifier": "DnsDomain"
+                    }
+                ]
+            }
+        ],
+        "alertRuleTemplateName": "515d0bba-b297-4f83-8280-20ff7f27ecb1",
+        "templateVersion": "1.0.0"
+    }
+}

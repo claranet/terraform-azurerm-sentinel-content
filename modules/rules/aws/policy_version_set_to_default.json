@@ -1,0 +1,52 @@
+{
+    "kind": "Scheduled",
+    "properties": {
+        "description": "An attacker with SetDefaultPolicyVersion permissions could escalate privileges through existing policy versions that are not currently in use. More about this API at https://docs.aws.amazon.com/IAM/latest/APIReference/API_SetDefaultPolicyVersion.html ",
+        "displayName": "Policy version set to default",
+        "enabled": true,
+        "query": "AWSCloudTrail\n| where EventName == \"SetDefaultPolicyVersion\" and isempty(ErrorCode) and isempty(ErrorMessage)\n| extend UserIdentityArn = iif(isempty(UserIdentityArn), tostring(parse_json(Resources)[0].ARN), UserIdentityArn)\n| extend UserName = tostring(split(UserIdentityArn, '/')[-1])\n| extend AccountName = case( UserIdentityPrincipalid == \"Anonymous\", \"Anonymous\", isempty(UserIdentityUserName), UserName, UserIdentityUserName)\n| extend AccountName = iif(AccountName contains \"@\", tostring(split(AccountName, '@', 0)[0]), AccountName),\n  AccountUPNSuffix = iif(AccountName contains \"@\", tostring(split(AccountName, '@', 1)[0]), \"\")\n| extend timestamp = TimeGenerated\n",
+        "queryFrequency": "PT1H",
+        "queryPeriod": "PT1H",
+        "severity": "Medium",
+        "suppressionDuration": "PT1H",
+        "suppressionEnabled": false,
+        "triggerOperator": "GreaterThan",
+        "triggerThreshold": 0,
+        "tactics": [
+            "InitialAccess"
+        ],
+        "techniques": [
+            "T1078"
+        ],
+        "entityMappings": [
+            {
+                "entityType": "Account",
+                "fieldMappings": [
+                    {
+                        "columnName": "AccountName",
+                        "identifier": "Name"
+                    },
+                    {
+                        "columnName": "AccountUPNSuffix",
+                        "identifier": "UPNSuffix"
+                    },
+                    {
+                        "columnName": "RecipientAccountId",
+                        "identifier": "CloudAppAccountId"
+                    }
+                ]
+            },
+            {
+                "entityType": "IP",
+                "fieldMappings": [
+                    {
+                        "columnName": "SourceIpAddress",
+                        "identifier": "Address"
+                    }
+                ]
+            }
+        ],
+        "alertRuleTemplateName": "874a1762-3fd7-4489-b411-6d4a9e9e8a59",
+        "templateVersion": "1.0.1"
+    }
+}

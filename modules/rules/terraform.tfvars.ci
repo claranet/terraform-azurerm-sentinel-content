@@ -1,0 +1,6 @@
+location_short             = "frc"
+client_name                = "test"
+environment                = "test"
+stack                      = "ci"
+log_analytics_workspace_id = "log-analytics-workspace-id"
+log_sources                = ["entra_id"]

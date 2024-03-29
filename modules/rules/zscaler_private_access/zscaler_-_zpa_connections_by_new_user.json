@@ -1,0 +1,32 @@
+{
+    "kind": "Scheduled",
+    "properties": {
+        "description": "Detects ZPA connections by new user.",
+        "displayName": "Zscaler - ZPA connections by new user",
+        "enabled": true,
+        "query": "let listUsers =\nZPAEvent \n| where TimeGenerated > ago(14d)\n| where DvcAction == 'open'\n| summarize ListofUsers = make_set(DstUserName) by DstUserName\n| project ListofUsers;\nZPAEvent\n| where DstUserName !in (listUsers)\n| summarize EventCount = count() by DstUserName\n| project-away EventCount\n| extend AccountCustomEntity = DstUserName\n",
+        "queryFrequency": "PT1H",
+        "queryPeriod": "P14D",
+        "severity": "Medium",
+        "suppressionDuration": "PT1H",
+        "suppressionEnabled": false,
+        "triggerOperator": "GreaterThan",
+        "triggerThreshold": 0,
+        "tactics": [
+            "Persistence"
+        ],
+        "entityMappings": [
+            {
+                "entityType": "Account",
+                "fieldMappings": [
+                    {
+                        "identifier": "Name",
+                        "columnName": "AccountCustomEntity"
+                    }
+                ]
+            }
+        ],
+        "alertRuleTemplateName": "236a7ec1-0120-40f2-a157-c1a72dde8bcb",
+        "templateVersion": "1.0.0"
+    }
+}

@@ -1,0 +1,35 @@
+{
+    "kind": "Scheduled",
+    "properties": {
+        "description": "Detects possible brute force attack.",
+        "displayName": "GWorkspace - Possible brute force attack",
+        "enabled": true,
+        "query": "let threshold = 5;\nGWorkspaceActivityReports\n| where EventMessage has \"login_failure\"\n| summarize login_attempts = count() by ActorEmail, bin(TimeGenerated, 5m)\n| where login_attempts > threshold\n| extend AccountCustomEntity = ActorEmail\n",
+        "queryFrequency": "PT1H",
+        "queryPeriod": "PT1H",
+        "severity": "Medium",
+        "suppressionDuration": "PT1H",
+        "suppressionEnabled": false,
+        "triggerOperator": "GreaterThan",
+        "triggerThreshold": 0,
+        "tactics": [
+            "CredentialAccess"
+        ],
+        "techniques": [
+            "T1110"
+        ],
+        "entityMappings": [
+            {
+                "fieldMappings": [
+                    {
+                        "identifier": "Name",
+                        "columnName": "AccountCustomEntity"
+                    }
+                ],
+                "entityType": "Account"
+            }
+        ],
+        "alertRuleTemplateName": "8f6cd9a4-5e57-11ec-bf63-0242ac130002",
+        "templateVersion": "1.0.1"
+    }
+}

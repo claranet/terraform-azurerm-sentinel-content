@@ -1,0 +1,35 @@
+{
+    "kind": "Scheduled",
+    "properties": {
+        "description": "Detects when new exclusion added.",
+        "displayName": "Sentinel One - Exclusion added",
+        "enabled": true,
+        "query": "SentinelOne\n| where EventOriginalMessage has_all ('added', 'exclusion')\n| project EventCreationTime, SrcUserName, EventOriginalMessage\n| extend AccountCustomEntity = SrcUserName\n",
+        "queryFrequency": "PT1H",
+        "queryPeriod": "PT1H",
+        "severity": "Medium",
+        "suppressionDuration": "PT1H",
+        "suppressionEnabled": false,
+        "triggerOperator": "GreaterThan",
+        "triggerThreshold": 0,
+        "tactics": [
+            "DefenseEvasion"
+        ],
+        "techniques": [
+            "T1070"
+        ],
+        "entityMappings": [
+            {
+                "entityType": "Account",
+                "fieldMappings": [
+                    {
+                        "columnName": "AccountCustomEntity",
+                        "identifier": "Name"
+                    }
+                ]
+            }
+        ],
+        "alertRuleTemplateName": "4224409f-a7bf-45eb-a931-922d79575a05",
+        "templateVersion": "1.0.0"
+    }
+}
