@@ -3,10 +3,10 @@
 
 This module deploys [Microsoft Sentinel Solutions](https://learn.microsoft.com/en-us/azure/sentinel/sentinel-solutions) but also the rules embedded in the product solution.
 
-Solutions and rules are directly retrieved from the [Microsoft Sentinel content hub catalog](https://learn.microsoft.com/en-us/azure/sentinel/sentinel-solutions-catalog).
+Solutions and rules are directly retrieved from the [Microsoft Sentinel Content Hub catalog](https://learn.microsoft.com/en-us/azure/sentinel/sentinel-solutions-catalog).
 
 
-Current log sources supported :
+<ins>Current log sources supported</ins> :
 - _aws_
 - _azure\_firewall_
 - _cef_
@@ -24,9 +24,9 @@ Current log sources supported :
 - _zscaler\_internet\_access_
 - _zscaler\_private\_access_
 
-These are the values that can be set in the `log_source` variable.
+These are the values that can be set in the `log_sources` variable.
 
-:information_source: Some solutions have no built-in default rules.
+> Some solutions don't embed rules.
 
 <!-- BEGIN_TF_DOCS -->
 ## Global versioning rule for Claranet Azure modules
@@ -144,4 +144,5 @@ No outputs.
 ## Related documentation
 
 Microsoft Sentinel Content Hub: [learn.microsoft.com/en-us/azure/sentinel/sentinel-solutions-catalog](https://learn.microsoft.com/en-us/azure/sentinel/sentinel-solutions-catalog)
+
 Microsoft Sentinel Rules: [learn.microsoft.com/en-us/azure/sentinel/detect-threats-built-in](https://learn.microsoft.com/en-us/azure/sentinel/detect-threats-built-in)
