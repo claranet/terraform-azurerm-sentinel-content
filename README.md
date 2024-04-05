@@ -6,7 +6,7 @@ This module deploys [Microsoft Sentinel Solutions](https://learn.microsoft.com/e
 Solutions and rules are directly retrieved from the [Microsoft Sentinel Content Hub catalog](https://learn.microsoft.com/en-us/azure/sentinel/sentinel-solutions-catalog).
 
 
-<ins>Current log sources supported</ins> :
+__Current log sources supported__ :
 - _aws_
 - _azure\_firewall_
 - _cef_
