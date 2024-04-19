@@ -16,7 +16,6 @@
             "DefenseEvasion"
         ],
         "techniques": [
-            "T1562",
             "T1562"
         ],
         "entityMappings": [
