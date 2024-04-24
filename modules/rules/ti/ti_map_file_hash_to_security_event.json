@@ -17,7 +17,12 @@
         ],
         "entityMappings": [
             {
+                "entityType": "Account",
                 "fieldMappings": [
+                    {
+                        "columnName": "Account",
+                        "identifier": "FullName"
+                    },
                     {
                         "columnName": "Name",
                         "identifier": "Name"
@@ -26,11 +31,15 @@
                         "columnName": "NTDomain",
                         "identifier": "NTDomain"
                     }
-                ],
-                "entityType": "Account"
+                ]
             },
             {
+                "entityType": "Host",
                 "fieldMappings": [
+                    {
+                        "columnName": "Computer",
+                        "identifier": "FullName"
+                    },
                     {
                         "columnName": "HostName",
                         "identifier": "HostName"
@@ -39,19 +48,19 @@
                         "columnName": "DnsDomain",
                         "identifier": "DnsDomain"
                     }
-                ],
-                "entityType": "Host"
+                ]
             },
             {
+                "entityType": "URL",
                 "fieldMappings": [
                     {
                         "columnName": "Url",
                         "identifier": "Url"
                     }
-                ],
-                "entityType": "URL"
+                ]
             },
             {
+                "entityType": "FileHash",
                 "fieldMappings": [
                     {
                         "columnName": "FileHashValue",
@@ -61,11 +70,10 @@
                         "columnName": "FileHashType",
                         "identifier": "Algorithm"
                     }
-                ],
-                "entityType": "FileHash"
+                ]
             }
         ],
         "alertRuleTemplateName": "a7427ed7-04b4-4e3b-b323-08b981b9b4bf",
-        "templateVersion": "1.4.4"
+        "templateVersion": "1.4.5"
     }
 }

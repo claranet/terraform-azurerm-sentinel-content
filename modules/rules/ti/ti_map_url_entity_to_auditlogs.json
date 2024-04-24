@@ -1,10 +1,10 @@
 {
     "kind": "Scheduled",
     "properties": {
-        "description": "This query identifies any URL indicators of compromise (IOCs) from threat intelligence (TI) by searching for matches in DeviceNetworkEvents.",
+        "description": "This query identifies any URL indicators of compromise (IOCs) from threat intelligence (TI) by searching for matches in AuditLogs.",
         "displayName": "TI Map URL Entity to AuditLogs",
         "enabled": true,
-        "query": "let dt_lookBack = 1h;\nlet ioc_lookBack = 14d;\nlet DeviceNetworkEvents_ = DeviceNetworkEvents\n  | where isnotempty(RemoteUrl)\n  | where TimeGenerated >= ago(dt_lookBack)\n  | where ActionType !has \"ConnectionFailed\"\n  | extend RemoteUrl = tolower(RemoteUrl)\n  | project-rename DeviceNetworkEvents_TimeGenerated = TimeGenerated;\nlet DeviceNetworkEventUrls = DeviceNetworkEvents_\n  | distinct Url = RemoteUrl\n  | summarize make_list(Url);\nThreatIntelligenceIndicator\n| where isnotempty(Url)\n| where TimeGenerated >= ago(ioc_lookBack)\n| extend Url = tolower(Url)\n| where Url in (DeviceNetworkEventUrls)\n| summarize LatestIndicatorTime = arg_max(TimeGenerated, *) by IndicatorId\n| where Active == true and ExpirationDateTime > now()\n| where Description !contains_cs \"State: inactive;\" and Description !contains_cs \"State: falsepos;\"\n| join kind=innerunique (DeviceNetworkEvents_) on $left.Url == $right.RemoteUrl\n| where DeviceNetworkEvents_TimeGenerated < ExpirationDateTime\n| summarize DeviceNetworkEvents_TimeGenerated = arg_max(DeviceNetworkEvents_TimeGenerated, *) by IndicatorId, Url\n| project DeviceNetworkEvents_TimeGenerated, IndicatorId, Url, ConfidenceScore, Description, ThreatType, Tags, TrafficLightProtocolLevel, ActionType, DeviceId, DeviceName, InitiatingProcessAccountUpn, InitiatingProcessCommandLine, RemoteIP, RemotePort\n| extend Name = tostring(split(InitiatingProcessAccountUpn, '@', 0)[0]), UPNSuffix = tostring(split(InitiatingProcessAccountUpn, '@', 1)[0])\n| extend timestamp = DeviceNetworkEvents_TimeGenerated, UserPrincipalName = InitiatingProcessAccountUpn\n",
+        "query": "let dt_lookBack = 1h;\nlet ioc_lookBack = 14d;\nlet AuditEvents = materialize(AuditLogs\n  | where TimeGenerated >= ago(dt_lookBack)\n  // Extract the URL that is contained within the JSON data\n  | extend Url = extract(\"(http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\\\(\\\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+);\", 1,tostring(TargetResources))\n  | where isnotempty(Url)\n  | extend userPrincipalName = tostring(parse_json(tostring(InitiatedBy.user)).userPrincipalName)\n  | extend TargetResourceDisplayName = tostring(TargetResources[0].displayName)\n  | extend Audit_TimeGenerated = TimeGenerated);\nlet AuditUrls = AuditEvents | distinct Url = tolower(Url) | summarize make_list(Url);\nThreatIntelligenceIndicator\n| where isnotempty(Url)\n| where TimeGenerated >= ago(ioc_lookBack)\n| where tolower(Url) in (AuditUrls)\n| summarize LatestIndicatorTime = arg_max(TimeGenerated, *) by IndicatorId\n| where Active == true and ExpirationDateTime > now()\n| where Description !contains_cs \"State: inactive;\" and Description !contains_cs \"State: falsepos;\"\n// using innerunique to keep perf fast and result set low, we only need one match to indicate potential malicious activity that needs to be investigated\n| join kind=innerunique (AuditEvents) on Url\n| where Audit_TimeGenerated < ExpirationDateTime\n| summarize Audit_TimeGenerated = arg_max(Audit_TimeGenerated, *) by IndicatorId, Url\n| project Audit_TimeGenerated, Description, ActivityGroupNames, IndicatorId, ThreatType, ExpirationDateTime, ConfidenceScore,\nOperationName, Identity, userPrincipalName, TargetResourceDisplayName, Url\n| extend AccountName = tostring(split(userPrincipalName, \"@\")[0]), AccountUPNSuffix = tostring(split(userPrincipalName, \"@\")[1])\n| extend HostName = tostring(split(TargetResourceDisplayName, \".\")[0]), DomainIndex = toint(indexof(TargetResourceDisplayName, '.'))\n| extend HostNameDomain = iff(DomainIndex != -1, substring(TargetResourceDisplayName, DomainIndex + 1), TargetResourceDisplayName)\n",
         "queryFrequency": "PT1H",
         "queryPeriod": "P14D",
         "severity": "Medium",
@@ -17,47 +17,50 @@
         ],
         "entityMappings": [
             {
+                "entityType": "Account",
                 "fieldMappings": [
                     {
-                        "columnName": "Name",
+                        "columnName": "userPrincipalName",
+                        "identifier": "FullName"
+                    },
+                    {
+                        "columnName": "AccountName",
                         "identifier": "Name"
                     },
                     {
-                        "columnName": "UPNSuffix",
+                        "columnName": "AccountUPNSuffix",
                         "identifier": "UPNSuffix"
                     }
-                ],
-                "entityType": "Account"
+                ]
             },
             {
+                "entityType": "Host",
                 "fieldMappings": [
                     {
-                        "columnName": "DeviceName",
+                        "columnName": "TargetResourceDisplayName",
                         "identifier": "FullName"
+                    },
+                    {
+                        "columnName": "HostName",
+                        "identifier": "HostName"
+                    },
+                    {
+                        "columnName": "HostNameDomain",
+                        "identifier": "DnsDomain"
                     }
-                ],
-                "entityType": "Host"
+                ]
             },
             {
+                "entityType": "URL",
                 "fieldMappings": [
                     {
                         "columnName": "Url",
                         "identifier": "Url"
                     }
-                ],
-                "entityType": "URL"
-            },
-            {
-                "fieldMappings": [
-                    {
-                        "columnName": "InitiatingProcessCommandLine",
-                        "identifier": "CommandLine"
-                    }
-                ],
-                "entityType": "Process"
+                ]
             }
         ],
-        "alertRuleTemplateName": "6ddbd892-a9be-47be-bab7-521241695bd6",
-        "templateVersion": "1.0.0"
+        "alertRuleTemplateName": "712fab52-2a7d-401e-a08c-ff939cc7c25e",
+        "templateVersion": "1.2.6"
     }
 }
