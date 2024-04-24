@@ -4,7 +4,7 @@
         "description": "Identifies SolarWinds SUNBURST domain beacon IOCs in DeviceNetworkEvents\nReferences:\n- https://www.fireeye.com/blog/threat-research/2020/12/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor.html\n- https://gist.github.com/olafhartong/71ffdd4cab4b6acd5cbcd1a0691ff82f",
         "displayName": "SUNBURST network beacons",
         "enabled": true,
-        "query": "let SunburstURL=dynamic([\"panhardware.com\",\"databasegalore.com\",\"avsvmcloud.com\",\"freescanonline.com\",\"thedoccloud.com\",\"deftsecurity.com\"]);\nDeviceNetworkEvents\n| where ActionType == \"ConnectionSuccess\"\n| where RemoteUrl in(SunburstURL)\n| extend timestamp = TimeGenerated,AccountEntity = iff(isnotempty(InitiatingProcessAccountUpn), InitiatingProcessAccountUpn, InitiatingProcessAccountName),HashAlgorithm = 'MD5'\n| extend HostName = tostring(split(DeviceName, '.', 0)[0]), DnsDomain = tostring(strcat_array(array_slice(split(DeviceName, '.'), 1, -1), '.'))\n",
+        "query": "let SunburstURL=dynamic([\"panhardware.com\",\"databasegalore.com\",\"avsvmcloud.com\",\"freescanonline.com\",\"thedoccloud.com\",\"deftsecurity.com\"]);\nDeviceNetworkEvents\n| where ActionType == \"ConnectionSuccess\"\n| where RemoteUrl in(SunburstURL)\n| extend HashAlgorithm = 'MD5'\n| extend HostName = tostring(split(DeviceName, \".\")[0]), DomainIndex = toint(indexof(DeviceName, '.'))\n| extend HostNameDomain = iff(DomainIndex != -1, substring(DeviceName, DomainIndex + 1), DeviceName)\n",
         "queryFrequency": "P1D",
         "queryPeriod": "P1D",
         "severity": "Medium",
@@ -26,21 +26,16 @@
             {
                 "fieldMappings": [
                     {
-                        "columnName": "AccountEntity",
-                        "identifier": "Name"
-                    }
-                ],
-                "entityType": "Account"
-            },
-            {
-                "fieldMappings": [
-                    {
-                        "columnName": "HostName",
-                        "identifier": "HostName"
+                        "identifier": "FullName",
+                        "columnName": "DeviceName"
                     },
                     {
-                        "columnName": "DnsDomain",
-                        "identifier": "DnsDomain"
+                        "identifier": "HostName",
+                        "columnName": "HostName"
+                    },
+                    {
+                        "identifier": "DnsDomain",
+                        "columnName": "HostNameDomain"
                     }
                 ],
                 "entityType": "Host"
@@ -48,8 +43,25 @@
             {
                 "fieldMappings": [
                     {
-                        "columnName": "RemoteIP",
-                        "identifier": "Address"
+                        "identifier": "FullName",
+                        "columnName": "InitiatingProcessAccountUpn"
+                    },
+                    {
+                        "identifier": "Name",
+                        "columnName": "InitiatingProcessAccountName"
+                    },
+                    {
+                        "identifier": "UPNSuffix",
+                        "columnName": "InitiatingProcessAccountDomain"
+                    }
+                ],
+                "entityType": "Account"
+            },
+            {
+                "fieldMappings": [
+                    {
+                        "identifier": "Address",
+                        "columnName": "RemoteIP"
                     }
                 ],
                 "entityType": "IP"
@@ -57,8 +69,8 @@
             {
                 "fieldMappings": [
                     {
-                        "columnName": "RemoteUrl",
-                        "identifier": "Url"
+                        "identifier": "Url",
+                        "columnName": "RemoteUrl"
                     }
                 ],
                 "entityType": "URL"
@@ -66,18 +78,18 @@
             {
                 "fieldMappings": [
                     {
-                        "columnName": "HashAlgorithm",
-                        "identifier": "Algorithm"
+                        "identifier": "Algorithm",
+                        "columnName": "HashAlgorithm"
                     },
                     {
-                        "columnName": "InitiatingProcessMD5",
-                        "identifier": "Value"
+                        "identifier": "Value",
+                        "columnName": "InitiatingProcessMD5"
                     }
                 ],
                 "entityType": "FileHash"
             }
         ],
         "alertRuleTemplateName": "ce1e7025-866c-41f3-9b08-ec170e05e73e",
-        "templateVersion": "1.0.4"
+        "templateVersion": "1.0.5"
     }
 }
