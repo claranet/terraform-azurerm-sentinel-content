@@ -48,7 +48,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
             ],
             "properties": {
-                "description": "Syslog data connector with template version 3.0.2",
+                "description": "Syslog data connector with template version 3.0.3",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -120,7 +120,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Syslog",
                 "packageId": "azuresentinel.azure-sentinel-solution-syslog",
                 "contentSchemaVersion": "3.0.0",
@@ -209,7 +209,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
             ],
             "properties": {
-                "description": "Syslog data connector with template version 3.0.2",
+                "description": "Syslog data connector with template version 3.0.3",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -221,7 +221,7 @@
                             "apiVersion": "2021-03-01-preview",
                             "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
                             "location": "[parameters('workspace-location')]",
-                            "kind": "GenericUI",
+                            "kind": "StaticUI",
                             "properties": {
                                 "connectorUiConfig": {
                                     "id": "SyslogAma",
@@ -233,16 +233,6 @@
                                             "metricName": "Total data received",
                                             "legend": "Syslog",
                                             "baseQuery": "Syslog"
-                                        }
-                                    ],
-                                    "sampleQueries": [
-                                        {
-                                            "description": "Last 1000 generated events",
-                                            "query": "Syslog\n            | top 1000 by TimeGenerated"
-                                        },
-                                        {
-                                            "description": "All events by facility except for cron",
-                                            "query": "Syslog\n            | summarize count() by Facility | where Facility != \"cron\""
                                         }
                                     ],
                                     "connectivityCriterias": [
@@ -257,76 +247,6 @@
                                         {
                                             "name": "Syslog",
                                             "lastDataReceivedQuery": "Syslog\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)"
-                                        }
-                                    ],
-                                    "availability": {
-                                        "status": 2,
-                                        "isPreview": false,
-                                        "featureFlag": {
-                                            "feature": "SyslogAma",
-                                            "featureStates": {
-                                                "Dogfood": "PrivatePreview",
-                                                "MPAC": "PrivatePreview",
-                                                "Prod": "PrivatePreview"
-                                            }
-                                        }
-                                    },
-                                    "permissions": {
-                                        "resourceProvider": [
-                                            {
-                                                "provider": "Microsoft.OperationalInsights/workspaces/datasources",
-                                                "permissionsDisplayText": "read and write permissions.",
-                                                "providerDisplayName": "Workspace data sources",
-                                                "scope": "Workspace",
-                                                "requiredPermissions": {
-                                                    "read": true,
-                                                    "write": true
-                                                }
-                                            }
-                                        ],
-                                        "customs": [
-                                            {
-                                                "description": "To collect data from non-Azure VMs, they must have Azure Arc installed and enabled. [Learn more](https://docs.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-install?tabs=ARMAgentPowerShell,PowerShellWindows,PowerShellWindowsArc,CLIWindows,CLIWindowsArc)"
-                                            }
-                                        ]
-                                    },
-                                    "instructionSteps": [
-                                        {
-                                            "description": "You can collect Syslog events from your local machine by installing the agent on it. You can also collect Syslog generated on a different source by running the installation script below on the local machine, where the agent is installed.\n\n>  Syslog logs are collected only from **Linux** agents.",
-                                            "instructions": [
-                                                {
-                                                    "type": "SysLogAma"
-                                                }
-                                            ],
-                                            "title": "Enable data collection rule\u200b"
-                                        },
-                                        {
-                                            "instructions": [
-                                                {
-                                                    "parameters": {
-                                                        "linkType": "OpenCreateDataCollectionRule",
-                                                        "dataCollectionRuleType": 6
-                                                    },
-                                                    "type": "InstallAgent"
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "description": "> To collect logs generated on a different machine run this script on the machine where the agent is installed.",
-                                            "instructions": [
-                                                {
-                                                    "parameters": {
-                                                        "fillWith": [
-                                                            "WorkspaceId",
-                                                            "PrimaryKey"
-                                                        ],
-                                                        "label": "",
-                                                        "value": "sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python Forwarder_AMA_installer.py"
-                                                    },
-                                                    "type": "CopyableLabel"
-                                                }
-                                            ],
-                                            "title": "Run the following command to install and apply the Syslog collector:"
                                         }
                                     ]
                                 }
@@ -361,7 +281,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Syslog",
                 "packageId": "azuresentinel.azure-sentinel-solution-syslog",
                 "contentSchemaVersion": "3.0.0",
@@ -409,7 +329,7 @@
             "apiVersion": "2021-03-01-preview",
             "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
             "location": "[parameters('workspace-location')]",
-            "kind": "GenericUI",
+            "kind": "StaticUI",
             "properties": {
                 "connectorUiConfig": {
                     "title": "Syslog via AMA",
@@ -436,86 +356,6 @@
                             ]
                         }
                     ],
-                    "sampleQueries": [
-                        {
-                            "description": "Last 1000 generated events",
-                            "query": "Syslog\n            | top 1000 by TimeGenerated"
-                        },
-                        {
-                            "description": "All events by facility except for cron",
-                            "query": "Syslog\n            | summarize count() by Facility | where Facility != \"cron\""
-                        }
-                    ],
-                    "availability": {
-                        "status": 2,
-                        "isPreview": false,
-                        "featureFlag": {
-                            "feature": "SyslogAma",
-                            "featureStates": {
-                                "Dogfood": "PrivatePreview",
-                                "MPAC": "PrivatePreview",
-                                "Prod": "PrivatePreview"
-                            }
-                        }
-                    },
-                    "permissions": {
-                        "resourceProvider": [
-                            {
-                                "provider": "Microsoft.OperationalInsights/workspaces/datasources",
-                                "permissionsDisplayText": "read and write permissions.",
-                                "providerDisplayName": "Workspace data sources",
-                                "scope": "Workspace",
-                                "requiredPermissions": {
-                                    "read": true,
-                                    "write": true
-                                }
-                            }
-                        ],
-                        "customs": [
-                            {
-                                "description": "To collect data from non-Azure VMs, they must have Azure Arc installed and enabled. [Learn more](https://docs.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-install?tabs=ARMAgentPowerShell,PowerShellWindows,PowerShellWindowsArc,CLIWindows,CLIWindowsArc)"
-                            }
-                        ]
-                    },
-                    "instructionSteps": [
-                        {
-                            "description": "You can collect Syslog events from your local machine by installing the agent on it. You can also collect Syslog generated on a different source by running the installation script below on the local machine, where the agent is installed.\n\n>  Syslog logs are collected only from **Linux** agents.",
-                            "instructions": [
-                                {
-                                    "type": "SysLogAma"
-                                }
-                            ],
-                            "title": "Enable data collection rule\u200b"
-                        },
-                        {
-                            "instructions": [
-                                {
-                                    "parameters": {
-                                        "linkType": "OpenCreateDataCollectionRule",
-                                        "dataCollectionRuleType": 6
-                                    },
-                                    "type": "InstallAgent"
-                                }
-                            ]
-                        },
-                        {
-                            "description": "> To collect logs generated on a different machine run this script on the machine where the agent is installed.",
-                            "instructions": [
-                                {
-                                    "parameters": {
-                                        "fillWith": [
-                                            "WorkspaceId",
-                                            "PrimaryKey"
-                                        ],
-                                        "label": "",
-                                        "value": "sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python Forwarder_AMA_installer.py"
-                                    },
-                                    "type": "CopyableLabel"
-                                }
-                            ],
-                            "title": "Run the following command to install and apply the Syslog collector:"
-                        }
-                    ],
                     "id": "SyslogAma"
                 }
             }
@@ -529,7 +369,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
             ],
             "properties": {
-                "description": "LinuxMachines Workbook with template version 3.0.2",
+                "description": "LinuxMachines Workbook with template version 3.0.3",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1.0",
@@ -596,7 +436,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Syslog",
                 "packageId": "azuresentinel.azure-sentinel-solution-syslog",
                 "contentSchemaVersion": "3.0.0",
@@ -618,24 +458,24 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
             ],
             "properties": {
-                "description": "FailedLogonAttempts_UnknownUser_AnalyticalRules Analytics Rule with template version 3.0.2",
+                "description": "FailedLogonAttempts_UnknownUser_AnalyticalRules Analytics Rule with template version 3.0.3",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.3",
+                    "contentVersion": "1.0.4",
                     "parameters": {},
                     "variables": {},
                     "resources": [
                         {
                             "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
                             "name": "e7ec9fa6-e7f7-41ed-a34b-b956837a3ee6",
-                            "apiVersion": "2022-04-01-preview",
+                            "apiVersion": "2023-02-01-preview",
                             "kind": "Scheduled",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
                                 "description": "Identifies failed logon attempts from unknown users in Syslog authpriv logs. The unknown user means the account that tried to log in \nisn't provisioned on the machine. A few hits could indicate someone attempting to access a machine they aren't authorized to access. \nIf there are many of hits, especially from outside your network, it could indicate a brute force attack. \nDefault threshold for logon attempts is 15.",
                                 "displayName": "Failed logon attempts in authpriv",
                                 "enabled": false,
-                                "query": "let threshold = 15;\n// Below pulls messages from syslog-authpriv logs where there was an authentication failure with an unknown user.\n// IP address of system attempting logon is also extracted from the SyslogMessage field. Some of these messages\n// are aggregated.\nSyslog\n| where Facility =~ \"authpriv\"\n| where SyslogMessage has \"authentication failure\" and SyslogMessage has \" uid=0\"\n| extend RemoteIP = extract(@\".*?rhost=([\\d.]+).*?\", 1,SyslogMessage)\n| project TimeGenerated, Computer, ProcessName, HostIP, RemoteIP, ProcessID\n| join kind=innerunique (\n    // Below pulls messages from syslog-authpriv logs that show each instance an unknown user tried to logon. \n    Syslog \n    | where Facility =~ \"authpriv\"\n    | where SyslogMessage has \"user unknown\"\n    | project Computer, HostIP, ProcessID\n    ) on Computer, HostIP, ProcessID\n// Count the number of failed logon attempts by External IP and internal machine\n| summarize FirstLogonAttempt = min(TimeGenerated), LatestLogonAttempt = max(TimeGenerated), TotalLogonAttempts = count() by Computer, HostIP, RemoteIP\n// Calculate the time between first and last logon attempt (AttemptPeriodLength)\n| extend TimeBetweenLogonAttempts = LatestLogonAttempt - FirstLogonAttempt\n| where TotalLogonAttempts >= threshold\n| project FirstLogonAttempt, LatestLogonAttempt, TimeBetweenLogonAttempts, TotalLogonAttempts, SourceAddress = RemoteIP, DestinationHost = Computer, DestinationAddress = HostIP\n| sort by DestinationHost asc nulls last\n| extend timestamp = FirstLogonAttempt, HostCustomEntity = DestinationHost, IPCustomEntity = DestinationAddress\n",
+                                "query": "let threshold = 15;\n// Below pulls messages from syslog-authpriv logs where there was an authentication failure with an unknown user.\n// IP address of system attempting logon is also extracted from the SyslogMessage field. Some of these messages\n// are aggregated.\nSyslog\n| where Facility =~ \"authpriv\"\n| where SyslogMessage has \"authentication failure\" and SyslogMessage has \" uid=0\"\n| extend RemoteIP = extract(@\".*?rhost=([\\d.]+).*?\", 1,SyslogMessage)\n| project TimeGenerated, Computer, ProcessName, HostIP, RemoteIP, ProcessID\n| join kind=innerunique (\n    // Below pulls messages from syslog-authpriv logs that show each instance an unknown user tried to logon. \n    Syslog \n    | where Facility =~ \"authpriv\"\n    | where SyslogMessage has \"user unknown\"\n    | project Computer, HostIP, ProcessID\n    ) on Computer, HostIP, ProcessID\n// Count the number of failed logon attempts by External IP and internal machine\n| summarize FirstLogonAttempt = min(TimeGenerated), LatestLogonAttempt = max(TimeGenerated), TotalLogonAttempts = count() by Computer, HostIP, RemoteIP\n// Calculate the time between first and last logon attempt (AttemptPeriodLength)\n| extend TimeBetweenLogonAttempts = LatestLogonAttempt - FirstLogonAttempt\n| where TotalLogonAttempts >= threshold\n| project FirstLogonAttempt, LatestLogonAttempt, TimeBetweenLogonAttempts, TotalLogonAttempts, SourceAddress = RemoteIP, Computer,  HostIP\n| sort by Computer asc nulls last\n",
                                 "queryFrequency": "P1D",
                                 "queryPeriod": "P1D",
                                 "severity": "Medium",
@@ -646,16 +486,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "Syslog",
                                         "dataTypes": [
                                             "Syslog"
-                                        ],
-                                        "connectorId": "Syslog"
+                                        ]
                                     },
                                     {
+                                        "connectorId": "SyslogAma",
                                         "dataTypes": [
                                             "Syslog"
-                                        ],
-                                        "connectorId": "SyslogAma"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -666,22 +506,22 @@
                                 ],
                                 "entityMappings": [
                                     {
-                                        "entityType": "Host",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "HostCustomEntity",
-                                                "identifier": "FullName"
+                                                "identifier": "FullName",
+                                                "columnName": "Computer"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "Host"
                                     },
                                     {
-                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "IPCustomEntity",
-                                                "identifier": "Address"
+                                                "identifier": "Address",
+                                                "columnName": "HostIP"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "IP"
                                     }
                                 ]
                             }
@@ -695,7 +535,7 @@
                                 "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', 'e7ec9fa6-e7f7-41ed-a34b-b956837a3ee6')]",
                                 "contentId": "e7ec9fa6-e7f7-41ed-a34b-b956837a3ee6",
                                 "kind": "AnalyticsRule",
-                                "version": "1.0.3",
+                                "version": "1.0.4",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "Syslog",
@@ -716,16 +556,16 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Syslog",
                 "packageId": "azuresentinel.azure-sentinel-solution-syslog",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "e7ec9fa6-e7f7-41ed-a34b-b956837a3ee6",
                 "contentKind": "AnalyticsRule",
                 "displayName": "Failed logon attempts in authpriv",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-syslog-ar-zfzcsm5h3nmwo",
-                "id": "azuresentinel.azure-sentinel-solution-syslog-ar-zfzcsm5h3nmwo",
-                "version": "1.0.3",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-syslog-ar-qxk6ihqfnra2i",
+                "id": "azuresentinel.azure-sentinel-solution-syslog-ar-qxk6ihqfnra2i",
+                "version": "1.0.4",
                 "isDeprecated": false
             }
         },
@@ -738,7 +578,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
             ],
             "properties": {
-                "description": "NRT_squid_events_for_mining_pools_AnalyticalRules Analytics Rule with template version 3.0.2",
+                "description": "NRT_squid_events_for_mining_pools_AnalyticalRules Analytics Rule with template version 3.0.3",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -748,7 +588,7 @@
                         {
                             "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
                             "name": "dd03057e-4347-4853-bf1e-2b2d21eb4e59",
-                            "apiVersion": "2022-04-01-preview",
+                            "apiVersion": "2023-02-01-preview",
                             "kind": "NRT",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -762,16 +602,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "Syslog",
                                         "dataTypes": [
                                             "Syslog"
-                                        ],
-                                        "connectorId": "Syslog"
+                                        ]
                                     },
                                     {
+                                        "connectorId": "SyslogAma",
                                         "dataTypes": [
                                             "Syslog"
-                                        ],
-                                        "connectorId": "SyslogAma"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -782,31 +622,31 @@
                                 ],
                                 "entityMappings": [
                                     {
-                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "User",
-                                                "identifier": "FullName"
+                                                "identifier": "FullName",
+                                                "columnName": "User"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "Account"
                                     },
                                     {
-                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "SourceIP",
-                                                "identifier": "Address"
+                                                "identifier": "Address",
+                                                "columnName": "SourceIP"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "IP"
                                     },
                                     {
-                                        "entityType": "URL",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "URL",
-                                                "identifier": "Url"
+                                                "identifier": "Url",
+                                                "columnName": "URL"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "URL"
                                     }
                                 ]
                             }
@@ -841,7 +681,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Syslog",
                 "packageId": "azuresentinel.azure-sentinel-solution-syslog",
                 "contentSchemaVersion": "3.0.0",
@@ -863,7 +703,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
             ],
             "properties": {
-                "description": "squid_cryptomining_pools_AnalyticalRules Analytics Rule with template version 3.0.2",
+                "description": "squid_cryptomining_pools_AnalyticalRules Analytics Rule with template version 3.0.3",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -873,7 +713,7 @@
                         {
                             "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
                             "name": "80733eb7-35b2-45b6-b2b8-3c51df258206",
-                            "apiVersion": "2022-04-01-preview",
+                            "apiVersion": "2023-02-01-preview",
                             "kind": "Scheduled",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -891,16 +731,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "Syslog",
                                         "dataTypes": [
                                             "Syslog"
-                                        ],
-                                        "connectorId": "Syslog"
+                                        ]
                                     },
                                     {
+                                        "connectorId": "SyslogAma",
                                         "dataTypes": [
                                             "Syslog"
-                                        ],
-                                        "connectorId": "SyslogAma"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -911,31 +751,31 @@
                                 ],
                                 "entityMappings": [
                                     {
-                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "AccountCustomEntity",
-                                                "identifier": "FullName"
+                                                "identifier": "FullName",
+                                                "columnName": "AccountCustomEntity"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "Account"
                                     },
                                     {
-                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "IPCustomEntity",
-                                                "identifier": "Address"
+                                                "identifier": "Address",
+                                                "columnName": "IPCustomEntity"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "IP"
                                     },
                                     {
-                                        "entityType": "URL",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "URLCustomEntity",
-                                                "identifier": "Url"
+                                                "identifier": "Url",
+                                                "columnName": "URLCustomEntity"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "URL"
                                     }
                                 ]
                             }
@@ -970,7 +810,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Syslog",
                 "packageId": "azuresentinel.azure-sentinel-solution-syslog",
                 "contentSchemaVersion": "3.0.0",
@@ -992,7 +832,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
             ],
             "properties": {
-                "description": "squid_tor_proxies_AnalyticalRules Analytics Rule with template version 3.0.2",
+                "description": "squid_tor_proxies_AnalyticalRules Analytics Rule with template version 3.0.3",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -1002,7 +842,7 @@
                         {
                             "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
                             "name": "90d3f6ec-80fb-48e0-9937-2c70c9df9bad",
-                            "apiVersion": "2022-04-01-preview",
+                            "apiVersion": "2023-02-01-preview",
                             "kind": "Scheduled",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -1020,16 +860,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "Syslog",
                                         "dataTypes": [
                                             "Syslog"
-                                        ],
-                                        "connectorId": "Syslog"
+                                        ]
                                     },
                                     {
+                                        "connectorId": "SyslogAma",
                                         "dataTypes": [
                                             "Syslog"
-                                        ],
-                                        "connectorId": "SyslogAma"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -1041,31 +881,31 @@
                                 ],
                                 "entityMappings": [
                                     {
-                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "AccountCustomEntity",
-                                                "identifier": "FullName"
+                                                "identifier": "FullName",
+                                                "columnName": "AccountCustomEntity"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "Account"
                                     },
                                     {
-                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "IPCustomEntity",
-                                                "identifier": "Address"
+                                                "identifier": "Address",
+                                                "columnName": "IPCustomEntity"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "IP"
                                     },
                                     {
-                                        "entityType": "URL",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "URLCustomEntity",
-                                                "identifier": "Url"
+                                                "identifier": "Url",
+                                                "columnName": "URLCustomEntity"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "URL"
                                     }
                                 ]
                             }
@@ -1100,7 +940,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Syslog",
                 "packageId": "azuresentinel.azure-sentinel-solution-syslog",
                 "contentSchemaVersion": "3.0.0",
@@ -1122,7 +962,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
             ],
             "properties": {
-                "description": "ssh_potentialBruteForce_AnalyticalRules Analytics Rule with template version 3.0.2",
+                "description": "ssh_potentialBruteForce_AnalyticalRules Analytics Rule with template version 3.0.3",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1.3",
@@ -1132,7 +972,7 @@
                         {
                             "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
                             "name": "e1ce0eab-10d1-4aae-863f-9a383345ba88",
-                            "apiVersion": "2022-04-01-preview",
+                            "apiVersion": "2023-02-01-preview",
                             "kind": "Scheduled",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -1150,16 +990,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "Syslog",
                                         "dataTypes": [
                                             "Syslog"
-                                        ],
-                                        "connectorId": "Syslog"
+                                        ]
                                     },
                                     {
+                                        "connectorId": "SyslogAma",
                                         "dataTypes": [
                                             "Syslog"
-                                        ],
-                                        "connectorId": "SyslogAma"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -1170,40 +1010,40 @@
                                 ],
                                 "entityMappings": [
                                     {
-                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "Account",
-                                                "identifier": "Name"
+                                                "identifier": "Name",
+                                                "columnName": "Account"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "Account"
                                     },
                                     {
-                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "IPAddress",
-                                                "identifier": "Address"
+                                                "identifier": "Address",
+                                                "columnName": "IPAddress"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "IP"
                                     },
                                     {
-                                        "entityType": "Host",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "HostName",
-                                                "identifier": "HostName"
+                                                "identifier": "HostName",
+                                                "columnName": "HostName"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "Host"
                                     },
                                     {
-                                        "entityType": "AzureResource",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "ResourceId",
-                                                "identifier": "ResourceId"
+                                                "identifier": "ResourceId",
+                                                "columnName": "ResourceId"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "AzureResource"
                                     }
                                 ]
                             }
@@ -1238,7 +1078,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Syslog",
                 "packageId": "azuresentinel.azure-sentinel-solution-syslog",
                 "contentSchemaVersion": "3.0.0",
@@ -1260,7 +1100,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
             ],
             "properties": {
-                "description": "sftp_file_transfer_above_threshold_AnalyticalRules Analytics Rule with template version 3.0.2",
+                "description": "sftp_file_transfer_above_threshold_AnalyticalRules Analytics Rule with template version 3.0.3",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -1270,7 +1110,7 @@
                         {
                             "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
                             "name": "bb6a74c8-889d-4c6e-8412-7d5efe33f4ed",
-                            "apiVersion": "2022-04-01-preview",
+                            "apiVersion": "2023-02-01-preview",
                             "kind": "Scheduled",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -1288,16 +1128,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "Syslog",
                                         "dataTypes": [
                                             "Syslog"
-                                        ],
-                                        "connectorId": "Syslog"
+                                        ]
                                     },
                                     {
+                                        "connectorId": "SyslogAma",
                                         "dataTypes": [
                                             "Syslog"
-                                        ],
-                                        "connectorId": "SyslogAma"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -1308,58 +1148,58 @@
                                 ],
                                 "entityMappings": [
                                     {
-                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "username",
-                                                "identifier": "Name"
+                                                "identifier": "Name",
+                                                "columnName": "username"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "Account"
                                     },
                                     {
-                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "src_ip",
-                                                "identifier": "Address"
+                                                "identifier": "Address",
+                                                "columnName": "src_ip"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "IP"
                                     },
                                     {
-                                        "entityType": "Host",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "Computer",
-                                                "identifier": "HostName"
+                                                "identifier": "HostName",
+                                                "columnName": "Computer"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "Host"
                                     },
                                     {
-                                        "entityType": "File",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "FileSample",
-                                                "identifier": "Name"
+                                                "identifier": "Name",
+                                                "columnName": "FileSample"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "File"
                                     }
                                 ],
                                 "customDetails": {
-                                    "TransferCount": "count_distinct_filepath",
-                                    "FilesList": "fileslist"
+                                    "FilesList": "fileslist",
+                                    "TransferCount": "count_distinct_filepath"
                                 },
                                 "incidentConfiguration": {
-                                    "createIncident": true,
                                     "groupingConfiguration": {
+                                        "lookbackDuration": "5h",
+                                        "matchingMethod": "Selected",
+                                        "enabled": true,
+                                        "reopenClosedIncident": false,
                                         "groupByEntities": [
                                             "Account",
                                             "Host"
-                                        ],
-                                        "enabled": true,
-                                        "matchingMethod": "Selected",
-                                        "lookbackDuration": "5h",
-                                        "reopenClosedIncident": false
-                                    }
+                                        ]
+                                    },
+                                    "createIncident": true
                                 }
                             }
                         },
@@ -1393,7 +1233,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Syslog",
                 "packageId": "azuresentinel.azure-sentinel-solution-syslog",
                 "contentSchemaVersion": "3.0.0",
@@ -1415,7 +1255,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
             ],
             "properties": {
-                "description": "sftp_file_transfer_folders_above_threshold_AnalyticalRules Analytics Rule with template version 3.0.2",
+                "description": "sftp_file_transfer_folders_above_threshold_AnalyticalRules Analytics Rule with template version 3.0.3",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -1425,7 +1265,7 @@
                         {
                             "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
                             "name": "7355434e-09d5-4401-b56d-e03e9379dfb1",
-                            "apiVersion": "2022-04-01-preview",
+                            "apiVersion": "2023-02-01-preview",
                             "kind": "Scheduled",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -1443,16 +1283,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "Syslog",
                                         "dataTypes": [
                                             "Syslog"
-                                        ],
-                                        "connectorId": "Syslog"
+                                        ]
                                     },
                                     {
+                                        "connectorId": "SyslogAma",
                                         "dataTypes": [
                                             "Syslog"
-                                        ],
-                                        "connectorId": "SyslogAma"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -1463,58 +1303,58 @@
                                 ],
                                 "entityMappings": [
                                     {
-                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "username",
-                                                "identifier": "Name"
+                                                "identifier": "Name",
+                                                "columnName": "username"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "Account"
                                     },
                                     {
-                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "src_ip",
-                                                "identifier": "Address"
+                                                "identifier": "Address",
+                                                "columnName": "src_ip"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "IP"
                                     },
                                     {
-                                        "entityType": "Host",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "Computer",
-                                                "identifier": "HostName"
+                                                "identifier": "HostName",
+                                                "columnName": "Computer"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "Host"
                                     },
                                     {
-                                        "entityType": "File",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "DirSample",
-                                                "identifier": "Name"
+                                                "identifier": "Name",
+                                                "columnName": "DirSample"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "File"
                                     }
                                 ],
                                 "customDetails": {
-                                    "TransferCount": "count_distinct_dirpath",
-                                    "FilesList": "dirlist"
+                                    "FilesList": "dirlist",
+                                    "TransferCount": "count_distinct_dirpath"
                                 },
                                 "incidentConfiguration": {
-                                    "createIncident": true,
                                     "groupingConfiguration": {
+                                        "lookbackDuration": "5h",
+                                        "matchingMethod": "Selected",
+                                        "enabled": true,
+                                        "reopenClosedIncident": false,
                                         "groupByEntities": [
                                             "Account",
                                             "Host"
-                                        ],
-                                        "enabled": true,
-                                        "matchingMethod": "Selected",
-                                        "lookbackDuration": "5h",
-                                        "reopenClosedIncident": false
-                                    }
+                                        ]
+                                    },
+                                    "createIncident": true
                                 }
                             }
                         },
@@ -1548,7 +1388,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Syslog",
                 "packageId": "azuresentinel.azure-sentinel-solution-syslog",
                 "contentSchemaVersion": "3.0.0",
@@ -1570,7 +1410,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
             ],
             "properties": {
-                "description": "CryptoCurrencyMiners_HuntingQueries Hunting Query with template version 3.0.2",
+                "description": "CryptoCurrencyMiners_HuntingQueries Hunting Query with template version 3.0.3",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -1634,7 +1474,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Syslog",
                 "packageId": "azuresentinel.azure-sentinel-solution-syslog",
                 "contentSchemaVersion": "3.0.0",
@@ -1656,7 +1496,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
             ],
             "properties": {
-                "description": "SCXExecuteRunAsProviders_HuntingQueries Hunting Query with template version 3.0.2",
+                "description": "SCXExecuteRunAsProviders_HuntingQueries Hunting Query with template version 3.0.3",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.2",
@@ -1720,7 +1560,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Syslog",
                 "packageId": "azuresentinel.azure-sentinel-solution-syslog",
                 "contentSchemaVersion": "3.0.0",
@@ -1742,7 +1582,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
             ],
             "properties": {
-                "description": "CryptoThreatActivity_HuntingQueries Hunting Query with template version 3.0.2",
+                "description": "CryptoThreatActivity_HuntingQueries Hunting Query with template version 3.0.3",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -1806,7 +1646,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Syslog",
                 "packageId": "azuresentinel.azure-sentinel-solution-syslog",
                 "contentSchemaVersion": "3.0.0",
@@ -1828,7 +1668,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
             ],
             "properties": {
-                "description": "RareProcess_ForLxHost_HuntingQueries Hunting Query with template version 3.0.2",
+                "description": "RareProcess_ForLxHost_HuntingQueries Hunting Query with template version 3.0.3",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -1892,7 +1732,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Syslog",
                 "packageId": "azuresentinel.azure-sentinel-solution-syslog",
                 "contentSchemaVersion": "3.0.0",
@@ -1914,7 +1754,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
             ],
             "properties": {
-                "description": "SchedTaskAggregation_HuntingQueries Hunting Query with template version 3.0.2",
+                "description": "SchedTaskAggregation_HuntingQueries Hunting Query with template version 3.0.3",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -1978,7 +1818,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Syslog",
                 "packageId": "azuresentinel.azure-sentinel-solution-syslog",
                 "contentSchemaVersion": "3.0.0",
@@ -2000,7 +1840,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
             ],
             "properties": {
-                "description": "SchedTaskEditViaCrontab_HuntingQueries Hunting Query with template version 3.0.2",
+                "description": "SchedTaskEditViaCrontab_HuntingQueries Hunting Query with template version 3.0.3",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -2064,7 +1904,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Syslog",
                 "packageId": "azuresentinel.azure-sentinel-solution-syslog",
                 "contentSchemaVersion": "3.0.0",
@@ -2086,7 +1926,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
             ],
             "properties": {
-                "description": "squid_abused_tlds_HuntingQueries Hunting Query with template version 3.0.2",
+                "description": "squid_abused_tlds_HuntingQueries Hunting Query with template version 3.0.3",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -2150,7 +1990,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Syslog",
                 "packageId": "azuresentinel.azure-sentinel-solution-syslog",
                 "contentSchemaVersion": "3.0.0",
@@ -2172,7 +2012,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
             ],
             "properties": {
-                "description": "squid_malformed_requests_HuntingQueries Hunting Query with template version 3.0.2",
+                "description": "squid_malformed_requests_HuntingQueries Hunting Query with template version 3.0.3",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -2236,7 +2076,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Syslog",
                 "packageId": "azuresentinel.azure-sentinel-solution-syslog",
                 "contentSchemaVersion": "3.0.0",
@@ -2258,7 +2098,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
             ],
             "properties": {
-                "description": "squid_volume_anomalies_HuntingQueries Hunting Query with template version 3.0.2",
+                "description": "squid_volume_anomalies_HuntingQueries Hunting Query with template version 3.0.3",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -2322,7 +2162,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Syslog",
                 "packageId": "azuresentinel.azure-sentinel-solution-syslog",
                 "contentSchemaVersion": "3.0.0",
@@ -2340,15 +2180,15 @@
             "apiVersion": "2023-04-01-preview",
             "location": "[parameters('workspace-location')]",
             "properties": {
-                "version": "3.0.2",
+                "version": "3.0.3",
                 "kind": "Solution",
                 "contentSchemaVersion": "3.0.0",
                 "displayName": "Syslog",
                 "publisherDisplayName": "Microsoft Sentinel, Microsoft Corporation",
                 "descriptionHtml": "<p><strong>Note:</strong> Please refer to the following before installing the solution:</p><p>\u2022 Review the solution <a target=\"_blank\" href=\"https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Syslog/ReleaseNotes.md\" rel=\"noopener\">Release Notes</a></p><p>\u2022 There may be <a target=\"_blank\" href=\"https://aka.ms/sentinelsolutionsknownissues\" rel=\"noopener\">known issues</a> pertaining to this Solution, please refer to them before installing.</p><p>The Syslog solution allows you to ingest events from applications or appliances that generate and can forward logs in the Syslog format to a Syslog Forwarder. The Agent for Linux is then able to forward these logs to the Log Analytics/Microsoft Sentinel workspace.</p><p>Installing this solution will deploy two data connectors,</p><ol><li><p><strong>Syslog via AMA</strong> - This data connector helps in ingesting syslog messages into your Log Analytics Workspace using the new Azure Monitor Agent. Learn more about ingesting using the new Azure Monitor Agent <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/azure-monitor/agents/data-collection-syslog?WT.mc_id=Portal-fx\" rel=\"noopener\">here</a>. Microsoft recommends using this Data Connector.</p></li><li><p><strong>Syslog via Legacy Agent</strong> - This data connector helps in ingesting syslog messages into your Log Analytics Workspace using the legacy Log Analytics agent.</p></li></ol><p></p><p><strong>NOTE</strong>: After the solution is installed, Microsoft recommends configuring and leveraging the Syslog via AMA connector for log ingestion. Legacy connector uses the Log Analytics agent, which is about to be deprecated by <strong>Aug 31, 2024,</strong> and thus should only be installed where AMA is not supported.</p><p><strong>Data Connectors:</strong> 2, <strong>Workbooks:</strong> 1, <strong>Analytic Rules:</strong> 7, <strong>Hunting Queries:</strong> 9<br></p><p><a target=\"_blank\" href=\"https://aka.ms/azuresentinel\" rel=\"noopener\">Learn more about Microsoft Sentinel</a> | <a target=\"_blank\" href=\"https://aka.ms/azuresentinelsolutionsdoc\" rel=\"noopener\">Learn more about Solutions</a></p>",
                 "contentKind": "Solution",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-syslog-sl-pnzr2boszam5k",
-                "id": "azuresentinel.azure-sentinel-solution-syslog-sl-pnzr2boszam5k",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-syslog-sl-ue2rzobwfcqqi",
+                "id": "azuresentinel.azure-sentinel-solution-syslog-sl-ue2rzobwfcqqi",
                 "icon": "https://store-images.s-microsoft.com/image/apps.64133.1cf1db80-d519-4f89-b498-e97385a7cbb6.00ac11e4-21c8-47b0-ab43-475209e03029.5e427df2-0e9b-48fb-af6e-c626abf79bc5",
                 "contentId": "azuresentinel.azure-sentinel-solution-syslog",
                 "parentId": "azuresentinel.azure-sentinel-solution-syslog",
@@ -2388,7 +2228,7 @@
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "e7ec9fa6-e7f7-41ed-a34b-b956837a3ee6",
-                            "version": "1.0.3"
+                            "version": "1.0.4"
                         },
                         {
                             "kind": "AnalyticsRule",
