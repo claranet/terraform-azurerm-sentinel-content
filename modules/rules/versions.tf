@@ -3,8 +3,8 @@ terraform {
 
   required_providers {
     azapi = {
-      source  = "Azure/azapi"
-      version = "~> 1.11"
+      source  = "azure/azapi"
+      version = "~> 1.11, < 1.13"
     }
     random = {
       source  = "hashicorp/random"
