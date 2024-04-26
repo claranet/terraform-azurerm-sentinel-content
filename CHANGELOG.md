@@ -1,3 +1,19 @@
+## 7.2.1 (2024-04-26)
+
+
+### Bug Fixes
+
+* **AzAPI:** provider pinned `< v1.13` to avoid breaking changes 3e7b40a
+
+
+### Miscellaneous Chores
+
+* **deps:** update dependency trivy to v0.50.2 dfc9c23
+* **deps:** update dependency trivy to v0.50.4 19a428a
+* **deps:** update renovate config for azure one + automerge 7d44cdf
+* **pre-commit:** update commitlint hook acba527
+* **release:** remove legacy `VERSION` file 1defa8b
+
 ## 7.2.0 (2024-04-19)
 
 
