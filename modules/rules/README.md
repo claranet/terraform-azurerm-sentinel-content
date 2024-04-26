@@ -86,7 +86,7 @@ module "rules" {
 
 | Name | Version |
 |------|---------|
-| azapi | ~> 1.11 |
+| azapi | ~> 1.11, < 1.13 |
 | random | ~> 3.6 |
 
 ## Modules
@@ -97,7 +97,7 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [azapi_resource.rules](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/resource) | resource |
+| [azapi_resource.rules](https://registry.terraform.io/providers/azure/azapi/latest/docs/resources/resource) | resource |
 | [random_uuid.rules](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/uuid) | resource |
 
 ## Inputs
