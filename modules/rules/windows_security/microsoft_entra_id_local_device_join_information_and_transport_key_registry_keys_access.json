@@ -20,33 +20,41 @@
         ],
         "entityMappings": [
             {
-                "entityType": "Account",
                 "fieldMappings": [
                     {
-                        "columnName": "SubjectUserName",
-                        "identifier": "Name"
+                        "identifier": "FullName",
+                        "columnName": "Account"
                     },
                     {
-                        "columnName": "SubjectDomainName",
-                        "identifier": "NTDomain"
+                        "identifier": "Name",
+                        "columnName": "SubjectUserName"
+                    },
+                    {
+                        "identifier": "NTDomain",
+                        "columnName": "SubjectDomainName"
                     }
-                ]
+                ],
+                "entityType": "Account"
             },
             {
-                "entityType": "Host",
                 "fieldMappings": [
                     {
-                        "columnName": "HostName",
-                        "identifier": "HostName"
+                        "identifier": "FullName",
+                        "columnName": "Computer"
                     },
                     {
-                        "columnName": "DnsDomain",
-                        "identifier": "DnsDomain"
+                        "identifier": "HostName",
+                        "columnName": "HostName"
+                    },
+                    {
+                        "identifier": "DnsDomain",
+                        "columnName": "DnsDomain"
                     }
-                ]
+                ],
+                "entityType": "Host"
             }
         ],
         "alertRuleTemplateName": "a356c8bd-c81d-428b-aa36-83be706be034",
-        "templateVersion": "1.0.3"
+        "templateVersion": "1.0.4"
     }
 }
