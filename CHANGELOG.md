@@ -1,3 +1,21 @@
+## 7.3.0 (2024-05-03)
+
+
+### Features
+
+* bump `Azure Firewall` package template version to 3.0.4 + update embedded rules c27111b
+* bump `Microsoft XDR` package template version to 3.0.4 + update embedded rules ed2e42d
+* bump `Okta` package template version to 3.0.7 97743f5
+* bump `Syslog` package template version to 3.0.3 + update embedded rules 812f234
+* bump `Threat Intelligence` package template version to 3.0.3 + update embedded rules 54c5260
+* bump `Windows Security` package template version to 3.0.5 + update embedded rules ffeef41
+
+
+### Miscellaneous Chores
+
+* **deps:** update dependency opentofu to v1.7.0 8764e9f
+* **deps:** update dependency tflint to v0.51.0 850b5e8
+
 ## 7.2.1 (2024-04-26)
 
 
