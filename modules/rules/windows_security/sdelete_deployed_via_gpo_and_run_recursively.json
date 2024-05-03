@@ -4,7 +4,7 @@
         "description": "This query looks for the Sdelete process being run recursively after being deployed to a host via GPO. Attackers could use this technique to deploy Sdelete to multiple host and delete data on them.",
         "displayName": "Sdelete deployed via GPO and run recursively",
         "enabled": true,
-        "query": "SecurityEvent\n  | where EventID == 4688\n  | where Process =~ \"svchost.exe\"\n  | where CommandLine has \"-k GPSvcGroup\" or CommandLine has \"-s gpsvc\"\n  | extend timekey = bin(TimeGenerated, 1m)\n  | project timekey, NewProcessId, Computer\n  | join kind=inner (SecurityEvent\n  | where EventID == 4688\n  | where Process =~ \"sdelete.exe\" or CommandLine has \"sdelete\"\n  | where ParentProcessName endswith \"svchost.exe\"\n  | where CommandLine has_all (\"-s\", \"-r\")\n  | extend newProcess = Process\n  | extend timekey = bin(TimeGenerated, 1m)\n  ) on $left.NewProcessId == $right.ProcessId, timekey, Computer\n",
+        "query": "SecurityEvent\n  | where EventID == 4688\n  | where Process =~ \"svchost.exe\"\n  | where CommandLine has \"-k GPSvcGroup\" or CommandLine has \"-s gpsvc\"\n  | extend timekey = bin(TimeGenerated, 1m)\n  | project timekey, NewProcessId, Computer\n  | join kind=inner (SecurityEvent\n  | where EventID == 4688\n  | where Process =~ \"sdelete.exe\" or CommandLine has \"sdelete\"\n  | where ParentProcessName endswith \"svchost.exe\"\n  | where CommandLine has_all (\"-s\", \"-r\")\n  | extend newProcess = Process\n  | extend timekey = bin(TimeGenerated, 1m)\n  ) on $left.NewProcessId == $right.ProcessId, timekey, Computer\n  | extend HostName = tostring(split(Computer, \".\")[0]), DomainIndex = toint(indexof(Computer, '.'))\n  | extend HostNameDomain = iff(DomainIndex != -1, substring(Computer, DomainIndex + 1), Computer)\n  | extend AccountName = tostring(split(TargetAccount, @'\\')[1]), AccountNTDomain = tostring(split(TargetAccount, @'\\')[0])\n",
         "queryFrequency": "P1D",
         "queryPeriod": "P1D",
         "severity": "Medium",
@@ -20,25 +20,41 @@
         ],
         "entityMappings": [
             {
-                "entityType": "Account",
                 "fieldMappings": [
                     {
-                        "columnName": "Account",
-                        "identifier": "FullName"
+                        "identifier": "FullName",
+                        "columnName": "TargetAccount"
+                    },
+                    {
+                        "identifier": "Name",
+                        "columnName": "AccountName"
+                    },
+                    {
+                        "identifier": "NTDomain",
+                        "columnName": "AccountNTDomain"
                     }
-                ]
+                ],
+                "entityType": "Account"
             },
             {
-                "entityType": "Host",
                 "fieldMappings": [
                     {
-                        "columnName": "Computer",
-                        "identifier": "FullName"
+                        "identifier": "FullName",
+                        "columnName": "Computer"
+                    },
+                    {
+                        "identifier": "HostName",
+                        "columnName": "HostName"
+                    },
+                    {
+                        "identifier": "DnsDomain",
+                        "columnName": "HostNameDomain"
                     }
-                ]
+                ],
+                "entityType": "Host"
             }
         ],
         "alertRuleTemplateName": "d9f28fdf-abc8-4f1a-a7e7-1aaec87a2fc5",
-        "templateVersion": "1.0.1"
+        "templateVersion": "1.0.2"
     }
 }

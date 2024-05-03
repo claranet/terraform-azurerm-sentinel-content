@@ -17,7 +17,12 @@
         ],
         "entityMappings": [
             {
+                "entityType": "Account",
                 "fieldMappings": [
+                    {
+                        "columnName": "Caller",
+                        "identifier": "FullName"
+                    },
                     {
                         "columnName": "Name",
                         "identifier": "Name"
@@ -25,43 +30,47 @@
                     {
                         "columnName": "UPNSuffix",
                         "identifier": "UPNSuffix"
-                    },
+                    }
+                ]
+            },
+            {
+                "entityType": "Account",
+                "fieldMappings": [
                     {
                         "columnName": "AadUserId",
                         "identifier": "AadUserId"
                     }
-                ],
-                "entityType": "Account"
+                ]
             },
             {
+                "entityType": "IP",
                 "fieldMappings": [
                     {
                         "columnName": "CallerIpAddress",
                         "identifier": "Address"
                     }
-                ],
-                "entityType": "IP"
+                ]
             },
             {
+                "entityType": "URL",
                 "fieldMappings": [
                     {
                         "columnName": "Url",
                         "identifier": "Url"
                     }
-                ],
-                "entityType": "URL"
+                ]
             },
             {
+                "entityType": "AzureResource",
                 "fieldMappings": [
                     {
                         "columnName": "ResourceId",
                         "identifier": "ResourceId"
                     }
-                ],
-                "entityType": "AzureResource"
+                ]
             }
         ],
         "alertRuleTemplateName": "2441bce9-02e4-407b-8cc7-7d597f38b8b0",
-        "templateVersion": "1.4.1"
+        "templateVersion": "1.4.2"
     }
 }

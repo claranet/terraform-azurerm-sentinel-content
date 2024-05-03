@@ -4,7 +4,7 @@
         "description": "Identifies SolarWinds TEARDROP memory-only dropper IOCs in Window's defender Exploit Guard activity\nReferences:\n- https://www.fireeye.com/blog/threat-research/2020/12/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor.html\n- https://gist.github.com/olafhartong/71ffdd4cab4b6acd5cbcd1a0691ff82f",
         "displayName": "TEARDROP memory-only dropper",
         "enabled": true,
-        "query": "DeviceEvents\n| where ActionType has \"ExploitGuardNonMicrosoftSignedBlocked\"\n| where InitiatingProcessFileName has \"svchost.exe\" and FileName has \"NetSetupSvc.dll\"\n| extend timestamp = TimeGenerated, AccountEntity = iff(isnotempty(InitiatingProcessAccountUpn), InitiatingProcessAccountUpn, InitiatingProcessAccountName),FileHashType = \"SHA1\"\n| extend HostName = tostring(split(DeviceName, '.', 0)[0]), DnsDomain = tostring(strcat_array(array_slice(split(DeviceName, '.'), 1, -1), '.'))\n",
+        "query": "DeviceEvents\n| where ActionType has \"ExploitGuardNonMicrosoftSignedBlocked\"\n| where InitiatingProcessFileName has \"svchost.exe\" and FileName has \"NetSetupSvc.dll\"\n| extend HashAlgorithm = \"SHA1\"\n| extend HostName = tostring(split(DeviceName, \".\")[0]), DomainIndex = toint(indexof(DeviceName, '.'))\n| extend HostNameDomain = iff(DomainIndex != -1, substring(DeviceName, DomainIndex + 1), DeviceName)\n",
         "queryFrequency": "P1D",
         "queryPeriod": "P1D",
         "severity": "High",
@@ -26,21 +26,16 @@
             {
                 "fieldMappings": [
                     {
-                        "columnName": "AccountEntity",
-                        "identifier": "Name"
-                    }
-                ],
-                "entityType": "Account"
-            },
-            {
-                "fieldMappings": [
-                    {
-                        "columnName": "HostName",
-                        "identifier": "HostName"
+                        "identifier": "FullName",
+                        "columnName": "DeviceName"
                     },
                     {
-                        "columnName": "DnsDomain",
-                        "identifier": "DnsDomain"
+                        "identifier": "HostName",
+                        "columnName": "HostName"
+                    },
+                    {
+                        "identifier": "DnsDomain",
+                        "columnName": "HostNameDomain"
                     }
                 ],
                 "entityType": "Host"
@@ -48,18 +43,35 @@
             {
                 "fieldMappings": [
                     {
-                        "columnName": "FileHashType",
-                        "identifier": "Algorithm"
+                        "identifier": "FullName",
+                        "columnName": "InitiatingProcessAccountUpn"
                     },
                     {
-                        "columnName": "InitiatingProcessSHA1",
-                        "identifier": "Value"
+                        "identifier": "Name",
+                        "columnName": "InitiatingProcessAccountName"
+                    },
+                    {
+                        "identifier": "UPNSuffix",
+                        "columnName": "InitiatingProcessAccountDomain"
+                    }
+                ],
+                "entityType": "Account"
+            },
+            {
+                "fieldMappings": [
+                    {
+                        "identifier": "Algorithm",
+                        "columnName": "HashAlgorithm"
+                    },
+                    {
+                        "identifier": "Value",
+                        "columnName": "InitiatingProcessSHA1"
                     }
                 ],
                 "entityType": "FileHash"
             }
         ],
         "alertRuleTemplateName": "738702fd-0a66-42c7-8586-e30f0583f8fe",
-        "templateVersion": "1.0.5"
+        "templateVersion": "1.0.6"
     }
 }

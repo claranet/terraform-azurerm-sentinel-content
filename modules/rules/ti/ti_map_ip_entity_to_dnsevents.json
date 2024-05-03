@@ -17,7 +17,12 @@
         ],
         "entityMappings": [
             {
+                "entityType": "Host",
                 "fieldMappings": [
+                    {
+                        "columnName": "Computer",
+                        "identifier": "FullName"
+                    },
                     {
                         "columnName": "HostName",
                         "identifier": "HostName"
@@ -26,29 +31,28 @@
                         "columnName": "DnsDomain",
                         "identifier": "DnsDomain"
                     }
-                ],
-                "entityType": "Host"
+                ]
             },
             {
+                "entityType": "IP",
                 "fieldMappings": [
                     {
                         "columnName": "ClientIP",
                         "identifier": "Address"
                     }
-                ],
-                "entityType": "IP"
+                ]
             },
             {
+                "entityType": "URL",
                 "fieldMappings": [
                     {
                         "columnName": "Url",
                         "identifier": "Url"
                     }
-                ],
-                "entityType": "URL"
+                ]
             }
         ],
         "alertRuleTemplateName": "69b7723c-2889-469f-8b55-a2d355ed9c87",
-        "templateVersion": "1.4.1"
+        "templateVersion": "1.4.2"
     }
 }

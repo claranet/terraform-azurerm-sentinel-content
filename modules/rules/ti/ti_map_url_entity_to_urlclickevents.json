@@ -17,7 +17,12 @@
         ],
         "entityMappings": [
             {
+                "entityType": "Account",
                 "fieldMappings": [
+                    {
+                        "columnName": "AccountUpn",
+                        "identifier": "FullName"
+                    },
                     {
                         "columnName": "Name",
                         "identifier": "Name"
@@ -26,20 +31,19 @@
                         "columnName": "UPNSuffix",
                         "identifier": "UPNSuffix"
                     }
-                ],
-                "entityType": "Account"
+                ]
             },
             {
+                "entityType": "URL",
                 "fieldMappings": [
                     {
                         "columnName": "Url",
                         "identifier": "Url"
                     }
-                ],
-                "entityType": "URL"
+                ]
             }
         ],
         "alertRuleTemplateName": "23391c84-87d8-452f-a84c-47a62f01e115",
-        "templateVersion": "1.0.0"
+        "templateVersion": "1.0.1"
     }
 }

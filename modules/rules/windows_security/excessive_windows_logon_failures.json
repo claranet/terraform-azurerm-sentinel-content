@@ -20,42 +20,50 @@
         ],
         "entityMappings": [
             {
-                "entityType": "Account",
                 "fieldMappings": [
                     {
-                        "columnName": "Name",
-                        "identifier": "Name"
+                        "identifier": "FullName",
+                        "columnName": "Account"
                     },
                     {
-                        "columnName": "NTDomain",
-                        "identifier": "NTDomain"
-                    }
-                ]
-            },
-            {
-                "entityType": "Host",
-                "fieldMappings": [
-                    {
-                        "columnName": "HostName",
-                        "identifier": "HostName"
+                        "identifier": "Name",
+                        "columnName": "Name"
                     },
                     {
-                        "columnName": "DnsDomain",
-                        "identifier": "DnsDomain"
+                        "identifier": "NTDomain",
+                        "columnName": "NTDomain"
                     }
-                ]
+                ],
+                "entityType": "Account"
             },
             {
-                "entityType": "Process",
                 "fieldMappings": [
                     {
-                        "columnName": "Process",
-                        "identifier": "CommandLine"
+                        "identifier": "FullName",
+                        "columnName": "WorkstationName"
+                    },
+                    {
+                        "identifier": "HostName",
+                        "columnName": "HostName"
+                    },
+                    {
+                        "identifier": "DnsDomain",
+                        "columnName": "DnsDomain"
                     }
-                ]
+                ],
+                "entityType": "Host"
+            },
+            {
+                "fieldMappings": [
+                    {
+                        "identifier": "CommandLine",
+                        "columnName": "Process"
+                    }
+                ],
+                "entityType": "Process"
             }
         ],
         "alertRuleTemplateName": "2391ce61-8c8d-41ac-9723-d945b2e90720",
-        "templateVersion": "2.0.2"
+        "templateVersion": "2.0.3"
     }
 }

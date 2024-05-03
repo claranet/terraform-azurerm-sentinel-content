@@ -17,7 +17,12 @@
         ],
         "entityMappings": [
             {
+                "entityType": "Account",
                 "fieldMappings": [
+                    {
+                        "columnName": "SourceUserName",
+                        "identifier": "FullName"
+                    },
                     {
                         "columnName": "Name",
                         "identifier": "Name"
@@ -26,11 +31,15 @@
                         "columnName": "UPNSuffix",
                         "identifier": "UPNSuffix"
                     }
-                ],
-                "entityType": "Account"
+                ]
             },
             {
+                "entityType": "Host",
                 "fieldMappings": [
+                    {
+                        "columnName": "DeviceName",
+                        "identifier": "FullName"
+                    },
                     {
                         "columnName": "HostName",
                         "identifier": "HostName"
@@ -39,28 +48,28 @@
                         "columnName": "DnsDomain",
                         "identifier": "DnsDomain"
                     }
-                ],
-                "entityType": "Host"
+                ]
             },
             {
+                "entityType": "IP",
                 "fieldMappings": [
                     {
                         "columnName": "SourceIP",
                         "identifier": "Address"
                     }
-                ],
-                "entityType": "IP"
+                ]
             },
             {
+                "entityType": "URL",
                 "fieldMappings": [
                     {
                         "columnName": "Url",
                         "identifier": "Url"
                     }
-                ],
-                "entityType": "URL"
+                ]
             },
             {
+                "entityType": "FileHash",
                 "fieldMappings": [
                     {
                         "columnName": "FileHashValue",
@@ -70,11 +79,10 @@
                         "columnName": "FileHashType",
                         "identifier": "Algorithm"
                     }
-                ],
-                "entityType": "FileHash"
+                ]
             }
         ],
         "alertRuleTemplateName": "5d33fc63-b83b-4913-b95e-94d13f0d379f",
-        "templateVersion": "1.3.4"
+        "templateVersion": "1.3.5"
     }
 }
