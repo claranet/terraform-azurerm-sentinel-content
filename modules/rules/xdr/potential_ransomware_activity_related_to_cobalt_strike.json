@@ -26,7 +26,6 @@
         ],
         "entityMappings": [
             {
-                "entityType": "Host",
                 "fieldMappings": [
                     {
                         "columnName": "DeviceName",
@@ -40,10 +39,10 @@
                         "columnName": "DnsDomain",
                         "identifier": "DnsDomain"
                     }
-                ]
+                ],
+                "entityType": "Host"
             },
             {
-                "entityType": "Account",
                 "fieldMappings": [
                     {
                         "columnName": "AccountFullName",
@@ -57,19 +56,20 @@
                         "columnName": "AccountDomain",
                         "identifier": "DnsDomain"
                     }
-                ]
+                ],
+                "entityType": "Account"
             },
             {
-                "entityType": "IP",
                 "fieldMappings": [
                     {
                         "columnName": "RemoteIP",
                         "identifier": "Address"
                     }
-                ]
+                ],
+                "entityType": "IP"
             }
         ],
         "alertRuleTemplateName": "4bd9ce9d-8586-4beb-8fdb-bd018cacbe7d",
-        "templateVersion": "1.0.0"
+        "templateVersion": "1.0.1"
     }
 }
