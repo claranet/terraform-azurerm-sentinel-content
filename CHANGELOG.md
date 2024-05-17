@@ -1,3 +1,25 @@
+## 7.4.0 (2024-05-17)
+
+
+### Features
+
+* bump `Microsoft XDR` package template version to 3.0.5 + update embedded rules 7d3b911
+* bump `SentinelOne` package template version to 3.0.1 727ccfa
+
+
+### Bug Fixes
+
+* correct entities for rule `Possible Phishing with CSL and Network Sessions` 08a77e2
+
+
+### Miscellaneous Chores
+
+* **deps:** update dependency opentofu to v1.7.1 3c72b13
+* **deps:** update dependency pre-commit to v3.7.1 9af19df
+* **deps:** update dependency tflint to v0.51.1 b37351d
+* **deps:** update dependency trivy to v0.51.0 bdb8b0a
+* **deps:** update dependency trivy to v0.51.1 d20e8ba
+
 ## 7.3.0 (2024-05-03)
 
 
