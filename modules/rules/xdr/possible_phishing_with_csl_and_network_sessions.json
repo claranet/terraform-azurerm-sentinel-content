@@ -46,11 +46,11 @@
                     },
                     {
                         "identifier": "Name",
-                        "columnName": "Name"
+                        "columnName": "RecipientEmailName"
                     },
                     {
                         "identifier": "UPNSuffix",
-                        "columnName": "UPNSuffix"
+                        "columnName": "RecipientEmailUPNSuffix"
                     }
                 ],
                 "entityType": "Account"
