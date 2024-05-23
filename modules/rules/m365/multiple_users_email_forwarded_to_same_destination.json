@@ -22,7 +22,12 @@
         ],
         "entityMappings": [
             {
+                "entityType": "Account",
                 "fieldMappings": [
+                    {
+                        "identifier": "FullName",
+                        "columnName": "UserId"
+                    },
                     {
                         "identifier": "Name",
                         "columnName": "AccountName"
@@ -31,20 +36,19 @@
                         "identifier": "UPNSuffix",
                         "columnName": "AccountUPNSuffix"
                     }
-                ],
-                "entityType": "Account"
+                ]
             },
             {
+                "entityType": "IP",
                 "fieldMappings": [
                     {
                         "identifier": "Address",
                         "columnName": "ClientIP"
                     }
-                ],
-                "entityType": "IP"
+                ]
             }
         ],
         "alertRuleTemplateName": "871ba14c-88ef-48aa-ad38-810f26760ca3",
-        "templateVersion": "2.0.2"
+        "templateVersion": "2.0.3"
     }
 }
