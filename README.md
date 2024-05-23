@@ -9,6 +9,7 @@ Solutions and rules are directly retrieved from the [Microsoft Sentinel Content 
 __Current log sources supported__ :
 - _aws_
 - _azure\_firewall_
+- _azure\_waf_
 - _cef_
 - _cisco\_meraki_
 - _entra\_id_
