@@ -20,7 +20,12 @@
         ],
         "entityMappings": [
             {
+                "entityType": "Account",
                 "fieldMappings": [
+                    {
+                        "identifier": "FullName",
+                        "columnName": "UserId"
+                    },
                     {
                         "identifier": "Name",
                         "columnName": "AccountName"
@@ -29,45 +34,44 @@
                         "identifier": "UPNSuffix",
                         "columnName": "AccountUPNSuffix"
                     }
-                ],
-                "entityType": "Account"
+                ]
             },
             {
+                "entityType": "IP",
                 "fieldMappings": [
                     {
                         "identifier": "Address",
                         "columnName": "ClientIP"
                     }
-                ],
-                "entityType": "IP"
+                ]
             },
             {
+                "entityType": "File",
                 "fieldMappings": [
                     {
                         "identifier": "Name",
                         "columnName": "FileSample"
                     }
-                ],
-                "entityType": "File"
+                ]
             }
         ],
         "customDetails": {
-            "TransferCount": "count_distinct_OfficeObjectId",
-            "FilesList": "fileslist"
+            "FilesList": "fileslist",
+            "TransferCount": "count_distinct_OfficeObjectId"
         },
         "incidentConfiguration": {
+            "createIncident": true,
             "groupingConfiguration": {
-                "matchingMethod": "Selected",
-                "lookbackDuration": "PT5H",
-                "reopenClosedIncident": false,
-                "enabled": true,
                 "groupByEntities": [
                     "Account"
-                ]
-            },
-            "createIncident": true
+                ],
+                "matchingMethod": "Selected",
+                "enabled": true,
+                "lookbackDuration": "PT5H",
+                "reopenClosedIncident": false
+            }
         },
         "alertRuleTemplateName": "8b4f03e7-3460-4401-824d-e65a8dd464f0",
-        "templateVersion": "1.0.2"
+        "templateVersion": "1.0.3"
     }
 }
