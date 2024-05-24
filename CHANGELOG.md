@@ -1,3 +1,17 @@
+## 7.5.0 (2024-05-24)
+
+
+### Features
+
+* **AZ-1411:** add `Azure Web Application Firewall` package f521366
+* bump `Microsoft 365` package template version to 3.0.2 + update embedded rules 0bce161
+* bump `Microsoft XDR` package template version to 3.0.6 + update embedded rules cf38130
+
+
+### Miscellaneous Chores
+
+* **deps:** update dependency trivy to v0.51.2 fc7cca0
+
 ## 7.4.0 (2024-05-17)
 
 
