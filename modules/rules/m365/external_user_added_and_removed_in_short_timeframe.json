@@ -32,7 +32,7 @@
                     },
                     {
                         "identifier": "UPNSuffix",
-                        "columnName": "MemberAdded_RemovedAccountUPNSuffix"
+                        "columnName": "MemberAddedAccountUPNSuffix"
                     }
                 ]
             },

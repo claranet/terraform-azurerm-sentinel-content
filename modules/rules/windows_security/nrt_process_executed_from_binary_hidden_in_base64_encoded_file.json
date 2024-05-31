@@ -21,10 +21,6 @@
             {
                 "fieldMappings": [
                     {
-                        "identifier": "FullName",
-                        "columnName": "TargetAccount"
-                    },
-                    {
                         "identifier": "Name",
                         "columnName": "AccountName"
                     },
