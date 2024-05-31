@@ -1,3 +1,21 @@
+## 7.6.0 (2024-05-31)
+
+
+### Features
+
+* bump `Windows Security` package template version to 3.0.6 + update embedded rules 0b5a022
+
+
+### Bug Fixes
+
+* correct entity for rule `External user added and removed in short timeframe` 61c8b82
+
+
+### Miscellaneous Chores
+
+* **deps:** update dependency terraform-docs to v0.18.0 fa9ebd8
+* **deps:** update dependency trivy to v0.51.4 1f803aa
+
 ## 7.5.0 (2024-05-24)
 
 
