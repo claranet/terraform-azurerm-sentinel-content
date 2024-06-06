@@ -22,76 +22,76 @@
         ],
         "entityMappings": [
             {
+                "entityType": "Account",
                 "fieldMappings": [
                     {
-                        "identifier": "FullName",
-                        "columnName": "InitiatingProcessAccountUpn"
+                        "columnName": "InitiatingProcessAccountUpn",
+                        "identifier": "FullName"
                     },
                     {
-                        "identifier": "Name",
-                        "columnName": "InitiatingProcessAccountName"
+                        "columnName": "InitiatingProcessAccountName",
+                        "identifier": "Name"
                     },
                     {
-                        "identifier": "UPNSuffix",
-                        "columnName": "InitiatingProcessAccountDomain"
+                        "columnName": "InitiatingProcessAccountDomain",
+                        "identifier": "UPNSuffix"
                     }
-                ],
-                "entityType": "Account"
+                ]
             },
             {
+                "entityType": "Account",
                 "fieldMappings": [
                     {
-                        "identifier": "FullName",
-                        "columnName": "RecipientEmailAddress"
+                        "columnName": "RecipientEmailAddress",
+                        "identifier": "FullName"
                     },
                     {
-                        "identifier": "Name",
-                        "columnName": "RecipientEmailName"
+                        "columnName": "RecipientEmailName",
+                        "identifier": "Name"
                     },
                     {
-                        "identifier": "UPNSuffix",
-                        "columnName": "RecipientEmailUPNSuffix"
+                        "columnName": "RecipientEmailUPNSuffix",
+                        "identifier": "UPNSuffix"
                     }
-                ],
-                "entityType": "Account"
+                ]
             },
             {
+                "entityType": "Host",
                 "fieldMappings": [
                     {
-                        "identifier": "FullName",
-                        "columnName": "DeviceName"
+                        "columnName": "DeviceName",
+                        "identifier": "FullName"
                     },
                     {
-                        "identifier": "HostName",
-                        "columnName": "HostName"
+                        "columnName": "HostName",
+                        "identifier": "HostName"
                     },
                     {
-                        "identifier": "DnsDomain",
-                        "columnName": "HostNameDomain"
+                        "columnName": "HostNameDomain",
+                        "identifier": "DnsDomain"
                     }
-                ],
-                "entityType": "Host"
+                ]
             },
             {
+                "entityType": "IP",
                 "fieldMappings": [
                     {
-                        "identifier": "Address",
-                        "columnName": "SourceIP"
+                        "columnName": "SourceIP",
+                        "identifier": "Address"
                     }
-                ],
-                "entityType": "IP"
+                ]
             },
             {
+                "entityType": "IP",
                 "fieldMappings": [
                     {
-                        "identifier": "Address",
-                        "columnName": "DestinationIP"
+                        "columnName": "DestinationIP",
+                        "identifier": "Address"
                     }
-                ],
-                "entityType": "IP"
+                ]
             }
         ],
         "alertRuleTemplateName": "6c3a1258-bcdd-4fcd-b753-1a9bc826ce12",
-        "templateVersion": "1.1.0"
+        "templateVersion": "1.1.1"
     }
 }
