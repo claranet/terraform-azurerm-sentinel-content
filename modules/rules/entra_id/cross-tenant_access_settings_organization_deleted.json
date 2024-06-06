@@ -4,7 +4,7 @@
         "description": "Organizations are added in the Cross-tenant Access Settings to control communication inbound or outbound for users and applications. This detection notifies when an Organization is deleted from the Microsoft Entra ID Cross-tenant Access Settings.",
         "displayName": "Cross-tenant Access Settings Organization Deleted",
         "enabled": true,
-        "query": "AuditLogs\n| where OperationName has \"Delete partner specific cross-tenant access setting\"\n| extend InitiatedByActionUserInformation = iff(isnotempty(InitiatedBy.user.userPrincipalName), InitiatedBy.user.userPrincipalName, InitiatedBy.app.displayName)\n| extend InitiatedByIPAdress = InitiatedBy.user.ipAddress\n| mv-apply TargetResource = TargetResources on\n  (\n      where TargetResource.type =~ \"Policy\"\n      | extend Properties = TargetResource.modifiedProperties\n  )\n| mv-apply Property = Properties on\n  (\n      where Property.displayName =~ \"tenantId\"\n      | extend ExtTenantDeleted = trim('\"',tostring(Property.oldValue))\n  )\n| extend Name = tostring(split(InitiatedByActionUserInformation,'@',0)[0]), UPNSuffix = tostring(split(InitiatedByActionUserInformation,'@',1)[0])\n",
+        "query": "AuditLogs\n| where OperationName has \"Delete partner specific cross-tenant access setting\"\n| mv-apply TargetResource = TargetResources on\n  (\n      where TargetResource.type =~ \"Policy\"\n      | extend Properties = TargetResource.modifiedProperties\n  )\n| mv-apply Property = Properties on\n  (\n      where Property.displayName =~ \"tenantId\"\n      | extend ExtTenantDeleted = trim('\"',tostring(Property.oldValue))\n  )\n| extend InitiatingAppName = tostring(InitiatedBy.app.displayName)\n| extend InitiatingAppServicePrincipalId = tostring(InitiatedBy.app.servicePrincipalId)\n| extend InitiatingUserPrincipalName = tostring(InitiatedBy.user.userPrincipalName)\n| extend InitiatingAadUserId = tostring(InitiatedBy.user.id)\n| extend InitiatingIpAddress = tostring(iff(isnotempty(InitiatedBy.user.ipAddress), InitiatedBy.user.ipAddress, InitiatedBy.app.ipAddress))\n| extend InitiatingAccountName = tostring(split(InitiatingUserPrincipalName, \"@\")[0]), InitiatingAccountUPNSuffix = tostring(split(InitiatingUserPrincipalName, \"@\")[1])\n",
         "queryFrequency": "P2D",
         "queryPeriod": "P2D",
         "severity": "Medium",
@@ -24,29 +24,55 @@
         ],
         "entityMappings": [
             {
+                "entityType": "Account",
                 "fieldMappings": [
                     {
-                        "columnName": "Name",
+                        "columnName": "InitiatingAppName",
                         "identifier": "Name"
                     },
                     {
-                        "columnName": "UPNSuffix",
-                        "identifier": "UPNSuffix"
+                        "columnName": "InitiatingAppServicePrincipalId",
+                        "identifier": "AadUserId"
                     }
-                ],
-                "entityType": "Account"
+                ]
             },
             {
+                "entityType": "Account",
                 "fieldMappings": [
                     {
-                        "columnName": "InitiatedByIPAdress",
+                        "columnName": "InitiatingUserPrincipalName",
+                        "identifier": "FullName"
+                    },
+                    {
+                        "columnName": "InitiatingAccountName",
+                        "identifier": "Name"
+                    },
+                    {
+                        "columnName": "InitiatingAccountUPNSuffix",
+                        "identifier": "UPNSuffix"
+                    }
+                ]
+            },
+            {
+                "entityType": "Account",
+                "fieldMappings": [
+                    {
+                        "columnName": "InitiatingAadUserId",
+                        "identifier": "AadUserId"
+                    }
+                ]
+            },
+            {
+                "entityType": "IP",
+                "fieldMappings": [
+                    {
+                        "columnName": "InitiatingIpAddress",
                         "identifier": "Address"
                     }
-                ],
-                "entityType": "IP"
+                ]
             }
         ],
         "alertRuleTemplateName": "eb8a9c1c-f532-4630-817c-1ecd8a60ed80",
-        "templateVersion": "1.0.2"
+        "templateVersion": "1.1.0"
     }
 }
