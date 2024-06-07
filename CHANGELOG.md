@@ -1,3 +1,23 @@
+## 7.7.0 (2024-06-07)
+
+
+### Features
+
+* bump `Common Event Format` package template version to 3.0.0 d04d177
+* bump `Microsoft Entra ID` package template version to 3.2.5 + update embedded rules c5d25a1
+* bump `Microsoft XDR` package template version to 3.0.7 + update embedded rules 4961083
+
+
+### Bug Fixes
+
+* correct entity for rule `External user added and removed in short timeframe` efca180
+
+
+### Miscellaneous Chores
+
+* **deps:** update dependency opentofu to v1.7.2 b7fe26e
+* **deps:** update dependency trivy to v0.52.0 4ffbdf9
+
 ## 7.6.0 (2024-05-31)
 
 
