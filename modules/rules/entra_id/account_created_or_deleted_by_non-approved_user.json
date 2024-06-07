@@ -4,7 +4,7 @@
         "description": "Identifies accounts that were created or deleted by a defined list of non-approved user principal names. Add to this list before running the query for accurate results.\nRef : https://docs.microsoft.com/azure/active-directory/fundamentals/security-operations-user-accounts",
         "displayName": "Account created or deleted by non-approved user",
         "enabled": true,
-        "query": "// Add non-approved user principal names to the list below to search for their account creation/deletion activity\n// ex: dynamic([\"UPN1\", \"upn123\"])\nlet nonapproved_users = dynamic([]);\nAuditLogs\n| where OperationName =~ \"Add user\" or OperationName =~ \"Delete user\"\n| where Result =~ \"success\"\n| extend InitiatingUser = tostring(InitiatedBy.user.userPrincipalName)\n| where InitiatingUser has_any (nonapproved_users)\n| project-reorder TimeGenerated, ResourceId, OperationName, InitiatingUser, TargetResources\n| extend InitiatedUserIpAddress = tostring(InitiatedBy.user.ipAddress)\n| extend Name = tostring(split(InitiatingUser,'@',0)[0]), UPNSuffix = tostring(split(InitiatingUser,'@',1)[0])\n",
+        "query": "// Add non-approved user principal names or apps to the list below to search for their account creation/deletion activity\n// ex: dynamic([\"UPN1\", \"upn123\"])\nlet nonapproved_users = dynamic([]);\nlet nonapproved_apps = dynamic([]);\nAuditLogs\n| where OperationName =~ \"Add user\" or OperationName =~ \"Delete user\"\n| where Result =~ \"success\"\n| extend InitiatingAppName = tostring(InitiatedBy.app.displayName)\n| extend InitiatingAppServicePrincipalId = tostring(InitiatedBy.app.servicePrincipalId)\n| extend InitiatingUserPrincipalName = tostring(InitiatedBy.user.userPrincipalName)\n| extend InitiatingAadUserId = tostring(InitiatedBy.user.id)\n| extend InitiatingIpAddress = tostring(iff(isnotempty(InitiatedBy.user.ipAddress), InitiatedBy.user.ipAddress, InitiatedBy.app.ipAddress))\n| where InitiatingUserPrincipalName has_any (nonapproved_users) or InitiatingAppName has_any (nonapproved_apps)\n| extend InitiatingAccountName = tostring(split(InitiatingUserPrincipalName, \"@\")[0]), InitiatingAccountUPNSuffix = tostring(split(InitiatingUserPrincipalName, \"@\")[1])\n",
         "queryFrequency": "P1D",
         "queryPeriod": "P1D",
         "severity": "Medium",
@@ -20,29 +20,55 @@
         ],
         "entityMappings": [
             {
+                "entityType": "Account",
                 "fieldMappings": [
                     {
-                        "columnName": "Name",
+                        "columnName": "InitiatingAppName",
                         "identifier": "Name"
                     },
                     {
-                        "columnName": "UPNSuffix",
-                        "identifier": "UPNSuffix"
+                        "columnName": "InitiatingAppServicePrincipalId",
+                        "identifier": "AadUserId"
                     }
-                ],
-                "entityType": "Account"
+                ]
             },
             {
+                "entityType": "Account",
                 "fieldMappings": [
                     {
-                        "columnName": "InitiatedUserIpAddress",
+                        "columnName": "InitiatingUserPrincipalName",
+                        "identifier": "FullName"
+                    },
+                    {
+                        "columnName": "InitiatingAccountName",
+                        "identifier": "Name"
+                    },
+                    {
+                        "columnName": "InitiatingAccountUPNSuffix",
+                        "identifier": "UPNSuffix"
+                    }
+                ]
+            },
+            {
+                "entityType": "Account",
+                "fieldMappings": [
+                    {
+                        "columnName": "InitiatingAadUserId",
+                        "identifier": "AadUserId"
+                    }
+                ]
+            },
+            {
+                "entityType": "IP",
+                "fieldMappings": [
+                    {
+                        "columnName": "InitiatingIpAddress",
                         "identifier": "Address"
                     }
-                ],
-                "entityType": "IP"
+                ]
             }
         ],
         "alertRuleTemplateName": "6d63efa6-7c25-4bd4-a486-aa6bf50fde8a",
-        "templateVersion": "1.0.2"
+        "templateVersion": "1.1.0"
     }
 }
