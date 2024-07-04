@@ -48,7 +48,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
             ],
             "properties": {
-                "description": "Syslog data connector with template version 3.0.3",
+                "description": "Syslog data connector with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -78,7 +78,7 @@
                                         {
                                             "type": "IsConnectedQuery",
                                             "value": [
-                                                "Syslog\n   | where TimeGenerated > ago(3d)\n       |take 1\n       | project IsConnected = true"
+                                                "Syslog | extend TimeGenerated = ingestion_time() \n        | where TimeGenerated > ago(7d) \n        | summarize by _ResourceId, bin(TimeGenerated, 1m) \n        | join kind=inner (Heartbeat \n            | where TimeGenerated > ago(7d) \n            | where Category != \"Azure Monitor Agent\" \n            | summarize by _ResourceId, bin(TimeGenerated, 1m)) on _ResourceId, TimeGenerated \n        | summarize LastLogReceived = max(TimeGenerated) \n        | project IsConnected = LastLogReceived > ago(7d) "
                                             ]
                                         }
                                     ],
@@ -120,7 +120,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Syslog",
                 "packageId": "azuresentinel.azure-sentinel-solution-syslog",
                 "contentSchemaVersion": "3.0.0",
@@ -191,7 +191,7 @@
                         {
                             "type": "IsConnectedQuery",
                             "value": [
-                                "Syslog\n   | where TimeGenerated > ago(3d)\n       |take 1\n       | project IsConnected = true"
+                                "Syslog | extend TimeGenerated = ingestion_time() \n        | where TimeGenerated > ago(7d) \n        | summarize by _ResourceId, bin(TimeGenerated, 1m) \n        | join kind=inner (Heartbeat \n            | where TimeGenerated > ago(7d) \n            | where Category != \"Azure Monitor Agent\" \n            | summarize by _ResourceId, bin(TimeGenerated, 1m)) on _ResourceId, TimeGenerated \n        | summarize LastLogReceived = max(TimeGenerated) \n        | project IsConnected = LastLogReceived > ago(7d) "
                             ]
                         }
                     ],
@@ -209,7 +209,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
             ],
             "properties": {
-                "description": "Syslog data connector with template version 3.0.3",
+                "description": "Syslog data connector with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -281,7 +281,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Syslog",
                 "packageId": "azuresentinel.azure-sentinel-solution-syslog",
                 "contentSchemaVersion": "3.0.0",
@@ -369,7 +369,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
             ],
             "properties": {
-                "description": "LinuxMachines Workbook with template version 3.0.3",
+                "description": "LinuxMachines Workbook with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1.0",
@@ -436,7 +436,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Syslog",
                 "packageId": "azuresentinel.azure-sentinel-solution-syslog",
                 "contentSchemaVersion": "3.0.0",
@@ -458,10 +458,10 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
             ],
             "properties": {
-                "description": "FailedLogonAttempts_UnknownUser_AnalyticalRules Analytics Rule with template version 3.0.3",
+                "description": "FailedLogonAttempts_UnknownUser_AnalyticalRules Analytics Rule with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.4",
+                    "contentVersion": "1.0.5",
                     "parameters": {},
                     "variables": {},
                     "resources": [
@@ -472,7 +472,7 @@
                             "kind": "Scheduled",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
-                                "description": "Identifies failed logon attempts from unknown users in Syslog authpriv logs. The unknown user means the account that tried to log in \nisn't provisioned on the machine. A few hits could indicate someone attempting to access a machine they aren't authorized to access. \nIf there are many of hits, especially from outside your network, it could indicate a brute force attack. \nDefault threshold for logon attempts is 15.",
+                                "description": "Identifies failed logon attempts from unknown users in Syslog authpriv logs. The unknown user means the account that tried to log in isn't provisioned on the machine. A few hits could indicate someone attempting to access a machine they aren't authorized to access. \nIf there are many of hits, especially from outside your network, it could indicate a brute force attack. \nDefault threshold for logon attempts is 15.",
                                 "displayName": "Failed logon attempts in authpriv",
                                 "enabled": false,
                                 "query": "let threshold = 15;\n// Below pulls messages from syslog-authpriv logs where there was an authentication failure with an unknown user.\n// IP address of system attempting logon is also extracted from the SyslogMessage field. Some of these messages\n// are aggregated.\nSyslog\n| where Facility =~ \"authpriv\"\n| where SyslogMessage has \"authentication failure\" and SyslogMessage has \" uid=0\"\n| extend RemoteIP = extract(@\".*?rhost=([\\d.]+).*?\", 1,SyslogMessage)\n| project TimeGenerated, Computer, ProcessName, HostIP, RemoteIP, ProcessID\n| join kind=innerunique (\n    // Below pulls messages from syslog-authpriv logs that show each instance an unknown user tried to logon. \n    Syslog \n    | where Facility =~ \"authpriv\"\n    | where SyslogMessage has \"user unknown\"\n    | project Computer, HostIP, ProcessID\n    ) on Computer, HostIP, ProcessID\n// Count the number of failed logon attempts by External IP and internal machine\n| summarize FirstLogonAttempt = min(TimeGenerated), LatestLogonAttempt = max(TimeGenerated), TotalLogonAttempts = count() by Computer, HostIP, RemoteIP\n// Calculate the time between first and last logon attempt (AttemptPeriodLength)\n| extend TimeBetweenLogonAttempts = LatestLogonAttempt - FirstLogonAttempt\n| where TotalLogonAttempts >= threshold\n| project FirstLogonAttempt, LatestLogonAttempt, TimeBetweenLogonAttempts, TotalLogonAttempts, SourceAddress = RemoteIP, Computer,  HostIP\n| sort by Computer asc nulls last\n",
@@ -506,22 +506,22 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Host",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "FullName",
-                                                "columnName": "Computer"
+                                                "columnName": "Computer",
+                                                "identifier": "FullName"
                                             }
-                                        ],
-                                        "entityType": "Host"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Address",
-                                                "columnName": "HostIP"
+                                                "columnName": "HostIP",
+                                                "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -535,7 +535,7 @@
                                 "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', 'e7ec9fa6-e7f7-41ed-a34b-b956837a3ee6')]",
                                 "contentId": "e7ec9fa6-e7f7-41ed-a34b-b956837a3ee6",
                                 "kind": "AnalyticsRule",
-                                "version": "1.0.4",
+                                "version": "1.0.5",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "Syslog",
@@ -556,17 +556,34 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Syslog",
                 "packageId": "azuresentinel.azure-sentinel-solution-syslog",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "e7ec9fa6-e7f7-41ed-a34b-b956837a3ee6",
                 "contentKind": "AnalyticsRule",
                 "displayName": "Failed logon attempts in authpriv",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-syslog-ar-qxk6ihqfnra2i",
-                "id": "azuresentinel.azure-sentinel-solution-syslog-ar-qxk6ihqfnra2i",
-                "version": "1.0.4",
-                "isDeprecated": false
+                "contentProductId": "azuresentinel.azure-sentinel-solution-syslog-ar-dvhckgmdhoc7s",
+                "id": "azuresentinel.azure-sentinel-solution-syslog-ar-dvhckgmdhoc7s",
+                "version": "1.0.5",
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "Syslog"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "Syslog"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "SyslogAma"
+                        }
+                    ]
+                }
             }
         },
         {
@@ -578,7 +595,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
             ],
             "properties": {
-                "description": "NRT_squid_events_for_mining_pools_AnalyticalRules Analytics Rule with template version 3.0.3",
+                "description": "NRT_squid_events_for_mining_pools_AnalyticalRules Analytics Rule with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -622,31 +639,31 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "FullName",
-                                                "columnName": "User"
+                                                "columnName": "User",
+                                                "identifier": "FullName"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Address",
-                                                "columnName": "SourceIP"
+                                                "columnName": "SourceIP",
+                                                "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     },
                                     {
+                                        "entityType": "URL",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Url",
-                                                "columnName": "URL"
+                                                "columnName": "URL",
+                                                "identifier": "Url"
                                             }
-                                        ],
-                                        "entityType": "URL"
+                                        ]
                                     }
                                 ]
                             }
@@ -681,7 +698,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Syslog",
                 "packageId": "azuresentinel.azure-sentinel-solution-syslog",
                 "contentSchemaVersion": "3.0.0",
@@ -691,7 +708,24 @@
                 "contentProductId": "azuresentinel.azure-sentinel-solution-syslog-ar-n7rjj57f77jv4",
                 "id": "azuresentinel.azure-sentinel-solution-syslog-ar-n7rjj57f77jv4",
                 "version": "1.0.1",
-                "isDeprecated": false
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "Syslog"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "Syslog"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "SyslogAma"
+                        }
+                    ]
+                }
             }
         },
         {
@@ -703,10 +737,10 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
             ],
             "properties": {
-                "description": "squid_cryptomining_pools_AnalyticalRules Analytics Rule with template version 3.0.3",
+                "description": "squid_cryptomining_pools_AnalyticalRules Analytics Rule with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.1",
+                    "contentVersion": "1.0.3",
                     "parameters": {},
                     "variables": {},
                     "resources": [
@@ -717,10 +751,10 @@
                             "kind": "Scheduled",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
-                                "description": "Checks for Squid proxy events in Syslog associated with common mining pools .This query presumes the default Squid log format is being used. \n http://www.squid-cache.org/Doc/config/access_log/",
+                                "description": "Checks for Squid proxy events in Syslog associated with common mining pools. This query presumes the default Squid log format is being used.\n http://www.squid-cache.org/Doc/config/access_log/",
                                 "displayName": "Squid proxy events related to mining pools",
                                 "enabled": false,
-                                "query": "\nlet DomainList = dynamic([\"monerohash.com\", \"do-dear.com\", \"xmrminerpro.com\", \"secumine.net\", \"xmrpool.com\", \"minexmr.org\", \"hashanywhere.com\", \"xmrget.com\", \n\"mininglottery.eu\", \"minergate.com\", \"moriaxmr.com\", \"multipooler.com\", \"moneropools.com\", \"xmrpool.eu\", \"coolmining.club\", \"supportxmr.com\",\n\"minexmr.com\", \"hashvault.pro\", \"xmrpool.net\", \"crypto-pool.fr\", \"xmr.pt\", \"miner.rocks\", \"walpool.com\", \"herominers.com\", \"gntl.co.uk\", \"semipool.com\", \n\"coinfoundry.org\", \"cryptoknight.cc\", \"fairhash.org\", \"baikalmine.com\", \"tubepool.xyz\", \"fairpool.xyz\", \"asiapool.io\", \"coinpoolit.webhop.me\", \"nanopool.org\", \n\"moneropool.com\", \"miner.center\", \"prohash.net\", \"poolto.be\", \"cryptoescrow.eu\", \"monerominers.net\", \"cryptonotepool.org\", \"extrmepool.org\", \"webcoin.me\", \n\"kippo.eu\", \"hashinvest.ws\", \"monero.farm\", \"supportxmr.com\", \"xmrpool.eu\", \"linux-repository-updates.com\", \"1gh.com\", \"dwarfpool.com\", \"hash-to-coins.com\", \n\"hashvault.pro\", \"pool-proxy.com\", \"hashfor.cash\", \"fairpool.cloud\", \"litecoinpool.org\", \"mineshaft.ml\", \"abcxyz.stream\", \"moneropool.ru\", \"cryptonotepool.org.uk\",\n\"extremepool.org\", \"extremehash.com\", \"hashinvest.net\", \"unipool.pro\", \"crypto-pools.org\", \"monero.net\", \"backup-pool.com\", \"mooo.com\", \"freeyy.me\", \"cryptonight.net\",\n\"shscrypto.net\"]);\nSyslog\n| where ProcessName contains \"squid\"\n| extend URL = extract(\"(([A-Z]+ [a-z]{4,5}:\\\\/\\\\/)|[A-Z]+ )([^ :]*)\",3,SyslogMessage), \n        SourceIP = extract(\"([0-9]+ )(([0-9]{1,3})\\\\.([0-9]{1,3})\\\\.([0-9]{1,3})\\\\.([0-9]{1,3}))\",2,SyslogMessage), \n        Status = extract(\"(TCP_(([A-Z]+)(_[A-Z]+)*)|UDP_(([A-Z]+)(_[A-Z]+)*))\",1,SyslogMessage), \n        HTTP_Status_Code = extract(\"(TCP_(([A-Z]+)(_[A-Z]+)*)|UDP_(([A-Z]+)(_[A-Z]+)*))/([0-9]{3})\",8,SyslogMessage),\n        User = extract(\"(CONNECT |GET )([^ ]* )([^ ]+)\",3,SyslogMessage),\n        RemotePort = extract(\"(CONNECT |GET )([^ ]*)(:)([0-9]*)\",4,SyslogMessage),\n        Domain = extract(\"(([A-Z]+ [a-z]{4,5}:\\\\/\\\\/)|[A-Z]+ )([^ :\\\\/]*)\",3,SyslogMessage),\n        Bytes = toint(extract(\"([A-Z]+\\\\/[0-9]{3} )([0-9]+)\",2,SyslogMessage)),\n        contentType = extract(\"([a-z/]+$)\",1,SyslogMessage)\n| extend TLD = extract(\"\\\\.[a-z]*$\",0,Domain)\n| where HTTP_Status_Code == '200'\n| where Domain contains \".\"\n| where Domain has_any (DomainList)\n| extend timestamp = TimeGenerated, URLCustomEntity = URL, IPCustomEntity = SourceIP, AccountCustomEntity = User\n",
+                                "query": "let DomainList = dynamic([\"monerohash.com\", \"do-dear.com\", \"xmrminerpro.com\", \"secumine.net\", \"xmrpool.com\", \"minexmr.org\", \"hashanywhere.com\", \"xmrget.com\",\n\"mininglottery.eu\", \"minergate.com\", \"moriaxmr.com\", \"multipooler.com\", \"moneropools.com\", \"xmrpool.eu\", \"coolmining.club\", \"supportxmr.com\",\n\"minexmr.com\", \"hashvault.pro\", \"xmrpool.net\", \"crypto-pool.fr\", \"xmr.pt\", \"miner.rocks\", \"walpool.com\", \"herominers.com\", \"gntl.co.uk\", \"semipool.com\",\n\"coinfoundry.org\", \"cryptoknight.cc\", \"fairhash.org\", \"baikalmine.com\", \"tubepool.xyz\", \"fairpool.xyz\", \"asiapool.io\", \"coinpoolit.webhop.me\", \"nanopool.org\",\n\"moneropool.com\", \"miner.center\", \"prohash.net\", \"poolto.be\", \"cryptoescrow.eu\", \"monerominers.net\", \"cryptonotepool.org\", \"extrmepool.org\", \"webcoin.me\",\n\"kippo.eu\", \"hashinvest.ws\", \"monero.farm\", \"supportxmr.com\", \"xmrpool.eu\", \"linux-repository-updates.com\", \"1gh.com\", \"dwarfpool.com\", \"hash-to-coins.com\",\n\"hashvault.pro\", \"pool-proxy.com\", \"hashfor.cash\", \"fairpool.cloud\", \"litecoinpool.org\", \"mineshaft.ml\", \"abcxyz.stream\", \"moneropool.ru\", \"cryptonotepool.org.uk\",\n\"extremepool.org\", \"extremehash.com\", \"hashinvest.net\", \"unipool.pro\", \"crypto-pools.org\", \"monero.net\", \"backup-pool.com\", \"mooo.com\", \"freeyy.me\", \"cryptonight.net\",\n\"shscrypto.net\"]);\nSyslog\n| where ProcessName contains \"squid\"\n| extend URL = extract(\"(([A-Z]+ [a-z]{4,5}:\\\\/\\\\/)|[A-Z]+ )([^ :]*)\",3,SyslogMessage),\n        SourceIP = extract(\"([0-9]+ )(([0-9]{1,3})\\\\.([0-9]{1,3})\\\\.([0-9]{1,3})\\\\.([0-9]{1,3}))\",2,SyslogMessage),\n        Status = extract(\"(TCP_(([A-Z]+)(_[A-Z]+)*)|UDP_(([A-Z]+)(_[A-Z]+)*))\",1,SyslogMessage),\n        HTTP_Status_Code = extract(\"(TCP_(([A-Z]+)(_[A-Z]+)*)|UDP_(([A-Z]+)(_[A-Z]+)*))/([0-9]{3})\",8,SyslogMessage),\n        User = extract(\"(CONNECT |GET )([^ ]* )([^ ]+)\",3,SyslogMessage),\n        RemotePort = extract(\"(CONNECT |GET )([^ ]*)(:)([0-9]*)\",4,SyslogMessage),\n        Domain = extract(\"(([A-Z]+ [a-z]{4,5}:\\\\/\\\\/)|[A-Z]+ )([^ :\\\\/]*)\",3,SyslogMessage),\n        Bytes = toint(extract(\"([A-Z]+\\\\/[0-9]{3} )([0-9]+)\",2,SyslogMessage)),\n        contentType = extract(\"([a-z/]+$)\",1,SyslogMessage)\n| extend TLD = extract(\"\\\\.[a-z]*$\",0,Domain)\n| where HTTP_Status_Code == '200'\n| where Domain contains \".\"\n| where Domain has_any (DomainList)\n| extend timestamp = TimeGenerated, URLCustomEntity = URL, IPCustomEntity = SourceIP, AccountCustomEntity = User\n",
                                 "queryFrequency": "P1D",
                                 "queryPeriod": "P1D",
                                 "severity": "Low",
@@ -751,31 +785,31 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "FullName",
-                                                "columnName": "AccountCustomEntity"
+                                                "columnName": "AccountCustomEntity",
+                                                "identifier": "FullName"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Address",
-                                                "columnName": "IPCustomEntity"
+                                                "columnName": "IPCustomEntity",
+                                                "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     },
                                     {
+                                        "entityType": "URL",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Url",
-                                                "columnName": "URLCustomEntity"
+                                                "columnName": "URLCustomEntity",
+                                                "identifier": "Url"
                                             }
-                                        ],
-                                        "entityType": "URL"
+                                        ]
                                     }
                                 ]
                             }
@@ -789,7 +823,7 @@
                                 "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '80733eb7-35b2-45b6-b2b8-3c51df258206')]",
                                 "contentId": "80733eb7-35b2-45b6-b2b8-3c51df258206",
                                 "kind": "AnalyticsRule",
-                                "version": "1.0.1",
+                                "version": "1.0.3",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "Syslog",
@@ -810,17 +844,34 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Syslog",
                 "packageId": "azuresentinel.azure-sentinel-solution-syslog",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "80733eb7-35b2-45b6-b2b8-3c51df258206",
                 "contentKind": "AnalyticsRule",
                 "displayName": "Squid proxy events related to mining pools",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-syslog-ar-dcw6k52czlnqe",
-                "id": "azuresentinel.azure-sentinel-solution-syslog-ar-dcw6k52czlnqe",
-                "version": "1.0.1",
-                "isDeprecated": false
+                "contentProductId": "azuresentinel.azure-sentinel-solution-syslog-ar-hw5sz7bcpvnvk",
+                "id": "azuresentinel.azure-sentinel-solution-syslog-ar-hw5sz7bcpvnvk",
+                "version": "1.0.3",
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "Syslog"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "Syslog"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "SyslogAma"
+                        }
+                    ]
+                }
             }
         },
         {
@@ -832,10 +883,10 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
             ],
             "properties": {
-                "description": "squid_tor_proxies_AnalyticalRules Analytics Rule with template version 3.0.3",
+                "description": "squid_tor_proxies_AnalyticalRules Analytics Rule with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.1",
+                    "contentVersion": "1.0.2",
                     "parameters": {},
                     "variables": {},
                     "resources": [
@@ -849,7 +900,7 @@
                                 "description": "Check for Squid proxy events associated with common ToR proxies. This query presumes the default squid log format is being used.\nhttp://www.squid-cache.org/Doc/config/access_log/",
                                 "displayName": "Squid proxy events for ToR proxies",
                                 "enabled": false,
-                                "query": "\nlet DomainList = dynamic([\"tor2web.org\", \"tor2web.com\", \"torlink.co\", \"onion.to\", \"onion.ink\", \"onion.cab\", \"onion.nu\", \"onion.link\", \n\"onion.it\", \"onion.city\", \"onion.direct\", \"onion.top\", \"onion.casa\", \"onion.plus\", \"onion.rip\", \"onion.dog\", \"tor2web.fi\", \n\"tor2web.blutmagie.de\", \"onion.sh\", \"onion.lu\", \"onion.pet\", \"t2w.pw\", \"tor2web.ae.org\", \"tor2web.io\", \"tor2web.xyz\", \"onion.lt\", \n\"s1.tor-gateways.de\", \"s2.tor-gateways.de\", \"s3.tor-gateways.de\", \"s4.tor-gateways.de\", \"s5.tor-gateways.de\", \"hiddenservice.net\"]);\nSyslog\n| where ProcessName contains \"squid\"\n| extend URL = extract(\"(([A-Z]+ [a-z]{4,5}:\\\\/\\\\/)|[A-Z]+ )([^ :]*)\",3,SyslogMessage), \n        SourceIP = extract(\"([0-9]+ )(([0-9]{1,3})\\\\.([0-9]{1,3})\\\\.([0-9]{1,3})\\\\.([0-9]{1,3}))\",2,SyslogMessage), \n        Status = extract(\"(TCP_(([A-Z]+)(_[A-Z]+)*)|UDP_(([A-Z]+)(_[A-Z]+)*))\",1,SyslogMessage), \n        HTTP_Status_Code = extract(\"(TCP_(([A-Z]+)(_[A-Z]+)*)|UDP_(([A-Z]+)(_[A-Z]+)*))/([0-9]{3})\",8,SyslogMessage),\n        User = extract(\"(CONNECT |GET )([^ ]* )([^ ]+)\",3,SyslogMessage),\n        RemotePort = extract(\"(CONNECT |GET )([^ ]*)(:)([0-9]*)\",4,SyslogMessage),\n        Domain = extract(\"(([A-Z]+ [a-z]{4,5}:\\\\/\\\\/)|[A-Z]+ )([^ :\\\\/]*)\",3,SyslogMessage),\n        Bytes = toint(extract(\"([A-Z]+\\\\/[0-9]{3} )([0-9]+)\",2,SyslogMessage)),\n        contentType = extract(\"([a-z/]+$)\",1,SyslogMessage)\n| extend TLD = extract(\"\\\\.[a-z]*$\",0,Domain)\n| where HTTP_Status_Code == \"200\"\n| where Domain contains \".\"\n| where Domain has_any (DomainList)\n| extend timestamp = TimeGenerated, URLCustomEntity = URL, IPCustomEntity = SourceIP, AccountCustomEntity = User\n",
+                                "query": "let DomainList = dynamic([\"tor2web.org\", \"tor2web.com\", \"torlink.co\", \"onion.to\", \"onion.ink\", \"onion.cab\", \"onion.nu\", \"onion.link\",\n\"onion.it\", \"onion.city\", \"onion.direct\", \"onion.top\", \"onion.casa\", \"onion.plus\", \"onion.rip\", \"onion.dog\", \"tor2web.fi\",\n\"tor2web.blutmagie.de\", \"onion.sh\", \"onion.lu\", \"onion.pet\", \"t2w.pw\", \"tor2web.ae.org\", \"tor2web.io\", \"tor2web.xyz\", \"onion.lt\",\n\"s1.tor-gateways.de\", \"s2.tor-gateways.de\", \"s3.tor-gateways.de\", \"s4.tor-gateways.de\", \"s5.tor-gateways.de\", \"hiddenservice.net\"]);\nSyslog\n| where ProcessName contains \"squid\"\n| extend URL = extract(\"(([A-Z]+ [a-z]{4,5}:\\\\/\\\\/)|[A-Z]+ )([^ :]*)\",3,SyslogMessage),\n        SourceIP = extract(\"([0-9]+ )(([0-9]{1,3})\\\\.([0-9]{1,3})\\\\.([0-9]{1,3})\\\\.([0-9]{1,3}))\",2,SyslogMessage),\n        Status = extract(\"(TCP_(([A-Z]+)(_[A-Z]+)*)|UDP_(([A-Z]+)(_[A-Z]+)*))\",1,SyslogMessage),\n        HTTP_Status_Code = extract(\"(TCP_(([A-Z]+)(_[A-Z]+)*)|UDP_(([A-Z]+)(_[A-Z]+)*))/([0-9]{3})\",8,SyslogMessage),\n        User = extract(\"(CONNECT |GET )([^ ]* )([^ ]+)\",3,SyslogMessage),\n        RemotePort = extract(\"(CONNECT |GET )([^ ]*)(:)([0-9]*)\",4,SyslogMessage),\n        Domain = extract(\"(([A-Z]+ [a-z]{4,5}:\\\\/\\\\/)|[A-Z]+ )([^ :\\\\/]*)\",3,SyslogMessage),\n        Bytes = toint(extract(\"([A-Z]+\\\\/[0-9]{3} )([0-9]+)\",2,SyslogMessage)),\n        contentType = extract(\"([a-z/]+$)\",1,SyslogMessage)\n| extend TLD = extract(\"\\\\.[a-z]*$\",0,Domain)\n| where HTTP_Status_Code == \"200\"\n| where Domain contains \".\"\n| where Domain has_any (DomainList)\n| extend timestamp = TimeGenerated, URLCustomEntity = URL, IPCustomEntity = SourceIP, AccountCustomEntity = User\n",
                                 "queryFrequency": "P1D",
                                 "queryPeriod": "P1D",
                                 "severity": "Low",
@@ -881,31 +932,31 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "FullName",
-                                                "columnName": "AccountCustomEntity"
+                                                "columnName": "AccountCustomEntity",
+                                                "identifier": "FullName"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Address",
-                                                "columnName": "IPCustomEntity"
+                                                "columnName": "IPCustomEntity",
+                                                "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     },
                                     {
+                                        "entityType": "URL",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Url",
-                                                "columnName": "URLCustomEntity"
+                                                "columnName": "URLCustomEntity",
+                                                "identifier": "Url"
                                             }
-                                        ],
-                                        "entityType": "URL"
+                                        ]
                                     }
                                 ]
                             }
@@ -919,7 +970,7 @@
                                 "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '90d3f6ec-80fb-48e0-9937-2c70c9df9bad')]",
                                 "contentId": "90d3f6ec-80fb-48e0-9937-2c70c9df9bad",
                                 "kind": "AnalyticsRule",
-                                "version": "1.0.1",
+                                "version": "1.0.2",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "Syslog",
@@ -940,17 +991,34 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Syslog",
                 "packageId": "azuresentinel.azure-sentinel-solution-syslog",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "90d3f6ec-80fb-48e0-9937-2c70c9df9bad",
                 "contentKind": "AnalyticsRule",
                 "displayName": "Squid proxy events for ToR proxies",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-syslog-ar-hzfkvau77fqpg",
-                "id": "azuresentinel.azure-sentinel-solution-syslog-ar-hzfkvau77fqpg",
-                "version": "1.0.1",
-                "isDeprecated": false
+                "contentProductId": "azuresentinel.azure-sentinel-solution-syslog-ar-36kbdn3wmdxsi",
+                "id": "azuresentinel.azure-sentinel-solution-syslog-ar-36kbdn3wmdxsi",
+                "version": "1.0.2",
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "Syslog"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "Syslog"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "SyslogAma"
+                        }
+                    ]
+                }
             }
         },
         {
@@ -962,10 +1030,10 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
             ],
             "properties": {
-                "description": "ssh_potentialBruteForce_AnalyticalRules Analytics Rule with template version 3.0.3",
+                "description": "ssh_potentialBruteForce_AnalyticalRules Analytics Rule with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.1.3",
+                    "contentVersion": "1.1.5",
                     "parameters": {},
                     "variables": {},
                     "resources": [
@@ -976,10 +1044,10 @@
                             "kind": "Scheduled",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
-                                "description": "Identifies an IP address that had 15 failed attempts to sign in via SSH in a 4 hour block during a 24 hour time period.\n Please note that entity mapping for arrays is not supported, so when there is a single value in an array, we will pull that\n value from the array as a single string to populate the entity to support entity mapping features within Sentinel. Additionally,\n if the array is multivalued, we will input a string to indicate this with a unique hash so that matching will not occur.\n As an example - ComputerList is an array that we check for a single value and write that into the HostName field for use in \n the entity mapping within Sentinel.",
+                                "description": "Identifies an IP address that had 15 failed attempts to sign in via SSH in a 4 hour block during a 24 hour time period.\n Please note that entity mapping for arrays is not supported, so when there is a single value in an array, we will pull that value from the array as a single string to populate the entity to support entity mapping features within Sentinel. Additionally, if the array is multivalued, we will input a string to indicate this with a unique hash so that matching will not occur.\n As an example - ComputerList is an array that we check for a single value and write that into the HostName field for use in the entity mapping within Sentinel.",
                                 "displayName": "SSH - Potential Brute Force",
                                 "enabled": false,
-                                "query": "\nlet threshold = 15;\nSyslog\n| where ProcessName =~ \"sshd\" \n| where SyslogMessage contains \"Failed password for invalid user\"\n| parse kind=relaxed SyslogMessage with * \"invalid user \" user \" from \" ip \" port\" port \" ssh2\" *\n// using distinct below as it has been seen that Syslog can duplicate entries depending on implementation\n| distinct TimeGenerated, Computer, user, ip, port, SyslogMessage, _ResourceId\n| summarize EventTimes = make_list(TimeGenerated), PerHourCount = count() by bin(TimeGenerated,4h), ip, Computer, user, _ResourceId\n| where PerHourCount > threshold\n| mvexpand EventTimes\n| extend EventTimes = tostring(EventTimes) \n| summarize StartTime = min(EventTimes), EndTime = max(EventTimes), UserList = make_set(user), ComputerList = make_set(Computer), ResourceIdList = make_set(_ResourceId), sum(PerHourCount) by IPAddress = ip\n// bringing through single computer and user if array only has 1, otherwise, referencing the column and hashing the ComputerList or UserList so we don't get accidental entity matches when reviewing alerts\n| extend HostName = iff(array_length(ComputerList) == 1, tostring(ComputerList[0]), strcat(\"SeeComputerListField\",\"_\", tostring(hash(tostring(ComputerList)))))\n| extend Account = iff(array_length(ComputerList) == 1, tostring(UserList[0]), strcat(\"SeeUserListField\",\"_\", tostring(hash(tostring(UserList)))))\n| extend ResourceId = iff(array_length(ResourceIdList) == 1, tostring(ResourceIdList[0]), strcat(\"SeeResourceIdListField\",\"_\", tostring(hash(tostring(ResourceIdList)))))\n",
+                                "query": "let threshold = 15;\nSyslog\n| where ProcessName =~ \"sshd\"\n| where SyslogMessage contains \"Failed password for invalid user\"\n| parse kind=relaxed SyslogMessage with * \"invalid user \" user \" from \" ip \" port\" port \" ssh2\" *\n// using distinct below as it has been seen that Syslog can duplicate entries depending on implementation\n| distinct TimeGenerated, Computer, user, ip, port, SyslogMessage, _ResourceId\n| summarize EventTimes = make_list(TimeGenerated), PerHourCount = count() by bin(TimeGenerated,4h), ip, Computer, user, _ResourceId\n| where PerHourCount > threshold\n| mvexpand EventTimes\n| extend EventTimes = tostring(EventTimes)\n| summarize StartTime = min(EventTimes), EndTime = max(EventTimes), UserList = make_set(user), ComputerList = make_set(Computer), ResourceIdList = make_set(_ResourceId), sum(PerHourCount) by IPAddress = ip\n// bringing through single computer and user if array only has 1, otherwise, referencing the column and hashing the ComputerList or UserList so we don't get accidental entity matches when reviewing alerts\n| extend HostName = iff(array_length(ComputerList) == 1, tostring(ComputerList[0]), strcat(\"SeeComputerListField\",\"_\", tostring(hash(tostring(ComputerList)))))\n| extend Account = iff(array_length(ComputerList) == 1, tostring(UserList[0]), strcat(\"SeeUserListField\",\"_\", tostring(hash(tostring(UserList)))))\n| extend ResourceId = iff(array_length(ResourceIdList) == 1, tostring(ResourceIdList[0]), strcat(\"SeeResourceIdListField\",\"_\", tostring(hash(tostring(ResourceIdList)))))\n",
                                 "queryFrequency": "P1D",
                                 "queryPeriod": "P1D",
                                 "severity": "Low",
@@ -1010,40 +1078,40 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "Account"
+                                                "columnName": "Account",
+                                                "identifier": "Name"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Address",
-                                                "columnName": "IPAddress"
+                                                "columnName": "IPAddress",
+                                                "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     },
                                     {
+                                        "entityType": "Host",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "HostName",
-                                                "columnName": "HostName"
+                                                "columnName": "HostName",
+                                                "identifier": "HostName"
                                             }
-                                        ],
-                                        "entityType": "Host"
+                                        ]
                                     },
                                     {
+                                        "entityType": "AzureResource",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "ResourceId",
-                                                "columnName": "ResourceId"
+                                                "columnName": "ResourceId",
+                                                "identifier": "ResourceId"
                                             }
-                                        ],
-                                        "entityType": "AzureResource"
+                                        ]
                                     }
                                 ]
                             }
@@ -1057,7 +1125,7 @@
                                 "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', 'e1ce0eab-10d1-4aae-863f-9a383345ba88')]",
                                 "contentId": "e1ce0eab-10d1-4aae-863f-9a383345ba88",
                                 "kind": "AnalyticsRule",
-                                "version": "1.1.3",
+                                "version": "1.1.5",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "Syslog",
@@ -1078,17 +1146,34 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Syslog",
                 "packageId": "azuresentinel.azure-sentinel-solution-syslog",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "e1ce0eab-10d1-4aae-863f-9a383345ba88",
                 "contentKind": "AnalyticsRule",
                 "displayName": "SSH - Potential Brute Force",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-syslog-ar-z6cy5f2nlml2m",
-                "id": "azuresentinel.azure-sentinel-solution-syslog-ar-z6cy5f2nlml2m",
-                "version": "1.1.3",
-                "isDeprecated": false
+                "contentProductId": "azuresentinel.azure-sentinel-solution-syslog-ar-qxeuj76rdhzvg",
+                "id": "azuresentinel.azure-sentinel-solution-syslog-ar-qxeuj76rdhzvg",
+                "version": "1.1.5",
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "Syslog"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "Syslog"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "SyslogAma"
+                        }
+                    ]
+                }
             }
         },
         {
@@ -1100,10 +1185,10 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
             ],
             "properties": {
-                "description": "sftp_file_transfer_above_threshold_AnalyticalRules Analytics Rule with template version 3.0.3",
+                "description": "sftp_file_transfer_above_threshold_AnalyticalRules Analytics Rule with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.1",
+                    "contentVersion": "1.0.2",
                     "parameters": {},
                     "variables": {},
                     "resources": [
@@ -1114,7 +1199,7 @@
                             "kind": "Scheduled",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
-                                "description": "Identifies SFTP File Transfers above certain threshold in a 15min time period. It requires SFTP VERBOSE loglevel to be enabled.\n Please note that entity mapping for arrays is not supported, so when there is a single value in an array, we will pull that\n value from the array as a single string to populate the entity to support entity mapping features within Sentinel. Additionally,\n if the array is multivalued, we will input a string to indicate this with a unique hash so that matching will not occur.",
+                                "description": "Identifies SFTP File Transfers above certain threshold in a 15min time period. It requires SFTP VERBOSE loglevel to be enabled.\n Please note that entity mapping for arrays is not supported, so when there is a single value in an array, we will pull that value from the array as a single string to populate the entity to support entity mapping features within Sentinel. Additionally, if the array is multivalued, we will input a string to indicate this with a unique hash so that matching will not occur.",
                                 "displayName": "SFTP File transfer above threshold",
                                 "enabled": false,
                                 "query": "let threshold = 50;\nSyslog\n| where ProcessName has \"sftp\"\n    and SyslogMessage has \"close \"\n    and SyslogMessage has \" bytes read \"\n| parse SyslogMessage with \"close \\\"\" filepath \"\\\" bytes read \" readbytes: int \" written \" writtenbytes: int\n| join kind=leftouter (\n    Syslog\n    | where ProcessName has \"sftp\" and SyslogMessage has \"session opened for\"\n    | parse SyslogMessage with \"session opened for local user \" username: string \" from [\" src_ip \"]\"\n    | project username, src_ip, ProcessID\n    )\n    on ProcessID\n| project-away ProcessID1\n| summarize count_distinct_filepath=dcount(filepath), fileslist=make_set(filepath) by Computer, username, src_ip, bin(TimeGenerated, 15m)\n| where count_distinct_filepath >= threshold\n| extend FileSample = iff(array_length(fileslist) == 1, tostring(fileslist[0]), strcat(\"SeeFilesListField\",\"_\", tostring(hash(tostring(fileslist)))))\n",
@@ -1148,56 +1233,56 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "username"
+                                                "columnName": "username",
+                                                "identifier": "Name"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Address",
-                                                "columnName": "src_ip"
+                                                "columnName": "src_ip",
+                                                "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     },
                                     {
+                                        "entityType": "Host",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "HostName",
-                                                "columnName": "Computer"
+                                                "columnName": "Computer",
+                                                "identifier": "HostName"
                                             }
-                                        ],
-                                        "entityType": "Host"
+                                        ]
                                     },
                                     {
+                                        "entityType": "File",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "FileSample"
+                                                "columnName": "FileSample",
+                                                "identifier": "Name"
                                             }
-                                        ],
-                                        "entityType": "File"
+                                        ]
                                     }
                                 ],
                                 "customDetails": {
-                                    "FilesList": "fileslist",
-                                    "TransferCount": "count_distinct_filepath"
+                                    "TransferCount": "count_distinct_filepath",
+                                    "FilesList": "fileslist"
                                 },
                                 "incidentConfiguration": {
                                     "groupingConfiguration": {
-                                        "lookbackDuration": "5h",
-                                        "matchingMethod": "Selected",
-                                        "enabled": true,
-                                        "reopenClosedIncident": false,
                                         "groupByEntities": [
                                             "Account",
                                             "Host"
-                                        ]
+                                        ],
+                                        "enabled": true,
+                                        "lookbackDuration": "5h",
+                                        "reopenClosedIncident": false,
+                                        "matchingMethod": "Selected"
                                     },
                                     "createIncident": true
                                 }
@@ -1212,7 +1297,7 @@
                                 "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', 'bb6a74c8-889d-4c6e-8412-7d5efe33f4ed')]",
                                 "contentId": "bb6a74c8-889d-4c6e-8412-7d5efe33f4ed",
                                 "kind": "AnalyticsRule",
-                                "version": "1.0.1",
+                                "version": "1.0.2",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "Syslog",
@@ -1233,17 +1318,34 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Syslog",
                 "packageId": "azuresentinel.azure-sentinel-solution-syslog",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "bb6a74c8-889d-4c6e-8412-7d5efe33f4ed",
                 "contentKind": "AnalyticsRule",
                 "displayName": "SFTP File transfer above threshold",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-syslog-ar-vhiqeeq6dazam",
-                "id": "azuresentinel.azure-sentinel-solution-syslog-ar-vhiqeeq6dazam",
-                "version": "1.0.1",
-                "isDeprecated": false
+                "contentProductId": "azuresentinel.azure-sentinel-solution-syslog-ar-gshmwq7v3ceby",
+                "id": "azuresentinel.azure-sentinel-solution-syslog-ar-gshmwq7v3ceby",
+                "version": "1.0.2",
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "Syslog"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "Syslog"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "SyslogAma"
+                        }
+                    ]
+                }
             }
         },
         {
@@ -1255,10 +1357,10 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
             ],
             "properties": {
-                "description": "sftp_file_transfer_folders_above_threshold_AnalyticalRules Analytics Rule with template version 3.0.3",
+                "description": "sftp_file_transfer_folders_above_threshold_AnalyticalRules Analytics Rule with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.1",
+                    "contentVersion": "1.0.2",
                     "parameters": {},
                     "variables": {},
                     "resources": [
@@ -1269,7 +1371,7 @@
                             "kind": "Scheduled",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
-                                "description": "Identifies SFTP File Transfers with distinct folder count above certain threshold in a 15min time period.\n It requires SFTP VERBOSE loglevel to be enabled.\n Please note that entity mapping for arrays is not supported, so when there is a single value in an array, we will pull that\n value from the array as a single string to populate the entity to support entity mapping features within Sentinel. Additionally,\n if the array is multivalued, we will input a string to indicate this with a unique hash so that matching will not occur.",
+                                "description": "Identifies SFTP File Transfers with distinct folder count above certain threshold in a 15min time period.\n It requires SFTP VERBOSE loglevel to be enabled.\n Please note that entity mapping for arrays is not supported, so when there is a single value in an array, we will pull that value from the array as a single string to populate the entity to support entity mapping features within Sentinel. Additionally, if the array is multivalued, we will input a string to indicate this with a unique hash so that matching will not occur.",
                                 "displayName": "SFTP File transfer folder count above threshold",
                                 "enabled": false,
                                 "query": "let threshold = 10;\nSyslog\n| where ProcessName has \"sftp\"\n    and SyslogMessage has \"close \"\n    and SyslogMessage has \" bytes read \"\n| parse SyslogMessage with \"close \\\"\" filepath \"\\\" bytes read \" readbytes: int \" written \" writtenbytes: int\n| parse kind=regex filepath with dirpath:string \"/\" filename:string\n| join kind=leftouter (\n    Syslog\n    | where ProcessName has \"sftp\" and SyslogMessage has \"session opened for\"\n    | parse SyslogMessage with \"session opened for local user \" username: string \" from [\" src_ip \"]\"\n    | project username, src_ip, ProcessID\n    )\n    on ProcessID\n| project-away ProcessID1\n| summarize count_distinct_dirpath=dcount(dirpath), dirlist=make_set(dirpath) by Computer, username, src_ip, bin(TimeGenerated, 15m)\n| where count_distinct_dirpath >= threshold\n| extend DirSample = iff(array_length(dirlist) == 1, tostring(dirlist[0]), strcat(\"SeeDirListField\",\"_\", tostring(hash(tostring(dirlist)))))\n",
@@ -1303,56 +1405,56 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "username"
+                                                "columnName": "username",
+                                                "identifier": "Name"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Address",
-                                                "columnName": "src_ip"
+                                                "columnName": "src_ip",
+                                                "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     },
                                     {
+                                        "entityType": "Host",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "HostName",
-                                                "columnName": "Computer"
+                                                "columnName": "Computer",
+                                                "identifier": "HostName"
                                             }
-                                        ],
-                                        "entityType": "Host"
+                                        ]
                                     },
                                     {
+                                        "entityType": "File",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "DirSample"
+                                                "columnName": "DirSample",
+                                                "identifier": "Name"
                                             }
-                                        ],
-                                        "entityType": "File"
+                                        ]
                                     }
                                 ],
                                 "customDetails": {
-                                    "FilesList": "dirlist",
-                                    "TransferCount": "count_distinct_dirpath"
+                                    "TransferCount": "count_distinct_dirpath",
+                                    "FilesList": "dirlist"
                                 },
                                 "incidentConfiguration": {
                                     "groupingConfiguration": {
-                                        "lookbackDuration": "5h",
-                                        "matchingMethod": "Selected",
-                                        "enabled": true,
-                                        "reopenClosedIncident": false,
                                         "groupByEntities": [
                                             "Account",
                                             "Host"
-                                        ]
+                                        ],
+                                        "enabled": true,
+                                        "lookbackDuration": "5h",
+                                        "reopenClosedIncident": false,
+                                        "matchingMethod": "Selected"
                                     },
                                     "createIncident": true
                                 }
@@ -1367,7 +1469,7 @@
                                 "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '7355434e-09d5-4401-b56d-e03e9379dfb1')]",
                                 "contentId": "7355434e-09d5-4401-b56d-e03e9379dfb1",
                                 "kind": "AnalyticsRule",
-                                "version": "1.0.1",
+                                "version": "1.0.2",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "Syslog",
@@ -1388,17 +1490,34 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Syslog",
                 "packageId": "azuresentinel.azure-sentinel-solution-syslog",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "7355434e-09d5-4401-b56d-e03e9379dfb1",
                 "contentKind": "AnalyticsRule",
                 "displayName": "SFTP File transfer folder count above threshold",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-syslog-ar-ujnzq3ukmwbka",
-                "id": "azuresentinel.azure-sentinel-solution-syslog-ar-ujnzq3ukmwbka",
-                "version": "1.0.1",
-                "isDeprecated": false
+                "contentProductId": "azuresentinel.azure-sentinel-solution-syslog-ar-cljdz5vplw5b6",
+                "id": "azuresentinel.azure-sentinel-solution-syslog-ar-cljdz5vplw5b6",
+                "version": "1.0.2",
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "Syslog"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "Syslog"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "SyslogAma"
+                        }
+                    ]
+                }
             }
         },
         {
@@ -1410,7 +1529,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
             ],
             "properties": {
-                "description": "CryptoCurrencyMiners_HuntingQueries Hunting Query with template version 3.0.3",
+                "description": "CryptoCurrencyMiners_HuntingQueries Hunting Query with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -1474,7 +1593,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Syslog",
                 "packageId": "azuresentinel.azure-sentinel-solution-syslog",
                 "contentSchemaVersion": "3.0.0",
@@ -1496,7 +1615,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
             ],
             "properties": {
-                "description": "SCXExecuteRunAsProviders_HuntingQueries Hunting Query with template version 3.0.3",
+                "description": "SCXExecuteRunAsProviders_HuntingQueries Hunting Query with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.2",
@@ -1560,7 +1679,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Syslog",
                 "packageId": "azuresentinel.azure-sentinel-solution-syslog",
                 "contentSchemaVersion": "3.0.0",
@@ -1582,7 +1701,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
             ],
             "properties": {
-                "description": "CryptoThreatActivity_HuntingQueries Hunting Query with template version 3.0.3",
+                "description": "CryptoThreatActivity_HuntingQueries Hunting Query with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -1646,7 +1765,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Syslog",
                 "packageId": "azuresentinel.azure-sentinel-solution-syslog",
                 "contentSchemaVersion": "3.0.0",
@@ -1668,7 +1787,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
             ],
             "properties": {
-                "description": "RareProcess_ForLxHost_HuntingQueries Hunting Query with template version 3.0.3",
+                "description": "RareProcess_ForLxHost_HuntingQueries Hunting Query with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -1732,7 +1851,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Syslog",
                 "packageId": "azuresentinel.azure-sentinel-solution-syslog",
                 "contentSchemaVersion": "3.0.0",
@@ -1754,7 +1873,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
             ],
             "properties": {
-                "description": "SchedTaskAggregation_HuntingQueries Hunting Query with template version 3.0.3",
+                "description": "SchedTaskAggregation_HuntingQueries Hunting Query with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -1818,7 +1937,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Syslog",
                 "packageId": "azuresentinel.azure-sentinel-solution-syslog",
                 "contentSchemaVersion": "3.0.0",
@@ -1840,7 +1959,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
             ],
             "properties": {
-                "description": "SchedTaskEditViaCrontab_HuntingQueries Hunting Query with template version 3.0.3",
+                "description": "SchedTaskEditViaCrontab_HuntingQueries Hunting Query with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -1904,7 +2023,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Syslog",
                 "packageId": "azuresentinel.azure-sentinel-solution-syslog",
                 "contentSchemaVersion": "3.0.0",
@@ -1926,7 +2045,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
             ],
             "properties": {
-                "description": "squid_abused_tlds_HuntingQueries Hunting Query with template version 3.0.3",
+                "description": "squid_abused_tlds_HuntingQueries Hunting Query with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -1990,7 +2109,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Syslog",
                 "packageId": "azuresentinel.azure-sentinel-solution-syslog",
                 "contentSchemaVersion": "3.0.0",
@@ -2012,7 +2131,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
             ],
             "properties": {
-                "description": "squid_malformed_requests_HuntingQueries Hunting Query with template version 3.0.3",
+                "description": "squid_malformed_requests_HuntingQueries Hunting Query with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -2076,7 +2195,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Syslog",
                 "packageId": "azuresentinel.azure-sentinel-solution-syslog",
                 "contentSchemaVersion": "3.0.0",
@@ -2098,7 +2217,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-syslog')]"
             ],
             "properties": {
-                "description": "squid_volume_anomalies_HuntingQueries Hunting Query with template version 3.0.3",
+                "description": "squid_volume_anomalies_HuntingQueries Hunting Query with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -2162,7 +2281,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Syslog",
                 "packageId": "azuresentinel.azure-sentinel-solution-syslog",
                 "contentSchemaVersion": "3.0.0",
@@ -2180,15 +2299,15 @@
             "apiVersion": "2023-04-01-preview",
             "location": "[parameters('workspace-location')]",
             "properties": {
-                "version": "3.0.3",
+                "version": "3.0.4",
                 "kind": "Solution",
                 "contentSchemaVersion": "3.0.0",
                 "displayName": "Syslog",
                 "publisherDisplayName": "Microsoft Sentinel, Microsoft Corporation",
-                "descriptionHtml": "<p><strong>Note:</strong> Please refer to the following before installing the solution:</p><p>\u2022 Review the solution <a target=\"_blank\" href=\"https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Syslog/ReleaseNotes.md\" rel=\"noopener\">Release Notes</a></p><p>\u2022 There may be <a target=\"_blank\" href=\"https://aka.ms/sentinelsolutionsknownissues\" rel=\"noopener\">known issues</a> pertaining to this Solution, please refer to them before installing.</p><p>The Syslog solution allows you to ingest events from applications or appliances that generate and can forward logs in the Syslog format to a Syslog Forwarder. The Agent for Linux is then able to forward these logs to the Log Analytics/Microsoft Sentinel workspace.</p><p>Installing this solution will deploy two data connectors,</p><ol><li><p><strong>Syslog via AMA</strong> - This data connector helps in ingesting syslog messages into your Log Analytics Workspace using the new Azure Monitor Agent. Learn more about ingesting using the new Azure Monitor Agent <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/azure-monitor/agents/data-collection-syslog?WT.mc_id=Portal-fx\" rel=\"noopener\">here</a>. Microsoft recommends using this Data Connector.</p></li><li><p><strong>Syslog via Legacy Agent</strong> - This data connector helps in ingesting syslog messages into your Log Analytics Workspace using the legacy Log Analytics agent.</p></li></ol><p></p><p><strong>NOTE</strong>: After the solution is installed, Microsoft recommends configuring and leveraging the Syslog via AMA connector for log ingestion. Legacy connector uses the Log Analytics agent, which is about to be deprecated by <strong>Aug 31, 2024,</strong> and thus should only be installed where AMA is not supported.</p><p><strong>Data Connectors:</strong> 2, <strong>Workbooks:</strong> 1, <strong>Analytic Rules:</strong> 7, <strong>Hunting Queries:</strong> 9<br></p><p><a target=\"_blank\" href=\"https://aka.ms/azuresentinel\" rel=\"noopener\">Learn more about Microsoft Sentinel</a> | <a target=\"_blank\" href=\"https://aka.ms/azuresentinelsolutionsdoc\" rel=\"noopener\">Learn more about Solutions</a></p>",
+                "descriptionHtml": "<p><strong>Note:</strong> Please refer to the following before installing the solution:</p><p>\u2022 Review the solution <a target=\"_blank\" href=\"https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Syslog/ReleaseNotes.md\" rel=\"noopener\">Release Notes</a></p><p>The Syslog solution allows you to ingest events from applications or appliances that generate and can forward logs in the Syslog format to a Syslog Forwarder. The Agent for Linux is then able to forward these logs to the Log Analytics/Microsoft Sentinel workspace.</p><p>Installing this solution will deploy two data connectors,</p><ol><li><p><strong>Syslog via AMA</strong> - This data connector helps in ingesting syslog messages into your Log Analytics Workspace using the new Azure Monitor Agent. Learn more about ingesting using the new Azure Monitor Agent <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/azure-monitor/agents/data-collection-syslog?WT.mc_id=Portal-fx\" rel=\"noopener\">here</a>. Microsoft recommends using this Data Connector.</p></li><li><p><strong>Syslog via Legacy Agent</strong> - This data connector helps in ingesting syslog messages into your Log Analytics Workspace using the legacy Log Analytics agent.</p></li></ol><p></p><p><strong>NOTE</strong>: After the solution is installed, Microsoft recommends configuring and leveraging the Syslog via AMA connector for log ingestion. Legacy connector uses the Log Analytics agent, which is about to be deprecated by <strong>Aug 31, 2024,</strong> and thus should only be installed where AMA is not supported.</p><p><strong>Data Connectors:</strong> 2, <strong>Workbooks:</strong> 1, <strong>Analytic Rules:</strong> 7, <strong>Hunting Queries:</strong> 9<br></p><p><a target=\"_blank\" href=\"https://aka.ms/azuresentinel\" rel=\"noopener\">Learn more about Microsoft Sentinel</a> | <a target=\"_blank\" href=\"https://aka.ms/azuresentinelsolutionsdoc\" rel=\"noopener\">Learn more about Solutions</a></p>",
                 "contentKind": "Solution",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-syslog-sl-ue2rzobwfcqqi",
-                "id": "azuresentinel.azure-sentinel-solution-syslog-sl-ue2rzobwfcqqi",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-syslog-sl-gsn7ibnmtbyjc",
+                "id": "azuresentinel.azure-sentinel-solution-syslog-sl-gsn7ibnmtbyjc",
                 "icon": "https://store-images.s-microsoft.com/image/apps.64133.1cf1db80-d519-4f89-b498-e97385a7cbb6.00ac11e4-21c8-47b0-ab43-475209e03029.5e427df2-0e9b-48fb-af6e-c626abf79bc5",
                 "contentId": "azuresentinel.azure-sentinel-solution-syslog",
                 "parentId": "azuresentinel.azure-sentinel-solution-syslog",
@@ -2228,7 +2347,7 @@
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "e7ec9fa6-e7f7-41ed-a34b-b956837a3ee6",
-                            "version": "1.0.4"
+                            "version": "1.0.5"
                         },
                         {
                             "kind": "AnalyticsRule",
@@ -2238,27 +2357,27 @@
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "80733eb7-35b2-45b6-b2b8-3c51df258206",
-                            "version": "1.0.1"
+                            "version": "1.0.3"
                         },
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "90d3f6ec-80fb-48e0-9937-2c70c9df9bad",
-                            "version": "1.0.1"
+                            "version": "1.0.2"
                         },
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "e1ce0eab-10d1-4aae-863f-9a383345ba88",
-                            "version": "1.1.3"
+                            "version": "1.1.5"
                         },
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "bb6a74c8-889d-4c6e-8412-7d5efe33f4ed",
-                            "version": "1.0.1"
+                            "version": "1.0.2"
                         },
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "7355434e-09d5-4401-b56d-e03e9379dfb1",
-                            "version": "1.0.1"
+                            "version": "1.0.2"
                         },
                         {
                             "kind": "HuntingQuery",
