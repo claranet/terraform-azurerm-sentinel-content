@@ -20,55 +20,55 @@
         ],
         "entityMappings": [
             {
-                "entityType": "Account",
                 "fieldMappings": [
                     {
-                        "columnName": "InitiatingAppName",
-                        "identifier": "Name"
+                        "identifier": "Name",
+                        "columnName": "InitiatingAppName"
                     },
                     {
-                        "columnName": "InitiatingAppServicePrincipalId",
-                        "identifier": "AadUserId"
+                        "identifier": "AadUserId",
+                        "columnName": "InitiatingAppServicePrincipalId"
                     }
-                ]
+                ],
+                "entityType": "Account"
             },
             {
-                "entityType": "Account",
                 "fieldMappings": [
                     {
-                        "columnName": "InitiatingUserPrincipalName",
-                        "identifier": "FullName"
+                        "identifier": "FullName",
+                        "columnName": "InitiatingUserPrincipalName"
                     },
                     {
-                        "columnName": "InitiatingAccountName",
-                        "identifier": "Name"
+                        "identifier": "Name",
+                        "columnName": "InitiatingAccountName"
                     },
                     {
-                        "columnName": "InitiatingAccountUPNSuffix",
-                        "identifier": "UPNSuffix"
+                        "identifier": "UPNSuffix",
+                        "columnName": "InitiatingAccountUPNSuffix"
                     }
-                ]
+                ],
+                "entityType": "Account"
             },
             {
-                "entityType": "Account",
                 "fieldMappings": [
                     {
-                        "columnName": "InitiatingAadUserId",
-                        "identifier": "AadUserId"
+                        "identifier": "AadUserId",
+                        "columnName": "InitiatingAadUserId"
                     }
-                ]
+                ],
+                "entityType": "Account"
             },
             {
-                "entityType": "IP",
                 "fieldMappings": [
                     {
-                        "columnName": "InitiatingIpAddress",
-                        "identifier": "Address"
+                        "identifier": "Address",
+                        "columnName": "InitiatingIpAddress"
                     }
-                ]
+                ],
+                "entityType": "IP"
             }
         ],
         "alertRuleTemplateName": "694c91ee-d606-4ba9-928e-405a2dd0ff0f",
-        "templateVersion": "1.1.0"
+        "templateVersion": "1.1.1"
     }
 }
