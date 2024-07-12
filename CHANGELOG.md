@@ -1,3 +1,27 @@
+## 7.8.0 (2024-07-12)
+
+
+### Features
+
+* bump `Azure WAF` package template version to 3.0.1 + update embedded rules 2cc051d
+* bump `Common Event Format` package template version to 3.0.1 2a9b3b5
+* bump `Microsoft 365` package template version to 3.0.3 + update embedded rules e43c20e
+* bump `Microsoft Entra ID` package template version to 3.2.7 + update embedded rules 952d148
+* bump `Microsoft XDR` package template version to 3.0.8 + update embedded rules 1f42c19
+* bump `Syslog` package template version to 3.0.4 + update embedded rules bc263d8
+* bump `Windows Security` package template version to 3.0.7 + update embedded rules bded994
+
+
+### Miscellaneous Chores
+
+* **deps:** update dependency opentofu to v1.7.3 fb63ed5
+* **deps:** update dependency tflint to v0.51.2 3d59089
+* **deps:** update dependency tflint to v0.52.0 36530ed
+* **deps:** update dependency trivy to v0.52.1 eb5088b
+* **deps:** update dependency trivy to v0.52.2 4e10ecc
+* **deps:** update dependency trivy to v0.53.0 95b6470
+* **deps:** update pre-commit hook antonbabenko/pre-commit-terraform to v1.92.0 084770f
+
 ## 7.7.0 (2024-06-07)
 
 
