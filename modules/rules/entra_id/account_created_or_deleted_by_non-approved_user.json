@@ -20,7 +20,6 @@
         ],
         "entityMappings": [
             {
-                "entityType": "Account",
                 "fieldMappings": [
                     {
                         "columnName": "InitiatingAppName",
@@ -30,10 +29,10 @@
                         "columnName": "InitiatingAppServicePrincipalId",
                         "identifier": "AadUserId"
                     }
-                ]
+                ],
+                "entityType": "Account"
             },
             {
-                "entityType": "Account",
                 "fieldMappings": [
                     {
                         "columnName": "InitiatingUserPrincipalName",
@@ -47,28 +46,29 @@
                         "columnName": "InitiatingAccountUPNSuffix",
                         "identifier": "UPNSuffix"
                     }
-                ]
+                ],
+                "entityType": "Account"
             },
             {
-                "entityType": "Account",
                 "fieldMappings": [
                     {
                         "columnName": "InitiatingAadUserId",
                         "identifier": "AadUserId"
                     }
-                ]
+                ],
+                "entityType": "Account"
             },
             {
-                "entityType": "IP",
                 "fieldMappings": [
                     {
                         "columnName": "InitiatingIpAddress",
                         "identifier": "Address"
                     }
-                ]
+                ],
+                "entityType": "IP"
             }
         ],
         "alertRuleTemplateName": "6d63efa6-7c25-4bd4-a486-aa6bf50fde8a",
-        "templateVersion": "1.1.0"
+        "templateVersion": "1.1.1"
     }
 }

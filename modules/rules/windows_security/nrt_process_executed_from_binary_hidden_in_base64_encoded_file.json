@@ -21,6 +21,10 @@
             {
                 "fieldMappings": [
                     {
+                        "identifier": "FullName",
+                        "columnName": "SubjectAccount"
+                    },
+                    {
                         "identifier": "Name",
                         "columnName": "AccountName"
                     },
@@ -50,6 +54,6 @@
             }
         ],
         "alertRuleTemplateName": "7ad4c32b-d0d2-411c-a0e8-b557afa12fce",
-        "templateVersion": "1.0.1"
+        "templateVersion": "1.0.2"
     }
 }
