@@ -13,7 +13,13 @@
         "triggerOperator": "GreaterThan",
         "triggerThreshold": 0,
         "tactics": [
-            "CredentialAccess"
+            "CredentialAccess",
+            "Persistence",
+            "PrivilegeEscalation"
+        ],
+        "techniques": [
+            "T1555",
+            "T1098"
         ],
         "entityMappings": [
             {
@@ -66,6 +72,6 @@
             }
         ],
         "alertRuleTemplateName": "95dc4ae3-e0f2-48bd-b996-cdd22b90f9af",
-        "templateVersion": "1.1.1"
+        "templateVersion": "1.1.2"
     }
 }

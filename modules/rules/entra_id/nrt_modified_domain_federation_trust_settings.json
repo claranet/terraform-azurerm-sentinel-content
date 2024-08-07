@@ -9,7 +9,13 @@
         "suppressionDuration": "PT1H",
         "suppressionEnabled": false,
         "tactics": [
-            "CredentialAccess"
+            "CredentialAccess",
+            "Persistence",
+            "PrivilegeEscalation"
+        ],
+        "techniques": [
+            "T1555",
+            "T1098"
         ],
         "entityMappings": [
             {
@@ -58,6 +64,6 @@
             }
         ],
         "alertRuleTemplateName": "8540c842-5bbc-4a24-9fb2-a836c0e55a51",
-        "templateVersion": "1.0.2"
+        "templateVersion": "1.0.3"
     }
 }

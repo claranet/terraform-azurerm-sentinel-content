@@ -48,7 +48,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "Microsoft Entra ID data connector with template version 3.2.7",
+                "description": "Microsoft Entra ID data connector with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -230,7 +230,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -428,7 +428,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "AzureActiveDirectoryAuditLogs Workbook with template version 3.2.7",
+                "description": "AzureActiveDirectoryAuditLogs Workbook with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.2.0",
@@ -495,7 +495,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -517,7 +517,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "AzureActiveDirectorySignins Workbook with template version 3.2.7",
+                "description": "AzureActiveDirectorySignins Workbook with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.4.0",
@@ -584,7 +584,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -606,7 +606,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "AccountCreatedandDeletedinShortTimeframe_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "AccountCreatedandDeletedinShortTimeframe_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1.0",
@@ -634,10 +634,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "SigninLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -770,7 +770,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -805,7 +805,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "AccountCreatedDeletedByNonApprovedUser_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "AccountCreatedDeletedByNonApprovedUser_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1.1",
@@ -833,10 +833,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -930,7 +930,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -965,10 +965,10 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "ADFSDomainTrustMods_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "ADFSDomainTrustMods_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.1.1",
+                    "contentVersion": "1.1.2",
                     "parameters": {},
                     "variables": {},
                     "resources": [
@@ -993,14 +993,20 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
-                                    "CredentialAccess"
+                                    "CredentialAccess",
+                                    "Persistence",
+                                    "PrivilegeEscalation"
+                                ],
+                                "techniques": [
+                                    "T1555",
+                                    "T1098"
                                 ],
                                 "entityMappings": [
                                     {
@@ -1063,7 +1069,7 @@
                                 "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '95dc4ae3-e0f2-48bd-b996-cdd22b90f9af')]",
                                 "contentId": "95dc4ae3-e0f2-48bd-b996-cdd22b90f9af",
                                 "kind": "AnalyticsRule",
-                                "version": "1.1.1",
+                                "version": "1.1.2",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "Microsoft Entra ID",
@@ -1084,16 +1090,16 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "95dc4ae3-e0f2-48bd-b996-cdd22b90f9af",
                 "contentKind": "AnalyticsRule",
                 "displayName": "Modified domain federation trust settings",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-azureactived-ar-wwbx7zooy334e",
-                "id": "azuresentinel.azure-sentinel-solution-azureactived-ar-wwbx7zooy334e",
-                "version": "1.1.1",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-azureactived-ar-4mgz27rvtltt2",
+                "id": "azuresentinel.azure-sentinel-solution-azureactived-ar-4mgz27rvtltt2",
+                "version": "1.1.2",
                 "isDeprecated": false,
                 "dependencies": {
                     "operator": "AND",
@@ -1119,7 +1125,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "ADFSSignInLogsPasswordSpray_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "ADFSSignInLogsPasswordSpray_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -1147,10 +1153,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "ADFSSignInLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -1202,7 +1208,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -1237,7 +1243,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "AdminPromoAfterRoleMgmtAppPermissionGrant_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "AdminPromoAfterRoleMgmtAppPermissionGrant_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1.0",
@@ -1265,10 +1271,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -1399,7 +1405,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -1434,7 +1440,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "AnomalousUserAppSigninLocationIncrease-detection_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "AnomalousUserAppSigninLocationIncrease-detection_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.4",
@@ -1462,16 +1468,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "SigninLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     },
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AADNonInteractiveUserSignInLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -1515,8 +1521,8 @@
                                     "Application": "AppDisplayName"
                                 },
                                 "alertDetailsOverride": {
-                                    "alertDescriptionFormat": "This query over Microsoft Entra ID sign-in considers all user sign-ins for each Microsoft Entra ID application and picks out the most anomalous change in location profile for a user within an\nindividual application. This has detected {{UserPrincipalName}} signing into {{AppDisplayName}} from {{CountOfLocations}} \ndifferent locations.\n",
-                                    "alertDisplayNameFormat": "Anomalous sign-in location by {{UserPrincipalName}} to {{AppDisplayName}}"
+                                    "alertDisplayNameFormat": "Anomalous sign-in location by {{UserPrincipalName}} to {{AppDisplayName}}",
+                                    "alertDescriptionFormat": "This query over Microsoft Entra ID sign-in considers all user sign-ins for each Microsoft Entra ID application and picks out the most anomalous change in location profile for a user within an\nindividual application. This has detected {{UserPrincipalName}} signing into {{AppDisplayName}} from {{CountOfLocations}} \ndifferent locations.\n"
                                 }
                             }
                         },
@@ -1550,7 +1556,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -1593,7 +1599,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "AuthenticationMethodsChangedforPrivilegedAccount_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "AuthenticationMethodsChangedforPrivilegedAccount_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1.1",
@@ -1621,16 +1627,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     },
                                     {
+                                        "connectorId": "BehaviorAnalytics",
                                         "dataTypes": [
                                             "IdentityInfo"
-                                        ],
-                                        "connectorId": "BehaviorAnalytics"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -1721,7 +1727,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -1764,7 +1770,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "AzureAADPowerShellAnomaly_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "AzureAADPowerShellAnomaly_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.4",
@@ -1792,16 +1798,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "SigninLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     },
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AADNonInteractiveUserSignInLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -1879,7 +1885,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -1922,7 +1928,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "AzureADRoleManagementPermissionGrant_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "AzureADRoleManagementPermissionGrant_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1.1",
@@ -1950,10 +1956,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -2063,7 +2069,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -2098,7 +2104,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "AzurePortalSigninfromanotherAzureTenant_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "AzurePortalSigninfromanotherAzureTenant_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.3",
@@ -2126,10 +2132,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "SigninLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -2176,8 +2182,8 @@
                                     }
                                 ],
                                 "alertDetailsOverride": {
-                                    "alertDescriptionFormat": "This query looks for successful sign in attempts to the Azure Portal where the user who is signing in from another Azure tenant,\nand the IP address the login attempt is from is an Azure IP. A threat actor who compromises an Azure tenant may look\nto pivot to other tenants leveraging cross-tenant delegated access in this manner.\nIn this instance {{UserPrincipalName}} logged in at {{FirstSeen}} from IP Address {{IPAddress}}.\n",
-                                    "alertDisplayNameFormat": "Azure Portal sign in by {{UserPrincipalName}} from another Azure Tenant with IP Address {{IPAddress}}"
+                                    "alertDisplayNameFormat": "Azure Portal sign in by {{UserPrincipalName}} from another Azure Tenant with IP Address {{IPAddress}}",
+                                    "alertDescriptionFormat": "This query looks for successful sign in attempts to the Azure Portal where the user who is signing in from another Azure tenant,\nand the IP address the login attempt is from is an Azure IP. A threat actor who compromises an Azure tenant may look\nto pivot to other tenants leveraging cross-tenant delegated access in this manner.\nIn this instance {{UserPrincipalName}} logged in at {{FirstSeen}} from IP Address {{IPAddress}}.\n"
                                 }
                             }
                         },
@@ -2211,7 +2217,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -2246,7 +2252,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "Brute Force Attack against GitHub Account_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "Brute Force Attack against GitHub Account_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.2",
@@ -2274,16 +2280,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "SigninLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     },
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AADNonInteractiveUserSignInLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -2361,7 +2367,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -2404,7 +2410,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "BruteForceCloudPC_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "BruteForceCloudPC_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -2432,10 +2438,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "SigninLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -2513,7 +2519,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -2548,7 +2554,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "BulkChangestoPrivilegedAccountPermissions_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "BulkChangestoPrivilegedAccountPermissions_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.7",
@@ -2576,10 +2582,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -2659,8 +2665,8 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "TargetUser": "TargetUserPrincipalName",
-                                    "InitiatedByUser": "InitiatedByUser"
+                                    "InitiatedByUser": "InitiatedByUser",
+                                    "TargetUser": "TargetUserPrincipalName"
                                 }
                             }
                         },
@@ -2694,7 +2700,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -2729,7 +2735,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "BypassCondAccessRule_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "BypassCondAccessRule_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.7",
@@ -2757,16 +2763,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "SigninLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     },
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AADNonInteractiveUserSignInLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -2846,7 +2852,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -2889,10 +2895,10 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "CredentialAddedAfterAdminConsent_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "CredentialAddedAfterAdminConsent_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.1.0",
+                    "contentVersion": "1.1.1",
                     "parameters": {},
                     "variables": {},
                     "resources": [
@@ -2917,14 +2923,20 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
-                                    "CredentialAccess"
+                                    "CredentialAccess",
+                                    "Persistence",
+                                    "PrivilegeEscalation"
+                                ],
+                                "techniques": [
+                                    "T1555",
+                                    "T1098"
                                 ],
                                 "entityMappings": [
                                     {
@@ -3035,7 +3047,7 @@
                                 "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '707494a5-8e44-486b-90f8-155d1797a8eb')]",
                                 "contentId": "707494a5-8e44-486b-90f8-155d1797a8eb",
                                 "kind": "AnalyticsRule",
-                                "version": "1.1.0",
+                                "version": "1.1.1",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "Microsoft Entra ID",
@@ -3056,16 +3068,16 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "707494a5-8e44-486b-90f8-155d1797a8eb",
                 "contentKind": "AnalyticsRule",
                 "displayName": "Credential added after admin consented to Application",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-azureactived-ar-y3jhtamfd3o3o",
-                "id": "azuresentinel.azure-sentinel-solution-azureactived-ar-y3jhtamfd3o3o",
-                "version": "1.1.0",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-azureactived-ar-in5piaehbjcx6",
+                "id": "azuresentinel.azure-sentinel-solution-azureactived-ar-in5piaehbjcx6",
+                "version": "1.1.1",
                 "isDeprecated": false,
                 "dependencies": {
                     "operator": "AND",
@@ -3091,7 +3103,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "Cross-tenantAccessSettingsOrganizationAdded_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "Cross-tenantAccessSettingsOrganizationAdded_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1.1",
@@ -3119,10 +3131,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -3222,7 +3234,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -3257,7 +3269,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "Cross-tenantAccessSettingsOrganizationDeleted_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "Cross-tenantAccessSettingsOrganizationDeleted_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1.1",
@@ -3285,10 +3297,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -3388,7 +3400,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -3423,7 +3435,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "Cross-tenantAccessSettingsOrganizationInboundCollaborationSettingsChanged_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "Cross-tenantAccessSettingsOrganizationInboundCollaborationSettingsChanged_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1.1",
@@ -3451,10 +3463,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -3554,7 +3566,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -3589,7 +3601,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "Cross-tenantAccessSettingsOrganizationInboundDirectSettingsChanged_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "Cross-tenantAccessSettingsOrganizationInboundDirectSettingsChanged_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1.1",
@@ -3617,10 +3629,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -3720,7 +3732,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -3755,7 +3767,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "Cross-tenantAccessSettingsOrganizationOutboundCollaborationSettingsChanged_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "Cross-tenantAccessSettingsOrganizationOutboundCollaborationSettingsChanged_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1.1",
@@ -3783,10 +3795,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -3886,7 +3898,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -3921,7 +3933,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "Cross-tenantAccessSettingsOrganizationOutboundDirectSettingsChanged_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "Cross-tenantAccessSettingsOrganizationOutboundDirectSettingsChanged_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1.1",
@@ -3949,10 +3961,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -4052,7 +4064,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -4087,7 +4099,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "DisabledAccountSigninsAcrossManyApplications_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "DisabledAccountSigninsAcrossManyApplications_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.3",
@@ -4115,16 +4127,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "SigninLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     },
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AADNonInteractiveUserSignInLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -4193,7 +4205,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -4236,7 +4248,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "DistribPassCrackAttempt_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "DistribPassCrackAttempt_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.4",
@@ -4264,16 +4276,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "SigninLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     },
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AADNonInteractiveUserSignInLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -4342,7 +4354,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -4385,7 +4397,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "ExplicitMFADeny_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "ExplicitMFADeny_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.6",
@@ -4413,22 +4425,22 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "SigninLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     },
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AADNonInteractiveUserSignInLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     },
                                     {
+                                        "connectorId": "MicrosoftThreatProtection",
                                         "dataTypes": [
                                             "DeviceInfo"
-                                        ],
-                                        "connectorId": "MicrosoftThreatProtection"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -4519,7 +4531,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -4570,7 +4582,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "ExchangeFullAccessGrantedToApp_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "ExchangeFullAccessGrantedToApp_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.2",
@@ -4598,10 +4610,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -4660,13 +4672,13 @@
                                     }
                                 ],
                                 "customDetails": {
+                                    "UserAgent": "InitiatingUserAgent",
                                     "OAuthApplication": "OAuthAppName",
-                                    "OAuthAppId": "AppId",
-                                    "UserAgent": "InitiatingUserAgent"
+                                    "OAuthAppId": "AppId"
                                 },
                                 "alertDetailsOverride": {
-                                    "alertDescriptionFormat": "This detection looks for the full_access_as_app permission being granted to an OAuth application with Admin Consent.\nThis permission provide access to all Exchange mailboxes via the EWS API can could be exploited to access sensitive data \nby being added to a compromised application. The application granted this permission should be reviewed to ensure that it \nis absolutely necessary for the applications function.\nIn this case {{GrantInitiatedBy}} granted full_access_as_app to {{OAuthAppName}} from {{InitiatingIpAddress}}\nRef: https://learn.microsoft.com/graph/auth-limit-mailbox-access\n",
-                                    "alertDisplayNameFormat": "User or App {{GrantInitiatedBy}} granted full_access_as_app to {{OAuthAppName}}"
+                                    "alertDisplayNameFormat": "User or App {{GrantInitiatedBy}} granted full_access_as_app to {{OAuthAppName}}",
+                                    "alertDescriptionFormat": "This detection looks for the full_access_as_app permission being granted to an OAuth application with Admin Consent.\nThis permission provide access to all Exchange mailboxes via the EWS API can could be exploited to access sensitive data \nby being added to a compromised application. The application granted this permission should be reviewed to ensure that it \nis absolutely necessary for the applications function.\nIn this case {{GrantInitiatedBy}} granted full_access_as_app to {{OAuthAppName}} from {{InitiatingIpAddress}}\nRef: https://learn.microsoft.com/graph/auth-limit-mailbox-access\n"
                                 }
                             }
                         },
@@ -4700,7 +4712,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -4735,7 +4747,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "FailedLogonToAzurePortal_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "FailedLogonToAzurePortal_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.7",
@@ -4763,16 +4775,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "SigninLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     },
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AADNonInteractiveUserSignInLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -4841,7 +4853,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -4884,7 +4896,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "FirstAppOrServicePrincipalCredential_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "FirstAppOrServicePrincipalCredential_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1.5",
@@ -4912,10 +4924,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -5014,7 +5026,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -5049,7 +5061,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "GuestAccountsAddedinAADGroupsOtherThanTheOnesSpecified_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "GuestAccountsAddedinAADGroupsOtherThanTheOnesSpecified_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.6",
@@ -5077,10 +5089,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -5206,7 +5218,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -5241,7 +5253,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "MailPermissionsAddedToApplication_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "MailPermissionsAddedToApplication_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.4",
@@ -5269,10 +5281,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -5359,7 +5371,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -5394,7 +5406,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "MaliciousOAuthApp_O365AttackToolkit_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "MaliciousOAuthApp_O365AttackToolkit_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1.2",
@@ -5422,10 +5434,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -5523,7 +5535,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -5558,7 +5570,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "MaliciousOAuthApp_PwnAuth_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "MaliciousOAuthApp_PwnAuth_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.2",
@@ -5586,10 +5598,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -5678,7 +5690,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -5713,7 +5725,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "MFARejectedbyUser_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "MFARejectedbyUser_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.3",
@@ -5741,22 +5753,22 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "SigninLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     },
                                     {
+                                        "connectorId": "BehaviorAnalytics",
                                         "dataTypes": [
                                             "BehaviorAnalytics"
-                                        ],
-                                        "connectorId": "BehaviorAnalytics"
+                                        ]
                                     },
                                     {
+                                        "connectorId": "BehaviorAnalytics",
                                         "dataTypes": [
                                             "IdentityInfo"
-                                        ],
-                                        "connectorId": "BehaviorAnalytics"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -5837,7 +5849,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -5888,7 +5900,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "MFASpammingfollowedbySuccessfullogin_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "MFASpammingfollowedbySuccessfullogin_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.4",
@@ -5916,10 +5928,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "SigninLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -5988,7 +6000,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -6023,7 +6035,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "MultipleAdmin_membership_removals_from_NewAdmin_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "MultipleAdmin_membership_removals_from_NewAdmin_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.2",
@@ -6051,10 +6063,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -6158,7 +6170,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -6193,7 +6205,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "NewOnmicrosoftDomainAdded_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "NewOnmicrosoftDomainAdded_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -6221,10 +6233,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -6295,8 +6307,8 @@
                                     "aggregationKind": "SingleAlert"
                                 },
                                 "alertDetailsOverride": {
-                                    "alertDescriptionFormat": "This detection looks for new onmicrosoft domains being added to a tenant. An attacker who compromises a tenant may register a new onmicrosoft domain in order to masquerade as a service provider for launching phishing accounts. Domain additions are not a common occurrence and users should validate that {{ActionInitiatedBy}} added {{DomainAdded}} with a legitimate purpose.",
-                                    "alertDisplayNameFormat": "{{DomainAdded}} added to tenant by {{ActionInitiatedBy}}"
+                                    "alertDisplayNameFormat": "{{DomainAdded}} added to tenant by {{ActionInitiatedBy}}",
+                                    "alertDescriptionFormat": "This detection looks for new onmicrosoft domains being added to a tenant. An attacker who compromises a tenant may register a new onmicrosoft domain in order to masquerade as a service provider for launching phishing accounts. Domain additions are not a common occurrence and users should validate that {{ActionInitiatedBy}} added {{DomainAdded}} with a legitimate purpose."
                                 }
                             }
                         },
@@ -6330,7 +6342,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -6365,7 +6377,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "NewAppOrServicePrincipalCredential_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "NewAppOrServicePrincipalCredential_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1.2",
@@ -6393,10 +6405,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -6486,7 +6498,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -6521,10 +6533,10 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "NRT_ADFSDomainTrustMods_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "NRT_ADFSDomainTrustMods_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.2",
+                    "contentVersion": "1.0.3",
                     "parameters": {},
                     "variables": {},
                     "resources": [
@@ -6545,14 +6557,20 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
-                                    "CredentialAccess"
+                                    "CredentialAccess",
+                                    "Persistence",
+                                    "PrivilegeEscalation"
+                                ],
+                                "techniques": [
+                                    "T1555",
+                                    "T1098"
                                 ],
                                 "entityMappings": [
                                     {
@@ -6611,7 +6629,7 @@
                                 "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '8540c842-5bbc-4a24-9fb2-a836c0e55a51')]",
                                 "contentId": "8540c842-5bbc-4a24-9fb2-a836c0e55a51",
                                 "kind": "AnalyticsRule",
-                                "version": "1.0.2",
+                                "version": "1.0.3",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "Microsoft Entra ID",
@@ -6632,16 +6650,16 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "8540c842-5bbc-4a24-9fb2-a836c0e55a51",
                 "contentKind": "AnalyticsRule",
                 "displayName": "NRT Modified domain federation trust settings",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-azureactived-ar-5rgugmi3hhs7m",
-                "id": "azuresentinel.azure-sentinel-solution-azureactived-ar-5rgugmi3hhs7m",
-                "version": "1.0.2",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-azureactived-ar-orebs2xhshweq",
+                "id": "azuresentinel.azure-sentinel-solution-azureactived-ar-orebs2xhshweq",
+                "version": "1.0.3",
                 "isDeprecated": false,
                 "dependencies": {
                     "operator": "AND",
@@ -6667,7 +6685,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "NRT_AuthenticationMethodsChangedforVIPUsers_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "NRT_AuthenticationMethodsChangedforVIPUsers_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.3",
@@ -6691,10 +6709,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -6798,7 +6816,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -6833,7 +6851,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "nrt_FirstAppOrServicePrincipalCredential_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "nrt_FirstAppOrServicePrincipalCredential_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.6",
@@ -6857,10 +6875,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -6950,7 +6968,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -6985,7 +7003,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "NRT_NewAppOrServicePrincipalCredential_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "NRT_NewAppOrServicePrincipalCredential_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.5",
@@ -7009,10 +7027,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -7103,7 +7121,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -7138,7 +7156,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "NRT_PIMElevationRequestRejected_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "NRT_PIMElevationRequestRejected_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.3",
@@ -7162,10 +7180,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -7272,7 +7290,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -7307,7 +7325,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "NRT_PrivlegedRoleAssignedOutsidePIM_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "NRT_PrivlegedRoleAssignedOutsidePIM_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.2",
@@ -7331,10 +7349,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -7441,7 +7459,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -7476,7 +7494,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "NRT_UseraddedtoPrivilgedGroups_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "NRT_UseraddedtoPrivilgedGroups_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.6",
@@ -7500,10 +7518,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -7609,7 +7627,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -7644,7 +7662,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "PIMElevationRequestRejected_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "PIMElevationRequestRejected_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.8",
@@ -7672,10 +7690,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -7782,7 +7800,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -7817,7 +7835,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "PossibleSignInfromAzureBackdoor_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "PossibleSignInfromAzureBackdoor_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -7845,11 +7863,11 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "SigninLogs",
                                             "AuditLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -7883,13 +7901,13 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "AppDisplayName": "AppDisplayName",
-                                    "DomainAdded": "DomainName",
-                                    "DomainAddedTime": "DomainAddedTime",
-                                    "ModifiedProperties": "ModifiedProperties",
                                     "ResourceDisplayName": "ResourceDisplayName",
+                                    "ModifiedProperties": "ModifiedProperties",
+                                    "DomainAdded": "DomainName",
+                                    "InitiatedBy": "InitiatedBy",
+                                    "DomainAddedTime": "DomainAddedTime",
                                     "SignInTime": "SignInTime",
-                                    "InitiatedBy": "InitiatedBy"
+                                    "AppDisplayName": "AppDisplayName"
                                 }
                             }
                         },
@@ -7923,7 +7941,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -7962,7 +7980,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "PrivilegedAccountsSigninFailureSpikes_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "PrivilegedAccountsSigninFailureSpikes_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1.1",
@@ -7990,22 +8008,22 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "SigninLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     },
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AADNonInteractiveUserSignInLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     },
                                     {
+                                        "connectorId": "BehaviorAnalytics",
                                         "dataTypes": [
                                             "IdentityInfo"
-                                        ],
-                                        "connectorId": "BehaviorAnalytics"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -8077,7 +8095,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -8128,7 +8146,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "PrivlegedRoleAssignedOutsidePIM_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "PrivlegedRoleAssignedOutsidePIM_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.5",
@@ -8156,10 +8174,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -8266,7 +8284,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -8301,7 +8319,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "RareApplicationConsent_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "RareApplicationConsent_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1.5",
@@ -8329,10 +8347,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -8412,7 +8430,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -8447,7 +8465,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "SeamlessSSOPasswordSpray_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "SeamlessSSOPasswordSpray_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.4",
@@ -8475,10 +8493,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AADNonInteractiveUserSignInLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -8547,7 +8565,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -8582,7 +8600,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "Sign-in Burst from Multiple Locations_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "Sign-in Burst from Multiple Locations_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.3",
@@ -8610,16 +8628,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "SigninLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     },
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AADNonInteractiveUserSignInLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -8679,7 +8697,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -8722,7 +8740,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "SigninAttemptsByIPviaDisabledAccounts_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "SigninAttemptsByIPviaDisabledAccounts_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.1.3",
@@ -8750,22 +8768,22 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "SigninLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     },
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AADNonInteractiveUserSignInLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     },
                                     {
+                                        "connectorId": "BehaviorAnalytics",
                                         "dataTypes": [
                                             "BehaviorAnalytics"
-                                        ],
-                                        "connectorId": "BehaviorAnalytics"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -8819,7 +8837,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -8870,7 +8888,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "SigninBruteForce-AzurePortal_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "SigninBruteForce-AzurePortal_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.1.4",
@@ -8898,16 +8916,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "SigninLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     },
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AADNonInteractiveUserSignInLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -8985,7 +9003,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -9028,7 +9046,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "SigninPasswordSpray_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "SigninPasswordSpray_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.7",
@@ -9056,16 +9074,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "SigninLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     },
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AADNonInteractiveUserSignInLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -9117,7 +9135,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -9160,7 +9178,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "SuccessThenFail_DiffIP_SameUserandApp_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "SuccessThenFail_DiffIP_SameUserandApp_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.1.10",
@@ -9188,28 +9206,28 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "SigninLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     },
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AADNonInteractiveUserSignInLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     },
                                     {
+                                        "connectorId": "BehaviorAnalytics",
                                         "dataTypes": [
                                             "BehaviorAnalytics"
-                                        ],
-                                        "connectorId": "BehaviorAnalytics"
+                                        ]
                                     },
                                     {
+                                        "connectorId": "BehaviorAnalytics",
                                         "dataTypes": [
                                             "IdentityInfo"
-                                        ],
-                                        "connectorId": "BehaviorAnalytics"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -9289,7 +9307,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -9348,7 +9366,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "SuspiciousAADJoinedDeviceUpdate_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "SuspiciousAADJoinedDeviceUpdate_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.4",
@@ -9376,10 +9394,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -9462,8 +9480,8 @@
                                     }
                                 ],
                                 "alertDetailsOverride": {
-                                    "alertDescriptionFormat": "This query looks for suspicious updates to an Microsoft Entra ID joined device where the device name is changed and the device falls out of compliance.\nIn this case {{OldDeviceName}} was renamed to {{NewDeviceName}} and {{UpdatedPropertiesCount}} properties were changed.\nThis could occur when a threat actor updates the details of an Autopilot provisioned device using a stolen device ticket, in order to access certificates and keys.\nRef: https://dirkjanm.io/assets/raw/Insomnihack%20Breaking%20and%20fixing%20Azure%20AD%20device%20identity%20security.pdf\n",
-                                    "alertDisplayNameFormat": "Suspicious Entra ID Joined Device Update {{OldDeviceName}} renamed to {{NewDeviceName}} and {{UpdatedPropertiesCount}} properties changed"
+                                    "alertDisplayNameFormat": "Suspicious Entra ID Joined Device Update {{OldDeviceName}} renamed to {{NewDeviceName}} and {{UpdatedPropertiesCount}} properties changed",
+                                    "alertDescriptionFormat": "This query looks for suspicious updates to an Microsoft Entra ID joined device where the device name is changed and the device falls out of compliance.\nIn this case {{OldDeviceName}} was renamed to {{NewDeviceName}} and {{UpdatedPropertiesCount}} properties were changed.\nThis could occur when a threat actor updates the details of an Autopilot provisioned device using a stolen device ticket, in order to access certificates and keys.\nRef: https://dirkjanm.io/assets/raw/Insomnihack%20Breaking%20and%20fixing%20Azure%20AD%20device%20identity%20security.pdf\n"
                                 }
                             }
                         },
@@ -9497,7 +9515,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -9532,7 +9550,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "SuspiciousOAuthApp_OfflineAccess_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "SuspiciousOAuthApp_OfflineAccess_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.2",
@@ -9560,10 +9578,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -9650,7 +9668,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -9685,7 +9703,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "SuspiciousServicePrincipalcreationactivity_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "SuspiciousServicePrincipalcreationactivity_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.3",
@@ -9713,11 +9731,11 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs",
                                             "AADServicePrincipalSignInLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -9815,7 +9833,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -9854,7 +9872,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "SuspiciousSignInFollowedByMFAModification_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "SuspiciousSignInFollowedByMFAModification_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -9882,16 +9900,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     },
                                     {
+                                        "connectorId": "BehaviorAnalytics",
                                         "dataTypes": [
                                             "BehaviorAnalytics"
-                                        ],
-                                        "connectorId": "BehaviorAnalytics"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -9982,8 +10000,8 @@
                                     "aggregationKind": "AlertPerResult"
                                 },
                                 "alertDetailsOverride": {
-                                    "alertDescriptionFormat": "This query looks uses Microsoft Sentinel's UEBA features to look for suspicious logons followed by modifications to MFA settings by that user.\nIn this case {{InitiatorUPN}} logged in followed by a modification to MFA settings for {{TargetUPN}}.\nThe sign in was from {{SourceIPAddress}}.\n",
-                                    "alertDisplayNameFormat": "Suspicious Sign In by {{InitiatorUPN}} Followed by MFA Modification to {{TargetUPN}}"
+                                    "alertDisplayNameFormat": "Suspicious Sign In by {{InitiatorUPN}} Followed by MFA Modification to {{TargetUPN}}",
+                                    "alertDescriptionFormat": "This query looks uses Microsoft Sentinel's UEBA features to look for suspicious logons followed by modifications to MFA settings by that user.\nIn this case {{InitiatorUPN}} logged in followed by a modification to MFA settings for {{TargetUPN}}.\nThe sign in was from {{SourceIPAddress}}.\n"
                                 }
                             }
                         },
@@ -10017,7 +10035,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -10060,7 +10078,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "UnusualGuestActivity_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "UnusualGuestActivity_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.3",
@@ -10088,16 +10106,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     },
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "SigninLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -10210,7 +10228,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -10253,7 +10271,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "UserAccounts-CABlockedSigninSpikes_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "UserAccounts-CABlockedSigninSpikes_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.5",
@@ -10281,28 +10299,28 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "SigninLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     },
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AADNonInteractiveUserSignInLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     },
                                     {
+                                        "connectorId": "BehaviorAnalytics",
                                         "dataTypes": [
                                             "BehaviorAnalytics"
-                                        ],
-                                        "connectorId": "BehaviorAnalytics"
+                                        ]
                                     },
                                     {
+                                        "connectorId": "BehaviorAnalytics",
                                         "dataTypes": [
                                             "IdentityInfo"
-                                        ],
-                                        "connectorId": "BehaviorAnalytics"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -10374,7 +10392,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -10433,7 +10451,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "UseraddedtoPrivilgedGroups_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "UseraddedtoPrivilgedGroups_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.6",
@@ -10461,10 +10479,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -10570,7 +10588,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -10605,7 +10623,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "UserAssignedNewPrivilegedRole_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "UserAssignedNewPrivilegedRole_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -10633,10 +10651,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -10743,7 +10761,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -10778,7 +10796,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "UserAssignedPrivilegedRole_AnalyticalRules Analytics Rule with template version 3.2.7",
+                "description": "UserAssignedPrivilegedRole_AnalyticalRules Analytics Rule with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1.0",
@@ -10806,10 +10824,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ],
-                                        "connectorId": "AzureActiveDirectory"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -10916,7 +10934,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -10951,7 +10969,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "Block-EntraIDUser-Alert Playbook with template version 3.2.7",
+                "description": "Block-EntraIDUser-Alert Playbook with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1",
@@ -11373,7 +11391,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -11395,7 +11413,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "Block-EntraIDUser-Incident Playbook with template version 3.2.7",
+                "description": "Block-EntraIDUser-Incident Playbook with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1",
@@ -11800,7 +11818,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -11822,7 +11840,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "Prompt-User-Alert Playbook with template version 3.2.7",
+                "description": "Prompt-User-Alert Playbook with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1",
@@ -12237,7 +12255,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -12259,7 +12277,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "Prompt-User-Incident Playbook with template version 3.2.7",
+                "description": "Prompt-User-Incident Playbook with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1",
@@ -12657,7 +12675,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -12679,7 +12697,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "Reset-EntraIDPassword-AlertTrigger Playbook with template version 3.2.7",
+                "description": "Reset-EntraIDPassword-AlertTrigger Playbook with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1",
@@ -13058,7 +13076,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -13080,7 +13098,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "Reset-EntraIDPassword-IncidentTrigger Playbook with template version 3.2.7",
+                "description": "Reset-EntraIDPassword-IncidentTrigger Playbook with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1",
@@ -13442,7 +13460,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -13464,7 +13482,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "Block-EntraIDUser-EntityTrigger Playbook with template version 3.2.7",
+                "description": "Block-EntraIDUser-EntityTrigger Playbook with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1",
@@ -13904,7 +13922,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -13926,7 +13944,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "Reset-EntraIDUserPassword-EntityTrigger Playbook with template version 3.2.7",
+                "description": "Reset-EntraIDUserPassword-EntityTrigger Playbook with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1",
@@ -14310,7 +14328,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -14332,7 +14350,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "Revoke-EntraIDSignInSessions-alert Playbook with template version 3.2.7",
+                "description": "Revoke-EntraIDSignInSessions-alert Playbook with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0",
@@ -14639,7 +14657,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -14661,7 +14679,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "Revoke-EntraIDSignInSessions-incident Playbook with template version 3.2.7",
+                "description": "Revoke-EntraIDSignInSessions-incident Playbook with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0",
@@ -14947,7 +14965,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -14969,7 +14987,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "Revoke-EntraIDSignIn-Session-entityTrigger Playbook with template version 3.2.7",
+                "description": "Revoke-EntraIDSignIn-Session-entityTrigger Playbook with template version 3.2.8",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0",
@@ -15163,7 +15181,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.2.7",
+                "packageVersion": "3.2.8",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -15181,15 +15199,15 @@
             "apiVersion": "2023-04-01-preview",
             "location": "[parameters('workspace-location')]",
             "properties": {
-                "version": "3.2.7",
+                "version": "3.2.8",
                 "kind": "Solution",
                 "contentSchemaVersion": "3.0.0",
                 "displayName": "Microsoft Entra ID",
                 "publisherDisplayName": "Microsoft Sentinel, Microsoft Corporation",
                 "descriptionHtml": "<p><strong>Note:</strong> Please refer to the following before installing the solution:</p><p>\u2022 Review the solution <a target=\"_blank\" href=\"https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Microsoft%20Entra%20ID/ReleaseNotes.md\" rel=\"noopener\">Release Notes</a></p><p>The <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis?WT.mc_id=Portal-fx\" rel=\"noopener\">Microsoft Entra ID</a> solution for Microsoft Sentinel enables you to ingest Microsoft Entra ID <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/active-directory/reports-monitoring/concept-audit-logs?WT.mc_id=Portal-fx\" rel=\"noopener\">Audit</a>, <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins?WT.mc_id=Portal-fx\" rel=\"noopener\">Sign-in</a>, <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs?WT.mc_id=Portal-fx\" rel=\"noopener\">Provisioning</a>, <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-investigate-risk?WT.mc_id=Portal-fx#risky-users\" rel=\"noopener\">Risk Events and Risky User/Service Principal</a> logs using Diagnostic Settings into Microsoft Sentinel.</p><p><strong>Data Connectors:</strong> 1, <strong>Workbooks:</strong> 2, <strong>Analytic Rules:</strong> 63, <strong>Playbooks:</strong> 11</p><p><a target=\"_blank\" href=\"https://aka.ms/azuresentinel\" rel=\"noopener\">Learn more about Microsoft Sentinel</a> | <a target=\"_blank\" href=\"https://aka.ms/azuresentinelsolutionsdoc\" rel=\"noopener\">Learn more about Solutions</a></p>",
                 "contentKind": "Solution",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-azureactived-sl-py5nazk56azko",
-                "id": "azuresentinel.azure-sentinel-solution-azureactived-sl-py5nazk56azko",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-azureactived-sl-i5zn6mt3no5ya",
+                "id": "azuresentinel.azure-sentinel-solution-azureactived-sl-i5zn6mt3no5ya",
                 "icon": "https://store-images.s-microsoft.com/image/apps.63019.f4e33ccb-a961-4bde-8f74-f1ba3bc32580.34d92f17-5ffa-4794-8462-1fa3b920db07.258df8cd-f330-41f7-bb62-953620add315",
                 "contentId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "parentId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
@@ -15239,7 +15257,7 @@
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "95dc4ae3-e0f2-48bd-b996-cdd22b90f9af",
-                            "version": "1.1.1"
+                            "version": "1.1.2"
                         },
                         {
                             "kind": "AnalyticsRule",
@@ -15299,7 +15317,7 @@
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "707494a5-8e44-486b-90f8-155d1797a8eb",
-                            "version": "1.1.0"
+                            "version": "1.1.1"
                         },
                         {
                             "kind": "AnalyticsRule",
@@ -15409,7 +15427,7 @@
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "8540c842-5bbc-4a24-9fb2-a836c0e55a51",
-                            "version": "1.0.2"
+                            "version": "1.0.3"
                         },
                         {
                             "kind": "AnalyticsRule",
