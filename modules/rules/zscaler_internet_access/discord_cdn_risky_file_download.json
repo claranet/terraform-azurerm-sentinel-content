@@ -15,36 +15,39 @@
         "tactics": [
             "CommandAndControl"
         ],
+        "techniques": [
+            "T1071"
+        ],
         "entityMappings": [
             {
+                "entityType": "Account",
                 "fieldMappings": [
                     {
-                        "columnName": "SourceUser",
-                        "identifier": "FullName"
+                        "identifier": "FullName",
+                        "columnName": "SourceUser"
                     }
-                ],
-                "entityType": "Account"
+                ]
             },
             {
+                "entityType": "IP",
                 "fieldMappings": [
                     {
-                        "columnName": "SourceIP",
-                        "identifier": "Address"
+                        "identifier": "Address",
+                        "columnName": "SourceIP"
                     }
-                ],
-                "entityType": "IP"
+                ]
             },
             {
+                "entityType": "URL",
                 "fieldMappings": [
                     {
-                        "columnName": "RequestURL",
-                        "identifier": "Url"
+                        "identifier": "Url",
+                        "columnName": "RequestURL"
                     }
-                ],
-                "entityType": "URL"
+                ]
             }
         ],
         "alertRuleTemplateName": "010bd98c-a6be-498c-bdcd-502308c0fdae",
-        "templateVersion": "1.0.0"
+        "templateVersion": "1.0.1"
     }
 }
