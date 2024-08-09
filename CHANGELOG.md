@@ -1,3 +1,22 @@
+## 7.9.0 (2024-08-09)
+
+
+### Features
+
+* bump `Microsoft Entra ID` package template version to 3.2.8 + update embedded rules 82884f0
+* bump `Syslog` package template version to 3.0.5 45d88b6
+* bump `Windows Security` package template version to 3.0.8 739d088
+* bump `Zscaler Internet Access` package template version to 3.0.1 + update embedded rules fc0eacc
+
+
+### Miscellaneous Chores
+
+* **deps:** update dependency opentofu to v1.8.0 69d26c7
+* **deps:** update dependency opentofu to v1.8.1 c85bff5
+* **deps:** update dependency pre-commit to v3.8.0 6f4a906
+* **deps:** update dependency trivy to v0.54.1 0d22701
+* **deps:** update pre-commit hook antonbabenko/pre-commit-terraform to v1.92.1 91f6afe
+
 ## 7.8.0 (2024-07-12)
 
 
