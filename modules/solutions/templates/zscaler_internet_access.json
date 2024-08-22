@@ -48,7 +48,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'zscaler1579058425289.zscaler_internet_access_mss')]"
             ],
             "properties": {
-                "description": "Zscaler Internet Access data connector with template version 3.0.1",
+                "description": "Zscaler Internet Access data connector with template version 3.0.2",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -221,7 +221,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.1",
+                "packageVersion": "3.0.2",
                 "packageName": "Zscaler Internet Access",
                 "packageId": "zscaler1579058425289.zscaler_internet_access_mss",
                 "contentSchemaVersion": "3.0.0",
@@ -393,7 +393,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'zscaler1579058425289.zscaler_internet_access_mss')]"
             ],
             "properties": {
-                "description": "Zscaler Internet Access data connector with template version 3.0.1",
+                "description": "Zscaler Internet Access data connector with template version 3.0.2",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -409,7 +409,7 @@
                             "properties": {
                                 "connectorUiConfig": {
                                     "id": "ZscalerAma",
-                                    "title": "[Recommended] Zscaler via AMA",
+                                    "title": "[Deprecated] Zscaler via AMA",
                                     "publisher": "Zscaler",
                                     "logo": "ZscalerLogo.svg",
                                     "descriptionMarkdown": "The Zscaler data connector allows you to easily connect your Zscaler Internet Access (ZIA) logs with Microsoft Sentinel, to view dashboards, create custom alerts, and improve investigation.  Using Zscaler on Microsoft Sentinel will provide you more insights into your organization\u2019s Internet usage, and will enhance its security operation capabilities.\u200b",
@@ -560,13 +560,13 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.1",
+                "packageVersion": "3.0.2",
                 "packageName": "Zscaler Internet Access",
                 "packageId": "zscaler1579058425289.zscaler_internet_access_mss",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "ZscalerAma",
                 "contentKind": "DataConnector",
-                "displayName": "[Recommended] Zscaler via AMA",
+                "displayName": "[Deprecated] Zscaler via AMA",
                 "contentProductId": "zscaler1579058425289.zscaler_internet_access_mss-dc-rmkovxmla6jrc",
                 "id": "zscaler1579058425289.zscaler_internet_access_mss-dc-rmkovxmla6jrc",
                 "version": "1.0.0",
@@ -609,7 +609,7 @@
             "kind": "GenericUI",
             "properties": {
                 "connectorUiConfig": {
-                    "title": "[Recommended] Zscaler via AMA",
+                    "title": "[Deprecated] Zscaler via AMA",
                     "publisher": "Zscaler",
                     "descriptionMarkdown": "The Zscaler data connector allows you to easily connect your Zscaler Internet Access (ZIA) logs with Microsoft Sentinel, to view dashboards, create custom alerts, and improve investigation.  Using Zscaler on Microsoft Sentinel will provide you more insights into your organization\u2019s Internet usage, and will enhance its security operation capabilities.\u200b",
                     "graphQueries": [
@@ -726,7 +726,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'zscaler1579058425289.zscaler_internet_access_mss')]"
             ],
             "properties": {
-                "description": "ZscalerFirewall Workbook with template version 3.0.1",
+                "description": "ZscalerFirewall Workbook with template version 3.0.2",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1.0",
@@ -783,6 +783,10 @@
                                         {
                                             "contentId": "Zscaler",
                                             "kind": "DataConnector"
+                                        },
+                                        {
+                                            "contentId": "CefAma",
+                                            "kind": "DataConnector"
                                         }
                                     ]
                                 }
@@ -791,7 +795,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.1",
+                "packageVersion": "3.0.2",
                 "packageName": "Zscaler Internet Access",
                 "packageId": "zscaler1579058425289.zscaler_internet_access_mss",
                 "contentSchemaVersion": "3.0.0",
@@ -813,7 +817,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'zscaler1579058425289.zscaler_internet_access_mss')]"
             ],
             "properties": {
-                "description": "ZscalerOffice365Apps Workbook with template version 3.0.1",
+                "description": "ZscalerOffice365Apps Workbook with template version 3.0.2",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1.0",
@@ -870,6 +874,10 @@
                                         {
                                             "contentId": "Zscaler",
                                             "kind": "DataConnector"
+                                        },
+                                        {
+                                            "contentId": "CefAma",
+                                            "kind": "DataConnector"
                                         }
                                     ]
                                 }
@@ -878,7 +886,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.1",
+                "packageVersion": "3.0.2",
                 "packageName": "Zscaler Internet Access",
                 "packageId": "zscaler1579058425289.zscaler_internet_access_mss",
                 "contentSchemaVersion": "3.0.0",
@@ -900,7 +908,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'zscaler1579058425289.zscaler_internet_access_mss')]"
             ],
             "properties": {
-                "description": "ZscalerThreats Workbook with template version 3.0.1",
+                "description": "ZscalerThreats Workbook with template version 3.0.2",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.2.0",
@@ -957,6 +965,10 @@
                                         {
                                             "contentId": "Zscaler",
                                             "kind": "DataConnector"
+                                        },
+                                        {
+                                            "contentId": "CefAma",
+                                            "kind": "DataConnector"
                                         }
                                     ]
                                 }
@@ -965,7 +977,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.1",
+                "packageVersion": "3.0.2",
                 "packageName": "Zscaler Internet Access",
                 "packageId": "zscaler1579058425289.zscaler_internet_access_mss",
                 "contentSchemaVersion": "3.0.0",
@@ -987,7 +999,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'zscaler1579058425289.zscaler_internet_access_mss')]"
             ],
             "properties": {
-                "description": "ZscalerWebOverview Workbook with template version 3.0.1",
+                "description": "ZscalerWebOverview Workbook with template version 3.0.2",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1.0",
@@ -1044,6 +1056,10 @@
                                         {
                                             "contentId": "Zscaler",
                                             "kind": "DataConnector"
+                                        },
+                                        {
+                                            "contentId": "CefAma",
+                                            "kind": "DataConnector"
                                         }
                                     ]
                                 }
@@ -1052,7 +1068,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.1",
+                "packageVersion": "3.0.2",
                 "packageName": "Zscaler Internet Access",
                 "packageId": "zscaler1579058425289.zscaler_internet_access_mss",
                 "contentSchemaVersion": "3.0.0",
@@ -1074,10 +1090,10 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'zscaler1579058425289.zscaler_internet_access_mss')]"
             ],
             "properties": {
-                "description": "DiscordCDNRiskyDownload_AnalyticalRules Analytics Rule with template version 3.0.1",
+                "description": "DiscordCDNRiskyDownload_AnalyticalRules Analytics Rule with template version 3.0.2",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.1",
+                    "contentVersion": "1.0.3",
                     "parameters": {},
                     "variables": {},
                     "resources": [
@@ -1088,7 +1104,7 @@
                             "kind": "Scheduled",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
-                                "description": "Identifies callouts to Discord CDN addresses for risky file extensions. This detection will trigger when a callout for a risky file\nis made to a discord server that has only been seen once in your environment. Unique discord servers are identified using the server ID\nthat is included in the request URL (DiscordServerId in query). Discord CDN has been used in multiple campaigns to download additional payloads",
+                                "description": "Identifies callouts to Discord CDN addresses for risky file extensions. This detection will trigger when a callout for a risky file is made to a discord server that has only been seen once in your environment. Unique discord servers are identified using the server ID that is included in the request URL (DiscordServerId in query). Discord CDN has been used in multiple campaigns to download additional payloads",
                                 "displayName": "Discord CDN Risky File Download",
                                 "enabled": false,
                                 "query": "let connectionThreshold = 1;\nlet riskyExtensions = dynamic([\".bin\",\".exe\",\".dll\",\".bin\",\".msi\"]);\nCommonSecurityLog\n| where DeviceVendor =~ \"ZScaler\"\n| where RequestURL has_any(\"media.discordapp.net\", \"cdn.discordapp.com\")\n| where RequestURL has \"attachments\"\n| where DeviceAction !~ \"blocked\"\n| extend DiscordServerId = extract(@\"\\/attachments\\/([0-9]+)\\/\", 1, RequestURL)\n| summarize dcount(RequestURL), make_set(SourceUserName), make_set(SourceIP), make_set(RequestURL), min(TimeGenerated), max(TimeGenerated), make_set(DeviceAction) by DiscordServerId, DeviceProduct\n| where dcount_RequestURL <= connectionThreshold\n| mv-expand set_SourceUserName to typeof(string), set_RequestURL to typeof(string), set_DeviceAction to typeof(string), set_SourceIP to typeof(string)\n| summarize by DiscordServerId, DeviceProduct, dcount_RequestURL, set_SourceUserName, min_TimeGenerated, max_TimeGenerated, set_DeviceAction, set_SourceIP, set_RequestURL\n| project StartTime=min_TimeGenerated, EndTime=max_TimeGenerated, DeviceActionTaken=set_DeviceAction, DeviceProduct, SourceUser=set_SourceUserName, SourceIP=set_SourceIP, RequestURL=set_RequestURL\n| where RequestURL has_any (riskyExtensions)\n",
@@ -1102,16 +1118,22 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "Zscaler",
                                         "dataTypes": [
                                             "CommonSecurityLog"
-                                        ]
+                                        ],
+                                        "connectorId": "Zscaler"
                                     },
                                     {
-                                        "connectorId": "ZscalerAma",
                                         "dataTypes": [
                                             "CommonSecurityLog"
-                                        ]
+                                        ],
+                                        "connectorId": "ZscalerAma"
+                                    },
+                                    {
+                                        "dataTypes": [
+                                            "CommonSecurityLog"
+                                        ],
+                                        "connectorId": "CefAma"
                                     }
                                 ],
                                 "tactics": [
@@ -1125,31 +1147,31 @@
                                 ],
                                 "entityMappings": [
                                     {
-                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "identifier": "FullName",
                                                 "columnName": "SourceUser"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "Account"
                                     },
                                     {
-                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "identifier": "Address",
                                                 "columnName": "SourceIP"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "IP"
                                     },
                                     {
-                                        "entityType": "URL",
                                         "fieldMappings": [
                                             {
                                                 "identifier": "Url",
                                                 "columnName": "RequestURL"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "URL"
                                     }
                                 ]
                             }
@@ -1163,7 +1185,7 @@
                                 "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '010bd98c-a6be-498c-bdcd-502308c0fdae')]",
                                 "contentId": "010bd98c-a6be-498c-bdcd-502308c0fdae",
                                 "kind": "AnalyticsRule",
-                                "version": "1.0.1",
+                                "version": "1.0.3",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "Zscaler Internet Access",
@@ -1182,16 +1204,16 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.1",
+                "packageVersion": "3.0.2",
                 "packageName": "Zscaler Internet Access",
                 "packageId": "zscaler1579058425289.zscaler_internet_access_mss",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "010bd98c-a6be-498c-bdcd-502308c0fdae",
                 "contentKind": "AnalyticsRule",
                 "displayName": "Discord CDN Risky File Download",
-                "contentProductId": "zscaler1579058425289.zscaler_internet_access_mss-ar-xgtksfukcqsky",
-                "id": "zscaler1579058425289.zscaler_internet_access_mss-ar-xgtksfukcqsky",
-                "version": "1.0.1",
+                "contentProductId": "zscaler1579058425289.zscaler_internet_access_mss-ar-to7f62nunq23o",
+                "id": "zscaler1579058425289.zscaler_internet_access_mss-ar-to7f62nunq23o",
+                "version": "1.0.3",
                 "isDeprecated": false,
                 "dependencies": {
                     "operator": "AND",
@@ -1207,6 +1229,10 @@
                         {
                             "contentKind": "DataConnector",
                             "contentId": "ZscalerAma"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "CefAma"
                         }
                     ]
                 }
@@ -1221,10 +1247,10 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'zscaler1579058425289.zscaler_internet_access_mss')]"
             ],
             "properties": {
-                "description": "Zscaler-LowVolumeDomainRequests_AnalyticalRules Analytics Rule with template version 3.0.1",
+                "description": "Zscaler-LowVolumeDomainRequests_AnalyticalRules Analytics Rule with template version 3.0.2",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.2",
+                    "contentVersion": "1.0.3",
                     "parameters": {},
                     "variables": {},
                     "resources": [
@@ -1249,16 +1275,22 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "Zscaler",
                                         "dataTypes": [
                                             "CommonSecurityLog"
-                                        ]
+                                        ],
+                                        "connectorId": "Zscaler"
                                     },
                                     {
-                                        "connectorId": "ZscalerAma",
                                         "dataTypes": [
                                             "CommonSecurityLog"
-                                        ]
+                                        ],
+                                        "connectorId": "ZscalerAma"
+                                    },
+                                    {
+                                        "dataTypes": [
+                                            "CommonSecurityLog"
+                                        ],
+                                        "connectorId": "CefAma"
                                     }
                                 ],
                                 "tactics": [
@@ -1270,13 +1302,13 @@
                                 ],
                                 "entityMappings": [
                                     {
-                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "identifier": "Address",
                                                 "columnName": "IPCustomEntity"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "IP"
                                     }
                                 ]
                             }
@@ -1290,7 +1322,7 @@
                                 "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '4d500e6d-c984-43a3-9f39-7edec8dcc04d')]",
                                 "contentId": "4d500e6d-c984-43a3-9f39-7edec8dcc04d",
                                 "kind": "AnalyticsRule",
-                                "version": "1.0.2",
+                                "version": "1.0.3",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "Zscaler Internet Access",
@@ -1309,16 +1341,16 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.1",
+                "packageVersion": "3.0.2",
                 "packageName": "Zscaler Internet Access",
                 "packageId": "zscaler1579058425289.zscaler_internet_access_mss",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "4d500e6d-c984-43a3-9f39-7edec8dcc04d",
                 "contentKind": "AnalyticsRule",
                 "displayName": "Request for single resource on domain",
-                "contentProductId": "zscaler1579058425289.zscaler_internet_access_mss-ar-wtkghwg26azd6",
-                "id": "zscaler1579058425289.zscaler_internet_access_mss-ar-wtkghwg26azd6",
-                "version": "1.0.2",
+                "contentProductId": "zscaler1579058425289.zscaler_internet_access_mss-ar-hwkvo4azulhy6",
+                "id": "zscaler1579058425289.zscaler_internet_access_mss-ar-hwkvo4azulhy6",
+                "version": "1.0.3",
                 "isDeprecated": false,
                 "dependencies": {
                     "operator": "AND",
@@ -1334,6 +1366,10 @@
                         {
                             "contentKind": "DataConnector",
                             "contentId": "ZscalerAma"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "CefAma"
                         }
                     ]
                 }
@@ -1348,7 +1384,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'zscaler1579058425289.zscaler_internet_access_mss')]"
             ],
             "properties": {
-                "description": "ZScalerFW_Parser Data Parser with template version 3.0.1",
+                "description": "ZScalerFW_Parser Data Parser with template version 3.0.2",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -1406,7 +1442,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.1",
+                "packageVersion": "3.0.2",
                 "packageName": "Zscaler Internet Access",
                 "packageId": "zscaler1579058425289.zscaler_internet_access_mss",
                 "contentSchemaVersion": "3.0.0",
@@ -1477,7 +1513,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'zscaler1579058425289.zscaler_internet_access_mss')]"
             ],
             "properties": {
-                "description": "ZScalerWeb_Parser Data Parser with template version 3.0.1",
+                "description": "ZScalerWeb_Parser Data Parser with template version 3.0.2",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -1535,7 +1571,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.1",
+                "packageVersion": "3.0.2",
                 "packageName": "Zscaler Internet Access",
                 "packageId": "zscaler1579058425289.zscaler_internet_access_mss",
                 "contentSchemaVersion": "3.0.0",
@@ -1606,7 +1642,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'zscaler1579058425289.zscaler_internet_access_mss')]"
             ],
             "properties": {
-                "description": "FunctionApp Playbook with template version 3.0.1",
+                "description": "FunctionApp Playbook with template version 3.0.2",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0",
@@ -1947,7 +1983,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.1",
+                "packageVersion": "3.0.2",
                 "packageName": "Zscaler Internet Access",
                 "packageId": "zscaler1579058425289.zscaler_internet_access_mss",
                 "contentSchemaVersion": "3.0.0",
@@ -1969,7 +2005,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'zscaler1579058425289.zscaler_internet_access_mss')]"
             ],
             "properties": {
-                "description": "Zscaler-Authentication-Playbook Playbook with template version 3.0.1",
+                "description": "Zscaler-Authentication-Playbook Playbook with template version 3.0.2",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0",
@@ -2322,7 +2358,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.1",
+                "packageVersion": "3.0.2",
                 "packageName": "Zscaler Internet Access",
                 "packageId": "zscaler1579058425289.zscaler_internet_access_mss",
                 "contentSchemaVersion": "3.0.0",
@@ -2344,7 +2380,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'zscaler1579058425289.zscaler_internet_access_mss')]"
             ],
             "properties": {
-                "description": "Zscaler-Add-Url-To-Category Playbook with template version 3.0.1",
+                "description": "Zscaler-Add-Url-To-Category Playbook with template version 3.0.2",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0",
@@ -2664,7 +2700,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.1",
+                "packageVersion": "3.0.2",
                 "packageName": "Zscaler Internet Access",
                 "packageId": "zscaler1579058425289.zscaler_internet_access_mss",
                 "contentSchemaVersion": "3.0.0",
@@ -2686,7 +2722,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'zscaler1579058425289.zscaler_internet_access_mss')]"
             ],
             "properties": {
-                "description": "Zscaler-Get-Sandbox-Report-For-Hash Playbook with template version 3.0.1",
+                "description": "Zscaler-Get-Sandbox-Report-For-Hash Playbook with template version 3.0.2",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0",
@@ -3081,7 +3117,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.1",
+                "packageVersion": "3.0.2",
                 "packageName": "Zscaler Internet Access",
                 "packageId": "zscaler1579058425289.zscaler_internet_access_mss",
                 "contentSchemaVersion": "3.0.0",
@@ -3099,15 +3135,15 @@
             "apiVersion": "2023-04-01-preview",
             "location": "[parameters('workspace-location')]",
             "properties": {
-                "version": "3.0.1",
+                "version": "3.0.2",
                 "kind": "Solution",
                 "contentSchemaVersion": "3.0.0",
                 "displayName": "Zscaler Internet Access",
                 "publisherDisplayName": "Zscaler",
                 "descriptionHtml": "Use this offer to deploy ZIA logs into Microsoft Sentinel.<div>Main users of this offer are IT teams that want to integrate ZIA logs into Microsoft Sentinel.</div><div>This simplifies the deployment process and allows IT teams to be more agile and start to realize the benefit of correlating their Zscaler Internet Access (e.g. Web and Firewall logs) with other signals and use Microsoft Sentinel to maximize the benefits of attack detection, threat visibility, proactive hunting, and threat response. </div>",
                 "contentKind": "Solution",
-                "contentProductId": "zscaler1579058425289.zscaler_internet_access_mss-sl-fijtrknpzrjve",
-                "id": "zscaler1579058425289.zscaler_internet_access_mss-sl-fijtrknpzrjve",
+                "contentProductId": "zscaler1579058425289.zscaler_internet_access_mss-sl-jtvz2mfteissm",
+                "id": "zscaler1579058425289.zscaler_internet_access_mss-sl-jtvz2mfteissm",
                 "icon": "https://store-images.s-microsoft.com/image/apps.15098.1805f830-5c09-4543-943f-1ba4d9a84620.f5eb75ab-61cc-4e78-8b6a-f5a0faea5be8.36f23240-e5b8-457f-81ed-912ddf3d8ef0",
                 "contentId": "zscaler1579058425289.zscaler_internet_access_mss",
                 "parentId": "zscaler1579058425289.zscaler_internet_access_mss",
@@ -3125,7 +3161,6 @@
                     "link": "https://help.zscaler.com/submit-ticket-links"
                 },
                 "dependencies": {
-                    "operator": "AND",
                     "criteria": [
                         {
                             "kind": "DataConnector",
@@ -3160,12 +3195,12 @@
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "010bd98c-a6be-498c-bdcd-502308c0fdae",
-                            "version": "1.0.1"
+                            "version": "1.0.3"
                         },
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "4d500e6d-c984-43a3-9f39-7edec8dcc04d",
-                            "version": "1.0.2"
+                            "version": "1.0.3"
                         },
                         {
                             "kind": "Parser",
@@ -3196,6 +3231,10 @@
                             "kind": "Playbook",
                             "contentId": "Get-Sandbox-Report-For-Hash",
                             "version": "1.0"
+                        },
+                        {
+                            "kind": "Solution",
+                            "contentId": "azuresentinel.azure-sentinel-solution-commoneventformat"
                         }
                     ]
                 },
