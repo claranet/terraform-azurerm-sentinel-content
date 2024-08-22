@@ -13,26 +13,29 @@
         "triggerOperator": "GreaterThan",
         "triggerThreshold": 0,
         "tactics": [
-            "Impact"
+            "CommandAndControl"
+        ],
+        "techniques": [
+            "T1071"
         ],
         "entityMappings": [
             {
+                "entityType": "IP",
                 "fieldMappings": [
                     {
-                        "columnName": "DstIpAddr",
-                        "identifier": "Address"
+                        "identifier": "Address",
+                        "columnName": "DstIpAddr"
                     }
-                ],
-                "entityType": "IP"
+                ]
             }
         ],
         "customDetails": {
-            "IoCDescription": "Description",
             "ThreatType": "ThreatType",
-            "IoCConfidenceScore": "ConfidenceScore",
-            "ActivityGroupNames": "ActivityGroupNames",
             "EventTime": "imNWS_TimeGenerated",
             "IndicatorId": "IndicatorId",
+            "ActivityGroupNames": "ActivityGroupNames",
+            "IoCDescription": "Description",
+            "IoCConfidenceScore": "ConfidenceScore",
             "IoCExpirationTime": "ExpirationDateTime"
         },
         "alertDetailsOverride": {
@@ -40,6 +43,6 @@
             "alertDisplayNameFormat": "The IP {{SrcIpAddr}} of the web request matches an IP IoC"
         },
         "alertRuleTemplateName": "e2559891-383c-4caf-ae67-55a008b9f89e",
-        "templateVersion": "1.2.4"
+        "templateVersion": "1.2.5"
     }
 }

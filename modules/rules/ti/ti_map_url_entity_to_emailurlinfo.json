@@ -13,23 +13,26 @@
         "triggerOperator": "GreaterThan",
         "triggerThreshold": 0,
         "tactics": [
-            "Impact"
+            "CommandAndControl"
+        ],
+        "techniques": [
+            "T1071"
         ],
         "entityMappings": [
             {
                 "entityType": "Account",
                 "fieldMappings": [
                     {
-                        "columnName": "RecipientEmailAddress",
-                        "identifier": "FullName"
+                        "identifier": "FullName",
+                        "columnName": "RecipientEmailAddress"
                     },
                     {
-                        "columnName": "Name",
-                        "identifier": "Name"
+                        "identifier": "Name",
+                        "columnName": "Name"
                     },
                     {
-                        "columnName": "UPNSuffix",
-                        "identifier": "UPNSuffix"
+                        "identifier": "UPNSuffix",
+                        "columnName": "UPNSuffix"
                     }
                 ]
             },
@@ -37,13 +40,13 @@
                 "entityType": "URL",
                 "fieldMappings": [
                     {
-                        "columnName": "Url",
-                        "identifier": "Url"
+                        "identifier": "Url",
+                        "columnName": "Url"
                     }
                 ]
             }
         ],
         "alertRuleTemplateName": "a0038239-72f4-4f7b-90ff-37f89f7881e0",
-        "templateVersion": "1.0.1"
+        "templateVersion": "1.0.2"
     }
 }

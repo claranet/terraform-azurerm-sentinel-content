@@ -13,23 +13,26 @@
         "triggerOperator": "GreaterThan",
         "triggerThreshold": 0,
         "tactics": [
-            "Impact"
+            "CommandAndControl"
+        ],
+        "techniques": [
+            "T1071"
         ],
         "entityMappings": [
             {
                 "entityType": "Account",
                 "fieldMappings": [
                     {
-                        "columnName": "userPrincipalName",
-                        "identifier": "FullName"
+                        "identifier": "FullName",
+                        "columnName": "userPrincipalName"
                     },
                     {
-                        "columnName": "AccountName",
-                        "identifier": "Name"
+                        "identifier": "Name",
+                        "columnName": "AccountName"
                     },
                     {
-                        "columnName": "AccountUPNSuffix",
-                        "identifier": "UPNSuffix"
+                        "identifier": "UPNSuffix",
+                        "columnName": "AccountUPNSuffix"
                     }
                 ]
             },
@@ -37,16 +40,16 @@
                 "entityType": "Host",
                 "fieldMappings": [
                     {
-                        "columnName": "TargetResourceDisplayName",
-                        "identifier": "FullName"
+                        "identifier": "FullName",
+                        "columnName": "TargetResourceDisplayName"
                     },
                     {
-                        "columnName": "HostName",
-                        "identifier": "HostName"
+                        "identifier": "HostName",
+                        "columnName": "HostName"
                     },
                     {
-                        "columnName": "HostNameDomain",
-                        "identifier": "DnsDomain"
+                        "identifier": "DnsDomain",
+                        "columnName": "HostNameDomain"
                     }
                 ]
             },
@@ -54,13 +57,13 @@
                 "entityType": "URL",
                 "fieldMappings": [
                     {
-                        "columnName": "Url",
-                        "identifier": "Url"
+                        "identifier": "Url",
+                        "columnName": "Url"
                     }
                 ]
             }
         ],
         "alertRuleTemplateName": "712fab52-2a7d-401e-a08c-ff939cc7c25e",
-        "templateVersion": "1.2.6"
+        "templateVersion": "1.2.7"
     }
 }

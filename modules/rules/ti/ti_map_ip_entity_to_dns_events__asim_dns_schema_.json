@@ -13,54 +13,57 @@
         "triggerOperator": "GreaterThan",
         "triggerThreshold": 0,
         "tactics": [
-            "Impact"
+            "CommandAndControl"
+        ],
+        "techniques": [
+            "T1071"
         ],
         "entityMappings": [
             {
+                "entityType": "Host",
                 "fieldMappings": [
                     {
-                        "columnName": "Dvc",
-                        "identifier": "FullName"
+                        "identifier": "FullName",
+                        "columnName": "Dvc"
                     }
-                ],
-                "entityType": "Host"
+                ]
             },
             {
+                "entityType": "IP",
                 "fieldMappings": [
                     {
-                        "columnName": "IoC",
-                        "identifier": "Address"
+                        "identifier": "Address",
+                        "columnName": "IoC"
                     }
-                ],
-                "entityType": "IP"
+                ]
             },
             {
+                "entityType": "IP",
                 "fieldMappings": [
                     {
-                        "columnName": "SrcIpAddr",
-                        "identifier": "Address"
+                        "identifier": "Address",
+                        "columnName": "SrcIpAddr"
                     }
-                ],
-                "entityType": "IP"
+                ]
             }
         ],
         "customDetails": {
+            "Description": "Description",
+            "ThreatType": "ThreatType",
+            "IndicatorId": "IndicatorId",
+            "ActivityGroupNames": "ActivityGroupNames",
+            "LatestIndicatorTime": "LatestIndicatorTime",
+            "DnsQuery": "DnsQuery",
+            "DNSRequestTime": "imDns_mintime",
             "ExpirationDateTime": "ExpirationDateTime",
             "SourceIPAddress": "SrcIpAddr",
-            "Description": "Description",
-            "DNSRequestTime": "imDns_mintime",
-            "ThreatType": "ThreatType",
-            "ActivityGroupNames": "ActivityGroupNames",
-            "ConfidenceScore": "ConfidenceScore",
-            "IndicatorId": "IndicatorId",
-            "LatestIndicatorTime": "LatestIndicatorTime",
-            "DnsQuery": "DnsQuery"
+            "ConfidenceScore": "ConfidenceScore"
         },
         "alertDetailsOverride": {
             "alertDescriptionFormat": "The response address {{IoC}} to a DNS query matched a known indicator of compromise of {{ThreatType}}. Consult the threat intelligence blade for more information on the indicator.",
             "alertDisplayNameFormat": "The response {{IoC}} to DNS query matched an IoC"
         },
         "alertRuleTemplateName": "67775878-7f8b-4380-ac54-115e1e828901",
-        "templateVersion": "1.2.3"
+        "templateVersion": "1.2.4"
     }
 }

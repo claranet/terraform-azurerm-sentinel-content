@@ -13,23 +13,26 @@
         "triggerOperator": "GreaterThan",
         "triggerThreshold": 0,
         "tactics": [
-            "Impact"
+            "CommandAndControl"
+        ],
+        "techniques": [
+            "T1071"
         ],
         "entityMappings": [
             {
                 "entityType": "Host",
                 "fieldMappings": [
                     {
-                        "columnName": "Computer",
-                        "identifier": "FullName"
+                        "identifier": "FullName",
+                        "columnName": "Computer"
                     },
                     {
-                        "columnName": "HostName",
-                        "identifier": "HostName"
+                        "identifier": "HostName",
+                        "columnName": "HostName"
                     },
                     {
-                        "columnName": "DnsDomain",
-                        "identifier": "DnsDomain"
+                        "identifier": "DnsDomain",
+                        "columnName": "DnsDomain"
                     }
                 ]
             },
@@ -37,8 +40,8 @@
                 "entityType": "IP",
                 "fieldMappings": [
                     {
-                        "columnName": "TI_ipEntity",
-                        "identifier": "Address"
+                        "identifier": "Address",
+                        "columnName": "TI_ipEntity"
                     }
                 ]
             },
@@ -46,13 +49,13 @@
                 "entityType": "URL",
                 "fieldMappings": [
                     {
-                        "columnName": "Url",
-                        "identifier": "Url"
+                        "identifier": "Url",
+                        "columnName": "Url"
                     }
                 ]
             }
         ],
         "alertRuleTemplateName": "a4025a76-6490-4e6b-bb69-d02be4b03f07",
-        "templateVersion": "1.4.2"
+        "templateVersion": "1.4.3"
     }
 }

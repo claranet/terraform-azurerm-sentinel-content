@@ -13,29 +13,32 @@
         "triggerOperator": "GreaterThan",
         "triggerThreshold": 0,
         "tactics": [
-            "Impact"
+            "CommandAndControl"
+        ],
+        "techniques": [
+            "T1071"
         ],
         "entityMappings": [
             {
+                "entityType": "IP",
                 "fieldMappings": [
                     {
-                        "columnName": "TI_ipEntity",
-                        "identifier": "Address"
+                        "identifier": "Address",
+                        "columnName": "TI_ipEntity"
                     }
-                ],
-                "entityType": "IP"
+                ]
             },
             {
+                "entityType": "URL",
                 "fieldMappings": [
                     {
-                        "columnName": "Url",
-                        "identifier": "Url"
+                        "identifier": "Url",
+                        "columnName": "Url"
                     }
-                ],
-                "entityType": "URL"
+                ]
             }
         ],
         "alertRuleTemplateName": "0b904747-1336-4363-8d84-df2710bfe5e7",
-        "templateVersion": "1.3.1"
+        "templateVersion": "1.3.2"
     }
 }

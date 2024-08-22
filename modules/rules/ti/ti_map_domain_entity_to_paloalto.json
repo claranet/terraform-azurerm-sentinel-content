@@ -13,38 +13,41 @@
         "triggerOperator": "GreaterThan",
         "triggerThreshold": 0,
         "tactics": [
-            "Impact"
+            "CommandAndControl"
+        ],
+        "techniques": [
+            "T1071"
         ],
         "entityMappings": [
             {
+                "entityType": "Host",
                 "fieldMappings": [
                     {
-                        "columnName": "DeviceName",
-                        "identifier": "HostName"
+                        "identifier": "HostName",
+                        "columnName": "DeviceName"
                     }
-                ],
-                "entityType": "Host"
+                ]
             },
             {
+                "entityType": "IP",
                 "fieldMappings": [
                     {
-                        "columnName": "SourceIP",
-                        "identifier": "Address"
+                        "identifier": "Address",
+                        "columnName": "SourceIP"
                     }
-                ],
-                "entityType": "IP"
+                ]
             },
             {
+                "entityType": "URL",
                 "fieldMappings": [
                     {
-                        "columnName": "PA_Url",
-                        "identifier": "Url"
+                        "identifier": "Url",
+                        "columnName": "PA_Url"
                     }
-                ],
-                "entityType": "URL"
+                ]
             }
         ],
         "alertRuleTemplateName": "ec21493c-2684-4acd-9bc2-696dbad72426",
-        "templateVersion": "1.4.1"
+        "templateVersion": "1.4.2"
     }
 }

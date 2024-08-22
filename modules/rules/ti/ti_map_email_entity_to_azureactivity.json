@@ -13,23 +13,26 @@
         "triggerOperator": "GreaterThan",
         "triggerThreshold": 0,
         "tactics": [
-            "Impact"
+            "InitialAccess"
+        ],
+        "techniques": [
+            "T1566"
         ],
         "entityMappings": [
             {
                 "entityType": "Account",
                 "fieldMappings": [
                     {
-                        "columnName": "Caller",
-                        "identifier": "FullName"
+                        "identifier": "FullName",
+                        "columnName": "Caller"
                     },
                     {
-                        "columnName": "Name",
-                        "identifier": "Name"
+                        "identifier": "Name",
+                        "columnName": "Name"
                     },
                     {
-                        "columnName": "UPNSuffix",
-                        "identifier": "UPNSuffix"
+                        "identifier": "UPNSuffix",
+                        "columnName": "UPNSuffix"
                     }
                 ]
             },
@@ -37,8 +40,8 @@
                 "entityType": "IP",
                 "fieldMappings": [
                     {
-                        "columnName": "CallerIpAddress",
-                        "identifier": "Address"
+                        "identifier": "Address",
+                        "columnName": "CallerIpAddress"
                     }
                 ]
             },
@@ -46,13 +49,13 @@
                 "entityType": "URL",
                 "fieldMappings": [
                     {
-                        "columnName": "Url",
-                        "identifier": "Url"
+                        "identifier": "Url",
+                        "columnName": "Url"
                     }
                 ]
             }
         ],
         "alertRuleTemplateName": "cca3b4d9-ac39-4109-8b93-65bb284003e6",
-        "templateVersion": "1.2.6"
+        "templateVersion": "1.2.7"
     }
 }

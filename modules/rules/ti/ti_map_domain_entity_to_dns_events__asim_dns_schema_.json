@@ -13,23 +13,26 @@
         "triggerOperator": "GreaterThan",
         "triggerThreshold": 0,
         "tactics": [
-            "Impact"
+            "CommandAndControl"
+        ],
+        "techniques": [
+            "T1071"
         ],
         "entityMappings": [
             {
                 "entityType": "Host",
                 "fieldMappings": [
                     {
-                        "columnName": "Dvc",
-                        "identifier": "FullName"
+                        "identifier": "FullName",
+                        "columnName": "Dvc"
                     },
                     {
-                        "columnName": "HostName",
-                        "identifier": "HostName"
+                        "identifier": "HostName",
+                        "columnName": "HostName"
                     },
                     {
-                        "columnName": "HostNameDomain",
-                        "identifier": "DnsDomain"
+                        "identifier": "DnsDomain",
+                        "columnName": "HostNameDomain"
                     }
                 ]
             },
@@ -37,8 +40,8 @@
                 "entityType": "IP",
                 "fieldMappings": [
                     {
-                        "columnName": "SrcIpAddr",
-                        "identifier": "Address"
+                        "identifier": "Address",
+                        "columnName": "SrcIpAddr"
                     }
                 ]
             },
@@ -46,26 +49,26 @@
                 "entityType": "URL",
                 "fieldMappings": [
                     {
-                        "columnName": "Url",
-                        "identifier": "Url"
+                        "identifier": "Url",
+                        "columnName": "Url"
                     }
                 ]
             }
         ],
         "customDetails": {
-            "ConfidenceScore": "ConfidenceScore",
-            "QueryType": "DnsQueryType",
-            "ActivityGroupNames": "ActivityGroupNames",
             "Description": "Description",
             "ThreatType": "ThreatType",
-            "DnsQuery": "DnsQuery",
             "IndicatorId": "IndicatorId",
-            "DNSRequestTime": "DNS_TimeGenerated",
-            "SourceIPAddress": "SrcIpAddr",
+            "ActivityGroupNames": "ActivityGroupNames",
             "LatestIndicatorTime": "LatestIndicatorTime",
-            "ExpirationDateTime": "ExpirationDateTime"
+            "DnsQuery": "DnsQuery",
+            "DNSRequestTime": "DNS_TimeGenerated",
+            "QueryType": "DnsQueryType",
+            "ExpirationDateTime": "ExpirationDateTime",
+            "SourceIPAddress": "SrcIpAddr",
+            "ConfidenceScore": "ConfidenceScore"
         },
         "alertRuleTemplateName": "999e9f5d-db4a-4b07-a206-29c4e667b7e8",
-        "templateVersion": "1.1.6"
+        "templateVersion": "1.1.7"
     }
 }

@@ -13,38 +13,41 @@
         "triggerOperator": "GreaterThan",
         "triggerThreshold": 0,
         "tactics": [
-            "Impact"
+            "CommandAndControl"
+        ],
+        "techniques": [
+            "T1071"
         ],
         "entityMappings": [
             {
+                "entityType": "Account",
                 "fieldMappings": [
                     {
-                        "columnName": "UserIdentityUserName",
-                        "identifier": "ObjectGuid"
+                        "identifier": "ObjectGuid",
+                        "columnName": "UserIdentityUserName"
                     }
-                ],
-                "entityType": "Account"
+                ]
             },
             {
+                "entityType": "IP",
                 "fieldMappings": [
                     {
-                        "columnName": "SourceIpAddress",
-                        "identifier": "Address"
+                        "identifier": "Address",
+                        "columnName": "SourceIpAddress"
                     }
-                ],
-                "entityType": "IP"
+                ]
             },
             {
+                "entityType": "URL",
                 "fieldMappings": [
                     {
-                        "columnName": "Url",
-                        "identifier": "Url"
+                        "identifier": "Url",
+                        "columnName": "Url"
                     }
-                ],
-                "entityType": "URL"
+                ]
             }
         ],
         "alertRuleTemplateName": "f110287e-1358-490d-8147-ed804b328514",
-        "templateVersion": "1.4.1"
+        "templateVersion": "1.4.2"
     }
 }
