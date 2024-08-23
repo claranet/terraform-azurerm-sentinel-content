@@ -1,3 +1,15 @@
+## 7.10.0 (2024-08-23)
+
+### Features
+
+* bump `Threat Intelligence` package template version to 3.0.4 + update embedded rules 81ff4ba
+* bump `Zscaler Internet Access` package template version to 3.0.2 + update embedded rules 5aef988
+
+### Miscellaneous Chores
+
+* **deps:** update dependency tflint to v0.53.0 535588f
+* **deps:** update pre-commit hook antonbabenko/pre-commit-terraform to v1.92.2 86935b5
+
 ## 7.9.0 (2024-08-09)
 
 
