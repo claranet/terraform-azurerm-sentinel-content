@@ -13,20 +13,23 @@
         "triggerOperator": "GreaterThan",
         "triggerThreshold": 0,
         "tactics": [
-            "Impact"
+            "CommandAndControl"
+        ],
+        "techniques": [
+            "T1071"
         ],
         "entityMappings": [
             {
+                "entityType": "IP",
                 "fieldMappings": [
                     {
-                        "columnName": "CS_ipEntity",
-                        "identifier": "Address"
+                        "identifier": "Address",
+                        "columnName": "CS_ipEntity"
                     }
-                ],
-                "entityType": "IP"
+                ]
             }
         ],
         "alertRuleTemplateName": "66c81ae2-1f89-4433-be00-2fbbd9ba5ebe",
-        "templateVersion": "1.2.1"
+        "templateVersion": "1.2.2"
     }
 }

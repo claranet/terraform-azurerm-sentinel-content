@@ -13,35 +13,38 @@
         "triggerOperator": "GreaterThan",
         "triggerThreshold": 0,
         "tactics": [
-            "Impact"
+            "CommandAndControl"
+        ],
+        "techniques": [
+            "T1071"
         ],
         "entityMappings": [
             {
+                "entityType": "IP",
                 "fieldMappings": [
                     {
-                        "columnName": "SrcIpAddr",
-                        "identifier": "Address"
+                        "identifier": "Address",
+                        "columnName": "SrcIpAddr"
                     }
-                ],
-                "entityType": "IP"
+                ]
             },
             {
+                "entityType": "URL",
                 "fieldMappings": [
                     {
-                        "columnName": "Url",
-                        "identifier": "Url"
+                        "identifier": "Url",
+                        "columnName": "Url"
                     }
-                ],
-                "entityType": "URL"
+                ]
             }
         ],
         "customDetails": {
-            "IoCDescription": "Description",
             "ThreatType": "ThreatType",
-            "IoCConfidenceScore": "ConfidenceScore",
-            "ActivityGroupNames": "ActivityGroupNames",
             "EventTime": "Event_TimeGenerated",
             "IndicatorId": "IndicatorId",
+            "ActivityGroupNames": "ActivityGroupNames",
+            "IoCDescription": "Description",
+            "IoCConfidenceScore": "ConfidenceScore",
             "IoCExpirationTime": "ExpirationDateTime"
         },
         "alertDetailsOverride": {
@@ -49,6 +52,6 @@
             "alertDisplayNameFormat": "A web request from {{SrcIpAddr}} to hostname  {{domain}} matched an IoC"
         },
         "alertRuleTemplateName": "b1832f60-6c3d-4722-a0a5-3d564ee61a63",
-        "templateVersion": "1.0.5"
+        "templateVersion": "1.0.6"
     }
 }

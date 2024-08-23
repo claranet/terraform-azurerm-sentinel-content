@@ -13,23 +13,26 @@
         "triggerOperator": "GreaterThan",
         "triggerThreshold": 0,
         "tactics": [
-            "Impact"
+            "CommandAndControl"
+        ],
+        "techniques": [
+            "T1071"
         ],
         "entityMappings": [
             {
                 "entityType": "Account",
                 "fieldMappings": [
                     {
-                        "columnName": "Account",
-                        "identifier": "FullName"
+                        "identifier": "FullName",
+                        "columnName": "Account"
                     },
                     {
-                        "columnName": "Name",
-                        "identifier": "Name"
+                        "identifier": "Name",
+                        "columnName": "Name"
                     },
                     {
-                        "columnName": "NTDomain",
-                        "identifier": "NTDomain"
+                        "identifier": "NTDomain",
+                        "columnName": "NTDomain"
                     }
                 ]
             },
@@ -37,16 +40,16 @@
                 "entityType": "Host",
                 "fieldMappings": [
                     {
-                        "columnName": "Computer",
-                        "identifier": "FullName"
+                        "identifier": "FullName",
+                        "columnName": "Computer"
                     },
                     {
-                        "columnName": "HostName",
-                        "identifier": "HostName"
+                        "identifier": "HostName",
+                        "columnName": "HostName"
                     },
                     {
-                        "columnName": "DnsDomain",
-                        "identifier": "DnsDomain"
+                        "identifier": "DnsDomain",
+                        "columnName": "DnsDomain"
                     }
                 ]
             },
@@ -54,8 +57,8 @@
                 "entityType": "URL",
                 "fieldMappings": [
                     {
-                        "columnName": "Url",
-                        "identifier": "Url"
+                        "identifier": "Url",
+                        "columnName": "Url"
                     }
                 ]
             },
@@ -63,17 +66,17 @@
                 "entityType": "FileHash",
                 "fieldMappings": [
                     {
-                        "columnName": "FileHashValue",
-                        "identifier": "Value"
+                        "identifier": "Value",
+                        "columnName": "FileHashValue"
                     },
                     {
-                        "columnName": "FileHashType",
-                        "identifier": "Algorithm"
+                        "identifier": "Algorithm",
+                        "columnName": "FileHashType"
                     }
                 ]
             }
         ],
         "alertRuleTemplateName": "a7427ed7-04b4-4e3b-b323-08b981b9b4bf",
-        "templateVersion": "1.4.5"
+        "templateVersion": "1.4.6"
     }
 }

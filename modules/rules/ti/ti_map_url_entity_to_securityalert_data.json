@@ -13,29 +13,32 @@
         "triggerOperator": "GreaterThan",
         "triggerThreshold": 0,
         "tactics": [
-            "Impact"
+            "CommandAndControl"
+        ],
+        "techniques": [
+            "T1071"
         ],
         "entityMappings": [
             {
+                "entityType": "Host",
                 "fieldMappings": [
                     {
-                        "columnName": "Compromised_Host",
-                        "identifier": "HostName"
+                        "identifier": "HostName",
+                        "columnName": "Compromised_Host"
                     }
-                ],
-                "entityType": "Host"
+                ]
             },
             {
+                "entityType": "URL",
                 "fieldMappings": [
                     {
-                        "columnName": "Url",
-                        "identifier": "Url"
+                        "identifier": "Url",
+                        "columnName": "Url"
                     }
-                ],
-                "entityType": "URL"
+                ]
             }
         ],
         "alertRuleTemplateName": "f30a47c1-65fb-42b1-a7f4-00941c12550b",
-        "templateVersion": "1.2.7"
+        "templateVersion": "1.2.8"
     }
 }

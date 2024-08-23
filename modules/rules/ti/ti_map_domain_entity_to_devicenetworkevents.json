@@ -13,51 +13,54 @@
         "triggerOperator": "GreaterThan",
         "triggerThreshold": 0,
         "tactics": [
-            "Impact"
+            "CommandAndControl"
+        ],
+        "techniques": [
+            "T1071"
         ],
         "entityMappings": [
             {
+                "entityType": "Account",
                 "fieldMappings": [
                     {
-                        "columnName": "Name",
-                        "identifier": "Name"
+                        "identifier": "Name",
+                        "columnName": "Name"
                     },
                     {
-                        "columnName": "UPNSuffix",
-                        "identifier": "UPNSuffix"
+                        "identifier": "UPNSuffix",
+                        "columnName": "UPNSuffix"
                     }
-                ],
-                "entityType": "Account"
+                ]
             },
             {
+                "entityType": "Host",
                 "fieldMappings": [
                     {
-                        "columnName": "DeviceName",
-                        "identifier": "FullName"
+                        "identifier": "FullName",
+                        "columnName": "DeviceName"
                     }
-                ],
-                "entityType": "Host"
+                ]
             },
             {
+                "entityType": "URL",
                 "fieldMappings": [
                     {
-                        "columnName": "Url",
-                        "identifier": "Url"
+                        "identifier": "Url",
+                        "columnName": "Url"
                     }
-                ],
-                "entityType": "URL"
+                ]
             },
             {
+                "entityType": "Process",
                 "fieldMappings": [
                     {
-                        "columnName": "InitiatingProcessCommandLine",
-                        "identifier": "CommandLine"
+                        "identifier": "CommandLine",
+                        "columnName": "InitiatingProcessCommandLine"
                     }
-                ],
-                "entityType": "Process"
+                ]
             }
         ],
         "alertRuleTemplateName": "c308b2f3-eebe-4a20-905c-cb8293b062db",
-        "templateVersion": "1.0.0"
+        "templateVersion": "1.0.1"
     }
 }

@@ -13,23 +13,26 @@
         "triggerOperator": "GreaterThan",
         "triggerThreshold": 0,
         "tactics": [
-            "Impact"
+            "CommandAndControl"
+        ],
+        "techniques": [
+            "T1071"
         ],
         "entityMappings": [
             {
                 "entityType": "Account",
                 "fieldMappings": [
                     {
-                        "columnName": "user_name_s",
-                        "identifier": "FullName"
+                        "identifier": "FullName",
+                        "columnName": "user_name_s"
                     },
                     {
-                        "columnName": "Name",
-                        "identifier": "Name"
+                        "identifier": "Name",
+                        "columnName": "Name"
                     },
                     {
-                        "columnName": "UPNSuffix",
-                        "identifier": "UPNSuffix"
+                        "identifier": "UPNSuffix",
+                        "columnName": "UPNSuffix"
                     }
                 ]
             },
@@ -37,13 +40,13 @@
                 "entityType": "IP",
                 "fieldMappings": [
                     {
-                        "columnName": "access_device_ip_s",
-                        "identifier": "Address"
+                        "identifier": "Address",
+                        "columnName": "access_device_ip_s"
                     }
                 ]
             }
         ],
         "alertRuleTemplateName": "d23ed927-5be3-4902-a9c1-85f841eb4fa1",
-        "templateVersion": "1.0.5"
+        "templateVersion": "1.0.6"
     }
 }

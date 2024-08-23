@@ -21,16 +21,16 @@
         ],
         "entityMappings": [
             {
-                "entityType": "IP",
                 "fieldMappings": [
                     {
                         "identifier": "Address",
                         "columnName": "IPCustomEntity"
                     }
-                ]
+                ],
+                "entityType": "IP"
             }
         ],
         "alertRuleTemplateName": "4d500e6d-c984-43a3-9f39-7edec8dcc04d",
-        "templateVersion": "1.0.2"
+        "templateVersion": "1.0.3"
     }
 }

@@ -13,50 +13,53 @@
         "triggerOperator": "GreaterThan",
         "triggerThreshold": 0,
         "tactics": [
-            "Impact"
+            "CommandAndControl"
+        ],
+        "techniques": [
+            "T1071"
         ],
         "entityMappings": [
             {
+                "entityType": "Account",
                 "fieldMappings": [
                     {
-                        "columnName": "RequestAccountName",
-                        "identifier": "Name"
+                        "identifier": "Name",
+                        "columnName": "RequestAccountName"
                     },
                     {
-                        "columnName": "RequestAccountSid",
-                        "identifier": "Sid"
+                        "identifier": "Sid",
+                        "columnName": "RequestAccountSid"
                     },
                     {
-                        "columnName": "RequestAccountDomain",
-                        "identifier": "NTDomain"
+                        "identifier": "NTDomain",
+                        "columnName": "RequestAccountDomain"
                     }
-                ],
-                "entityType": "Account"
+                ]
             },
             {
+                "entityType": "FileHash",
                 "fieldMappings": [
                     {
-                        "columnName": "FileHashValue",
-                        "identifier": "Value"
+                        "identifier": "Value",
+                        "columnName": "FileHashValue"
                     },
                     {
-                        "columnName": "FileHashType",
-                        "identifier": "Algorithm"
+                        "identifier": "Algorithm",
+                        "columnName": "FileHashType"
                     }
-                ],
-                "entityType": "FileHash"
+                ]
             },
             {
+                "entityType": "Host",
                 "fieldMappings": [
                     {
-                        "columnName": "DeviceName",
-                        "identifier": "HostName"
+                        "identifier": "HostName",
+                        "columnName": "DeviceName"
                     }
-                ],
-                "entityType": "Host"
+                ]
             }
         ],
         "alertRuleTemplateName": "bc0eca2e-db50-44e6-8fa3-b85f91ff5ee7",
-        "templateVersion": "1.0.0"
+        "templateVersion": "1.0.1"
     }
 }

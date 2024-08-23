@@ -13,47 +13,50 @@
         "triggerOperator": "GreaterThan",
         "triggerThreshold": 0,
         "tactics": [
-            "Impact"
+            "CommandAndControl"
+        ],
+        "techniques": [
+            "T1071"
         ],
         "entityMappings": [
             {
+                "entityType": "Account",
                 "fieldMappings": [
                     {
-                        "columnName": "csUserName",
-                        "identifier": "Name"
+                        "identifier": "Name",
+                        "columnName": "csUserName"
                     }
-                ],
-                "entityType": "Account"
+                ]
             },
             {
+                "entityType": "Host",
                 "fieldMappings": [
                     {
-                        "columnName": "Computer",
-                        "identifier": "HostName"
+                        "identifier": "HostName",
+                        "columnName": "Computer"
                     }
-                ],
-                "entityType": "Host"
+                ]
             },
             {
+                "entityType": "IP",
                 "fieldMappings": [
                     {
-                        "columnName": "cIP",
-                        "identifier": "Address"
+                        "identifier": "Address",
+                        "columnName": "cIP"
                     }
-                ],
-                "entityType": "IP"
+                ]
             },
             {
+                "entityType": "URL",
                 "fieldMappings": [
                     {
-                        "columnName": "Url",
-                        "identifier": "Url"
+                        "identifier": "Url",
+                        "columnName": "Url"
                     }
-                ],
-                "entityType": "URL"
+                ]
             }
         ],
         "alertRuleTemplateName": "5e45930c-09b1-4430-b2d1-cc75ada0dc0f",
-        "templateVersion": "1.4.1"
+        "templateVersion": "1.4.2"
     }
 }
