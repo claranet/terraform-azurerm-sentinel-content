@@ -1,3 +1,20 @@
+## 7.11.0 (2024-08-30)
+
+### Features
+
+* bump `Cisco Meraki` package template version to 3.0.2 dd2e59b
+* bump `Fortinet Fortigate` package template version to 3.0.6 e487159
+* bump `Microsoft Entra ID` package template version to 3.2.9 + update embedded rules bba0ca4
+* bump `Okta` package template version to 3.0.8 ca5d4ba
+* bump `Zscaler Private Access` package template version to 3.0.0 + update embedded rules a40fc3d
+
+### Miscellaneous Chores
+
+* **deps:** update pre-commit hook alessandrojcm/commitlint-pre-commit-hook to v9.17.0 8cc2704
+* **deps:** update pre-commit hook antonbabenko/pre-commit-terraform to v1.92.3 20c8d0d
+* **deps:** update pre-commit hook antonbabenko/pre-commit-terraform to v1.93.0 03fd14c
+* **deps:** update pre-commit hook antonbabenko/pre-commit-terraform to v1.94.0 c984e94
+
 ## 7.10.0 (2024-08-23)
 
 ### Features
