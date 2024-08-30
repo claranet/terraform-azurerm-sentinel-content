@@ -15,18 +15,22 @@
         "tactics": [
             "InitialAccess"
         ],
+        "techniques": [
+            "T1190",
+            "T1133"
+        ],
         "entityMappings": [
             {
-                "entityType": "Process",
                 "fieldMappings": [
                     {
                         "identifier": "ProcessId",
                         "columnName": "ProcessCustomEntity"
                     }
-                ]
+                ],
+                "entityType": "Process"
             }
         ],
         "alertRuleTemplateName": "672e2846-4226-11ec-81d3-0242ac130003",
-        "templateVersion": "1.0.0"
+        "templateVersion": "1.0.1"
     }
 }

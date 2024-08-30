@@ -23,14 +23,6 @@
             "metadata": {
                 "description": "Workspace name for Log Analytics where Microsoft Sentinel is setup"
             }
-        },
-        "workbook1-name": {
-            "type": "String",
-            "defaultValue": "Zscaler Private Access (ZPA)",
-            "minLength": 1,
-            "metadata": {
-                "description": "Name for the workbook"
-            }
         }
     },
     "resources": [
@@ -49,16 +41,14 @@
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-wb-',uniquestring('ZscalerZPAWorkbook')),'1.0.0'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-wb-',uniquestring('ZscalerZPAWorkbook')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-zscalerprivateaccess')]"
             ],
             "properties": {
-                "contentId": "ZscalerZPAWorkbook",
-                "displayName": "Zscaler Private Access (ZPA)",
-                "contentKind": "Workbook",
+                "description": "ZscalerZPA Workbook with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -117,6 +107,10 @@
                                         {
                                             "contentId": "ZscalerPrivateAccess",
                                             "kind": "DataConnector"
+                                        },
+                                        {
+                                            "contentId": "CustomLogsAma",
+                                            "kind": "DataConnector"
                                         }
                                     ]
                                 }
@@ -125,28 +119,29 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.1",
-                "packageName": "Zscaler Private Access",
+                "packageVersion": "3.0.0",
+                "packageName": "Zscaler Private Access (ZPA)",
                 "packageId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "ZscalerZPAWorkbook",
+                "contentKind": "Workbook",
+                "displayName": "Zscaler Private Access (ZPA)",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-zscalerpriva-wb-qhe2sxasrw25w",
                 "id": "azuresentinel.azure-sentinel-solution-zscalerpriva-wb-qhe2sxasrw25w",
-                "contentSchemaVersion": "3.0.0",
                 "version": "1.0.0",
                 "isDeprecated": false
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-dc-',uniquestring('ZscalerPrivateAccess')),'1.0.0'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-dc-',uniquestring('ZscalerPrivateAccess')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-zscalerprivateaccess')]"
             ],
             "properties": {
-                "contentId": "ZscalerPrivateAccess",
-                "displayName": "Zscaler Private Access",
-                "contentKind": "DataConnector",
+                "description": "Zscaler Private Access (ZPA) data connector with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -162,7 +157,7 @@
                             "properties": {
                                 "connectorUiConfig": {
                                     "id": "ZscalerPrivateAccess",
-                                    "title": "Zscaler Private Access",
+                                    "title": "[Deprecated] Zscaler Private Access",
                                     "publisher": "Zscaler",
                                     "descriptionMarkdown": "The [Zscaler Private Access (ZPA)](https://help.zscaler.com/zpa/what-zscaler-private-access) data connector provides the capability to ingest [Zscaler Private Access events](https://help.zscaler.com/zpa/log-streaming-service) into Microsoft Sentinel. Refer to [Zscaler Private Access documentation](https://help.zscaler.com/zpa) for more information.",
                                     "additionalRequirementBanner": "This data connector depends on a parser based on Kusto Function to work as expected. Follow the steps to use this Kusto Function alias **ZPAEvent** in queries and workbooks. [Follow steps to get this Kusto Function>](https://aka.ms/sentinel-ZscalerPrivateAccess-parser)",
@@ -323,7 +318,7 @@
                         },
                         {
                             "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
-                            "apiVersion": "2022-01-01-preview",
+                            "apiVersion": "2023-04-01-preview",
                             "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('DataConnector-', last(split(extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'ZscalerPrivateAccess'),'/'))))]",
                             "properties": {
                                 "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'ZscalerPrivateAccess')]",
@@ -350,19 +345,22 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.1",
-                "packageName": "Zscaler Private Access",
+                "packageVersion": "3.0.0",
+                "packageName": "Zscaler Private Access (ZPA)",
                 "packageId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "ZscalerPrivateAccess",
+                "contentKind": "DataConnector",
+                "displayName": "[Deprecated] Zscaler Private Access",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-zscalerpriva-dc-5xj5mntplzbwe",
                 "id": "azuresentinel.azure-sentinel-solution-zscalerpriva-dc-5xj5mntplzbwe",
-                "contentSchemaVersion": "3.0.0",
                 "version": "1.0.0",
                 "isDeprecated": false
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
-            "apiVersion": "2022-01-01-preview",
+            "apiVersion": "2023-04-01-preview",
             "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('DataConnector-', last(split(extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'ZscalerPrivateAccess'),'/'))))]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'ZscalerPrivateAccess')]"
@@ -398,7 +396,7 @@
             "kind": "GenericUI",
             "properties": {
                 "connectorUiConfig": {
-                    "title": "Zscaler Private Access",
+                    "title": "[Deprecated] Zscaler Private Access",
                     "publisher": "Zscaler",
                     "descriptionMarkdown": "The [Zscaler Private Access (ZPA)](https://help.zscaler.com/zpa/what-zscaler-private-access) data connector provides the capability to ingest [Zscaler Private Access events](https://help.zscaler.com/zpa/log-streaming-service) into Microsoft Sentinel. Refer to [Zscaler Private Access documentation](https://help.zscaler.com/zpa) for more information.",
                     "graphQueries": [
@@ -560,16 +558,14 @@
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-hq-',uniquestring('181dc982-4631-11ec-81d3-0242ac130003')),'1.0.0'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-hq-',uniquestring('181dc982-4631-11ec-81d3-0242ac130003')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-zscalerprivateaccess')]"
             ],
             "properties": {
-                "contentId": "181dc982-4631-11ec-81d3-0242ac130003",
-                "displayName": "Zscaler - Abnormal total bytes size",
-                "contentKind": "HuntingQuery",
+                "description": "ZscalerAbnormalTotalBytesSize_HuntingQueries Hunting Query with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -578,7 +574,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2020-08-01",
+                            "apiVersion": "2022-10-01",
                             "name": "Zscaler_Private_Access_(ZPA)_Hunting_Query_1",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -633,28 +629,29 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.1",
-                "packageName": "Zscaler Private Access",
+                "packageVersion": "3.0.0",
+                "packageName": "Zscaler Private Access (ZPA)",
                 "packageId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "181dc982-4631-11ec-81d3-0242ac130003",
+                "contentKind": "HuntingQuery",
+                "displayName": "Zscaler - Abnormal total bytes size",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-zscalerpriva-hq-7l74b22n3oj5o",
                 "id": "azuresentinel.azure-sentinel-solution-zscalerpriva-hq-7l74b22n3oj5o",
-                "contentSchemaVersion": "3.0.0",
                 "version": "1.0.0",
                 "isDeprecated": false
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-hq-',uniquestring('6ae7b9e0-462a-11ec-81d3-0242ac130003')),'1.0.0'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-hq-',uniquestring('6ae7b9e0-462a-11ec-81d3-0242ac130003')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-zscalerprivateaccess')]"
             ],
             "properties": {
-                "contentId": "6ae7b9e0-462a-11ec-81d3-0242ac130003",
-                "displayName": "Zscaler - Applications using by accounts",
-                "contentKind": "HuntingQuery",
+                "description": "ZscalerApplicationByUsers_HuntingQueries Hunting Query with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -663,7 +660,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2020-08-01",
+                            "apiVersion": "2022-10-01",
                             "name": "Zscaler_Private_Access_(ZPA)_Hunting_Query_2",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -718,28 +715,29 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.1",
-                "packageName": "Zscaler Private Access",
+                "packageVersion": "3.0.0",
+                "packageName": "Zscaler Private Access (ZPA)",
                 "packageId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "6ae7b9e0-462a-11ec-81d3-0242ac130003",
+                "contentKind": "HuntingQuery",
+                "displayName": "Zscaler - Applications using by accounts",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-zscalerpriva-hq-cwmazwxxy2cvq",
                 "id": "azuresentinel.azure-sentinel-solution-zscalerpriva-hq-cwmazwxxy2cvq",
-                "contentSchemaVersion": "3.0.0",
                 "version": "1.0.0",
                 "isDeprecated": false
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-hq-',uniquestring('5467efc0-422c-11ec-81d3-0242ac130003')),'1.0.0'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-hq-',uniquestring('5467efc0-422c-11ec-81d3-0242ac130003')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-zscalerprivateaccess')]"
             ],
             "properties": {
-                "contentId": "5467efc0-422c-11ec-81d3-0242ac130003",
-                "displayName": "Zscaler - Connection close reasons",
-                "contentKind": "HuntingQuery",
+                "description": "ZscalerConnectionCloseReason_HuntingQueries Hunting Query with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -748,7 +746,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2020-08-01",
+                            "apiVersion": "2022-10-01",
                             "name": "Zscaler_Private_Access_(ZPA)_Hunting_Query_3",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -803,28 +801,29 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.1",
-                "packageName": "Zscaler Private Access",
+                "packageVersion": "3.0.0",
+                "packageName": "Zscaler Private Access (ZPA)",
                 "packageId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "5467efc0-422c-11ec-81d3-0242ac130003",
+                "contentKind": "HuntingQuery",
+                "displayName": "Zscaler - Connection close reasons",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-zscalerpriva-hq-ag6ytuprvv5zi",
                 "id": "azuresentinel.azure-sentinel-solution-zscalerpriva-hq-ag6ytuprvv5zi",
-                "contentSchemaVersion": "3.0.0",
                 "version": "1.0.0",
                 "isDeprecated": false
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-hq-',uniquestring('20733e72-4231-11ec-81d3-0242ac130003')),'1.0.0'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-hq-',uniquestring('20733e72-4231-11ec-81d3-0242ac130003')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-zscalerprivateaccess')]"
             ],
             "properties": {
-                "contentId": "20733e72-4231-11ec-81d3-0242ac130003",
-                "displayName": "Zscaler - Destination ports by IP",
-                "contentKind": "HuntingQuery",
+                "description": "ZscalerIPsByPorts_HuntingQueries Hunting Query with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -833,14 +832,14 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2020-08-01",
+                            "apiVersion": "2022-10-01",
                             "name": "Zscaler_Private_Access_(ZPA)_Hunting_Query_4",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
                                 "eTag": "*",
                                 "displayName": "Zscaler - Destination ports by IP",
                                 "category": "Hunting Queries",
-                                "query": "ZPAEvent\n| where isnotempty(DstPortNumber)\n| summarize IP_Dst = make_set(DstIpAddr) by DstPortNumber\n| extend IPCustomEntity = DstIpAddr\n",
+                                "query": "ZPAEvent\n| where isnotempty(DstPortNumber)\n| summarize IP_Dst = make_set(DstIpAddr) by DstPortNumber\n| extend IPCustomEntity = IP_Dst\n",
                                 "version": 2,
                                 "tags": [
                                     {
@@ -888,28 +887,29 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.1",
-                "packageName": "Zscaler Private Access",
+                "packageVersion": "3.0.0",
+                "packageName": "Zscaler Private Access (ZPA)",
                 "packageId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "20733e72-4231-11ec-81d3-0242ac130003",
+                "contentKind": "HuntingQuery",
+                "displayName": "Zscaler - Destination ports by IP",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-zscalerpriva-hq-52muczmvrzsj2",
                 "id": "azuresentinel.azure-sentinel-solution-zscalerpriva-hq-52muczmvrzsj2",
-                "contentSchemaVersion": "3.0.0",
                 "version": "1.0.0",
                 "isDeprecated": false
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-hq-',uniquestring('bf8ce3e8-422a-11ec-81d3-0242ac130003')),'1.0.0'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-hq-',uniquestring('bf8ce3e8-422a-11ec-81d3-0242ac130003')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-zscalerprivateaccess')]"
             ],
             "properties": {
-                "contentId": "bf8ce3e8-422a-11ec-81d3-0242ac130003",
-                "displayName": "Zscaler - Users by source location countries",
-                "contentKind": "HuntingQuery",
+                "description": "ZscalerSourceLocation_HuntingQueries Hunting Query with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -918,7 +918,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2020-08-01",
+                            "apiVersion": "2022-10-01",
                             "name": "Zscaler_Private_Access_(ZPA)_Hunting_Query_5",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -973,28 +973,29 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.1",
-                "packageName": "Zscaler Private Access",
+                "packageVersion": "3.0.0",
+                "packageName": "Zscaler Private Access (ZPA)",
                 "packageId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "bf8ce3e8-422a-11ec-81d3-0242ac130003",
+                "contentKind": "HuntingQuery",
+                "displayName": "Zscaler - Users by source location countries",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-zscalerpriva-hq-kfx7zolxjiy4m",
                 "id": "azuresentinel.azure-sentinel-solution-zscalerpriva-hq-kfx7zolxjiy4m",
-                "contentSchemaVersion": "3.0.0",
                 "version": "1.0.0",
                 "isDeprecated": false
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-hq-',uniquestring('26d5244a-462f-11ec-81d3-0242ac130003')),'1.0.0'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-hq-',uniquestring('26d5244a-462f-11ec-81d3-0242ac130003')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-zscalerprivateaccess')]"
             ],
             "properties": {
-                "contentId": "26d5244a-462f-11ec-81d3-0242ac130003",
-                "displayName": "Zscaler - Top connectors",
-                "contentKind": "HuntingQuery",
+                "description": "ZscalerTopConnectors_HuntingQueries Hunting Query with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -1003,7 +1004,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2020-08-01",
+                            "apiVersion": "2022-10-01",
                             "name": "Zscaler_Private_Access_(ZPA)_Hunting_Query_6",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -1058,28 +1059,29 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.1",
-                "packageName": "Zscaler Private Access",
+                "packageVersion": "3.0.0",
+                "packageName": "Zscaler Private Access (ZPA)",
                 "packageId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "26d5244a-462f-11ec-81d3-0242ac130003",
+                "contentKind": "HuntingQuery",
+                "displayName": "Zscaler - Top connectors",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-zscalerpriva-hq-5wtcvp3xuioqe",
                 "id": "azuresentinel.azure-sentinel-solution-zscalerpriva-hq-5wtcvp3xuioqe",
-                "contentSchemaVersion": "3.0.0",
                 "version": "1.0.0",
                 "isDeprecated": false
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-hq-',uniquestring('baf67720-4623-11ec-81d3-0242ac130003')),'1.0.0'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-hq-',uniquestring('baf67720-4623-11ec-81d3-0242ac130003')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-zscalerprivateaccess')]"
             ],
             "properties": {
-                "contentId": "baf67720-4623-11ec-81d3-0242ac130003",
-                "displayName": "Zscaler - Top source IP",
-                "contentKind": "HuntingQuery",
+                "description": "ZscalerTopSourceIP_HuntingQueries Hunting Query with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -1088,7 +1090,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2020-08-01",
+                            "apiVersion": "2022-10-01",
                             "name": "Zscaler_Private_Access_(ZPA)_Hunting_Query_7",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -1143,28 +1145,29 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.1",
-                "packageName": "Zscaler Private Access",
+                "packageVersion": "3.0.0",
+                "packageName": "Zscaler Private Access (ZPA)",
                 "packageId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "baf67720-4623-11ec-81d3-0242ac130003",
+                "contentKind": "HuntingQuery",
+                "displayName": "Zscaler - Top source IP",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-zscalerpriva-hq-4lls44nq4j35g",
                 "id": "azuresentinel.azure-sentinel-solution-zscalerpriva-hq-4lls44nq4j35g",
-                "contentSchemaVersion": "3.0.0",
                 "version": "1.0.0",
                 "isDeprecated": false
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-hq-',uniquestring('d311eb1e-4231-11ec-81d3-0242ac130003')),'1.0.0'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-hq-',uniquestring('d311eb1e-4231-11ec-81d3-0242ac130003')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-zscalerprivateaccess')]"
             ],
             "properties": {
-                "contentId": "d311eb1e-4231-11ec-81d3-0242ac130003",
-                "displayName": "Zscaler - Rare urlhostname requests",
-                "contentKind": "HuntingQuery",
+                "description": "ZscalerUrlhostname_HuntingQueries Hunting Query with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -1173,7 +1176,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2020-08-01",
+                            "apiVersion": "2022-10-01",
                             "name": "Zscaler_Private_Access_(ZPA)_Hunting_Query_8",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -1228,28 +1231,29 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.1",
-                "packageName": "Zscaler Private Access",
+                "packageVersion": "3.0.0",
+                "packageName": "Zscaler Private Access (ZPA)",
                 "packageId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "d311eb1e-4231-11ec-81d3-0242ac130003",
+                "contentKind": "HuntingQuery",
+                "displayName": "Zscaler - Rare urlhostname requests",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-zscalerpriva-hq-bltf5dfgrm2qi",
                 "id": "azuresentinel.azure-sentinel-solution-zscalerpriva-hq-bltf5dfgrm2qi",
-                "contentSchemaVersion": "3.0.0",
                 "version": "1.0.0",
                 "isDeprecated": false
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-hq-',uniquestring('018e11f4-4627-11ec-81d3-0242ac130003')),'1.0.0'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-hq-',uniquestring('018e11f4-4627-11ec-81d3-0242ac130003')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-zscalerprivateaccess')]"
             ],
             "properties": {
-                "contentId": "018e11f4-4627-11ec-81d3-0242ac130003",
-                "displayName": "Zscaler - Users access groups",
-                "contentKind": "HuntingQuery",
+                "description": "ZscalerUserAccessGroups_HuntingQueries Hunting Query with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -1258,7 +1262,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2020-08-01",
+                            "apiVersion": "2022-10-01",
                             "name": "Zscaler_Private_Access_(ZPA)_Hunting_Query_9",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -1313,28 +1317,29 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.1",
-                "packageName": "Zscaler Private Access",
+                "packageVersion": "3.0.0",
+                "packageName": "Zscaler Private Access (ZPA)",
                 "packageId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "018e11f4-4627-11ec-81d3-0242ac130003",
+                "contentKind": "HuntingQuery",
+                "displayName": "Zscaler - Users access groups",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-zscalerpriva-hq-bjlt6qcqonho4",
                 "id": "azuresentinel.azure-sentinel-solution-zscalerpriva-hq-bjlt6qcqonho4",
-                "contentSchemaVersion": "3.0.0",
                 "version": "1.0.0",
                 "isDeprecated": false
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-hq-',uniquestring('22545900-422d-11ec-81d3-0242ac130003')),'1.0.0'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-hq-',uniquestring('22545900-422d-11ec-81d3-0242ac130003')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-zscalerprivateaccess')]"
             ],
             "properties": {
-                "contentId": "22545900-422d-11ec-81d3-0242ac130003",
-                "displayName": "Zscaler - Server error by user",
-                "contentKind": "HuntingQuery",
+                "description": "ZscalerUserServerErrors_HuntingQueries Hunting Query with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -1343,7 +1348,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2020-08-01",
+                            "apiVersion": "2022-10-01",
                             "name": "Zscaler_Private_Access_(ZPA)_Hunting_Query_10",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -1398,50 +1403,52 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.1",
-                "packageName": "Zscaler Private Access",
+                "packageVersion": "3.0.0",
+                "packageName": "Zscaler Private Access (ZPA)",
                 "packageId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "22545900-422d-11ec-81d3-0242ac130003",
+                "contentKind": "HuntingQuery",
+                "displayName": "Zscaler - Server error by user",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-zscalerpriva-hq-hcpu3ufwnrgiy",
                 "id": "azuresentinel.azure-sentinel-solution-zscalerpriva-hq-hcpu3ufwnrgiy",
-                "contentSchemaVersion": "3.0.0",
                 "version": "1.0.0",
                 "isDeprecated": false
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-pr-',uniquestring('ZPAEvent-Parser')),'1.0.0'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-pr-',uniquestring('ZPAEvent-Parser')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-zscalerprivateaccess')]"
             ],
             "properties": {
-                "contentId": "ZPAEvent-Parser",
-                "displayName": "Zscaler Private Access Data Parser",
-                "contentKind": "Parser",
+                "description": "ZPAEvent Data Parser with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0",
+                    "contentVersion": "1.0.1",
                     "parameters": {},
                     "variables": {},
                     "resources": [
                         {
-                            "name": "[concat(parameters('workspace'),'/','Zscaler Private Access Data Parser')]",
-                            "apiVersion": "2020-08-01",
+                            "name": "[concat(parameters('workspace'),'/','ZPAEvent')]",
+                            "apiVersion": "2022-10-01",
                             "type": "Microsoft.OperationalInsights/workspaces/savedSearches",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
                                 "eTag": "*",
-                                "displayName": "Zscaler Private Access Data Parser",
-                                "category": "Samples",
+                                "displayName": "Parser for ZPAEvent",
+                                "category": "Microsoft Sentinel Parser",
                                 "functionAlias": "ZPAEvent",
-                                "query": "\n\r\nZPA_CL\r\n| extend EventVendor=\"Zscaler\",\r\n        EventProduct=\"Private Access\"\r\n| parse-kv Message as (LogTimestamp:string, Customer:string, NetworkSessionId:string, ConnectionID:string, NetworkProtocol:string, DoubleEncryption:string, SrcIpAddr:string, SrcNatIpAddr:string, SrcGeoLatitude:string, SrcGeoLongitude:string, SrcGeoCountry:string, ClientZEN:string, NetworkRuleName:string, ConnectorZEN:string, ConnectorIP:string, ConnectorPort:string, SrcDvcHostname:string, Application:string, AppGroup:string, DstDomainHostname:string, DstIpAddr:string, PolicyProcessingTime:string, CAProcessingTime:string, ConnectorZENSetupTime:string, ConnectionSetupTime:string, ServerSetupTime:string, AppLearnTime:string, TimestampConnectionStart:string, TimestampConnectionEnd:string, TimestampCATx:string, TimestampCARx:string, TimestampAppLearnStart:string, TimestampZENFirstRxClient:string, TimestampZENFirstTxClient:string, TimestampZENLastRxClient:string, TimestampZENLastTxClient:string, TimestampConnectorZENSetupComplete:string, TimestampZENFirstRxConnector:string, TimestampZENFirstTxConnector:string, TimestampZENLastRxConnector:string, TimestampZENLastTxConnector:string, ZENBytesRxClient:string, ZENBytesTxClient:string, ZENTotalBytesRxConnector:string, ZENBytesRxConnector:string, ZENTotalBytesTxConnector:string, ZENBytesTxConnector:string, Idp:string, Version:string, ZEN:string, CertificateCN:string, PrivateIP:string, DvcIpAddr:string, Latitude:string, Longitude:string, CountryCode:string, TimestampAuthentication:string, TimestampUnAuthentication:string, DvcHostname:string, SrcDvcOs:string, DvcType:string, TrustedNetworks:string, TrustedNetworksNames:string, SAMLAttributes:string, PosturesHit:string, PosturesMiss:string, ZENLatitude:string, ZENLongitude:string, ZENCountryCode:string, SessionType:string, Connector:string, ConnectorGroup:string, CPUUtilization:string, MemUtilization:string, ServiceCount:string, InterfaceDefRoute:string, DefRouteGW:string, PrimaryDNSResolver:string, HostUpTime:string, ConnectorUpTime:string, NumOfInterfaces:string, BytesRxInterface:string, PacketsRxInterface:string, ErrorsRxInterface:string, DiscardsRxInterface:string, BytesTxInterface:string, PacketsTxInterface:string, ErrorsTxInterface:string, DiscardsTxInterface:string, ModifiedTime:string, CreationTime:string, ModifiedBy:string, RequestID:string, AuditOldValue:string, AuditNewValue:string, AuditOperationType:string, ObjectType:string, ObjectName:string, ObjectID:string, CustomerID:string, Exporter:string, TimestampRequestReceiveStart:string,  TimestampRequestReceiveHeaderFinish:string, TimestampRequestReceiveFinish:string, TimestampRequestTransmitStart:string, TimestampRequestTransmitFinish:string, TimestampResponseReceiveStart:string, TimestampResponseReceiveFinish:string, TimestampResponseTransmitStart:string, TimestampResponseTransmitFinish:string, TotalTimeRequestReceive:string, TotalTimeRequestTransmit:string, TotalTimeResponseReceive:string, TotalTimeResponseTransmit:string, TotalTimeConnectionSetup:string, TotalTimeServerResponse:string, HttpRequestMethod:string, NetworkApplicationProtocol:string, UrlHostname:string, UrlOriginal:string, HttpUserAgentOriginal:string, HttpRequestXff:string, NameID:string, HttpStatusCode:string, HttpRequestBodyBytes:string, HttpResponseBodyBytes:string, SrcPortNumber:string, EventResultDetails:string, CorsToken:string, Origin:string, ) with (pair_delimiter=' ', kv_delimiter=':', quote='\"')\r\n| extend\r\n        EventResult=column_ifexists('InternalReason', column_ifexists('ConnectionStatus', '')),\r\n        DvcAction=column_ifexists('ConnectionStatus', column_ifexists('SessionStatus', '')),\r\n        DstUserName=column_ifexists('Username', column_ifexists('User', '')),\r\n        DstPortNumber=column_ifexists('ServicePort', column_ifexists('ServerPort', column_ifexists('ApplicationPort', ''))),\r\n        SrcBytes=column_ifexists('ZENTotalBytesRxClient', column_ifexists('TotalBytesRx', '')),\r\n        DstBytes=column_ifexists('ZENTotalBytesTxClient', column_ifexists('TotalBytesTx', ''))\r\n",
-                                "version": 1,
+                                "query": "ZPA_CL\n| extend EventVendor=\"Zscaler\",\n        EventProduct=\"Private Access\"\n| parse-kv Message as (LogTimestamp:string, Customer:string, NetworkSessionId:string, ConnectionID:string, NetworkProtocol:string, DoubleEncryption:string, SrcIpAddr:string, SrcNatIpAddr:string, SrcGeoLatitude:string, SrcGeoLongitude:string, SrcGeoCountry:string, ClientZEN:string, NetworkRuleName:string, ConnectorZEN:string, ConnectorIP:string, ConnectorPort:string, SrcDvcHostname:string, Application:string, AppGroup:string, DstDomainHostname:string, DstIpAddr:string, PolicyProcessingTime:string, CAProcessingTime:string, ConnectorZENSetupTime:string, ConnectionSetupTime:string, ServerSetupTime:string, AppLearnTime:string, TimestampConnectionStart:string, TimestampConnectionEnd:string, TimestampCATx:string, TimestampCARx:string, TimestampAppLearnStart:string, TimestampZENFirstRxClient:string, TimestampZENFirstTxClient:string, TimestampZENLastRxClient:string, TimestampZENLastTxClient:string, TimestampConnectorZENSetupComplete:string, TimestampZENFirstRxConnector:string, TimestampZENFirstTxConnector:string, TimestampZENLastRxConnector:string, TimestampZENLastTxConnector:string, ZENBytesRxClient:string, ZENBytesTxClient:string, ZENTotalBytesRxConnector:string, ZENBytesRxConnector:string, ZENTotalBytesTxConnector:string, ZENBytesTxConnector:string, Idp:string, Version:string, ZEN:string, CertificateCN:string, PrivateIP:string, DvcIpAddr:string, Latitude:string, Longitude:string, CountryCode:string, TimestampAuthentication:string, TimestampUnAuthentication:string, DvcHostname:string, SrcDvcOs:string, DvcType:string, TrustedNetworks:string, TrustedNetworksNames:string, SAMLAttributes:string, PosturesHit:string, PosturesMiss:string, ZENLatitude:string, ZENLongitude:string, ZENCountryCode:string, SessionType:string, Connector:string, ConnectorGroup:string, CPUUtilization:string, MemUtilization:string, ServiceCount:string, InterfaceDefRoute:string, DefRouteGW:string, PrimaryDNSResolver:string, HostUpTime:string, ConnectorUpTime:string, NumOfInterfaces:string, BytesRxInterface:string, PacketsRxInterface:string, ErrorsRxInterface:string, DiscardsRxInterface:string, BytesTxInterface:string, PacketsTxInterface:string, ErrorsTxInterface:string, DiscardsTxInterface:string, ModifiedTime:string, CreationTime:string, ModifiedBy:string, RequestID:string, AuditOldValue:string, AuditNewValue:string, AuditOperationType:string, ObjectType:string, ObjectName:string, ObjectID:string, CustomerID:string, Exporter:string, TimestampRequestReceiveStart:string,  TimestampRequestReceiveHeaderFinish:string, TimestampRequestReceiveFinish:string, TimestampRequestTransmitStart:string, TimestampRequestTransmitFinish:string, TimestampResponseReceiveStart:string, TimestampResponseReceiveFinish:string, TimestampResponseTransmitStart:string, TimestampResponseTransmitFinish:string, TotalTimeRequestReceive:string, TotalTimeRequestTransmit:string, TotalTimeResponseReceive:string, TotalTimeResponseTransmit:string, TotalTimeConnectionSetup:string, TotalTimeServerResponse:string, HttpRequestMethod:string, NetworkApplicationProtocol:string, UrlHostname:string, UrlOriginal:string, HttpUserAgentOriginal:string, HttpRequestXff:string, NameID:string, HttpStatusCode:string, HttpRequestBodyBytes:string, HttpResponseBodyBytes:string, SrcPortNumber:string, EventResultDetails:string, CorsToken:string, Origin:string, InternalReason:string, ConnectionStatus:string,  SessionStatus:string, Username:string, User:string, ServicePort:string, ServerPort:string, ApplicationPort:string, ZENTotalBytesRxClient:string, TotalBytesRx:string, ZENTotalBytesTxClient:string, TotalBytesTx:string, ) with (pair_delimiter=' ', kv_delimiter=':', quote='\"')\n| extend\n        EventResult=column_ifexists('InternalReason', column_ifexists('ConnectionStatus', '')),\n        DvcAction=column_ifexists('ConnectionStatus', column_ifexists('SessionStatus', '')),\n        DstUserName=column_ifexists('Username', column_ifexists('User', '')),\n        DstPortNumber=column_ifexists('ServicePort', column_ifexists('ServerPort', column_ifexists('ApplicationPort', ''))),\n        SrcBytes=column_ifexists('ZENTotalBytesRxClient', column_ifexists('TotalBytesRx', '')),\n        DstBytes=column_ifexists('ZENTotalBytesTxClient', column_ifexists('TotalBytesTx', ''))\n",
+                                "functionParameters": "",
+                                "version": 2,
                                 "tags": [
                                     {
                                         "name": "description",
-                                        "value": "Zscaler Private Access Data Parser"
+                                        "value": ""
                                     }
                                 ]
                             }
@@ -1449,15 +1456,15 @@
                         {
                             "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
                             "apiVersion": "2022-01-01-preview",
-                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('Parser-', last(split(resourceId('Microsoft.OperationalInsights/workspaces/savedSearches', parameters('workspace'), 'Zscaler Private Access Data Parser'),'/'))))]",
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('Parser-', last(split(resourceId('Microsoft.OperationalInsights/workspaces/savedSearches', parameters('workspace'), 'ZPAEvent'),'/'))))]",
                             "dependsOn": [
-                                "[concat(parameters('workspace'),'/','Zscaler Private Access Data Parser')]"
+                                "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches', parameters('workspace'), 'ZPAEvent')]"
                             ],
                             "properties": {
-                                "parentId": "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches', parameters('workspace'), 'Zscaler Private Access Data Parser')]",
+                                "parentId": "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches', parameters('workspace'), 'ZPAEvent')]",
                                 "contentId": "ZPAEvent-Parser",
                                 "kind": "Parser",
-                                "version": "1.0.0",
+                                "version": "1.0.1",
                                 "source": {
                                     "name": "Zscaler Private Access (ZPA)",
                                     "kind": "Solution",
@@ -1478,43 +1485,53 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.1",
-                "packageName": "Zscaler Private Access",
+                "packageVersion": "3.0.0",
+                "packageName": "Zscaler Private Access (ZPA)",
                 "packageId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-zscalerpriva-pr-vmxvmpwgeedwo",
-                "id": "azuresentinel.azure-sentinel-solution-zscalerpriva-pr-vmxvmpwgeedwo",
                 "contentSchemaVersion": "3.0.0",
-                "version": "1.0.0",
+                "contentId": "ZPAEvent-Parser",
+                "contentKind": "Parser",
+                "displayName": "Parser for ZPAEvent",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-zscalerpriva-pr-dhz7bpo2czl3y",
+                "id": "azuresentinel.azure-sentinel-solution-zscalerpriva-pr-dhz7bpo2czl3y",
+                "version": "1.0.1",
                 "isDeprecated": false
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/savedSearches",
-            "apiVersion": "2021-06-01",
-            "name": "[concat(parameters('workspace'),'/','Zscaler Private Access Data Parser')]",
+            "apiVersion": "2022-10-01",
+            "name": "[concat(parameters('workspace'),'/','ZPAEvent')]",
             "location": "[parameters('workspace-location')]",
             "properties": {
                 "eTag": "*",
-                "displayName": "Zscaler Private Access Data Parser",
-                "category": "Samples",
+                "displayName": "Parser for ZPAEvent",
+                "category": "Microsoft Sentinel Parser",
                 "functionAlias": "ZPAEvent",
-                "query": "\n\r\nZPA_CL\r\n| extend EventVendor=\"Zscaler\",\r\n        EventProduct=\"Private Access\"\r\n| parse-kv Message as (LogTimestamp:string, Customer:string, NetworkSessionId:string, ConnectionID:string, NetworkProtocol:string, DoubleEncryption:string, SrcIpAddr:string, SrcNatIpAddr:string, SrcGeoLatitude:string, SrcGeoLongitude:string, SrcGeoCountry:string, ClientZEN:string, NetworkRuleName:string, ConnectorZEN:string, ConnectorIP:string, ConnectorPort:string, SrcDvcHostname:string, Application:string, AppGroup:string, DstDomainHostname:string, DstIpAddr:string, PolicyProcessingTime:string, CAProcessingTime:string, ConnectorZENSetupTime:string, ConnectionSetupTime:string, ServerSetupTime:string, AppLearnTime:string, TimestampConnectionStart:string, TimestampConnectionEnd:string, TimestampCATx:string, TimestampCARx:string, TimestampAppLearnStart:string, TimestampZENFirstRxClient:string, TimestampZENFirstTxClient:string, TimestampZENLastRxClient:string, TimestampZENLastTxClient:string, TimestampConnectorZENSetupComplete:string, TimestampZENFirstRxConnector:string, TimestampZENFirstTxConnector:string, TimestampZENLastRxConnector:string, TimestampZENLastTxConnector:string, ZENBytesRxClient:string, ZENBytesTxClient:string, ZENTotalBytesRxConnector:string, ZENBytesRxConnector:string, ZENTotalBytesTxConnector:string, ZENBytesTxConnector:string, Idp:string, Version:string, ZEN:string, CertificateCN:string, PrivateIP:string, DvcIpAddr:string, Latitude:string, Longitude:string, CountryCode:string, TimestampAuthentication:string, TimestampUnAuthentication:string, DvcHostname:string, SrcDvcOs:string, DvcType:string, TrustedNetworks:string, TrustedNetworksNames:string, SAMLAttributes:string, PosturesHit:string, PosturesMiss:string, ZENLatitude:string, ZENLongitude:string, ZENCountryCode:string, SessionType:string, Connector:string, ConnectorGroup:string, CPUUtilization:string, MemUtilization:string, ServiceCount:string, InterfaceDefRoute:string, DefRouteGW:string, PrimaryDNSResolver:string, HostUpTime:string, ConnectorUpTime:string, NumOfInterfaces:string, BytesRxInterface:string, PacketsRxInterface:string, ErrorsRxInterface:string, DiscardsRxInterface:string, BytesTxInterface:string, PacketsTxInterface:string, ErrorsTxInterface:string, DiscardsTxInterface:string, ModifiedTime:string, CreationTime:string, ModifiedBy:string, RequestID:string, AuditOldValue:string, AuditNewValue:string, AuditOperationType:string, ObjectType:string, ObjectName:string, ObjectID:string, CustomerID:string, Exporter:string, TimestampRequestReceiveStart:string,  TimestampRequestReceiveHeaderFinish:string, TimestampRequestReceiveFinish:string, TimestampRequestTransmitStart:string, TimestampRequestTransmitFinish:string, TimestampResponseReceiveStart:string, TimestampResponseReceiveFinish:string, TimestampResponseTransmitStart:string, TimestampResponseTransmitFinish:string, TotalTimeRequestReceive:string, TotalTimeRequestTransmit:string, TotalTimeResponseReceive:string, TotalTimeResponseTransmit:string, TotalTimeConnectionSetup:string, TotalTimeServerResponse:string, HttpRequestMethod:string, NetworkApplicationProtocol:string, UrlHostname:string, UrlOriginal:string, HttpUserAgentOriginal:string, HttpRequestXff:string, NameID:string, HttpStatusCode:string, HttpRequestBodyBytes:string, HttpResponseBodyBytes:string, SrcPortNumber:string, EventResultDetails:string, CorsToken:string, Origin:string, ) with (pair_delimiter=' ', kv_delimiter=':', quote='\"')\r\n| extend\r\n        EventResult=column_ifexists('InternalReason', column_ifexists('ConnectionStatus', '')),\r\n        DvcAction=column_ifexists('ConnectionStatus', column_ifexists('SessionStatus', '')),\r\n        DstUserName=column_ifexists('Username', column_ifexists('User', '')),\r\n        DstPortNumber=column_ifexists('ServicePort', column_ifexists('ServerPort', column_ifexists('ApplicationPort', ''))),\r\n        SrcBytes=column_ifexists('ZENTotalBytesRxClient', column_ifexists('TotalBytesRx', '')),\r\n        DstBytes=column_ifexists('ZENTotalBytesTxClient', column_ifexists('TotalBytesTx', ''))\r\n",
-                "version": 1
+                "query": "ZPA_CL\n| extend EventVendor=\"Zscaler\",\n        EventProduct=\"Private Access\"\n| parse-kv Message as (LogTimestamp:string, Customer:string, NetworkSessionId:string, ConnectionID:string, NetworkProtocol:string, DoubleEncryption:string, SrcIpAddr:string, SrcNatIpAddr:string, SrcGeoLatitude:string, SrcGeoLongitude:string, SrcGeoCountry:string, ClientZEN:string, NetworkRuleName:string, ConnectorZEN:string, ConnectorIP:string, ConnectorPort:string, SrcDvcHostname:string, Application:string, AppGroup:string, DstDomainHostname:string, DstIpAddr:string, PolicyProcessingTime:string, CAProcessingTime:string, ConnectorZENSetupTime:string, ConnectionSetupTime:string, ServerSetupTime:string, AppLearnTime:string, TimestampConnectionStart:string, TimestampConnectionEnd:string, TimestampCATx:string, TimestampCARx:string, TimestampAppLearnStart:string, TimestampZENFirstRxClient:string, TimestampZENFirstTxClient:string, TimestampZENLastRxClient:string, TimestampZENLastTxClient:string, TimestampConnectorZENSetupComplete:string, TimestampZENFirstRxConnector:string, TimestampZENFirstTxConnector:string, TimestampZENLastRxConnector:string, TimestampZENLastTxConnector:string, ZENBytesRxClient:string, ZENBytesTxClient:string, ZENTotalBytesRxConnector:string, ZENBytesRxConnector:string, ZENTotalBytesTxConnector:string, ZENBytesTxConnector:string, Idp:string, Version:string, ZEN:string, CertificateCN:string, PrivateIP:string, DvcIpAddr:string, Latitude:string, Longitude:string, CountryCode:string, TimestampAuthentication:string, TimestampUnAuthentication:string, DvcHostname:string, SrcDvcOs:string, DvcType:string, TrustedNetworks:string, TrustedNetworksNames:string, SAMLAttributes:string, PosturesHit:string, PosturesMiss:string, ZENLatitude:string, ZENLongitude:string, ZENCountryCode:string, SessionType:string, Connector:string, ConnectorGroup:string, CPUUtilization:string, MemUtilization:string, ServiceCount:string, InterfaceDefRoute:string, DefRouteGW:string, PrimaryDNSResolver:string, HostUpTime:string, ConnectorUpTime:string, NumOfInterfaces:string, BytesRxInterface:string, PacketsRxInterface:string, ErrorsRxInterface:string, DiscardsRxInterface:string, BytesTxInterface:string, PacketsTxInterface:string, ErrorsTxInterface:string, DiscardsTxInterface:string, ModifiedTime:string, CreationTime:string, ModifiedBy:string, RequestID:string, AuditOldValue:string, AuditNewValue:string, AuditOperationType:string, ObjectType:string, ObjectName:string, ObjectID:string, CustomerID:string, Exporter:string, TimestampRequestReceiveStart:string,  TimestampRequestReceiveHeaderFinish:string, TimestampRequestReceiveFinish:string, TimestampRequestTransmitStart:string, TimestampRequestTransmitFinish:string, TimestampResponseReceiveStart:string, TimestampResponseReceiveFinish:string, TimestampResponseTransmitStart:string, TimestampResponseTransmitFinish:string, TotalTimeRequestReceive:string, TotalTimeRequestTransmit:string, TotalTimeResponseReceive:string, TotalTimeResponseTransmit:string, TotalTimeConnectionSetup:string, TotalTimeServerResponse:string, HttpRequestMethod:string, NetworkApplicationProtocol:string, UrlHostname:string, UrlOriginal:string, HttpUserAgentOriginal:string, HttpRequestXff:string, NameID:string, HttpStatusCode:string, HttpRequestBodyBytes:string, HttpResponseBodyBytes:string, SrcPortNumber:string, EventResultDetails:string, CorsToken:string, Origin:string, InternalReason:string, ConnectionStatus:string,  SessionStatus:string, Username:string, User:string, ServicePort:string, ServerPort:string, ApplicationPort:string, ZENTotalBytesRxClient:string, TotalBytesRx:string, ZENTotalBytesTxClient:string, TotalBytesTx:string, ) with (pair_delimiter=' ', kv_delimiter=':', quote='\"')\n| extend\n        EventResult=column_ifexists('InternalReason', column_ifexists('ConnectionStatus', '')),\n        DvcAction=column_ifexists('ConnectionStatus', column_ifexists('SessionStatus', '')),\n        DstUserName=column_ifexists('Username', column_ifexists('User', '')),\n        DstPortNumber=column_ifexists('ServicePort', column_ifexists('ServerPort', column_ifexists('ApplicationPort', ''))),\n        SrcBytes=column_ifexists('ZENTotalBytesRxClient', column_ifexists('TotalBytesRx', '')),\n        DstBytes=column_ifexists('ZENTotalBytesTxClient', column_ifexists('TotalBytesTx', ''))\n",
+                "functionParameters": "",
+                "version": 2,
+                "tags": [
+                    {
+                        "name": "description",
+                        "value": ""
+                    }
+                ]
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
             "apiVersion": "2022-01-01-preview",
             "location": "[parameters('workspace-location')]",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('Parser-', last(split(resourceId('Microsoft.OperationalInsights/workspaces/savedSearches', parameters('workspace'), 'Zscaler Private Access Data Parser'),'/'))))]",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('Parser-', last(split(resourceId('Microsoft.OperationalInsights/workspaces/savedSearches', parameters('workspace'), 'ZPAEvent'),'/'))))]",
             "dependsOn": [
-                "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches', parameters('workspace'), 'Zscaler Private Access Data Parser')]"
+                "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches', parameters('workspace'), 'ZPAEvent')]"
             ],
             "properties": {
-                "parentId": "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches', parameters('workspace'), 'Zscaler Private Access Data Parser')]",
+                "parentId": "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches', parameters('workspace'), 'ZPAEvent')]",
                 "contentId": "ZPAEvent-Parser",
                 "kind": "Parser",
-                "version": "1.0.0",
+                "version": "1.0.1",
                 "source": {
                     "kind": "Solution",
                     "name": "Zscaler Private Access (ZPA)",
@@ -1534,26 +1551,24 @@
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-ar-',uniquestring('40a98355-0e52-479f-8c91-4ab659cba878')),'1.0.0'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-ar-',uniquestring('40a98355-0e52-479f-8c91-4ab659cba878')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-zscalerprivateaccess')]"
             ],
             "properties": {
-                "contentId": "40a98355-0e52-479f-8c91-4ab659cba878",
-                "displayName": "Zscaler - Shared ZPA session",
-                "contentKind": "AnalyticsRule",
+                "description": "ZscalerSharedZPASession_AnalyticalRules Analytics Rule with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0",
+                    "contentVersion": "1.0.1",
                     "parameters": {},
                     "variables": {},
                     "resources": [
                         {
                             "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
                             "name": "40a98355-0e52-479f-8c91-4ab659cba878",
-                            "apiVersion": "2022-04-01-preview",
+                            "apiVersion": "2023-02-01-preview",
                             "kind": "Scheduled",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -1575,29 +1590,39 @@
                                             "ZPAEvent"
                                         ],
                                         "connectorId": "ZscalerPrivateAccess"
+                                    },
+                                    {
+                                        "datatypes": [
+                                            "ZPA_CL"
+                                        ],
+                                        "connectorId": "CustomLogsAma"
                                     }
                                 ],
                                 "tactics": [
                                     "InitialAccess"
                                 ],
+                                "techniques": [
+                                    "T1078",
+                                    "T1133"
+                                ],
                                 "entityMappings": [
                                     {
-                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "identifier": "Name",
                                                 "columnName": "AccountCustomEntity"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "Account"
                                     },
                                     {
-                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "identifier": "Address",
                                                 "columnName": "IPCustomEntity"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "IP"
                                     }
                                 ]
                             }
@@ -1611,7 +1636,7 @@
                                 "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '40a98355-0e52-479f-8c91-4ab659cba878')]",
                                 "contentId": "40a98355-0e52-479f-8c91-4ab659cba878",
                                 "kind": "AnalyticsRule",
-                                "version": "1.0.0",
+                                "version": "1.0.1",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "Zscaler Private Access (ZPA)",
@@ -1632,38 +1657,60 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.1",
-                "packageName": "Zscaler Private Access",
+                "packageVersion": "3.0.0",
+                "packageName": "Zscaler Private Access (ZPA)",
                 "packageId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-zscalerpriva-ar-drcd5uga4j274",
-                "id": "azuresentinel.azure-sentinel-solution-zscalerpriva-ar-drcd5uga4j274",
                 "contentSchemaVersion": "3.0.0",
-                "version": "1.0.0",
-                "isDeprecated": false
+                "contentId": "40a98355-0e52-479f-8c91-4ab659cba878",
+                "contentKind": "AnalyticsRule",
+                "displayName": "Zscaler - Shared ZPA session",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-zscalerpriva-ar-x77au4o3h6oy6",
+                "id": "azuresentinel.azure-sentinel-solution-zscalerpriva-ar-x77au4o3h6oy6",
+                "version": "1.0.1",
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "ZPAEvent"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "ZscalerPrivateAccess"
+                        },
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "ZPA_CL"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "CustomLogsAma"
+                        }
+                    ]
+                }
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-ar-',uniquestring('593e3e2a-43ce-11ec-81d3-0242ac130003')),'1.0.0'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-ar-',uniquestring('593e3e2a-43ce-11ec-81d3-0242ac130003')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-zscalerprivateaccess')]"
             ],
             "properties": {
-                "contentId": "593e3e2a-43ce-11ec-81d3-0242ac130003",
-                "displayName": "Zscaler - Unexpected event count of rejects by policy",
-                "contentKind": "AnalyticsRule",
+                "description": "ZscalerUnexpectedCountEventResult_AnalyticalRules Analytics Rule with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0",
+                    "contentVersion": "1.0.1",
                     "parameters": {},
                     "variables": {},
                     "resources": [
                         {
                             "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
                             "name": "593e3e2a-43ce-11ec-81d3-0242ac130003",
-                            "apiVersion": "2022-04-01-preview",
+                            "apiVersion": "2023-02-01-preview",
                             "kind": "Scheduled",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -1685,20 +1732,30 @@
                                             "ZPAEvent"
                                         ],
                                         "connectorId": "ZscalerPrivateAccess"
+                                    },
+                                    {
+                                        "datatypes": [
+                                            "ZPA_CL"
+                                        ],
+                                        "connectorId": "CustomLogsAma"
                                     }
                                 ],
                                 "tactics": [
                                     "InitialAccess"
                                 ],
+                                "techniques": [
+                                    "T1078",
+                                    "T1133"
+                                ],
                                 "entityMappings": [
                                     {
-                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "identifier": "Name",
                                                 "columnName": "AccountCustomEntity"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "Account"
                                     }
                                 ]
                             }
@@ -1712,7 +1769,7 @@
                                 "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '593e3e2a-43ce-11ec-81d3-0242ac130003')]",
                                 "contentId": "593e3e2a-43ce-11ec-81d3-0242ac130003",
                                 "kind": "AnalyticsRule",
-                                "version": "1.0.0",
+                                "version": "1.0.1",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "Zscaler Private Access (ZPA)",
@@ -1733,38 +1790,60 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.1",
-                "packageName": "Zscaler Private Access",
+                "packageVersion": "3.0.0",
+                "packageName": "Zscaler Private Access (ZPA)",
                 "packageId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-zscalerpriva-ar-fhgfs72z2ojl4",
-                "id": "azuresentinel.azure-sentinel-solution-zscalerpriva-ar-fhgfs72z2ojl4",
                 "contentSchemaVersion": "3.0.0",
-                "version": "1.0.0",
-                "isDeprecated": false
+                "contentId": "593e3e2a-43ce-11ec-81d3-0242ac130003",
+                "contentKind": "AnalyticsRule",
+                "displayName": "Zscaler - Unexpected event count of rejects by policy",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-zscalerpriva-ar-xrzwl2uk23c5i",
+                "id": "azuresentinel.azure-sentinel-solution-zscalerpriva-ar-xrzwl2uk23c5i",
+                "version": "1.0.1",
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "ZPAEvent"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "ZscalerPrivateAccess"
+                        },
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "ZPA_CL"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "CustomLogsAma"
+                        }
+                    ]
+                }
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-ar-',uniquestring('b3d112b4-3e1e-11ec-9bbc-0242ac130002')),'1.0.0'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-ar-',uniquestring('b3d112b4-3e1e-11ec-9bbc-0242ac130002')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-zscalerprivateaccess')]"
             ],
             "properties": {
-                "contentId": "b3d112b4-3e1e-11ec-9bbc-0242ac130002",
-                "displayName": "Zscaler - Forbidden countries",
-                "contentKind": "AnalyticsRule",
+                "description": "ZscalerUnexpectedCountries_AnalyticalRules Analytics Rule with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0",
+                    "contentVersion": "1.0.1",
                     "parameters": {},
                     "variables": {},
                     "resources": [
                         {
                             "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
                             "name": "b3d112b4-3e1e-11ec-9bbc-0242ac130002",
-                            "apiVersion": "2022-04-01-preview",
+                            "apiVersion": "2023-02-01-preview",
                             "kind": "Scheduled",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -1786,29 +1865,39 @@
                                             "ZPAEvent"
                                         ],
                                         "connectorId": "ZscalerPrivateAccess"
+                                    },
+                                    {
+                                        "datatypes": [
+                                            "ZPA_CL"
+                                        ],
+                                        "connectorId": "CustomLogsAma"
                                     }
                                 ],
                                 "tactics": [
                                     "InitialAccess"
                                 ],
+                                "techniques": [
+                                    "T1190",
+                                    "T1133"
+                                ],
                                 "entityMappings": [
                                     {
-                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "identifier": "Name",
                                                 "columnName": "AccountCustomEntity"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "Account"
                                     },
                                     {
-                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "identifier": "Address",
                                                 "columnName": "IPCustomEntity"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "IP"
                                     }
                                 ]
                             }
@@ -1822,7 +1911,7 @@
                                 "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', 'b3d112b4-3e1e-11ec-9bbc-0242ac130002')]",
                                 "contentId": "b3d112b4-3e1e-11ec-9bbc-0242ac130002",
                                 "kind": "AnalyticsRule",
-                                "version": "1.0.0",
+                                "version": "1.0.1",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "Zscaler Private Access (ZPA)",
@@ -1843,38 +1932,60 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.1",
-                "packageName": "Zscaler Private Access",
+                "packageVersion": "3.0.0",
+                "packageName": "Zscaler Private Access (ZPA)",
                 "packageId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-zscalerpriva-ar-blptexedd64fu",
-                "id": "azuresentinel.azure-sentinel-solution-zscalerpriva-ar-blptexedd64fu",
                 "contentSchemaVersion": "3.0.0",
-                "version": "1.0.0",
-                "isDeprecated": false
+                "contentId": "b3d112b4-3e1e-11ec-9bbc-0242ac130002",
+                "contentKind": "AnalyticsRule",
+                "displayName": "Zscaler - Forbidden countries",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-zscalerpriva-ar-zlng2txeantym",
+                "id": "azuresentinel.azure-sentinel-solution-zscalerpriva-ar-zlng2txeantym",
+                "version": "1.0.1",
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "ZPAEvent"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "ZscalerPrivateAccess"
+                        },
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "ZPA_CL"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "CustomLogsAma"
+                        }
+                    ]
+                }
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-ar-',uniquestring('672e2846-4226-11ec-81d3-0242ac130003')),'1.0.0'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-ar-',uniquestring('672e2846-4226-11ec-81d3-0242ac130003')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-zscalerprivateaccess')]"
             ],
             "properties": {
-                "contentId": "672e2846-4226-11ec-81d3-0242ac130003",
-                "displayName": "Zscaler - Unexpected update operation",
-                "contentKind": "AnalyticsRule",
+                "description": "ZscalerUnexpectedUpdateOperation_AnalyticalRules Analytics Rule with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0",
+                    "contentVersion": "1.0.1",
                     "parameters": {},
                     "variables": {},
                     "resources": [
                         {
                             "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
                             "name": "672e2846-4226-11ec-81d3-0242ac130003",
-                            "apiVersion": "2022-04-01-preview",
+                            "apiVersion": "2023-02-01-preview",
                             "kind": "Scheduled",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -1896,20 +2007,30 @@
                                             "ZPAEvent"
                                         ],
                                         "connectorId": "ZscalerPrivateAccess"
+                                    },
+                                    {
+                                        "datatypes": [
+                                            "ZPA_CL"
+                                        ],
+                                        "connectorId": "CustomLogsAma"
                                     }
                                 ],
                                 "tactics": [
                                     "InitialAccess"
                                 ],
+                                "techniques": [
+                                    "T1190",
+                                    "T1133"
+                                ],
                                 "entityMappings": [
                                     {
-                                        "entityType": "Process",
                                         "fieldMappings": [
                                             {
                                                 "identifier": "ProcessId",
                                                 "columnName": "ProcessCustomEntity"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "Process"
                                     }
                                 ]
                             }
@@ -1923,7 +2044,7 @@
                                 "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '672e2846-4226-11ec-81d3-0242ac130003')]",
                                 "contentId": "672e2846-4226-11ec-81d3-0242ac130003",
                                 "kind": "AnalyticsRule",
-                                "version": "1.0.0",
+                                "version": "1.0.1",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "Zscaler Private Access (ZPA)",
@@ -1944,38 +2065,60 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.1",
-                "packageName": "Zscaler Private Access",
+                "packageVersion": "3.0.0",
+                "packageName": "Zscaler Private Access (ZPA)",
                 "packageId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-zscalerpriva-ar-mqbaalmb5ltvm",
-                "id": "azuresentinel.azure-sentinel-solution-zscalerpriva-ar-mqbaalmb5ltvm",
                 "contentSchemaVersion": "3.0.0",
-                "version": "1.0.0",
-                "isDeprecated": false
+                "contentId": "672e2846-4226-11ec-81d3-0242ac130003",
+                "contentKind": "AnalyticsRule",
+                "displayName": "Zscaler - Unexpected update operation",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-zscalerpriva-ar-vgqiekddxwxbq",
+                "id": "azuresentinel.azure-sentinel-solution-zscalerpriva-ar-vgqiekddxwxbq",
+                "version": "1.0.1",
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "ZPAEvent"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "ZscalerPrivateAccess"
+                        },
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "ZPA_CL"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "CustomLogsAma"
+                        }
+                    ]
+                }
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-ar-',uniquestring('66bc77ee-3e45-11ec-9bbc-0242ac130002')),'1.0.0'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-ar-',uniquestring('66bc77ee-3e45-11ec-9bbc-0242ac130002')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-zscalerprivateaccess')]"
             ],
             "properties": {
-                "contentId": "66bc77ee-3e45-11ec-9bbc-0242ac130002",
-                "displayName": "Zscaler - Connections by dormant user",
-                "contentKind": "AnalyticsRule",
+                "description": "ZscalerZPAConnectionsByDormantUser_AnalyticalRules Analytics Rule with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0",
+                    "contentVersion": "1.0.1",
                     "parameters": {},
                     "variables": {},
                     "resources": [
                         {
                             "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
                             "name": "66bc77ee-3e45-11ec-9bbc-0242ac130002",
-                            "apiVersion": "2022-04-01-preview",
+                            "apiVersion": "2023-02-01-preview",
                             "kind": "Scheduled",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -1997,20 +2140,29 @@
                                             "ZPAEvent"
                                         ],
                                         "connectorId": "ZscalerPrivateAccess"
+                                    },
+                                    {
+                                        "datatypes": [
+                                            "ZPA_CL"
+                                        ],
+                                        "connectorId": "CustomLogsAma"
                                     }
                                 ],
                                 "tactics": [
                                     "Persistence"
                                 ],
+                                "techniques": [
+                                    "T1078"
+                                ],
                                 "entityMappings": [
                                     {
-                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "identifier": "Name",
                                                 "columnName": "AccountCustomEntity"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "Account"
                                     }
                                 ]
                             }
@@ -2024,7 +2176,7 @@
                                 "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '66bc77ee-3e45-11ec-9bbc-0242ac130002')]",
                                 "contentId": "66bc77ee-3e45-11ec-9bbc-0242ac130002",
                                 "kind": "AnalyticsRule",
-                                "version": "1.0.0",
+                                "version": "1.0.1",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "Zscaler Private Access (ZPA)",
@@ -2045,38 +2197,60 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.1",
-                "packageName": "Zscaler Private Access",
+                "packageVersion": "3.0.0",
+                "packageName": "Zscaler Private Access (ZPA)",
                 "packageId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-zscalerpriva-ar-cvmouk4ow7ksy",
-                "id": "azuresentinel.azure-sentinel-solution-zscalerpriva-ar-cvmouk4ow7ksy",
                 "contentSchemaVersion": "3.0.0",
-                "version": "1.0.0",
-                "isDeprecated": false
+                "contentId": "66bc77ee-3e45-11ec-9bbc-0242ac130002",
+                "contentKind": "AnalyticsRule",
+                "displayName": "Zscaler - Connections by dormant user",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-zscalerpriva-ar-hjnaauguaxyka",
+                "id": "azuresentinel.azure-sentinel-solution-zscalerpriva-ar-hjnaauguaxyka",
+                "version": "1.0.1",
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "ZPAEvent"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "ZscalerPrivateAccess"
+                        },
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "ZPA_CL"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "CustomLogsAma"
+                        }
+                    ]
+                }
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-ar-',uniquestring('236a7ec1-0120-40f2-a157-c1a72dde8bcb')),'1.0.0'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-ar-',uniquestring('236a7ec1-0120-40f2-a157-c1a72dde8bcb')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-zscalerprivateaccess')]"
             ],
             "properties": {
-                "contentId": "236a7ec1-0120-40f2-a157-c1a72dde8bcb",
-                "displayName": "Zscaler - ZPA connections by new user",
-                "contentKind": "AnalyticsRule",
+                "description": "ZscalerZPAConnectionsByNewUser_AnalyticalRules Analytics Rule with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0",
+                    "contentVersion": "1.0.1",
                     "parameters": {},
                     "variables": {},
                     "resources": [
                         {
                             "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
                             "name": "236a7ec1-0120-40f2-a157-c1a72dde8bcb",
-                            "apiVersion": "2022-04-01-preview",
+                            "apiVersion": "2023-02-01-preview",
                             "kind": "Scheduled",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -2098,20 +2272,29 @@
                                             "ZPAEvent"
                                         ],
                                         "connectorId": "ZscalerPrivateAccess"
+                                    },
+                                    {
+                                        "datatypes": [
+                                            "ZPA_CL"
+                                        ],
+                                        "connectorId": "CustomLogsAma"
                                     }
                                 ],
                                 "tactics": [
                                     "Persistence"
                                 ],
+                                "techniques": [
+                                    "T1078"
+                                ],
                                 "entityMappings": [
                                     {
-                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "identifier": "Name",
                                                 "columnName": "AccountCustomEntity"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "Account"
                                     }
                                 ]
                             }
@@ -2125,7 +2308,7 @@
                                 "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '236a7ec1-0120-40f2-a157-c1a72dde8bcb')]",
                                 "contentId": "236a7ec1-0120-40f2-a157-c1a72dde8bcb",
                                 "kind": "AnalyticsRule",
-                                "version": "1.0.0",
+                                "version": "1.0.1",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "Zscaler Private Access (ZPA)",
@@ -2146,38 +2329,60 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.1",
-                "packageName": "Zscaler Private Access",
+                "packageVersion": "3.0.0",
+                "packageName": "Zscaler Private Access (ZPA)",
                 "packageId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-zscalerpriva-ar-yqzbcom7guyxk",
-                "id": "azuresentinel.azure-sentinel-solution-zscalerpriva-ar-yqzbcom7guyxk",
                 "contentSchemaVersion": "3.0.0",
-                "version": "1.0.0",
-                "isDeprecated": false
+                "contentId": "236a7ec1-0120-40f2-a157-c1a72dde8bcb",
+                "contentKind": "AnalyticsRule",
+                "displayName": "Zscaler - ZPA connections by new user",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-zscalerpriva-ar-v3fodvvi2p7dc",
+                "id": "azuresentinel.azure-sentinel-solution-zscalerpriva-ar-v3fodvvi2p7dc",
+                "version": "1.0.1",
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "ZPAEvent"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "ZscalerPrivateAccess"
+                        },
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "ZPA_CL"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "CustomLogsAma"
+                        }
+                    ]
+                }
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-ar-',uniquestring('c4902121-7a7e-44d1-810b-88d26db622ff')),'1.0.0'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-ar-',uniquestring('c4902121-7a7e-44d1-810b-88d26db622ff')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-zscalerprivateaccess')]"
             ],
             "properties": {
-                "contentId": "c4902121-7a7e-44d1-810b-88d26db622ff",
-                "displayName": "Zscaler - ZPA connections from new country",
-                "contentKind": "AnalyticsRule",
+                "description": "ZscalerZPAConnectionsFromNewCountry_AnalyticalRules Analytics Rule with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0",
+                    "contentVersion": "1.0.1",
                     "parameters": {},
                     "variables": {},
                     "resources": [
                         {
                             "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
                             "name": "c4902121-7a7e-44d1-810b-88d26db622ff",
-                            "apiVersion": "2022-04-01-preview",
+                            "apiVersion": "2023-02-01-preview",
                             "kind": "Scheduled",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -2199,20 +2404,30 @@
                                             "ZPAEvent"
                                         ],
                                         "connectorId": "ZscalerPrivateAccess"
+                                    },
+                                    {
+                                        "datatypes": [
+                                            "ZPA_CL"
+                                        ],
+                                        "connectorId": "CustomLogsAma"
                                     }
                                 ],
                                 "tactics": [
                                     "InitialAccess"
                                 ],
+                                "techniques": [
+                                    "T1190",
+                                    "T1133"
+                                ],
                                 "entityMappings": [
                                     {
-                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "identifier": "Name",
                                                 "columnName": "AccountCustomEntity"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "Account"
                                     }
                                 ]
                             }
@@ -2226,7 +2441,7 @@
                                 "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', 'c4902121-7a7e-44d1-810b-88d26db622ff')]",
                                 "contentId": "c4902121-7a7e-44d1-810b-88d26db622ff",
                                 "kind": "AnalyticsRule",
-                                "version": "1.0.0",
+                                "version": "1.0.1",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "Zscaler Private Access (ZPA)",
@@ -2247,38 +2462,60 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.1",
-                "packageName": "Zscaler Private Access",
+                "packageVersion": "3.0.0",
+                "packageName": "Zscaler Private Access (ZPA)",
                 "packageId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-zscalerpriva-ar-rszll6vrbm3mc",
-                "id": "azuresentinel.azure-sentinel-solution-zscalerpriva-ar-rszll6vrbm3mc",
                 "contentSchemaVersion": "3.0.0",
-                "version": "1.0.0",
-                "isDeprecated": false
+                "contentId": "c4902121-7a7e-44d1-810b-88d26db622ff",
+                "contentKind": "AnalyticsRule",
+                "displayName": "Zscaler - ZPA connections from new country",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-zscalerpriva-ar-zrxpynfs7we6s",
+                "id": "azuresentinel.azure-sentinel-solution-zscalerpriva-ar-zrxpynfs7we6s",
+                "version": "1.0.1",
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "ZPAEvent"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "ZscalerPrivateAccess"
+                        },
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "ZPA_CL"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "CustomLogsAma"
+                        }
+                    ]
+                }
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-ar-',uniquestring('24f0779d-3927-403a-aac1-cc8791653606')),'1.0.0'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-ar-',uniquestring('24f0779d-3927-403a-aac1-cc8791653606')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-zscalerprivateaccess')]"
             ],
             "properties": {
-                "contentId": "24f0779d-3927-403a-aac1-cc8791653606",
-                "displayName": "Zscaler - ZPA connections from new IP",
-                "contentKind": "AnalyticsRule",
+                "description": "ZscalerZPAConnectionsFromNewIP_AnalyticalRules Analytics Rule with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0",
+                    "contentVersion": "1.0.1",
                     "parameters": {},
                     "variables": {},
                     "resources": [
                         {
                             "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
                             "name": "24f0779d-3927-403a-aac1-cc8791653606",
-                            "apiVersion": "2022-04-01-preview",
+                            "apiVersion": "2023-02-01-preview",
                             "kind": "Scheduled",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -2300,29 +2537,39 @@
                                             "ZPAEvent"
                                         ],
                                         "connectorId": "ZscalerPrivateAccess"
+                                    },
+                                    {
+                                        "datatypes": [
+                                            "ZPA_CL"
+                                        ],
+                                        "connectorId": "CustomLogsAma"
                                     }
                                 ],
                                 "tactics": [
                                     "InitialAccess"
                                 ],
+                                "techniques": [
+                                    "T1078",
+                                    "T1133"
+                                ],
                                 "entityMappings": [
                                     {
-                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "identifier": "Name",
                                                 "columnName": "AccountCustomEntity"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "Account"
                                     },
                                     {
-                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "identifier": "Address",
                                                 "columnName": "IPCustomEntity"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "IP"
                                     }
                                 ]
                             }
@@ -2336,7 +2583,7 @@
                                 "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '24f0779d-3927-403a-aac1-cc8791653606')]",
                                 "contentId": "24f0779d-3927-403a-aac1-cc8791653606",
                                 "kind": "AnalyticsRule",
-                                "version": "1.0.0",
+                                "version": "1.0.1",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "Zscaler Private Access (ZPA)",
@@ -2357,38 +2604,60 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.1",
-                "packageName": "Zscaler Private Access",
+                "packageVersion": "3.0.0",
+                "packageName": "Zscaler Private Access (ZPA)",
                 "packageId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-zscalerpriva-ar-syv5ke5jcho4a",
-                "id": "azuresentinel.azure-sentinel-solution-zscalerpriva-ar-syv5ke5jcho4a",
                 "contentSchemaVersion": "3.0.0",
-                "version": "1.0.0",
-                "isDeprecated": false
+                "contentId": "24f0779d-3927-403a-aac1-cc8791653606",
+                "contentKind": "AnalyticsRule",
+                "displayName": "Zscaler - ZPA connections from new IP",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-zscalerpriva-ar-3fjwcijkg564o",
+                "id": "azuresentinel.azure-sentinel-solution-zscalerpriva-ar-3fjwcijkg564o",
+                "version": "1.0.1",
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "ZPAEvent"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "ZscalerPrivateAccess"
+                        },
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "ZPA_CL"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "CustomLogsAma"
+                        }
+                    ]
+                }
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-ar-',uniquestring('2859ad22-46c8-4cc7-ad7b-80ce0cba0af3')),'1.0.0'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-ar-',uniquestring('2859ad22-46c8-4cc7-ad7b-80ce0cba0af3')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-zscalerprivateaccess')]"
             ],
             "properties": {
-                "contentId": "2859ad22-46c8-4cc7-ad7b-80ce0cba0af3",
-                "displayName": "Zscaler - ZPA connections outside operational hours",
-                "contentKind": "AnalyticsRule",
+                "description": "ZscalerZPAConnectionsOutsideOperationalHours_AnalyticalRules Analytics Rule with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0",
+                    "contentVersion": "1.0.1",
                     "parameters": {},
                     "variables": {},
                     "resources": [
                         {
                             "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
                             "name": "2859ad22-46c8-4cc7-ad7b-80ce0cba0af3",
-                            "apiVersion": "2022-04-01-preview",
+                            "apiVersion": "2023-02-01-preview",
                             "kind": "Scheduled",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -2410,20 +2679,30 @@
                                             "ZPAEvent"
                                         ],
                                         "connectorId": "ZscalerPrivateAccess"
+                                    },
+                                    {
+                                        "datatypes": [
+                                            "ZPA_CL"
+                                        ],
+                                        "connectorId": "CustomLogsAma"
                                     }
                                 ],
                                 "tactics": [
                                     "InitialAccess"
                                 ],
+                                "techniques": [
+                                    "T1190",
+                                    "T1133"
+                                ],
                                 "entityMappings": [
                                     {
-                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "identifier": "Name",
                                                 "columnName": "AccountCustomEntity"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "Account"
                                     }
                                 ]
                             }
@@ -2437,7 +2716,7 @@
                                 "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '2859ad22-46c8-4cc7-ad7b-80ce0cba0af3')]",
                                 "contentId": "2859ad22-46c8-4cc7-ad7b-80ce0cba0af3",
                                 "kind": "AnalyticsRule",
-                                "version": "1.0.0",
+                                "version": "1.0.1",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "Zscaler Private Access (ZPA)",
@@ -2458,38 +2737,60 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.1",
-                "packageName": "Zscaler Private Access",
+                "packageVersion": "3.0.0",
+                "packageName": "Zscaler Private Access (ZPA)",
                 "packageId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-zscalerpriva-ar-6etldvek7ol72",
-                "id": "azuresentinel.azure-sentinel-solution-zscalerpriva-ar-6etldvek7ol72",
                 "contentSchemaVersion": "3.0.0",
-                "version": "1.0.0",
-                "isDeprecated": false
+                "contentId": "2859ad22-46c8-4cc7-ad7b-80ce0cba0af3",
+                "contentKind": "AnalyticsRule",
+                "displayName": "Zscaler - ZPA connections outside operational hours",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-zscalerpriva-ar-ohwcwsm62t7jy",
+                "id": "azuresentinel.azure-sentinel-solution-zscalerpriva-ar-ohwcwsm62t7jy",
+                "version": "1.0.1",
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "ZPAEvent"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "ZscalerPrivateAccess"
+                        },
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "ZPA_CL"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "CustomLogsAma"
+                        }
+                    ]
+                }
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-ar-',uniquestring('e07846e0-43ad-11ec-81d3-0242ac130003')),'1.0.0'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-ar-',uniquestring('e07846e0-43ad-11ec-81d3-0242ac130003')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-zscalerprivateaccess')]"
             ],
             "properties": {
-                "contentId": "e07846e0-43ad-11ec-81d3-0242ac130003",
-                "displayName": "Zscaler - Unexpected ZPA session duration",
-                "contentKind": "AnalyticsRule",
+                "description": "ZscalerZPAUnexpectedSessionDuration_AnalyticalRules Analytics Rule with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0",
+                    "contentVersion": "1.0.1",
                     "parameters": {},
                     "variables": {},
                     "resources": [
                         {
                             "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
                             "name": "e07846e0-43ad-11ec-81d3-0242ac130003",
-                            "apiVersion": "2022-04-01-preview",
+                            "apiVersion": "2023-02-01-preview",
                             "kind": "Scheduled",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -2511,29 +2812,39 @@
                                             "ZPAEvent"
                                         ],
                                         "connectorId": "ZscalerPrivateAccess"
+                                    },
+                                    {
+                                        "datatypes": [
+                                            "ZPA_CL"
+                                        ],
+                                        "connectorId": "CustomLogsAma"
                                     }
                                 ],
                                 "tactics": [
                                     "InitialAccess"
                                 ],
+                                "techniques": [
+                                    "T1078",
+                                    "T1133"
+                                ],
                                 "entityMappings": [
                                     {
-                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "identifier": "Name",
                                                 "columnName": "AccountCustomEntity"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "Account"
                                     },
                                     {
-                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "identifier": "Address",
                                                 "columnName": "IPCustomEntity"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "IP"
                                     }
                                 ]
                             }
@@ -2547,7 +2858,7 @@
                                 "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', 'e07846e0-43ad-11ec-81d3-0242ac130003')]",
                                 "contentId": "e07846e0-43ad-11ec-81d3-0242ac130003",
                                 "kind": "AnalyticsRule",
-                                "version": "1.0.0",
+                                "version": "1.0.1",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "Zscaler Private Access (ZPA)",
@@ -2568,26 +2879,57 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.1",
-                "packageName": "Zscaler Private Access",
+                "packageVersion": "3.0.0",
+                "packageName": "Zscaler Private Access (ZPA)",
                 "packageId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-zscalerpriva-ar-4pwfe2kccitue",
-                "id": "azuresentinel.azure-sentinel-solution-zscalerpriva-ar-4pwfe2kccitue",
                 "contentSchemaVersion": "3.0.0",
-                "version": "1.0.0",
-                "isDeprecated": false
+                "contentId": "e07846e0-43ad-11ec-81d3-0242ac130003",
+                "contentKind": "AnalyticsRule",
+                "displayName": "Zscaler - Unexpected ZPA session duration",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-zscalerpriva-ar-6p6h6eputsosm",
+                "id": "azuresentinel.azure-sentinel-solution-zscalerpriva-ar-6p6h6eputsosm",
+                "version": "1.0.1",
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "ZPAEvent"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "ZscalerPrivateAccess"
+                        },
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "ZPA_CL"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "CustomLogsAma"
+                        }
+                    ]
+                }
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentPackages",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', 'azuresentinel.azure-sentinel-solution-zscalerprivateaccess')]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "location": "[parameters('workspace-location')]",
             "properties": {
-                "version": "2.0.1",
+                "version": "3.0.0",
                 "kind": "Solution",
                 "contentSchemaVersion": "3.0.0",
+                "displayName": "Zscaler Private Access",
+                "publisherDisplayName": "Microsoft Sentinel, Microsoft Corporation",
+                "descriptionHtml": "<p><strong>Note:</strong> Please refer to the following before installing the solution:</p><p>\u2022 Review the solution <a target=\"_blank\" href=\"https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Zscaler%20Private%20Access%20%28ZPA%29/ReleaseNotes.md\" rel=\"noopener\">Release Notes</a></p><p>The <a target=\"_blank\" href=\"https://www.zscaler.com/\" rel=\"noopener\">Zscaler Private Access (ZPA)</a> solution provides the capability to ingest <a target=\"_blank\" href=\"https://help.zscaler.com/zpa/what-zscaler-private-access\" rel=\"noopener\">Zscaler Private Access events</a> into Microsoft Sentinel.</p><p>This solution is dependent on the Custom logs via AMA connector to collect the logs. The Custom logs solution will be installed as part of this solution installation.</p><p><strong>NOTE</strong>: Microsoft recommends installation of Custom logs via AMA Connector. Legacy connector uses the Log Analytics agent which is about to be deprecated by <strong>Aug 31, 2024</strong>. Using MMA and AMA on same machine can cause log duplication and extra ingestion cost <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/sentinel/ama-migrate?WT.mc_id=Portal-fx\" rel=\"noopener\">more details</a>.</p><p><strong>Data Connectors:</strong> 1, <strong>Parsers:</strong> 1, <strong>Workbooks:</strong> 1, <strong>Analytic Rules:</strong> 10, <strong>Hunting Queries:</strong> 10</p><p><a target=\"_blank\" href=\"https://aka.ms/azuresentinel\" rel=\"noopener\">Learn more about Microsoft Sentinel</a> | <a target=\"_blank\" href=\"https://aka.ms/azuresentinelsolutionsdoc\" rel=\"noopener\">Learn more about Solutions</a></p>",
+                "contentKind": "Solution",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-zscalerpriva-sl-fe6dhyf3gi37s",
+                "id": "azuresentinel.azure-sentinel-solution-zscalerpriva-sl-fe6dhyf3gi37s",
+                "icon": "https://store-images.s-microsoft.com/image/apps.16907.74737941-60e1-46cc-98a4-baecc69491f0.617377d3-f330-4fa5-a01f-083bb397f983.ddf820ed-d590-40b6-a176-9edfb5f0c131",
                 "contentId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
+                "parentId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
                 "source": {
                     "kind": "Solution",
                     "name": "Zscaler Private Access (ZPA)",
@@ -2604,7 +2946,6 @@
                     "link": "https://support.microsoft.com"
                 },
                 "dependencies": {
-                    "operator": "AND",
                     "criteria": [
                         {
                             "kind": "Workbook",
@@ -2669,57 +3010,61 @@
                         {
                             "kind": "Parser",
                             "contentId": "ZPAEvent-Parser",
-                            "version": "1.0.0"
+                            "version": "1.0.1"
                         },
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "40a98355-0e52-479f-8c91-4ab659cba878",
-                            "version": "1.0.0"
+                            "version": "1.0.1"
                         },
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "593e3e2a-43ce-11ec-81d3-0242ac130003",
-                            "version": "1.0.0"
+                            "version": "1.0.1"
                         },
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "b3d112b4-3e1e-11ec-9bbc-0242ac130002",
-                            "version": "1.0.0"
+                            "version": "1.0.1"
                         },
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "672e2846-4226-11ec-81d3-0242ac130003",
-                            "version": "1.0.0"
+                            "version": "1.0.1"
                         },
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "66bc77ee-3e45-11ec-9bbc-0242ac130002",
-                            "version": "1.0.0"
+                            "version": "1.0.1"
                         },
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "236a7ec1-0120-40f2-a157-c1a72dde8bcb",
-                            "version": "1.0.0"
+                            "version": "1.0.1"
                         },
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "c4902121-7a7e-44d1-810b-88d26db622ff",
-                            "version": "1.0.0"
+                            "version": "1.0.1"
                         },
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "24f0779d-3927-403a-aac1-cc8791653606",
-                            "version": "1.0.0"
+                            "version": "1.0.1"
                         },
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "2859ad22-46c8-4cc7-ad7b-80ce0cba0af3",
-                            "version": "1.0.0"
+                            "version": "1.0.1"
                         },
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "e07846e0-43ad-11ec-81d3-0242ac130003",
-                            "version": "1.0.0"
+                            "version": "1.0.1"
+                        },
+                        {
+                            "kind": "Solution",
+                            "contentId": "azuresentinel.azure-sentinel-solution-customlogsviaama"
                         }
                     ]
                 },
@@ -2732,16 +3077,10 @@
                         "Security - Network"
                     ]
                 },
-                "contentKind": "Solution",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-zscalerpriva-sl-4urnuhu4riksw",
-                "id": "azuresentinel.azure-sentinel-solution-zscalerpriva-sl-4urnuhu4riksw",
-                "displayName": "Zscaler Private Access",
-                "publisherDisplayName": "Microsoft Sentinel, Microsoft Corporation",
-                "descriptionHtml": "<p><strong>Note:</strong> <em>There may be <a target=\"_blank\" href=\"https://aka.ms/sentinelsolutionsknownissues\" rel=\"noopener\">known issues</a> pertaining to this Solution, please refer to them before installing.</em></p><p>The <a target=\"_blank\" href=\"https://www.zscaler.com/\" rel=\"noopener\">Zscaler Private Access (ZPA)</a> solution provides the capability to ingest <a target=\"_blank\" href=\"https://help.zscaler.com/zpa/what-zscaler-private-access\" rel=\"noopener\">Zscaler Private Access events</a> into Microsoft Sentinel.</p><p><strong>Underlying Microsoft Technologies used:</strong></p><p>This solution takes a dependency on the following technologies, and some of these dependencies either may be in <a target=\"_blank\" href=\"https://azure.microsoft.com/support/legal/preview-supplemental-terms/\" rel=\"noopener\">Preview</a> state or might result in additional ingestion or operational costs</p><p>a. <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/sentinel/connect-common-event-format?WT.mc_id=Portal-fx\" rel=\"noopener\">Agent-based log collection (CEF over Syslog)</a></p><p><strong>Data Connectors:</strong> 1, <strong>Parsers:</strong> 1, <strong>Workbooks:</strong> 1, <strong>Analytic Rules:</strong> 10, <strong>Hunting Queries:</strong> 10</p><p><a target=\"_blank\" href=\"https://aka.ms/azuresentinel\" rel=\"noopener\">Learn more about Microsoft Sentinel</a> | <a target=\"_blank\" href=\"https://aka.ms/azuresentinelsolutionsdoc\" rel=\"noopener\">Learn more about Solutions</a></p>",
-                "icon": "https://store-images.s-microsoft.com/image/apps.16907.74737941-60e1-46cc-98a4-baecc69491f0.617377d3-f330-4fa5-a01f-083bb397f983.ddf820ed-d590-40b6-a176-9edfb5f0c131",
                 "isPreview": false,
                 "isDeprecated": false
-            }
+            },
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', 'azuresentinel.azure-sentinel-solution-zscalerprivateaccess')]"
         }
     ],
     "variables": {}
