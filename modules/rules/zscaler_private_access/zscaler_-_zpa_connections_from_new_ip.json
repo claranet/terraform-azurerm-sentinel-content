@@ -15,27 +15,31 @@
         "tactics": [
             "InitialAccess"
         ],
+        "techniques": [
+            "T1078",
+            "T1133"
+        ],
         "entityMappings": [
             {
-                "entityType": "Account",
                 "fieldMappings": [
                     {
                         "identifier": "Name",
                         "columnName": "AccountCustomEntity"
                     }
-                ]
+                ],
+                "entityType": "Account"
             },
             {
-                "entityType": "IP",
                 "fieldMappings": [
                     {
                         "identifier": "Address",
                         "columnName": "IPCustomEntity"
                     }
-                ]
+                ],
+                "entityType": "IP"
             }
         ],
         "alertRuleTemplateName": "24f0779d-3927-403a-aac1-cc8791653606",
-        "templateVersion": "1.0.0"
+        "templateVersion": "1.0.1"
     }
 }

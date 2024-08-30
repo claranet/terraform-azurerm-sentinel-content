@@ -15,18 +15,21 @@
         "tactics": [
             "Persistence"
         ],
+        "techniques": [
+            "T1078"
+        ],
         "entityMappings": [
             {
-                "entityType": "Account",
                 "fieldMappings": [
                     {
                         "identifier": "Name",
                         "columnName": "AccountCustomEntity"
                     }
-                ]
+                ],
+                "entityType": "Account"
             }
         ],
         "alertRuleTemplateName": "66bc77ee-3e45-11ec-9bbc-0242ac130002",
-        "templateVersion": "1.0.0"
+        "templateVersion": "1.0.1"
     }
 }
