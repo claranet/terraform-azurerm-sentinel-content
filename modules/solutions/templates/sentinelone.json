@@ -48,7 +48,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-sentinelone')]"
             ],
             "properties": {
-                "description": "SentinelOne data connector with template version 3.0.1",
+                "description": "SentinelOne data connector with template version 3.0.2",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -181,7 +181,7 @@
                                             "title": "Option 2 - Manual Deployment of Azure Functions"
                                         },
                                         {
-                                            "description": "**1. Deploy a Function App**\n\n> **NOTE:** You will need to [prepare VS code](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-python#prerequisites) for Azure function development.\n\n1. Download the [Azure Function App](https://aka.ms/sentinel-SentinelOneAPI-functionapp) file. Extract archive to your local development computer.\n2. Start VS Code. Choose File in the main menu and select Open Folder.\n3. Select the top level folder from extracted files.\n4. Choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, choose the **Deploy to function app** button.\nIf you aren't already signed in, choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, choose **Sign in to Azure**\nIf you're already signed in, go to the next step.\n5. Provide the following information at the prompts:\n\n\ta. **Select folder:** Choose a folder from your workspace or browse to one that contains your function app.\n\n\tb. **Select Subscription:** Choose the subscription to use.\n\n\tc. Select **Create new Function App in Azure** (Don't choose the Advanced option)\n\n\td. **Enter a globally unique name for the function app:** Type a name that is valid in a URL path. The name you type is validated to make sure that it's unique in Azure Functions. (e.g. SOneXXXXX).\n\n\te. **Select a runtime:** Choose Python 3.8.\n\n\tf. Select a location for new resources. For better performance and lower costs choose the same [region](https://azure.microsoft.com/regions/) where Microsoft Sentinel is located.\n\n6. Deployment will begin. A notification is displayed after your function app is created and the deployment package is applied.\n7. Go to Azure Portal for the Function App configuration."
+                                            "description": "**1. Deploy a Function App**\n\n> **NOTE:** You will need to [prepare VS code](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-python#prerequisites) for Azure function development.\n\n1. Download the [Azure Function App](https://aka.ms/sentinel-SentinelOneAPI-functionapp) file. Extract archive to your local development computer.\n2. Start VS Code. Choose File in the main menu and select Open Folder.\n3. Select the top level folder from extracted files.\n4. Choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, choose the **Deploy to function app** button.\nIf you aren't already signed in, choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, choose **Sign in to Azure**\nIf you're already signed in, go to the next step.\n5. Provide the following information at the prompts:\n\n\ta. **Select folder:** Choose a folder from your workspace or browse to one that contains your function app.\n\n\tb. **Select Subscription:** Choose the subscription to use.\n\n\tc. Select **Create new Function App in Azure** (Don't choose the Advanced option)\n\n\td. **Enter a globally unique name for the function app:** Type a name that is valid in a URL path. The name you type is validated to make sure that it's unique in Azure Functions. (e.g. SOneXXXXX).\n\n\te. **Select a runtime:** Choose Python 3.11.\n\n\tf. Select a location for new resources. For better performance and lower costs choose the same [region](https://azure.microsoft.com/regions/) where Microsoft Sentinel is located.\n\n6. Deployment will begin. A notification is displayed after your function app is created and the deployment package is applied.\n7. Go to Azure Portal for the Function App configuration."
                                         },
                                         {
                                             "description": "**2. Configure the Function App**\n\n 1. In the Function App, select the Function App Name and select **Configuration**.\n\n 2. In the **Application settings** tab, select ** New application setting**.\n\n 3. Add each of the following application settings individually, with their respective string values (case-sensitive): \n\t\t SentinelOneAPIToken\n\t\t SentinelOneUrl\n\t\t WorkspaceID\n\t\t WorkspaceKey\n\t\t logAnalyticsUri (optional)\n\n> - Use logAnalyticsUri to override the log analytics API endpoint for dedicated cloud. For example, for public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: `https://<CustomerId>.ods.opinsights.azure.us`.\n\n 4. Once all application settings have been entered, click **Save**."
@@ -219,7 +219,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.1",
+                "packageVersion": "3.0.2",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -386,7 +386,7 @@
                             "title": "Option 2 - Manual Deployment of Azure Functions"
                         },
                         {
-                            "description": "**1. Deploy a Function App**\n\n> **NOTE:** You will need to [prepare VS code](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-python#prerequisites) for Azure function development.\n\n1. Download the [Azure Function App](https://aka.ms/sentinel-SentinelOneAPI-functionapp) file. Extract archive to your local development computer.\n2. Start VS Code. Choose File in the main menu and select Open Folder.\n3. Select the top level folder from extracted files.\n4. Choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, choose the **Deploy to function app** button.\nIf you aren't already signed in, choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, choose **Sign in to Azure**\nIf you're already signed in, go to the next step.\n5. Provide the following information at the prompts:\n\n\ta. **Select folder:** Choose a folder from your workspace or browse to one that contains your function app.\n\n\tb. **Select Subscription:** Choose the subscription to use.\n\n\tc. Select **Create new Function App in Azure** (Don't choose the Advanced option)\n\n\td. **Enter a globally unique name for the function app:** Type a name that is valid in a URL path. The name you type is validated to make sure that it's unique in Azure Functions. (e.g. SOneXXXXX).\n\n\te. **Select a runtime:** Choose Python 3.8.\n\n\tf. Select a location for new resources. For better performance and lower costs choose the same [region](https://azure.microsoft.com/regions/) where Microsoft Sentinel is located.\n\n6. Deployment will begin. A notification is displayed after your function app is created and the deployment package is applied.\n7. Go to Azure Portal for the Function App configuration."
+                            "description": "**1. Deploy a Function App**\n\n> **NOTE:** You will need to [prepare VS code](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-python#prerequisites) for Azure function development.\n\n1. Download the [Azure Function App](https://aka.ms/sentinel-SentinelOneAPI-functionapp) file. Extract archive to your local development computer.\n2. Start VS Code. Choose File in the main menu and select Open Folder.\n3. Select the top level folder from extracted files.\n4. Choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, choose the **Deploy to function app** button.\nIf you aren't already signed in, choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, choose **Sign in to Azure**\nIf you're already signed in, go to the next step.\n5. Provide the following information at the prompts:\n\n\ta. **Select folder:** Choose a folder from your workspace or browse to one that contains your function app.\n\n\tb. **Select Subscription:** Choose the subscription to use.\n\n\tc. Select **Create new Function App in Azure** (Don't choose the Advanced option)\n\n\td. **Enter a globally unique name for the function app:** Type a name that is valid in a URL path. The name you type is validated to make sure that it's unique in Azure Functions. (e.g. SOneXXXXX).\n\n\te. **Select a runtime:** Choose Python 3.11.\n\n\tf. Select a location for new resources. For better performance and lower costs choose the same [region](https://azure.microsoft.com/regions/) where Microsoft Sentinel is located.\n\n6. Deployment will begin. A notification is displayed after your function app is created and the deployment package is applied.\n7. Go to Azure Portal for the Function App configuration."
                         },
                         {
                             "description": "**2. Configure the Function App**\n\n 1. In the Function App, select the Function App Name and select **Configuration**.\n\n 2. In the **Application settings** tab, select ** New application setting**.\n\n 3. Add each of the following application settings individually, with their respective string values (case-sensitive): \n\t\t SentinelOneAPIToken\n\t\t SentinelOneUrl\n\t\t WorkspaceID\n\t\t WorkspaceKey\n\t\t logAnalyticsUri (optional)\n\n> - Use logAnalyticsUri to override the log analytics API endpoint for dedicated cloud. For example, for public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: `https://<CustomerId>.ods.opinsights.azure.us`.\n\n 4. Once all application settings have been entered, click **Save**."
@@ -406,7 +406,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-sentinelone')]"
             ],
             "properties": {
-                "description": "SentinelOne Workbook with template version 3.0.1",
+                "description": "SentinelOne Workbook with template version 3.0.2",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -473,7 +473,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.1",
+                "packageVersion": "3.0.2",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -495,7 +495,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-sentinelone')]"
             ],
             "properties": {
-                "description": "SentinelOne Data Parser with template version 3.0.1",
+                "description": "SentinelOne Data Parser with template version 3.0.2",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -509,7 +509,7 @@
                             "location": "[parameters('workspace-location')]",
                             "properties": {
                                 "eTag": "*",
-                                "displayName": "SentinelOne",
+                                "displayName": "Parser for SentinelOne",
                                 "category": "Microsoft Sentinel Parser",
                                 "functionAlias": "SentinelOne",
                                 "query": "let SentinelOne_view  = view () { \n    SentinelOne_CL\n    | extend \n                EventVendor=\"SentinelOne\",\n                EventProduct=\"SentinelOne\",\n                AccountId=column_ifexists('accountId_s', ''),\n                AccountName=column_ifexists('accountName_s', ''),\n                ActivityType=column_ifexists('activityType_d', ''),\n                EventCreationTime=column_ifexists('createdAt_t', ''),\n                DataAccountName=column_ifexists('data_accountName_s', ''),\n                DataFullScopeDetails=column_ifexists('data_fullScopeDetails_s', ''),\n                DataScopeLevel=column_ifexists('data_scopeLevel_s', ''),\n                DataScopeName=column_ifexists('data_scopeName_s', ''),\n                DataSiteId=column_ifexists('data_siteId_d', ''),\n                DataSiteName=column_ifexists('data_siteName_s', ''),\n                SrcUserName=column_ifexists('data_username_s', ''),\n                EventId=column_ifexists('id_s', ''),\n                EventOriginalMessage=column_ifexists('primaryDescription_s', ''),\n                SiteId=column_ifexists('siteId_s', ''),\n                SiteName=column_ifexists('siteName_s', ''),\n                UpdatedAt=column_ifexists('updatedAt_t', ''),\n                UserIdentity=column_ifexists('userId_s', ''),\n                EventType=column_ifexists('event_name_s', ''),\n                DataByUser=column_ifexists('data_byUser_s', ''),\n                DataRole=column_ifexists('data_role_s', ''),\n                DataUserScope=column_ifexists('data_userScope_s', ''),\n                EventTypeDetailed=column_ifexists('description_s', ''),\n                DataSource=column_ifexists('data_source_s', ''),\n                DataExpiryDateStr=column_ifexists('data_expiryDateStr_s', ''),\n                DataExpiryTime=column_ifexists('data_expiryTime_d', ''),\n                DataNetworkquarantine=column_ifexists('data_networkquarantine_b', ''),\n                DataRuleCreationTime=column_ifexists('data_ruleCreationTime_d', ''),\n                DataRuleDescription=column_ifexists('data_ruleDescription_s', ''),\n                DataRuleExpirationMode=column_ifexists('data_ruleExpirationMode_s', ''),\n                DataRuleId=column_ifexists('data_ruleId_d', ''),\n                DataRuleName=column_ifexists('data_ruleName_s', ''),\n                DataRuleQueryDetails=column_ifexists('data_ruleQueryDetails_s', ''),\n                DataRuleQueryType=column_ifexists('data_ruleQueryType_s', ''),\n                DataRuleSeverity=column_ifexists('data_ruleSeverity_s', ''),\n                DataScopeId=column_ifexists('data_scopeId_d', ''),\n                DataStatus=column_ifexists('data_status_s', ''),\n                DataSystemUser=column_ifexists('data_systemUser_d', ''),\n                DataTreatasthreat=column_ifexists('data_treatasthreat_s', ''),\n                DataUserId=column_ifexists('data_userId_d', ''),\n                DataUserName=column_ifexists('data_userName_s', ''),\n                EventSubStatus=column_ifexists('secondaryDescription_s', ''),\n                AgentId=column_ifexists('agentId_s', ''),\n                DataComputerName=column_ifexists('data_computerName_s', ''),\n                DataExternalIp=column_ifexists('data_externalIp_s', ''),\n                DataGroupName=column_ifexists('data_groupName_s', ''),\n                DataSystem=column_ifexists('data_system_b', ''),\n                DataUuid=column_ifexists('data_uuid_g', ''),\n                GroupId=column_ifexists('groupId_s', ''),\n                GroupName=column_ifexists('groupName_s', ''),\n                DataGroup=column_ifexists('data_group_s', ''),\n                DataOptionalGroups=column_ifexists('data_optionalGroups_s', ''),\n                DataCreatedAt=column_ifexists('data_createdAt_t', ''),\n                DataDownloadUrl=column_ifexists('data_downloadUrl_s', ''),\n                DataFilePath=column_ifexists('data_filePath_s', ''),\n                DataFilename=column_ifexists('data_filename_s', ''),\n                DataUploadedFilename=column_ifexists('data_uploadedFilename_s', ''),\n                Comments=column_ifexists('comments_s', ''),\n                DataNewValue=column_ifexists('data_newValue_s', ''),\n                DataPolicyId=column_ifexists('data_policy_id_s', ''),\n                DataPolicyName=column_ifexists('data_policyName_s', ''),\n                DataNewValueb=column_ifexists('data_newValue_b', ''),\n                DataShouldReboot=column_ifexists('data_shouldReboot_b', ''),\n                DataRoleName=column_ifexists('data_roleName_s', ''),\n                DataScopeLevelName=column_ifexists('data_scopeLevelName_s', ''),\n                ActiveDirectoryComputerDistinguishedName=column_ifexists('activeDirectory_computerDistinguishedName_s', ''),\n                ActiveDirectoryComputerMemberOf=column_ifexists('activeDirectory_computerMemberOf_s', ''),\n                ActiveDirectoryLastUserDistinguishedName=column_ifexists('activeDirectory_lastUserDistinguishedName_s', ''),\n                ActiveDirectoryLastUserMemberOf=column_ifexists('activeDirectory_lastUserMemberOf_s', ''),\n                ActiveThreats=column_ifexists('activeThreats_d', ''),\n                AgentVersion=column_ifexists('agentVersion_s', ''),\n                AllowRemoteShell=column_ifexists('allowRemoteShell_b', ''),\n                AppsVulnerabilityStatus=column_ifexists('appsVulnerabilityStatus_s', ''),\n                ComputerName=column_ifexists('computerName_s', ''),\n                ConsoleMigrationStatus=column_ifexists('consoleMigrationStatus_s', ''),\n                CoreCount=column_ifexists('coreCount_d', ''),\n                CpuCount=column_ifexists('cpuCount_d', ''),\n                CpuId=column_ifexists('cpuId_s', ''),\n                SrcDvcDomain=column_ifexists('domain_s', ''),\n                EncryptedApplications=column_ifexists('encryptedApplications_b', ''),\n                ExternalId=column_ifexists('externalId_s', ''),\n                ExternalIp=column_ifexists('externalIp_s', ''),\n                FirewallEnabled=column_ifexists('firewallEnabled_b', ''),\n                GroupIp=column_ifexists('groupIp_s', ''),\n                InRemoteShellSession=column_ifexists('inRemoteShellSession_b', ''),\n                Infected=column_ifexists('infected_b', ''),\n                InstallerType=column_ifexists('installerType_s', ''),\n                IsActive=column_ifexists('isActive_b', ''),\n                IsDecommissioned=column_ifexists('isDecommissioned_b', ''),\n                IsPendingUninstall=column_ifexists('isPendingUninstall_b', ''),\n                IsUninstalled=column_ifexists('isUninstalled_b', ''),\n                IsUpToDate=column_ifexists('isUpToDate_b', ''),\n                LastActiveDate=column_ifexists('lastActiveDate_t', ''),\n                LastIpToMgmt=column_ifexists('lastIpToMgmt_s', ''),\n                LastLoggedInUserName=column_ifexists('lastLoggedInUserName_s', ''),\n                LicenseKey=column_ifexists('licenseKey_s', ''),\n                LocationEnabled=column_ifexists('locationEnabled_b', ''),\n                LocationType=column_ifexists('locationType_s', ''),\n                Locations=column_ifexists('locations_s', ''),\n                MachineType=column_ifexists('machineType_s', ''),\n                MitigationMode=column_ifexists('mitigationMode_s', ''),\n                MitigationModeSuspicious=column_ifexists('mitigationModeSuspicious_s', ''),\n                SrcDvcModelName=column_ifexists('modelName_s', ''),\n                NetworkInterfaces=column_ifexists('networkInterfaces_s', ''),\n                NetworkQuarantineEnabled=column_ifexists('networkQuarantineEnabled_b', ''),\n                NetworkStatus=column_ifexists('networkStatus_s', ''),\n                OperationalState=column_ifexists('operationalState_s', ''),\n                OsArch=column_ifexists('osArch_s', ''),\n                SrcDvcOs=column_ifexists('osName_s', ''),\n                OsRevision=column_ifexists('osRevision_s', ''),\n                OsStartTime=column_ifexists('osStartTime_t', ''),\n                OsType=column_ifexists('osType_s', ''),\n                RangerStatus=column_ifexists('rangerStatus_s', ''),\n                RangerVersion=column_ifexists('rangerVersion_s', ''),\n                RegisteredAt=column_ifexists('registeredAt_t', ''),\n                RemoteProfilingState=column_ifexists('remoteProfilingState_s', ''),\n                ScanFinishedAt=column_ifexists('scanFinishedAt_t', ''),\n                ScanStartedAt=column_ifexists('scanStartedAt_t', ''),\n                ScanStatus=column_ifexists('scanStatus_s', ''),\n                ThreatRebootRequired=column_ifexists('threatRebootRequired_b', ''),\n                TotalMemory=column_ifexists('totalMemory_d', ''),\n                UserActionsNeeded=column_ifexists('userActionsNeeded_s', ''),\n                Uuid=column_ifexists('uuid_g', ''),\n                Creator=column_ifexists('creator_s', ''),\n                CreatorId=column_ifexists('creatorId_s', ''),\n                Inherits=column_ifexists('inherits_b', ''),\n                IsDefault=column_ifexists('isDefault_b', ''),\n                Name=column_ifexists('name_s', ''),\n                RegistrationToken=column_ifexists('registrationToken_s', ''),\n                TotalAgents=column_ifexists('totalAgents_d', ''),\n                Type=column_ifexists('type_s', '')\n    | project\n                TimeGenerated, \n                EventVendor,\n                EventProduct,\n                AccountName,\n                ActivityType,\n                EventCreationTime,\n                DataAccountName,\n                DataFullScopeDetails,\n                DataScopeLevel,\n                DataScopeName,\n                DataSiteId,\n                DataSiteName,\n                SrcUserName,\n                EventId,\n                EventOriginalMessage,\n                SiteId,\n                SiteName,\n                UpdatedAt,\n                UserIdentity,\n                EventType,\n                DataByUser,\n                DataRole,\n                DataUserScope,\n                EventTypeDetailed,\n                DataSource,\n                DataExpiryDateStr,\n                DataExpiryTime,\n                DataNetworkquarantine,\n                DataRuleCreationTime,\n                DataRuleDescription,\n                DataRuleExpirationMode,\n                DataRuleId,\n                DataRuleName,\n                DataRuleQueryDetails,\n                DataRuleQueryType,\n                DataRuleSeverity,\n                DataScopeId,\n                DataStatus,\n                DataSystemUser,\n                DataTreatasthreat,\n                DataUserId,\n                DataUserName,\n                EventSubStatus,\n                AgentId,\n                DataComputerName,\n                DataExternalIp,\n                DataGroupName,\n                DataSystem,\n                DataUuid,\n                GroupId,\n                GroupName,\n                DataGroup,\n                DataOptionalGroups,\n                DataCreatedAt,\n                DataDownloadUrl,\n                DataFilePath,\n                DataFilename,\n                DataUploadedFilename,\n                Comments,\n                DataNewValue,\n                DataPolicyId,\n                DataPolicyName,\n                DataNewValueb,\n                DataShouldReboot,\n                DataRoleName,\n                DataScopeLevelName,\n                ActiveDirectoryComputerDistinguishedName,\n                ActiveDirectoryComputerMemberOf,\n                ActiveDirectoryLastUserDistinguishedName,\n                ActiveDirectoryLastUserMemberOf,\n                ActiveThreats,\n                AgentVersion,\n                AllowRemoteShell,\n                AppsVulnerabilityStatus,\n                ComputerName,\n                ConsoleMigrationStatus,\n                CoreCount,\n                CpuCount,\n                CpuId,\n                SrcDvcDomain,\n                EncryptedApplications,\n                ExternalId,\n                ExternalIp,\n                FirewallEnabled,\n                GroupIp,\n                InRemoteShellSession,\n                Infected,\n                InstallerType,\n                IsActive,\n                IsDecommissioned,\n                IsPendingUninstall,\n                IsUninstalled,\n                IsUpToDate,\n                LastActiveDate,\n                LastIpToMgmt,\n                LastLoggedInUserName,\n                LicenseKey,\n                LocationEnabled,\n                LocationType,\n                Locations,\n                MachineType,\n                MitigationMode,\n                MitigationModeSuspicious,\n                SrcDvcModelName,\n                NetworkInterfaces,\n                NetworkQuarantineEnabled,\n                NetworkStatus,\n                OperationalState,\n                OsArch,\n                SrcDvcOs,\n                OsRevision,\n                OsStartTime,\n                OsType,\n                RangerStatus,\n                RangerVersion,\n                RegisteredAt,\n                RemoteProfilingState,\n                ScanFinishedAt,\n                ScanStartedAt,\n                ScanStatus,\n                ThreatRebootRequired,\n                TotalMemory,\n                UserActionsNeeded,\n                Uuid,\n                Creator,\n                CreatorId,\n                Inherits,\n                IsDefault,\n                Name,\n                RegistrationToken,\n                TotalAgents,\n                Type\n};\nSentinelOne_view\n",
@@ -555,13 +555,13 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.1",
+                "packageVersion": "3.0.2",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "SentinelOne-Parser",
                 "contentKind": "Parser",
-                "displayName": "SentinelOne",
+                "displayName": "Parser for SentinelOne",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-sentinelone-pr-hd6z2dtf3u6si",
                 "id": "azuresentinel.azure-sentinel-solution-sentinelone-pr-hd6z2dtf3u6si",
                 "version": "1.0.0",
@@ -575,7 +575,7 @@
             "location": "[parameters('workspace-location')]",
             "properties": {
                 "eTag": "*",
-                "displayName": "SentinelOne",
+                "displayName": "Parser for SentinelOne",
                 "category": "Microsoft Sentinel Parser",
                 "functionAlias": "SentinelOne",
                 "query": "let SentinelOne_view  = view () { \n    SentinelOne_CL\n    | extend \n                EventVendor=\"SentinelOne\",\n                EventProduct=\"SentinelOne\",\n                AccountId=column_ifexists('accountId_s', ''),\n                AccountName=column_ifexists('accountName_s', ''),\n                ActivityType=column_ifexists('activityType_d', ''),\n                EventCreationTime=column_ifexists('createdAt_t', ''),\n                DataAccountName=column_ifexists('data_accountName_s', ''),\n                DataFullScopeDetails=column_ifexists('data_fullScopeDetails_s', ''),\n                DataScopeLevel=column_ifexists('data_scopeLevel_s', ''),\n                DataScopeName=column_ifexists('data_scopeName_s', ''),\n                DataSiteId=column_ifexists('data_siteId_d', ''),\n                DataSiteName=column_ifexists('data_siteName_s', ''),\n                SrcUserName=column_ifexists('data_username_s', ''),\n                EventId=column_ifexists('id_s', ''),\n                EventOriginalMessage=column_ifexists('primaryDescription_s', ''),\n                SiteId=column_ifexists('siteId_s', ''),\n                SiteName=column_ifexists('siteName_s', ''),\n                UpdatedAt=column_ifexists('updatedAt_t', ''),\n                UserIdentity=column_ifexists('userId_s', ''),\n                EventType=column_ifexists('event_name_s', ''),\n                DataByUser=column_ifexists('data_byUser_s', ''),\n                DataRole=column_ifexists('data_role_s', ''),\n                DataUserScope=column_ifexists('data_userScope_s', ''),\n                EventTypeDetailed=column_ifexists('description_s', ''),\n                DataSource=column_ifexists('data_source_s', ''),\n                DataExpiryDateStr=column_ifexists('data_expiryDateStr_s', ''),\n                DataExpiryTime=column_ifexists('data_expiryTime_d', ''),\n                DataNetworkquarantine=column_ifexists('data_networkquarantine_b', ''),\n                DataRuleCreationTime=column_ifexists('data_ruleCreationTime_d', ''),\n                DataRuleDescription=column_ifexists('data_ruleDescription_s', ''),\n                DataRuleExpirationMode=column_ifexists('data_ruleExpirationMode_s', ''),\n                DataRuleId=column_ifexists('data_ruleId_d', ''),\n                DataRuleName=column_ifexists('data_ruleName_s', ''),\n                DataRuleQueryDetails=column_ifexists('data_ruleQueryDetails_s', ''),\n                DataRuleQueryType=column_ifexists('data_ruleQueryType_s', ''),\n                DataRuleSeverity=column_ifexists('data_ruleSeverity_s', ''),\n                DataScopeId=column_ifexists('data_scopeId_d', ''),\n                DataStatus=column_ifexists('data_status_s', ''),\n                DataSystemUser=column_ifexists('data_systemUser_d', ''),\n                DataTreatasthreat=column_ifexists('data_treatasthreat_s', ''),\n                DataUserId=column_ifexists('data_userId_d', ''),\n                DataUserName=column_ifexists('data_userName_s', ''),\n                EventSubStatus=column_ifexists('secondaryDescription_s', ''),\n                AgentId=column_ifexists('agentId_s', ''),\n                DataComputerName=column_ifexists('data_computerName_s', ''),\n                DataExternalIp=column_ifexists('data_externalIp_s', ''),\n                DataGroupName=column_ifexists('data_groupName_s', ''),\n                DataSystem=column_ifexists('data_system_b', ''),\n                DataUuid=column_ifexists('data_uuid_g', ''),\n                GroupId=column_ifexists('groupId_s', ''),\n                GroupName=column_ifexists('groupName_s', ''),\n                DataGroup=column_ifexists('data_group_s', ''),\n                DataOptionalGroups=column_ifexists('data_optionalGroups_s', ''),\n                DataCreatedAt=column_ifexists('data_createdAt_t', ''),\n                DataDownloadUrl=column_ifexists('data_downloadUrl_s', ''),\n                DataFilePath=column_ifexists('data_filePath_s', ''),\n                DataFilename=column_ifexists('data_filename_s', ''),\n                DataUploadedFilename=column_ifexists('data_uploadedFilename_s', ''),\n                Comments=column_ifexists('comments_s', ''),\n                DataNewValue=column_ifexists('data_newValue_s', ''),\n                DataPolicyId=column_ifexists('data_policy_id_s', ''),\n                DataPolicyName=column_ifexists('data_policyName_s', ''),\n                DataNewValueb=column_ifexists('data_newValue_b', ''),\n                DataShouldReboot=column_ifexists('data_shouldReboot_b', ''),\n                DataRoleName=column_ifexists('data_roleName_s', ''),\n                DataScopeLevelName=column_ifexists('data_scopeLevelName_s', ''),\n                ActiveDirectoryComputerDistinguishedName=column_ifexists('activeDirectory_computerDistinguishedName_s', ''),\n                ActiveDirectoryComputerMemberOf=column_ifexists('activeDirectory_computerMemberOf_s', ''),\n                ActiveDirectoryLastUserDistinguishedName=column_ifexists('activeDirectory_lastUserDistinguishedName_s', ''),\n                ActiveDirectoryLastUserMemberOf=column_ifexists('activeDirectory_lastUserMemberOf_s', ''),\n                ActiveThreats=column_ifexists('activeThreats_d', ''),\n                AgentVersion=column_ifexists('agentVersion_s', ''),\n                AllowRemoteShell=column_ifexists('allowRemoteShell_b', ''),\n                AppsVulnerabilityStatus=column_ifexists('appsVulnerabilityStatus_s', ''),\n                ComputerName=column_ifexists('computerName_s', ''),\n                ConsoleMigrationStatus=column_ifexists('consoleMigrationStatus_s', ''),\n                CoreCount=column_ifexists('coreCount_d', ''),\n                CpuCount=column_ifexists('cpuCount_d', ''),\n                CpuId=column_ifexists('cpuId_s', ''),\n                SrcDvcDomain=column_ifexists('domain_s', ''),\n                EncryptedApplications=column_ifexists('encryptedApplications_b', ''),\n                ExternalId=column_ifexists('externalId_s', ''),\n                ExternalIp=column_ifexists('externalIp_s', ''),\n                FirewallEnabled=column_ifexists('firewallEnabled_b', ''),\n                GroupIp=column_ifexists('groupIp_s', ''),\n                InRemoteShellSession=column_ifexists('inRemoteShellSession_b', ''),\n                Infected=column_ifexists('infected_b', ''),\n                InstallerType=column_ifexists('installerType_s', ''),\n                IsActive=column_ifexists('isActive_b', ''),\n                IsDecommissioned=column_ifexists('isDecommissioned_b', ''),\n                IsPendingUninstall=column_ifexists('isPendingUninstall_b', ''),\n                IsUninstalled=column_ifexists('isUninstalled_b', ''),\n                IsUpToDate=column_ifexists('isUpToDate_b', ''),\n                LastActiveDate=column_ifexists('lastActiveDate_t', ''),\n                LastIpToMgmt=column_ifexists('lastIpToMgmt_s', ''),\n                LastLoggedInUserName=column_ifexists('lastLoggedInUserName_s', ''),\n                LicenseKey=column_ifexists('licenseKey_s', ''),\n                LocationEnabled=column_ifexists('locationEnabled_b', ''),\n                LocationType=column_ifexists('locationType_s', ''),\n                Locations=column_ifexists('locations_s', ''),\n                MachineType=column_ifexists('machineType_s', ''),\n                MitigationMode=column_ifexists('mitigationMode_s', ''),\n                MitigationModeSuspicious=column_ifexists('mitigationModeSuspicious_s', ''),\n                SrcDvcModelName=column_ifexists('modelName_s', ''),\n                NetworkInterfaces=column_ifexists('networkInterfaces_s', ''),\n                NetworkQuarantineEnabled=column_ifexists('networkQuarantineEnabled_b', ''),\n                NetworkStatus=column_ifexists('networkStatus_s', ''),\n                OperationalState=column_ifexists('operationalState_s', ''),\n                OsArch=column_ifexists('osArch_s', ''),\n                SrcDvcOs=column_ifexists('osName_s', ''),\n                OsRevision=column_ifexists('osRevision_s', ''),\n                OsStartTime=column_ifexists('osStartTime_t', ''),\n                OsType=column_ifexists('osType_s', ''),\n                RangerStatus=column_ifexists('rangerStatus_s', ''),\n                RangerVersion=column_ifexists('rangerVersion_s', ''),\n                RegisteredAt=column_ifexists('registeredAt_t', ''),\n                RemoteProfilingState=column_ifexists('remoteProfilingState_s', ''),\n                ScanFinishedAt=column_ifexists('scanFinishedAt_t', ''),\n                ScanStartedAt=column_ifexists('scanStartedAt_t', ''),\n                ScanStatus=column_ifexists('scanStatus_s', ''),\n                ThreatRebootRequired=column_ifexists('threatRebootRequired_b', ''),\n                TotalMemory=column_ifexists('totalMemory_d', ''),\n                UserActionsNeeded=column_ifexists('userActionsNeeded_s', ''),\n                Uuid=column_ifexists('uuid_g', ''),\n                Creator=column_ifexists('creator_s', ''),\n                CreatorId=column_ifexists('creatorId_s', ''),\n                Inherits=column_ifexists('inherits_b', ''),\n                IsDefault=column_ifexists('isDefault_b', ''),\n                Name=column_ifexists('name_s', ''),\n                RegistrationToken=column_ifexists('registrationToken_s', ''),\n                TotalAgents=column_ifexists('totalAgents_d', ''),\n                Type=column_ifexists('type_s', '')\n    | project\n                TimeGenerated, \n                EventVendor,\n                EventProduct,\n                AccountName,\n                ActivityType,\n                EventCreationTime,\n                DataAccountName,\n                DataFullScopeDetails,\n                DataScopeLevel,\n                DataScopeName,\n                DataSiteId,\n                DataSiteName,\n                SrcUserName,\n                EventId,\n                EventOriginalMessage,\n                SiteId,\n                SiteName,\n                UpdatedAt,\n                UserIdentity,\n                EventType,\n                DataByUser,\n                DataRole,\n                DataUserScope,\n                EventTypeDetailed,\n                DataSource,\n                DataExpiryDateStr,\n                DataExpiryTime,\n                DataNetworkquarantine,\n                DataRuleCreationTime,\n                DataRuleDescription,\n                DataRuleExpirationMode,\n                DataRuleId,\n                DataRuleName,\n                DataRuleQueryDetails,\n                DataRuleQueryType,\n                DataRuleSeverity,\n                DataScopeId,\n                DataStatus,\n                DataSystemUser,\n                DataTreatasthreat,\n                DataUserId,\n                DataUserName,\n                EventSubStatus,\n                AgentId,\n                DataComputerName,\n                DataExternalIp,\n                DataGroupName,\n                DataSystem,\n                DataUuid,\n                GroupId,\n                GroupName,\n                DataGroup,\n                DataOptionalGroups,\n                DataCreatedAt,\n                DataDownloadUrl,\n                DataFilePath,\n                DataFilename,\n                DataUploadedFilename,\n                Comments,\n                DataNewValue,\n                DataPolicyId,\n                DataPolicyName,\n                DataNewValueb,\n                DataShouldReboot,\n                DataRoleName,\n                DataScopeLevelName,\n                ActiveDirectoryComputerDistinguishedName,\n                ActiveDirectoryComputerMemberOf,\n                ActiveDirectoryLastUserDistinguishedName,\n                ActiveDirectoryLastUserMemberOf,\n                ActiveThreats,\n                AgentVersion,\n                AllowRemoteShell,\n                AppsVulnerabilityStatus,\n                ComputerName,\n                ConsoleMigrationStatus,\n                CoreCount,\n                CpuCount,\n                CpuId,\n                SrcDvcDomain,\n                EncryptedApplications,\n                ExternalId,\n                ExternalIp,\n                FirewallEnabled,\n                GroupIp,\n                InRemoteShellSession,\n                Infected,\n                InstallerType,\n                IsActive,\n                IsDecommissioned,\n                IsPendingUninstall,\n                IsUninstalled,\n                IsUpToDate,\n                LastActiveDate,\n                LastIpToMgmt,\n                LastLoggedInUserName,\n                LicenseKey,\n                LocationEnabled,\n                LocationType,\n                Locations,\n                MachineType,\n                MitigationMode,\n                MitigationModeSuspicious,\n                SrcDvcModelName,\n                NetworkInterfaces,\n                NetworkQuarantineEnabled,\n                NetworkStatus,\n                OperationalState,\n                OsArch,\n                SrcDvcOs,\n                OsRevision,\n                OsStartTime,\n                OsType,\n                RangerStatus,\n                RangerVersion,\n                RegisteredAt,\n                RemoteProfilingState,\n                ScanFinishedAt,\n                ScanStartedAt,\n                ScanStatus,\n                ThreatRebootRequired,\n                TotalMemory,\n                UserActionsNeeded,\n                Uuid,\n                Creator,\n                CreatorId,\n                Inherits,\n                IsDefault,\n                Name,\n                RegistrationToken,\n                TotalAgents,\n                Type\n};\nSentinelOne_view\n",
@@ -628,7 +628,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-sentinelone')]"
             ],
             "properties": {
-                "description": "SentinelOneAdminLoginNewIP_AnalyticalRules Analytics Rule with template version 3.0.1",
+                "description": "SentinelOneAdminLoginNewIP_AnalyticalRules Analytics Rule with template version 3.0.2",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -656,10 +656,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "SentinelOne",
                                         "dataTypes": [
                                             "SentinelOne"
-                                        ],
-                                        "connectorId": "SentinelOne"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -721,7 +721,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.1",
+                "packageVersion": "3.0.2",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -731,7 +731,20 @@
                 "contentProductId": "azuresentinel.azure-sentinel-solution-sentinelone-ar-qckni3jdgoblc",
                 "id": "azuresentinel.azure-sentinel-solution-sentinelone-ar-qckni3jdgoblc",
                 "version": "1.0.1",
-                "isDeprecated": false
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "SentinelOne"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "SentinelOne"
+                        }
+                    ]
+                }
             }
         },
         {
@@ -743,7 +756,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-sentinelone')]"
             ],
             "properties": {
-                "description": "SentinelOneAgentUninstalled_AnalyticalRules Analytics Rule with template version 3.0.1",
+                "description": "SentinelOneAgentUninstalled_AnalyticalRules Analytics Rule with template version 3.0.2",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -771,10 +784,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "SentinelOne",
                                         "dataTypes": [
                                             "SentinelOne"
-                                        ],
-                                        "connectorId": "SentinelOne"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -826,7 +839,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.1",
+                "packageVersion": "3.0.2",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -836,7 +849,20 @@
                 "contentProductId": "azuresentinel.azure-sentinel-solution-sentinelone-ar-vlgu23s3sbqnw",
                 "id": "azuresentinel.azure-sentinel-solution-sentinelone-ar-vlgu23s3sbqnw",
                 "version": "1.0.1",
-                "isDeprecated": false
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "SentinelOne"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "SentinelOne"
+                        }
+                    ]
+                }
             }
         },
         {
@@ -848,10 +874,10 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-sentinelone')]"
             ],
             "properties": {
-                "description": "SentinelOneAlertFromCustomRule_AnalyticalRules Analytics Rule with template version 3.0.1",
+                "description": "SentinelOneAlertFromCustomRule_AnalyticalRules Analytics Rule with template version 3.0.2",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.1",
+                    "contentVersion": "1.0.2",
                     "parameters": {},
                     "variables": {},
                     "resources": [
@@ -876,14 +902,17 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "SentinelOne",
                                         "dataTypes": [
                                             "SentinelOne"
-                                        ],
-                                        "connectorId": "SentinelOne"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
                                     "InitialAccess"
+                                ],
+                                "techniques": [
+                                    "T1190"
                                 ],
                                 "entityMappings": [
                                     {
@@ -907,7 +936,7 @@
                                 "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '5f37de91-ff2b-45fb-9eda-49e9f76a3942')]",
                                 "contentId": "5f37de91-ff2b-45fb-9eda-49e9f76a3942",
                                 "kind": "AnalyticsRule",
-                                "version": "1.0.1",
+                                "version": "1.0.2",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "SentinelOne",
@@ -928,17 +957,30 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.1",
+                "packageVersion": "3.0.2",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "5f37de91-ff2b-45fb-9eda-49e9f76a3942",
                 "contentKind": "AnalyticsRule",
                 "displayName": "Sentinel One - Alert from custom rule",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-sentinelone-ar-uuudk7hmux2sa",
-                "id": "azuresentinel.azure-sentinel-solution-sentinelone-ar-uuudk7hmux2sa",
-                "version": "1.0.1",
-                "isDeprecated": false
+                "contentProductId": "azuresentinel.azure-sentinel-solution-sentinelone-ar-j7pwzhpp7heki",
+                "id": "azuresentinel.azure-sentinel-solution-sentinelone-ar-j7pwzhpp7heki",
+                "version": "1.0.2",
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "SentinelOne"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "SentinelOne"
+                        }
+                    ]
+                }
             }
         },
         {
@@ -950,7 +992,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-sentinelone')]"
             ],
             "properties": {
-                "description": "SentinelOneBlacklistHashDeleted_AnalyticalRules Analytics Rule with template version 3.0.1",
+                "description": "SentinelOneBlacklistHashDeleted_AnalyticalRules Analytics Rule with template version 3.0.2",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -978,10 +1020,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "SentinelOne",
                                         "dataTypes": [
                                             "SentinelOne"
-                                        ],
-                                        "connectorId": "SentinelOne"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -1046,7 +1088,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.1",
+                "packageVersion": "3.0.2",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -1056,7 +1098,20 @@
                 "contentProductId": "azuresentinel.azure-sentinel-solution-sentinelone-ar-fq5gsl5qtinh6",
                 "id": "azuresentinel.azure-sentinel-solution-sentinelone-ar-fq5gsl5qtinh6",
                 "version": "1.0.0",
-                "isDeprecated": false
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "SentinelOne"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "SentinelOne"
+                        }
+                    ]
+                }
             }
         },
         {
@@ -1068,7 +1123,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-sentinelone')]"
             ],
             "properties": {
-                "description": "SentinelOneExclusionAdded_AnalyticalRules Analytics Rule with template version 3.0.1",
+                "description": "SentinelOneExclusionAdded_AnalyticalRules Analytics Rule with template version 3.0.2",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -1096,10 +1151,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "SentinelOne",
                                         "dataTypes": [
                                             "SentinelOne"
-                                        ],
-                                        "connectorId": "SentinelOne"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -1151,7 +1206,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.1",
+                "packageVersion": "3.0.2",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -1161,7 +1216,20 @@
                 "contentProductId": "azuresentinel.azure-sentinel-solution-sentinelone-ar-jz676kkz5euls",
                 "id": "azuresentinel.azure-sentinel-solution-sentinelone-ar-jz676kkz5euls",
                 "version": "1.0.0",
-                "isDeprecated": false
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "SentinelOne"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "SentinelOne"
+                        }
+                    ]
+                }
             }
         },
         {
@@ -1173,10 +1241,10 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-sentinelone')]"
             ],
             "properties": {
-                "description": "SentinelOneMultipleAlertsOnHost_AnalyticalRules Analytics Rule with template version 3.0.1",
+                "description": "SentinelOneMultipleAlertsOnHost_AnalyticalRules Analytics Rule with template version 3.0.2",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.1",
+                    "contentVersion": "1.0.2",
                     "parameters": {},
                     "variables": {},
                     "resources": [
@@ -1201,14 +1269,17 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "SentinelOne",
                                         "dataTypes": [
                                             "SentinelOne"
-                                        ],
-                                        "connectorId": "SentinelOne"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
                                     "InitialAccess"
+                                ],
+                                "techniques": [
+                                    "T1190"
                                 ],
                                 "entityMappings": [
                                     {
@@ -1232,7 +1303,7 @@
                                 "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '47e427e6-61bc-4e24-8d16-a12871b9f939')]",
                                 "contentId": "47e427e6-61bc-4e24-8d16-a12871b9f939",
                                 "kind": "AnalyticsRule",
-                                "version": "1.0.1",
+                                "version": "1.0.2",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "SentinelOne",
@@ -1253,17 +1324,30 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.1",
+                "packageVersion": "3.0.2",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "47e427e6-61bc-4e24-8d16-a12871b9f939",
                 "contentKind": "AnalyticsRule",
                 "displayName": "Sentinel One - Multiple alerts on host",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-sentinelone-ar-gjf46mysxcti2",
-                "id": "azuresentinel.azure-sentinel-solution-sentinelone-ar-gjf46mysxcti2",
-                "version": "1.0.1",
-                "isDeprecated": false
+                "contentProductId": "azuresentinel.azure-sentinel-solution-sentinelone-ar-mf5w5tqlsl3mm",
+                "id": "azuresentinel.azure-sentinel-solution-sentinelone-ar-mf5w5tqlsl3mm",
+                "version": "1.0.2",
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "SentinelOne"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "SentinelOne"
+                        }
+                    ]
+                }
             }
         },
         {
@@ -1275,7 +1359,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-sentinelone')]"
             ],
             "properties": {
-                "description": "SentinelOneNewAdmin_AnalyticalRules Analytics Rule with template version 3.0.1",
+                "description": "SentinelOneNewAdmin_AnalyticalRules Analytics Rule with template version 3.0.2",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -1303,10 +1387,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "SentinelOne",
                                         "dataTypes": [
                                             "SentinelOne"
-                                        ],
-                                        "connectorId": "SentinelOne"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -1358,7 +1442,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.1",
+                "packageVersion": "3.0.2",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -1368,7 +1452,20 @@
                 "contentProductId": "azuresentinel.azure-sentinel-solution-sentinelone-ar-zu5qghlejy6lm",
                 "id": "azuresentinel.azure-sentinel-solution-sentinelone-ar-zu5qghlejy6lm",
                 "version": "1.0.0",
-                "isDeprecated": false
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "SentinelOne"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "SentinelOne"
+                        }
+                    ]
+                }
             }
         },
         {
@@ -1380,7 +1477,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-sentinelone')]"
             ],
             "properties": {
-                "description": "SentinelOneRuleDeleted_AnalyticalRules Analytics Rule with template version 3.0.1",
+                "description": "SentinelOneRuleDeleted_AnalyticalRules Analytics Rule with template version 3.0.2",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -1408,10 +1505,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "SentinelOne",
                                         "dataTypes": [
                                             "SentinelOne"
-                                        ],
-                                        "connectorId": "SentinelOne"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -1463,7 +1560,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.1",
+                "packageVersion": "3.0.2",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -1473,7 +1570,20 @@
                 "contentProductId": "azuresentinel.azure-sentinel-solution-sentinelone-ar-pja4fuzemn2ey",
                 "id": "azuresentinel.azure-sentinel-solution-sentinelone-ar-pja4fuzemn2ey",
                 "version": "1.0.0",
-                "isDeprecated": false
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "SentinelOne"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "SentinelOne"
+                        }
+                    ]
+                }
             }
         },
         {
@@ -1485,7 +1595,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-sentinelone')]"
             ],
             "properties": {
-                "description": "SentinelOneRuleDisabled_AnalyticalRules Analytics Rule with template version 3.0.1",
+                "description": "SentinelOneRuleDisabled_AnalyticalRules Analytics Rule with template version 3.0.2",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -1513,10 +1623,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "SentinelOne",
                                         "dataTypes": [
                                             "SentinelOne"
-                                        ],
-                                        "connectorId": "SentinelOne"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -1568,7 +1678,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.1",
+                "packageVersion": "3.0.2",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -1578,7 +1688,20 @@
                 "contentProductId": "azuresentinel.azure-sentinel-solution-sentinelone-ar-jskvnkvd4yfjw",
                 "id": "azuresentinel.azure-sentinel-solution-sentinelone-ar-jskvnkvd4yfjw",
                 "version": "1.0.0",
-                "isDeprecated": false
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "SentinelOne"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "SentinelOne"
+                        }
+                    ]
+                }
             }
         },
         {
@@ -1590,10 +1713,10 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-sentinelone')]"
             ],
             "properties": {
-                "description": "SentinelOneSameCustomRuleHitOnDiffHosts_AnalyticalRules Analytics Rule with template version 3.0.1",
+                "description": "SentinelOneSameCustomRuleHitOnDiffHosts_AnalyticalRules Analytics Rule with template version 3.0.2",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.1",
+                    "contentVersion": "1.0.2",
                     "parameters": {},
                     "variables": {},
                     "resources": [
@@ -1618,14 +1741,19 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "SentinelOne",
                                         "dataTypes": [
                                             "SentinelOne"
-                                        ],
-                                        "connectorId": "SentinelOne"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
-                                    "InitialAccess"
+                                    "InitialAccess",
+                                    "LateralMovement"
+                                ],
+                                "techniques": [
+                                    "T1190",
+                                    "T1210"
                                 ],
                                 "entityMappings": [
                                     {
@@ -1649,7 +1777,7 @@
                                 "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '5586d378-1bce-4d9b-9ac8-e7271c9d5a9a')]",
                                 "contentId": "5586d378-1bce-4d9b-9ac8-e7271c9d5a9a",
                                 "kind": "AnalyticsRule",
-                                "version": "1.0.1",
+                                "version": "1.0.2",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "SentinelOne",
@@ -1670,17 +1798,30 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.1",
+                "packageVersion": "3.0.2",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "5586d378-1bce-4d9b-9ac8-e7271c9d5a9a",
                 "contentKind": "AnalyticsRule",
                 "displayName": "Sentinel One - Same custom rule triggered on different hosts",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-sentinelone-ar-jggn56p5taapi",
-                "id": "azuresentinel.azure-sentinel-solution-sentinelone-ar-jggn56p5taapi",
-                "version": "1.0.1",
-                "isDeprecated": false
+                "contentProductId": "azuresentinel.azure-sentinel-solution-sentinelone-ar-qry73bbq2y5tm",
+                "id": "azuresentinel.azure-sentinel-solution-sentinelone-ar-qry73bbq2y5tm",
+                "version": "1.0.2",
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "SentinelOne"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "SentinelOne"
+                        }
+                    ]
+                }
             }
         },
         {
@@ -1692,7 +1833,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-sentinelone')]"
             ],
             "properties": {
-                "description": "SentinelOneViewAgentPassphrase_AnalyticalRules Analytics Rule with template version 3.0.1",
+                "description": "SentinelOneViewAgentPassphrase_AnalyticalRules Analytics Rule with template version 3.0.2",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -1720,10 +1861,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "SentinelOne",
                                         "dataTypes": [
                                             "SentinelOne"
-                                        ],
-                                        "connectorId": "SentinelOne"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -1784,7 +1925,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.1",
+                "packageVersion": "3.0.2",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -1794,7 +1935,20 @@
                 "contentProductId": "azuresentinel.azure-sentinel-solution-sentinelone-ar-3kuhcer5nlewi",
                 "id": "azuresentinel.azure-sentinel-solution-sentinelone-ar-3kuhcer5nlewi",
                 "version": "1.0.0",
-                "isDeprecated": false
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "SentinelOne"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "SentinelOne"
+                        }
+                    ]
+                }
             }
         },
         {
@@ -1806,7 +1960,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-sentinelone')]"
             ],
             "properties": {
-                "description": "SentinelOneAgentNotUpdated_HuntingQueries Hunting Query with template version 3.0.1",
+                "description": "SentinelOneAgentNotUpdated_HuntingQueries Hunting Query with template version 3.0.2",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -1870,7 +2024,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.1",
+                "packageVersion": "3.0.2",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -1892,7 +2046,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-sentinelone')]"
             ],
             "properties": {
-                "description": "SentinelOneAgentStatus_HuntingQueries Hunting Query with template version 3.0.1",
+                "description": "SentinelOneAgentStatus_HuntingQueries Hunting Query with template version 3.0.2",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -1956,7 +2110,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.1",
+                "packageVersion": "3.0.2",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -1978,7 +2132,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-sentinelone')]"
             ],
             "properties": {
-                "description": "SentinelOneAlertTriggers_HuntingQueries Hunting Query with template version 3.0.1",
+                "description": "SentinelOneAlertTriggers_HuntingQueries Hunting Query with template version 3.0.2",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -2042,7 +2196,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.1",
+                "packageVersion": "3.0.2",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -2064,7 +2218,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-sentinelone')]"
             ],
             "properties": {
-                "description": "SentinelOneHostNotScanned_HuntingQueries Hunting Query with template version 3.0.1",
+                "description": "SentinelOneHostNotScanned_HuntingQueries Hunting Query with template version 3.0.2",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -2128,7 +2282,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.1",
+                "packageVersion": "3.0.2",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -2150,7 +2304,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-sentinelone')]"
             ],
             "properties": {
-                "description": "SentinelOneNewRules_HuntingQueries Hunting Query with template version 3.0.1",
+                "description": "SentinelOneNewRules_HuntingQueries Hunting Query with template version 3.0.2",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -2214,7 +2368,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.1",
+                "packageVersion": "3.0.2",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -2236,7 +2390,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-sentinelone')]"
             ],
             "properties": {
-                "description": "SentinelOneRulesDeleted_HuntingQueries Hunting Query with template version 3.0.1",
+                "description": "SentinelOneRulesDeleted_HuntingQueries Hunting Query with template version 3.0.2",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -2300,7 +2454,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.1",
+                "packageVersion": "3.0.2",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -2322,7 +2476,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-sentinelone')]"
             ],
             "properties": {
-                "description": "SentinelOneScannedHosts_HuntingQueries Hunting Query with template version 3.0.1",
+                "description": "SentinelOneScannedHosts_HuntingQueries Hunting Query with template version 3.0.2",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -2386,7 +2540,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.1",
+                "packageVersion": "3.0.2",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -2408,7 +2562,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-sentinelone')]"
             ],
             "properties": {
-                "description": "SentinelOneSourcesByAlertCount_HuntingQueries Hunting Query with template version 3.0.1",
+                "description": "SentinelOneSourcesByAlertCount_HuntingQueries Hunting Query with template version 3.0.2",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -2472,7 +2626,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.1",
+                "packageVersion": "3.0.2",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -2494,7 +2648,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-sentinelone')]"
             ],
             "properties": {
-                "description": "SentinelOneUninstalledAgents_HuntingQueries Hunting Query with template version 3.0.1",
+                "description": "SentinelOneUninstalledAgents_HuntingQueries Hunting Query with template version 3.0.2",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -2558,7 +2712,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.1",
+                "packageVersion": "3.0.2",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -2580,7 +2734,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-sentinelone')]"
             ],
             "properties": {
-                "description": "SentinelOneUsersByAlertCount_HuntingQueries Hunting Query with template version 3.0.1",
+                "description": "SentinelOneUsersByAlertCount_HuntingQueries Hunting Query with template version 3.0.2",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -2644,7 +2798,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.1",
+                "packageVersion": "3.0.2",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -2662,15 +2816,15 @@
             "apiVersion": "2023-04-01-preview",
             "location": "[parameters('workspace-location')]",
             "properties": {
-                "version": "3.0.1",
+                "version": "3.0.2",
                 "kind": "Solution",
                 "contentSchemaVersion": "3.0.0",
                 "displayName": "SentinelOne",
                 "publisherDisplayName": "Microsoft Sentinel, Microsoft Corporation",
                 "descriptionHtml": "<p><b>Note:</b> Please refer to the following before installing the solution:</p><p>\u2022 Review the solution <a target=\"_blank href=\">Release Notes</a></p><p>The <a target=\"_blank\" href=\"https://www.sentinelone.com/\" rel=\"noopener\">SentinelOne</a> solution provides ability to bring SentinelOne events to your Microsoft Sentinel Workspace to inform and to examine potential security risks, analyze your team's use of collaboration, diagnose configuration problems and more.</p><p><b>Underlying Microsoft Technologies used:</b></p><p>This solution takes a dependency on the following technologies, and some of these dependencies either may be in <a target=\"_blank\" href=\"https://azure.microsoft.com/support/legal/preview-supplemental-terms/\" rel=\"noopener\">Preview</a> state or might result in additional ingestion or operational costs:</p><p>a. <a target=\"_blank\" href=\"https://docs.microsoft.com/azure/azure-monitor/logs/data-collector-api?WT.mc_id=Portal-fx\" rel=\"noopener\">Azure Monitor HTTP Data Collector API</a></p><p>b. <a target=\"_blank\" href=\"https://azure.microsoft.com/services/functions/#overview\" rel=\"noopener\">Azure Functions</a></p><p><b>Data Connectors:</b> 1, <b>Parsers:</b> 1, <b>Workbooks:</b> 1, <b>Analytic Rules:</b> 11, <b>Hunting Queries:</b> 10</p><p><a target=\"_blank\" href=\"https://aka.ms/azuresentinel\" rel=\"noopener\">Learn more about Microsoft Sentinel</a> | <a target=\"_blank\" href=\"https://aka.ms/azuresentinelsolutionsdoc\" rel=\"noopener\">Learn more about Solutions</a></p>",
                 "contentKind": "Solution",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-sentinelone-sl-sqa4roiwopjfu",
-                "id": "azuresentinel.azure-sentinel-solution-sentinelone-sl-sqa4roiwopjfu",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-sentinelone-sl-lbtnvreboddq2",
+                "id": "azuresentinel.azure-sentinel-solution-sentinelone-sl-lbtnvreboddq2",
                 "icon": "https://store-images.s-microsoft.com/image/apps.64133.de7b62cd-dc4b-44e8-ba88-e15abade5b01.d5ef45e2-268d-4824-92bc-96afd798aac3.7cf9eadc-d371-4415-a897-1abee4fee9c9",
                 "contentId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "parentId": "azuresentinel.azure-sentinel-solution-sentinelone",
@@ -2720,7 +2874,7 @@
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "5f37de91-ff2b-45fb-9eda-49e9f76a3942",
-                            "version": "1.0.1"
+                            "version": "1.0.2"
                         },
                         {
                             "kind": "AnalyticsRule",
@@ -2735,7 +2889,7 @@
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "47e427e6-61bc-4e24-8d16-a12871b9f939",
-                            "version": "1.0.1"
+                            "version": "1.0.2"
                         },
                         {
                             "kind": "AnalyticsRule",
@@ -2755,7 +2909,7 @@
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "5586d378-1bce-4d9b-9ac8-e7271c9d5a9a",
-                            "version": "1.0.1"
+                            "version": "1.0.2"
                         },
                         {
                             "kind": "AnalyticsRule",
