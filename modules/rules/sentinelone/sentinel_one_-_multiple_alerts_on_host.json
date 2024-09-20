@@ -15,18 +15,21 @@
         "tactics": [
             "InitialAccess"
         ],
+        "techniques": [
+            "T1190"
+        ],
         "entityMappings": [
             {
                 "entityType": "Host",
                 "fieldMappings": [
                     {
-                        "columnName": "HostCustomEntity",
-                        "identifier": "HostName"
+                        "identifier": "HostName",
+                        "columnName": "HostCustomEntity"
                     }
                 ]
             }
         ],
         "alertRuleTemplateName": "47e427e6-61bc-4e24-8d16-a12871b9f939",
-        "templateVersion": "1.0.1"
+        "templateVersion": "1.0.2"
     }
 }

@@ -48,7 +48,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "Microsoft 365 data connector with template version 3.0.3",
+                "description": "Microsoft 365 data connector with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.0",
@@ -138,7 +138,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -244,7 +244,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "SharePointAndOneDrive Workbook with template version 3.0.3",
+                "description": "SharePointAndOneDrive Workbook with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.0",
@@ -311,7 +311,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -333,7 +333,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "Office365 Workbook with template version 3.0.3",
+                "description": "Office365 Workbook with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -400,7 +400,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -422,7 +422,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "ExchangeOnline Workbook with template version 3.0.3",
+                "description": "ExchangeOnline Workbook with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.0",
@@ -489,7 +489,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -511,7 +511,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "AnomolousUserAccessingOtherUsersMailbox_HuntingQueries Hunting Query with template version 3.0.3",
+                "description": "AnomolousUserAccessingOtherUsersMailbox_HuntingQueries Hunting Query with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -575,7 +575,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -597,7 +597,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "ExternalUserAddedRemovedInTeams_HuntVersion_HuntingQueries Hunting Query with template version 3.0.3",
+                "description": "ExternalUserAddedRemovedInTeams_HuntVersion_HuntingQueries Hunting Query with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -661,7 +661,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -683,7 +683,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "ExternalUserFromNewOrgAddedToTeams_HuntingQueries Hunting Query with template version 3.0.3",
+                "description": "ExternalUserFromNewOrgAddedToTeams_HuntingQueries Hunting Query with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -747,7 +747,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -769,7 +769,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "Mail_redirect_via_ExO_transport_rule_hunting_HuntingQueries Hunting Query with template version 3.0.3",
+                "description": "Mail_redirect_via_ExO_transport_rule_hunting_HuntingQueries Hunting Query with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -833,7 +833,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -855,7 +855,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "MultiTeamBot_HuntingQueries Hunting Query with template version 3.0.3",
+                "description": "MultiTeamBot_HuntingQueries Hunting Query with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -919,7 +919,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -941,7 +941,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "MultiTeamOwner_HuntingQueries Hunting Query with template version 3.0.3",
+                "description": "MultiTeamOwner_HuntingQueries Hunting Query with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -1005,7 +1005,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -1027,7 +1027,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "MultipleTeamsDeletes_HuntingQueries Hunting Query with template version 3.0.3",
+                "description": "MultipleTeamsDeletes_HuntingQueries Hunting Query with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -1091,7 +1091,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -1113,7 +1113,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "NewBotAddedToTeams_HuntingQueries Hunting Query with template version 3.0.3",
+                "description": "NewBotAddedToTeams_HuntingQueries Hunting Query with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -1177,7 +1177,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -1199,7 +1199,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "New_WindowsReservedFileNamesOnOfficeFileServices_HuntingQueries Hunting Query with template version 3.0.3",
+                "description": "New_WindowsReservedFileNamesOnOfficeFileServices_HuntingQueries Hunting Query with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -1263,7 +1263,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -1285,7 +1285,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "OfficeMailForwarding_hunting_HuntingQueries Hunting Query with template version 3.0.3",
+                "description": "OfficeMailForwarding_hunting_HuntingQueries Hunting Query with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -1349,7 +1349,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -1371,7 +1371,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "TeamsFilesUploaded_HuntingQueries Hunting Query with template version 3.0.3",
+                "description": "TeamsFilesUploaded_HuntingQueries Hunting Query with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -1435,7 +1435,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -1457,7 +1457,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "UserAddToTeamsAndUploadsFile_HuntingQueries Hunting Query with template version 3.0.3",
+                "description": "UserAddToTeamsAndUploadsFile_HuntingQueries Hunting Query with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -1521,7 +1521,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -1543,7 +1543,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "WindowsReservedFileNamesOnOfficeFileServices_HuntingQueries Hunting Query with template version 3.0.3",
+                "description": "WindowsReservedFileNamesOnOfficeFileServices_HuntingQueries Hunting Query with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -1607,7 +1607,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -1629,7 +1629,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "double_file_ext_exes_HuntingQueries Hunting Query with template version 3.0.3",
+                "description": "double_file_ext_exes_HuntingQueries Hunting Query with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -1693,7 +1693,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -1715,7 +1715,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "new_adminaccountactivity_HuntingQueries Hunting Query with template version 3.0.3",
+                "description": "new_adminaccountactivity_HuntingQueries Hunting Query with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -1779,7 +1779,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -1801,7 +1801,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "new_sharepoint_downloads_by_IP_HuntingQueries Hunting Query with template version 3.0.3",
+                "description": "new_sharepoint_downloads_by_IP_HuntingQueries Hunting Query with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -1865,7 +1865,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -1887,7 +1887,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "new_sharepoint_downloads_by_UserAgent_HuntingQueries Hunting Query with template version 3.0.3",
+                "description": "new_sharepoint_downloads_by_UserAgent_HuntingQueries Hunting Query with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -1951,7 +1951,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -1973,7 +1973,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "nonowner_MailboxLogin_HuntingQueries Hunting Query with template version 3.0.3",
+                "description": "nonowner_MailboxLogin_HuntingQueries Hunting Query with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -2037,7 +2037,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -2059,7 +2059,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "powershell_or_nonbrowser_MailboxLogin_HuntingQueries Hunting Query with template version 3.0.3",
+                "description": "powershell_or_nonbrowser_MailboxLogin_HuntingQueries Hunting Query with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -2123,7 +2123,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -2145,7 +2145,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "sharepoint_downloads_HuntingQueries Hunting Query with template version 3.0.3",
+                "description": "sharepoint_downloads_HuntingQueries Hunting Query with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -2209,7 +2209,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -2231,7 +2231,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "MultipleUsersEmailForwardedToSameDestination_HuntingQueries Hunting Query with template version 3.0.3",
+                "description": "MultipleUsersEmailForwardedToSameDestination_HuntingQueries Hunting Query with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -2295,7 +2295,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -2317,7 +2317,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "External User added to Team and immediately uploads file_AnalyticalRules Analytics Rule with template version 3.0.3",
+                "description": "External User added to Team and immediately uploads file_AnalyticalRules Analytics Rule with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.1.1",
@@ -2345,16 +2345,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "Office365",
                                         "dataTypes": [
                                             "OfficeActivity (Teams)"
-                                        ]
+                                        ],
+                                        "connectorId": "Office365"
                                     },
                                     {
-                                        "connectorId": "Office365",
                                         "dataTypes": [
                                             "OfficeActivity (SharePoint)"
-                                        ]
+                                        ],
+                                        "connectorId": "Office365"
                                     }
                                 ],
                                 "tactics": [
@@ -2457,7 +2457,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -2500,7 +2500,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "ExternalUserAddedRemovedInTeams_AnalyticalRules Analytics Rule with template version 3.0.3",
+                "description": "ExternalUserAddedRemovedInTeams_AnalyticalRules Analytics Rule with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.1.3",
@@ -2528,10 +2528,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "Office365",
                                         "dataTypes": [
                                             "OfficeActivity (Teams)"
-                                        ]
+                                        ],
+                                        "connectorId": "Office365"
                                     }
                                 ],
                                 "tactics": [
@@ -2634,7 +2634,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -2669,7 +2669,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "MailItemsAccessedTimeSeries_AnalyticalRules Analytics Rule with template version 3.0.3",
+                "description": "MailItemsAccessedTimeSeries_AnalyticalRules Analytics Rule with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.5",
@@ -2697,10 +2697,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "Office365",
                                         "dataTypes": [
                                             "OfficeActivity (Exchange)"
-                                        ]
+                                        ],
+                                        "connectorId": "Office365"
                                     }
                                 ],
                                 "tactics": [
@@ -2778,7 +2778,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -2813,7 +2813,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "Mail_redirect_via_ExO_transport_rule_AnalyticalRules Analytics Rule with template version 3.0.3",
+                "description": "Mail_redirect_via_ExO_transport_rule_AnalyticalRules Analytics Rule with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.4",
@@ -2841,10 +2841,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "Office365",
                                         "dataTypes": [
                                             "OfficeActivity (Exchange)"
-                                        ]
+                                        ],
+                                        "connectorId": "Office365"
                                     }
                                 ],
                                 "tactics": [
@@ -2915,7 +2915,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -2950,7 +2950,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "Malicious_Inbox_Rule_AnalyticalRules Analytics Rule with template version 3.0.3",
+                "description": "Malicious_Inbox_Rule_AnalyticalRules Analytics Rule with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.4",
@@ -2978,10 +2978,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "Office365",
                                         "dataTypes": [
                                             "OfficeActivity (Exchange)"
-                                        ]
+                                        ],
+                                        "connectorId": "Office365"
                                     }
                                 ],
                                 "tactics": [
@@ -3061,7 +3061,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -3096,7 +3096,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "MultipleTeamsDeletes_AnalyticalRules Analytics Rule with template version 3.0.3",
+                "description": "MultipleTeamsDeletes_AnalyticalRules Analytics Rule with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.4",
@@ -3124,10 +3124,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "Office365",
                                         "dataTypes": [
                                             "OfficeActivity (Teams)"
-                                        ]
+                                        ],
+                                        "connectorId": "Office365"
                                     }
                                 ],
                                 "tactics": [
@@ -3188,7 +3188,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -3223,7 +3223,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "Office_MailForwarding_AnalyticalRules Analytics Rule with template version 3.0.3",
+                "description": "Office_MailForwarding_AnalyticalRules Analytics Rule with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.3",
@@ -3251,10 +3251,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "Office365",
                                         "dataTypes": [
                                             "OfficeActivity (Exchange)"
-                                        ]
+                                        ],
+                                        "connectorId": "Office365"
                                     }
                                 ],
                                 "tactics": [
@@ -3325,7 +3325,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -3360,7 +3360,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "Office_Uploaded_Executables_AnalyticalRules Analytics Rule with template version 3.0.3",
+                "description": "Office_Uploaded_Executables_AnalyticalRules Analytics Rule with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.5",
@@ -3388,10 +3388,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "Office365",
                                         "dataTypes": [
                                             "OfficeActivity (SharePoint)"
-                                        ]
+                                        ],
+                                        "connectorId": "Office365"
                                     }
                                 ],
                                 "tactics": [
@@ -3480,7 +3480,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -3515,7 +3515,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "RareOfficeOperations_AnalyticalRules Analytics Rule with template version 3.0.3",
+                "description": "RareOfficeOperations_AnalyticalRules Analytics Rule with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.5",
@@ -3543,10 +3543,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "Office365",
                                         "dataTypes": [
                                             "OfficeActivity"
-                                        ]
+                                        ],
+                                        "connectorId": "Office365"
                                     }
                                 ],
                                 "tactics": [
@@ -3626,7 +3626,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -3661,7 +3661,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "SharePoint_Downloads_byNewIP_AnalyticalRules Analytics Rule with template version 3.0.3",
+                "description": "SharePoint_Downloads_byNewIP_AnalyticalRules Analytics Rule with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.4",
@@ -3689,10 +3689,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "Office365",
                                         "dataTypes": [
                                             "OfficeActivity"
-                                        ]
+                                        ],
+                                        "connectorId": "Office365"
                                     }
                                 ],
                                 "tactics": [
@@ -3770,7 +3770,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -3805,7 +3805,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "SharePoint_Downloads_byNewUserAgent_AnalyticalRules Analytics Rule with template version 3.0.3",
+                "description": "SharePoint_Downloads_byNewUserAgent_AnalyticalRules Analytics Rule with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.2.4",
@@ -3833,10 +3833,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "Office365",
                                         "dataTypes": [
                                             "OfficeActivity"
-                                        ]
+                                        ],
+                                        "connectorId": "Office365"
                                     }
                                 ],
                                 "tactics": [
@@ -3914,7 +3914,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -3949,7 +3949,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "exchange_auditlogdisabled_AnalyticalRules Analytics Rule with template version 3.0.3",
+                "description": "exchange_auditlogdisabled_AnalyticalRules Analytics Rule with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.6",
@@ -3977,10 +3977,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "Office365",
                                         "dataTypes": [
                                             "OfficeActivity (Exchange)"
-                                        ]
+                                        ],
+                                        "connectorId": "Office365"
                                     }
                                 ],
                                 "tactics": [
@@ -4058,7 +4058,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -4093,7 +4093,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "office_policytampering_AnalyticalRules Analytics Rule with template version 3.0.3",
+                "description": "office_policytampering_AnalyticalRules Analytics Rule with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.3",
@@ -4121,10 +4121,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "Office365",
                                         "dataTypes": [
                                             "OfficeActivity (Exchange)"
-                                        ]
+                                        ],
+                                        "connectorId": "Office365"
                                     }
                                 ],
                                 "tactics": [
@@ -4195,7 +4195,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -4230,10 +4230,10 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "sharepoint_file_transfer_folders_above_threshold_AnalyticalRules Analytics Rule with template version 3.0.3",
+                "description": "sharepoint_file_transfer_folders_above_threshold_AnalyticalRules Analytics Rule with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.5",
+                    "contentVersion": "1.0.6",
                     "parameters": {},
                     "variables": {},
                     "resources": [
@@ -4245,7 +4245,7 @@
                             "location": "[parameters('workspace-location')]",
                             "properties": {
                                 "description": "Identifies Office365 Sharepoint File Transfers with distinct folder count above certain threshold in a 15min time period.\n Please note that entity mapping for arrays is not supported, so when there is a single value in an array, we will pull that value from the array as a single string to populate the entity to support entity mapping features within Sentinel. Additionally, if the array is multivalued, we will input a string to indicate this with a unique hash so that matching will not occur.",
-                                "displayName": "Office365 Sharepoint File transfer above threshold",
+                                "displayName": "Office365 Sharepoint File transfer Folders above threshold",
                                 "enabled": false,
                                 "query": "let threshold = 500;\nOfficeActivity\n| where EventSource == \"SharePoint\" and OfficeWorkload has_any(\"SharePoint\", \"OneDrive\") and Operation has_any (\"FileDownloaded\", \"FileSyncDownloadedFull\", \"FileSyncUploadedFull\", \"FileUploaded\")\n| summarize count_distinct_SourceRelativeUrl=dcount(SourceRelativeUrl), dirlist=make_set(SourceRelativeUrl, 10000) by UserId,ClientIP,UserAgent,bin(TimeGenerated, 15m)\n| where count_distinct_SourceRelativeUrl >= threshold\n| extend DirSample = iff(array_length(dirlist) == 1, tostring(dirlist[0]), strcat(\"SeeDirListField\",\"_\", tostring(hash(tostring(dirlist)))))\n| extend AccountName = tostring(split(UserId, \"@\")[0]), AccountUPNSuffix = tostring(split(UserId, \"@\")[1])\n",
                                 "queryFrequency": "PT15M",
@@ -4258,10 +4258,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "Office365",
                                         "dataTypes": [
                                             "OfficeActivity (SharePoint)"
-                                        ]
+                                        ],
+                                        "connectorId": "Office365"
                                     }
                                 ],
                                 "tactics": [
@@ -4314,8 +4314,8 @@
                                 "incidentConfiguration": {
                                     "createIncident": true,
                                     "groupingConfiguration": {
-                                        "enabled": true,
                                         "matchingMethod": "Selected",
+                                        "enabled": true,
                                         "reopenClosedIncident": false,
                                         "lookbackDuration": "PT5H",
                                         "groupByEntities": [
@@ -4334,7 +4334,7 @@
                                 "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '8a547285-801c-4290-aa2e-5e7e20ca157d')]",
                                 "contentId": "8a547285-801c-4290-aa2e-5e7e20ca157d",
                                 "kind": "AnalyticsRule",
-                                "version": "1.0.5",
+                                "version": "1.0.6",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "Microsoft 365",
@@ -4355,16 +4355,16 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "8a547285-801c-4290-aa2e-5e7e20ca157d",
                 "contentKind": "AnalyticsRule",
-                "displayName": "Office365 Sharepoint File transfer above threshold",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-office365-ar-wmkp4mdiyh5zi",
-                "id": "azuresentinel.azure-sentinel-solution-office365-ar-wmkp4mdiyh5zi",
-                "version": "1.0.5",
+                "displayName": "Office365 Sharepoint File transfer Folders above threshold",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-office365-ar-gn4bncokownpm",
+                "id": "azuresentinel.azure-sentinel-solution-office365-ar-gn4bncokownpm",
+                "version": "1.0.6",
                 "isDeprecated": false,
                 "dependencies": {
                     "operator": "AND",
@@ -4390,7 +4390,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "sharepoint_file_transfer_above_threshold_AnalyticalRules Analytics Rule with template version 3.0.3",
+                "description": "sharepoint_file_transfer_above_threshold_AnalyticalRules Analytics Rule with template version 3.0.4",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.5",
@@ -4418,10 +4418,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "Office365",
                                         "dataTypes": [
                                             "OfficeActivity (SharePoint)"
-                                        ]
+                                        ],
+                                        "connectorId": "Office365"
                                     }
                                 ],
                                 "tactics": [
@@ -4474,8 +4474,8 @@
                                 "incidentConfiguration": {
                                     "createIncident": true,
                                     "groupingConfiguration": {
-                                        "enabled": true,
                                         "matchingMethod": "Selected",
+                                        "enabled": true,
                                         "reopenClosedIncident": false,
                                         "lookbackDuration": "PT5H",
                                         "groupByEntities": [
@@ -4515,7 +4515,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -4546,15 +4546,15 @@
             "apiVersion": "2023-04-01-preview",
             "location": "[parameters('workspace-location')]",
             "properties": {
-                "version": "3.0.3",
+                "version": "3.0.4",
                 "kind": "Solution",
                 "contentSchemaVersion": "3.0.0",
                 "displayName": "Microsoft 365",
                 "publisherDisplayName": "Microsoft Sentinel, Microsoft Corporation",
                 "descriptionHtml": "<p><strong>Note:</strong> Please refer to the following before installing the solution:</p><p>\u2022 Review the solution <a target=\"_blank\" href=\"https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Microsoft%20365/ReleaseNotes.md\" rel=\"noopener\">Release Notes</a></p><p>The Microsoft 365 solution for Microsoft Sentinel enables you to ingest operational logs from Microsoft 365 (formerly, Office 365) to gain insights into user and admin activity across your collaboration platforms such as Teams, SharePoint and Exchange.</p><p><strong>Underlying Microsoft Technologies used:</strong></p><p>This solution takes a dependency on the following technologies, and some of these dependencies either may be in <a target=\"_blank\" href=\"https://azure.microsoft.com/support/legal/preview-supplemental-terms/\" rel=\"noopener\">Preview</a> state or might result in additional ingestion or operational costs:</p><p>a. <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/azure-monitor/logs/data-collector-api?WT.mc_id=Portal-fx\" rel=\"noopener\">Azure Monitor HTTP Data Collector API</a></p><p><strong>Data Connectors:</strong> 1, <strong>Workbooks:</strong> 3, <strong>Analytic Rules:</strong> 15, <strong>Hunting Queries:</strong> 21</p><p><a target=\"_blank\" href=\"https://aka.ms/azuresentinel\" rel=\"noopener\">Learn more about Microsoft Sentinel</a> | <a target=\"_blank\" href=\"https://aka.ms/azuresentinelsolutionsdoc\" rel=\"noopener\">Learn more about Solutions</a></p>",
                 "contentKind": "Solution",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-office365-sl-6dvxnl7qx6kea",
-                "id": "azuresentinel.azure-sentinel-solution-office365-sl-6dvxnl7qx6kea",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-office365-sl-5nyb5jz3br32i",
+                "id": "azuresentinel.azure-sentinel-solution-office365-sl-5nyb5jz3br32i",
                 "icon": "https://store-images.s-microsoft.com/image/apps.64133.628c857d-7701-4995-8594-3dca045221d3.6fd2c9d1-2887-4641-b1e3-e66338df1dc8.d2484c7e-70d6-442a-bd31-8e0f9142ee02",
                 "contentId": "azuresentinel.azure-sentinel-solution-office365",
                 "parentId": "azuresentinel.azure-sentinel-solution-office365",
@@ -4769,7 +4769,7 @@
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "8a547285-801c-4290-aa2e-5e7e20ca157d",
-                            "version": "1.0.5"
+                            "version": "1.0.6"
                         },
                         {
                             "kind": "AnalyticsRule",
