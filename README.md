@@ -8,10 +8,15 @@ Solutions and rules are directly retrieved from the [Microsoft Sentinel Content 
 
 __Current log sources supported__ :
 - _aws_
+- _azure\_activity_
 - _azure\_firewall_
+- _azure\_keyvault_
+- _azure\_nsg_
 - _azure\_waf_
 - _cef_
 - _cisco\_meraki_
+- _cyberark\_pam_
+- _darktrace_
 - _entra\_id_
 - _fortigate_
 - _gworkspace_
