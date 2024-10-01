@@ -1,0 +1,278 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "type": "String",
+            "minLength": 1,
+            "defaultValue": "[resourceGroup().location]",
+            "metadata": {
+                "description": "Not used, but needed to pass arm-ttk test `Location-Should-Not-Be-Hardcoded`.  We instead use the `workspace-location` which is derived from the LA workspace"
+            }
+        },
+        "workspace-location": {
+            "type": "String",
+            "defaultValue": "",
+            "metadata": {
+                "description": "[concat('Region to deploy solution resources -- separate from location selection',parameters('location'))]"
+            }
+        },
+        "workspace": {
+            "defaultValue": "",
+            "type": "String",
+            "metadata": {
+                "description": "Workspace name for Log Analytics where Microsoft Sentinel is setup"
+            }
+        }
+    },
+    "resources": [
+        {
+            "name": "pid-7ce0d195-be34-4950-89bd-7d21d97a218d-partnercenter",
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-10-01",
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "resources": []
+                }
+            }
+        },
+        {
+            "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-dc-',uniquestring('AzureNSG')),'1.0.0'))]",
+            "location": "[parameters('workspace-location')]",
+            "apiVersion": "2023-04-01-preview",
+            "dependsOn": [
+                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-networksecuritygroup')]"
+            ],
+            "properties": {
+                "contentId": "AzureNSG",
+                "displayName": "Network Security Groups",
+                "contentKind": "DataConnector",
+                "mainTemplate": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/','AzureNSG')]",
+                            "apiVersion": "2021-03-01-preview",
+                            "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
+                            "location": "[parameters('workspace-location')]",
+                            "kind": "StaticUI",
+                            "properties": {
+                                "connectorUiConfig": {
+                                    "id": "AzureNSG",
+                                    "title": "Network Security Groups",
+                                    "publisher": "Microsoft",
+                                    "descriptionMarkdown": "Azure network security groups (NSG) allow you to filter network traffic to and from Azure resources in an Azure virtual network. A network security group includes rules that allow or deny traffic to a virtual network subnet, network interface, or both.\n\nWhen you enable logging for an NSG, you can gather the following types of resource log information:\n\n- **Event:** Entries are logged for which NSG rules are applied to VMs, based on MAC address.\n- **Rule counter:** Contains entries for how many times each NSG rule is applied to deny or allow traffic. The status for these rules is collected every 300 seconds.\n\n\nThis connector lets you stream your NSG diagnostics logs into Microsoft Sentinel, allowing you to continuously monitor activity in all your instances. For more information, see the [Microsoft Sentinel documentation](https://go.microsoft.com/fwlink/p/?linkid=2223718&wt.mc_id=sentinel_dataconnectordocs_content_cnl_csasci).",
+                                    "graphQueries": [
+                                        {
+                                            "metricName": "Total data received",
+                                            "legend": "NetworkSecurityGroupEvent",
+                                            "baseQuery": "AzureDiagnostics | where Category == \"NetworkSecurityGroupEvent\""
+                                        },
+                                        {
+                                            "metricName": "Total data received",
+                                            "legend": "NetworkSecurityGroupRuleCounter",
+                                            "baseQuery": "AzureDiagnostics | where Category == \"NetworkSecurityGroupRuleCounter\""
+                                        }
+                                    ],
+                                    "connectivityCriterias": [
+                                        {
+                                            "type": "IsConnectedQuery",
+                                            "value": [
+                                                "AzureDiagnostics | where Category == \"NetworkSecurityGroupEvent\"\n            | summarize LastLogReceived = max(TimeGenerated)\n            | project IsConnected = LastLogReceived > ago(7d)",
+                                                "AzureDiagnostics | where Category == \"NetworkSecurityGroupRuleCounter\"\n            | summarize LastLogReceived = max(TimeGenerated)\n            | project IsConnected = LastLogReceived > ago(7d)"
+                                            ]
+                                        }
+                                    ],
+                                    "dataTypes": [
+                                        {
+                                            "name": "NetworkSecurityGroupEvent",
+                                            "lastDataReceivedQuery": "AzureDiagnostics | where Category == \"NetworkSecurityGroupEvent\"\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)"
+                                        },
+                                        {
+                                            "name": "NetworkSecurityGroupRuleCounter",
+                                            "lastDataReceivedQuery": "AzureDiagnostics | where Category == \"NetworkSecurityGroupRuleCounter\"\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
+                            "apiVersion": "2022-01-01-preview",
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('DataConnector-', last(split(extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'AzureNSG'),'/'))))]",
+                            "properties": {
+                                "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'AzureNSG')]",
+                                "contentId": "AzureNSG",
+                                "kind": "DataConnector",
+                                "version": "1.0.0",
+                                "source": {
+                                    "kind": "Solution",
+                                    "name": "Azure Network Security Groups",
+                                    "sourceId": "azuresentinel.azure-sentinel-solution-networksecuritygroup"
+                                },
+                                "author": {
+                                    "name": "Microsoft",
+                                    "email": "support@microsoft.com"
+                                },
+                                "support": {
+                                    "tier": "Microsoft",
+                                    "name": "Microsoft Corporation",
+                                    "link": "https://support.microsoft.com",
+                                    "email": "support@microsoft.com"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "packageKind": "Solution",
+                "packageVersion": "2.0.2",
+                "packageName": "Azure Network Security Groups",
+                "packageId": "azuresentinel.azure-sentinel-solution-networksecuritygroup",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-networksecur-dc-3jexmzdys2yyy",
+                "id": "azuresentinel.azure-sentinel-solution-networksecur-dc-3jexmzdys2yyy",
+                "contentSchemaVersion": "3.0.0",
+                "version": "1.0.0",
+                "isDeprecated": false
+            }
+        },
+        {
+            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
+            "apiVersion": "2022-01-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('DataConnector-', last(split(extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'AzureNSG'),'/'))))]",
+            "dependsOn": [
+                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'AzureNSG')]"
+            ],
+            "location": "[parameters('workspace-location')]",
+            "properties": {
+                "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'AzureNSG')]",
+                "contentId": "AzureNSG",
+                "kind": "DataConnector",
+                "version": "1.0.0",
+                "source": {
+                    "kind": "Solution",
+                    "name": "Azure Network Security Groups",
+                    "sourceId": "azuresentinel.azure-sentinel-solution-networksecuritygroup"
+                },
+                "author": {
+                    "name": "Microsoft",
+                    "email": "support@microsoft.com"
+                },
+                "support": {
+                    "tier": "Microsoft",
+                    "name": "Microsoft Corporation",
+                    "link": "https://support.microsoft.com",
+                    "email": "support@microsoft.com"
+                }
+            }
+        },
+        {
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/','AzureNSG')]",
+            "apiVersion": "2021-03-01-preview",
+            "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
+            "location": "[parameters('workspace-location')]",
+            "kind": "StaticUI",
+            "properties": {
+                "connectorUiConfig": {
+                    "title": "Network Security Groups",
+                    "publisher": "Microsoft",
+                    "descriptionMarkdown": "Azure network security groups (NSG) allow you to filter network traffic to and from Azure resources in an Azure virtual network. A network security group includes rules that allow or deny traffic to a virtual network subnet, network interface, or both.\n\nWhen you enable logging for an NSG, you can gather the following types of resource log information:\n\n- **Event:** Entries are logged for which NSG rules are applied to VMs, based on MAC address.\n- **Rule counter:** Contains entries for how many times each NSG rule is applied to deny or allow traffic. The status for these rules is collected every 300 seconds.\n\n\nThis connector lets you stream your NSG diagnostics logs into Microsoft Sentinel, allowing you to continuously monitor activity in all your instances. For more information, see the [Microsoft Sentinel documentation](https://go.microsoft.com/fwlink/p/?linkid=2223718&wt.mc_id=sentinel_dataconnectordocs_content_cnl_csasci).",
+                    "graphQueries": [
+                        {
+                            "metricName": "Total data received",
+                            "legend": "NetworkSecurityGroupEvent",
+                            "baseQuery": "AzureDiagnostics | where Category == \"NetworkSecurityGroupEvent\""
+                        },
+                        {
+                            "metricName": "Total data received",
+                            "legend": "NetworkSecurityGroupRuleCounter",
+                            "baseQuery": "AzureDiagnostics | where Category == \"NetworkSecurityGroupRuleCounter\""
+                        }
+                    ],
+                    "dataTypes": [
+                        {
+                            "name": "NetworkSecurityGroupEvent",
+                            "lastDataReceivedQuery": "AzureDiagnostics | where Category == \"NetworkSecurityGroupEvent\"\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)"
+                        },
+                        {
+                            "name": "NetworkSecurityGroupRuleCounter",
+                            "lastDataReceivedQuery": "AzureDiagnostics | where Category == \"NetworkSecurityGroupRuleCounter\"\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)"
+                        }
+                    ],
+                    "connectivityCriterias": [
+                        {
+                            "type": "IsConnectedQuery",
+                            "value": [
+                                "AzureDiagnostics | where Category == \"NetworkSecurityGroupEvent\"\n            | summarize LastLogReceived = max(TimeGenerated)\n            | project IsConnected = LastLogReceived > ago(7d)",
+                                "AzureDiagnostics | where Category == \"NetworkSecurityGroupRuleCounter\"\n            | summarize LastLogReceived = max(TimeGenerated)\n            | project IsConnected = LastLogReceived > ago(7d)"
+                            ]
+                        }
+                    ],
+                    "id": "AzureNSG"
+                }
+            }
+        },
+        {
+            "type": "Microsoft.OperationalInsights/workspaces/providers/contentPackages",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', 'azuresentinel.azure-sentinel-solution-networksecuritygroup')]",
+            "location": "[parameters('workspace-location')]",
+            "apiVersion": "2023-04-01-preview",
+            "properties": {
+                "version": "2.0.2",
+                "kind": "Solution",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "azuresentinel.azure-sentinel-solution-networksecuritygroup",
+                "source": {
+                    "kind": "Solution",
+                    "name": "Azure Network Security Groups",
+                    "sourceId": "azuresentinel.azure-sentinel-solution-networksecuritygroup"
+                },
+                "author": {
+                    "name": "Microsoft",
+                    "email": "support@microsoft.com"
+                },
+                "support": {
+                    "name": "Microsoft Corporation",
+                    "email": "support@microsoft.com",
+                    "tier": "Microsoft",
+                    "link": "https://support.microsoft.com"
+                },
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "kind": "DataConnector",
+                            "contentId": "AzureNSG",
+                            "version": "1.0.0"
+                        }
+                    ]
+                },
+                "firstPublishDate": "2022-05-23",
+                "providers": [
+                    "Microsoft"
+                ],
+                "categories": {
+                    "domains": [
+                        "Security - Network"
+                    ]
+                },
+                "contentKind": "Solution",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-networksecur-sl-bdnl6w63teo7m",
+                "id": "azuresentinel.azure-sentinel-solution-networksecur-sl-bdnl6w63teo7m",
+                "displayName": "Azure Network Security Groups",
+                "publisherDisplayName": "Microsoft Sentinel, Microsoft Corporation",
+                "descriptionHtml": "<p>The <a target=\"_blank\" href=\"https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview?WT.mc_id=Portal-fx\" rel=\"noopener\">Azure Network Security Group</a> solution enables you to stream and ingest diagnostic logs from your Azure NSG instances for Security Monitoring in to Microsoft Sentinel using Resource Diagnostic settings.</p><p><b>Underlying Microsoft Technologies used:</b></p><p>This solution takes a dependency on the following technologies, and some of these dependencies either may be in <a target=\"_blank\" href=\"https://azure.microsoft.com/support/legal/preview-supplemental-terms/\" rel=\"noopener\">Preview</a> state or might result in additional ingestion or operational costs:</p><p>a. <a target=\"_blank\" href=\"https://docs.microsoft.com/azure/azure-monitor/essentials/diagnostic-settings?WT.mc_id=Portal-fx\" rel=\"noopener\">Azure Monitor Resource Diagnostics</a></p><p><b>Data Connectors:</b> 1</p><p><a target=\"_blank\" href=\"https://aka.ms/azuresentinel\" rel=\"noopener\">Learn more about Microsoft Sentinel</a> | <a target=\"_blank\" href=\"https://aka.ms/azuresentinelsolutionsdoc\" rel=\"noopener\">Learn more about Solutions</a></p>",
+                "icon": "https://store-images.s-microsoft.com/image/apps.33880.7ce0d195-be34-4950-89bd-7d21d97a218d.cd6a9ac2-1999-48cb-9a50-99f433f6a9a5.7f515408-21a9-482c-a571-6e8107e36c43",
+                "isPreview": false,
+                "isDeprecated": false
+            }
+        }
+    ],
+    "variables": {}
+}
