@@ -1,3 +1,32 @@
+## 7.12.0 (2024-10-03)
+
+### Features
+
+* bump `Microsoft 365` package template version to 3.0.4 + update embedded rules 090edd3
+* bump `SentinelOne` package template version to 3.0.2 + update embedded rules 10dc65c
+* bump `Syslog` package template version to 3.0.6 + update embedded rules dda103d
+* bump `Threat Intelligence` package template version to 3.0.5 3e9fa2a
+* use Claranet "azurecaf" provider eb71b6b
+
+### Documentation
+
+* update README badge to use OpenTofu registry b6c4c50
+
+### Miscellaneous Chores
+
+* **deps:** update dependency opentofu to v1.8.2 146f426
+* **deps:** update dependency terraform-docs to v0.19.0 7159978
+* **deps:** update dependency trivy to v0.55.0 61750a5
+* **deps:** update dependency trivy to v0.55.1 bf6f91a
+* **deps:** update dependency trivy to v0.55.2 f228f5b
+* **deps:** update pre-commit hook alessandrojcm/commitlint-pre-commit-hook to v9.18.0 34775f2
+* **deps:** update pre-commit hook antonbabenko/pre-commit-terraform to v1.94.1 f556d6a
+* **deps:** update pre-commit hook antonbabenko/pre-commit-terraform to v1.94.2 3c8d2c4
+* **deps:** update pre-commit hook antonbabenko/pre-commit-terraform to v1.94.3 b46eca9
+* **deps:** update pre-commit hook antonbabenko/pre-commit-terraform to v1.95.0 d611135
+* **deps:** update pre-commit hook antonbabenko/pre-commit-terraform to v1.96.0 8bd13a6
+* **deps:** update pre-commit hook antonbabenko/pre-commit-terraform to v1.96.1 5c28e54
+
 ## 7.11.0 (2024-08-30)
 
 ### Features
