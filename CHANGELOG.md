@@ -1,3 +1,15 @@
+## 7.13.0 (2024-10-04)
+
+### Features
+
+* add `Azure Activity` package. Version 3.0.2 0deec06
+* add `Azure Key Vault` package. Version 3.0.2 3ae0f95
+* add `Azure Network Security Groups` package. Version 2.0.2 6141676
+* add `CyberArk PAM` package. Version 3.0.2 43dbcb8
+* add `Darktrace` package. Version 2.0.1 df38dc5
+* bump `Microsoft XDR` package template version to 3.0.9 63db4a8
+* bump `Threat Intelligence` package template version to 3.0.6 + update embedded rules ba84cd1
+
 ## 7.12.0 (2024-10-03)
 
 ### Features
