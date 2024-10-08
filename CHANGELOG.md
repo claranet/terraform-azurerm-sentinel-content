@@ -1,3 +1,17 @@
+## 7.13.1 (2024-10-08)
+
+### Documentation
+
+* update submodule READMEs with terraform-docs abf7aae
+
+### Miscellaneous Chores
+
+* **deps:** update dependency opentofu to v1.8.3 757793b
+* **deps:** update dependency pre-commit to v4 f74756a
+* **deps:** update dependency trivy to v0.56.1 765df25
+* **deps:** update pre-commit hook pre-commit/pre-commit-hooks to v5 d501092
+* prepare for new examples structure 80dd516
+
 ## 7.13.0 (2024-10-04)
 
 ### Features
