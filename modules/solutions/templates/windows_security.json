@@ -48,7 +48,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "Windows Security Events data connector with template version 3.0.8",
+                "description": "Windows Security Events data connector with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -118,7 +118,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -204,7 +204,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "Windows Security Events data connector with template version 3.0.8",
+                "description": "Windows Security Events data connector with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -274,7 +274,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -360,7 +360,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "ADFSDBNamedPipeConnection_AnalyticalRules Analytics Rule with template version 3.0.8",
+                "description": "ADFSDBNamedPipeConnection_AnalyticalRules Analytics Rule with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.2",
@@ -411,16 +411,16 @@
                                         "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "UserName",
-                                                "identifier": "FullName"
+                                                "identifier": "FullName",
+                                                "columnName": "UserName"
                                             },
                                             {
-                                                "columnName": "AccountName",
-                                                "identifier": "Name"
+                                                "identifier": "Name",
+                                                "columnName": "AccountName"
                                             },
                                             {
-                                                "columnName": "AccountNTDomain",
-                                                "identifier": "NTDomain"
+                                                "identifier": "NTDomain",
+                                                "columnName": "AccountNTDomain"
                                             }
                                         ]
                                     },
@@ -428,16 +428,16 @@
                                         "entityType": "Host",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "Computer",
-                                                "identifier": "FullName"
+                                                "identifier": "FullName",
+                                                "columnName": "Computer"
                                             },
                                             {
-                                                "columnName": "HostName",
-                                                "identifier": "HostName"
+                                                "identifier": "HostName",
+                                                "columnName": "HostName"
                                             },
                                             {
-                                                "columnName": "HostNameDomain",
-                                                "identifier": "DnsDomain"
+                                                "identifier": "DnsDomain",
+                                                "columnName": "HostNameDomain"
                                             }
                                         ]
                                     }
@@ -474,7 +474,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -513,7 +513,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "ADFSRemoteAuthSyncConnection_AnalyticalRules Analytics Rule with template version 3.0.8",
+                "description": "ADFSRemoteAuthSyncConnection_AnalyticalRules Analytics Rule with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.4",
@@ -564,16 +564,16 @@
                                         "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "ClaimsName",
-                                                "identifier": "FullName"
+                                                "identifier": "FullName",
+                                                "columnName": "ClaimsName"
                                             },
                                             {
-                                                "columnName": "AccountName",
-                                                "identifier": "Name"
+                                                "identifier": "Name",
+                                                "columnName": "AccountName"
                                             },
                                             {
-                                                "columnName": "AccountNTDomain",
-                                                "identifier": "NTDomain"
+                                                "identifier": "NTDomain",
+                                                "columnName": "AccountNTDomain"
                                             }
                                         ]
                                     },
@@ -581,16 +581,16 @@
                                         "entityType": "Host",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "Computer",
-                                                "identifier": "FullName"
+                                                "identifier": "FullName",
+                                                "columnName": "Computer"
                                             },
                                             {
-                                                "columnName": "HostName",
-                                                "identifier": "HostName"
+                                                "identifier": "HostName",
+                                                "columnName": "HostName"
                                             },
                                             {
-                                                "columnName": "HostNameDomain",
-                                                "identifier": "DnsDomain"
+                                                "identifier": "DnsDomain",
+                                                "columnName": "HostNameDomain"
                                             }
                                         ]
                                     },
@@ -598,8 +598,8 @@
                                         "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "SourceAddress",
-                                                "identifier": "Address"
+                                                "identifier": "Address",
+                                                "columnName": "SourceAddress"
                                             }
                                         ]
                                     }
@@ -636,7 +636,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -675,7 +675,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "ADFSRemoteHTTPNetworkConnection_AnalyticalRules Analytics Rule with template version 3.0.8",
+                "description": "ADFSRemoteHTTPNetworkConnection_AnalyticalRules Analytics Rule with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.2",
@@ -726,16 +726,16 @@
                                         "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "UserName",
-                                                "identifier": "FullName"
+                                                "identifier": "FullName",
+                                                "columnName": "UserName"
                                             },
                                             {
-                                                "columnName": "AccountName",
-                                                "identifier": "Name"
+                                                "identifier": "Name",
+                                                "columnName": "AccountName"
                                             },
                                             {
-                                                "columnName": "AccountNTDomain",
-                                                "identifier": "NTDomain"
+                                                "identifier": "NTDomain",
+                                                "columnName": "AccountNTDomain"
                                             }
                                         ]
                                     },
@@ -743,16 +743,16 @@
                                         "entityType": "Host",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "Computer",
-                                                "identifier": "FullName"
+                                                "identifier": "FullName",
+                                                "columnName": "Computer"
                                             },
                                             {
-                                                "columnName": "HostName",
-                                                "identifier": "HostName"
+                                                "identifier": "HostName",
+                                                "columnName": "HostName"
                                             },
                                             {
-                                                "columnName": "HostNameDomain",
-                                                "identifier": "DnsDomain"
+                                                "identifier": "DnsDomain",
+                                                "columnName": "HostNameDomain"
                                             }
                                         ]
                                     },
@@ -760,8 +760,8 @@
                                         "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "SourceIp",
-                                                "identifier": "Address"
+                                                "identifier": "Address",
+                                                "columnName": "SourceIp"
                                             }
                                         ]
                                     }
@@ -798,7 +798,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -837,7 +837,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "ExcessiveLogonFailures_AnalyticalRules Analytics Rule with template version 3.0.8",
+                "description": "ExcessiveLogonFailures_AnalyticalRules Analytics Rule with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.3",
@@ -888,16 +888,16 @@
                                         "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "Account",
-                                                "identifier": "FullName"
+                                                "identifier": "FullName",
+                                                "columnName": "Account"
                                             },
                                             {
-                                                "columnName": "Name",
-                                                "identifier": "Name"
+                                                "identifier": "Name",
+                                                "columnName": "Name"
                                             },
                                             {
-                                                "columnName": "NTDomain",
-                                                "identifier": "NTDomain"
+                                                "identifier": "NTDomain",
+                                                "columnName": "NTDomain"
                                             }
                                         ]
                                     },
@@ -905,16 +905,16 @@
                                         "entityType": "Host",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "WorkstationName",
-                                                "identifier": "FullName"
+                                                "identifier": "FullName",
+                                                "columnName": "WorkstationName"
                                             },
                                             {
-                                                "columnName": "HostName",
-                                                "identifier": "HostName"
+                                                "identifier": "HostName",
+                                                "columnName": "HostName"
                                             },
                                             {
-                                                "columnName": "DnsDomain",
-                                                "identifier": "DnsDomain"
+                                                "identifier": "DnsDomain",
+                                                "columnName": "DnsDomain"
                                             }
                                         ]
                                     },
@@ -922,8 +922,8 @@
                                         "entityType": "Process",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "Process",
-                                                "identifier": "CommandLine"
+                                                "identifier": "CommandLine",
+                                                "columnName": "Process"
                                             }
                                         ]
                                     }
@@ -960,7 +960,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -999,7 +999,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "ExchangeOABVirtualDirectoryAttributeContainingPotentialWebshell_AnalyticalRules Analytics Rule with template version 3.0.8",
+                "description": "ExchangeOABVirtualDirectoryAttributeContainingPotentialWebshell_AnalyticalRules Analytics Rule with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.4",
@@ -1050,16 +1050,16 @@
                                         "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "Account",
-                                                "identifier": "FullName"
+                                                "identifier": "FullName",
+                                                "columnName": "Account"
                                             },
                                             {
-                                                "columnName": "AccountName",
-                                                "identifier": "Name"
+                                                "identifier": "Name",
+                                                "columnName": "AccountName"
                                             },
                                             {
-                                                "columnName": "AccountNTDomain",
-                                                "identifier": "NTDomain"
+                                                "identifier": "NTDomain",
+                                                "columnName": "AccountNTDomain"
                                             }
                                         ]
                                     },
@@ -1067,16 +1067,16 @@
                                         "entityType": "Host",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "Computer",
-                                                "identifier": "FullName"
+                                                "identifier": "FullName",
+                                                "columnName": "Computer"
                                             },
                                             {
-                                                "columnName": "HostName",
-                                                "identifier": "HostName"
+                                                "identifier": "HostName",
+                                                "columnName": "HostName"
                                             },
                                             {
-                                                "columnName": "HostNameDomain",
-                                                "identifier": "DnsDomain"
+                                                "identifier": "DnsDomain",
+                                                "columnName": "HostNameDomain"
                                             }
                                         ]
                                     }
@@ -1113,7 +1113,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -1152,7 +1152,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "GainCodeExecutionADFSViaSMB_AnalyticalRules Analytics Rule with template version 3.0.8",
+                "description": "GainCodeExecutionADFSViaSMB_AnalyticalRules Analytics Rule with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.2.1",
@@ -1203,16 +1203,16 @@
                                         "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "Account",
-                                                "identifier": "FullName"
+                                                "identifier": "FullName",
+                                                "columnName": "Account"
                                             },
                                             {
-                                                "columnName": "AccountName",
-                                                "identifier": "Name"
+                                                "identifier": "Name",
+                                                "columnName": "AccountName"
                                             },
                                             {
-                                                "columnName": "AccountNTDomain",
-                                                "identifier": "NTDomain"
+                                                "identifier": "NTDomain",
+                                                "columnName": "AccountNTDomain"
                                             }
                                         ]
                                     },
@@ -1220,16 +1220,16 @@
                                         "entityType": "Host",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "Computer",
-                                                "identifier": "FullName"
+                                                "identifier": "FullName",
+                                                "columnName": "Computer"
                                             },
                                             {
-                                                "columnName": "HostName",
-                                                "identifier": "HostName"
+                                                "identifier": "HostName",
+                                                "columnName": "HostName"
                                             },
                                             {
-                                                "columnName": "HostNameDomain",
-                                                "identifier": "DnsDomain"
+                                                "identifier": "DnsDomain",
+                                                "columnName": "HostNameDomain"
                                             }
                                         ]
                                     }
@@ -1266,7 +1266,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -1305,7 +1305,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "LocalDeviceJoinInfoAndTransportKeyRegKeysAccess_AnalyticalRules Analytics Rule with template version 3.0.8",
+                "description": "LocalDeviceJoinInfoAndTransportKeyRegKeysAccess_AnalyticalRules Analytics Rule with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.5",
@@ -1356,16 +1356,16 @@
                                         "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "Account",
-                                                "identifier": "FullName"
+                                                "identifier": "FullName",
+                                                "columnName": "Account"
                                             },
                                             {
-                                                "columnName": "SubjectUserName",
-                                                "identifier": "Name"
+                                                "identifier": "Name",
+                                                "columnName": "SubjectUserName"
                                             },
                                             {
-                                                "columnName": "SubjectDomainName",
-                                                "identifier": "NTDomain"
+                                                "identifier": "NTDomain",
+                                                "columnName": "SubjectDomainName"
                                             }
                                         ]
                                     },
@@ -1373,16 +1373,16 @@
                                         "entityType": "Host",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "Computer",
-                                                "identifier": "FullName"
+                                                "identifier": "FullName",
+                                                "columnName": "Computer"
                                             },
                                             {
-                                                "columnName": "HostName",
-                                                "identifier": "HostName"
+                                                "identifier": "HostName",
+                                                "columnName": "HostName"
                                             },
                                             {
-                                                "columnName": "DnsDomain",
-                                                "identifier": "DnsDomain"
+                                                "identifier": "DnsDomain",
+                                                "columnName": "DnsDomain"
                                             }
                                         ]
                                     }
@@ -1419,7 +1419,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -1458,7 +1458,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "MultipleFailedFollowedBySuccess_AnalyticalRules Analytics Rule with template version 3.0.8",
+                "description": "MultipleFailedFollowedBySuccess_AnalyticalRules Analytics Rule with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.7",
@@ -1509,16 +1509,16 @@
                                         "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "Account",
-                                                "identifier": "FullName"
+                                                "identifier": "FullName",
+                                                "columnName": "Account"
                                             },
                                             {
-                                                "columnName": "Name",
-                                                "identifier": "Name"
+                                                "identifier": "Name",
+                                                "columnName": "Name"
                                             },
                                             {
-                                                "columnName": "NTDomain",
-                                                "identifier": "NTDomain"
+                                                "identifier": "NTDomain",
+                                                "columnName": "NTDomain"
                                             }
                                         ]
                                     },
@@ -1526,16 +1526,16 @@
                                         "entityType": "Host",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "Computer",
-                                                "identifier": "FullName"
+                                                "identifier": "FullName",
+                                                "columnName": "Computer"
                                             },
                                             {
-                                                "columnName": "HostName",
-                                                "identifier": "HostName"
+                                                "identifier": "HostName",
+                                                "columnName": "HostName"
                                             },
                                             {
-                                                "columnName": "DnsDomain",
-                                                "identifier": "DnsDomain"
+                                                "identifier": "DnsDomain",
+                                                "columnName": "DnsDomain"
                                             }
                                         ]
                                     },
@@ -1543,8 +1543,8 @@
                                         "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "IpAddress",
-                                                "identifier": "Address"
+                                                "identifier": "Address",
+                                                "columnName": "IpAddress"
                                             }
                                         ]
                                     }
@@ -1581,7 +1581,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -1620,7 +1620,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "NewEXEdeployedviaDefaultDomainorDefaultDomainControllerPolicies_AnalyticalRules Analytics Rule with template version 3.0.8",
+                "description": "NewEXEdeployedviaDefaultDomainorDefaultDomainControllerPolicies_AnalyticalRules Analytics Rule with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.2",
@@ -1673,16 +1673,16 @@
                                         "entityType": "Host",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "Computer",
-                                                "identifier": "FullName"
+                                                "identifier": "FullName",
+                                                "columnName": "Computer"
                                             },
                                             {
-                                                "columnName": "HostName",
-                                                "identifier": "HostName"
+                                                "identifier": "HostName",
+                                                "columnName": "HostName"
                                             },
                                             {
-                                                "columnName": "HostNameDomain",
-                                                "identifier": "DnsDomain"
+                                                "identifier": "DnsDomain",
+                                                "columnName": "HostNameDomain"
                                             }
                                         ]
                                     }
@@ -1719,7 +1719,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -1758,7 +1758,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "NonDCActiveDirectoryReplication_AnalyticalRules Analytics Rule with template version 3.0.8",
+                "description": "NonDCActiveDirectoryReplication_AnalyticalRules Analytics Rule with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.4",
@@ -1809,16 +1809,16 @@
                                         "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "Account",
-                                                "identifier": "FullName"
+                                                "identifier": "FullName",
+                                                "columnName": "Account"
                                             },
                                             {
-                                                "columnName": "AccountName",
-                                                "identifier": "Name"
+                                                "identifier": "Name",
+                                                "columnName": "AccountName"
                                             },
                                             {
-                                                "columnName": "AccountNTDomain",
-                                                "identifier": "NTDomain"
+                                                "identifier": "NTDomain",
+                                                "columnName": "AccountNTDomain"
                                             }
                                         ]
                                     },
@@ -1826,16 +1826,16 @@
                                         "entityType": "Host",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "Computer",
-                                                "identifier": "FullName"
+                                                "identifier": "FullName",
+                                                "columnName": "Computer"
                                             },
                                             {
-                                                "columnName": "HostName",
-                                                "identifier": "HostName"
+                                                "identifier": "HostName",
+                                                "columnName": "HostName"
                                             },
                                             {
-                                                "columnName": "HostNameDomain",
-                                                "identifier": "NTDomain"
+                                                "identifier": "NTDomain",
+                                                "columnName": "HostNameDomain"
                                             }
                                         ]
                                     },
@@ -1843,8 +1843,8 @@
                                         "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "IpAddress",
-                                                "identifier": "Address"
+                                                "identifier": "Address",
+                                                "columnName": "IpAddress"
                                             }
                                         ]
                                     }
@@ -1881,7 +1881,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -1920,7 +1920,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "NRT_base64_encoded_pefile_AnalyticalRules Analytics Rule with template version 3.0.8",
+                "description": "NRT_base64_encoded_pefile_AnalyticalRules Analytics Rule with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.2",
@@ -1970,16 +1970,16 @@
                                         "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "SubjectAccount",
-                                                "identifier": "FullName"
+                                                "identifier": "FullName",
+                                                "columnName": "SubjectAccount"
                                             },
                                             {
-                                                "columnName": "SubjectUserName",
-                                                "identifier": "Name"
+                                                "identifier": "Name",
+                                                "columnName": "SubjectUserName"
                                             },
                                             {
-                                                "columnName": "SubjectDomainName",
-                                                "identifier": "NTDomain"
+                                                "identifier": "NTDomain",
+                                                "columnName": "SubjectDomainName"
                                             }
                                         ]
                                     },
@@ -1987,16 +1987,16 @@
                                         "entityType": "Host",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "Computer",
-                                                "identifier": "FullName"
+                                                "identifier": "FullName",
+                                                "columnName": "Computer"
                                             },
                                             {
-                                                "columnName": "HostName",
-                                                "identifier": "HostName"
+                                                "identifier": "HostName",
+                                                "columnName": "HostName"
                                             },
                                             {
-                                                "columnName": "DnsDomain",
-                                                "identifier": "DnsDomain"
+                                                "identifier": "DnsDomain",
+                                                "columnName": "DnsDomain"
                                             }
                                         ]
                                     }
@@ -2033,7 +2033,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -2072,7 +2072,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "NRT_execute_base64_decodedpayload_AnalyticalRules Analytics Rule with template version 3.0.8",
+                "description": "NRT_execute_base64_decodedpayload_AnalyticalRules Analytics Rule with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.2",
@@ -2122,16 +2122,16 @@
                                         "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "SubjectAccount",
-                                                "identifier": "FullName"
+                                                "identifier": "FullName",
+                                                "columnName": "SubjectAccount"
                                             },
                                             {
-                                                "columnName": "AccountName",
-                                                "identifier": "Name"
+                                                "identifier": "Name",
+                                                "columnName": "AccountName"
                                             },
                                             {
-                                                "columnName": "AccountNTDomain",
-                                                "identifier": "NTDomain"
+                                                "identifier": "NTDomain",
+                                                "columnName": "AccountNTDomain"
                                             }
                                         ]
                                     },
@@ -2139,16 +2139,16 @@
                                         "entityType": "Host",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "Computer",
-                                                "identifier": "FullName"
+                                                "identifier": "FullName",
+                                                "columnName": "Computer"
                                             },
                                             {
-                                                "columnName": "HostName",
-                                                "identifier": "HostName"
+                                                "identifier": "HostName",
+                                                "columnName": "HostName"
                                             },
                                             {
-                                                "columnName": "HostNameDomain",
-                                                "identifier": "DnsDomain"
+                                                "identifier": "DnsDomain",
+                                                "columnName": "HostNameDomain"
                                             }
                                         ]
                                     }
@@ -2185,7 +2185,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -2224,7 +2224,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "NRT_SecurityEventLogCleared_AnalyticalRules Analytics Rule with template version 3.0.8",
+                "description": "NRT_SecurityEventLogCleared_AnalyticalRules Analytics Rule with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -2271,16 +2271,16 @@
                                         "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "Account",
-                                                "identifier": "FullName"
+                                                "identifier": "FullName",
+                                                "columnName": "Account"
                                             },
                                             {
-                                                "columnName": "AccountName",
-                                                "identifier": "Name"
+                                                "identifier": "Name",
+                                                "columnName": "AccountName"
                                             },
                                             {
-                                                "columnName": "AccountNTDomain",
-                                                "identifier": "NTDomain"
+                                                "identifier": "NTDomain",
+                                                "columnName": "AccountNTDomain"
                                             }
                                         ]
                                     },
@@ -2288,16 +2288,16 @@
                                         "entityType": "Host",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "Computer",
-                                                "identifier": "FullName"
+                                                "identifier": "FullName",
+                                                "columnName": "Computer"
                                             },
                                             {
-                                                "columnName": "HostName",
-                                                "identifier": "HostName"
+                                                "identifier": "HostName",
+                                                "columnName": "HostName"
                                             },
                                             {
-                                                "columnName": "HostNameDomain",
-                                                "identifier": "DnsDomain"
+                                                "identifier": "DnsDomain",
+                                                "columnName": "HostNameDomain"
                                             }
                                         ]
                                     }
@@ -2334,7 +2334,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -2373,7 +2373,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "password_not_set_AnalyticalRules Analytics Rule with template version 3.0.8",
+                "description": "password_not_set_AnalyticalRules Analytics Rule with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.4",
@@ -2424,16 +2424,16 @@
                                         "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "TargetAccount",
-                                                "identifier": "FullName"
+                                                "identifier": "FullName",
+                                                "columnName": "TargetAccount"
                                             },
                                             {
-                                                "columnName": "AccountName",
-                                                "identifier": "Name"
+                                                "identifier": "Name",
+                                                "columnName": "AccountName"
                                             },
                                             {
-                                                "columnName": "AccountNTDomain",
-                                                "identifier": "NTDomain"
+                                                "identifier": "NTDomain",
+                                                "columnName": "AccountNTDomain"
                                             }
                                         ]
                                     },
@@ -2441,8 +2441,8 @@
                                         "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "TargetSid",
-                                                "identifier": "Sid"
+                                                "identifier": "Sid",
+                                                "columnName": "TargetSid"
                                             }
                                         ]
                                     },
@@ -2450,16 +2450,16 @@
                                         "entityType": "Host",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "Computer",
-                                                "identifier": "FullName"
+                                                "identifier": "FullName",
+                                                "columnName": "Computer"
                                             },
                                             {
-                                                "columnName": "HostName",
-                                                "identifier": "HostName"
+                                                "identifier": "HostName",
+                                                "columnName": "HostName"
                                             },
                                             {
-                                                "columnName": "HostNameDomain",
-                                                "identifier": "DnsDomain"
+                                                "identifier": "DnsDomain",
+                                                "columnName": "HostNameDomain"
                                             }
                                         ]
                                     }
@@ -2496,7 +2496,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -2535,7 +2535,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "PotentialFodhelperUACBypass_AnalyticalRules Analytics Rule with template version 3.0.8",
+                "description": "PotentialFodhelperUACBypass_AnalyticalRules Analytics Rule with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.2",
@@ -2589,16 +2589,16 @@
                                         "entityType": "Host",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "Computer",
-                                                "identifier": "FullName"
+                                                "identifier": "FullName",
+                                                "columnName": "Computer"
                                             },
                                             {
-                                                "columnName": "HostName",
-                                                "identifier": "HostName"
+                                                "identifier": "HostName",
+                                                "columnName": "HostName"
                                             },
                                             {
-                                                "columnName": "HostNameDomain",
-                                                "identifier": "DnsDomain"
+                                                "identifier": "DnsDomain",
+                                                "columnName": "HostNameDomain"
                                             }
                                         ]
                                     },
@@ -2606,16 +2606,16 @@
                                         "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "TargetAccount",
-                                                "identifier": "FullName"
+                                                "identifier": "FullName",
+                                                "columnName": "TargetAccount"
                                             },
                                             {
-                                                "columnName": "AccountName",
-                                                "identifier": "Name"
+                                                "identifier": "Name",
+                                                "columnName": "AccountName"
                                             },
                                             {
-                                                "columnName": "AccountNTDomain",
-                                                "identifier": "NTDomain"
+                                                "identifier": "NTDomain",
+                                                "columnName": "AccountNTDomain"
                                             }
                                         ]
                                     }
@@ -2652,7 +2652,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -2691,7 +2691,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "Potentialre-namedsdeleteusage_AnalyticalRules Analytics Rule with template version 3.0.8",
+                "description": "Potentialre-namedsdeleteusage_AnalyticalRules Analytics Rule with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.3",
@@ -2744,16 +2744,16 @@
                                         "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "TargetAccount",
-                                                "identifier": "FullName"
+                                                "identifier": "FullName",
+                                                "columnName": "TargetAccount"
                                             },
                                             {
-                                                "columnName": "AccountName",
-                                                "identifier": "Name"
+                                                "identifier": "Name",
+                                                "columnName": "AccountName"
                                             },
                                             {
-                                                "columnName": "AccountNTDomain",
-                                                "identifier": "NTDomain"
+                                                "identifier": "NTDomain",
+                                                "columnName": "AccountNTDomain"
                                             }
                                         ]
                                     },
@@ -2761,16 +2761,16 @@
                                         "entityType": "Host",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "Computer",
-                                                "identifier": "FullName"
+                                                "identifier": "FullName",
+                                                "columnName": "Computer"
                                             },
                                             {
-                                                "columnName": "HostName",
-                                                "identifier": "HostName"
+                                                "identifier": "HostName",
+                                                "columnName": "HostName"
                                             },
                                             {
-                                                "columnName": "HostNameDomain",
-                                                "identifier": "DnsDomain"
+                                                "identifier": "DnsDomain",
+                                                "columnName": "HostNameDomain"
                                             }
                                         ]
                                     }
@@ -2807,7 +2807,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -2846,7 +2846,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "ScheduleTaskHide_AnalyticalRules Analytics Rule with template version 3.0.8",
+                "description": "ScheduleTaskHide_AnalyticalRules Analytics Rule with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -2897,16 +2897,16 @@
                                         "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "TargetAccount",
-                                                "identifier": "FullName"
+                                                "identifier": "FullName",
+                                                "columnName": "TargetAccount"
                                             },
                                             {
-                                                "columnName": "AccountName",
-                                                "identifier": "Name"
+                                                "identifier": "Name",
+                                                "columnName": "AccountName"
                                             },
                                             {
-                                                "columnName": "AccountNTDomain",
-                                                "identifier": "NTDomain"
+                                                "identifier": "NTDomain",
+                                                "columnName": "AccountNTDomain"
                                             }
                                         ]
                                     },
@@ -2914,16 +2914,16 @@
                                         "entityType": "Host",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "Computer",
-                                                "identifier": "FullName"
+                                                "identifier": "FullName",
+                                                "columnName": "Computer"
                                             },
                                             {
-                                                "columnName": "HostName",
-                                                "identifier": "HostName"
+                                                "identifier": "HostName",
+                                                "columnName": "HostName"
                                             },
                                             {
-                                                "columnName": "HostNameDomain",
-                                                "identifier": "DnsDomain"
+                                                "identifier": "DnsDomain",
+                                                "columnName": "HostNameDomain"
                                             }
                                         ]
                                     }
@@ -2960,7 +2960,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -2999,7 +2999,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "SdeletedeployedviaGPOandrunrecursively_AnalyticalRules Analytics Rule with template version 3.0.8",
+                "description": "SdeletedeployedviaGPOandrunrecursively_AnalyticalRules Analytics Rule with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.2",
@@ -3050,16 +3050,16 @@
                                         "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "TargetAccount",
-                                                "identifier": "FullName"
+                                                "identifier": "FullName",
+                                                "columnName": "TargetAccount"
                                             },
                                             {
-                                                "columnName": "AccountName",
-                                                "identifier": "Name"
+                                                "identifier": "Name",
+                                                "columnName": "AccountName"
                                             },
                                             {
-                                                "columnName": "AccountNTDomain",
-                                                "identifier": "NTDomain"
+                                                "identifier": "NTDomain",
+                                                "columnName": "AccountNTDomain"
                                             }
                                         ]
                                     },
@@ -3067,16 +3067,16 @@
                                         "entityType": "Host",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "Computer",
-                                                "identifier": "FullName"
+                                                "identifier": "FullName",
+                                                "columnName": "Computer"
                                             },
                                             {
-                                                "columnName": "HostName",
-                                                "identifier": "HostName"
+                                                "identifier": "HostName",
+                                                "columnName": "HostName"
                                             },
                                             {
-                                                "columnName": "HostNameDomain",
-                                                "identifier": "DnsDomain"
+                                                "identifier": "DnsDomain",
+                                                "columnName": "HostNameDomain"
                                             }
                                         ]
                                     }
@@ -3113,7 +3113,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -3152,7 +3152,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "StartStopHealthService_AnalyticalRules Analytics Rule with template version 3.0.8",
+                "description": "StartStopHealthService_AnalyticalRules Analytics Rule with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.2",
@@ -3206,16 +3206,16 @@
                                         "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "TargetAccount",
-                                                "identifier": "FullName"
+                                                "identifier": "FullName",
+                                                "columnName": "TargetAccount"
                                             },
                                             {
-                                                "columnName": "AccountName",
-                                                "identifier": "Name"
+                                                "identifier": "Name",
+                                                "columnName": "AccountName"
                                             },
                                             {
-                                                "columnName": "AccountNTDomain",
-                                                "identifier": "NTDomain"
+                                                "identifier": "NTDomain",
+                                                "columnName": "AccountNTDomain"
                                             }
                                         ]
                                     },
@@ -3223,16 +3223,16 @@
                                         "entityType": "Host",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "Computer",
-                                                "identifier": "FullName"
+                                                "identifier": "FullName",
+                                                "columnName": "Computer"
                                             },
                                             {
-                                                "columnName": "HostName",
-                                                "identifier": "HostName"
+                                                "identifier": "HostName",
+                                                "columnName": "HostName"
                                             },
                                             {
-                                                "columnName": "HostNameDomain",
-                                                "identifier": "DnsDomain"
+                                                "identifier": "DnsDomain",
+                                                "columnName": "HostNameDomain"
                                             }
                                         ]
                                     },
@@ -3240,8 +3240,8 @@
                                         "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "IpAddress",
-                                                "identifier": "Address"
+                                                "identifier": "Address",
+                                                "columnName": "IpAddress"
                                             }
                                         ]
                                     }
@@ -3278,7 +3278,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -3317,7 +3317,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "TimeSeriesAnomaly-ProcessExecutions_AnalyticalRules Analytics Rule with template version 3.0.8",
+                "description": "TimeSeriesAnomaly-ProcessExecutions_AnalyticalRules Analytics Rule with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.6",
@@ -3368,16 +3368,16 @@
                                         "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "Account",
-                                                "identifier": "FullName"
+                                                "identifier": "FullName",
+                                                "columnName": "Account"
                                             },
                                             {
-                                                "columnName": "Name",
-                                                "identifier": "Name"
+                                                "identifier": "Name",
+                                                "columnName": "Name"
                                             },
                                             {
-                                                "columnName": "NTDomain",
-                                                "identifier": "NTDomain"
+                                                "identifier": "NTDomain",
+                                                "columnName": "NTDomain"
                                             }
                                         ]
                                     },
@@ -3385,16 +3385,16 @@
                                         "entityType": "Host",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "Computer",
-                                                "identifier": "FullName"
+                                                "identifier": "FullName",
+                                                "columnName": "Computer"
                                             },
                                             {
-                                                "columnName": "HostName",
-                                                "identifier": "HostName"
+                                                "identifier": "HostName",
+                                                "columnName": "HostName"
                                             },
                                             {
-                                                "columnName": "DnsDomain",
-                                                "identifier": "DnsDomain"
+                                                "identifier": "DnsDomain",
+                                                "columnName": "DnsDomain"
                                             }
                                         ]
                                     }
@@ -3431,7 +3431,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -3470,7 +3470,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "EventAnalyzer Workbook with template version 3.0.8",
+                "description": "EventAnalyzer Workbook with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -3541,7 +3541,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -3563,7 +3563,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "IdentityAndAccess Workbook with template version 3.0.8",
+                "description": "IdentityAndAccess Workbook with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1.0",
@@ -3634,7 +3634,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -3656,7 +3656,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "CommandsexecutedbyWMIonnewhosts-potentialImpacket_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "CommandsexecutedbyWMIonnewhosts-potentialImpacket_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.2",
@@ -3720,7 +3720,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -3742,7 +3742,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "Crashdumpdisabledonhost_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "Crashdumpdisabledonhost_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -3806,7 +3806,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -3828,7 +3828,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "cscript_summary_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "cscript_summary_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -3888,7 +3888,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -3910,7 +3910,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "CustomUserList_FailedLogons_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "CustomUserList_FailedLogons_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -3970,7 +3970,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -3992,7 +3992,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "DecoyUserAccountAuthenticationAttempt_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "DecoyUserAccountAuthenticationAttempt_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.2",
@@ -4056,7 +4056,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -4078,7 +4078,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "Discorddownloadinvokedfromcmdline_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "Discorddownloadinvokedfromcmdline_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -4142,7 +4142,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -4164,7 +4164,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "enumeration_user_and_group_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "enumeration_user_and_group_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -4224,7 +4224,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -4246,7 +4246,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "ExchangePowerShellSnapin_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "ExchangePowerShellSnapin_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -4310,7 +4310,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -4332,7 +4332,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "FailedUserLogons_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "FailedUserLogons_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -4396,7 +4396,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -4418,7 +4418,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "GroupAddedToPrivlegeGroup_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "GroupAddedToPrivlegeGroup_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -4482,7 +4482,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -4504,7 +4504,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "HostExportingMailboxAndRemovingExport_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "HostExportingMailboxAndRemovingExport_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.2",
@@ -4568,7 +4568,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -4590,7 +4590,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "HostsWithNewLogons_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "HostsWithNewLogons_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -4654,7 +4654,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -4676,7 +4676,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "Invoke-PowerShellTcpOneLine_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "Invoke-PowerShellTcpOneLine_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -4740,7 +4740,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -4762,7 +4762,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "Least_Common_Parent_Child_Process_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "Least_Common_Parent_Child_Process_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -4822,7 +4822,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -4844,7 +4844,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "Least_Common_Process_Command_Lines_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "Least_Common_Process_Command_Lines_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -4904,7 +4904,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -4926,7 +4926,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "Least_Common_Process_With_Depth_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "Least_Common_Process_With_Depth_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -4986,7 +4986,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -5008,7 +5008,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "masquerading_files_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "masquerading_files_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.2",
@@ -5068,7 +5068,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -5090,7 +5090,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "MSRPRN_Printer_Bug_Exploitation_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "MSRPRN_Printer_Bug_Exploitation_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -5154,7 +5154,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -5176,7 +5176,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "MultipleExplicitCredentialUsage4648Events_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "MultipleExplicitCredentialUsage4648Events_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.2",
@@ -5240,7 +5240,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -5262,7 +5262,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "NewChildProcessOfW3WP_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "NewChildProcessOfW3WP_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -5326,7 +5326,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -5348,7 +5348,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "new_processes_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "new_processes_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.2",
@@ -5408,7 +5408,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -5430,7 +5430,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "NishangReverseTCPShellBase64_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "NishangReverseTCPShellBase64_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -5494,7 +5494,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -5516,7 +5516,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "persistence_create_account_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "persistence_create_account_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -5580,7 +5580,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -5602,7 +5602,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "PowerCatDownload_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "PowerCatDownload_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -5666,7 +5666,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -5688,7 +5688,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "powershell_downloads_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "powershell_downloads_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -5748,7 +5748,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -5770,7 +5770,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "powershell_newencodedscipts_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "powershell_newencodedscipts_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -5830,7 +5830,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -5852,7 +5852,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "ProcessEntropy_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "ProcessEntropy_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.2",
@@ -5912,7 +5912,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -5934,7 +5934,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "RareProcbyServiceAccount_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "RareProcbyServiceAccount_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -5994,7 +5994,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -6016,7 +6016,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "RareProcessPath_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "RareProcessPath_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -6076,7 +6076,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -6098,7 +6098,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "RareProcessWithCmdLine_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "RareProcessWithCmdLine_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -6158,7 +6158,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -6180,7 +6180,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "RareProcess_forWinHost_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "RareProcess_forWinHost_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -6240,7 +6240,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -6262,10 +6262,10 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "ServiceInstallationFromUsersWritableDirectory_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "ServiceInstallationFromUsersWritableDirectory_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0",
+                    "contentVersion": "1.0.1",
                     "parameters": {},
                     "variables": {},
                     "resources": [
@@ -6305,7 +6305,7 @@
                                 "parentId": "[resourceId('Microsoft.OperationalInsights/savedSearches', '5a9ccb48-1316-46e1-89d1-aca0355c305e')]",
                                 "contentId": "5a9ccb48-1316-46e1-89d1-aca0355c305e",
                                 "kind": "HuntingQuery",
-                                "version": "1.0.0",
+                                "version": "1.0.1",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "Windows Security Events",
@@ -6326,16 +6326,16 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "5a9ccb48-1316-46e1-89d1-aca0355c305e",
                 "contentKind": "HuntingQuery",
                 "displayName": "Service installation from user writable directory",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-securityeven-hq-u6rvyutgg36t6",
-                "id": "azuresentinel.azure-sentinel-solution-securityeven-hq-u6rvyutgg36t6",
-                "version": "1.0.0",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-securityeven-hq-w3jwb7utqhxcw",
+                "id": "azuresentinel.azure-sentinel-solution-securityeven-hq-w3jwb7utqhxcw",
+                "version": "1.0.1",
                 "isDeprecated": false
             }
         },
@@ -6348,7 +6348,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "SuspectedLSASSDump_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "SuspectedLSASSDump_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -6412,7 +6412,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -6434,7 +6434,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "Suspicious_enumeration_using_adfind_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "Suspicious_enumeration_using_adfind_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.2",
@@ -6498,7 +6498,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -6520,7 +6520,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "Suspicious_Windows_Login_outside_normal_hours_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "Suspicious_Windows_Login_outside_normal_hours_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.2",
@@ -6584,7 +6584,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -6606,7 +6606,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "uncommon_processes_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "uncommon_processes_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.2",
@@ -6666,7 +6666,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -6688,7 +6688,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "User Logons By Logon Type_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "User Logons By Logon Type_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -6752,7 +6752,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -6774,7 +6774,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "UserAccountAddedToPrivlegeGroup_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "UserAccountAddedToPrivlegeGroup_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -6788,7 +6788,7 @@
                             "location": "[parameters('workspace-location')]",
                             "properties": {
                                 "eTag": "*",
-                                "displayName": "User Account added to Built in Domain Local or Global Group",
+                                "displayName": "User Account added to Built in Sensitive or Privileged Domain Local or Global Group",
                                 "category": "Hunting Queries",
                                 "query": "// For AD SID mappings - https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups\nlet WellKnownLocalSID = \"S-1-5-32-5[0-9][0-9]$\";\nlet WellKnownGroupSID = \"S-1-5-21-[0-9]*-[0-9]*-[0-9]*-5[0-9][0-9]$|S-1-5-21-[0-9]*-[0-9]*-[0-9]*-1102$|S-1-5-21-[0-9]*-[0-9]*-[0-9]*-1103$\";\nSecurityEvent \n| where AccountType == \"User\"\n// 4728 - A member was added to a security-enabled global group\n// 4732 - A member was added to a security-enabled local group\n// 4756 - A member was added to a security-enabled universal group\n| where EventID in (\"4728\", \"4732\", \"4756\")   \n| where TargetSid matches regex WellKnownLocalSID or TargetSid matches regex WellKnownGroupSID\n// Exclude Remote Desktop Users group: S-1-5-32-555\n| where TargetSid !in (\"S-1-5-32-555\")\n| project StartTimeUtc = TimeGenerated, EventID, Activity, Computer, TargetUserName, TargetDomainName, TargetSid, UserPrincipalName, SubjectUserName, SubjectUserSid \n| extend timestamp = StartTimeUtc, HostName = tostring(split(Computer, '.', 0)[0]), DnsDomain = tostring(strcat_array(array_slice(split(Computer, '.'), 1, -1), '.')), Name = tostring(split(UserPrincipalName, '@', 0)[0]), UPNSuffix = tostring(split(UserPrincipalName, '@', 1)[0])\n| extend Account_0_Name = Name\n| extend Account_0_UPNSuffix = UPNSuffix\n| extend Host_0_HostName = HostName\n| extend Host_0_DnsDomain = DnsDomain\n",
                                 "version": 2,
@@ -6838,13 +6838,13 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "8d69a665-074a-443b-aae6-5dd9bdd5cfb1",
                 "contentKind": "HuntingQuery",
-                "displayName": "User Account added to Built in Domain Local or Global Group",
+                "displayName": "User Account added to Built in Sensitive or Privileged Domain Local or Global Group",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-securityeven-hq-7hmavjg6s2yxc",
                 "id": "azuresentinel.azure-sentinel-solution-securityeven-hq-7hmavjg6s2yxc",
                 "version": "1.0.1",
@@ -6860,7 +6860,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "UserAccountCreatedDeleted_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "UserAccountCreatedDeleted_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -6924,7 +6924,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -6946,7 +6946,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "UserAdd_RemToGroupByUnauthorizedUser_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "UserAdd_RemToGroupByUnauthorizedUser_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -7010,7 +7010,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -7032,7 +7032,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "UserCreatedByUnauthorizedUser_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "UserCreatedByUnauthorizedUser_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -7096,7 +7096,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -7118,7 +7118,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "VIPAccountFailedLogons_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "VIPAccountFailedLogons_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -7182,7 +7182,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -7204,7 +7204,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "WindowsSystemTimeChange_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "WindowsSystemTimeChange_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.2",
@@ -7268,7 +7268,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -7290,7 +7290,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "CreateDCInstallationMedia_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "CreateDCInstallationMedia_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -7354,7 +7354,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -7376,7 +7376,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "InternalProxies_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "InternalProxies_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -7440,7 +7440,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -7462,7 +7462,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "ADAccountLockouts_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "ADAccountLockouts_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -7526,7 +7526,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -7548,7 +7548,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "KrbRelayUpServiceCreation_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "KrbRelayUpServiceCreation_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -7612,7 +7612,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -7634,7 +7634,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "RemoteScheduledTaskCreationUpdateviaSchtasks_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "RemoteScheduledTaskCreationUpdateviaSchtasks_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -7698,7 +7698,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -7720,7 +7720,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "SuspiciousCommandlineTokenLolbas_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "SuspiciousCommandlineTokenLolbas_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -7784,7 +7784,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -7806,7 +7806,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
             ],
             "properties": {
-                "description": "WindowsSystemShutdownReboot_HuntingQueries Hunting Query with template version 3.0.8",
+                "description": "WindowsSystemShutdownReboot_HuntingQueries Hunting Query with template version 3.0.9",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -7870,7 +7870,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.8",
+                "packageVersion": "3.0.9",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -7888,15 +7888,15 @@
             "apiVersion": "2023-04-01-preview",
             "location": "[parameters('workspace-location')]",
             "properties": {
-                "version": "3.0.8",
+                "version": "3.0.9",
                 "kind": "Solution",
                 "contentSchemaVersion": "3.0.0",
                 "displayName": "Windows Security Events",
                 "publisherDisplayName": "Microsoft Sentinel, Microsoft Corporation",
                 "descriptionHtml": "<p><strong>Note:</strong> Please refer to the following before installing the solution:</p><p>\u2022 Review the solution <a target=\"_blank\" href=\"https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Windows%20Security%20Events/ReleaseNotes.md\" rel=\"noopener\">Release Notes</a></p><p>The Windows Security Events solution for Microsoft Sentinel allows you to ingest Security events from your Windows machines using the Windows Agent into Microsoft Sentinel. This solution includes two (2) data connectors to help ingest the logs.</p><ol><li><p><strong>Windows Security Events via AMA</strong> - This data connector helps in ingesting Security Events logs into your Log Analytics Workspace using the new Azure Monitor Agent. Learn more about ingesting using the new Azure Monitor Agent <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/sentinel/connect-cef-ama?WT.mc_id=Portal-fx\" rel=\"noopener\">here</a>. <strong>Microsoft recommends using this Data Connector</strong>.</p></li><li><p><strong>Security Events via Legacy Agent</strong> - This data connector helps in ingesting Security Events logs into your Log Analytics Workspace using the legacy Log Analytics agent.</p></li></ol><p></p><p><strong>NOTE:</strong> Microsoft recommends installation of Windows Security Events via AMA Connector. Legacy connector uses the Log Analytics agent which is about to be deprecated by <strong>Aug 31, 2024,</strong> and thus should only be installed where AMA is not supported.</p><p></p><p><strong>Data Connectors:</strong> 2, <strong>Workbooks:</strong> 2, <strong>Analytic Rules:</strong> 20, <strong>Hunting Queries:</strong> 50</p><p><a target=\"_blank\" href=\"https://aka.ms/azuresentinel\" rel=\"noopener\">Learn more about Microsoft Sentinel</a> | <a target=\"_blank\" href=\"https://aka.ms/azuresentinelsolutionsdoc\" rel=\"noopener\">Learn more about Solutions</a></p>",
                 "contentKind": "Solution",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-securityeven-sl-yneebdk3xgvda",
-                "id": "azuresentinel.azure-sentinel-solution-securityeven-sl-yneebdk3xgvda",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-securityeven-sl-exvlkfvbts35w",
+                "id": "azuresentinel.azure-sentinel-solution-securityeven-sl-exvlkfvbts35w",
                 "icon": "https://store-images.s-microsoft.com/image/apps.64133.cfc82dab-62e7-4f61-a971-259213533680.96cba4a9-2262-4418-a53b-a53c83b161b4.87282b99-43e5-4194-bae9-f4c41b36e9fb",
                 "contentId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "parentId": "azuresentinel.azure-sentinel-solution-securityevents",
@@ -8196,7 +8196,7 @@
                         {
                             "kind": "HuntingQuery",
                             "contentId": "5a9ccb48-1316-46e1-89d1-aca0355c305e",
-                            "version": "1.0.0"
+                            "version": "1.0.1"
                         },
                         {
                             "kind": "HuntingQuery",
