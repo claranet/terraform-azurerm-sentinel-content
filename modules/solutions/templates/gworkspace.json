@@ -23,14 +23,6 @@
             "metadata": {
                 "description": "Workspace name for Log Analytics where Microsoft Sentinel is setup"
             }
-        },
-        "workbook1-name": {
-            "type": "String",
-            "defaultValue": "GoogleWorkspaceReports",
-            "minLength": 1,
-            "metadata": {
-                "description": "Name for the workbook"
-            }
         }
     },
     "resources": [
@@ -49,16 +41,14 @@
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-wb-',uniquestring('GoogleWorkspaceWorkbook')),'1.0.0'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-wb-',uniquestring('GoogleWorkspaceWorkbook')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-googleworkspacereports')]"
             ],
             "properties": {
-                "contentId": "GoogleWorkspaceWorkbook",
-                "displayName": "GoogleWorkspaceReports",
-                "contentKind": "Workbook",
+                "description": "GoogleWorkspace Workbook with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -145,28 +135,29 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.6",
-                "packageName": "Google Workspace Reports",
+                "packageVersion": "3.0.0",
+                "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "GoogleWorkspaceWorkbook",
+                "contentKind": "Workbook",
+                "displayName": "GoogleWorkspaceReports",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-googleworksp-wb-uxqoncyiii5tk",
                 "id": "azuresentinel.azure-sentinel-solution-googleworksp-wb-uxqoncyiii5tk",
-                "contentSchemaVersion": "3.0.0",
                 "version": "1.0.0",
                 "isDeprecated": false
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-pr-',uniquestring('GWorkspaceActivityReports-Parser')),'1.0.0'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-pr-',uniquestring('GWorkspaceActivityReports-Parser')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-googleworkspacereports')]"
             ],
             "properties": {
-                "contentId": "GWorkspaceActivityReports-Parser",
-                "displayName": "GWorkspaceActivityReports",
-                "contentKind": "Parser",
+                "description": "GWorkspaceActivityReports Data Parser with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -175,20 +166,21 @@
                     "resources": [
                         {
                             "name": "[concat(parameters('workspace'),'/','GWorkspaceActivityReports')]",
-                            "apiVersion": "2020-08-01",
+                            "apiVersion": "2022-10-01",
                             "type": "Microsoft.OperationalInsights/workspaces/savedSearches",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
                                 "eTag": "*",
-                                "displayName": "GWorkspaceActivityReports",
-                                "category": "Samples",
+                                "displayName": "Parser for GWorkspaceActivityReports",
+                                "category": "Microsoft Sentinel Parser",
                                 "functionAlias": "GWorkspaceActivityReports",
-                                "query": "\nlet GWorkspace_ReportsAPI_view  = view () { \r\nunion isfuzzy=true  GWorkspace_ReportsAPI_access_transparency_CL, GWorkspace_ReportsAPI_admin_CL,\r\n                    GWorkspace_ReportsAPI_calendar_CL, GWorkspace_ReportsAPI_chat_CL,\r\n                    GWorkspace_ReportsAPI_drive_CL, GWorkspace_ReportsAPI_gcp_CL,\r\n                    GWorkspace_ReportsAPI_gplus_CL, GWorkspace_ReportsAPI_groups_CL,\r\n                    GWorkspace_ReportsAPI_groups_enterprise_CL, GWorkspace_ReportsAPI_jamboard_CL,\r\n                    GWorkspace_ReportsAPI_login_CL, GWorkspace_ReportsAPI_meet_CL,\r\n                    GWorkspace_ReportsAPI_mobile_CL, GWorkspace_ReportsAPI_rules_CL,\r\n                    GWorkspace_ReportsAPI_saml_CL, GWorkspace_ReportsAPI_token_CL,\r\n                    GWorkspace_ReportsAPI_user_accounts_CL, GWorkspace_ReportsAPI_context_aware_access_CL,\r\n                    GWorkspace_ReportsAPI_chrome_CL, GWorkspace_ReportsAPI_data_studio_CL,\r\n                    GWorkspace_ReportsAPI_keep_CL\r\n| extend \r\n        AccountState=column_ifexists('ACCOUNT_STATE_s', ''),\r\n        ActorCallerType=column_ifexists('actor_callerType_s', ''),\r\n        ActorEmail=column_ifexists('actor_email_s', ''),\r\n        ActorIsCollaboratorAccount=column_ifexists('actor_is_collaborator_account_b', ''),\r\n        ActorKey=column_ifexists('actor_key_s', ''),\r\n        ActorProfileId=column_ifexists('actor_profileId_s', ''),\r\n        ApiKind=column_ifexists('api_kind_s', ''),\r\n        AppName=column_ifexists('app_name_s', ''),\r\n        ApplicationEdition=column_ifexists('APPLICATION_EDITION_s', ''),\r\n        ApplicationName=column_ifexists('APPLICATION_NAME_s', ''),\r\n        Billable=column_ifexists('billable_b', ''),\r\n        CalendarId=column_ifexists('calendar_id_s', ''),\r\n        ClientId=column_ifexists('client_id_s', ''),\r\n        ClientType=column_ifexists('client_type_s', ''),\r\n        DestinationFolderId=column_ifexists('destination_folder_id_s', ''),\r\n        DestinationFolderTitle=column_ifexists('destination_folder_title_s', ''),\r\n        DocId=column_ifexists('doc_id_s', ''),\r\n        DocTitle=column_ifexists('doc_title_s', ''),\r\n        DocType=column_ifexists('doc_type_s', ''),\r\n        DstUserUpn=column_ifexists('USER_EMAIL_s', ''),\r\n        DestUserUpn=column_ifexists('recipient_email_s', ''),\r\n        DvcGuid=column_ifexists('DEVICE_ID_g', ''),\r\n        DvcInterfaceGuid=column_ifexists('DEVICE_ID_s', ''),\r\n        DvcModelName=column_ifexists('DEVICE_MODEL_s', ''),\r\n        DvcModelNumber=column_ifexists('OS_VERSION_s', ''),\r\n        DvcType=column_ifexists('DEVICE_TYPE_s', ''),\r\n        Etag=column_ifexists('etag_s', ''),\r\n        EventCategoryType=column_ifexists('kind_s', ''),\r\n        EventEndTime=column_ifexists('end_time_s', ''),\r\n        EventGuest=column_ifexists('event_guest_s', ''),\r\n        EventId=column_ifexists('id_uniqueQualifier_s', ''),\r\n        EventMessage=column_ifexists('event_name_s', ''),\r\n        EventOriginalMessage=column_ifexists('events_s', ''),\r\n        EventProduct=\"Google Workspace Activity Reports\",\r\n        EventResponseStatus=column_ifexists('event_response_status_s', ''),\r\n        EventStartTime=column_ifexists('start_time_s', ''),\r\n        EventTitle=column_ifexists('event_title_s', ''),\r\n        EventType=column_ifexists('event_type_s', ''),\r\n        EventUid=column_ifexists('event_id_s', ''),\r\n        EventVendor=\"Google\",\r\n        GroupDomain=column_ifexists('ORG_UNIT_NAME_s', ''),\r\n        IdApplicationName=column_ifexists('id_applicationName_s', ''),\r\n        IosVendorId=column_ifexists('IOS_VENDOR_ID_s', ''),\r\n        IosVendorUID=column_ifexists('IOS_VENDOR_ID_g', ''),\r\n        IsSecondFactor=column_ifexists('is_second_factor_b', ''),\r\n        IsSuspicious=column_ifexists('is_suspicious_b', ''),\r\n        Kind=column_ifexists('kind_s', ''),\r\n        LastSyncAuditDate=column_ifexists('LAST_SYNC_AUDIT_DATE_s', ''),\r\n        LoginChallengeMethod=column_ifexists('login_challenge_method_s', ''),\r\n        LoginChallengeStatus=column_ifexists('login_challenge_status_s', ''),\r\n        LoginType=column_ifexists('login_type_s', ''),\r\n        ModuleName=column_ifexists('PRODUCT_NAME_s', ''),\r\n        NeqValue=column_ifexists('NEW_VALUE_s', ''),\r\n        Newvalue=column_ifexists('new_value_s', ''),\r\n        NotificationMessageId=column_ifexists('notification_message_id_s', ''),\r\n        NotificationMethod=column_ifexists('notification_method_s', ''),\r\n        NotificationType=column_ifexists('notification_type_s', ''),\r\n        OldEventTitle=column_ifexists('old_event_title_s', ''),\r\n        OldValue=column_ifexists('OLD_VALUE_s', ''),\r\n        Oldvalue=column_ifexists('old_value_s', ''),\r\n        OldVisibility=column_ifexists('old_visibility_s', ''),\r\n        OrganizerCalendarId=column_ifexists('organizer_calendar_id_s', ''),\r\n        OriginatingAppId=column_ifexists('originating_app_id_s', ''),\r\n        OsProperty=column_ifexists('OS_PROPERTY_s', ''),\r\n        Owner=column_ifexists('owner_s', ''),\r\n        OwnerDomain=column_ifexists('ownerDomain_s', ''),\r\n        OwnerIsSharedDrive=column_ifexists('owner_is_shared_drive_b', ''),\r\n        OwnerIsTeamDrive=column_ifexists('owner_is_team_drive_b', ''),\r\n        PrimaryEvent=column_ifexists('primary_event_b', ''),\r\n        ProcessName=column_ifexists('SETTING_NAME_s', ''),\r\n        RegisterPrivelege=column_ifexists('REGISTER_PRIVILEGE_s', ''),\r\n        ResourceId=column_ifexists('RESOURCE_ID_s', ''),\r\n        RoleName=column_ifexists('ROLE_NAME_s', ''),\r\n        Scope=column_ifexists('scope_s', ''),\r\n        ScopeData=column_ifexists('scope_data_s', ''),\r\n        SerialNumber=column_ifexists('SERIAL_NUMBER_s', ''),\r\n        SharedDriveId=column_ifexists('shared_drive_id_s', ''),\r\n        SourceFolderId=column_ifexists('source_folder_id_s', ''),\r\n        SourceFolderTitle=column_ifexists('source_folder_title_s', ''),\r\n        SrcIpAddr=column_ifexists('IPAddress', ''),\r\n        TargetCalendarId=column_ifexists('target_calendar_id_s', ''),\r\n        TargetUserDomain=column_ifexists('target_domain_s', ''),\r\n        TargetUserName=column_ifexists('target_user_s', ''),\r\n        TeamDriveId=column_ifexists('team_drive_id_s', ''),\r\n        UserAadid=column_ifexists('id_customerId_s', ''),\r\n        UserAgentOriginal=column_ifexists('user_agent_s', ''),\r\n        UserEmail=column_ifexists('USER_EMAIL_s', ''),\r\n        Visibility=column_ifexists('visibility_s', ''),\r\n        VisibilityChange=column_ifexists('visibility_change_s', '')\r\n| project \r\n        TimeGenerated,\r\n        AccountState,\r\n        ActorCallerType,\r\n        ActorEmail,\r\n        ActorIsCollaboratorAccount,\r\n        ActorKey,\r\n        ActorProfileId,\r\n        ApiKind,\r\n        AppName,\r\n        ApplicationEdition,\r\n        ApplicationName,\r\n        Billable,\r\n        CalendarId,\r\n        ClientId,\r\n        ClientType,\r\n        DestinationFolderId,\r\n        DestinationFolderTitle,\r\n        DocId,\r\n        DocTitle,\r\n        DocType,\r\n        DstUserUpn,\r\n        DestUserUpn,\r\n        DvcGuid,\r\n        DvcInterfaceGuid,\r\n        DvcModelName,\r\n        DvcModelNumber,\r\n        DvcType,\r\n        Etag,\r\n        EventCategoryType,\r\n        EventEndTime,\r\n        EventGuest,\r\n        EventId,\r\n        EventMessage,\r\n        EventOriginalMessage,\r\n        EventProduct,\r\n        EventResponseStatus,\r\n        EventStartTime,\r\n        EventTitle,\r\n        EventType,\r\n        EventUid,\r\n        EventVendor,\r\n        GroupDomain,\r\n        IdApplicationName,\r\n        IosVendorId,\r\n        IosVendorUID,\r\n        IsSecondFactor,\r\n        IsSuspicious,\r\n        Kind,\r\n        LastSyncAuditDate,\r\n        LoginChallengeMethod,\r\n        LoginChallengeStatus,\r\n        LoginType,\r\n        ModuleName,\r\n        NeqValue,\r\n        Newvalue,\r\n        NotificationMessageId,\r\n        NotificationMethod,\r\n        NotificationType,\r\n        OldEventTitle,\r\n        OldValue,\r\n        Oldvalue,\r\n        OldVisibility,\r\n        OrganizerCalendarId,\r\n        OriginatingAppId,\r\n        OsProperty,\r\n        Owner,\r\n        OwnerDomain,\r\n        OwnerIsSharedDrive,\r\n        OwnerIsTeamDrive,\r\n        PrimaryEvent,\r\n        ProcessName,\r\n        RegisterPrivelege,\r\n        ResourceId,\r\n        RoleName,\r\n        Scope,\r\n        ScopeData,\r\n        SerialNumber,\r\n        SharedDriveId,\r\n        SourceFolderId,\r\n        SourceFolderTitle,\r\n        SrcIpAddr,\r\n        TargetCalendarId,\r\n        TargetUserDomain,\r\n        TargetUserName,\r\n        TeamDriveId,\r\n        UserAadid,\r\n        UserAgentOriginal,\r\n        UserEmail,\r\n        Visibility,\r\n        VisibilityChange\r\n};\r\nGWorkspace_ReportsAPI_view",
-                                "version": 1,
+                                "query": "let GWorkspace_ReportsAPI_view  = view () { \nunion isfuzzy=true  GWorkspace_ReportsAPI_access_transparency_CL, GWorkspace_ReportsAPI_admin_CL,\n                    GWorkspace_ReportsAPI_calendar_CL, GWorkspace_ReportsAPI_chat_CL,\n                    GWorkspace_ReportsAPI_drive_CL, GWorkspace_ReportsAPI_gcp_CL,\n                    GWorkspace_ReportsAPI_gplus_CL, GWorkspace_ReportsAPI_groups_CL,\n                    GWorkspace_ReportsAPI_groups_enterprise_CL, GWorkspace_ReportsAPI_jamboard_CL,\n                    GWorkspace_ReportsAPI_login_CL, GWorkspace_ReportsAPI_meet_CL,\n                    GWorkspace_ReportsAPI_mobile_CL, GWorkspace_ReportsAPI_rules_CL,\n                    GWorkspace_ReportsAPI_saml_CL, GWorkspace_ReportsAPI_token_CL,\n                    GWorkspace_ReportsAPI_user_accounts_CL, GWorkspace_ReportsAPI_context_aware_access_CL,\n                    GWorkspace_ReportsAPI_chrome_CL, GWorkspace_ReportsAPI_data_studio_CL,\n                    GWorkspace_ReportsAPI_keep_CL\n| extend \n        AccountState=column_ifexists('ACCOUNT_STATE_s', ''),\n        ActorCallerType=column_ifexists('actor_callerType_s', ''),\n        ActorEmail=column_ifexists('actor_email_s', ''),\n        ActorIsCollaboratorAccount=column_ifexists('actor_is_collaborator_account_b', ''),\n        ActorKey=column_ifexists('actor_key_s', ''),\n        ActorProfileId=column_ifexists('actor_profileId_s', ''),\n        ApiKind=column_ifexists('api_kind_s', ''),\n        AppName=column_ifexists('app_name_s', ''),\n        ApplicationEdition=column_ifexists('APPLICATION_EDITION_s', ''),\n        ApplicationName=column_ifexists('APPLICATION_NAME_s', ''),\n        Billable=column_ifexists('billable_b', ''),\n        CalendarId=column_ifexists('calendar_id_s', ''),\n        ClientId=column_ifexists('client_id_s', ''),\n        ClientType=column_ifexists('client_type_s', ''),\n        DestinationFolderId=column_ifexists('destination_folder_id_s', ''),\n        DestinationFolderTitle=column_ifexists('destination_folder_title_s', ''),\n        DocId=column_ifexists('doc_id_s', ''),\n        DocTitle=column_ifexists('doc_title_s', ''),\n        DocType=column_ifexists('doc_type_s', ''),\n        DstUserUpn=column_ifexists('USER_EMAIL_s', ''),\n        DestUserUpn=column_ifexists('recipient_email_s', ''),\n        DvcGuid=column_ifexists('DEVICE_ID_g', ''),\n        DvcInterfaceGuid=column_ifexists('DEVICE_ID_s', ''),\n        DvcModelName=column_ifexists('DEVICE_MODEL_s', ''),\n        DvcModelNumber=column_ifexists('OS_VERSION_s', ''),\n        DvcType=column_ifexists('DEVICE_TYPE_s', ''),\n        Etag=column_ifexists('etag_s', ''),\n        EventCategoryType=column_ifexists('kind_s', ''),\n        EventEndTime=column_ifexists('end_time_s', ''),\n        EventGuest=column_ifexists('event_guest_s', ''),\n        EventId=column_ifexists('id_uniqueQualifier_s', ''),\n        EventMessage=column_ifexists('event_name_s', ''),\n        EventOriginalMessage=column_ifexists('events_s', ''),\n        EventProduct=\"Google Workspace Activity Reports\",\n        EventResponseStatus=column_ifexists('event_response_status_s', ''),\n        EventStartTime=column_ifexists('start_time_s', ''),\n        EventTitle=column_ifexists('event_title_s', ''),\n        EventType=column_ifexists('event_type_s', ''),\n        EventUid=column_ifexists('event_id_s', ''),\n        EventVendor=\"Google\",\n        GroupDomain=column_ifexists('ORG_UNIT_NAME_s', ''),\n        IdApplicationName=column_ifexists('id_applicationName_s', ''),\n        IosVendorId=column_ifexists('IOS_VENDOR_ID_s', ''),\n        IosVendorUID=column_ifexists('IOS_VENDOR_ID_g', ''),\n        IsSecondFactor=column_ifexists('is_second_factor_b', ''),\n        IsSuspicious=column_ifexists('is_suspicious_b', ''),\n        Kind=column_ifexists('kind_s', ''),\n        LastSyncAuditDate=column_ifexists('LAST_SYNC_AUDIT_DATE_s', ''),\n        LoginChallengeMethod=column_ifexists('login_challenge_method_s', ''),\n        LoginChallengeStatus=column_ifexists('login_challenge_status_s', ''),\n        LoginType=column_ifexists('login_type_s', ''),\n        ModuleName=column_ifexists('PRODUCT_NAME_s', ''),\n        NeqValue=column_ifexists('NEW_VALUE_s', ''),\n        Newvalue=column_ifexists('new_value_s', ''),\n        NotificationMessageId=column_ifexists('notification_message_id_s', ''),\n        NotificationMethod=column_ifexists('notification_method_s', ''),\n        NotificationType=column_ifexists('notification_type_s', ''),\n        OldEventTitle=column_ifexists('old_event_title_s', ''),\n        OldValue=column_ifexists('OLD_VALUE_s', ''),\n        Oldvalue=column_ifexists('old_value_s', ''),\n        OldVisibility=column_ifexists('old_visibility_s', ''),\n        OrganizerCalendarId=column_ifexists('organizer_calendar_id_s', ''),\n        OriginatingAppId=column_ifexists('originating_app_id_s', ''),\n        OsProperty=column_ifexists('OS_PROPERTY_s', ''),\n        Owner=column_ifexists('owner_s', ''),\n        OwnerDomain=column_ifexists('ownerDomain_s', ''),\n        OwnerIsSharedDrive=column_ifexists('owner_is_shared_drive_b', ''),\n        OwnerIsTeamDrive=column_ifexists('owner_is_team_drive_b', ''),\n        PrimaryEvent=column_ifexists('primary_event_b', ''),\n        ProcessName=column_ifexists('SETTING_NAME_s', ''),\n        RegisterPrivelege=column_ifexists('REGISTER_PRIVILEGE_s', ''),\n        ResourceId=column_ifexists('RESOURCE_ID_s', ''),\n        RoleName=column_ifexists('ROLE_NAME_s', ''),\n        Scope=column_ifexists('scope_s', ''),\n        ScopeData=column_ifexists('scope_data_s', ''),\n        SerialNumber=column_ifexists('SERIAL_NUMBER_s', ''),\n        SharedDriveId=column_ifexists('shared_drive_id_s', ''),\n        SourceFolderId=column_ifexists('source_folder_id_s', ''),\n        SourceFolderTitle=column_ifexists('source_folder_title_s', ''),\n        SrcIpAddr=column_ifexists('IPAddress', ''),\n        TargetCalendarId=column_ifexists('target_calendar_id_s', ''),\n        TargetUserDomain=column_ifexists('target_domain_s', ''),\n        TargetUserName=column_ifexists('target_user_s', ''),\n        TeamDriveId=column_ifexists('team_drive_id_s', ''),\n        UserAadid=column_ifexists('id_customerId_s', ''),\n        UserAgentOriginal=column_ifexists('user_agent_s', ''),\n        UserEmail=column_ifexists('USER_EMAIL_s', ''),\n        Visibility=column_ifexists('visibility_s', ''),\n        VisibilityChange=column_ifexists('visibility_change_s', '')\n| project \n        TimeGenerated,\n        AccountState,\n        ActorCallerType,\n        ActorEmail,\n        ActorIsCollaboratorAccount,\n        ActorKey,\n        ActorProfileId,\n        ApiKind,\n        AppName,\n        ApplicationEdition,\n        ApplicationName,\n        Billable,\n        CalendarId,\n        ClientId,\n        ClientType,\n        DestinationFolderId,\n        DestinationFolderTitle,\n        DocId,\n        DocTitle,\n        DocType,\n        DstUserUpn,\n        DestUserUpn,\n        DvcGuid,\n        DvcInterfaceGuid,\n        DvcModelName,\n        DvcModelNumber,\n        DvcType,\n        Etag,\n        EventCategoryType,\n        EventEndTime,\n        EventGuest,\n        EventId,\n        EventMessage,\n        EventOriginalMessage,\n        EventProduct,\n        EventResponseStatus,\n        EventStartTime,\n        EventTitle,\n        EventType,\n        EventUid,\n        EventVendor,\n        GroupDomain,\n        IdApplicationName,\n        IosVendorId,\n        IosVendorUID,\n        IsSecondFactor,\n        IsSuspicious,\n        Kind,\n        LastSyncAuditDate,\n        LoginChallengeMethod,\n        LoginChallengeStatus,\n        LoginType,\n        ModuleName,\n        NeqValue,\n        Newvalue,\n        NotificationMessageId,\n        NotificationMethod,\n        NotificationType,\n        OldEventTitle,\n        OldValue,\n        Oldvalue,\n        OldVisibility,\n        OrganizerCalendarId,\n        OriginatingAppId,\n        OsProperty,\n        Owner,\n        OwnerDomain,\n        OwnerIsSharedDrive,\n        OwnerIsTeamDrive,\n        PrimaryEvent,\n        ProcessName,\n        RegisterPrivelege,\n        ResourceId,\n        RoleName,\n        Scope,\n        ScopeData,\n        SerialNumber,\n        SharedDriveId,\n        SourceFolderId,\n        SourceFolderTitle,\n        SrcIpAddr,\n        TargetCalendarId,\n        TargetUserDomain,\n        TargetUserName,\n        TeamDriveId,\n        UserAadid,\n        UserAgentOriginal,\n        UserEmail,\n        Visibility,\n        VisibilityChange\n};\nGWorkspace_ReportsAPI_view\n",
+                                "functionParameters": "",
+                                "version": 2,
                                 "tags": [
                                     {
                                         "name": "description",
-                                        "value": "GWorkspaceActivityReports"
+                                        "value": ""
                                     }
                                 ]
                             }
@@ -198,7 +190,7 @@
                             "apiVersion": "2022-01-01-preview",
                             "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('Parser-', last(split(resourceId('Microsoft.OperationalInsights/workspaces/savedSearches', parameters('workspace'), 'GWorkspaceActivityReports'),'/'))))]",
                             "dependsOn": [
-                                "[concat(parameters('workspace'),'/','GWorkspaceActivityReports')]"
+                                "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches', parameters('workspace'), 'GWorkspaceActivityReports')]"
                             ],
                             "properties": {
                                 "parentId": "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches', parameters('workspace'), 'GWorkspaceActivityReports')]",
@@ -225,12 +217,15 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.6",
-                "packageName": "Google Workspace Reports",
+                "packageVersion": "3.0.0",
+                "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "GWorkspaceActivityReports-Parser",
+                "contentKind": "Parser",
+                "displayName": "Parser for GWorkspaceActivityReports",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-googleworksp-pr-qyw5n3nfyxebq",
                 "id": "azuresentinel.azure-sentinel-solution-googleworksp-pr-qyw5n3nfyxebq",
-                "contentSchemaVersion": "3.0.0",
                 "version": "1.0.0",
                 "isDeprecated": false
             }
@@ -242,11 +237,18 @@
             "location": "[parameters('workspace-location')]",
             "properties": {
                 "eTag": "*",
-                "displayName": "GWorkspaceActivityReports",
-                "category": "Samples",
+                "displayName": "Parser for GWorkspaceActivityReports",
+                "category": "Microsoft Sentinel Parser",
                 "functionAlias": "GWorkspaceActivityReports",
-                "query": "\nlet GWorkspace_ReportsAPI_view  = view () { \r\nunion isfuzzy=true  GWorkspace_ReportsAPI_access_transparency_CL, GWorkspace_ReportsAPI_admin_CL,\r\n                    GWorkspace_ReportsAPI_calendar_CL, GWorkspace_ReportsAPI_chat_CL,\r\n                    GWorkspace_ReportsAPI_drive_CL, GWorkspace_ReportsAPI_gcp_CL,\r\n                    GWorkspace_ReportsAPI_gplus_CL, GWorkspace_ReportsAPI_groups_CL,\r\n                    GWorkspace_ReportsAPI_groups_enterprise_CL, GWorkspace_ReportsAPI_jamboard_CL,\r\n                    GWorkspace_ReportsAPI_login_CL, GWorkspace_ReportsAPI_meet_CL,\r\n                    GWorkspace_ReportsAPI_mobile_CL, GWorkspace_ReportsAPI_rules_CL,\r\n                    GWorkspace_ReportsAPI_saml_CL, GWorkspace_ReportsAPI_token_CL,\r\n                    GWorkspace_ReportsAPI_user_accounts_CL, GWorkspace_ReportsAPI_context_aware_access_CL,\r\n                    GWorkspace_ReportsAPI_chrome_CL, GWorkspace_ReportsAPI_data_studio_CL,\r\n                    GWorkspace_ReportsAPI_keep_CL\r\n| extend \r\n        AccountState=column_ifexists('ACCOUNT_STATE_s', ''),\r\n        ActorCallerType=column_ifexists('actor_callerType_s', ''),\r\n        ActorEmail=column_ifexists('actor_email_s', ''),\r\n        ActorIsCollaboratorAccount=column_ifexists('actor_is_collaborator_account_b', ''),\r\n        ActorKey=column_ifexists('actor_key_s', ''),\r\n        ActorProfileId=column_ifexists('actor_profileId_s', ''),\r\n        ApiKind=column_ifexists('api_kind_s', ''),\r\n        AppName=column_ifexists('app_name_s', ''),\r\n        ApplicationEdition=column_ifexists('APPLICATION_EDITION_s', ''),\r\n        ApplicationName=column_ifexists('APPLICATION_NAME_s', ''),\r\n        Billable=column_ifexists('billable_b', ''),\r\n        CalendarId=column_ifexists('calendar_id_s', ''),\r\n        ClientId=column_ifexists('client_id_s', ''),\r\n        ClientType=column_ifexists('client_type_s', ''),\r\n        DestinationFolderId=column_ifexists('destination_folder_id_s', ''),\r\n        DestinationFolderTitle=column_ifexists('destination_folder_title_s', ''),\r\n        DocId=column_ifexists('doc_id_s', ''),\r\n        DocTitle=column_ifexists('doc_title_s', ''),\r\n        DocType=column_ifexists('doc_type_s', ''),\r\n        DstUserUpn=column_ifexists('USER_EMAIL_s', ''),\r\n        DestUserUpn=column_ifexists('recipient_email_s', ''),\r\n        DvcGuid=column_ifexists('DEVICE_ID_g', ''),\r\n        DvcInterfaceGuid=column_ifexists('DEVICE_ID_s', ''),\r\n        DvcModelName=column_ifexists('DEVICE_MODEL_s', ''),\r\n        DvcModelNumber=column_ifexists('OS_VERSION_s', ''),\r\n        DvcType=column_ifexists('DEVICE_TYPE_s', ''),\r\n        Etag=column_ifexists('etag_s', ''),\r\n        EventCategoryType=column_ifexists('kind_s', ''),\r\n        EventEndTime=column_ifexists('end_time_s', ''),\r\n        EventGuest=column_ifexists('event_guest_s', ''),\r\n        EventId=column_ifexists('id_uniqueQualifier_s', ''),\r\n        EventMessage=column_ifexists('event_name_s', ''),\r\n        EventOriginalMessage=column_ifexists('events_s', ''),\r\n        EventProduct=\"Google Workspace Activity Reports\",\r\n        EventResponseStatus=column_ifexists('event_response_status_s', ''),\r\n        EventStartTime=column_ifexists('start_time_s', ''),\r\n        EventTitle=column_ifexists('event_title_s', ''),\r\n        EventType=column_ifexists('event_type_s', ''),\r\n        EventUid=column_ifexists('event_id_s', ''),\r\n        EventVendor=\"Google\",\r\n        GroupDomain=column_ifexists('ORG_UNIT_NAME_s', ''),\r\n        IdApplicationName=column_ifexists('id_applicationName_s', ''),\r\n        IosVendorId=column_ifexists('IOS_VENDOR_ID_s', ''),\r\n        IosVendorUID=column_ifexists('IOS_VENDOR_ID_g', ''),\r\n        IsSecondFactor=column_ifexists('is_second_factor_b', ''),\r\n        IsSuspicious=column_ifexists('is_suspicious_b', ''),\r\n        Kind=column_ifexists('kind_s', ''),\r\n        LastSyncAuditDate=column_ifexists('LAST_SYNC_AUDIT_DATE_s', ''),\r\n        LoginChallengeMethod=column_ifexists('login_challenge_method_s', ''),\r\n        LoginChallengeStatus=column_ifexists('login_challenge_status_s', ''),\r\n        LoginType=column_ifexists('login_type_s', ''),\r\n        ModuleName=column_ifexists('PRODUCT_NAME_s', ''),\r\n        NeqValue=column_ifexists('NEW_VALUE_s', ''),\r\n        Newvalue=column_ifexists('new_value_s', ''),\r\n        NotificationMessageId=column_ifexists('notification_message_id_s', ''),\r\n        NotificationMethod=column_ifexists('notification_method_s', ''),\r\n        NotificationType=column_ifexists('notification_type_s', ''),\r\n        OldEventTitle=column_ifexists('old_event_title_s', ''),\r\n        OldValue=column_ifexists('OLD_VALUE_s', ''),\r\n        Oldvalue=column_ifexists('old_value_s', ''),\r\n        OldVisibility=column_ifexists('old_visibility_s', ''),\r\n        OrganizerCalendarId=column_ifexists('organizer_calendar_id_s', ''),\r\n        OriginatingAppId=column_ifexists('originating_app_id_s', ''),\r\n        OsProperty=column_ifexists('OS_PROPERTY_s', ''),\r\n        Owner=column_ifexists('owner_s', ''),\r\n        OwnerDomain=column_ifexists('ownerDomain_s', ''),\r\n        OwnerIsSharedDrive=column_ifexists('owner_is_shared_drive_b', ''),\r\n        OwnerIsTeamDrive=column_ifexists('owner_is_team_drive_b', ''),\r\n        PrimaryEvent=column_ifexists('primary_event_b', ''),\r\n        ProcessName=column_ifexists('SETTING_NAME_s', ''),\r\n        RegisterPrivelege=column_ifexists('REGISTER_PRIVILEGE_s', ''),\r\n        ResourceId=column_ifexists('RESOURCE_ID_s', ''),\r\n        RoleName=column_ifexists('ROLE_NAME_s', ''),\r\n        Scope=column_ifexists('scope_s', ''),\r\n        ScopeData=column_ifexists('scope_data_s', ''),\r\n        SerialNumber=column_ifexists('SERIAL_NUMBER_s', ''),\r\n        SharedDriveId=column_ifexists('shared_drive_id_s', ''),\r\n        SourceFolderId=column_ifexists('source_folder_id_s', ''),\r\n        SourceFolderTitle=column_ifexists('source_folder_title_s', ''),\r\n        SrcIpAddr=column_ifexists('IPAddress', ''),\r\n        TargetCalendarId=column_ifexists('target_calendar_id_s', ''),\r\n        TargetUserDomain=column_ifexists('target_domain_s', ''),\r\n        TargetUserName=column_ifexists('target_user_s', ''),\r\n        TeamDriveId=column_ifexists('team_drive_id_s', ''),\r\n        UserAadid=column_ifexists('id_customerId_s', ''),\r\n        UserAgentOriginal=column_ifexists('user_agent_s', ''),\r\n        UserEmail=column_ifexists('USER_EMAIL_s', ''),\r\n        Visibility=column_ifexists('visibility_s', ''),\r\n        VisibilityChange=column_ifexists('visibility_change_s', '')\r\n| project \r\n        TimeGenerated,\r\n        AccountState,\r\n        ActorCallerType,\r\n        ActorEmail,\r\n        ActorIsCollaboratorAccount,\r\n        ActorKey,\r\n        ActorProfileId,\r\n        ApiKind,\r\n        AppName,\r\n        ApplicationEdition,\r\n        ApplicationName,\r\n        Billable,\r\n        CalendarId,\r\n        ClientId,\r\n        ClientType,\r\n        DestinationFolderId,\r\n        DestinationFolderTitle,\r\n        DocId,\r\n        DocTitle,\r\n        DocType,\r\n        DstUserUpn,\r\n        DestUserUpn,\r\n        DvcGuid,\r\n        DvcInterfaceGuid,\r\n        DvcModelName,\r\n        DvcModelNumber,\r\n        DvcType,\r\n        Etag,\r\n        EventCategoryType,\r\n        EventEndTime,\r\n        EventGuest,\r\n        EventId,\r\n        EventMessage,\r\n        EventOriginalMessage,\r\n        EventProduct,\r\n        EventResponseStatus,\r\n        EventStartTime,\r\n        EventTitle,\r\n        EventType,\r\n        EventUid,\r\n        EventVendor,\r\n        GroupDomain,\r\n        IdApplicationName,\r\n        IosVendorId,\r\n        IosVendorUID,\r\n        IsSecondFactor,\r\n        IsSuspicious,\r\n        Kind,\r\n        LastSyncAuditDate,\r\n        LoginChallengeMethod,\r\n        LoginChallengeStatus,\r\n        LoginType,\r\n        ModuleName,\r\n        NeqValue,\r\n        Newvalue,\r\n        NotificationMessageId,\r\n        NotificationMethod,\r\n        NotificationType,\r\n        OldEventTitle,\r\n        OldValue,\r\n        Oldvalue,\r\n        OldVisibility,\r\n        OrganizerCalendarId,\r\n        OriginatingAppId,\r\n        OsProperty,\r\n        Owner,\r\n        OwnerDomain,\r\n        OwnerIsSharedDrive,\r\n        OwnerIsTeamDrive,\r\n        PrimaryEvent,\r\n        ProcessName,\r\n        RegisterPrivelege,\r\n        ResourceId,\r\n        RoleName,\r\n        Scope,\r\n        ScopeData,\r\n        SerialNumber,\r\n        SharedDriveId,\r\n        SourceFolderId,\r\n        SourceFolderTitle,\r\n        SrcIpAddr,\r\n        TargetCalendarId,\r\n        TargetUserDomain,\r\n        TargetUserName,\r\n        TeamDriveId,\r\n        UserAadid,\r\n        UserAgentOriginal,\r\n        UserEmail,\r\n        Visibility,\r\n        VisibilityChange\r\n};\r\nGWorkspace_ReportsAPI_view",
-                "version": 1
+                "query": "let GWorkspace_ReportsAPI_view  = view () { \nunion isfuzzy=true  GWorkspace_ReportsAPI_access_transparency_CL, GWorkspace_ReportsAPI_admin_CL,\n                    GWorkspace_ReportsAPI_calendar_CL, GWorkspace_ReportsAPI_chat_CL,\n                    GWorkspace_ReportsAPI_drive_CL, GWorkspace_ReportsAPI_gcp_CL,\n                    GWorkspace_ReportsAPI_gplus_CL, GWorkspace_ReportsAPI_groups_CL,\n                    GWorkspace_ReportsAPI_groups_enterprise_CL, GWorkspace_ReportsAPI_jamboard_CL,\n                    GWorkspace_ReportsAPI_login_CL, GWorkspace_ReportsAPI_meet_CL,\n                    GWorkspace_ReportsAPI_mobile_CL, GWorkspace_ReportsAPI_rules_CL,\n                    GWorkspace_ReportsAPI_saml_CL, GWorkspace_ReportsAPI_token_CL,\n                    GWorkspace_ReportsAPI_user_accounts_CL, GWorkspace_ReportsAPI_context_aware_access_CL,\n                    GWorkspace_ReportsAPI_chrome_CL, GWorkspace_ReportsAPI_data_studio_CL,\n                    GWorkspace_ReportsAPI_keep_CL\n| extend \n        AccountState=column_ifexists('ACCOUNT_STATE_s', ''),\n        ActorCallerType=column_ifexists('actor_callerType_s', ''),\n        ActorEmail=column_ifexists('actor_email_s', ''),\n        ActorIsCollaboratorAccount=column_ifexists('actor_is_collaborator_account_b', ''),\n        ActorKey=column_ifexists('actor_key_s', ''),\n        ActorProfileId=column_ifexists('actor_profileId_s', ''),\n        ApiKind=column_ifexists('api_kind_s', ''),\n        AppName=column_ifexists('app_name_s', ''),\n        ApplicationEdition=column_ifexists('APPLICATION_EDITION_s', ''),\n        ApplicationName=column_ifexists('APPLICATION_NAME_s', ''),\n        Billable=column_ifexists('billable_b', ''),\n        CalendarId=column_ifexists('calendar_id_s', ''),\n        ClientId=column_ifexists('client_id_s', ''),\n        ClientType=column_ifexists('client_type_s', ''),\n        DestinationFolderId=column_ifexists('destination_folder_id_s', ''),\n        DestinationFolderTitle=column_ifexists('destination_folder_title_s', ''),\n        DocId=column_ifexists('doc_id_s', ''),\n        DocTitle=column_ifexists('doc_title_s', ''),\n        DocType=column_ifexists('doc_type_s', ''),\n        DstUserUpn=column_ifexists('USER_EMAIL_s', ''),\n        DestUserUpn=column_ifexists('recipient_email_s', ''),\n        DvcGuid=column_ifexists('DEVICE_ID_g', ''),\n        DvcInterfaceGuid=column_ifexists('DEVICE_ID_s', ''),\n        DvcModelName=column_ifexists('DEVICE_MODEL_s', ''),\n        DvcModelNumber=column_ifexists('OS_VERSION_s', ''),\n        DvcType=column_ifexists('DEVICE_TYPE_s', ''),\n        Etag=column_ifexists('etag_s', ''),\n        EventCategoryType=column_ifexists('kind_s', ''),\n        EventEndTime=column_ifexists('end_time_s', ''),\n        EventGuest=column_ifexists('event_guest_s', ''),\n        EventId=column_ifexists('id_uniqueQualifier_s', ''),\n        EventMessage=column_ifexists('event_name_s', ''),\n        EventOriginalMessage=column_ifexists('events_s', ''),\n        EventProduct=\"Google Workspace Activity Reports\",\n        EventResponseStatus=column_ifexists('event_response_status_s', ''),\n        EventStartTime=column_ifexists('start_time_s', ''),\n        EventTitle=column_ifexists('event_title_s', ''),\n        EventType=column_ifexists('event_type_s', ''),\n        EventUid=column_ifexists('event_id_s', ''),\n        EventVendor=\"Google\",\n        GroupDomain=column_ifexists('ORG_UNIT_NAME_s', ''),\n        IdApplicationName=column_ifexists('id_applicationName_s', ''),\n        IosVendorId=column_ifexists('IOS_VENDOR_ID_s', ''),\n        IosVendorUID=column_ifexists('IOS_VENDOR_ID_g', ''),\n        IsSecondFactor=column_ifexists('is_second_factor_b', ''),\n        IsSuspicious=column_ifexists('is_suspicious_b', ''),\n        Kind=column_ifexists('kind_s', ''),\n        LastSyncAuditDate=column_ifexists('LAST_SYNC_AUDIT_DATE_s', ''),\n        LoginChallengeMethod=column_ifexists('login_challenge_method_s', ''),\n        LoginChallengeStatus=column_ifexists('login_challenge_status_s', ''),\n        LoginType=column_ifexists('login_type_s', ''),\n        ModuleName=column_ifexists('PRODUCT_NAME_s', ''),\n        NeqValue=column_ifexists('NEW_VALUE_s', ''),\n        Newvalue=column_ifexists('new_value_s', ''),\n        NotificationMessageId=column_ifexists('notification_message_id_s', ''),\n        NotificationMethod=column_ifexists('notification_method_s', ''),\n        NotificationType=column_ifexists('notification_type_s', ''),\n        OldEventTitle=column_ifexists('old_event_title_s', ''),\n        OldValue=column_ifexists('OLD_VALUE_s', ''),\n        Oldvalue=column_ifexists('old_value_s', ''),\n        OldVisibility=column_ifexists('old_visibility_s', ''),\n        OrganizerCalendarId=column_ifexists('organizer_calendar_id_s', ''),\n        OriginatingAppId=column_ifexists('originating_app_id_s', ''),\n        OsProperty=column_ifexists('OS_PROPERTY_s', ''),\n        Owner=column_ifexists('owner_s', ''),\n        OwnerDomain=column_ifexists('ownerDomain_s', ''),\n        OwnerIsSharedDrive=column_ifexists('owner_is_shared_drive_b', ''),\n        OwnerIsTeamDrive=column_ifexists('owner_is_team_drive_b', ''),\n        PrimaryEvent=column_ifexists('primary_event_b', ''),\n        ProcessName=column_ifexists('SETTING_NAME_s', ''),\n        RegisterPrivelege=column_ifexists('REGISTER_PRIVILEGE_s', ''),\n        ResourceId=column_ifexists('RESOURCE_ID_s', ''),\n        RoleName=column_ifexists('ROLE_NAME_s', ''),\n        Scope=column_ifexists('scope_s', ''),\n        ScopeData=column_ifexists('scope_data_s', ''),\n        SerialNumber=column_ifexists('SERIAL_NUMBER_s', ''),\n        SharedDriveId=column_ifexists('shared_drive_id_s', ''),\n        SourceFolderId=column_ifexists('source_folder_id_s', ''),\n        SourceFolderTitle=column_ifexists('source_folder_title_s', ''),\n        SrcIpAddr=column_ifexists('IPAddress', ''),\n        TargetCalendarId=column_ifexists('target_calendar_id_s', ''),\n        TargetUserDomain=column_ifexists('target_domain_s', ''),\n        TargetUserName=column_ifexists('target_user_s', ''),\n        TeamDriveId=column_ifexists('team_drive_id_s', ''),\n        UserAadid=column_ifexists('id_customerId_s', ''),\n        UserAgentOriginal=column_ifexists('user_agent_s', ''),\n        UserEmail=column_ifexists('USER_EMAIL_s', ''),\n        Visibility=column_ifexists('visibility_s', ''),\n        VisibilityChange=column_ifexists('visibility_change_s', '')\n| project \n        TimeGenerated,\n        AccountState,\n        ActorCallerType,\n        ActorEmail,\n        ActorIsCollaboratorAccount,\n        ActorKey,\n        ActorProfileId,\n        ApiKind,\n        AppName,\n        ApplicationEdition,\n        ApplicationName,\n        Billable,\n        CalendarId,\n        ClientId,\n        ClientType,\n        DestinationFolderId,\n        DestinationFolderTitle,\n        DocId,\n        DocTitle,\n        DocType,\n        DstUserUpn,\n        DestUserUpn,\n        DvcGuid,\n        DvcInterfaceGuid,\n        DvcModelName,\n        DvcModelNumber,\n        DvcType,\n        Etag,\n        EventCategoryType,\n        EventEndTime,\n        EventGuest,\n        EventId,\n        EventMessage,\n        EventOriginalMessage,\n        EventProduct,\n        EventResponseStatus,\n        EventStartTime,\n        EventTitle,\n        EventType,\n        EventUid,\n        EventVendor,\n        GroupDomain,\n        IdApplicationName,\n        IosVendorId,\n        IosVendorUID,\n        IsSecondFactor,\n        IsSuspicious,\n        Kind,\n        LastSyncAuditDate,\n        LoginChallengeMethod,\n        LoginChallengeStatus,\n        LoginType,\n        ModuleName,\n        NeqValue,\n        Newvalue,\n        NotificationMessageId,\n        NotificationMethod,\n        NotificationType,\n        OldEventTitle,\n        OldValue,\n        Oldvalue,\n        OldVisibility,\n        OrganizerCalendarId,\n        OriginatingAppId,\n        OsProperty,\n        Owner,\n        OwnerDomain,\n        OwnerIsSharedDrive,\n        OwnerIsTeamDrive,\n        PrimaryEvent,\n        ProcessName,\n        RegisterPrivelege,\n        ResourceId,\n        RoleName,\n        Scope,\n        ScopeData,\n        SerialNumber,\n        SharedDriveId,\n        SourceFolderId,\n        SourceFolderTitle,\n        SrcIpAddr,\n        TargetCalendarId,\n        TargetUserDomain,\n        TargetUserName,\n        TeamDriveId,\n        UserAadid,\n        UserAgentOriginal,\n        UserEmail,\n        Visibility,\n        VisibilityChange\n};\nGWorkspace_ReportsAPI_view\n",
+                "functionParameters": "",
+                "version": 2,
+                "tags": [
+                    {
+                        "name": "description",
+                        "value": ""
+                    }
+                ]
             }
         },
         {
@@ -281,16 +283,14 @@
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-ar-',uniquestring('03f25156-6172-11ec-90d6-0242ac120003')),'1.0.1'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-ar-',uniquestring('03f25156-6172-11ec-90d6-0242ac120003')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-googleworkspacereports')]"
             ],
             "properties": {
-                "contentId": "03f25156-6172-11ec-90d6-0242ac120003",
-                "displayName": "GWorkspace - Admin permissions granted",
-                "contentKind": "AnalyticsRule",
+                "description": "GWorkspaceAdminPermissionsGranted_AnalyticalRules Analytics Rule with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -300,7 +300,7 @@
                         {
                             "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
                             "name": "03f25156-6172-11ec-90d6-0242ac120003",
-                            "apiVersion": "2022-04-01-preview",
+                            "apiVersion": "2023-02-01-preview",
                             "kind": "Scheduled",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -332,13 +332,13 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountCustomEntity"
+                                                "columnName": "AccountCustomEntity",
+                                                "identifier": "Name"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     }
                                 ]
                             }
@@ -373,28 +373,42 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.6",
-                "packageName": "Google Workspace Reports",
+                "packageVersion": "3.0.0",
+                "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "03f25156-6172-11ec-90d6-0242ac120003",
+                "contentKind": "AnalyticsRule",
+                "displayName": "GWorkspace - Admin permissions granted",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-googleworksp-ar-hjlubln55sowy",
                 "id": "azuresentinel.azure-sentinel-solution-googleworksp-ar-hjlubln55sowy",
-                "contentSchemaVersion": "3.0.0",
                 "version": "1.0.1",
-                "isDeprecated": false
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "GWorkspaceActivityReports"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "GoogleWorkspaceReportsAPI"
+                        }
+                    ]
+                }
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-ar-',uniquestring('e369d246-5da8-11ec-bf63-0242ac130002')),'1.0.1'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-ar-',uniquestring('e369d246-5da8-11ec-bf63-0242ac130002')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-googleworkspacereports')]"
             ],
             "properties": {
-                "contentId": "e369d246-5da8-11ec-bf63-0242ac130002",
-                "displayName": "GWorkspace - Alert events",
-                "contentKind": "AnalyticsRule",
+                "description": "GWorkspaceAlertEvents_AnalyticalRules Analytics Rule with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -404,7 +418,7 @@
                         {
                             "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
                             "name": "e369d246-5da8-11ec-bf63-0242ac130002",
-                            "apiVersion": "2022-04-01-preview",
+                            "apiVersion": "2023-02-01-preview",
                             "kind": "Scheduled",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -437,13 +451,13 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountCustomEntity"
+                                                "columnName": "AccountCustomEntity",
+                                                "identifier": "Name"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     }
                                 ]
                             }
@@ -478,28 +492,42 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.6",
-                "packageName": "Google Workspace Reports",
+                "packageVersion": "3.0.0",
+                "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "e369d246-5da8-11ec-bf63-0242ac130002",
+                "contentKind": "AnalyticsRule",
+                "displayName": "GWorkspace - Alert events",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-googleworksp-ar-5sv5ev37symqa",
                 "id": "azuresentinel.azure-sentinel-solution-googleworksp-ar-5sv5ev37symqa",
-                "contentSchemaVersion": "3.0.0",
                 "version": "1.0.1",
-                "isDeprecated": false
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "GWorkspaceActivityReports"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "GoogleWorkspaceReportsAPI"
+                        }
+                    ]
+                }
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-ar-',uniquestring('c45a9804-5da8-11ec-bf63-0242ac130002')),'1.0.1'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-ar-',uniquestring('c45a9804-5da8-11ec-bf63-0242ac130002')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-googleworkspacereports')]"
             ],
             "properties": {
-                "contentId": "c45a9804-5da8-11ec-bf63-0242ac130002",
-                "displayName": "GWorkspace - API Access Granted",
-                "contentKind": "AnalyticsRule",
+                "description": "GWorkspaceApiAccessToNewClient_AnalyticalRules Analytics Rule with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -509,7 +537,7 @@
                         {
                             "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
                             "name": "c45a9804-5da8-11ec-bf63-0242ac130002",
-                            "apiVersion": "2022-04-01-preview",
+                            "apiVersion": "2023-02-01-preview",
                             "kind": "Scheduled",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -542,13 +570,13 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountCustomEntity"
+                                                "columnName": "AccountCustomEntity",
+                                                "identifier": "Name"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     }
                                 ]
                             }
@@ -583,28 +611,42 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.6",
-                "packageName": "Google Workspace Reports",
+                "packageVersion": "3.0.0",
+                "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "c45a9804-5da8-11ec-bf63-0242ac130002",
+                "contentKind": "AnalyticsRule",
+                "displayName": "GWorkspace - API Access Granted",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-googleworksp-ar-4gry4snkyocgc",
                 "id": "azuresentinel.azure-sentinel-solution-googleworksp-ar-4gry4snkyocgc",
-                "contentSchemaVersion": "3.0.0",
                 "version": "1.0.1",
-                "isDeprecated": false
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "GWorkspaceActivityReports"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "GoogleWorkspaceReportsAPI"
+                        }
+                    ]
+                }
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-ar-',uniquestring('92fae638-5da8-11ec-bf63-0242ac130002')),'1.0.1'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-ar-',uniquestring('92fae638-5da8-11ec-bf63-0242ac130002')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-googleworkspacereports')]"
             ],
             "properties": {
-                "contentId": "92fae638-5da8-11ec-bf63-0242ac130002",
-                "displayName": "GWorkspace - User access has been changed",
-                "contentKind": "AnalyticsRule",
+                "description": "GWorkspaceChangedUserAccess_AnalyticalRules Analytics Rule with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -614,7 +656,7 @@
                         {
                             "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
                             "name": "92fae638-5da8-11ec-bf63-0242ac130002",
-                            "apiVersion": "2022-04-01-preview",
+                            "apiVersion": "2023-02-01-preview",
                             "kind": "Scheduled",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -646,13 +688,13 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountCustomEntity"
+                                                "columnName": "AccountCustomEntity",
+                                                "identifier": "Name"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     }
                                 ]
                             }
@@ -687,28 +729,42 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.6",
-                "packageName": "Google Workspace Reports",
+                "packageVersion": "3.0.0",
+                "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "92fae638-5da8-11ec-bf63-0242ac130002",
+                "contentKind": "AnalyticsRule",
+                "displayName": "GWorkspace - User access has been changed",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-googleworksp-ar-ouwmvwhzpryka",
                 "id": "azuresentinel.azure-sentinel-solution-googleworksp-ar-ouwmvwhzpryka",
-                "contentSchemaVersion": "3.0.0",
                 "version": "1.0.1",
-                "isDeprecated": false
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "GWorkspaceActivityReports"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "GoogleWorkspaceReportsAPI"
+                        }
+                    ]
+                }
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-ar-',uniquestring('6ff0e16e-5999-11ec-bf63-0242ac130002')),'1.0.1'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-ar-',uniquestring('6ff0e16e-5999-11ec-bf63-0242ac130002')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-googleworkspacereports')]"
             ],
             "properties": {
-                "contentId": "6ff0e16e-5999-11ec-bf63-0242ac130002",
-                "displayName": "GWorkspace - Multiple user agents for single source",
-                "contentKind": "AnalyticsRule",
+                "description": "GWorkspaceDifferentUAsFromSingleIP_AnalyticalRules Analytics Rule with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -718,7 +774,7 @@
                         {
                             "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
                             "name": "6ff0e16e-5999-11ec-bf63-0242ac130002",
-                            "apiVersion": "2022-04-01-preview",
+                            "apiVersion": "2023-02-01-preview",
                             "kind": "Scheduled",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -752,13 +808,13 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Address",
-                                                "columnName": "IPCustomEntity"
+                                                "columnName": "IPCustomEntity",
+                                                "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -793,28 +849,42 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.6",
-                "packageName": "Google Workspace Reports",
+                "packageVersion": "3.0.0",
+                "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "6ff0e16e-5999-11ec-bf63-0242ac130002",
+                "contentKind": "AnalyticsRule",
+                "displayName": "GWorkspace - Multiple user agents for single source",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-googleworksp-ar-hhyratuzuj7lq",
                 "id": "azuresentinel.azure-sentinel-solution-googleworksp-ar-hhyratuzuj7lq",
-                "contentSchemaVersion": "3.0.0",
                 "version": "1.0.1",
-                "isDeprecated": false
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "GWorkspaceActivityReports"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "GoogleWorkspaceReportsAPI"
+                        }
+                    ]
+                }
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-ar-',uniquestring('ead87cd6-5da7-11ec-bf63-0242ac130002')),'1.0.1'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-ar-',uniquestring('ead87cd6-5da7-11ec-bf63-0242ac130002')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-googleworkspacereports')]"
             ],
             "properties": {
-                "contentId": "ead87cd6-5da7-11ec-bf63-0242ac130002",
-                "displayName": "GWorkspace - An Outbound Relay has been added to a G Suite Domain",
-                "contentKind": "AnalyticsRule",
+                "description": "GWorkspaceOutboundRelayAddedToSuiteDomain_AnalyticalRules Analytics Rule with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -824,7 +894,7 @@
                         {
                             "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
                             "name": "ead87cd6-5da7-11ec-bf63-0242ac130002",
-                            "apiVersion": "2022-04-01-preview",
+                            "apiVersion": "2023-02-01-preview",
                             "kind": "Scheduled",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -856,13 +926,13 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountCustomEntity"
+                                                "columnName": "AccountCustomEntity",
+                                                "identifier": "Name"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     }
                                 ]
                             }
@@ -897,28 +967,42 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.6",
-                "packageName": "Google Workspace Reports",
+                "packageVersion": "3.0.0",
+                "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "ead87cd6-5da7-11ec-bf63-0242ac130002",
+                "contentKind": "AnalyticsRule",
+                "displayName": "GWorkspace - An Outbound Relay has been added to a G Suite Domain",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-googleworksp-ar-mh5zsimczp7q2",
                 "id": "azuresentinel.azure-sentinel-solution-googleworksp-ar-mh5zsimczp7q2",
-                "contentSchemaVersion": "3.0.0",
                 "version": "1.0.1",
-                "isDeprecated": false
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "GWorkspaceActivityReports"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "GoogleWorkspaceReportsAPI"
+                        }
+                    ]
+                }
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-ar-',uniquestring('8f6cd9a4-5e57-11ec-bf63-0242ac130002')),'1.0.1'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-ar-',uniquestring('8f6cd9a4-5e57-11ec-bf63-0242ac130002')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-googleworkspacereports')]"
             ],
             "properties": {
-                "contentId": "8f6cd9a4-5e57-11ec-bf63-0242ac130002",
-                "displayName": "GWorkspace - Possible brute force attack",
-                "contentKind": "AnalyticsRule",
+                "description": "GWorkspacePossibleBruteForce_AnalyticalRules Analytics Rule with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -928,7 +1012,7 @@
                         {
                             "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
                             "name": "8f6cd9a4-5e57-11ec-bf63-0242ac130002",
-                            "apiVersion": "2022-04-01-preview",
+                            "apiVersion": "2023-02-01-preview",
                             "kind": "Scheduled",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -960,13 +1044,13 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountCustomEntity"
+                                                "columnName": "AccountCustomEntity",
+                                                "identifier": "Name"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     }
                                 ]
                             }
@@ -1001,28 +1085,42 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.6",
-                "packageName": "Google Workspace Reports",
+                "packageVersion": "3.0.0",
+                "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "8f6cd9a4-5e57-11ec-bf63-0242ac130002",
+                "contentKind": "AnalyticsRule",
+                "displayName": "GWorkspace - Possible brute force attack",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-googleworksp-ar-srjm7idwspalc",
                 "id": "azuresentinel.azure-sentinel-solution-googleworksp-ar-srjm7idwspalc",
-                "contentSchemaVersion": "3.0.0",
                 "version": "1.0.1",
-                "isDeprecated": false
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "GWorkspaceActivityReports"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "GoogleWorkspaceReportsAPI"
+                        }
+                    ]
+                }
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-ar-',uniquestring('d80d02a8-5da6-11ec-bf63-0242ac130002')),'1.0.1'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-ar-',uniquestring('d80d02a8-5da6-11ec-bf63-0242ac130002')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-googleworkspacereports')]"
             ],
             "properties": {
-                "contentId": "d80d02a8-5da6-11ec-bf63-0242ac130002",
-                "displayName": "GWorkspace - Possible maldoc file name in Google drive",
-                "contentKind": "AnalyticsRule",
+                "description": "GWorkspacePossibleMaldocFileNamesInGDRIVE_AnalyticalRules Analytics Rule with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -1032,7 +1130,7 @@
                         {
                             "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
                             "name": "d80d02a8-5da6-11ec-bf63-0242ac130002",
-                            "apiVersion": "2022-04-01-preview",
+                            "apiVersion": "2023-02-01-preview",
                             "kind": "Scheduled",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -1064,22 +1162,22 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "File",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "FileCustomEntity"
+                                                "columnName": "FileCustomEntity",
+                                                "identifier": "Name"
                                             }
-                                        ],
-                                        "entityType": "File"
+                                        ]
                                     },
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountCustomEntity"
+                                                "columnName": "AccountCustomEntity",
+                                                "identifier": "Name"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     }
                                 ]
                             }
@@ -1114,28 +1212,42 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.6",
-                "packageName": "Google Workspace Reports",
+                "packageVersion": "3.0.0",
+                "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "d80d02a8-5da6-11ec-bf63-0242ac130002",
+                "contentKind": "AnalyticsRule",
+                "displayName": "GWorkspace - Possible maldoc file name in Google drive",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-googleworksp-ar-5nkbdfecksvjk",
                 "id": "azuresentinel.azure-sentinel-solution-googleworksp-ar-5nkbdfecksvjk",
-                "contentSchemaVersion": "3.0.0",
                 "version": "1.0.1",
-                "isDeprecated": false
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "GWorkspaceActivityReports"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "GoogleWorkspaceReportsAPI"
+                        }
+                    ]
+                }
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-ar-',uniquestring('c8cc02d0-5da6-11ec-bf63-0242ac130002')),'1.0.0'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-ar-',uniquestring('c8cc02d0-5da6-11ec-bf63-0242ac130002')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-googleworkspacereports')]"
             ],
             "properties": {
-                "contentId": "c8cc02d0-5da6-11ec-bf63-0242ac130002",
-                "displayName": "GWorkspace - Two-step authentification disabled for a user",
-                "contentKind": "AnalyticsRule",
+                "description": "GWorkspaceTwoStepAuthenticationDisabledForUser_AnalyticalRules Analytics Rule with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -1145,7 +1257,7 @@
                         {
                             "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
                             "name": "c8cc02d0-5da6-11ec-bf63-0242ac130002",
-                            "apiVersion": "2022-04-01-preview",
+                            "apiVersion": "2023-02-01-preview",
                             "kind": "Scheduled",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -1177,13 +1289,13 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountCustomEntity"
+                                                "columnName": "AccountCustomEntity",
+                                                "identifier": "Name"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     }
                                 ]
                             }
@@ -1218,38 +1330,52 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.6",
-                "packageName": "Google Workspace Reports",
+                "packageVersion": "3.0.0",
+                "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "c8cc02d0-5da6-11ec-bf63-0242ac130002",
+                "contentKind": "AnalyticsRule",
+                "displayName": "GWorkspace - Two-step authentification disabled for a user",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-googleworksp-ar-t4ehire62fwzy",
                 "id": "azuresentinel.azure-sentinel-solution-googleworksp-ar-t4ehire62fwzy",
-                "contentSchemaVersion": "3.0.0",
                 "version": "1.0.0",
-                "isDeprecated": false
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "GWorkspaceActivityReports"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "GoogleWorkspaceReportsAPI"
+                        }
+                    ]
+                }
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-ar-',uniquestring('c02b0c8e-5da6-11ec-bf63-0242ac130002')),'1.0.1'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-ar-',uniquestring('c02b0c8e-5da6-11ec-bf63-0242ac130002')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-googleworkspacereports')]"
             ],
             "properties": {
-                "contentId": "c02b0c8e-5da6-11ec-bf63-0242ac130002",
-                "displayName": "GWorkspace - Unexpected OS update",
-                "contentKind": "AnalyticsRule",
+                "description": "GWorkspaceUnexpectedOSUpdate_AnalyticalRules Analytics Rule with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.1",
+                    "contentVersion": "1.0.2",
                     "parameters": {},
                     "variables": {},
                     "resources": [
                         {
                             "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
                             "name": "c02b0c8e-5da6-11ec-bf63-0242ac130002",
-                            "apiVersion": "2022-04-01-preview",
+                            "apiVersion": "2023-02-01-preview",
                             "kind": "Scheduled",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -1274,17 +1400,22 @@
                                     }
                                 ],
                                 "tactics": [
-                                    "PrivilegeEscalation"
+                                    "DefenseEvasion",
+                                    "Persistence"
+                                ],
+                                "techniques": [
+                                    "T1036",
+                                    "T1554"
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountCustomEntity"
+                                                "columnName": "AccountCustomEntity",
+                                                "identifier": "Name"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     }
                                 ]
                             }
@@ -1298,7 +1429,7 @@
                                 "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', 'c02b0c8e-5da6-11ec-bf63-0242ac130002')]",
                                 "contentId": "c02b0c8e-5da6-11ec-bf63-0242ac130002",
                                 "kind": "AnalyticsRule",
-                                "version": "1.0.1",
+                                "version": "1.0.2",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "GoogleWorkspaceReports",
@@ -1319,28 +1450,42 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.6",
-                "packageName": "Google Workspace Reports",
+                "packageVersion": "3.0.0",
+                "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-googleworksp-ar-knxb3gejrbl64",
-                "id": "azuresentinel.azure-sentinel-solution-googleworksp-ar-knxb3gejrbl64",
                 "contentSchemaVersion": "3.0.0",
-                "version": "1.0.1",
-                "isDeprecated": false
+                "contentId": "c02b0c8e-5da6-11ec-bf63-0242ac130002",
+                "contentKind": "AnalyticsRule",
+                "displayName": "GWorkspace - Unexpected OS update",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-googleworksp-ar-zj53r3gtlrw64",
+                "id": "azuresentinel.azure-sentinel-solution-googleworksp-ar-zj53r3gtlrw64",
+                "version": "1.0.2",
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "GWorkspaceActivityReports"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "GoogleWorkspaceReportsAPI"
+                        }
+                    ]
+                }
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-dc-',uniquestring('GoogleWorkspaceReportsAPI')),'1.0.0'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-dc-',uniquestring('GoogleWorkspaceReportsAPI')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-googleworkspacereports')]"
             ],
             "properties": {
-                "contentId": "GoogleWorkspaceReportsAPI",
-                "displayName": "Google Workspace (G Suite) (using Azure Functions)",
-                "contentKind": "DataConnector",
+                "description": "GoogleWorkspaceReports data connector with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -1521,7 +1666,7 @@
                                             "description": ">**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App."
                                         },
                                         {
-                                            "description": "**NOTE:** This data connector depends on a parser based on a Kusto Function to work as expected which is deployed as part of the solution. To view the function code in Log Analytics, open Log Analytics/Microsoft Sentinel Logs blade, click Functions and search for the alias GWorkspaceReports and load the function code or click [here](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/GoogleWorkspaceReports/Parsers/GWorkspaceActivityReports), on the second line of the query, enter the hostname(s) of your GWorkspaceReports device(s) and any other unique identifiers for the logstream. The function usually takes 10-15 minutes to activate after solution installation/update."
+                                            "description": "**NOTE:** This data connector depends on a parser based on a Kusto Function to work as expected which is deployed as part of the solution. To view the function code in Log Analytics, open Log Analytics/Microsoft Sentinel Logs blade, click Functions and search for the alias GWorkspaceReports and load the function code or click [here](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/GoogleWorkspaceReports/Parsers/GWorkspaceActivityReports.yaml), on the second line of the query, enter the hostname(s) of your GWorkspaceReports device(s) and any other unique identifiers for the logstream. The function usually takes 10-15 minutes to activate after solution installation/update."
                                         },
                                         {
                                             "description": "**STEP 1 - Ensure the prerequisites to obtain the Google Pickel String**\n\n"
@@ -1564,7 +1709,7 @@
                                             "title": "Option 2 - Manual Deployment of Azure Functions"
                                         },
                                         {
-                                            "description": "**1. Deploy a Function App**\n\n> **NOTE:** You will need to [prepare VS code](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-python#prerequisites) for Azure function development.\n\n1. Download the [Azure Function App](https://aka.ms/sentinel-GWorkspaceReportsAPI-functionapp) file. Extract archive to your local development computer.\n2. Start VS Code. Choose File in the main menu and select Open Folder.\n3. Select the top level folder from extracted files.\n4. Choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, choose the **Deploy to function app** button.\nIf you aren't already signed in, choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, choose **Sign in to Azure**\nIf you're already signed in, go to the next step.\n5. Provide the following information at the prompts:\n\n\ta. **Select folder:** Choose a folder from your workspace or browse to one that contains your function app.\n\n\tb. **Select Subscription:** Choose the subscription to use.\n\n\tc. Select **Create new Function App in Azure** (Don't choose the Advanced option)\n\n\td. **Enter a globally unique name for the function app:** Type a name that is valid in a URL path. The name you type is validated to make sure that it's unique in Azure Functions. (e.g. GWorkspaceXXXXX).\n\n\te. **Select a runtime:** Choose Python 3.8.\n\n\tf. Select a location for new resources. For better performance and lower costs choose the same [region](https://azure.microsoft.com/regions/) where Microsoft Sentinel is located.\n\n6. Deployment will begin. A notification is displayed after your function app is created and the deployment package is applied.\n7. Go to Azure Portal for the Function App configuration."
+                                            "description": "**1. Deploy a Function App**\n\n> **NOTE:** You will need to [prepare VS code](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-python#prerequisites) for Azure function development.\n\n1. Download the [Azure Function App](https://aka.ms/sentinel-GWorkspaceReportsAPI-functionapp) file. Extract archive to your local development computer.\n2. Start VS Code. Choose File in the main menu and select Open Folder.\n3. Select the top level folder from extracted files.\n4. Choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, choose the **Deploy to function app** button.\nIf you aren't already signed in, choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, choose **Sign in to Azure**\nIf you're already signed in, go to the next step.\n5. Provide the following information at the prompts:\n\n\ta. **Select folder:** Choose a folder from your workspace or browse to one that contains your function app.\n\n\tb. **Select Subscription:** Choose the subscription to use.\n\n\tc. Select **Create new Function App in Azure** (Don't choose the Advanced option)\n\n\td. **Enter a globally unique name for the function app:** Type a name that is valid in a URL path. The name you type is validated to make sure that it's unique in Azure Functions. (e.g. GWorkspaceXXXXX).\n\n\te. **Select a runtime:** Choose Python 3.11.\n\n\tf. Select a location for new resources. For better performance and lower costs choose the same [region](https://azure.microsoft.com/regions/) where Microsoft Sentinel is located.\n\n6. Deployment will begin. A notification is displayed after your function app is created and the deployment package is applied.\n7. Go to Azure Portal for the Function App configuration."
                                         },
                                         {
                                             "description": "**2. Configure the Function App**\n\n1. In the Function App, select the Function App Name and select **Configuration**.\n2. In the **Application settings** tab, select ** New application setting**.\n3. Add each of the following application settings individually, with their respective string values (case-sensitive): \n\t\tGooglePickleString\n\t\tWorkspaceID\n\t\tWorkspaceKey\n\t\tlogAnalyticsUri (optional)\n4. (Optional) Change the default delays if required. \n\n\t> **NOTE:** The following default values for ingestion delays have been added for different set of logs from Google Workspace based on Google [documentation](https://support.google.com/a/answer/7061566). These can be modified based on environmental requirements. \n\t\t Fetch Delay - 10 minutes \n\t\t Calendar Fetch Delay - 6 hours \n\t\t Chat Fetch Delay - 1 day \n\t\t User Accounts Fetch Delay - 3 hours \n\t\t Login Fetch Delay - 6 hours  \n\n5. Use logAnalyticsUri to override the log analytics API endpoint for dedicated cloud. For example, for public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: `https://<CustomerId>.ods.opinsights.azure.us`. \n6. Once all application settings have been entered, click **Save**."
@@ -1575,7 +1720,7 @@
                         },
                         {
                             "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
-                            "apiVersion": "2022-01-01-preview",
+                            "apiVersion": "2023-04-01-preview",
                             "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('DataConnector-', last(split(extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'GoogleWorkspaceReportsAPI'),'/'))))]",
                             "properties": {
                                 "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'GoogleWorkspaceReportsAPI')]",
@@ -1602,19 +1747,22 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.6",
-                "packageName": "Google Workspace Reports",
+                "packageVersion": "3.0.0",
+                "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "GoogleWorkspaceReportsAPI",
+                "contentKind": "DataConnector",
+                "displayName": "Google Workspace (G Suite) (using Azure Functions)",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-googleworksp-dc-xunuvn564t5ji",
                 "id": "azuresentinel.azure-sentinel-solution-googleworksp-dc-xunuvn564t5ji",
-                "contentSchemaVersion": "3.0.0",
                 "version": "1.0.0",
                 "isDeprecated": false
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
-            "apiVersion": "2022-01-01-preview",
+            "apiVersion": "2023-04-01-preview",
             "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('DataConnector-', last(split(extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'GoogleWorkspaceReportsAPI'),'/'))))]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'GoogleWorkspaceReportsAPI')]"
@@ -1814,7 +1962,7 @@
                             "description": ">**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App."
                         },
                         {
-                            "description": "**NOTE:** This data connector depends on a parser based on a Kusto Function to work as expected which is deployed as part of the solution. To view the function code in Log Analytics, open Log Analytics/Microsoft Sentinel Logs blade, click Functions and search for the alias GWorkspaceReports and load the function code or click [here](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/GoogleWorkspaceReports/Parsers/GWorkspaceActivityReports), on the second line of the query, enter the hostname(s) of your GWorkspaceReports device(s) and any other unique identifiers for the logstream. The function usually takes 10-15 minutes to activate after solution installation/update."
+                            "description": "**NOTE:** This data connector depends on a parser based on a Kusto Function to work as expected which is deployed as part of the solution. To view the function code in Log Analytics, open Log Analytics/Microsoft Sentinel Logs blade, click Functions and search for the alias GWorkspaceReports and load the function code or click [here](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/GoogleWorkspaceReports/Parsers/GWorkspaceActivityReports.yaml), on the second line of the query, enter the hostname(s) of your GWorkspaceReports device(s) and any other unique identifiers for the logstream. The function usually takes 10-15 minutes to activate after solution installation/update."
                         },
                         {
                             "description": "**STEP 1 - Ensure the prerequisites to obtain the Google Pickel String**\n\n"
@@ -1857,7 +2005,7 @@
                             "title": "Option 2 - Manual Deployment of Azure Functions"
                         },
                         {
-                            "description": "**1. Deploy a Function App**\n\n> **NOTE:** You will need to [prepare VS code](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-python#prerequisites) for Azure function development.\n\n1. Download the [Azure Function App](https://aka.ms/sentinel-GWorkspaceReportsAPI-functionapp) file. Extract archive to your local development computer.\n2. Start VS Code. Choose File in the main menu and select Open Folder.\n3. Select the top level folder from extracted files.\n4. Choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, choose the **Deploy to function app** button.\nIf you aren't already signed in, choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, choose **Sign in to Azure**\nIf you're already signed in, go to the next step.\n5. Provide the following information at the prompts:\n\n\ta. **Select folder:** Choose a folder from your workspace or browse to one that contains your function app.\n\n\tb. **Select Subscription:** Choose the subscription to use.\n\n\tc. Select **Create new Function App in Azure** (Don't choose the Advanced option)\n\n\td. **Enter a globally unique name for the function app:** Type a name that is valid in a URL path. The name you type is validated to make sure that it's unique in Azure Functions. (e.g. GWorkspaceXXXXX).\n\n\te. **Select a runtime:** Choose Python 3.8.\n\n\tf. Select a location for new resources. For better performance and lower costs choose the same [region](https://azure.microsoft.com/regions/) where Microsoft Sentinel is located.\n\n6. Deployment will begin. A notification is displayed after your function app is created and the deployment package is applied.\n7. Go to Azure Portal for the Function App configuration."
+                            "description": "**1. Deploy a Function App**\n\n> **NOTE:** You will need to [prepare VS code](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-python#prerequisites) for Azure function development.\n\n1. Download the [Azure Function App](https://aka.ms/sentinel-GWorkspaceReportsAPI-functionapp) file. Extract archive to your local development computer.\n2. Start VS Code. Choose File in the main menu and select Open Folder.\n3. Select the top level folder from extracted files.\n4. Choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, choose the **Deploy to function app** button.\nIf you aren't already signed in, choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, choose **Sign in to Azure**\nIf you're already signed in, go to the next step.\n5. Provide the following information at the prompts:\n\n\ta. **Select folder:** Choose a folder from your workspace or browse to one that contains your function app.\n\n\tb. **Select Subscription:** Choose the subscription to use.\n\n\tc. Select **Create new Function App in Azure** (Don't choose the Advanced option)\n\n\td. **Enter a globally unique name for the function app:** Type a name that is valid in a URL path. The name you type is validated to make sure that it's unique in Azure Functions. (e.g. GWorkspaceXXXXX).\n\n\te. **Select a runtime:** Choose Python 3.11.\n\n\tf. Select a location for new resources. For better performance and lower costs choose the same [region](https://azure.microsoft.com/regions/) where Microsoft Sentinel is located.\n\n6. Deployment will begin. A notification is displayed after your function app is created and the deployment package is applied.\n7. Go to Azure Portal for the Function App configuration."
                         },
                         {
                             "description": "**2. Configure the Function App**\n\n1. In the Function App, select the Function App Name and select **Configuration**.\n2. In the **Application settings** tab, select ** New application setting**.\n3. Add each of the following application settings individually, with their respective string values (case-sensitive): \n\t\tGooglePickleString\n\t\tWorkspaceID\n\t\tWorkspaceKey\n\t\tlogAnalyticsUri (optional)\n4. (Optional) Change the default delays if required. \n\n\t> **NOTE:** The following default values for ingestion delays have been added for different set of logs from Google Workspace based on Google [documentation](https://support.google.com/a/answer/7061566). These can be modified based on environmental requirements. \n\t\t Fetch Delay - 10 minutes \n\t\t Calendar Fetch Delay - 6 hours \n\t\t Chat Fetch Delay - 1 day \n\t\t User Accounts Fetch Delay - 3 hours \n\t\t Login Fetch Delay - 6 hours  \n\n5. Use logAnalyticsUri to override the log analytics API endpoint for dedicated cloud. For example, for public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: `https://<CustomerId>.ods.opinsights.azure.us`. \n6. Once all application settings have been entered, click **Save**."
@@ -1870,16 +2018,14 @@
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-hq-',uniquestring('00d743e2-5dac-11ec-bf63-0242ac130002')),'1.0.0'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-hq-',uniquestring('00d743e2-5dac-11ec-bf63-0242ac130002')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-googleworkspacereports')]"
             ],
             "properties": {
-                "contentId": "00d743e2-5dac-11ec-bf63-0242ac130002",
-                "displayName": "GWorkspace - Document shared externally",
-                "contentKind": "HuntingQuery",
+                "description": "GWorkspaceDocumentSharedExternally_HuntingQueries Hunting Query with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -1888,7 +2034,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2020-08-01",
+                            "apiVersion": "2022-10-01",
                             "name": "GoogleWorkspaceReports_Hunting_Query_1",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -1943,28 +2089,29 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.6",
-                "packageName": "Google Workspace Reports",
+                "packageVersion": "3.0.0",
+                "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "00d743e2-5dac-11ec-bf63-0242ac130002",
+                "contentKind": "HuntingQuery",
+                "displayName": "GWorkspace - Document shared externally",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-googleworksp-hq-ynvg4u3svzf22",
                 "id": "azuresentinel.azure-sentinel-solution-googleworksp-hq-ynvg4u3svzf22",
-                "contentSchemaVersion": "3.0.0",
                 "version": "1.0.0",
                 "isDeprecated": false
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-hq-',uniquestring('e37c86ea-5dab-11ec-bf63-0242ac130002')),'1.0.0'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-hq-',uniquestring('e37c86ea-5dab-11ec-bf63-0242ac130002')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-googleworkspacereports')]"
             ],
             "properties": {
-                "contentId": "e37c86ea-5dab-11ec-bf63-0242ac130002",
-                "displayName": "GWorkspace - Document shared publicy in web",
-                "contentKind": "HuntingQuery",
+                "description": "GWorkspaceDocumentSharedPublicily_HuntingQueries Hunting Query with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -1973,7 +2120,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2020-08-01",
+                            "apiVersion": "2022-10-01",
                             "name": "GoogleWorkspaceReports_Hunting_Query_2",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -2028,28 +2175,29 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.6",
-                "packageName": "Google Workspace Reports",
+                "packageVersion": "3.0.0",
+                "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "e37c86ea-5dab-11ec-bf63-0242ac130002",
+                "contentKind": "HuntingQuery",
+                "displayName": "GWorkspace - Document shared publicy in web",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-googleworksp-hq-ll2j4votbskbu",
                 "id": "azuresentinel.azure-sentinel-solution-googleworksp-hq-ll2j4votbskbu",
-                "contentSchemaVersion": "3.0.0",
                 "version": "1.0.0",
                 "isDeprecated": false
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-hq-',uniquestring('c7c65c78-5dab-11ec-bf63-0242ac130002')),'1.0.0'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-hq-',uniquestring('c7c65c78-5dab-11ec-bf63-0242ac130002')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-googleworkspacereports')]"
             ],
             "properties": {
-                "contentId": "c7c65c78-5dab-11ec-bf63-0242ac130002",
-                "displayName": "GWorkspace - Document shared publicy with link",
-                "contentKind": "HuntingQuery",
+                "description": "GWorkspaceDocumentSharedPublicilyWithLink_HuntingQueries Hunting Query with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -2058,7 +2206,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2020-08-01",
+                            "apiVersion": "2022-10-01",
                             "name": "GoogleWorkspaceReports_Hunting_Query_3",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -2113,28 +2261,29 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.6",
-                "packageName": "Google Workspace Reports",
+                "packageVersion": "3.0.0",
+                "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "c7c65c78-5dab-11ec-bf63-0242ac130002",
+                "contentKind": "HuntingQuery",
+                "displayName": "GWorkspace - Document shared publicy with link",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-googleworksp-hq-hbqpj7uc5p4sy",
                 "id": "azuresentinel.azure-sentinel-solution-googleworksp-hq-hbqpj7uc5p4sy",
-                "contentSchemaVersion": "3.0.0",
                 "version": "1.0.0",
                 "isDeprecated": false
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-hq-',uniquestring('bb6bf88e-5dab-11ec-bf63-0242ac130002')),'1.0.0'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-hq-',uniquestring('bb6bf88e-5dab-11ec-bf63-0242ac130002')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-googleworkspacereports')]"
             ],
             "properties": {
-                "contentId": "bb6bf88e-5dab-11ec-bf63-0242ac130002",
-                "displayName": "GWorkspace - Multi IP addresses by user",
-                "contentKind": "HuntingQuery",
+                "description": "GWorkspaceMultiIPAddresses_HuntingQueries Hunting Query with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -2143,7 +2292,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2020-08-01",
+                            "apiVersion": "2022-10-01",
                             "name": "GoogleWorkspaceReports_Hunting_Query_4",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -2198,28 +2347,29 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.6",
-                "packageName": "Google Workspace Reports",
+                "packageVersion": "3.0.0",
+                "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "bb6bf88e-5dab-11ec-bf63-0242ac130002",
+                "contentKind": "HuntingQuery",
+                "displayName": "GWorkspace - Multi IP addresses by user",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-googleworksp-hq-4waz2757lcj2u",
                 "id": "azuresentinel.azure-sentinel-solution-googleworksp-hq-4waz2757lcj2u",
-                "contentSchemaVersion": "3.0.0",
                 "version": "1.0.0",
                 "isDeprecated": false
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-hq-',uniquestring('29ce9d14-5dab-11ec-bf63-0242ac130002')),'1.0.0'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-hq-',uniquestring('29ce9d14-5dab-11ec-bf63-0242ac130002')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-googleworkspacereports')]"
             ],
             "properties": {
-                "contentId": "29ce9d14-5dab-11ec-bf63-0242ac130002",
-                "displayName": "GWorkspace - Possible SCAM/SPAM or Phishing via Calendar",
-                "contentKind": "HuntingQuery",
+                "description": "GWorkspacePossibleSCAMSPAMorPhishingCalendar_HuntingQueries Hunting Query with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -2228,7 +2378,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2020-08-01",
+                            "apiVersion": "2022-10-01",
                             "name": "GoogleWorkspaceReports_Hunting_Query_5",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -2283,28 +2433,29 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.6",
-                "packageName": "Google Workspace Reports",
+                "packageVersion": "3.0.0",
+                "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "29ce9d14-5dab-11ec-bf63-0242ac130002",
+                "contentKind": "HuntingQuery",
+                "displayName": "GWorkspace - Possible SCAM/SPAM or Phishing via Calendar",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-googleworksp-hq-l2plctbgx6sji",
                 "id": "azuresentinel.azure-sentinel-solution-googleworksp-hq-l2plctbgx6sji",
-                "contentSchemaVersion": "3.0.0",
                 "version": "1.0.0",
                 "isDeprecated": false
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-hq-',uniquestring('0b20d206-5dab-11ec-bf63-0242ac130002')),'1.0.0'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-hq-',uniquestring('0b20d206-5dab-11ec-bf63-0242ac130002')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-googleworkspacereports')]"
             ],
             "properties": {
-                "contentId": "0b20d206-5dab-11ec-bf63-0242ac130002",
-                "displayName": "GWorkspace - Rare document types by users",
-                "contentKind": "HuntingQuery",
+                "description": "GWorkspaceRareDocType_HuntingQueries Hunting Query with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -2313,7 +2464,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2020-08-01",
+                            "apiVersion": "2022-10-01",
                             "name": "GoogleWorkspaceReports_Hunting_Query_6",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -2368,28 +2519,29 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.6",
-                "packageName": "Google Workspace Reports",
+                "packageVersion": "3.0.0",
+                "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "0b20d206-5dab-11ec-bf63-0242ac130002",
+                "contentKind": "HuntingQuery",
+                "displayName": "GWorkspace - Rare document types by users",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-googleworksp-hq-ho3o5wuphmixe",
                 "id": "azuresentinel.azure-sentinel-solution-googleworksp-hq-ho3o5wuphmixe",
-                "contentSchemaVersion": "3.0.0",
                 "version": "1.0.0",
                 "isDeprecated": false
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-hq-',uniquestring('2da2122e-5da9-11ec-bf63-0242ac130002')),'1.0.0'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-hq-',uniquestring('2da2122e-5da9-11ec-bf63-0242ac130002')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-googleworkspacereports')]"
             ],
             "properties": {
-                "contentId": "2da2122e-5da9-11ec-bf63-0242ac130002",
-                "displayName": "GWorkspace - Shared private document",
-                "contentKind": "HuntingQuery",
+                "description": "GWorkspaceSharedPrivateDocument_HuntingQueries Hunting Query with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -2398,7 +2550,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2020-08-01",
+                            "apiVersion": "2022-10-01",
                             "name": "GoogleWorkspaceReports_Hunting_Query_7",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -2453,28 +2605,29 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.6",
-                "packageName": "Google Workspace Reports",
+                "packageVersion": "3.0.0",
+                "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "2da2122e-5da9-11ec-bf63-0242ac130002",
+                "contentKind": "HuntingQuery",
+                "displayName": "GWorkspace - Shared private document",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-googleworksp-hq-bvlvkysa7ktds",
                 "id": "azuresentinel.azure-sentinel-solution-googleworksp-hq-bvlvkysa7ktds",
-                "contentSchemaVersion": "3.0.0",
                 "version": "1.0.0",
                 "isDeprecated": false
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-hq-',uniquestring('26cea052-5da9-11ec-bf63-0242ac130002')),'1.0.0'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-hq-',uniquestring('26cea052-5da9-11ec-bf63-0242ac130002')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-googleworkspacereports')]"
             ],
             "properties": {
-                "contentId": "26cea052-5da9-11ec-bf63-0242ac130002",
-                "displayName": "GWorkspace - Suspended users",
-                "contentKind": "HuntingQuery",
+                "description": "GWorkspaceSuspendedUsers_HuntingQueries Hunting Query with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -2483,7 +2636,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2020-08-01",
+                            "apiVersion": "2022-10-01",
                             "name": "GoogleWorkspaceReports_Hunting_Query_8",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -2538,28 +2691,29 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.6",
-                "packageName": "Google Workspace Reports",
+                "packageVersion": "3.0.0",
+                "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "26cea052-5da9-11ec-bf63-0242ac130002",
+                "contentKind": "HuntingQuery",
+                "displayName": "GWorkspace - Suspended users",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-googleworksp-hq-h2zojnten6tfy",
                 "id": "azuresentinel.azure-sentinel-solution-googleworksp-hq-h2zojnten6tfy",
-                "contentSchemaVersion": "3.0.0",
                 "version": "1.0.0",
                 "isDeprecated": false
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-hq-',uniquestring('1efb71b6-5da9-11ec-bf63-0242ac130002')),'1.0.0'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-hq-',uniquestring('1efb71b6-5da9-11ec-bf63-0242ac130002')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-googleworkspacereports')]"
             ],
             "properties": {
-                "contentId": "1efb71b6-5da9-11ec-bf63-0242ac130002",
-                "displayName": "GWorkspace - Uncommon user agent strings",
-                "contentKind": "HuntingQuery",
+                "description": "GWorkspaceUncommonUAsString_HuntingQueries Hunting Query with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -2568,7 +2722,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2020-08-01",
+                            "apiVersion": "2022-10-01",
                             "name": "GoogleWorkspaceReports_Hunting_Query_9",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -2623,28 +2777,29 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.6",
-                "packageName": "Google Workspace Reports",
+                "packageVersion": "3.0.0",
+                "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "1efb71b6-5da9-11ec-bf63-0242ac130002",
+                "contentKind": "HuntingQuery",
+                "displayName": "GWorkspace - Uncommon user agent strings",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-googleworksp-hq-rsiyx2e2i3yv2",
                 "id": "azuresentinel.azure-sentinel-solution-googleworksp-hq-rsiyx2e2i3yv2",
-                "contentSchemaVersion": "3.0.0",
                 "version": "1.0.0",
                 "isDeprecated": false
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-hq-',uniquestring('05189314-5e58-11ec-bf63-0242ac130002')),'1.0.0'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-hq-',uniquestring('05189314-5e58-11ec-bf63-0242ac130002')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-googleworkspacereports')]"
             ],
             "properties": {
-                "contentId": "05189314-5e58-11ec-bf63-0242ac130002",
-                "displayName": "GWorkspace - Unknown login type",
-                "contentKind": "HuntingQuery",
+                "description": "GWorkspaceUnknownLoginType_HuntingQueries Hunting Query with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -2653,7 +2808,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2020-08-01",
+                            "apiVersion": "2022-10-01",
                             "name": "GoogleWorkspaceReports_Hunting_Query_10",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -2708,28 +2863,29 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.6",
-                "packageName": "Google Workspace Reports",
+                "packageVersion": "3.0.0",
+                "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "05189314-5e58-11ec-bf63-0242ac130002",
+                "contentKind": "HuntingQuery",
+                "displayName": "GWorkspace - Unknown login type",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-googleworksp-hq-v7hanhrc56hs2",
                 "id": "azuresentinel.azure-sentinel-solution-googleworksp-hq-v7hanhrc56hs2",
-                "contentSchemaVersion": "3.0.0",
                 "version": "1.0.0",
                 "isDeprecated": false
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-hq-',uniquestring('181bda98-5da9-11ec-bf63-0242ac130002')),'1.0.0'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-hq-',uniquestring('181bda98-5da9-11ec-bf63-0242ac130002')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-googleworkspacereports')]"
             ],
             "properties": {
-                "contentId": "181bda98-5da9-11ec-bf63-0242ac130002",
-                "displayName": "GWorkspace - User reported calendar invite as spam",
-                "contentKind": "HuntingQuery",
+                "description": "GWorkspaceUserReportedCalendarInviteAsSpam_HuntingQueries Hunting Query with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -2738,7 +2894,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2020-08-01",
+                            "apiVersion": "2022-10-01",
                             "name": "GoogleWorkspaceReports_Hunting_Query_11",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -2793,28 +2949,29 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.6",
-                "packageName": "Google Workspace Reports",
+                "packageVersion": "3.0.0",
+                "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "181bda98-5da9-11ec-bf63-0242ac130002",
+                "contentKind": "HuntingQuery",
+                "displayName": "GWorkspace - User reported calendar invite as spam",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-googleworksp-hq-byuj32zfx46cw",
                 "id": "azuresentinel.azure-sentinel-solution-googleworksp-hq-byuj32zfx46cw",
-                "contentSchemaVersion": "3.0.0",
                 "version": "1.0.0",
                 "isDeprecated": false
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(concat(parameters('workspace'),'-hq-',uniquestring('1087fb40-5da9-11ec-bf63-0242ac130002')),'1.0.0'))]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-hq-',uniquestring('1087fb40-5da9-11ec-bf63-0242ac130002')))]",
+            "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-googleworkspacereports')]"
             ],
             "properties": {
-                "contentId": "1087fb40-5da9-11ec-bf63-0242ac130002",
-                "displayName": "GWorkspace - Users with several devices",
-                "contentKind": "HuntingQuery",
+                "description": "GWorkspaceUserWithSeveralDevices_HuntingQueries Hunting Query with template version 3.0.0",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -2823,7 +2980,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2020-08-01",
+                            "apiVersion": "2022-10-01",
                             "name": "GoogleWorkspaceReports_Hunting_Query_12",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -2878,26 +3035,36 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "2.0.6",
-                "packageName": "Google Workspace Reports",
+                "packageVersion": "3.0.0",
+                "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "1087fb40-5da9-11ec-bf63-0242ac130002",
+                "contentKind": "HuntingQuery",
+                "displayName": "GWorkspace - Users with several devices",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-googleworksp-hq-w2u4yp7czz5is",
                 "id": "azuresentinel.azure-sentinel-solution-googleworksp-hq-w2u4yp7czz5is",
-                "contentSchemaVersion": "3.0.0",
                 "version": "1.0.0",
                 "isDeprecated": false
             }
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentPackages",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', 'azuresentinel.azure-sentinel-solution-googleworkspacereports')]",
-            "location": "[parameters('workspace-location')]",
             "apiVersion": "2023-04-01-preview",
+            "location": "[parameters('workspace-location')]",
             "properties": {
-                "version": "2.0.6",
+                "version": "3.0.0",
                 "kind": "Solution",
                 "contentSchemaVersion": "3.0.0",
+                "displayName": "Google Workspace Reports",
+                "publisherDisplayName": "Microsoft Sentinel, Microsoft Corporation",
+                "descriptionHtml": "<p><strong>Note:</strong> Please refer to the following before installing the solution:</p><p>\u2022 Review the solution <a target=\"_blank\" href=\"https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/GoogleWorkspaceReports/ReleaseNotes.md\" rel=\"noopener\">Release Notes</a></p><p>The <a target=\"_blank\" href=\"https://workspace.google.com/\" rel=\"noopener\">Google Workspace</a> solution for Microsoft Sentinel enables you to ingest Google Workspace Activity events into Microsoft Sentinel.</p><p><strong>Underlying Microsoft Technologies used:</strong></p><p>This solution takes a dependency on the following technologies, and some of these dependencies either may be in <a target=\"_blank\" href=\"https://azure.microsoft.com/support/legal/preview-supplemental-terms/\" rel=\"noopener\">Preview</a> state or might result in additional ingestion or operational costs:</p><p>a. <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/azure-monitor/logs/data-collector-api?WT.mc_id=Portal-fx\" rel=\"noopener\">Azure Monitor HTTP Data Collector API</a></p><p>b. <a target=\"_blank\" href=\"https://azure.microsoft.com/services/functions/#overview\" rel=\"noopener\">Azure Functions</a></p><p><strong>Data Connectors:</strong> 1, <strong>Workbooks:</strong> 1, <strong>Analytic Rules:</strong> 10, <strong>Hunting Queries:</strong> 12</p><p><a target=\"_blank\" href=\"https://aka.ms/azuresentinel\" rel=\"noopener\">Learn more about Microsoft Sentinel</a> | <a target=\"_blank\" href=\"https://aka.ms/azuresentinelsolutionsdoc\" rel=\"noopener\">Learn more about Solutions</a></p>",
+                "contentKind": "Solution",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-googleworksp-sl-fwq2bs4z7n5ke",
+                "id": "azuresentinel.azure-sentinel-solution-googleworksp-sl-fwq2bs4z7n5ke",
+                "icon": "https://store-images.s-microsoft.com/image/apps.6107.7aa78aae-c722-4dc0-993c-3401b43c13d7.04302653-1009-4206-84fc-54ae9ec5b67c.98790eca-f40c-4dc5-8691-2813c64d99ff",
                 "contentId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
+                "parentId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "source": {
                     "kind": "Solution",
                     "name": "GoogleWorkspaceReports",
@@ -2974,7 +3141,7 @@
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "c02b0c8e-5da6-11ec-bf63-0242ac130002",
-                            "version": "1.0.1"
+                            "version": "1.0.2"
                         },
                         {
                             "kind": "DataConnector",
@@ -3053,16 +3220,10 @@
                         "Cloud Provider"
                     ]
                 },
-                "contentKind": "Solution",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-googleworksp-sl-yawqtnhubzrw2",
-                "id": "azuresentinel.azure-sentinel-solution-googleworksp-sl-yawqtnhubzrw2",
-                "displayName": "Google Workspace Reports",
-                "publisherDisplayName": "Microsoft Sentinel, Microsoft Corporation",
-                "descriptionHtml": "<p><strong>Note:</strong> <em>There may be <a target=\"_blank\" href=\"https://aka.ms/sentinelsolutionsknownissues\" rel=\"noopener\">known issues</a> pertaining to this Solution, please refer to them before installing.</em></p><p>The <a target=\"_blank\" href=\"https://workspace.google.com/\" rel=\"noopener\">Google Workspace</a> solution for Microsoft Sentinel enables you to ingest Google Workspace Activity events into Microsoft Sentinel.</p><p><strong>Underlying Microsoft Technologies used:</strong></p><p>This solution takes a dependency on the following technologies, and some of these dependencies either may be in <a target=\"_blank\" href=\"https://azure.microsoft.com/support/legal/preview-supplemental-terms/\" rel=\"noopener\">Preview</a> state or might result in additional ingestion or operational costs:</p><p>a. <a target=\"_blank\" href=\"https://docs.microsoft.com/azure/azure-monitor/logs/data-collector-api?WT.mc_id=Portal-fx\" rel=\"noopener\">Azure Monitor HTTP Data Collector API</a></p><p>b. <a target=\"_blank\" href=\"https://azure.microsoft.com/services/functions/#overview\" rel=\"noopener\">Azure Functions</a></p><p><strong>Data Connectors:</strong> 1, <strong>Parsers:</strong> 1, <strong>Workbooks:</strong> 1, <strong>Analytic Rules:</strong> 10, <strong>Hunting Queries:</strong> 12</p><p><a target=\"_blank\" href=\"https://aka.ms/azuresentinel\" rel=\"noopener\">Learn more about Microsoft Sentinel</a> | <a target=\"_blank\" href=\"https://aka.ms/azuresentinelsolutionsdoc\" rel=\"noopener\">Learn more about Solutions</a></p>",
-                "icon": "https://store-images.s-microsoft.com/image/apps.6107.7aa78aae-c722-4dc0-993c-3401b43c13d7.04302653-1009-4206-84fc-54ae9ec5b67c.98790eca-f40c-4dc5-8691-2813c64d99ff",
                 "isPreview": false,
                 "isDeprecated": false
-            }
+            },
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', 'azuresentinel.azure-sentinel-solution-googleworkspacereports')]"
         }
     ],
     "variables": {}

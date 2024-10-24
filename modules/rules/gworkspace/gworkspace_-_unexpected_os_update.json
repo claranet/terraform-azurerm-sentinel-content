@@ -13,20 +13,25 @@
         "triggerOperator": "GreaterThan",
         "triggerThreshold": 0,
         "tactics": [
-            "PrivilegeEscalation"
+            "DefenseEvasion",
+            "Persistence"
+        ],
+        "techniques": [
+            "T1036",
+            "T1554"
         ],
         "entityMappings": [
             {
+                "entityType": "Account",
                 "fieldMappings": [
                     {
-                        "identifier": "Name",
-                        "columnName": "AccountCustomEntity"
+                        "columnName": "AccountCustomEntity",
+                        "identifier": "Name"
                     }
-                ],
-                "entityType": "Account"
+                ]
             }
         ],
         "alertRuleTemplateName": "c02b0c8e-5da6-11ec-bf63-0242ac130002",
-        "templateVersion": "1.0.1"
+        "templateVersion": "1.0.2"
     }
 }
