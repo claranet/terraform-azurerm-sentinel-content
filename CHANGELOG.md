@@ -1,3 +1,20 @@
+## 7.14.0 (2024-10-24)
+
+### Features
+
+* bump `Google Workspace` package template version to 3.0.0 + update embedded rule 15d5871
+* bump `Okta` package template version to 3.0.9 aa9f128
+* bump `Windows Security` package template version to 3.0.9 61282ae
+
+### Miscellaneous Chores
+
+* **deps:** update dependency opentofu to v1.8.4 f358bf1
+* **deps:** update dependency pre-commit to v4.0.1 a18555d
+* **deps:** update dependency trivy to v0.56.2 946d03a
+* **deps:** update pre-commit hook tofuutils/pre-commit-opentofu to v2.1.0 ab51515
+* remove deprecated rule `TI Map URL Entity to OfficeActivity Data` b83a6c8
+* update examples structure 9a2b948
+
 ## 7.13.1 (2024-10-08)
 
 ### Documentation
