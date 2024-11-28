@@ -4,7 +4,7 @@
         "description": "Identifies compromises and attacks and detect malicious activities in one's email entity from TI",
         "displayName": "Preview - TI map Email entity to Cloud App Events",
         "enabled": true,
-        "query": "let dt_lookBack = 10d;\nlet ioc_lookBack = 30d;\nlet emailregex = @'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$';\nThreatIntelligenceIndicator\n  | where TimeGenerated >= ago(ioc_lookBack)\n  | summarize LatestIndicatorTime = arg_max(TimeGenerated, *) by IndicatorId\n  | where Active == true and ExpirationDateTime > now()\n  | where isnotempty(EmailSenderAddress)\n  | join kind=innerunique (CloudAppEvents\n| extend User_Id = tostring(RawEventData.UserId)\n| where User_Id != \"\"\n| where TimeGenerated >= ago(dt_lookBack) and isnotempty(Application)\n| extend CloudAppEvents_TimeGenerated = TimeGenerated \n| extend User_id = tostring(User_Id)\n| where User_id matches regex emailregex) on $left.EmailSenderAddress == $right.User_id\n| where CloudAppEvents_TimeGenerated < ExpirationDateTime\n| summarize CloudAppEvents_TimeGenerated = argmax(CloudAppEvents_TimeGenerated, *) by IndicatorId, User_id\n| extend Name = tostring(split(User_id, '@', 0)[0]), UPNSuffix = tostring(split(User_id, '@', 1)[0])\n| extend timestamp = CloudAppEvents_TimeGenerated\n",
+        "query": "let dt_lookBack = 10d;\nlet ioc_lookBack = 30d;\nlet emailregex = @'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$';\nThreatIntelligenceIndicator\n  | where TimeGenerated >= ago(ioc_lookBack)\n  | summarize LatestIndicatorTime = arg_max(TimeGenerated, *) by IndicatorId\n  | where Active == true and ExpirationDateTime > now()\n  | where isnotempty(EmailSenderAddress)\n  | join kind=innerunique (CloudAppEvents\n| extend User_Id = tostring(RawEventData.UserId)\n| where isnotempty(User_Id)\n| where TimeGenerated >= ago(dt_lookBack) and isnotempty(Application)\n| extend CloudAppEvents_TimeGenerated = TimeGenerated \n| where User_Id matches regex emailregex) on $left.EmailSenderAddress == $right.User_Id\n| where CloudAppEvents_TimeGenerated < ExpirationDateTime\n| summarize CloudAppEvents_TimeGenerated = argmax(CloudAppEvents_TimeGenerated, *) by IndicatorId, User_Id\n| extend Name = tostring(split(User_Id, '@', 0)[0]), UPNSuffix = tostring(split(User_Id, '@', 1)[0])\n| extend timestamp = CloudAppEvents_TimeGenerated\n",
         "queryFrequency": "PT1H",
         "queryPeriod": "P14D",
         "severity": "Medium",
@@ -20,24 +20,24 @@
         ],
         "entityMappings": [
             {
-                "entityType": "Account",
                 "fieldMappings": [
                     {
-                        "identifier": "DisplayName",
-                        "columnName": "Name"
+                        "columnName": "Name",
+                        "identifier": "DisplayName"
                     },
                     {
-                        "identifier": "FullName",
-                        "columnName": "User_Id"
+                        "columnName": "User_Id",
+                        "identifier": "FullName"
                     },
                     {
-                        "identifier": "UPNSuffix",
-                        "columnName": "UPNSuffix"
+                        "columnName": "UPNSuffix",
+                        "identifier": "UPNSuffix"
                     }
-                ]
+                ],
+                "entityType": "Account"
             }
         ],
         "alertRuleTemplateName": "47b9bb10-d216-4359-8cef-08ca2c67e5be",
-        "templateVersion": "1.0.2"
+        "templateVersion": "1.0.3"
     }
 }
