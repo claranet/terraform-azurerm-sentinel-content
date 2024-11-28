@@ -15,6 +15,7 @@ __Current log sources supported__ :
 - _azure\_waf_
 - _cef_
 - _cisco\_meraki_
+- _cloudflare_
 - _cyberark\_pam_
 - _darktrace_
 - _entra\_id_
