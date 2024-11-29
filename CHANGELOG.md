@@ -1,3 +1,22 @@
+## 7.15.0 (2024-11-29)
+
+### Features
+
+* add `Cloudflare` package. Version 3.0.1 61b51d5
+* add `Sophos Endpoint` package. Version : 3.0.5 7cb5043
+* bump `Fortigate` package template version to 3.0.7 8a51888
+* bump `Microsoft XDR` package template version to 3.0.10 d7de871
+* bump `Okta` package template version to 3.0.10 e1697b8
+* bump `Threat Intelligence` package template version to 3.0.7 + update embedded rules 913b73c
+
+### Miscellaneous Chores
+
+* **deps:** update dependency opentofu to v1.8.6 99e7f43
+* **deps:** update dependency tflint to v0.54.0 383b037
+* **deps:** update dependency trivy to v0.57.1 02fdf23
+* **deps:** update pre-commit hook alessandrojcm/commitlint-pre-commit-hook to v9.19.0 4124ae5
+* **deps:** update tools 4acfc46
+
 ## 7.14.0 (2024-10-24)
 
 ### Features
