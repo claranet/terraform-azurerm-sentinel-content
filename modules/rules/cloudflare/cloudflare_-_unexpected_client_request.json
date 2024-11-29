@@ -1,0 +1,36 @@
+{
+    "kind": "Scheduled",
+    "properties": {
+        "description": "Detects client requests to unusual client request.",
+        "displayName": "Cloudflare - Unexpected client request",
+        "enabled": true,
+        "query": "Cloudflare\n| where HttpRequestMethod =~ 'GET'\n| where DstBytes != 0 or SrcBytes != 0\n| where ClientRequestURI has_any ('/admin', '/admin.php', 'wp-admin', '.htaccess', '/etc/shadow', '/etc/passwd', '/etc/hosts', '/etc/ssh/') \n| extend IPCustomEntity = SrcIpAddr\n",
+        "queryFrequency": "PT1H",
+        "queryPeriod": "PT1H",
+        "severity": "Medium",
+        "suppressionDuration": "PT1H",
+        "suppressionEnabled": false,
+        "triggerOperator": "GreaterThan",
+        "triggerThreshold": 0,
+        "tactics": [
+            "InitialAccess"
+        ],
+        "techniques": [
+            "T1190",
+            "T1133"
+        ],
+        "entityMappings": [
+            {
+                "entityType": "IP",
+                "fieldMappings": [
+                    {
+                        "columnName": "IPCustomEntity",
+                        "identifier": "Address"
+                    }
+                ]
+            }
+        ],
+        "alertRuleTemplateName": "f32142b1-4bcb-45c0-92e4-2ddc18768522",
+        "templateVersion": "1.0.1"
+    }
+}

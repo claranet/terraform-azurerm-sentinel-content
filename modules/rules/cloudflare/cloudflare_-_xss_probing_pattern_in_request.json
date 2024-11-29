@@ -1,0 +1,45 @@
+{
+    "kind": "Scheduled",
+    "properties": {
+        "description": "Detects XSS probing patterns.",
+        "displayName": "Cloudflare - XSS probing pattern in request",
+        "enabled": true,
+        "query": "let s_threshold = 3;\nCloudflare\n| where HttpRequestMethod in~ ('POST', 'PUT')\n| extend susp_ch = countof(ClientRequestURI, '%00')\n| where ClientRequestURI matches regex @'(alert\\()|(alert\\%28)|(String\\.fromCharCode\\()|(expression\\(alert)' or susp_ch > s_threshold\n| extend IPCustomEntity = SrcIpAddr\n| extend UrlCustomEntity = ClientRequestURI\n",
+        "queryFrequency": "PT1H",
+        "queryPeriod": "PT1H",
+        "severity": "Medium",
+        "suppressionDuration": "PT1H",
+        "suppressionEnabled": false,
+        "triggerOperator": "GreaterThan",
+        "triggerThreshold": 0,
+        "tactics": [
+            "InitialAccess"
+        ],
+        "techniques": [
+            "T1190",
+            "T1133"
+        ],
+        "entityMappings": [
+            {
+                "entityType": "IP",
+                "fieldMappings": [
+                    {
+                        "columnName": "IPCustomEntity",
+                        "identifier": "Address"
+                    }
+                ]
+            },
+            {
+                "entityType": "URL",
+                "fieldMappings": [
+                    {
+                        "columnName": "UrlCustomEntity",
+                        "identifier": "Url"
+                    }
+                ]
+            }
+        ],
+        "alertRuleTemplateName": "4d9d00b9-31a6-49e4-88c1-9e68277053ac",
+        "templateVersion": "1.0.0"
+    }
+}

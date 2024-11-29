@@ -1,0 +1,45 @@
+{
+    "kind": "Scheduled",
+    "properties": {
+        "description": "Detects requests from countries which are in blocklist.",
+        "displayName": "Cloudflare - Client request from country in blocklist",
+        "enabled": true,
+        "query": "let bl_countries = dynamic(['cn', 'hk']);\nCloudflare\n| where SrcGeoCountry in~ (bl_countries)\n| extend IPCustomEntity = SrcIpAddr\n| extend UrlCustomEntity = ClientRequestURI\n",
+        "queryFrequency": "PT1H",
+        "queryPeriod": "PT1H",
+        "severity": "Medium",
+        "suppressionDuration": "PT1H",
+        "suppressionEnabled": false,
+        "triggerOperator": "GreaterThan",
+        "triggerThreshold": 0,
+        "tactics": [
+            "InitialAccess"
+        ],
+        "techniques": [
+            "T1190",
+            "T1133"
+        ],
+        "entityMappings": [
+            {
+                "entityType": "IP",
+                "fieldMappings": [
+                    {
+                        "columnName": "IPCustomEntity",
+                        "identifier": "Address"
+                    }
+                ]
+            },
+            {
+                "entityType": "URL",
+                "fieldMappings": [
+                    {
+                        "columnName": "UrlCustomEntity",
+                        "identifier": "Url"
+                    }
+                ]
+            }
+        ],
+        "alertRuleTemplateName": "40554544-6e4a-4413-8d14-bf2de939c5d9",
+        "templateVersion": "1.0.0"
+    }
+}

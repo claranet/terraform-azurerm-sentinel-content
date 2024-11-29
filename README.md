@@ -15,6 +15,7 @@ __Current log sources supported__ :
 - _azure\_waf_
 - _cef_
 - _cisco\_meraki_
+- _cloudflare_
 - _cyberark\_pam_
 - _darktrace_
 - _entra\_id_
@@ -23,6 +24,7 @@ __Current log sources supported__ :
 - _m365_
 - _okta_
 - _sentinelone_
+- _sophos\_endpoint_
 - _syslog_
 - _ti_
 - _windows\_security_

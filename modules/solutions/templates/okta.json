@@ -62,7 +62,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-okta')]"
             ],
             "properties": {
-                "description": "FailedLoginsFromUnknownOrInvalidUser_AnalyticalRules Analytics Rule with template version 3.0.9",
+                "description": "This query searches for numerous login attempts to the management console with an unknown or invalid user name.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1.0",
@@ -160,7 +160,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -203,7 +203,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-okta')]"
             ],
             "properties": {
-                "description": "LoginfromUsersfromDifferentCountrieswithin3hours_AnalyticalRules Analytics Rule with template version 3.0.9",
+                "description": "This query searches for successful user logins to the Okta Console from different countries within 3 hours.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1.0",
@@ -292,7 +292,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -335,7 +335,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-okta')]"
             ],
             "properties": {
-                "description": "PasswordSpray_AnalyticalRules Analytics Rule with template version 3.0.9",
+                "description": "This query searches for failed attempts to log into the Okta console from more than 15 various users within a 5 minute timeframe from the same source. This is a potential indication of a password spray attack.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1.0",
@@ -424,7 +424,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -467,7 +467,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-okta')]"
             ],
             "properties": {
-                "description": "PhishingDetection_AnalyticalRules Analytics Rule with template version 3.0.9",
+                "description": "This query detects cases in which Okta FastPass effectively prevented access to a known phishing website.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1.0",
@@ -538,8 +538,8 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "UserAgent": "client_userAgent_rawUserAgent_s",
-                                    "Location": "Location"
+                                    "Location": "Location",
+                                    "UserAgent": "client_userAgent_rawUserAgent_s"
                                 }
                             }
                         },
@@ -573,7 +573,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -616,7 +616,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-okta')]"
             ],
             "properties": {
-                "description": "NewDeviceLocationCriticalOperation_AnalyticalRules Analytics Rule with template version 3.0.9",
+                "description": "This query identifies users seen login from new geo location/country as well as a new device and performing critical operations.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1.0",
@@ -689,12 +689,12 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "SessionId": "authenticationContext_externalSessionId_s",
-                                    "Location": "Location"
+                                    "Location": "Location",
+                                    "SessionId": "authenticationContext_externalSessionId_s"
                                 },
                                 "alertDetailsOverride": {
-                                    "alertDisplayNameFormat": "New Device/Location {{Location}} sign-in along with critical operation",
-                                    "alertDescriptionFormat": "This query identifies users seen login from new geo location/country {{Location}} as well as a new device and performing critical operations\n"
+                                    "alertDescriptionFormat": "This query identifies users seen login from new geo location/country {{Location}} as well as a new device and performing critical operations\n",
+                                    "alertDisplayNameFormat": "New Device/Location {{Location}} sign-in along with critical operation"
                                 }
                             }
                         },
@@ -728,7 +728,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -771,7 +771,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-okta')]"
             ],
             "properties": {
-                "description": "MFAFatigue_AnalyticalRules Analytics Rule with template version 3.0.9",
+                "description": "MFA fatigue attack is a cybersecurity threat where attackers exploit user exhaustion from multi-factor authentication prompts to trick them into providing their MFA details thus compromising their own security. The query identifies MFA fatigue attempts in the Okta data. \n Ref: https://sec.okta.com/everythingisyes.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1.0",
@@ -864,7 +864,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -907,7 +907,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-okta')]"
             ],
             "properties": {
-                "description": "HighRiskAdminActivity_AnalyticalRules Analytics Rule with template version 3.0.9",
+                "description": "The Okta risk engine auto-assigns risk levels to each login attempt. This query identifies admin operations originating from events associated with high-risk profiles.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1.0",
@@ -1012,7 +1012,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -1055,7 +1055,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-okta')]"
             ],
             "properties": {
-                "description": "DeviceRegistrationMaliciousIP_AnalyticalRules Analytics Rule with template version 3.0.9",
+                "description": "This query identifies Device Registration from IP addresses identified as malicious by Okta ThreatInsight.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1.0",
@@ -1157,7 +1157,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -1200,7 +1200,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-okta')]"
             ],
             "properties": {
-                "description": "UserSessionImpersonation_AnalyticalRules Analytics Rule with template version 3.0.9",
+                "description": "A user has started a session impersonation, gaining access with the impersonated users permissions. This typically signifies Okta admin access and should only happen if anticipated and requested.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -1297,7 +1297,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -1340,7 +1340,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-okta')]"
             ],
             "properties": {
-                "description": "Okta Single Sign-On data connector with template version 3.0.9",
+                "description": "The [Okta Single Sign-On (SSO)](https://www.okta.com/products/single-sign-on/) connector provides the capability to ingest audit and event logs from the Okta API into Microsoft Sentinel. The connector provides visibility into these log types in Microsoft Sentinel to view dashboards. create custom alerts. and to improve monitoring and investigation capabilities.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -1536,7 +1536,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -2384,14 +2384,15 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Okta Single Sign-On",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-okta-dc-aabcn6l2oqasy",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
                 "version": "1.0.0",
                 "id": "azuresentinel.azure-sentinel-solution-okta-dc-aabcn6l2oqasy",
-                "isDeprecated": false
+                "isDeprecated": false,
+                "description": ""
             }
         },
         {
@@ -2682,14 +2683,15 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Okta Single Sign-On",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-okta-rdc-lhzkfmfydnqwm",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
                 "version": "1.0.0",
                 "id": "azuresentinel.azure-sentinel-solution-okta-rdc-lhzkfmfydnqwm",
-                "isDeprecated": false
+                "isDeprecated": false,
+                "description": ""
             }
         },
         {
@@ -2701,7 +2703,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-okta')]"
             ],
             "properties": {
-                "description": "AdminPrivilegeGrant_HuntingQueries Hunting Query with template version 3.0.9",
+                "description": "Query checks for admin permissions granted to users/groups, often used by adversaries for access and privilege elevation.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -2765,7 +2767,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -2787,7 +2789,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-okta')]"
             ],
             "properties": {
-                "description": "CreateAPIToken_HuntingQueries Hunting Query with template version 3.0.9",
+                "description": "Okta API tokens are used to authenticate requests to Okta APIs. This query searches for attempts to create new API Token.\n Refrence: https://developer.okta.com/docs/reference/api/event-types/",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -2851,7 +2853,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -2873,7 +2875,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-okta')]"
             ],
             "properties": {
-                "description": "ImpersonationSession_HuntingQueries Hunting Query with template version 3.0.9",
+                "description": "User.session.impersonation, usually triggered by Okta Support, are rare. This query checks for impersonation events used in LAPSUS$ breach.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -2937,7 +2939,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -2959,7 +2961,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-okta')]"
             ],
             "properties": {
-                "description": "RareMFAOperation_HuntingQueries Hunting Query with template version 3.0.9",
+                "description": "MFA prevents credential compromise. This query checks for rare MFA operations like deactivation, update, reset, and bypass attempts often used by adversaries to compromise networks/accounts.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -3023,7 +3025,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -3045,7 +3047,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-okta')]"
             ],
             "properties": {
-                "description": "UserPasswordReset_HuntingQueries Hunting Query with template version 3.0.9",
+                "description": "Adversaries often manipulate accounts for access. This query checks for admin attempts to reset user passwords in Okta logs.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -3109,7 +3111,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -3131,7 +3133,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-okta')]"
             ],
             "properties": {
-                "description": "NewDeviceRegistration_HuntingQueries Hunting Query with template version 3.0.9",
+                "description": "This query identifies new device being registered from a location where the user does not normally login from",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -3195,7 +3197,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -3217,7 +3219,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-okta')]"
             ],
             "properties": {
-                "description": "LoginsVPSProvider_HuntingQueries Hunting Query with template version 3.0.9",
+                "description": "This query searches for successful logons from known VPS provider network ranges.\n This is not an exhaustive list of VPS provider ranges but covers some of the most prevalent providers observed.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -3281,7 +3283,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -3303,7 +3305,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-okta')]"
             ],
             "properties": {
-                "description": "LoginNordVPN_HuntingQueries Hunting Query with template version 3.0.9",
+                "description": "This query searches for sign-in activity from Nord VPN providers.\nThe purpose is to identify any unfamiliar sign-in attempts from VPN providers, that are not typically observed among users in the organization.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -3367,7 +3369,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -3389,7 +3391,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-okta')]"
             ],
             "properties": {
-                "description": "LoginFromMultipleLocations_HuntingQueries Hunting Query with template version 3.0.9",
+                "description": "This query identifies accounts associated with multiple authentications from different geographical locations in a short period of time.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -3453,7 +3455,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -3475,7 +3477,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-okta')]"
             ],
             "properties": {
-                "description": "LegacyAuthentication_HuntingQueries Hunting Query with template version 3.0.9",
+                "description": "This query identifies use of legacy authentication protocol in the Okta Logs.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -3539,7 +3541,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -3561,7 +3563,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-okta')]"
             ],
             "properties": {
-                "description": "OktaCustomConnector Playbook with template version 3.0.9",
+                "description": "",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0",
@@ -4824,7 +4826,7 @@
                     ],
                     "metadata": {
                         "comments": "This OKTA connector uses okta API to perform different actions on the user accounts.",
-                        "lastUpdateTime": "2024-10-14T18:36:21.775Z",
+                        "lastUpdateTime": "2024-11-07T18:58:15.778Z",
                         "releaseNotes": {
                             "version": "1.0",
                             "title": "[replace('b', 'b', '')]",
@@ -4835,7 +4837,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -4857,7 +4859,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-okta')]"
             ],
             "properties": {
-                "description": "Okta-EnrichIncidentWithUserDetails Playbook with template version 3.0.9",
+                "description": "This playbook will collect user information from Okta and post a report on the incident.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0",
@@ -5195,7 +5197,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -5217,7 +5219,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-okta')]"
             ],
             "properties": {
-                "description": "Okta-PromptUser Playbook with template version 3.0.9",
+                "description": "This playbook uses the OKTA connector to prompt the risky user on Teams. User is asked action was taken by them. Based on the user confirmation the SOC admin is notified to investige on the user account. Also, comment is added to the incident with user information and summary of actions taken.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0",
@@ -5647,7 +5649,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -5669,7 +5671,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-okta')]"
             ],
             "properties": {
-                "description": "Okta-ResponseFromTeams Playbook with template version 3.0.9",
+                "description": "This playbooks sends an adaptive card to the SOC Teams channel with information about the Okta user and incident details. The SOC is allowed to take action such suspend, reset password, expire password, add to group. An informative comment will be posted to the incident.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0",
@@ -6155,7 +6157,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -6177,7 +6179,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-okta')]"
             ],
             "properties": {
-                "description": "OktaSingleSignOn Workbook with template version 3.0.9",
+                "description": "Gain extensive insight into Okta Single Sign-On (SSO) by analyzing, collecting and correlating Audit and Event events.\nThis workbook provides visibility into message and click events that were permitted, delivered, or blocked.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.2",
@@ -6252,7 +6254,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -6274,10 +6276,10 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-okta')]"
             ],
             "properties": {
-                "description": "OktaSSO Data Parser with template version 3.0.9",
+                "description": "",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.1",
+                    "contentVersion": "1.0.2",
                     "parameters": {},
                     "variables": {},
                     "resources": [
@@ -6291,7 +6293,7 @@
                                 "displayName": "Backward Compatibility Parser for Okta SSO",
                                 "category": "Microsoft Sentinel Parser",
                                 "functionAlias": "OktaSSO",
-                                "query": "let Okta_SSO = view () {\nlet Oktav1_empty = datatable(\n  actor_alternateId_s:string,\n  actor_detailEntry_s:string,\n  actor_displayName_s:string,\n  actor_id_s:string,\n  actor_type_s:string,\n  authenticationContext_authenticationProvider_s:string,\n  authenticationContext_authenticationStep_d:double,\n  authenticationContext_credentialProvider_s:string,\n  authenticationContext_credentialType_s:string,\n  authenticationContext_externalSessionId_s:string,\n  authenticationContext_interface_s:string,\n  authenticationContext_issuerId_s:string,\n  authenticationContext_issuerType_s:string,\n  client_device_s:string,\n  client_geographicalContext_city_s:string,\n  client_geographicalContext_country_s:string,\n  client_geographicalContext_geolocation_lat_d:double,\n  client_geographicalContext_geolocation_lon_d:double,\n  client_geographicalContext_postalCode_s:string,\n  client_geographicalContext_state_s:string,\n  client_id_s:string,\n  client_ipAddress_s:string,\n  client_userAgent_browser_s:string,\n  client_userAgent_os_s:string,\n  client_userAgent_rawUserAgent_s:string,\n  client_zone_s:string,\n  debugContext_debugData_s:string,\n  displayMessage_s:string,\n  eventType_s:string,\n  legacyEventType_s:string,\n  uuid_g:string,\n  outcome_reason_s:string,\n  outcome_result_s:string,\n  request_ipChain_s:string,\n  securityContext_asNumber_d:double,\n  securityContext_asOrg_s:string,\n  securityContext_domain_s:string,\n  securityContext_isp_s:string,\n  securityContext_isProxy_b:bool,\n  severity_s:string,\n  target_s:string,\n  transaction_details_s:string,\n  transaction_id_s:string,\n  transaction_type_s:string,\n  version_s:string\n  )[];\n  let Oktav2_empty = datatable(\n  TimeGenerated:datetime,\n  OriginalActorAlternateId:string,\n  ActorDetailEntry:string,\n  ActorDisplayName:string,\n  OriginalUserId:string,\n  OriginalUserType:string,\n  AuthenticationContextAuthenticationProvider:string,\n  AuthenticationContextAuthenticationStep: real,\n  AuthenticationContextCredentialProvider: string,\n  LogonMethod: string,\n  ActorSessionId: string,\n  AuthenticationContextInterface:string,\n  AuthenticationContextIssuerId:string,\n  AuthenticationContextIssuerType:string,\n  OriginalClientDevice:string,\n  SrcGeoCity:string,\n  SrcGeoCountry:string,\n  SrcGeoLatitude: double,\n  SrcGeoLongtitude: double,\n  SrcGeoPostalCode: string,\n  SrcGeoRegion: string,\n  SrcDvcId: string,\n  SrcIpAddr: string,\n  ActingAppName: string,\n  SrcDvcOs: string,\n  HttpUserAgent: string,\n  SrcZone: string,\n  DebugData: string,\n  EventMessage: string,\n  EventOriginalType: string,\n  LegacyEventType: string,\n  EventOriginalUid: string,\n  EventOriginalResultDetails: string,\n  OriginalOutcomeResult: string,\n  Request: string,\n  SecurityContextAsNumber: real,\n  SecurityContextAsOrg: string,\n  SecurityContextDomain: string,\n  SrcIsp: string,\n  SecurityContextIsProxy: bool,\n  OriginalSeverity: string,\n  OriginalTarget: string,\n  TransactionDetail: string,\n  TransactionId: string,\n  TransactionType: string,\n  Version: string\n)[];\nlet Oktav2 = union isfuzzy=true Oktav2_empty, OktaV2_CL |\n  project TimeGenerated,\n  actor_alternateId_s=OriginalActorAlternateId,\n  actor_detailEntry_s=tostring(ActorDetailEntry),\n  actor_displayName_s=ActorDisplayName,\n  actor_id_s=OriginalUserId,\n  actor_type_s=OriginalUserType,\n  authenticationContext_authenticationProvider_s=AuthenticationContextAuthenticationProvider,\n  authenticationContext_authenticationStep_d=toreal(AuthenticationContextAuthenticationStep),\n  authenticationContext_credentialProvider_s=AuthenticationContextCredentialProvider,\n  authenticationContext_credentialType_s=LogonMethod,\n  authenticationContext_externalSessionId_s=ActorSessionId,\n  authenticationContext_interface_s=AuthenticationContextInterface,\n  authenticationContext_issuerId_s=AuthenticationContextIssuerId,\n  authenticationContext_issuerType_s=AuthenticationContextIssuerType,\n  client_device_s=OriginalClientDevice,\n  client_geographicalContext_city_s=SrcGeoCity,\n  client_geographicalContext_country_s=SrcGeoCountry,\n  client_geographicalContext_geolocation_lat_d=SrcGeoLatitude,\n  client_geographicalContext_geolocation_lon_d=SrcGeoLongtitude,\n  client_geographicalContext_postalCode_s=SrcGeoPostalCode,\n  client_geographicalContext_state_s=SrcGeoRegion,\n  client_id_s=SrcDvcId,\n  client_ipAddress_s=SrcIpAddr,\n  client_userAgent_browser_s=ActingAppName,\n  client_userAgent_os_s=SrcDvcOs,\n  client_userAgent_rawUserAgent_s=HttpUserAgent,\n  client_zone_s=SrcZone,\n  debugContext_debugData_s=tostring(DebugData),\n  displayMessage_s=EventMessage,\n  eventType_s=EventOriginalType,\n  legacyEventType_s=LegacyEventType,\n  uuid_g=EventOriginalUid,\n  outcome_reason_s=EventOriginalResultDetails,\n  outcome_result_s=OriginalOutcomeResult,\n  request_ipChain_s=tostring(Request),\n  securityContext_asNumber_d=toreal(SecurityContextAsNumber),\n  securityContext_asOrg_s=SecurityContextAsOrg,\n  securityContext_domain_s=SecurityContextDomain,\n  securityContext_isp_s=SrcIsp,\n  securityContext_isProxy_b=SecurityContextIsProxy,\n  severity_s=OriginalSeverity,\n  target_s=tostring(OriginalTarget),\n  transaction_details_s=tostring(TransactionDetail),\n  transaction_id_s=TransactionId,\n  transaction_type_s=TransactionType,\n  version_s = Version;\n  union isfuzzy=true Oktav1_empty, Oktav2, Okta_CL\n};\nOkta_SSO()\n",
+                                "query": "let Okta_SSO = view () {\nlet Oktav1_empty = datatable(\n  actor_alternateId_s:string,\n  actor_detailEntry_s:string,\n  actor_displayName_s:string,\n  actor_id_s:string,\n  actor_type_s:string,\n  authenticationContext_authenticationProvider_s:string,\n  authenticationContext_authenticationStep_d:double,\n  authenticationContext_credentialProvider_s:string,\n  authenticationContext_credentialType_s:string,\n  authenticationContext_externalSessionId_s:string,\n  authenticationContext_interface_s:string,\n  authenticationContext_issuerId_s:string,\n  authenticationContext_issuerType_s:string,\n  client_device_s:string,\n  client_geographicalContext_city_s:string,\n  client_geographicalContext_country_s:string,\n  client_geographicalContext_geolocation_lat_d:double,\n  client_geographicalContext_geolocation_lon_d:double,\n  client_geographicalContext_postalCode_s:string,\n  client_geographicalContext_state_s:string,\n  client_id_s:string,\n  client_ipAddress_s:string,\n  client_userAgent_browser_s:string,\n  client_userAgent_os_s:string,\n  client_userAgent_rawUserAgent_s:string,\n  client_zone_s:string,\n  debugContext_debugData_s:string,\n  displayMessage_s:string,\n  eventType_s:string,\n  legacyEventType_s:string,\n  uuid_g:string,\n  outcome_reason_s:string,\n  outcome_result_s:string,\n  request_ipChain_s:string,\n  securityContext_asNumber_d:double,\n  securityContext_asOrg_s:string,\n  securityContext_domain_s:string,\n  securityContext_isp_s:string,\n  securityContext_isProxy_b:bool,\n  severity_s:string,\n  target_s:string,\n  transaction_details_s:string,\n  transaction_id_s:string,\n  transaction_type_s:string,\n  version_s:string\n  )[];\n  let Oktav2_empty = datatable(\n  TimeGenerated:datetime,\n  OriginalActorAlternateId:string,\n  ActorDetailEntry:dynamic,\n  ActorDisplayName:string,\n  OriginalUserId:string,\n  OriginalUserType:string,\n  AuthenticationContextAuthenticationProvider:string,\n  AuthenticationContextAuthenticationStep: int,\n  AuthenticationContextCredentialProvider: string,\n  LogonMethod: string,\n  ActorSessionId: string,\n  AuthenticationContextInterface:string,\n  AuthenticationContextIssuerId:string,\n  AuthenticationContextIssuerType:string,\n  OriginalClientDevice:string,\n  SrcGeoCity:string,\n  SrcGeoCountry:string,\n  SrcGeoLatitude: double,\n  SrcGeoLongtitude: double,\n  SrcGeoPostalCode: string,\n  SrcGeoRegion: string,\n  SrcDvcId: string,\n  SrcIpAddr: string,\n  ActingAppName: string,\n  SrcDvcOs: string,\n  HttpUserAgent: string,\n  SrcZone: string,\n  DebugData: dynamic,\n  EventMessage: string,\n  EventOriginalType: string,\n  LegacyEventType: string,\n  EventOriginalUid: string,\n  EventOriginalResultDetails: string,\n  OriginalOutcomeResult: string,\n  Request: dynamic,\n  SecurityContextAsNumber: int,\n  SecurityContextAsOrg: string,\n  SecurityContextDomain: string,\n  SrcIsp: string,\n  DomainName: string ,\n  SecurityContextIsProxy: bool,\n  OriginalSeverity: string,\n  OriginalTarget: dynamic,\n  TransactionDetail: dynamic,\n  TransactionId: string,\n  TransactionType: string,\n  Version: string\n)[];\nlet Oktav2 = union isfuzzy=true Oktav2_empty, OktaV2_CL |\n  project TimeGenerated,\n  actor_alternateId_s=OriginalActorAlternateId,\n  actor_detailEntry_s=tostring(ActorDetailEntry),\n  domain_s=DomainName,\n  actor_displayName_s=ActorDisplayName,\n  actor_id_s=OriginalUserId,\n  actor_type_s=OriginalUserType,\n  authenticationContext_authenticationProvider_s=AuthenticationContextAuthenticationProvider,\n  authenticationContext_authenticationStep_d=toreal(AuthenticationContextAuthenticationStep),\n  authenticationContext_credentialProvider_s=AuthenticationContextCredentialProvider,\n  authenticationContext_credentialType_s=LogonMethod,\n  authenticationContext_externalSessionId_s=ActorSessionId,\n  authenticationContext_interface_s=AuthenticationContextInterface,\n  authenticationContext_issuerId_s=AuthenticationContextIssuerId,\n  authenticationContext_issuerType_s=AuthenticationContextIssuerType,\n  client_device_s=OriginalClientDevice,\n  client_geographicalContext_city_s=SrcGeoCity,\n  client_geographicalContext_country_s=SrcGeoCountry,\n  client_geographicalContext_geolocation_lat_d=SrcGeoLatitude,\n  client_geographicalContext_geolocation_lon_d=SrcGeoLongtitude,\n  client_geographicalContext_postalCode_s=SrcGeoPostalCode,\n  client_geographicalContext_state_s=SrcGeoRegion,\n  client_id_s=SrcDvcId,\n  client_ipAddress_s=SrcIpAddr,\n  client_userAgent_browser_s=ActingAppName,\n  client_userAgent_os_s=SrcDvcOs,\n  client_userAgent_rawUserAgent_s=HttpUserAgent,\n  client_zone_s=SrcZone,\n  debugContext_debugData_s=tostring(DebugData),\n  displayMessage_s=EventMessage,\n  eventType_s=EventOriginalType,\n  legacyEventType_s=LegacyEventType,\n  uuid_g=EventOriginalUid,\n  outcome_reason_s=EventOriginalResultDetails,\n  outcome_result_s=OriginalOutcomeResult,\n  request_ipChain_s=tostring(Request),\n  securityContext_asNumber_d=toreal(SecurityContextAsNumber),\n  securityContext_asOrg_s=SecurityContextAsOrg,\n  securityContext_domain_s=SecurityContextDomain,\n  securityContext_isp_s=SrcIsp,\n  securityContext_isProxy_b=SecurityContextIsProxy,\n  severity_s=OriginalSeverity,\n  target_s=tostring(OriginalTarget),\n  transaction_details_s=tostring(TransactionDetail),\n  transaction_id_s=TransactionId,\n  transaction_type_s=TransactionType,\n  version_s = Version;\n  union isfuzzy=true Oktav1_empty, Oktav2, Okta_CL\n};\nOkta_SSO()\n",
                                 "functionParameters": "",
                                 "version": 2,
                                 "tags": [
@@ -6313,7 +6315,7 @@
                                 "parentId": "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches', parameters('workspace'), 'OktaSSO')]",
                                 "contentId": "OktaSSO-Parser",
                                 "kind": "Parser",
-                                "version": "1.0.1",
+                                "version": "1.0.2",
                                 "source": {
                                     "name": "Okta Single Sign-On",
                                     "kind": "Solution",
@@ -6334,16 +6336,16 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "OktaSSO-Parser",
                 "contentKind": "Parser",
                 "displayName": "Backward Compatibility Parser for Okta SSO",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-okta-pr-zyvgybxhahmkk",
-                "id": "azuresentinel.azure-sentinel-solution-okta-pr-zyvgybxhahmkk",
-                "version": "1.0.1",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-okta-pr-biihe3mywms26",
+                "id": "azuresentinel.azure-sentinel-solution-okta-pr-biihe3mywms26",
+                "version": "1.0.2",
                 "isDeprecated": false
             }
         },
@@ -6357,7 +6359,7 @@
                 "displayName": "Backward Compatibility Parser for Okta SSO",
                 "category": "Microsoft Sentinel Parser",
                 "functionAlias": "OktaSSO",
-                "query": "let Okta_SSO = view () {\nlet Oktav1_empty = datatable(\n  actor_alternateId_s:string,\n  actor_detailEntry_s:string,\n  actor_displayName_s:string,\n  actor_id_s:string,\n  actor_type_s:string,\n  authenticationContext_authenticationProvider_s:string,\n  authenticationContext_authenticationStep_d:double,\n  authenticationContext_credentialProvider_s:string,\n  authenticationContext_credentialType_s:string,\n  authenticationContext_externalSessionId_s:string,\n  authenticationContext_interface_s:string,\n  authenticationContext_issuerId_s:string,\n  authenticationContext_issuerType_s:string,\n  client_device_s:string,\n  client_geographicalContext_city_s:string,\n  client_geographicalContext_country_s:string,\n  client_geographicalContext_geolocation_lat_d:double,\n  client_geographicalContext_geolocation_lon_d:double,\n  client_geographicalContext_postalCode_s:string,\n  client_geographicalContext_state_s:string,\n  client_id_s:string,\n  client_ipAddress_s:string,\n  client_userAgent_browser_s:string,\n  client_userAgent_os_s:string,\n  client_userAgent_rawUserAgent_s:string,\n  client_zone_s:string,\n  debugContext_debugData_s:string,\n  displayMessage_s:string,\n  eventType_s:string,\n  legacyEventType_s:string,\n  uuid_g:string,\n  outcome_reason_s:string,\n  outcome_result_s:string,\n  request_ipChain_s:string,\n  securityContext_asNumber_d:double,\n  securityContext_asOrg_s:string,\n  securityContext_domain_s:string,\n  securityContext_isp_s:string,\n  securityContext_isProxy_b:bool,\n  severity_s:string,\n  target_s:string,\n  transaction_details_s:string,\n  transaction_id_s:string,\n  transaction_type_s:string,\n  version_s:string\n  )[];\n  let Oktav2_empty = datatable(\n  TimeGenerated:datetime,\n  OriginalActorAlternateId:string,\n  ActorDetailEntry:string,\n  ActorDisplayName:string,\n  OriginalUserId:string,\n  OriginalUserType:string,\n  AuthenticationContextAuthenticationProvider:string,\n  AuthenticationContextAuthenticationStep: real,\n  AuthenticationContextCredentialProvider: string,\n  LogonMethod: string,\n  ActorSessionId: string,\n  AuthenticationContextInterface:string,\n  AuthenticationContextIssuerId:string,\n  AuthenticationContextIssuerType:string,\n  OriginalClientDevice:string,\n  SrcGeoCity:string,\n  SrcGeoCountry:string,\n  SrcGeoLatitude: double,\n  SrcGeoLongtitude: double,\n  SrcGeoPostalCode: string,\n  SrcGeoRegion: string,\n  SrcDvcId: string,\n  SrcIpAddr: string,\n  ActingAppName: string,\n  SrcDvcOs: string,\n  HttpUserAgent: string,\n  SrcZone: string,\n  DebugData: string,\n  EventMessage: string,\n  EventOriginalType: string,\n  LegacyEventType: string,\n  EventOriginalUid: string,\n  EventOriginalResultDetails: string,\n  OriginalOutcomeResult: string,\n  Request: string,\n  SecurityContextAsNumber: real,\n  SecurityContextAsOrg: string,\n  SecurityContextDomain: string,\n  SrcIsp: string,\n  SecurityContextIsProxy: bool,\n  OriginalSeverity: string,\n  OriginalTarget: string,\n  TransactionDetail: string,\n  TransactionId: string,\n  TransactionType: string,\n  Version: string\n)[];\nlet Oktav2 = union isfuzzy=true Oktav2_empty, OktaV2_CL |\n  project TimeGenerated,\n  actor_alternateId_s=OriginalActorAlternateId,\n  actor_detailEntry_s=tostring(ActorDetailEntry),\n  actor_displayName_s=ActorDisplayName,\n  actor_id_s=OriginalUserId,\n  actor_type_s=OriginalUserType,\n  authenticationContext_authenticationProvider_s=AuthenticationContextAuthenticationProvider,\n  authenticationContext_authenticationStep_d=toreal(AuthenticationContextAuthenticationStep),\n  authenticationContext_credentialProvider_s=AuthenticationContextCredentialProvider,\n  authenticationContext_credentialType_s=LogonMethod,\n  authenticationContext_externalSessionId_s=ActorSessionId,\n  authenticationContext_interface_s=AuthenticationContextInterface,\n  authenticationContext_issuerId_s=AuthenticationContextIssuerId,\n  authenticationContext_issuerType_s=AuthenticationContextIssuerType,\n  client_device_s=OriginalClientDevice,\n  client_geographicalContext_city_s=SrcGeoCity,\n  client_geographicalContext_country_s=SrcGeoCountry,\n  client_geographicalContext_geolocation_lat_d=SrcGeoLatitude,\n  client_geographicalContext_geolocation_lon_d=SrcGeoLongtitude,\n  client_geographicalContext_postalCode_s=SrcGeoPostalCode,\n  client_geographicalContext_state_s=SrcGeoRegion,\n  client_id_s=SrcDvcId,\n  client_ipAddress_s=SrcIpAddr,\n  client_userAgent_browser_s=ActingAppName,\n  client_userAgent_os_s=SrcDvcOs,\n  client_userAgent_rawUserAgent_s=HttpUserAgent,\n  client_zone_s=SrcZone,\n  debugContext_debugData_s=tostring(DebugData),\n  displayMessage_s=EventMessage,\n  eventType_s=EventOriginalType,\n  legacyEventType_s=LegacyEventType,\n  uuid_g=EventOriginalUid,\n  outcome_reason_s=EventOriginalResultDetails,\n  outcome_result_s=OriginalOutcomeResult,\n  request_ipChain_s=tostring(Request),\n  securityContext_asNumber_d=toreal(SecurityContextAsNumber),\n  securityContext_asOrg_s=SecurityContextAsOrg,\n  securityContext_domain_s=SecurityContextDomain,\n  securityContext_isp_s=SrcIsp,\n  securityContext_isProxy_b=SecurityContextIsProxy,\n  severity_s=OriginalSeverity,\n  target_s=tostring(OriginalTarget),\n  transaction_details_s=tostring(TransactionDetail),\n  transaction_id_s=TransactionId,\n  transaction_type_s=TransactionType,\n  version_s = Version;\n  union isfuzzy=true Oktav1_empty, Oktav2, Okta_CL\n};\nOkta_SSO()\n",
+                "query": "let Okta_SSO = view () {\nlet Oktav1_empty = datatable(\n  actor_alternateId_s:string,\n  actor_detailEntry_s:string,\n  actor_displayName_s:string,\n  actor_id_s:string,\n  actor_type_s:string,\n  authenticationContext_authenticationProvider_s:string,\n  authenticationContext_authenticationStep_d:double,\n  authenticationContext_credentialProvider_s:string,\n  authenticationContext_credentialType_s:string,\n  authenticationContext_externalSessionId_s:string,\n  authenticationContext_interface_s:string,\n  authenticationContext_issuerId_s:string,\n  authenticationContext_issuerType_s:string,\n  client_device_s:string,\n  client_geographicalContext_city_s:string,\n  client_geographicalContext_country_s:string,\n  client_geographicalContext_geolocation_lat_d:double,\n  client_geographicalContext_geolocation_lon_d:double,\n  client_geographicalContext_postalCode_s:string,\n  client_geographicalContext_state_s:string,\n  client_id_s:string,\n  client_ipAddress_s:string,\n  client_userAgent_browser_s:string,\n  client_userAgent_os_s:string,\n  client_userAgent_rawUserAgent_s:string,\n  client_zone_s:string,\n  debugContext_debugData_s:string,\n  displayMessage_s:string,\n  eventType_s:string,\n  legacyEventType_s:string,\n  uuid_g:string,\n  outcome_reason_s:string,\n  outcome_result_s:string,\n  request_ipChain_s:string,\n  securityContext_asNumber_d:double,\n  securityContext_asOrg_s:string,\n  securityContext_domain_s:string,\n  securityContext_isp_s:string,\n  securityContext_isProxy_b:bool,\n  severity_s:string,\n  target_s:string,\n  transaction_details_s:string,\n  transaction_id_s:string,\n  transaction_type_s:string,\n  version_s:string\n  )[];\n  let Oktav2_empty = datatable(\n  TimeGenerated:datetime,\n  OriginalActorAlternateId:string,\n  ActorDetailEntry:dynamic,\n  ActorDisplayName:string,\n  OriginalUserId:string,\n  OriginalUserType:string,\n  AuthenticationContextAuthenticationProvider:string,\n  AuthenticationContextAuthenticationStep: int,\n  AuthenticationContextCredentialProvider: string,\n  LogonMethod: string,\n  ActorSessionId: string,\n  AuthenticationContextInterface:string,\n  AuthenticationContextIssuerId:string,\n  AuthenticationContextIssuerType:string,\n  OriginalClientDevice:string,\n  SrcGeoCity:string,\n  SrcGeoCountry:string,\n  SrcGeoLatitude: double,\n  SrcGeoLongtitude: double,\n  SrcGeoPostalCode: string,\n  SrcGeoRegion: string,\n  SrcDvcId: string,\n  SrcIpAddr: string,\n  ActingAppName: string,\n  SrcDvcOs: string,\n  HttpUserAgent: string,\n  SrcZone: string,\n  DebugData: dynamic,\n  EventMessage: string,\n  EventOriginalType: string,\n  LegacyEventType: string,\n  EventOriginalUid: string,\n  EventOriginalResultDetails: string,\n  OriginalOutcomeResult: string,\n  Request: dynamic,\n  SecurityContextAsNumber: int,\n  SecurityContextAsOrg: string,\n  SecurityContextDomain: string,\n  SrcIsp: string,\n  DomainName: string ,\n  SecurityContextIsProxy: bool,\n  OriginalSeverity: string,\n  OriginalTarget: dynamic,\n  TransactionDetail: dynamic,\n  TransactionId: string,\n  TransactionType: string,\n  Version: string\n)[];\nlet Oktav2 = union isfuzzy=true Oktav2_empty, OktaV2_CL |\n  project TimeGenerated,\n  actor_alternateId_s=OriginalActorAlternateId,\n  actor_detailEntry_s=tostring(ActorDetailEntry),\n  domain_s=DomainName,\n  actor_displayName_s=ActorDisplayName,\n  actor_id_s=OriginalUserId,\n  actor_type_s=OriginalUserType,\n  authenticationContext_authenticationProvider_s=AuthenticationContextAuthenticationProvider,\n  authenticationContext_authenticationStep_d=toreal(AuthenticationContextAuthenticationStep),\n  authenticationContext_credentialProvider_s=AuthenticationContextCredentialProvider,\n  authenticationContext_credentialType_s=LogonMethod,\n  authenticationContext_externalSessionId_s=ActorSessionId,\n  authenticationContext_interface_s=AuthenticationContextInterface,\n  authenticationContext_issuerId_s=AuthenticationContextIssuerId,\n  authenticationContext_issuerType_s=AuthenticationContextIssuerType,\n  client_device_s=OriginalClientDevice,\n  client_geographicalContext_city_s=SrcGeoCity,\n  client_geographicalContext_country_s=SrcGeoCountry,\n  client_geographicalContext_geolocation_lat_d=SrcGeoLatitude,\n  client_geographicalContext_geolocation_lon_d=SrcGeoLongtitude,\n  client_geographicalContext_postalCode_s=SrcGeoPostalCode,\n  client_geographicalContext_state_s=SrcGeoRegion,\n  client_id_s=SrcDvcId,\n  client_ipAddress_s=SrcIpAddr,\n  client_userAgent_browser_s=ActingAppName,\n  client_userAgent_os_s=SrcDvcOs,\n  client_userAgent_rawUserAgent_s=HttpUserAgent,\n  client_zone_s=SrcZone,\n  debugContext_debugData_s=tostring(DebugData),\n  displayMessage_s=EventMessage,\n  eventType_s=EventOriginalType,\n  legacyEventType_s=LegacyEventType,\n  uuid_g=EventOriginalUid,\n  outcome_reason_s=EventOriginalResultDetails,\n  outcome_result_s=OriginalOutcomeResult,\n  request_ipChain_s=tostring(Request),\n  securityContext_asNumber_d=toreal(SecurityContextAsNumber),\n  securityContext_asOrg_s=SecurityContextAsOrg,\n  securityContext_domain_s=SecurityContextDomain,\n  securityContext_isp_s=SrcIsp,\n  securityContext_isProxy_b=SecurityContextIsProxy,\n  severity_s=OriginalSeverity,\n  target_s=tostring(OriginalTarget),\n  transaction_details_s=tostring(TransactionDetail),\n  transaction_id_s=TransactionId,\n  transaction_type_s=TransactionType,\n  version_s = Version;\n  union isfuzzy=true Oktav1_empty, Oktav2, Okta_CL\n};\nOkta_SSO()\n",
                 "functionParameters": "",
                 "version": 2,
                 "tags": [
@@ -6380,7 +6382,7 @@
                 "parentId": "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches', parameters('workspace'), 'OktaSSO')]",
                 "contentId": "OktaSSO-Parser",
                 "kind": "Parser",
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "source": {
                     "kind": "Solution",
                     "name": "Okta Single Sign-On",
@@ -6403,15 +6405,15 @@
             "apiVersion": "2023-04-01-preview",
             "location": "[parameters('workspace-location')]",
             "properties": {
-                "version": "3.0.9",
+                "version": "3.0.10",
                 "kind": "Solution",
                 "contentSchemaVersion": "3.0.0",
                 "displayName": "Okta Single Sign-On",
                 "publisherDisplayName": "Microsoft Sentinel, Microsoft Corporation",
                 "descriptionHtml": "<p><strong>Note:</strong> Please refer to the following before installing the solution:</p><p>\u2022 Review the solution <a target=\"_blank\" href=\"https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Okta%20Single%20Sign-On/ReleaseNotes.md\" rel=\"noopener\">Release Notes</a></p><p>The <a target=\"_blank\" href=\"https://www.okta.com/products/single-sign-on\" rel=\"noopener\">Okta Single Sign-On (SSO)</a> solution for Microsoft Sentinel provides the capability to ingest <a target=\"_blank\" href=\"https://www.okta.com/integrate/documentation/isv-syslog-references/\" rel=\"noopener\">audit and event logs</a> into Microsoft Sentinel using the Okta API.</p><p><strong>Underlying Microsoft Technologies used:</strong></p><p>This solution takes a dependency on the following technologies, and some of these dependencies either may be in <a target=\"_blank\" href=\"https://azure.microsoft.com/support/legal/preview-supplemental-terms/\" rel=\"noopener\">Preview</a> state or might result in additional ingestion or operational costs:</p><p>a. <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/azure-monitor/logs/data-collector-api?WT.mc_id=Portal-fx\" rel=\"noopener\">Azure Monitor HTTP Data Collector API</a></p><p>b. <a target=\"_blank\" href=\"https://azure.microsoft.com/services/functions/#overview\" rel=\"noopener\">Azure Functions</a></p><p>c. <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/sentinel/create-codeless-connector?tabs=deploy-via-arm-template%2Cconnect-via-the-azure-portal&amp;WT.mc_id=Portal-fx\" rel=\"noopener\">Codeless Connector Platform (CCP)</a></p><p><strong>Data Connectors:</strong> 2, <strong>Parsers:</strong> 1, <strong>Workbooks:</strong> 1, <strong>Analytic Rules:</strong> 9, <strong>Hunting Queries:</strong> 10, <strong>Custom Azure Logic Apps Connectors:</strong> 1, <strong>Playbooks:</strong> 3</p><p><a target=\"_blank\" href=\"https://aka.ms/azuresentinel\" rel=\"noopener\">Learn more about Microsoft Sentinel</a> | <a target=\"_blank\" href=\"https://aka.ms/azuresentinelsolutionsdoc\" rel=\"noopener\">Learn more about Solutions</a></p>",
                 "contentKind": "Solution",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-okta-sl-ybgq3smgs3dik",
-                "id": "azuresentinel.azure-sentinel-solution-okta-sl-ybgq3smgs3dik",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-okta-sl-h6ssz4itecn4e",
+                "id": "azuresentinel.azure-sentinel-solution-okta-sl-h6ssz4itecn4e",
                 "icon": "https://store-images.s-microsoft.com/image/apps.34108.b239392b-efc9-4022-9c36-fed4f0ded1e3.323909ea-f2e8-42ce-8010-8db7d28f23cd.47066c0b-5d4e-4c49-9321-8ce6822828c8",
                 "contentId": "azuresentinel.azure-sentinel-solution-okta",
                 "parentId": "azuresentinel.azure-sentinel-solution-okta",
@@ -6566,7 +6568,7 @@
                         {
                             "kind": "Parser",
                             "contentId": "OktaSSO-Parser",
-                            "version": "1.0.1"
+                            "version": "1.0.2"
                         }
                     ]
                 },
@@ -6581,7 +6583,8 @@
                     ]
                 },
                 "isPreview": false,
-                "isDeprecated": false
+                "isDeprecated": false,
+                "migratedToPackageId": null
             },
             "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', 'azuresentinel.azure-sentinel-solution-okta')]"
         }
