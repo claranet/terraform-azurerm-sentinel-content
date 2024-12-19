@@ -48,7 +48,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "Threat Intelligence data connector with template version 3.0.7",
+                "description": "Microsoft Sentinel integrates with TAXII 2.0 and 2.1 data sources to enable monitoring. alerting. and hunting using your threat intelligence. Use this connector to send the supported STIX object types from TAXII servers to Microsoft Sentinel. Threat indicators can include IP addresses. domains. URLs. and file hashes. For more information. see the [Microsoft Sentinel documentation >](https://go.microsoft.com/fwlink/p/?linkid=2224105&wt.mc_id=sentinel_dataconnectordocs_content_cnl_csasci).",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -66,7 +66,7 @@
                                     "id": "ThreatIntelligenceTaxii",
                                     "title": "Threat intelligence - TAXII",
                                     "publisher": "Microsoft",
-                                    "descriptionMarkdown": "Microsoft Sentinel integrates with TAXII 2.0 and 2.1 data sources to enable monitoring, alerting, and hunting using your threat intelligence. Use this connector to send threat indicators from TAXII servers to Microsoft Sentinel. Threat indicators can include IP addresses, domains, URLs, and file hashes. For more information, see the [Microsoft Sentinel documentation >](https://go.microsoft.com/fwlink/p/?linkid=2224105&wt.mc_id=sentinel_dataconnectordocs_content_cnl_csasci).",
+                                    "descriptionMarkdown": "Microsoft Sentinel integrates with TAXII 2.0 and 2.1 data sources to enable monitoring, alerting, and hunting using your threat intelligence. Use this connector to send the supported STIX object types from TAXII servers to Microsoft Sentinel. Threat indicators can include IP addresses, domains, URLs, and file hashes. For more information, see the [Microsoft Sentinel documentation >](https://go.microsoft.com/fwlink/p/?linkid=2224105&wt.mc_id=sentinel_dataconnectordocs_content_cnl_csasci).",
                                     "graphQueries": [
                                         {
                                             "metricName": "Total data received",
@@ -120,7 +120,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -173,7 +173,7 @@
                 "connectorUiConfig": {
                     "title": "Threat intelligence - TAXII",
                     "publisher": "Microsoft",
-                    "descriptionMarkdown": "Microsoft Sentinel integrates with TAXII 2.0 and 2.1 data sources to enable monitoring, alerting, and hunting using your threat intelligence. Use this connector to send threat indicators from TAXII servers to Microsoft Sentinel. Threat indicators can include IP addresses, domains, URLs, and file hashes. For more information, see the [Microsoft Sentinel documentation >](https://go.microsoft.com/fwlink/p/?linkid=2224105&wt.mc_id=sentinel_dataconnectordocs_content_cnl_csasci).",
+                    "descriptionMarkdown": "Microsoft Sentinel integrates with TAXII 2.0 and 2.1 data sources to enable monitoring, alerting, and hunting using your threat intelligence. Use this connector to send the supported STIX object types from TAXII servers to Microsoft Sentinel. Threat indicators can include IP addresses, domains, URLs, and file hashes. For more information, see the [Microsoft Sentinel documentation >](https://go.microsoft.com/fwlink/p/?linkid=2224105&wt.mc_id=sentinel_dataconnectordocs_content_cnl_csasci).",
                     "graphQueries": [
                         {
                             "metricName": "Total data received",
@@ -208,7 +208,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "Threat Intelligence data connector with template version 3.0.7",
+                "description": "Microsoft Sentinel integrates with Microsoft Graph Security API data sources to enable monitoring. alerting. and hunting using your threat intelligence. Use this connector to send threat indicators to Microsoft Sentinel from your Threat Intelligence Platform (TIP). such as Threat Connect. Palo Alto Networks MindMeld. MISP. or other integrated applications. Threat indicators can include IP addresses. domains. URLs. and file hashes. For more information. see the [Microsoft Sentinel documentation >](https://go.microsoft.com/fwlink/p/?linkid=2223729&wt.mc_id=sentinel_dataconnectordocs_content_cnl_csasci).",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -280,7 +280,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -368,7 +368,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "Threat Intelligence data connector with template version 3.0.7",
+                "description": "Microsoft Sentinel offers a data plane API to bring in threat intelligence from your Threat Intelligence Platform (TIP). such as Threat Connect. Palo Alto Networks MineMeld. MISP. or other integrated applications. Threat indicators can include IP addresses. domains. URLs. file hashes and email addresses. For more information. see the [Microsoft Sentinel documentation](https://go.microsoft.com/fwlink/p/?linkid=2269830&wt.mc_id=sentinel_dataconnectordocs_content_cnl_csasci).",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -384,7 +384,7 @@
                             "properties": {
                                 "connectorUiConfig": {
                                     "id": "ThreatIntelligenceUploadIndicatorsAPI",
-                                    "title": "Threat Intelligence Upload Indicators API (Preview)",
+                                    "title": "Threat Intelligence Upload API (Preview)",
                                     "publisher": "Microsoft",
                                     "descriptionMarkdown": "Microsoft Sentinel offers a data plane API to bring in threat intelligence from your Threat Intelligence Platform (TIP), such as Threat Connect, Palo Alto Networks MineMeld, MISP, or other integrated applications. Threat indicators can include IP addresses, domains, URLs, file hashes and email addresses. For more information, see the [Microsoft Sentinel documentation](https://go.microsoft.com/fwlink/p/?linkid=2269830&wt.mc_id=sentinel_dataconnectordocs_content_cnl_csasci).",
                                     "graphQueries": [
@@ -446,8 +446,8 @@
                                             "title": "1. Get Microsoft Entra ID Access Token"
                                         },
                                         {
-                                            "description": "You can send indicators by calling our Upload Indicators API. For more information about the API, click [here](https://learn.microsoft.com/azure/sentinel/upload-indicators-api). \n\n>HTTP method: POST \n\n>Endpoint: https://api.ti.sentinel.azure.com/workspaces/[WorkspaceID]/threatintelligenceindicators:upload?api-version=2022-07-01  \n\n>WorkspaceID: the workspace that the indicators are uploaded to.  \n\n\n>Header Value 1: \"Authorization\" = \"Bearer [Microsoft Entra ID Access Token from step 1]\" \n\n\n> Header Value 2: \"Content-Type\" = \"application/json\"  \n \n>Body: The body is a JSON object containing an array of indicators in STIX format.",
-                                            "title": "2. Send indicators to Sentinel"
+                                            "description": "You can send the supported STIX object types by calling our Upload API. For more information about the API, click [here](https://learn.microsoft.com/azure/sentinel/upload-indicators-api). \n\n>HTTP method: POST \n\n>Endpoint: https://api.ti.sentinel.azure.com/workspaces/[WorkspaceID]/threatintelligence-stix-objects:upload?api-version=2024-02-01  \n\n>WorkspaceID: the workspace that the STIX objects are uploaded to.  \n\n\n>Header Value 1: \"Authorization\" = \"Bearer [Microsoft Entra ID Access Token from step 1]\" \n\n\n> Header Value 2: \"Content-Type\" = \"application/json\"  \n \n>Body: The body is a JSON object containing an array of STIX objects.",
+                                            "title": "2. Send STIX objects to Sentinel"
                                         }
                                     ]
                                 }
@@ -482,13 +482,13 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "ThreatIntelligenceUploadIndicatorsAPI",
                 "contentKind": "DataConnector",
-                "displayName": "Threat Intelligence Upload Indicators API (Preview)",
+                "displayName": "Threat Intelligence Upload API (Preview)",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-threatintell-dc-goqwvhyec66zm",
                 "id": "azuresentinel.azure-sentinel-solution-threatintell-dc-goqwvhyec66zm",
                 "version": "1.0.0",
@@ -533,7 +533,7 @@
             "kind": "GenericUI",
             "properties": {
                 "connectorUiConfig": {
-                    "title": "Threat Intelligence Upload Indicators API (Preview)",
+                    "title": "Threat Intelligence Upload API (Preview)",
                     "publisher": "Microsoft",
                     "descriptionMarkdown": "Microsoft Sentinel offers a data plane API to bring in threat intelligence from your Threat Intelligence Platform (TIP), such as Threat Connect, Palo Alto Networks MineMeld, MISP, or other integrated applications. Threat indicators can include IP addresses, domains, URLs, file hashes and email addresses. For more information, see the [Microsoft Sentinel documentation](https://go.microsoft.com/fwlink/p/?linkid=2269830&wt.mc_id=sentinel_dataconnectordocs_content_cnl_csasci).",
                     "graphQueries": [
@@ -595,8 +595,8 @@
                             "title": "1. Get Microsoft Entra ID Access Token"
                         },
                         {
-                            "description": "You can send indicators by calling our Upload Indicators API. For more information about the API, click [here](https://learn.microsoft.com/azure/sentinel/upload-indicators-api). \n\n>HTTP method: POST \n\n>Endpoint: https://api.ti.sentinel.azure.com/workspaces/[WorkspaceID]/threatintelligenceindicators:upload?api-version=2022-07-01  \n\n>WorkspaceID: the workspace that the indicators are uploaded to.  \n\n\n>Header Value 1: \"Authorization\" = \"Bearer [Microsoft Entra ID Access Token from step 1]\" \n\n\n> Header Value 2: \"Content-Type\" = \"application/json\"  \n \n>Body: The body is a JSON object containing an array of indicators in STIX format.",
-                            "title": "2. Send indicators to Sentinel"
+                            "description": "You can send the supported STIX object types by calling our Upload API. For more information about the API, click [here](https://learn.microsoft.com/azure/sentinel/upload-indicators-api). \n\n>HTTP method: POST \n\n>Endpoint: https://api.ti.sentinel.azure.com/workspaces/[WorkspaceID]/threatintelligence-stix-objects:upload?api-version=2024-02-01  \n\n>WorkspaceID: the workspace that the STIX objects are uploaded to.  \n\n\n>Header Value 1: \"Authorization\" = \"Bearer [Microsoft Entra ID Access Token from step 1]\" \n\n\n> Header Value 2: \"Content-Type\" = \"application/json\"  \n \n>Body: The body is a JSON object containing an array of STIX objects.",
+                            "title": "2. Send STIX objects to Sentinel"
                         }
                     ],
                     "id": "ThreatIntelligenceUploadIndicatorsAPI"
@@ -612,7 +612,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "Threat Intelligence data connector with template version 3.0.7",
+                "description": "Microsoft Sentinel provides you the capability to import threat intelligence generated by Microsoft to enable monitoring. alerting and hunting. Use this data connector to import Indicators of Compromise (IOCs) from Microsoft Defender Threat Intelligence (MDTI) into Microsoft Sentinel. Threat indicators can include IP addresses. domains. URLs. and file hashes. etc. Note: This is a paid connector. To use and ingest data from it. please purchase the \"MDTI API Access\" SKU from the Partner Center.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -628,7 +628,7 @@
                             "properties": {
                                 "connectorUiConfig": {
                                     "id": "PremiumMicrosoftDefenderForThreatIntelligence",
-                                    "title": "Premium Microsoft Defender Threat Intelligence (Preview)",
+                                    "title": "Premium Microsoft Defender Threat Intelligence",
                                     "publisher": "Microsoft",
                                     "logo": {
                                         "type": 258
@@ -740,13 +740,13 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "PremiumMicrosoftDefenderForThreatIntelligence",
                 "contentKind": "DataConnector",
-                "displayName": "Premium Microsoft Defender Threat Intelligence (Preview)",
+                "displayName": "Premium Microsoft Defender Threat Intelligence",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-threatintell-dc-425syfxdv4uma",
                 "id": "azuresentinel.azure-sentinel-solution-threatintell-dc-425syfxdv4uma",
                 "version": "1.0.0",
@@ -791,7 +791,7 @@
             "kind": "GenericUI",
             "properties": {
                 "connectorUiConfig": {
-                    "title": "Premium Microsoft Defender Threat Intelligence (Preview)",
+                    "title": "Premium Microsoft Defender Threat Intelligence",
                     "publisher": "Microsoft",
                     "descriptionMarkdown": "Microsoft Sentinel provides you the capability to import threat intelligence generated by Microsoft to enable monitoring, alerting and hunting. Use this data connector to import Indicators of Compromise (IOCs) from Microsoft Defender Threat Intelligence (MDTI) into Microsoft Sentinel. Threat indicators can include IP addresses, domains, URLs, and file hashes, etc. Note: This is a paid connector. To use and ingest data from it, please purchase the \"MDTI API Access\" SKU from the Partner Center.",
                     "graphQueries": [
@@ -881,7 +881,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "Threat Intelligence data connector with template version 3.0.7",
+                "description": "Microsoft Sentinel provides you the capability to import threat intelligence generated by Microsoft to enable monitoring. alerting and hunting. Use this data connector to import Indicators of Compromise (IOCs) from Microsoft Defender Threat Intelligence (MDTI) into Microsoft Sentinel. Threat indicators can include IP addresses. domains. URLs. and file hashes. etc.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -897,7 +897,7 @@
                             "properties": {
                                 "connectorUiConfig": {
                                     "id": "MicrosoftDefenderThreatIntelligence",
-                                    "title": "Microsoft Defender Threat Intelligence (Preview)",
+                                    "title": "Microsoft Defender Threat Intelligence",
                                     "publisher": "Microsoft",
                                     "descriptionMarkdown": "Microsoft Sentinel provides you the capability to import threat intelligence generated by Microsoft to enable monitoring, alerting and hunting. Use this data connector to import Indicators of Compromise (IOCs) from Microsoft Defender Threat Intelligence (MDTI) into Microsoft Sentinel. Threat indicators can include IP addresses, domains, URLs, and file hashes, etc.",
                                     "graphQueries": [
@@ -953,13 +953,13 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "MicrosoftDefenderThreatIntelligence",
                 "contentKind": "DataConnector",
-                "displayName": "Microsoft Defender Threat Intelligence (Preview)",
+                "displayName": "Microsoft Defender Threat Intelligence",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-threatintell-dc-opcr642h3jqwy",
                 "id": "azuresentinel.azure-sentinel-solution-threatintell-dc-opcr642h3jqwy",
                 "version": "1.0.0",
@@ -1004,7 +1004,7 @@
             "kind": "StaticUI",
             "properties": {
                 "connectorUiConfig": {
-                    "title": "Microsoft Defender Threat Intelligence (Preview)",
+                    "title": "Microsoft Defender Threat Intelligence",
                     "publisher": "Microsoft",
                     "descriptionMarkdown": "Microsoft Sentinel provides you the capability to import threat intelligence generated by Microsoft to enable monitoring, alerting and hunting. Use this data connector to import Indicators of Compromise (IOCs) from Microsoft Defender Threat Intelligence (MDTI) into Microsoft Sentinel. Threat indicators can include IP addresses, domains, URLs, and file hashes, etc.",
                     "graphQueries": [
@@ -1041,7 +1041,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "ThreatIntelligence Workbook with template version 3.0.7",
+                "description": "Gain insights into threat indicators ingestion and search for indicators at scale across Microsoft 1st Party, 3rd Party, On-Premises, Hybrid, and Multi-Cloud Workloads. Indicators Search facilitates a simple interface for finding IP, File, Hash, Sender and more across your data. Seamless pivots to correlate indicators with Microsoft Sentinel: Incidents to make your threat intelligence actionable.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "5.0.0",
@@ -1124,7 +1124,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -1146,7 +1146,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "FileEntity_OfficeActivity_HuntingQueries Hunting Query with template version 3.0.7",
+                "description": "This query finds matches in OfficeActivity Event data for known FileName Indicators of Compromise from Threat Intelligence sources. FileName matches may produce false positives, so use this for hunting rather than real-time detection.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.3",
@@ -1206,7 +1206,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -1228,7 +1228,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "FileEntity_SecurityEvent_HuntingQueries Hunting Query with template version 3.0.7",
+                "description": "This query finds matches in Security Event data for known FileName Indicators of Compromise from Threat Intelligence sources. FileName matches may produce false positives, so use this for hunting rather than real-time detection.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.3",
@@ -1288,7 +1288,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -1310,7 +1310,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "FileEntity_Syslog_HuntingQueries Hunting Query with template version 3.0.7",
+                "description": "This query finds matches in Syslog Event data for known FileName Indicators of Compromise from Threat Intelligence sources. FileName matches may produce false positives, so use this for hunting rather than real-time detection.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.3",
@@ -1370,7 +1370,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -1392,7 +1392,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "FileEntity_VMConnection_HuntingQueries Hunting Query with template version 3.0.7",
+                "description": "This query finds matches in VMConnection Event data for known FileName Indicators of Compromise from Threat Intelligence sources. FileName matches may produce false positives, so use this for hunting rather than real-time detection.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.3",
@@ -1452,7 +1452,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -1474,7 +1474,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "FileEntity_WireData_HuntingQueries Hunting Query with template version 3.0.7",
+                "description": "This query finds matches in WireData Event data for known FileName Indicators of Compromise from Threat Intelligence sources. FileName matches may produce false positives, so use this for hunting rather than real-time detection.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.3",
@@ -1534,7 +1534,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -1556,7 +1556,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "DomainEntity_CommonSecurityLog_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "Identifies a match in PaloAlto CommonSecurityLog table from any Domain IOC from TI",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.4.2",
@@ -1669,7 +1669,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -1712,7 +1712,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "DomainEntity_DeviceNetworkEvents_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "This query identifies any Domain indicators of compromise (IOCs) from threat intelligence (TI) by searching for matches in DeviceNetworkEvents.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -1844,7 +1844,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -1895,7 +1895,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "DomainEntity_DnsEvents_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "Identifies a match in DnsEvents from any Domain IOC from TI",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.4.3",
@@ -2022,7 +2022,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -2073,7 +2073,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "DomainEntity_EmailEvents_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "Identifies a match in EmailEvents table from any Domain IOC from TI",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.2",
@@ -2182,7 +2182,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -2233,7 +2233,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "DomainEntity_EmailUrlInfo_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "Identifies a match in EmailUrlInfo table from any Domain IOC from TI.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.2",
@@ -2351,7 +2351,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -2402,7 +2402,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "DomainEntity_imWebSession_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "This rule identifies Web Sessions for which the target URL hostname is a known IoC. This rule uses the [Advanced Security Information Model (ASIM)](https:/aka.ms/AboutASIM) and supports any web session source that complies with ASIM.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.6",
@@ -2489,10 +2489,10 @@
                                 "customDetails": {
                                     "IoCExpirationTime": "ExpirationDateTime",
                                     "ActivityGroupNames": "ActivityGroupNames",
-                                    "IoCConfidenceScore": "ConfidenceScore",
                                     "IndicatorId": "IndicatorId",
-                                    "ThreatType": "ThreatType",
+                                    "IoCConfidenceScore": "ConfidenceScore",
                                     "IoCDescription": "Description",
+                                    "ThreatType": "ThreatType",
                                     "EventTime": "Event_TimeGenerated"
                                 },
                                 "alertDetailsOverride": {
@@ -2531,7 +2531,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -2590,7 +2590,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "DomainEntity_PaloAlto_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "Identifies a match in Palo Alto data in CommonSecurityLog table from any Domain IOC from TI",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.4.2",
@@ -2709,7 +2709,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -2760,7 +2760,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "DomainEntity_SecurityAlert_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "Identifies a match in SecurityAlert table from any Domain IOC from TI",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.4.3",
@@ -2885,7 +2885,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -2940,7 +2940,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "DomainEntity_Syslog_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "Identifies a match in Syslog table from any Domain IOC from TI",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.4.3",
@@ -3067,7 +3067,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -3118,7 +3118,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "EmailEntity_AzureActivity_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "Identifies a match in AzureActivity table from any Email IOC from TI",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.2.7",
@@ -3245,7 +3245,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -3296,7 +3296,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "EmailEntity_EmailEvents_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "Identifies a match in EmailEvents table from any Email IOC from TI",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.2",
@@ -3405,7 +3405,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -3456,7 +3456,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "EmailEntity_OfficeActivity_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "Identifies a match in OfficeActivity table from any Email IOC from TI",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.2.7",
@@ -3583,7 +3583,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -3634,7 +3634,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "EmailEntity_PaloAlto_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "Identifies a match in CommonSecurityLog table from any Email IOC from TI",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.2.6",
@@ -3753,7 +3753,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -3804,7 +3804,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "EmailEntity_SecurityAlert_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "Identifies a match in SecurityAlert table from any Email IOC from TI which will extend coverage to datatypes such as MCAS, StorageThreatProtection and many others",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.2.8",
@@ -3922,7 +3922,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -3973,7 +3973,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "EmailEntity_SecurityEvent_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "Identifies a match in SecurityEvent table from any Email IOC from TI",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.3.6",
@@ -4117,7 +4117,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -4184,7 +4184,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "EmailEntity_SigninLogs_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "Identifies a match in SigninLogs table from any Email IOC from TI",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.2.7",
@@ -4317,7 +4317,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -4376,7 +4376,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "FileHashEntity_CommonSecurityLog_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "Identifies a match in CommonSecurityLog Event data from any FileHash IOC from TI",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.3.6",
@@ -4533,7 +4533,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -4584,7 +4584,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "FileHashEntity_DeviceFileEvents_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "Identifies a match in DeviceFileEvents Event data from any FileHash IOC from TI",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -4715,7 +4715,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -4766,7 +4766,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "FileHashEntity_SecurityEvent_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "Identifies a match in Security Event data from any File Hash IOC from TI",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.4.6",
@@ -4926,7 +4926,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -4993,7 +4993,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "IPEntity_AppServiceHTTPLogs_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "Identifies a match in AppServiceHTTPLogs from any IP IOC from TI",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.5.2",
@@ -5131,7 +5131,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -5174,7 +5174,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "IPEntity_AWSCloudTrail_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "Identifies a match in AWSCloudTrail from any IP IOC from TI",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.4.2",
@@ -5293,7 +5293,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -5344,7 +5344,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "IPEntity_AzureActivity_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "This query maps any IP indicators of compromise (IOCs) from threat intelligence (TI), by searching for matches in AzureActivity.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.4.3",
@@ -5489,7 +5489,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -5540,7 +5540,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "IPEntity_AzureFirewall_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "Identifies a match in AzureFirewall (NetworkRule & ApplicationRule Logs) from any IP IOC from TI",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.3.2",
@@ -5650,7 +5650,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -5701,7 +5701,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "IPEntity_AzureKeyVault_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "Identifies a match in Azure Key Vault logs from any IP IOC from TI",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.3.4",
@@ -5811,7 +5811,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -5862,7 +5862,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "IPEntity_AzureNetworkAnalytics_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "Identifies a match in AzureNetworkAnalytics_CL (NSG Flow Logs) from any IP IOC from TI that was Allowed",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.4.3",
@@ -5983,7 +5983,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -6026,7 +6026,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "IPEntity_AzureSQL_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "This query maps any IP indicators of compromise (IOCs) from threat intelligence (TI), by searching for matches in SQL Security Audit Events.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.3.2",
@@ -6127,7 +6127,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -6178,7 +6178,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "IPEntity_CustomSecurityLog_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "This query maps any IP indicators of compromise (IOCs) from threat intelligence (TI), by searching for matches in CommonSecurityLog.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.2.2",
@@ -6279,7 +6279,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -6330,7 +6330,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "IPEntity_DeviceNetworkEvents_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "Identifies a match in DeviceNetworkEvents Event data from any IP Indicator from TI.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.1",
@@ -6462,7 +6462,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -6513,7 +6513,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "IPEntity_DnsEvents_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "This query maps any IP indicators of compromise (IOCs) from threat intelligence (TI), by searching for matches in DnsEvents.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.4.3",
@@ -6640,7 +6640,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -6691,7 +6691,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "IPEntity_imWebSession_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "This rule identifies Web Sessions for which the source IP address is a known IoC. This rule uses the [Advanced Security Information Model (ASIM)](https://aka.ms/AboutASIM) and supports any web session source that complies with ASIM.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.2.5",
@@ -6769,10 +6769,10 @@
                                 "customDetails": {
                                     "IoCExpirationTime": "ExpirationDateTime",
                                     "ActivityGroupNames": "ActivityGroupNames",
-                                    "IoCConfidenceScore": "ConfidenceScore",
                                     "IndicatorId": "IndicatorId",
-                                    "ThreatType": "ThreatType",
+                                    "IoCConfidenceScore": "ConfidenceScore",
                                     "IoCDescription": "Description",
+                                    "ThreatType": "ThreatType",
                                     "EventTime": "imNWS_TimeGenerated"
                                 },
                                 "alertDetailsOverride": {
@@ -6811,7 +6811,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -6870,7 +6870,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "IPEntity_OfficeActivity_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "This query maps any IP indicators of compromise (IOCs) from threat intelligence (TI), by searching for matches in OfficeActivity.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.4.3",
@@ -6997,7 +6997,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -7048,7 +7048,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "IPEntity_SigninLogs_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "This query maps any IP indicators of compromise (IOCs) from threat intelligence (TI), by searching for matches in SigninLogs.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.2.8",
@@ -7181,7 +7181,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -7240,7 +7240,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "IPEntity_VMConnection_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "This query maps any IP indicators of compromise (IOCs) from threat intelligence (TI), by searching for matches in VMConnection.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.4.2",
@@ -7363,7 +7363,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -7414,7 +7414,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "IPEntity_W3CIISLog_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "This query maps any IP indicators of compromise (IOCs) from threat intelligence (TI), by searching for matches in W3CIISLog.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.4.2",
@@ -7542,7 +7542,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -7593,7 +7593,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "URLEntity_AuditLogs_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "This query identifies any URL indicators of compromise (IOCs) from threat intelligence (TI) by searching for matches in AuditLogs.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.2.8",
@@ -7728,7 +7728,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -7779,7 +7779,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "URLEntity_DeviceNetworkEvents_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "This query identifies any URL indicators of compromise (IOCs) from threat intelligence (TI) by searching for matches in DeviceNetworkEvents.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.2",
@@ -7911,7 +7911,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -7962,7 +7962,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "URLEntity_EmailUrlInfo_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "This query identifies any URL indicators of compromise (IOCs) from threat intelligence (TI) by searching for matches in EmailUrlInfo.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.2",
@@ -8080,7 +8080,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -8131,7 +8131,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "URLEntity_OfficeActivity_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "This query is Deprecated as its filter conditions will never yield results. This query identifies any URL indicators of compromise (IOCs) from threat intelligence (TI) by searching for matches in OfficeActivity data.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.2.9",
@@ -8249,7 +8249,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -8300,7 +8300,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "URLEntity_PaloAlto_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "This query identifies any URL indicators of compromise (IOCs) from threat intelligence (TI) by searching for matches in PaloAlto Data.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.2.5",
@@ -8419,7 +8419,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -8470,7 +8470,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "URLEntity_SecurityAlerts_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "This query identifies any URL indicators of compromise (IOCs) from threat intelligence (TI) by searching for matches in SecurityAlert data.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.2.8",
@@ -8586,7 +8586,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -8641,7 +8641,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "URLEntity_Syslog_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "This query identifies any URL indicators of compromise (IOCs) from threat intelligence (TI) by searching for matches in Syslog data.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.2.6",
@@ -8760,7 +8760,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -8811,7 +8811,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "URLEntity_UrlClickEvents_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "This query identifies any URL indicators of compromise (IOCs) from threat intelligence (TI) by searching for matches in UrlClickEvents.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.2",
@@ -8929,7 +8929,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -8980,7 +8980,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "IPEntity_DuoSecurity_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "This query maps any IP indicators of compromise (IOCs) from threat intelligence (TI), by searching for matches in DuoSecurity.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.6",
@@ -9098,7 +9098,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -9149,7 +9149,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "imDns_DomainEntity_DnsEvents_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "Identifies a match in DNS events from any Domain IOC from TI\nThis analytic rule uses [ASIM](https://aka.ms/AboutASIM) and supports any built-in or custom source that supports the ASIM DNS schema'",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1.8",
@@ -9296,17 +9296,17 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "DnsQuery": "DnsQuery",
-                                    "QueryType": "DnsQueryType",
-                                    "SourceIPAddress": "SrcIpAddr",
-                                    "ActivityGroupNames": "ActivityGroupNames",
-                                    "Description": "Description",
                                     "LatestIndicatorTime": "LatestIndicatorTime",
-                                    "IndicatorId": "IndicatorId",
-                                    "ThreatType": "ThreatType",
-                                    "DNSRequestTime": "DNS_TimeGenerated",
+                                    "DnsQuery": "DnsQuery",
                                     "ExpirationDateTime": "ExpirationDateTime",
-                                    "ConfidenceScore": "ConfidenceScore"
+                                    "Description": "Description",
+                                    "SourceIPAddress": "SrcIpAddr",
+                                    "ConfidenceScore": "ConfidenceScore",
+                                    "ActivityGroupNames": "ActivityGroupNames",
+                                    "IndicatorId": "IndicatorId",
+                                    "QueryType": "DnsQueryType",
+                                    "ThreatType": "ThreatType",
+                                    "DNSRequestTime": "DNS_TimeGenerated"
                                 }
                             }
                         },
@@ -9340,7 +9340,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -9447,7 +9447,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "imDns_IPEntity_DnsEvents_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "This rule identifies DNS requests for which response IP address is a known IoC. This analytic rule uses [ASIM](https://aka.ms/AboutASIM) and supports any built-in or custom source that supports the ASIM DNS schema.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.2.4",
@@ -9577,16 +9577,16 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "DnsQuery": "DnsQuery",
-                                    "SourceIPAddress": "SrcIpAddr",
-                                    "ActivityGroupNames": "ActivityGroupNames",
-                                    "Description": "Description",
                                     "LatestIndicatorTime": "LatestIndicatorTime",
+                                    "DnsQuery": "DnsQuery",
+                                    "ExpirationDateTime": "ExpirationDateTime",
+                                    "Description": "Description",
+                                    "SourceIPAddress": "SrcIpAddr",
+                                    "ConfidenceScore": "ConfidenceScore",
+                                    "ActivityGroupNames": "ActivityGroupNames",
                                     "IndicatorId": "IndicatorId",
                                     "ThreatType": "ThreatType",
-                                    "DNSRequestTime": "imDns_mintime",
-                                    "ExpirationDateTime": "ExpirationDateTime",
-                                    "ConfidenceScore": "ConfidenceScore"
+                                    "DNSRequestTime": "imDns_mintime"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "The response address {{IoC}} to a DNS query matched a known indicator of compromise of {{ThreatType}}. Consult the threat intelligence blade for more information on the indicator.",
@@ -9624,7 +9624,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -9731,7 +9731,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "IPEntity_imNetworkSession_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "This rule identifies a match Network Sessions for which the source or destination IP address is a known IoC. This analytic rule uses [ASIM](https://aka.ms/AboutASIM) and supports any built-in or custom source that supports the ASIM NetworkSession schema",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.2.6",
@@ -9886,15 +9886,15 @@
                                     }
                                 ],
                                 "customDetails": {
+                                    "IoCIPDirection": "IoCDirection",
                                     "IoCExpirationTime": "ExpirationDateTime",
-                                    "EventEndTime": "imNWS_maxtime",
-                                    "EventStartTime": "imNWS_mintime",
-                                    "ActivityGroupNames": "ActivityGroupNames",
-                                    "IoCConfidenceScore": "ConfidenceScore",
                                     "IndicatorId": "IndicatorId",
-                                    "ThreatType": "ThreatType",
+                                    "ActivityGroupNames": "ActivityGroupNames",
+                                    "EventStartTime": "imNWS_mintime",
+                                    "EventEndTime": "imNWS_maxtime",
                                     "IoCDescription": "Description",
-                                    "IoCIPDirection": "IoCDirection"
+                                    "ThreatType": "ThreatType",
+                                    "IoCConfidenceScore": "ConfidenceScore"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "The {{IoCDirection}} address {{IoCIP}} of a network session  matched a known indicator of compromise of {{ThreatType}}. Consult the threat intelligence blead for more information on the indicator.",
@@ -9932,7 +9932,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -10079,7 +10079,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "Threat Intel Matches to GitHub Audit Logs_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "Identifies a match in GitHub_CL table from any IP IOC from TI",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.4",
@@ -10183,7 +10183,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -10226,7 +10226,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "DomainEntity_CloudAppEvents_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "Identifies compromises and attacks and detect malicious activities in one's domain entity from TI.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.3",
@@ -10324,7 +10324,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -10367,7 +10367,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "EmailEntity_CloudAppEvents_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "Identifies compromises and attacks and detect malicious activities in one's email entity from TI",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.3",
@@ -10464,7 +10464,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -10507,7 +10507,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "FileHashEntity_CloudAppEvents_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "Identifies compromises and attacks and detect malicious activities in one's file hash entity from TI",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.3",
@@ -10633,7 +10633,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -10684,7 +10684,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "IPEntity_CloudAppEvents_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "Identifies compromises and attacks and detect malicious activities in one's IP entity from TI",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.3",
@@ -10800,7 +10800,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -10843,7 +10843,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
             ],
             "properties": {
-                "description": "URLEntity_CloudAppEvents_AnalyticalRules Analytics Rule with template version 3.0.7",
+                "description": "Identifies compromises and attacks and detect malicious activities in one's URL entity from TI",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.3",
@@ -10971,7 +10971,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Threat Intelligence",
                 "packageId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "contentSchemaVersion": "3.0.0",
@@ -11010,15 +11010,15 @@
             "apiVersion": "2023-04-01-preview",
             "location": "[parameters('workspace-location')]",
             "properties": {
-                "version": "3.0.7",
+                "version": "3.0.8",
                 "kind": "Solution",
                 "contentSchemaVersion": "3.0.0",
                 "displayName": "Threat Intelligence",
                 "publisherDisplayName": "Microsoft Sentinel, Microsoft Corporation",
                 "descriptionHtml": "<p><b>Note:</b> Please refer to the following before installing the solution:</p><p>\u2022 Review the solution <a target=\"_blank\" href=\"https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Threat%20Intelligence/ReleaseNotes.md\">Release Notes</a></p><p>The Threat Intelligence solution contains data connectors for import of threat indicators into Microsoft Sentinel, analytic rules for matching TI data with event data, workbook, and hunting queries. Threat indicators can be malicious IP's, URL's, filehashes, domains, email addresses etc.<br></p><p><b>Data Connectors:</b> 5, <b>Workbooks:</b> 1, <b>Analytic Rules:</b> 52, <b>Hunting Queries:</b> 5</p><p><a target=\"_blank\" href=\"https://aka.ms/azuresentinel\" rel=\"noopener\">Learn more about Microsoft Sentinel</a> | <a target=\"_blank\" href=\"https://aka.ms/azuresentinelsolutionsdoc\" rel=\"noopener\">Learn more about Solutions</a></p>",
                 "contentKind": "Solution",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-threatintell-sl-lffkto5jp7mxa",
-                "id": "azuresentinel.azure-sentinel-solution-threatintell-sl-lffkto5jp7mxa",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-threatintell-sl-a5c6ri6cwy7pq",
+                "id": "azuresentinel.azure-sentinel-solution-threatintell-sl-a5c6ri6cwy7pq",
                 "icon": "https://store-images.s-microsoft.com/image/apps.64133.3d66786f-2045-4b50-ae59-87e205de9836.117c9a55-3a76-4c66-bf93-0518bcce6926.b603f9a0-cf30-4987-b528-28988f8f735d",
                 "contentId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
                 "parentId": "azuresentinel.azure-sentinel-solution-threatintelligence-taxii",
@@ -11367,7 +11367,8 @@
                     ]
                 },
                 "isPreview": true,
-                "isDeprecated": false
+                "isDeprecated": false,
+                "migratedToPackageId": null
             },
             "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', 'azuresentinel.azure-sentinel-solution-threatintelligence-taxii')]"
         }
