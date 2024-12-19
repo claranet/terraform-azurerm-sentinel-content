@@ -15,9 +15,11 @@
         "tactics": [
             "DefenseEvasion"
         ],
+        "techniques": [
+            "T1070"
+        ],
         "entityMappings": [
             {
-                "entityType": "Account",
                 "fieldMappings": [
                     {
                         "columnName": "AccountName",
@@ -31,19 +33,20 @@
                         "columnName": "RecipientAccountId",
                         "identifier": "CloudAppAccountId"
                     }
-                ]
+                ],
+                "entityType": "Account"
             },
             {
-                "entityType": "IP",
                 "fieldMappings": [
                     {
                         "columnName": "SourceIpAddress",
                         "identifier": "Address"
                     }
-                ]
+                ],
+                "entityType": "IP"
             }
         ],
         "alertRuleTemplateName": "633a91df-d031-4b6e-a413-607a61540559",
-        "templateVersion": "1.0.2"
+        "templateVersion": "1.0.3"
     }
 }
