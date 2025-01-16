@@ -20,43 +20,43 @@
         ],
         "entityMappings": [
             {
+                "entityType": "File",
                 "fieldMappings": [
                     {
-                        "identifier": "Name",
-                        "columnName": "File"
+                        "columnName": "File",
+                        "identifier": "Name"
                     }
-                ],
-                "entityType": "File"
+                ]
             },
             {
+                "entityType": "Url",
                 "fieldMappings": [
                     {
-                        "identifier": "Url",
-                        "columnName": "RequestURL"
+                        "columnName": "RequestURL",
+                        "identifier": "Url"
                     }
-                ],
-                "entityType": "Url"
+                ]
             },
             {
+                "entityType": "Account",
                 "fieldMappings": [
                     {
-                        "identifier": "FullName",
-                        "columnName": "SrcUsername"
+                        "columnName": "SrcUsername",
+                        "identifier": "FullName"
                     }
-                ],
-                "entityType": "Account"
+                ]
             },
             {
+                "entityType": "IP",
                 "fieldMappings": [
                     {
-                        "identifier": "Address",
-                        "columnName": "SrcIpAddr"
+                        "columnName": "SrcIpAddr",
+                        "identifier": "Address"
                     }
-                ],
-                "entityType": "IP"
+                ]
             }
         ],
         "alertRuleTemplateName": "3db9f99e-a459-41e0-8e02-8b332f5fcb2c",
-        "templateVersion": "1.0.1"
+        "templateVersion": "1.0.2"
     }
 }

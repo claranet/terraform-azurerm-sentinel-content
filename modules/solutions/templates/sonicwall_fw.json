@@ -42,718 +42,6 @@
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
             "apiVersion": "2023-04-01-preview",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-dc-',uniquestring('SonicWallFirewall')))]",
-            "location": "[parameters('workspace-location')]",
-            "dependsOn": [
-                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'sonicwall-inc.sonicwall-networksecurity-azure-sentinal')]"
-            ],
-            "properties": {
-                "description": "Common Event Format (CEF) is an industry standard format on top of Syslog messages. used by SonicWall to allow event interoperability among different platforms. By connecting your CEF logs to Microsoft Sentinel. you can take advantage of search & correlation. alerting. and threat intelligence enrichment for each log.",
-                "mainTemplate": {
-                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0",
-                    "parameters": {},
-                    "variables": {},
-                    "resources": [
-                        {
-                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/','SonicWallFirewall')]",
-                            "apiVersion": "2021-03-01-preview",
-                            "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
-                            "location": "[parameters('workspace-location')]",
-                            "kind": "GenericUI",
-                            "properties": {
-                                "connectorUiConfig": {
-                                    "id": "SonicWallFirewall",
-                                    "title": "[Deprecated] SonicWall Firewall via Legacy Agent",
-                                    "publisher": "SonicWall",
-                                    "descriptionMarkdown": "Common Event Format (CEF) is an industry standard format on top of Syslog messages, used by SonicWall to allow event interoperability among different platforms. By connecting your CEF logs to Microsoft Sentinel, you can take advantage of search & correlation, alerting, and threat intelligence enrichment for each log.",
-                                    "graphQueries": [
-                                        {
-                                            "metricName": "Total data received",
-                                            "legend": "SonicWall",
-                                            "baseQuery": "CommonSecurityLog\n| where DeviceVendor == \"SonicWall\""
-                                        }
-                                    ],
-                                    "sampleQueries": [
-                                        {
-                                            "description": "All logs",
-                                            "query": "CommonSecurityLog\n| where DeviceVendor == \"SonicWall\"\n| sort by TimeGenerated desc"
-                                        },
-                                        {
-                                            "description": "Summarize by destination IP and port",
-                                            "query": "CommonSecurityLog\n| where DeviceVendor == \"SonicWall\"\n| summarize count() by DestinationIP, DestinationPort, TimeGenerated\n| sort by TimeGenerated desc"
-                                        },
-                                        {
-                                            "description": "Show all dropped traffic from the SonicWall Firewall",
-                                            "query": "CommonSecurityLog\n| where DeviceVendor == \"SonicWall\"\n| where AdditionalExtensions contains \"fw_action='drop'\""
-                                        }
-                                    ],
-                                    "dataTypes": [
-                                        {
-                                            "name": "CommonSecurityLog (SonicWall)",
-                                            "lastDataReceivedQuery": "CommonSecurityLog\n| where DeviceVendor == \"SonicWall\"\n| summarize Time = max(TimeGenerated)\n| where isnotempty(Time)"
-                                        }
-                                    ],
-                                    "connectivityCriterias": [
-                                        {
-                                            "type": "IsConnectedQuery",
-                                            "value": [
-                                                "CommonSecurityLog\n| where DeviceVendor == \"SonicWall\"\n| summarize LastLogReceived = max(TimeGenerated)\n| project IsConnected = LastLogReceived > ago(30d)"
-                                            ]
-                                        }
-                                    ],
-                                    "availability": {
-                                        "status": 1,
-                                        "isPreview": false
-                                    },
-                                    "permissions": {
-                                        "resourceProvider": [
-                                            {
-                                                "provider": "Microsoft.OperationalInsights/workspaces",
-                                                "permissionsDisplayText": "read and write permissions are required.",
-                                                "providerDisplayName": "Workspace",
-                                                "scope": "Workspace",
-                                                "requiredPermissions": {
-                                                    "read": true,
-                                                    "write": true,
-                                                    "delete": true
-                                                }
-                                            },
-                                            {
-                                                "provider": "Microsoft.OperationalInsights/workspaces/sharedKeys",
-                                                "permissionsDisplayText": "read permissions to shared keys for the workspace are required. [See the documentation to learn more about workspace keys](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows#obtain-workspace-id-and-key).",
-                                                "providerDisplayName": "Keys",
-                                                "scope": "Workspace",
-                                                "requiredPermissions": {
-                                                    "action": true
-                                                }
-                                            }
-                                        ]
-                                    },
-                                    "instructionSteps": [
-                                        {
-                                            "description": "Install and configure the Linux agent to collect your Common Event Format (CEF) Syslog messages and forward them to Microsoft Sentinel.\n\n> Notice that the data from all regions will be stored in the selected workspace",
-                                            "innerSteps": [
-                                                {
-                                                    "title": "1.1 Select or create a Linux machine",
-                                                    "description": "Select or create a Linux machine that Microsoft Sentinel will use as the proxy between your security solution and Microsoft Sentinel this machine can be on your on-prem environment, Azure or other clouds."
-                                                },
-                                                {
-                                                    "title": "1.2 Install the CEF collector on the Linux machine",
-                                                    "description": "Install the Microsoft Monitoring Agent on your Linux machine and configure the machine to listen on the necessary port and forward messages to your Microsoft Sentinel workspace. The CEF collector collects CEF messages on port 514 TCP.\n\n> 1. Make sure that you have Python on your machine using the following command: python -version.\n\n> 2. You must have elevated permissions (sudo) on your machine.",
-                                                    "instructions": [
-                                                        {
-                                                            "parameters": {
-                                                                "fillWith": [
-                                                                    "WorkspaceId",
-                                                                    "PrimaryKey"
-                                                                ],
-                                                                "label": "Run the following command to install and apply the CEF collector:",
-                                                                "value": "sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py {0} {1}"
-                                                            },
-                                                            "type": "CopyableLabel"
-                                                        }
-                                                    ]
-                                                }
-                                            ],
-                                            "title": "1. Linux Syslog agent configuration"
-                                        },
-                                        {
-                                            "description": "Set your SonicWall Firewall to send Syslog messages in CEF format to the proxy machine. Make sure you send the logs to port 514 TCP on the machine's IP address.\n\n Follow Instructions . Then Make sure you select local use 4 as the facility. Then select ArcSight as the Syslog format.",
-                                            "title": "2. Forward SonicWall Firewall Common Event Format (CEF) logs to Syslog agent"
-                                        },
-                                        {
-                                            "description": "Follow the instructions to validate your connectivity:\n\nOpen Log Analytics to check if the logs are received using the CommonSecurityLog schema.\n\n>It may take about 20 minutes until the connection streams data to your workspace.\n\nIf the logs are not received, run the following connectivity validation script:\n\n> 1. Make sure that you have Python on your machine using the following command: python -version\n\n>2. You must have elevated permissions (sudo) on your machine",
-                                            "instructions": [
-                                                {
-                                                    "parameters": {
-                                                        "fillWith": [
-                                                            "WorkspaceId"
-                                                        ],
-                                                        "label": "Run the following command to validate your connectivity:",
-                                                        "value": "sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py  {0}"
-                                                    },
-                                                    "type": "CopyableLabel"
-                                                }
-                                            ],
-                                            "title": "3. Validate connection"
-                                        },
-                                        {
-                                            "description": "Make sure to configure the machine's security according to your organization's security policy\n\n\n[Learn more >](https://aka.ms/SecureCEF)",
-                                            "title": "4. Secure your machine "
-                                        }
-                                    ],
-                                    "metadata": {
-                                        "id": "bbe6d9ef-2581-41b8-95b0-9d50c919d377",
-                                        "version": "1.0.0",
-                                        "kind": "dataConnector",
-                                        "source": {
-                                            "kind": "community"
-                                        },
-                                        "author": {
-                                            "name": "SonicWall"
-                                        },
-                                        "support": {
-                                            "name": "SonicWall",
-                                            "link": "https://www.sonicwall.com/support/",
-                                            "tier": "developer"
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        {
-                            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
-                            "apiVersion": "2023-04-01-preview",
-                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('DataConnector-', last(split(extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'SonicWallFirewall'),'/'))))]",
-                            "properties": {
-                                "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'SonicWallFirewall')]",
-                                "contentId": "SonicWallFirewall",
-                                "kind": "DataConnector",
-                                "version": "1.0.0",
-                                "source": {
-                                    "kind": "Solution",
-                                    "name": "SonicWall Firewall",
-                                    "sourceId": "sonicwall-inc.sonicwall-networksecurity-azure-sentinal"
-                                },
-                                "author": {
-                                    "name": "SonicWall"
-                                },
-                                "support": {
-                                    "name": "SonicWall",
-                                    "tier": "Partner",
-                                    "link": "https://www.sonicwall.com/support/"
-                                }
-                            }
-                        }
-                    ]
-                },
-                "packageKind": "Solution",
-                "packageVersion": "3.1.1",
-                "packageName": "SonicWall Firewall",
-                "packageId": "sonicwall-inc.sonicwall-networksecurity-azure-sentinal",
-                "contentSchemaVersion": "3.0.0",
-                "contentId": "SonicWallFirewall",
-                "contentKind": "DataConnector",
-                "displayName": "[Deprecated] SonicWall Firewall via Legacy Agent",
-                "contentProductId": "sonicwall-inc.sonicwall-networksecurity-azure-sent-dc-go4yvc6cla7vm",
-                "id": "sonicwall-inc.sonicwall-networksecurity-azure-sent-dc-go4yvc6cla7vm",
-                "version": "1.0.0",
-                "isDeprecated": false
-            }
-        },
-        {
-            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
-            "apiVersion": "2023-04-01-preview",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('DataConnector-', last(split(extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'SonicWallFirewall'),'/'))))]",
-            "dependsOn": [
-                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'SonicWallFirewall')]"
-            ],
-            "location": "[parameters('workspace-location')]",
-            "properties": {
-                "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'SonicWallFirewall')]",
-                "contentId": "SonicWallFirewall",
-                "kind": "DataConnector",
-                "version": "1.0.0",
-                "source": {
-                    "kind": "Solution",
-                    "name": "SonicWall Firewall",
-                    "sourceId": "sonicwall-inc.sonicwall-networksecurity-azure-sentinal"
-                },
-                "author": {
-                    "name": "SonicWall"
-                },
-                "support": {
-                    "name": "SonicWall",
-                    "tier": "Partner",
-                    "link": "https://www.sonicwall.com/support/"
-                }
-            }
-        },
-        {
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/','SonicWallFirewall')]",
-            "apiVersion": "2021-03-01-preview",
-            "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
-            "location": "[parameters('workspace-location')]",
-            "kind": "GenericUI",
-            "properties": {
-                "connectorUiConfig": {
-                    "title": "[Deprecated] SonicWall Firewall via Legacy Agent",
-                    "publisher": "SonicWall",
-                    "descriptionMarkdown": "Common Event Format (CEF) is an industry standard format on top of Syslog messages, used by SonicWall to allow event interoperability among different platforms. By connecting your CEF logs to Microsoft Sentinel, you can take advantage of search & correlation, alerting, and threat intelligence enrichment for each log.",
-                    "graphQueries": [
-                        {
-                            "metricName": "Total data received",
-                            "legend": "SonicWall",
-                            "baseQuery": "CommonSecurityLog\n| where DeviceVendor == \"SonicWall\""
-                        }
-                    ],
-                    "dataTypes": [
-                        {
-                            "name": "CommonSecurityLog (SonicWall)",
-                            "lastDataReceivedQuery": "CommonSecurityLog\n| where DeviceVendor == \"SonicWall\"\n| summarize Time = max(TimeGenerated)\n| where isnotempty(Time)"
-                        }
-                    ],
-                    "connectivityCriterias": [
-                        {
-                            "type": "IsConnectedQuery",
-                            "value": [
-                                "CommonSecurityLog\n| where DeviceVendor == \"SonicWall\"\n| summarize LastLogReceived = max(TimeGenerated)\n| project IsConnected = LastLogReceived > ago(30d)"
-                            ]
-                        }
-                    ],
-                    "sampleQueries": [
-                        {
-                            "description": "All logs",
-                            "query": "CommonSecurityLog\n| where DeviceVendor == \"SonicWall\"\n| sort by TimeGenerated desc"
-                        },
-                        {
-                            "description": "Summarize by destination IP and port",
-                            "query": "CommonSecurityLog\n| where DeviceVendor == \"SonicWall\"\n| summarize count() by DestinationIP, DestinationPort, TimeGenerated\n| sort by TimeGenerated desc"
-                        },
-                        {
-                            "description": "Show all dropped traffic from the SonicWall Firewall",
-                            "query": "CommonSecurityLog\n| where DeviceVendor == \"SonicWall\"\n| where AdditionalExtensions contains \"fw_action='drop'\""
-                        }
-                    ],
-                    "availability": {
-                        "status": 1,
-                        "isPreview": false
-                    },
-                    "permissions": {
-                        "resourceProvider": [
-                            {
-                                "provider": "Microsoft.OperationalInsights/workspaces",
-                                "permissionsDisplayText": "read and write permissions are required.",
-                                "providerDisplayName": "Workspace",
-                                "scope": "Workspace",
-                                "requiredPermissions": {
-                                    "read": true,
-                                    "write": true,
-                                    "delete": true
-                                }
-                            },
-                            {
-                                "provider": "Microsoft.OperationalInsights/workspaces/sharedKeys",
-                                "permissionsDisplayText": "read permissions to shared keys for the workspace are required. [See the documentation to learn more about workspace keys](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows#obtain-workspace-id-and-key).",
-                                "providerDisplayName": "Keys",
-                                "scope": "Workspace",
-                                "requiredPermissions": {
-                                    "action": true
-                                }
-                            }
-                        ]
-                    },
-                    "instructionSteps": [
-                        {
-                            "description": "Install and configure the Linux agent to collect your Common Event Format (CEF) Syslog messages and forward them to Microsoft Sentinel.\n\n> Notice that the data from all regions will be stored in the selected workspace",
-                            "innerSteps": [
-                                {
-                                    "title": "1.1 Select or create a Linux machine",
-                                    "description": "Select or create a Linux machine that Microsoft Sentinel will use as the proxy between your security solution and Microsoft Sentinel this machine can be on your on-prem environment, Azure or other clouds."
-                                },
-                                {
-                                    "title": "1.2 Install the CEF collector on the Linux machine",
-                                    "description": "Install the Microsoft Monitoring Agent on your Linux machine and configure the machine to listen on the necessary port and forward messages to your Microsoft Sentinel workspace. The CEF collector collects CEF messages on port 514 TCP.\n\n> 1. Make sure that you have Python on your machine using the following command: python -version.\n\n> 2. You must have elevated permissions (sudo) on your machine.",
-                                    "instructions": [
-                                        {
-                                            "parameters": {
-                                                "fillWith": [
-                                                    "WorkspaceId",
-                                                    "PrimaryKey"
-                                                ],
-                                                "label": "Run the following command to install and apply the CEF collector:",
-                                                "value": "sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py {0} {1}"
-                                            },
-                                            "type": "CopyableLabel"
-                                        }
-                                    ]
-                                }
-                            ],
-                            "title": "1. Linux Syslog agent configuration"
-                        },
-                        {
-                            "description": "Set your SonicWall Firewall to send Syslog messages in CEF format to the proxy machine. Make sure you send the logs to port 514 TCP on the machine's IP address.\n\n Follow Instructions . Then Make sure you select local use 4 as the facility. Then select ArcSight as the Syslog format.",
-                            "title": "2. Forward SonicWall Firewall Common Event Format (CEF) logs to Syslog agent"
-                        },
-                        {
-                            "description": "Follow the instructions to validate your connectivity:\n\nOpen Log Analytics to check if the logs are received using the CommonSecurityLog schema.\n\n>It may take about 20 minutes until the connection streams data to your workspace.\n\nIf the logs are not received, run the following connectivity validation script:\n\n> 1. Make sure that you have Python on your machine using the following command: python -version\n\n>2. You must have elevated permissions (sudo) on your machine",
-                            "instructions": [
-                                {
-                                    "parameters": {
-                                        "fillWith": [
-                                            "WorkspaceId"
-                                        ],
-                                        "label": "Run the following command to validate your connectivity:",
-                                        "value": "sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py  {0}"
-                                    },
-                                    "type": "CopyableLabel"
-                                }
-                            ],
-                            "title": "3. Validate connection"
-                        },
-                        {
-                            "description": "Make sure to configure the machine's security according to your organization's security policy\n\n\n[Learn more >](https://aka.ms/SecureCEF)",
-                            "title": "4. Secure your machine "
-                        }
-                    ],
-                    "id": "SonicWallFirewall"
-                }
-            }
-        },
-        {
-            "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "apiVersion": "2023-04-01-preview",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-dc-',uniquestring('SonicWallFirewallAma')))]",
-            "location": "[parameters('workspace-location')]",
-            "dependsOn": [
-                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'sonicwall-inc.sonicwall-networksecurity-azure-sentinal')]"
-            ],
-            "properties": {
-                "description": "Common Event Format (CEF) is an industry standard format on top of Syslog messages. used by SonicWall to allow event interoperability among different platforms. By connecting your CEF logs to Microsoft Sentinel. you can take advantage of search & correlation. alerting. and threat intelligence enrichment for each log.",
-                "mainTemplate": {
-                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0",
-                    "parameters": {},
-                    "variables": {},
-                    "resources": [
-                        {
-                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/','SonicWallFirewallAma')]",
-                            "apiVersion": "2021-03-01-preview",
-                            "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
-                            "location": "[parameters('workspace-location')]",
-                            "kind": "GenericUI",
-                            "properties": {
-                                "connectorUiConfig": {
-                                    "id": "SonicWallFirewallAma",
-                                    "title": "[Deprecated] SonicWall Firewall via AMA",
-                                    "publisher": "SonicWall",
-                                    "descriptionMarkdown": "Common Event Format (CEF) is an industry standard format on top of Syslog messages, used by SonicWall to allow event interoperability among different platforms. By connecting your CEF logs to Microsoft Sentinel, you can take advantage of search & correlation, alerting, and threat intelligence enrichment for each log.",
-                                    "graphQueries": [
-                                        {
-                                            "metricName": "Total data received",
-                                            "legend": "SonicWall",
-                                            "baseQuery": "CommonSecurityLog\n |where DeviceVendor =~ 'SonicWall'\n  |extend sent_by_ama = column_ifexists('CollectorHostName','')\n |where isnotempty(sent_by_ama)"
-                                        }
-                                    ],
-                                    "sampleQueries": [
-                                        {
-                                            "description": "All logs",
-                                            "query": "CommonSecurityLog\n| where DeviceVendor == \"SonicWall\"\n| sort by TimeGenerated desc"
-                                        },
-                                        {
-                                            "description": "Summarize by destination IP and port",
-                                            "query": "CommonSecurityLog\n| where DeviceVendor == \"SonicWall\"\n| summarize count() by DestinationIP, DestinationPort, TimeGenerated\n| sort by TimeGenerated desc"
-                                        },
-                                        {
-                                            "description": "Show all dropped traffic from the SonicWall Firewall",
-                                            "query": "CommonSecurityLog\n| where DeviceVendor == \"SonicWall\"\n| where AdditionalExtensions contains \"fw_action='drop'\""
-                                        }
-                                    ],
-                                    "dataTypes": [
-                                        {
-                                            "name": "CommonSecurityLog (SonicWall)",
-                                            "lastDataReceivedQuery": "CommonSecurityLog\n |where DeviceVendor =~ 'SonicWall'\n  |extend sent_by_ama = column_ifexists('CollectorHostName','')\n |where isnotempty(sent_by_ama)\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)"
-                                        }
-                                    ],
-                                    "connectivityCriterias": [
-                                        {
-                                            "type": "IsConnectedQuery",
-                                            "value": [
-                                                "CommonSecurityLog\n |where DeviceVendor =~ 'SonicWall'\n  |extend sent_by_ama = column_ifexists('CollectorHostName','')\n |where isnotempty(sent_by_ama)\n | summarize LastLogReceived = max(TimeGenerated)\n | project IsConnected = LastLogReceived > ago(30d)"
-                                            ]
-                                        }
-                                    ],
-                                    "availability": {
-                                        "status": 1,
-                                        "isPreview": false
-                                    },
-                                    "permissions": {
-                                        "resourceProvider": [
-                                            {
-                                                "provider": "Microsoft.OperationalInsights/workspaces",
-                                                "permissionsDisplayText": "read and write permissions are required.",
-                                                "providerDisplayName": "Workspace",
-                                                "scope": "Workspace",
-                                                "requiredPermissions": {
-                                                    "read": true,
-                                                    "write": true,
-                                                    "delete": true
-                                                }
-                                            },
-                                            {
-                                                "provider": "Microsoft.OperationalInsights/workspaces/sharedKeys",
-                                                "permissionsDisplayText": "read permissions to shared keys for the workspace are required. [See the documentation to learn more about workspace keys](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows#obtain-workspace-id-and-key).",
-                                                "providerDisplayName": "Keys",
-                                                "scope": "Workspace",
-                                                "requiredPermissions": {
-                                                    "action": true
-                                                }
-                                            }
-                                        ],
-                                        "customs": [
-                                            {
-                                                "description": "To collect data from non-Azure VMs, they must have Azure Arc installed and enabled. [Learn more](https://docs.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-install?tabs=ARMAgentPowerShell,PowerShellWindows,PowerShellWindowsArc,CLIWindows,CLIWindowsArc)"
-                                            },
-                                            {
-                                                "description": "Common Event Format (CEF) via AMA and Syslog via AMA data connectors must be installed [Learn more](https://learn.microsoft.com/azure/sentinel/connect-cef-ama#open-the-connector-page-and-create-the-dcr)"
-                                            }
-                                        ]
-                                    },
-                                    "instructionSteps": [
-                                        {
-                                            "instructions": [
-                                                {
-                                                    "parameters": {
-                                                        "title": "1. Kindly follow the steps to configure the data connector",
-                                                        "instructionSteps": [
-                                                            {
-                                                                "title": "Step A. Configure the Common Event Format (CEF) via AMA data connector",
-                                                                "description": "_Note:- CEF logs are collected only from Linux Agents_\n\n1. Navigate to Microsoft Sentinel workspace ---> configuration ---> Data connector blade .\n\n2. Search for 'Common Event Format (CEF) via AMA' data connector and open it.\n\n3. Check If there is no existing DCR configured to collect required facility of logs, Create a new DCR (Data Collection Rule)\n\n\t_Note:- It is recommended to install minimum 1.27 version of AMA agent [Learn more](https://learn.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-manage?tabs=azure-portal ) and ensure there is no duplicate DCR as it can cause log duplicacy_\n\n4. Run the command provided in the CEF via AMA data connector page to configure the CEF collector on the machine"
-                                                            },
-                                                            {
-                                                                "title": "Step B. Forward SonicWall Firewall Common Event Format (CEF) logs to Syslog agent",
-                                                                "description": "Set your SonicWall Firewall to send Syslog messages in CEF format to the proxy machine. Make sure you send the logs to port 514 TCP on the machine's IP address.\n\n Follow Instructions . Then Make sure you select local use 4 as the facility. Then select ArcSight as the Syslog format."
-                                                            },
-                                                            {
-                                                                "title": "Step C. Validate connection",
-                                                                "description": "Follow the instructions to validate your connectivity:\n\nOpen Log Analytics to check if the logs are received using the CommonSecurityLog schema.\n\nIt may take about 20 minutes until the connection streams data to your workspace.\n\nIf the logs are not received, run the following connectivity validation script:\n\n 1. Make sure that you have Python on your machine using the following command: python -version\n\n2. You must have elevated permissions (sudo) on your machine",
-                                                                "instructions": [
-                                                                    {
-                                                                        "parameters": {
-                                                                            "label": "Run the following command to validate your connectivity:",
-                                                                            "value": "sudo wget -O Sentinel_AMA_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Sentinel_AMA_troubleshoot.py&&sudo python Sentinel_AMA_troubleshoot.py --cef"
-                                                                        },
-                                                                        "type": "CopyableLabel"
-                                                                    }
-                                                                ]
-                                                            }
-                                                        ]
-                                                    },
-                                                    "type": "InstructionStepsGroup"
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "description": "Make sure to configure the machine's security according to your organization's security policy\n\n\n[Learn more >](https://aka.ms/SecureCEF)",
-                                            "title": "2. Secure your machine "
-                                        }
-                                    ],
-                                    "metadata": {
-                                        "id": "bbe6d9ef-2581-41b8-95b0-9d50c919d377",
-                                        "version": "1.0.0",
-                                        "kind": "dataConnector",
-                                        "source": {
-                                            "kind": "community"
-                                        },
-                                        "author": {
-                                            "name": "SonicWall"
-                                        },
-                                        "support": {
-                                            "name": "SonicWall",
-                                            "link": "https://www.sonicwall.com/support/",
-                                            "tier": "developer"
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        {
-                            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
-                            "apiVersion": "2023-04-01-preview",
-                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('DataConnector-', last(split(extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'SonicWallFirewallAma'),'/'))))]",
-                            "properties": {
-                                "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'SonicWallFirewallAma')]",
-                                "contentId": "SonicWallFirewallAma",
-                                "kind": "DataConnector",
-                                "version": "1.0.0",
-                                "source": {
-                                    "kind": "Solution",
-                                    "name": "SonicWall Firewall",
-                                    "sourceId": "sonicwall-inc.sonicwall-networksecurity-azure-sentinal"
-                                },
-                                "author": {
-                                    "name": "SonicWall"
-                                },
-                                "support": {
-                                    "name": "SonicWall",
-                                    "tier": "Partner",
-                                    "link": "https://www.sonicwall.com/support/"
-                                }
-                            }
-                        }
-                    ]
-                },
-                "packageKind": "Solution",
-                "packageVersion": "3.1.1",
-                "packageName": "SonicWall Firewall",
-                "packageId": "sonicwall-inc.sonicwall-networksecurity-azure-sentinal",
-                "contentSchemaVersion": "3.0.0",
-                "contentId": "SonicWallFirewallAma",
-                "contentKind": "DataConnector",
-                "displayName": "[Deprecated] SonicWall Firewall via AMA",
-                "contentProductId": "sonicwall-inc.sonicwall-networksecurity-azure-sent-dc-4f6ezruubkjek",
-                "id": "sonicwall-inc.sonicwall-networksecurity-azure-sent-dc-4f6ezruubkjek",
-                "version": "1.0.0",
-                "isDeprecated": false
-            }
-        },
-        {
-            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
-            "apiVersion": "2023-04-01-preview",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('DataConnector-', last(split(extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'SonicWallFirewallAma'),'/'))))]",
-            "dependsOn": [
-                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'SonicWallFirewallAma')]"
-            ],
-            "location": "[parameters('workspace-location')]",
-            "properties": {
-                "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'SonicWallFirewallAma')]",
-                "contentId": "SonicWallFirewallAma",
-                "kind": "DataConnector",
-                "version": "1.0.0",
-                "source": {
-                    "kind": "Solution",
-                    "name": "SonicWall Firewall",
-                    "sourceId": "sonicwall-inc.sonicwall-networksecurity-azure-sentinal"
-                },
-                "author": {
-                    "name": "SonicWall"
-                },
-                "support": {
-                    "name": "SonicWall",
-                    "tier": "Partner",
-                    "link": "https://www.sonicwall.com/support/"
-                }
-            }
-        },
-        {
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/','SonicWallFirewallAma')]",
-            "apiVersion": "2021-03-01-preview",
-            "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
-            "location": "[parameters('workspace-location')]",
-            "kind": "GenericUI",
-            "properties": {
-                "connectorUiConfig": {
-                    "title": "[Deprecated] SonicWall Firewall via AMA",
-                    "publisher": "SonicWall",
-                    "descriptionMarkdown": "Common Event Format (CEF) is an industry standard format on top of Syslog messages, used by SonicWall to allow event interoperability among different platforms. By connecting your CEF logs to Microsoft Sentinel, you can take advantage of search & correlation, alerting, and threat intelligence enrichment for each log.",
-                    "graphQueries": [
-                        {
-                            "metricName": "Total data received",
-                            "legend": "SonicWall",
-                            "baseQuery": "CommonSecurityLog\n |where DeviceVendor =~ 'SonicWall'\n  |extend sent_by_ama = column_ifexists('CollectorHostName','')\n |where isnotempty(sent_by_ama)"
-                        }
-                    ],
-                    "dataTypes": [
-                        {
-                            "name": "CommonSecurityLog (SonicWall)",
-                            "lastDataReceivedQuery": "CommonSecurityLog\n |where DeviceVendor =~ 'SonicWall'\n  |extend sent_by_ama = column_ifexists('CollectorHostName','')\n |where isnotempty(sent_by_ama)\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)"
-                        }
-                    ],
-                    "connectivityCriterias": [
-                        {
-                            "type": "IsConnectedQuery",
-                            "value": [
-                                "CommonSecurityLog\n |where DeviceVendor =~ 'SonicWall'\n  |extend sent_by_ama = column_ifexists('CollectorHostName','')\n |where isnotempty(sent_by_ama)\n | summarize LastLogReceived = max(TimeGenerated)\n | project IsConnected = LastLogReceived > ago(30d)"
-                            ]
-                        }
-                    ],
-                    "sampleQueries": [
-                        {
-                            "description": "All logs",
-                            "query": "CommonSecurityLog\n| where DeviceVendor == \"SonicWall\"\n| sort by TimeGenerated desc"
-                        },
-                        {
-                            "description": "Summarize by destination IP and port",
-                            "query": "CommonSecurityLog\n| where DeviceVendor == \"SonicWall\"\n| summarize count() by DestinationIP, DestinationPort, TimeGenerated\n| sort by TimeGenerated desc"
-                        },
-                        {
-                            "description": "Show all dropped traffic from the SonicWall Firewall",
-                            "query": "CommonSecurityLog\n| where DeviceVendor == \"SonicWall\"\n| where AdditionalExtensions contains \"fw_action='drop'\""
-                        }
-                    ],
-                    "availability": {
-                        "status": 1,
-                        "isPreview": false
-                    },
-                    "permissions": {
-                        "resourceProvider": [
-                            {
-                                "provider": "Microsoft.OperationalInsights/workspaces",
-                                "permissionsDisplayText": "read and write permissions are required.",
-                                "providerDisplayName": "Workspace",
-                                "scope": "Workspace",
-                                "requiredPermissions": {
-                                    "read": true,
-                                    "write": true,
-                                    "delete": true
-                                }
-                            },
-                            {
-                                "provider": "Microsoft.OperationalInsights/workspaces/sharedKeys",
-                                "permissionsDisplayText": "read permissions to shared keys for the workspace are required. [See the documentation to learn more about workspace keys](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows#obtain-workspace-id-and-key).",
-                                "providerDisplayName": "Keys",
-                                "scope": "Workspace",
-                                "requiredPermissions": {
-                                    "action": true
-                                }
-                            }
-                        ],
-                        "customs": [
-                            {
-                                "description": "To collect data from non-Azure VMs, they must have Azure Arc installed and enabled. [Learn more](https://docs.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-install?tabs=ARMAgentPowerShell,PowerShellWindows,PowerShellWindowsArc,CLIWindows,CLIWindowsArc)"
-                            },
-                            {
-                                "description": "Common Event Format (CEF) via AMA and Syslog via AMA data connectors must be installed [Learn more](https://learn.microsoft.com/azure/sentinel/connect-cef-ama#open-the-connector-page-and-create-the-dcr)"
-                            }
-                        ]
-                    },
-                    "instructionSteps": [
-                        {
-                            "instructions": [
-                                {
-                                    "parameters": {
-                                        "title": "1. Kindly follow the steps to configure the data connector",
-                                        "instructionSteps": [
-                                            {
-                                                "title": "Step A. Configure the Common Event Format (CEF) via AMA data connector",
-                                                "description": "_Note:- CEF logs are collected only from Linux Agents_\n\n1. Navigate to Microsoft Sentinel workspace ---> configuration ---> Data connector blade .\n\n2. Search for 'Common Event Format (CEF) via AMA' data connector and open it.\n\n3. Check If there is no existing DCR configured to collect required facility of logs, Create a new DCR (Data Collection Rule)\n\n\t_Note:- It is recommended to install minimum 1.27 version of AMA agent [Learn more](https://learn.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-manage?tabs=azure-portal ) and ensure there is no duplicate DCR as it can cause log duplicacy_\n\n4. Run the command provided in the CEF via AMA data connector page to configure the CEF collector on the machine"
-                                            },
-                                            {
-                                                "title": "Step B. Forward SonicWall Firewall Common Event Format (CEF) logs to Syslog agent",
-                                                "description": "Set your SonicWall Firewall to send Syslog messages in CEF format to the proxy machine. Make sure you send the logs to port 514 TCP on the machine's IP address.\n\n Follow Instructions . Then Make sure you select local use 4 as the facility. Then select ArcSight as the Syslog format."
-                                            },
-                                            {
-                                                "title": "Step C. Validate connection",
-                                                "description": "Follow the instructions to validate your connectivity:\n\nOpen Log Analytics to check if the logs are received using the CommonSecurityLog schema.\n\nIt may take about 20 minutes until the connection streams data to your workspace.\n\nIf the logs are not received, run the following connectivity validation script:\n\n 1. Make sure that you have Python on your machine using the following command: python -version\n\n2. You must have elevated permissions (sudo) on your machine",
-                                                "instructions": [
-                                                    {
-                                                        "parameters": {
-                                                            "label": "Run the following command to validate your connectivity:",
-                                                            "value": "sudo wget -O Sentinel_AMA_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Sentinel_AMA_troubleshoot.py&&sudo python Sentinel_AMA_troubleshoot.py --cef"
-                                                        },
-                                                        "type": "CopyableLabel"
-                                                    }
-                                                ]
-                                            }
-                                        ]
-                                    },
-                                    "type": "InstructionStepsGroup"
-                                }
-                            ]
-                        },
-                        {
-                            "description": "Make sure to configure the machine's security according to your organization's security policy\n\n\n[Learn more >](https://aka.ms/SecureCEF)",
-                            "title": "2. Secure your machine "
-                        }
-                    ],
-                    "id": "SonicWallFirewallAma"
-                }
-            }
-        },
-        {
-            "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "apiVersion": "2023-04-01-preview",
             "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-wb-',uniquestring('SonicWallWorkbook')))]",
             "location": "[parameters('workspace-location')]",
             "dependsOn": [
@@ -819,10 +107,6 @@
                                             "kind": "DataType"
                                         },
                                         {
-                                            "contentId": "SonicWallFirewall",
-                                            "kind": "DataConnector"
-                                        },
-                                        {
                                             "contentId": "CefAma",
                                             "kind": "DataConnector"
                                         }
@@ -833,7 +117,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.1",
+                "packageVersion": "3.1.2",
                 "packageName": "SonicWall Firewall",
                 "packageId": "sonicwall-inc.sonicwall-networksecurity-azure-sentinal",
                 "contentSchemaVersion": "3.0.0",
@@ -883,22 +167,22 @@
                                 "status": "Experimental",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "CEF",
                                         "dataTypes": [
                                             "CommonSecurityLog"
-                                        ]
+                                        ],
+                                        "connectorId": "CEF"
                                     },
                                     {
-                                        "connectorId": "SonicWallFirewall",
                                         "dataTypes": [
                                             "ASimNetworkSessionSonicWallFirewall"
-                                        ]
+                                        ],
+                                        "connectorId": "SonicWallFirewall"
                                     },
                                     {
-                                        "connectorId": "CefAma",
                                         "dataTypes": [
                                             "CommonSecurityLog"
-                                        ]
+                                        ],
+                                        "connectorId": "CefAma"
                                     }
                                 ],
                                 "tactics": [
@@ -930,22 +214,22 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Address",
-                                                "columnName": "SrcIpAddr"
+                                                "columnName": "SrcIpAddr",
+                                                "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Address",
-                                                "columnName": "DstIpAddr"
+                                                "columnName": "DstIpAddr",
+                                                "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -978,7 +262,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.1",
+                "packageVersion": "3.1.2",
                 "packageName": "SonicWall Firewall",
                 "packageId": "sonicwall-inc.sonicwall-networksecurity-azure-sentinal",
                 "contentSchemaVersion": "3.0.0",
@@ -1028,7 +312,7 @@
                 "description": "This rule identifies malicious file verdicts from the SonicWall Capture ATP service. This analytic rule leverages the SonicWall Firewall ASIM Network Session parser (ASimNetworkSessionSonicWallFirewall).\n  Ref: https://www.sonicwall.com/products/capture-advanced-threat-protection/\n  Ref: https://www.sonicwall.com/support/knowledge-base/how-to-view-threat-reports-capture-atp/170505384715913/",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.1",
+                    "contentVersion": "1.0.2",
                     "parameters": {},
                     "variables": {},
                     "resources": [
@@ -1053,22 +337,10 @@
                                 "status": "Experimental",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "CEF",
                                         "dataTypes": [
                                             "CommonSecurityLog"
-                                        ]
-                                    },
-                                    {
-                                        "connectorId": "SonicWallFirewall",
-                                        "dataTypes": [
-                                            "CommonSecurityLog"
-                                        ]
-                                    },
-                                    {
-                                        "connectorId": "CefAma",
-                                        "dataTypes": [
-                                            "CommonSecurityLog"
-                                        ]
+                                        ],
+                                        "connectorId": "CefAma"
                                     }
                                 ],
                                 "tactics": [
@@ -1079,40 +351,40 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "File",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "File"
+                                                "columnName": "File",
+                                                "identifier": "Name"
                                             }
-                                        ],
-                                        "entityType": "File"
+                                        ]
                                     },
                                     {
+                                        "entityType": "Url",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Url",
-                                                "columnName": "RequestURL"
+                                                "columnName": "RequestURL",
+                                                "identifier": "Url"
                                             }
-                                        ],
-                                        "entityType": "Url"
+                                        ]
                                     },
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "FullName",
-                                                "columnName": "SrcUsername"
+                                                "columnName": "SrcUsername",
+                                                "identifier": "FullName"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Address",
-                                                "columnName": "SrcIpAddr"
+                                                "columnName": "SrcIpAddr",
+                                                "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -1126,7 +398,7 @@
                                 "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '3db9f99e-a459-41e0-8e02-8b332f5fcb2c')]",
                                 "contentId": "3db9f99e-a459-41e0-8e02-8b332f5fcb2c",
                                 "kind": "AnalyticsRule",
-                                "version": "1.0.1",
+                                "version": "1.0.2",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "SonicWall Firewall",
@@ -1145,16 +417,16 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.1",
+                "packageVersion": "3.1.2",
                 "packageName": "SonicWall Firewall",
                 "packageId": "sonicwall-inc.sonicwall-networksecurity-azure-sentinal",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "3db9f99e-a459-41e0-8e02-8b332f5fcb2c",
                 "contentKind": "AnalyticsRule",
                 "displayName": "SonicWall - Capture ATP Malicious File Detection",
-                "contentProductId": "sonicwall-inc.sonicwall-networksecurity-azure-sent-ar-ikuxojfulispk",
-                "id": "sonicwall-inc.sonicwall-networksecurity-azure-sent-ar-ikuxojfulispk",
-                "version": "1.0.1",
+                "contentProductId": "sonicwall-inc.sonicwall-networksecurity-azure-sent-ar-5eutwzqj64m2c",
+                "id": "sonicwall-inc.sonicwall-networksecurity-azure-sent-ar-5eutwzqj64m2c",
+                "version": "1.0.2",
                 "isDeprecated": false,
                 "dependencies": {
                     "operator": "AND",
@@ -1162,14 +434,6 @@
                         {
                             "contentKind": "DataType",
                             "contentId": "CommonSecurityLog"
-                        },
-                        {
-                            "contentKind": "DataConnector",
-                            "contentId": "CEF"
-                        },
-                        {
-                            "contentKind": "DataConnector",
-                            "contentId": "SonicWallFirewall"
                         },
                         {
                             "contentKind": "DataConnector",
@@ -1250,7 +514,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.1",
+                "packageVersion": "3.1.2",
                 "packageName": "SonicWall Firewall",
                 "packageId": "sonicwall-inc.sonicwall-networksecurity-azure-sentinal",
                 "contentSchemaVersion": "3.0.0",
@@ -1268,15 +532,15 @@
             "apiVersion": "2023-04-01-preview",
             "location": "[parameters('workspace-location')]",
             "properties": {
-                "version": "3.1.1",
+                "version": "3.1.2",
                 "kind": "Solution",
                 "contentSchemaVersion": "3.0.0",
                 "displayName": "SonicWall Network Security",
                 "publisherDisplayName": "SonicWall Inc",
                 "descriptionHtml": "Microsoft Sentinel is a scalable, cloud-native, security information event management (SIEM) and security orchestration automated response (SOAR) solution. Microsoft Sentinel delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response. Microsoft Sentinel solutions provide a consolidated way to acquire Microsoft Sentinel content like data connectors, workbooks, analytics, and automations in user\u2019s workspace with a single deployment step. SonicWall Firewall data connector provides the capability to ingest SonicWall access logs(in syslog format) into Microsoft Sentinel. SOC administrators who need to direct and orchestrate their organizations\u2019 response to major security threats based on analyzing the logs in real-time. Users require a birds-eye view across their network alleviating the stress of increasingly sophisticated attacks, increasing volumes of alerts, and long resolution timeframes.<div><div><br></div></div>",
                 "contentKind": "Solution",
-                "contentProductId": "sonicwall-inc.sonicwall-networksecurity-azure-sent-sl-5y4szlmsl6zyo",
-                "id": "sonicwall-inc.sonicwall-networksecurity-azure-sent-sl-5y4szlmsl6zyo",
+                "contentProductId": "sonicwall-inc.sonicwall-networksecurity-azure-sent-sl-7au5wox6q5d6s",
+                "id": "sonicwall-inc.sonicwall-networksecurity-azure-sent-sl-7au5wox6q5d6s",
                 "icon": "https://store-images.s-microsoft.com/image/apps.30161.43ede1c0-0928-4b38-a6ba-4cb5524a0da7.c401b171-1670-4bc5-8ece-0681ee938a68.85e21908-792e-48c4-b32b-f0f4fcc544b1",
                 "contentId": "sonicwall-inc.sonicwall-networksecurity-azure-sentinal",
                 "parentId": "sonicwall-inc.sonicwall-networksecurity-azure-sentinal",
@@ -1296,16 +560,6 @@
                 "dependencies": {
                     "criteria": [
                         {
-                            "kind": "DataConnector",
-                            "contentId": "SonicWallFirewall",
-                            "version": "1.0.0"
-                        },
-                        {
-                            "kind": "DataConnector",
-                            "contentId": "SonicWallFirewallAma",
-                            "version": "1.0.0"
-                        },
-                        {
                             "kind": "Workbook",
                             "contentId": "SonicWallWorkbook",
                             "version": "1.0.0"
@@ -1318,7 +572,7 @@
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "3db9f99e-a459-41e0-8e02-8b332f5fcb2c",
-                            "version": "1.0.1"
+                            "version": "1.0.2"
                         },
                         {
                             "kind": "HuntingQuery",
