@@ -23,14 +23,14 @@
             {
                 "fieldMappings": [
                     {
-                        "identifier": "ProcessId",
-                        "columnName": "ProcessCustomEntity"
+                        "columnName": "ProcessCustomEntity",
+                        "identifier": "ProcessId"
                     }
                 ],
                 "entityType": "Process"
             }
         ],
         "alertRuleTemplateName": "672e2846-4226-11ec-81d3-0242ac130003",
-        "templateVersion": "1.0.1"
+        "templateVersion": "1.0.2"
     }
 }
