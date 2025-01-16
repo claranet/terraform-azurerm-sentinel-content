@@ -133,7 +133,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -332,7 +332,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -689,7 +689,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-amazonwebser-dc-k4vl2lslge46m",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
@@ -1018,7 +1018,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-amazonwebser-rdc-43gm2me3ri2og",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
@@ -1104,7 +1104,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -1192,7 +1192,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -1242,16 +1242,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     },
                                     {
-                                        "connectorId": "AWSS3",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWSS3"
                                     }
                                 ],
                                 "tactics": [
@@ -1262,6 +1262,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -1275,17 +1276,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -1319,7 +1319,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -1386,16 +1386,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     },
                                     {
-                                        "connectorId": "AWSS3",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWSS3"
                                     }
                                 ],
                                 "tactics": [
@@ -1408,6 +1408,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -1421,17 +1422,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -1465,7 +1465,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -1532,16 +1532,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     },
                                     {
-                                        "connectorId": "AWSS3",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWSS3"
                                     }
                                 ],
                                 "tactics": [
@@ -1552,6 +1552,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -1565,17 +1566,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -1609,7 +1609,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -1676,16 +1676,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     },
                                     {
-                                        "connectorId": "AWSS3",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWSS3"
                                     }
                                 ],
                                 "tactics": [
@@ -1700,6 +1700,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -1713,17 +1714,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -1757,7 +1757,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -1824,16 +1824,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     },
                                     {
-                                        "connectorId": "AWSS3",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWSS3"
                                     }
                                 ],
                                 "tactics": [
@@ -1847,6 +1847,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -1860,17 +1861,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -1904,7 +1904,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -1971,16 +1971,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     },
                                     {
-                                        "connectorId": "AWSS3",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWSS3"
                                     }
                                 ],
                                 "tactics": [
@@ -1991,6 +1991,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -2004,17 +2005,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -2048,7 +2048,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -2115,16 +2115,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     },
                                     {
-                                        "connectorId": "AWSS3",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWSS3"
                                     }
                                 ],
                                 "tactics": [
@@ -2136,6 +2136,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -2149,17 +2150,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -2193,7 +2193,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -2260,16 +2260,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     },
                                     {
-                                        "connectorId": "AWSS3",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWSS3"
                                     }
                                 ],
                                 "tactics": [
@@ -2280,6 +2280,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -2293,17 +2294,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -2337,7 +2337,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -2404,16 +2404,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     },
                                     {
-                                        "connectorId": "AWSS3",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWSS3"
                                     }
                                 ],
                                 "tactics": [
@@ -2424,6 +2424,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -2437,17 +2438,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -2481,7 +2481,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -2544,16 +2544,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     },
                                     {
-                                        "connectorId": "AWSS3",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWSS3"
                                     }
                                 ],
                                 "tactics": [
@@ -2567,6 +2567,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -2580,17 +2581,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -2624,7 +2624,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -2691,14 +2691,15 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWSS3",
                                         "dataTypes": [
                                             "AWSGuardDuty"
-                                        ]
+                                        ],
+                                        "connectorId": "AWSS3"
                                     }
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -2712,49 +2713,48 @@
                                                 "columnName": "RemoteAWSAccountId",
                                                 "identifier": "ObjectGuid"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "RemoteIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "LocalIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     },
                                     {
+                                        "entityType": "URL",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "FindingLink",
                                                 "identifier": "Url"
                                             }
-                                        ],
-                                        "entityType": "URL"
+                                        ]
                                     }
                                 ],
                                 "customDetails": {
-                                    "DetectionMechanism": "DetectionMechanism",
                                     "ThreatFamilyName": "ThreatFamilyName",
+                                    "DetectionMechanism": "DetectionMechanism",
                                     "ResourceTypeAffected": "ResourceTypeAffected",
                                     "ThreatPurpose": "ThreatPurpose",
                                     "Artifact": "Artifact"
                                 },
                                 "alertDetailsOverride": {
-                                    "alertDescriptionFormat": "{{Description}}",
                                     "alertTacticsColumnName": "ThreatPurpose",
-                                    "alertSeverityColumnName": "Severity",
-                                    "alertDisplayNameFormat": "{{Title}}"
+                                    "alertDisplayNameFormat": "{{Title}}",
+                                    "alertDescriptionFormat": "{{Description}}",
+                                    "alertSeverityColumnName": "Severity"
                                 }
                             }
                         },
@@ -2787,7 +2787,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -2850,10 +2850,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -2864,6 +2864,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -2877,17 +2878,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -2921,7 +2921,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -2984,10 +2984,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -2998,6 +2998,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -3011,17 +3012,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -3055,7 +3055,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -3118,10 +3118,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -3132,6 +3132,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -3145,17 +3146,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -3189,7 +3189,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -3252,10 +3252,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -3266,6 +3266,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -3279,17 +3280,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -3323,7 +3323,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -3386,10 +3386,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -3400,6 +3400,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -3413,17 +3414,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -3457,7 +3457,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -3520,10 +3520,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -3534,6 +3534,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -3547,17 +3548,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -3591,7 +3591,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -3654,10 +3654,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -3668,6 +3668,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -3681,17 +3682,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -3725,7 +3725,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -3788,10 +3788,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -3802,6 +3802,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -3815,17 +3816,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -3859,7 +3859,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -3922,10 +3922,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -3936,6 +3936,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -3949,17 +3950,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -3993,7 +3993,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -4056,10 +4056,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -4070,6 +4070,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -4083,17 +4084,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -4127,7 +4127,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -4190,10 +4190,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -4204,6 +4204,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -4217,17 +4218,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -4261,7 +4261,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -4324,10 +4324,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -4338,6 +4338,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -4351,17 +4352,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -4395,7 +4395,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -4458,10 +4458,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -4472,6 +4472,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -4485,17 +4486,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -4529,7 +4529,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -4592,10 +4592,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -4606,6 +4606,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -4619,17 +4620,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -4663,7 +4663,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -4726,10 +4726,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -4740,6 +4740,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -4753,17 +4754,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -4797,7 +4797,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -4860,10 +4860,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -4874,6 +4874,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -4887,17 +4888,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -4931,7 +4931,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -4994,10 +4994,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -5008,6 +5008,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -5021,17 +5022,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -5065,7 +5065,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -5103,7 +5103,7 @@
                 "description": "Attackers often try to hide their steps by deleting or stopping the collection of logs that could show their activity. \nThis alert identifies any manipulation of AWS CloudTrail, Cloudwatch/EventBridge or VPC Flow logs.\nMore Information: AWS CloudTrail API: https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_Operations.html \nAWS Cloudwatch/Eventbridge API: https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_Operations.html \nAWS DelteteFlowLogs API : https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteFlowLogs.html ",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.3",
+                    "contentVersion": "1.0.4",
                     "parameters": {},
                     "variables": {},
                     "resources": [
@@ -5115,7 +5115,7 @@
                             "location": "[parameters('workspace-location')]",
                             "properties": {
                                 "description": "Attackers often try to hide their steps by deleting or stopping the collection of logs that could show their activity. \nThis alert identifies any manipulation of AWS CloudTrail, Cloudwatch/EventBridge or VPC Flow logs.\nMore Information: AWS CloudTrail API: https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_Operations.html \nAWS Cloudwatch/Eventbridge API: https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_Operations.html \nAWS DelteteFlowLogs API : https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteFlowLogs.html ",
-                                "displayName": "Changes made to AWS CloudTrail logs",
+                                "displayName": "Tampering to AWS CloudTrail logs",
                                 "enabled": false,
                                 "query": "let EventNameList = dynamic([\"UpdateTrail\",\"DeleteTrail\",\"StopLogging\",\"DeleteFlowLogs\",\"DeleteEventBus\",\"DeleteLogGroup\"]);\nAWSCloudTrail\n| where (EventName in~ (EventNameList) or (EventName == \"UpdateTrail\" and (parse_json(RequestParameters).enableLogFileValidation) == false) or (EventName == \"UpdateTrail\" and (parse_json(RequestParameters).isMultiRegionTrail) == false)) and isempty(ErrorMessage) and isempty(ErrorCode)\n| extend UserIdentityArn = iif(isempty(UserIdentityArn), tostring(parse_json(Resources)[0].ARN), UserIdentityArn)\n| extend UserName = tostring(split(UserIdentityArn, '/')[-1])\n| extend AccountName = case( UserIdentityPrincipalid == \"Anonymous\", \"Anonymous\", isempty(UserIdentityUserName), UserName, UserIdentityUserName)\n| extend AccountName = iif(AccountName contains \"@\", tostring(split(AccountName, '@', 0)[0]), AccountName),\n AccountUPNSuffix = iif(AccountName contains \"@\", tostring(split(AccountName, '@', 1)[0]), \"\")\n| summarize StartTimeUtc = min(TimeGenerated), EndTimeUtc = max(TimeGenerated) by EventName, EventTypeName, RecipientAccountId, AccountName, AccountUPNSuffix, UserIdentityAccountId, UserIdentityPrincipalid, UserAgent, \nUserIdentityUserName, SessionMfaAuthenticated, SourceIpAddress, AWSRegion, EventSource\n| extend timestamp = StartTimeUtc\n",
                                 "queryFrequency": "P1D",
@@ -5128,10 +5128,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -5142,6 +5142,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -5155,17 +5156,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -5179,7 +5179,7 @@
                                 "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '633a91df-d031-4b6e-a413-607a61540559')]",
                                 "contentId": "633a91df-d031-4b6e-a413-607a61540559",
                                 "kind": "AnalyticsRule",
-                                "version": "1.0.3",
+                                "version": "1.0.4",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "Amazon Web Services",
@@ -5199,16 +5199,16 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "633a91df-d031-4b6e-a413-607a61540559",
                 "contentKind": "AnalyticsRule",
-                "displayName": "Changes made to AWS CloudTrail logs",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-amazonwebser-ar-pn6sh6mpbkyvu",
-                "id": "azuresentinel.azure-sentinel-solution-amazonwebser-ar-pn6sh6mpbkyvu",
-                "version": "1.0.3",
+                "displayName": "Tampering to AWS CloudTrail logs",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-amazonwebser-ar-f7m2vdiz4pxog",
+                "id": "azuresentinel.azure-sentinel-solution-amazonwebser-ar-f7m2vdiz4pxog",
+                "version": "1.0.4",
                 "isDeprecated": false,
                 "dependencies": {
                     "operator": "AND",
@@ -5262,10 +5262,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -5276,6 +5276,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -5289,17 +5290,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -5333,7 +5333,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -5371,7 +5371,7 @@
                 "description": "An overly permissive key policy was created, resulting in KMS keys where the kms:Encrypt action is accessible to everyone (even outside of the organization). This could mean that your account is compromised and that the attacker is using the encryption key to compromise other organizations.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.2",
+                    "contentVersion": "1.0.4",
                     "parameters": {},
                     "variables": {},
                     "resources": [
@@ -5385,7 +5385,7 @@
                                 "description": "An overly permissive key policy was created, resulting in KMS keys where the kms:Encrypt action is accessible to everyone (even outside of the organization). This could mean that your account is compromised and that the attacker is using the encryption key to compromise other organizations.",
                                 "displayName": "Suspicious overly permissive KMS key policy created",
                                 "enabled": false,
-                                "query": "AWSCloudTrail\n| where EventName in (\"CreateKey\",\"PutKeyPolicy\") and isempty(ErrorCode) and isempty(ErrorMessage)\n| extend Statement = parse_json(tostring((parse_json(RequestParameters).policy))).Statement\n| mvexpand Statement\n| extend Action = tostring(parse_json(Statement).Action), Effect = tostring(parse_json(Statement).Effect), Principal = iff(isnotempty(tostring(parse_json(Statement).Principal.AWS)),tostring(parse_json(Statement).Principal.AWS), tostring(parse_json(Statement).Principal))\n| where Effect =~ \"Allow\" and (Action == \"kms:Encrypt\" or Action == \"kms:*\") and Principal == \"*\"\n| extend UserIdentityArn = iif(isempty(UserIdentityArn), tostring(parse_json(Resources)[0].ARN), UserIdentityArn)\n| extend UserName = tostring(split(UserIdentityArn, '/')[-1])\n| extend AccountName = case( UserIdentityPrincipalid == \"Anonymous\", \"Anonymous\", isempty(UserIdentityUserName), UserName, UserIdentityUserName)\n| extend AccountName = iif(AccountName contains \"@\", tostring(split(AccountName, '@', 0)[0]), AccountName),\n  AccountUPNSuffix = iif(AccountName contains \"@\", tostring(split(AccountName, '@', 1)[0]), \"\")\n| extend timestamp = TimeGenerated\n",
+                                "query": "let kmsActions = dynamic([\"kms:Encrypt\", \"kms:*\"]); //Add other overly permissive APIs to this list.\nAWSCloudTrail\n| where EventName in (\"CreateKey\",\"PutKeyPolicy\") and isempty(ErrorCode) and isempty(ErrorMessage)\n| extend Statement = parse_json(tostring((parse_json(RequestParameters).policy))).Statement\n| mvexpand Statement\n| extend Action = tostring(parse_json(Statement).Action), Effect = tostring(parse_json(Statement).Effect), Principal = iff(isnotempty(tostring(parse_json(Statement).Principal.AWS)),tostring(parse_json(Statement).Principal.AWS), tostring(parse_json(Statement).Principal))\n| where Effect =~ \"Allow\" and Action has_any (kmsActions) and Principal == \"*\" \n| extend UserIdentityArn = iif(isempty(UserIdentityArn), tostring(parse_json(Resources)[0].ARN), UserIdentityArn)\n| extend UserName = tostring(split(UserIdentityArn, '/')[-1])\n| extend AccountName = case( UserIdentityPrincipalid == \"Anonymous\", \"Anonymous\", isempty(UserIdentityUserName), UserName, UserIdentityUserName)\n| extend AccountName = iif(AccountName contains \"@\", tostring(split(AccountName, '@', 0)[0]), AccountName),\n  AccountUPNSuffix = iif(AccountName contains \"@\", tostring(split(AccountName, '@', 1)[0]), \"\")\n| extend timestamp = TimeGenerated\n",
                                 "queryFrequency": "P1D",
                                 "queryPeriod": "P1D",
                                 "severity": "High",
@@ -5396,10 +5396,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -5410,6 +5410,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -5423,17 +5424,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -5447,7 +5447,7 @@
                                 "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '60dfc193-0f73-4279-b43c-110ade02b201')]",
                                 "contentId": "60dfc193-0f73-4279-b43c-110ade02b201",
                                 "kind": "AnalyticsRule",
-                                "version": "1.0.2",
+                                "version": "1.0.4",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "Amazon Web Services",
@@ -5467,16 +5467,16 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "60dfc193-0f73-4279-b43c-110ade02b201",
                 "contentKind": "AnalyticsRule",
                 "displayName": "Suspicious overly permissive KMS key policy created",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-amazonwebser-ar-plf2b7qe7ejmw",
-                "id": "azuresentinel.azure-sentinel-solution-amazonwebser-ar-plf2b7qe7ejmw",
-                "version": "1.0.2",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-amazonwebser-ar-cnpgs3rkumzdw",
+                "id": "azuresentinel.azure-sentinel-solution-amazonwebser-ar-cnpgs3rkumzdw",
+                "version": "1.0.4",
                 "isDeprecated": false,
                 "dependencies": {
                     "operator": "AND",
@@ -5530,10 +5530,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -5544,6 +5544,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -5557,17 +5558,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -5601,7 +5601,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -5664,10 +5664,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -5678,6 +5678,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -5691,17 +5692,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -5735,7 +5735,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -5798,10 +5798,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -5812,6 +5812,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -5825,17 +5826,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -5869,7 +5869,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -5932,10 +5932,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -5946,6 +5946,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -5959,17 +5960,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -6003,7 +6003,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -6066,10 +6066,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -6080,6 +6080,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -6093,17 +6094,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -6137,7 +6137,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -6200,10 +6200,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -6214,6 +6214,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -6227,17 +6228,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -6271,7 +6271,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -6334,10 +6334,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -6348,6 +6348,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -6361,17 +6362,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -6405,7 +6405,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -6468,10 +6468,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -6482,6 +6482,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -6495,17 +6496,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -6539,7 +6539,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -6602,10 +6602,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -6616,6 +6616,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -6629,17 +6630,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -6673,7 +6673,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -6736,10 +6736,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -6750,6 +6750,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -6763,17 +6764,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -6807,7 +6807,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -6870,10 +6870,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -6884,6 +6884,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -6897,17 +6898,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -6941,7 +6941,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -7004,10 +7004,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -7018,6 +7018,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -7031,17 +7032,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -7075,7 +7075,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -7138,10 +7138,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -7152,6 +7152,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -7165,17 +7166,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -7209,7 +7209,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -7272,10 +7272,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -7286,6 +7286,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -7299,17 +7300,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -7343,7 +7343,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -7406,10 +7406,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -7420,6 +7420,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -7433,17 +7434,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -7477,7 +7477,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -7540,10 +7540,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -7554,6 +7554,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -7567,17 +7568,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -7611,7 +7611,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -7674,10 +7674,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -7688,6 +7688,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -7701,17 +7702,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -7745,7 +7745,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -7808,10 +7808,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -7822,6 +7822,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -7835,17 +7836,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -7879,7 +7879,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -7942,10 +7942,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -7956,6 +7956,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -7969,17 +7970,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -8013,7 +8013,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -8076,10 +8076,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -8090,6 +8090,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -8103,17 +8104,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -8147,7 +8147,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -8210,10 +8210,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -8224,6 +8224,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -8237,17 +8238,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -8281,7 +8281,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -8344,10 +8344,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -8358,6 +8358,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -8371,17 +8372,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -8415,7 +8415,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -8478,10 +8478,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -8492,6 +8492,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -8505,17 +8506,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -8549,7 +8549,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -8612,10 +8612,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -8626,6 +8626,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -8639,17 +8640,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -8683,7 +8683,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -8746,10 +8746,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -8771,6 +8771,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -8784,14 +8785,13 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     }
                                 ],
                                 "customDetails": {
-                                    "AWSUser": "UserIdentityUserName",
                                     "SuspiciousCommand": "commands",
-                                    "AWSUserIp": "SourceIpAddress"
+                                    "AWSUserIp": "SourceIpAddress",
+                                    "AWSUser": "UserIdentityUserName"
                                 }
                             }
                         },
@@ -8824,7 +8824,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -8887,10 +8887,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -8901,6 +8901,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountName",
@@ -8914,17 +8915,16 @@
                                                 "columnName": "RecipientAccountId",
                                                 "identifier": "CloudAppAccountId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "SourceIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ],
                                 "customDetails": {
@@ -8963,7 +8963,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -9061,7 +9061,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -9146,7 +9146,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -9231,7 +9231,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -9316,7 +9316,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -9401,7 +9401,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -9486,7 +9486,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -9571,7 +9571,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -9656,7 +9656,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -9741,7 +9741,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -9826,7 +9826,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -9911,7 +9911,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -9996,7 +9996,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -10081,7 +10081,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -10166,7 +10166,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -10251,7 +10251,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -10336,7 +10336,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -10421,7 +10421,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -10506,7 +10506,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -10591,7 +10591,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -10676,7 +10676,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -10761,7 +10761,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -10846,7 +10846,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -10931,7 +10931,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -11016,7 +11016,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -11101,7 +11101,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -11186,7 +11186,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -11271,7 +11271,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -11356,7 +11356,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -11441,7 +11441,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -11526,7 +11526,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -11611,7 +11611,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -11696,7 +11696,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -11781,7 +11781,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -11866,7 +11866,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -11951,7 +11951,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -12036,7 +12036,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -12054,15 +12054,15 @@
             "apiVersion": "2023-04-01-preview",
             "location": "[parameters('workspace-location')]",
             "properties": {
-                "version": "3.0.3",
+                "version": "3.0.4",
                 "kind": "Solution",
                 "contentSchemaVersion": "3.0.0",
                 "displayName": "Amazon Web Services",
                 "publisherDisplayName": "Microsoft Sentinel, Microsoft Corporation",
                 "descriptionHtml": "<p><b>Note</b>: <i>Please refer to the following before installing the solution</i></p><p></p><ul><li><i>Review the solution <a target=\"_blank\" href=\"https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Amazon%20Web%20Services/ReleaseNotes.md\">Release Notes</a>.</i></li></ul><p>The Amazon Web Services solution for Microsoft Sentinel allows you to enable Security monitoring of AWS services by allowing ingestion of logs from the AWS CloudTrail platform, VPC Flow Logs, AWS GuardDuty and AWS CloudWatch.<br></p><p><b>Data Connectors:</b> 2, <b>Workbooks:</b> 2, <b>Analytic Rules:</b> 56, <b>Hunting Queries:</b> 36</p><p><a target=\"_blank\" href=\"https://aka.ms/azuresentinel\" rel=\"noopener\">Learn more about Microsoft Sentinel</a> | <a target=\"_blank\" href=\"https://aka.ms/azuresentinelsolutionsdoc\" rel=\"noopener\">Learn more about Solutions</a></p>",
                 "contentKind": "Solution",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-amazonwebser-sl-2t4yo2zh323ro",
-                "id": "azuresentinel.azure-sentinel-solution-amazonwebser-sl-2t4yo2zh323ro",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-amazonwebser-sl-mzg2uheoh6vp2",
+                "id": "azuresentinel.azure-sentinel-solution-amazonwebser-sl-mzg2uheoh6vp2",
                 "icon": "https://store-images.s-microsoft.com/image/apps.64685.2be652b5-01b5-4297-91de-fb1bdca4520e.3b2d6c32-9299-492f-9684-b4890e8acdd9.dff4bda0-283e-49e6-9007-b35209b0a2fd",
                 "contentId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "parentId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
@@ -12251,7 +12251,7 @@
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "633a91df-d031-4b6e-a413-607a61540559",
-                            "version": "1.0.3"
+                            "version": "1.0.4"
                         },
                         {
                             "kind": "AnalyticsRule",
@@ -12261,7 +12261,7 @@
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "60dfc193-0f73-4279-b43c-110ade02b201",
-                            "version": "1.0.2"
+                            "version": "1.0.4"
                         },
                         {
                             "kind": "AnalyticsRule",
