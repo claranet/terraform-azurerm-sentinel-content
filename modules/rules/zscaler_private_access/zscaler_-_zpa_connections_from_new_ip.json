@@ -23,8 +23,8 @@
             {
                 "fieldMappings": [
                     {
-                        "identifier": "Name",
-                        "columnName": "AccountCustomEntity"
+                        "columnName": "AccountCustomEntity",
+                        "identifier": "Name"
                     }
                 ],
                 "entityType": "Account"
@@ -32,14 +32,14 @@
             {
                 "fieldMappings": [
                     {
-                        "identifier": "Address",
-                        "columnName": "IPCustomEntity"
+                        "columnName": "IPCustomEntity",
+                        "identifier": "Address"
                     }
                 ],
                 "entityType": "IP"
             }
         ],
         "alertRuleTemplateName": "24f0779d-3927-403a-aac1-cc8791653606",
-        "templateVersion": "1.0.1"
+        "templateVersion": "1.0.2"
     }
 }

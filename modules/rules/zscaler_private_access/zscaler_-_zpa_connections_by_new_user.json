@@ -22,14 +22,14 @@
             {
                 "fieldMappings": [
                     {
-                        "identifier": "Name",
-                        "columnName": "AccountCustomEntity"
+                        "columnName": "AccountCustomEntity",
+                        "identifier": "Name"
                     }
                 ],
                 "entityType": "Account"
             }
         ],
         "alertRuleTemplateName": "236a7ec1-0120-40f2-a157-c1a72dde8bcb",
-        "templateVersion": "1.0.1"
+        "templateVersion": "1.0.2"
     }
 }

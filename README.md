@@ -24,6 +24,7 @@ __Current log sources supported__ :
 - _m365_
 - _okta_
 - _sentinelone_
+- _sonicwall\_fw_
 - _sophos\_endpoint_
 - _syslog_
 - _ti_

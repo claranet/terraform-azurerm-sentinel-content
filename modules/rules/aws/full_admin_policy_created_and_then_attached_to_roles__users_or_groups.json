@@ -13,11 +13,14 @@
         "triggerOperator": "GreaterThan",
         "triggerThreshold": 0,
         "tactics": [
-            "PrivilegeEscalation"
+            "PrivilegeEscalation",
+            "DefenseEvasion"
+        ],
+        "techniques": [
+            "T1484"
         ],
         "entityMappings": [
             {
-                "entityType": "Account",
                 "fieldMappings": [
                     {
                         "columnName": "AccountName",
@@ -31,19 +34,20 @@
                         "columnName": "RecipientAccountId",
                         "identifier": "CloudAppAccountId"
                     }
-                ]
+                ],
+                "entityType": "Account"
             },
             {
-                "entityType": "IP",
                 "fieldMappings": [
                     {
                         "columnName": "SourceIpAddress",
                         "identifier": "Address"
                     }
-                ]
+                ],
+                "entityType": "IP"
             }
         ],
         "alertRuleTemplateName": "826bb2f8-7894-4785-9a6b-a8a855d8366f",
-        "templateVersion": "1.0.3"
+        "templateVersion": "1.0.4"
     }
 }

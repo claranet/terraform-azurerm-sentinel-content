@@ -1,7 +1,7 @@
 {
     "kind": "Scheduled",
     "properties": {
-        "description": "Amazon Virtual Private Cloud (Amazon VPC) lets you provision a logically isolated section of the AWS Cloud where you can launch AWS resources\nin a virtual network that you define.\nThis identifies changes to Amazon VPC (Virtual Private Cloud) settings such as new ACL entries,routes, routetable or Gateways.\nMore information: https://medium.com/@GorillaStack/the-most-important-aws-cloudtrail-security-events-to-track-a5b9873f8255 \nand AWS VPC API Docs: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/OperationList-query-vpc.html",
+        "description": "Amazon Virtual Private Cloud (Amazon VPC) lets you provision a logically isolated section of the AWS Cloud where you can launch AWS resources in a virtual network that you define.\nThis identifies changes to Amazon VPC (Virtual Private Cloud) settings such as new ACL entries,routes, routetable or Gateways.\nMore information: https://medium.com/@GorillaStack/the-most-important-aws-cloudtrail-security-events-to-track-a5b9873f8255 \nand AWS VPC API Docs: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/OperationList-query-vpc.html",
         "displayName": "Changes to Amazon VPC settings",
         "enabled": true,
         "query": "let EventNameList = dynamic([\"CreateNetworkAclEntry\",\"CreateRoute\",\"CreateRouteTable\",\"CreateInternetGateway\",\"CreateNatGateway\"]);\nAWSCloudTrail\n| where EventName in~ (EventNameList)\n| extend UserIdentityArn = iif(isempty(UserIdentityArn), tostring(parse_json(Resources)[0].ARN), UserIdentityArn)\n| extend UserName = tostring(split(UserIdentityArn, '/')[-1])\n| extend AccountName = case( UserIdentityPrincipalid == \"Anonymous\", \"Anonymous\", isempty(UserIdentityUserName), UserName, UserIdentityUserName)\n| extend AccountName = iif(AccountName contains \"@\", tostring(split(AccountName, '@', 0)[0]), AccountName),\n  AccountUPNSuffix = iif(AccountName contains \"@\", tostring(split(AccountName, '@', 1)[0]), \"\")\n| summarize StartTimeUtc = min(TimeGenerated), EndTimeUtc = max(TimeGenerated) by EventName, EventTypeName, RecipientAccountId, AccountName, AccountUPNSuffix, UserIdentityAccountId, UserIdentityPrincipalid, UserAgent,\nUserIdentityUserName, SessionMfaAuthenticated, SourceIpAddress, AWSRegion, EventSource, AdditionalEventData, ResponseElements\n| extend timestamp = StartTimeUtc\n",
@@ -22,7 +22,6 @@
         ],
         "entityMappings": [
             {
-                "entityType": "Account",
                 "fieldMappings": [
                     {
                         "columnName": "AccountName",
@@ -36,19 +35,20 @@
                         "columnName": "RecipientAccountId",
                         "identifier": "CloudAppAccountId"
                     }
-                ]
+                ],
+                "entityType": "Account"
             },
             {
-                "entityType": "IP",
                 "fieldMappings": [
                     {
                         "columnName": "SourceIpAddress",
                         "identifier": "Address"
                     }
-                ]
+                ],
+                "entityType": "IP"
             }
         ],
         "alertRuleTemplateName": "65360bb0-8986-4ade-a89d-af3cf44d28aa",
-        "templateVersion": "1.0.4"
+        "templateVersion": "1.0.5"
     }
 }
