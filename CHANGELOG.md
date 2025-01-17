@@ -1,3 +1,32 @@
+## 7.16.0 (2025-01-17)
+
+### Features
+
+* add `Sonicwall FW` package, version 3.1.1 f3bce66
+* bump  package template version to 3.0.1 + update embedded rules cbac931
+* bump  package template version to 3.0.3 0908383
+* bump  package template version to 3.0.3 a53b71f
+* bump  package template version to 3.0.9 + update embedded rules d92914e
+* bump `AWS` package template version to 3.0.3 + update embedded rules 7175582
+* bump `AWS` package template version to 3.0.4 + update embedded rules a7f49af
+* bump `Entra ID` package template version to 3.2.10 + update embedded rules 59455e7
+* bump `Okta` package template version to 3.1.0 + update embedded rules 65b38f2
+* bump `Okta` package template version to 3.1.1 f19dd21
+* bump `SentinelOne` package template version to 3.0.3 72b09ea
+* bump `Sonicwall FW` package template version to 3.1.2 + update embedded rules e1dbbd7
+* bump `Threat Intelligence` package template version to 3.0.8 b583915
+
+### Miscellaneous Chores
+
+* **deps:** update dependency opentofu to v1.8.8 034f42f
+* **deps:** update dependency opentofu to v1.9.0 fee3490
+* **deps:** update dependency tflint to v0.55.0 53bd9f7
+* **deps:** update dependency trivy to v0.58.1 fc5735b
+* **deps:** update dependency trivy to v0.58.2 40bf80e
+* **deps:** update pre-commit hook alessandrojcm/commitlint-pre-commit-hook to v9.20.0 1fb1fac
+* **deps:** update tools 7cbe176
+* update tflint config for v0.55.0 939add7
+
 ## 7.15.0 (2024-11-29)
 
 ### Features
