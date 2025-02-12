@@ -4,7 +4,7 @@
         "description": "Detects when agent was uninstalled from multiple hosts.",
         "displayName": "Sentinel One - Agent uninstalled from multiple hosts",
         "enabled": true,
-        "query": "SentinelOne\n| where ActivityType == 31\n| summarize count() by DataComputerName, bin(TimeGenerated, 30m)\n| where count_ > 1\n| extend HostCustomEntity = DataComputerName\n",
+        "query": "SentinelOne\n| where ActivityType == 51\n| summarize count() by DataComputerName, bin(TimeGenerated, 30m)\n| where count_ > 1\n",
         "queryFrequency": "PT1H",
         "queryPeriod": "PT1H",
         "severity": "High",
@@ -20,16 +20,16 @@
         ],
         "entityMappings": [
             {
-                "entityType": "Host",
                 "fieldMappings": [
                     {
-                        "columnName": "HostCustomEntity",
+                        "columnName": "DataComputerName",
                         "identifier": "HostName"
                     }
-                ]
+                ],
+                "entityType": "Host"
             }
         ],
         "alertRuleTemplateName": "4ad87e4a-d045-4c6b-9652-c9de27fcb442",
-        "templateVersion": "1.0.1"
+        "templateVersion": "1.0.2"
     }
 }

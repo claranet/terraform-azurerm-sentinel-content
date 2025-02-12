@@ -56,13 +56,13 @@
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
             "apiVersion": "2023-04-01-preview",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', concat(parameters('workspace'),'-dc-',uniquestring('SentinelOne')), '1.0.0')]",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', concat(parameters('workspace'),'-dc-',uniquestring('SentinelOneCCP')), '1.0.0')]",
             "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-sentinelone')]"
             ],
             "properties": {
-                "contentId": "SentinelOne",
+                "contentId": "SentinelOneCCP",
                 "displayName": "SentinelOne",
                 "contentKind": "DataConnector",
                 "mainTemplate": {
@@ -72,14 +72,14 @@
                     "variables": {},
                     "resources": [
                         {
-                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/','SentinelOne')]",
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/','SentinelOneCCP')]",
                             "apiVersion": "2022-09-01-preview",
                             "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectorDefinitions",
                             "location": "[parameters('workspace-location')]",
                             "kind": "Customizable",
                             "properties": {
                                 "connectorUiConfig": {
-                                    "id": "SentinelOne",
+                                    "id": "SentinelOneCCP",
                                     "title": "SentinelOne",
                                     "publisher": "Microsoft",
                                     "descriptionMarkdown": "The [SentinelOne](https://usea1-nessat.sentinelone.net/api-doc/overview) data connector allows ingesting logs from the SentinelOne API into Microsoft Sentinel. The data connector is built on Microsoft Sentinel Codeless Connector Platform. It uses the SentinelOne API to fetch logs and it supports DCR-based [ingestion time transformations](https://docs.microsoft.com/azure/azure-monitor/logs/custom-logs-overview) that parses the received security data into a custom table so that queries don't need to parse it again, thus resulting in better performance.",
@@ -214,7 +214,7 @@
                                                     "parameters": {
                                                         "label": "API Token",
                                                         "placeholder": "API Token",
-                                                        "type": "password",
+                                                        "type": "securestring",
                                                         "name": "apitoken"
                                                     },
                                                     "type": "Textbox"
@@ -234,12 +234,12 @@
                             }
                         },
                         {
-                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('DataConnector-', 'SentinelOne'))]",
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('DataConnector-', 'SentinelOneCCP'))]",
                             "apiVersion": "2022-01-01-preview",
                             "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
                             "properties": {
-                                "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectorDefinitions', 'SentinelOne')]",
-                                "contentId": "SentinelOne",
+                                "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectorDefinitions', 'SentinelOneCCP')]",
+                                "contentId": "SentinelOneCCP",
                                 "kind": "DataConnector",
                                 "version": "1.0.0",
                                 "source": {
@@ -261,7 +261,7 @@
                                     "criteria": [
                                         {
                                             "version": "1.0.0",
-                                            "contentId": "SentinelOneConnections",
+                                            "contentId": "SentinelOneCCPConnections",
                                             "kind": "ResourcesDataConnector"
                                         }
                                     ]
@@ -1853,26 +1853,26 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.6",
                 "packageName": "SentinelOne",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-sentinelone-dc-g2abyuk6lyd6s",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-sentinelone-dc-bi2frq64rnvnq",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
                 "version": "1.0.0",
-                "id": "azuresentinel.azure-sentinel-solution-sentinelone-dc-g2abyuk6lyd6s",
+                "id": "azuresentinel.azure-sentinel-solution-sentinelone-dc-bi2frq64rnvnq",
                 "isDeprecated": false,
                 "description": ""
             }
         },
         {
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/','SentinelOne')]",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/','SentinelOneCCP')]",
             "apiVersion": "2022-09-01-preview",
             "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectorDefinitions",
             "location": "[parameters('workspace-location')]",
             "kind": "Customizable",
             "properties": {
                 "connectorUiConfig": {
-                    "id": "SentinelOne",
+                    "id": "SentinelOneCCP",
                     "title": "SentinelOne",
                     "publisher": "Microsoft",
                     "descriptionMarkdown": "The [SentinelOne](https://usea1-nessat.sentinelone.net/api-doc/overview) data connector allows ingesting logs from the SentinelOne API into Microsoft Sentinel. The data connector is built on Microsoft Sentinel Codeless Connector Platform. It uses the SentinelOne API to fetch logs and it supports DCR-based [ingestion time transformations](https://docs.microsoft.com/azure/azure-monitor/logs/custom-logs-overview) that parses the received security data into a custom table so that queries don't need to parse it again, thus resulting in better performance.",
@@ -1949,8 +1949,7 @@
                     ],
                     "connectivityCriteria": [
                         {
-                            "type": "HasDataConnectors",
-                            "value": null
+                            "type": "HasDataConnectors"
                         }
                     ],
                     "availability": {
@@ -2007,7 +2006,7 @@
                                     "parameters": {
                                         "label": "API Token",
                                         "placeholder": "API Token",
-                                        "type": "password",
+                                        "type": "securestring",
                                         "name": "apitoken"
                                     },
                                     "type": "Textbox"
@@ -2027,12 +2026,12 @@
             }
         },
         {
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('DataConnector-', 'SentinelOne'))]",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('DataConnector-', 'SentinelOneCCP'))]",
             "apiVersion": "2022-01-01-preview",
             "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
             "properties": {
-                "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectorDefinitions', 'SentinelOne')]",
-                "contentId": "SentinelOne",
+                "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectorDefinitions', 'SentinelOneCCP')]",
+                "contentId": "SentinelOneCCP",
                 "kind": "DataConnector",
                 "version": "1.0.0",
                 "source": {
@@ -2054,7 +2053,7 @@
                     "criteria": [
                         {
                             "version": "1.0.0",
-                            "contentId": "SentinelOneConnections",
+                            "contentId": "SentinelOneCCPConnections",
                             "kind": "ResourcesDataConnector"
                         }
                     ]
@@ -2064,13 +2063,13 @@
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
             "apiVersion": "2023-04-01-preview",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', concat(parameters('workspace'),'-dc-',uniquestring('SentinelOneConnections')), '1.0.0')]",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', concat(parameters('workspace'),'-dc-',uniquestring('SentinelOneCCPConnections')), '1.0.0')]",
             "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-sentinelone')]"
             ],
             "properties": {
-                "contentId": "SentinelOneConnections",
+                "contentId": "SentinelOneCCPConnections",
                 "displayName": "SentinelOne",
                 "contentKind": "ResourcesDataConnector",
                 "mainTemplate": {
@@ -2100,21 +2099,21 @@
                         },
                         "apitoken": {
                             "defaultValue": "apitoken",
-                            "type": "String",
+                            "type": "securestring",
                             "minLength": 1
                         }
                     },
                     "variables": {
-                        "_dataConnectorContentIdConnections1": "SentinelOneConnections"
+                        "_dataConnectorContentIdConnections1": "SentinelOneCCPConnections"
                     },
                     "resources": [
                         {
-                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('DataConnector-', 'SentinelOneConnections'))]",
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('DataConnector-', 'SentinelOneCCPConnections'))]",
                             "apiVersion": "2022-01-01-preview",
                             "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
                             "properties": {
-                                "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'SentinelOneConnections')]",
-                                "contentId": "SentinelOneConnections",
+                                "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'SentinelOneCCPConnections')]",
+                                "contentId": "SentinelOneCCPConnections",
                                 "kind": "ResourcesDataConnector",
                                 "version": "1.0.0",
                                 "source": {
@@ -2141,7 +2140,7 @@
                             "location": "[parameters('workspace-location')]",
                             "kind": "RestApiPoller",
                             "properties": {
-                                "connectorDefinitionName": "SentinelOne",
+                                "connectorDefinitionName": "SentinelOneCCP",
                                 "dcrConfig": {
                                     "streamName": "Custom-SentinelOneActivities_API",
                                     "dataCollectionEndpoint": "[[parameters('dcrConfig').dataCollectionEndpoint]",
@@ -2192,7 +2191,7 @@
                             "location": "[parameters('workspace-location')]",
                             "kind": "RestApiPoller",
                             "properties": {
-                                "connectorDefinitionName": "SentinelOne",
+                                "connectorDefinitionName": "SentinelOneCCP",
                                 "dcrConfig": {
                                     "streamName": "Custom-SentinelOneAgents_API",
                                     "dataCollectionEndpoint": "[[parameters('dcrConfig').dataCollectionEndpoint]",
@@ -2243,7 +2242,7 @@
                             "location": "[parameters('workspace-location')]",
                             "kind": "RestApiPoller",
                             "properties": {
-                                "connectorDefinitionName": "SentinelOne",
+                                "connectorDefinitionName": "SentinelOneCCP",
                                 "dcrConfig": {
                                     "streamName": "Custom-SentinelOneAgents_API",
                                     "dataCollectionEndpoint": "[[parameters('dcrConfig').dataCollectionEndpoint]",
@@ -2294,7 +2293,7 @@
                             "location": "[parameters('workspace-location')]",
                             "kind": "RestApiPoller",
                             "properties": {
-                                "connectorDefinitionName": "SentinelOne",
+                                "connectorDefinitionName": "SentinelOneCCP",
                                 "dcrConfig": {
                                     "streamName": "Custom-SentinelOneAlerts_API",
                                     "dataCollectionEndpoint": "[[parameters('dcrConfig').dataCollectionEndpoint]",
@@ -2345,7 +2344,7 @@
                             "location": "[parameters('workspace-location')]",
                             "kind": "RestApiPoller",
                             "properties": {
-                                "connectorDefinitionName": "SentinelOne",
+                                "connectorDefinitionName": "SentinelOneCCP",
                                 "dcrConfig": {
                                     "streamName": "Custom-SentinelOneGroups_API",
                                     "dataCollectionEndpoint": "[[parameters('dcrConfig').dataCollectionEndpoint]",
@@ -2396,7 +2395,7 @@
                             "location": "[parameters('workspace-location')]",
                             "kind": "RestApiPoller",
                             "properties": {
-                                "connectorDefinitionName": "SentinelOne",
+                                "connectorDefinitionName": "SentinelOneCCP",
                                 "dcrConfig": {
                                     "streamName": "Custom-SentinelOneThreats_API",
                                     "dataCollectionEndpoint": "[[parameters('dcrConfig').dataCollectionEndpoint]",
@@ -2447,7 +2446,7 @@
                             "location": "[parameters('workspace-location')]",
                             "kind": "RestApiPoller",
                             "properties": {
-                                "connectorDefinitionName": "SentinelOne",
+                                "connectorDefinitionName": "SentinelOneCCP",
                                 "dcrConfig": {
                                     "streamName": "Custom-SentinelOneThreats_API",
                                     "dataCollectionEndpoint": "[[parameters('dcrConfig').dataCollectionEndpoint]",
@@ -2494,15 +2493,373 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.6",
                 "packageName": "SentinelOne",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-sentinelone-rdc-bfbjdjogt5moe",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-sentinelone-rdc-ooli7lyno5ceo",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
                 "version": "1.0.0",
-                "id": "azuresentinel.azure-sentinel-solution-sentinelone-rdc-bfbjdjogt5moe",
+                "id": "azuresentinel.azure-sentinel-solution-sentinelone-rdc-ooli7lyno5ceo",
                 "isDeprecated": false,
                 "description": ""
+            }
+        },
+        {
+            "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
+            "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-dc-',uniquestring('SentinelOne')))]",
+            "location": "[parameters('workspace-location')]",
+            "dependsOn": [
+                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-sentinelone')]"
+            ],
+            "properties": {
+                "description": "The [SentinelOne](https://www.sentinelone.com/) data connector provides the capability to ingest common SentinelOne server objects such as Threats. Agents. Applications. Activities. Policies. Groups. and more events into Microsoft Sentinel through the REST API. Refer to API documentation: `https://.sentinelone.net/api-doc/overview` for more information. The connector provides ability to get events which helps to examine potential security risks. analyze your team's use of collaboration. diagnose configuration problems and more.",
+                "mainTemplate": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/','SentinelOne')]",
+                            "apiVersion": "2021-03-01-preview",
+                            "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
+                            "location": "[parameters('workspace-location')]",
+                            "kind": "GenericUI",
+                            "properties": {
+                                "connectorUiConfig": {
+                                    "id": "SentinelOne",
+                                    "title": "SentinelOne (using Azure Functions)",
+                                    "publisher": "SentinelOne",
+                                    "descriptionMarkdown": "The [SentinelOne](https://www.sentinelone.com/) data connector provides the capability to ingest common SentinelOne server objects such as Threats, Agents, Applications, Activities, Policies, Groups, and more events into Microsoft Sentinel through the REST API. Refer to API documentation: `https://<SOneInstanceDomain>.sentinelone.net/api-doc/overview` for more information. The connector provides ability to get events which helps to examine potential security risks, analyze your team's use of collaboration, diagnose configuration problems and more.",
+                                    "additionalRequirementBanner": "These queries are dependent on a parser based on a Kusto Function deployed as part of the solution.",
+                                    "graphQueries": [
+                                        {
+                                            "metricName": "Total data received",
+                                            "legend": "SentinelOne_CL",
+                                            "baseQuery": "SentinelOne_CL"
+                                        }
+                                    ],
+                                    "sampleQueries": [
+                                        {
+                                            "description": "SentinelOne Events - All Activities.",
+                                            "query": "SentinelOne\n | sort by TimeGenerated desc"
+                                        }
+                                    ],
+                                    "dataTypes": [
+                                        {
+                                            "name": "SentinelOne_CL",
+                                            "lastDataReceivedQuery": "SentinelOne_CL\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)"
+                                        }
+                                    ],
+                                    "connectivityCriterias": [
+                                        {
+                                            "type": "IsConnectedQuery",
+                                            "value": [
+                                                "SentinelOne_CL\n            | summarize LastLogReceived = max(TimeGenerated)\n            | project IsConnected = LastLogReceived > ago(30d)"
+                                            ]
+                                        }
+                                    ],
+                                    "availability": {
+                                        "status": 1,
+                                        "isPreview": false
+                                    },
+                                    "permissions": {
+                                        "resourceProvider": [
+                                            {
+                                                "provider": "Microsoft.OperationalInsights/workspaces",
+                                                "permissionsDisplayText": "read and write permissions on the workspace are required.",
+                                                "providerDisplayName": "Workspace",
+                                                "scope": "Workspace",
+                                                "requiredPermissions": {
+                                                    "write": true,
+                                                    "read": true,
+                                                    "delete": true
+                                                }
+                                            },
+                                            {
+                                                "provider": "Microsoft.OperationalInsights/workspaces/sharedKeys",
+                                                "permissionsDisplayText": "read permissions to shared keys for the workspace are required. [See the documentation to learn more about workspace keys](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows#obtain-workspace-id-and-key).",
+                                                "providerDisplayName": "Keys",
+                                                "scope": "Workspace",
+                                                "requiredPermissions": {
+                                                    "action": true
+                                                }
+                                            }
+                                        ],
+                                        "customs": [
+                                            {
+                                                "name": "Microsoft.Web/sites permissions",
+                                                "description": "Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://docs.microsoft.com/azure/azure-functions/)."
+                                            },
+                                            {
+                                                "name": "REST API Credentials/permissions",
+                                                "description": "**SentinelOneAPIToken** is required.  See the documentation to learn more about API on the `https://<SOneInstanceDomain>.sentinelone.net/api-doc/overview`."
+                                            }
+                                        ]
+                                    },
+                                    "instructionSteps": [
+                                        {
+                                            "description": ">**NOTE:** This connector uses Azure Functions to connect to the SentinelOne API to pull its logs into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details."
+                                        },
+                                        {
+                                            "description": ">**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App."
+                                        },
+                                        {
+                                            "description": ">**NOTE:** This data connector depends on a parser based on a Kusto Function to work as expected which is deployed as part of the solution. To view the function code in Log Analytics, open Log Analytics/Microsoft Sentinel Logs blade, click Functions and search for the alias SentinelOne and load the function code or click [here](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/SentinelOne/Parsers/SentinelOne.txt). The function usually takes 10-15 minutes to activate after solution installation/update."
+                                        },
+                                        {
+                                            "description": "**STEP 1 - Configuration steps for the SentinelOne API**\n\n Follow the instructions to obtain the credentials.\n\n1. Log in to the SentinelOne Management Console with Admin user credentials.\n2. In the Management Console, click **Settings**.\n3. In the **SETTINGS** view, click **USERS**\n4. Click **New User**.\n5. Enter the information for the new console user.\n5. In Role, select **Admin**.\n6. Click **SAVE**\n7. Save credentials of the new user for using in the data connector."
+                                        },
+                                        {
+                                            "description": "**NOTE :-** Admin access can be delegated using custom roles. Please review SentinelOne [documentation](https://www.sentinelone.com/blog/feature-spotlight-fully-custom-role-based-access-control/) to learn more about custom RBAC."
+                                        },
+                                        {
+                                            "description": "**STEP 2 - Choose ONE from the following two deployment options to deploy the connector and the associated Azure Function**\n\n>**IMPORTANT:** Before deploying the SentinelOne data connector, have the Workspace ID and Workspace Primary Key (can be copied from the following).",
+                                            "instructions": [
+                                                {
+                                                    "parameters": {
+                                                        "fillWith": [
+                                                            "WorkspaceId"
+                                                        ],
+                                                        "label": "Workspace ID"
+                                                    },
+                                                    "type": "CopyableLabel"
+                                                },
+                                                {
+                                                    "parameters": {
+                                                        "fillWith": [
+                                                            "PrimaryKey"
+                                                        ],
+                                                        "label": "Primary Key"
+                                                    },
+                                                    "type": "CopyableLabel"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "description": "Use this method for automated deployment of the SentinelOne Audit data connector using an ARM Tempate.\n\n1. Click the **Deploy to Azure** button below. \n\n\t[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/sentinel-SentinelOneAPI-azuredeploy) [![Deploy to Azure Gov](https://aka.ms/deploytoazuregovbutton)](https://aka.ms/sentinel-SentinelOneAPI-azuredeploy-gov)\n2. Select the preferred **Subscription**, **Resource Group** and **Location**. \n> **NOTE:** Within the same resource group, you can't mix Windows and Linux apps in the same region. Select existing resource group without Windows apps in it or create new resource group.\n3. Enter the **SentinelOneAPIToken**, **SentinelOneUrl** `(https://<SOneInstanceDomain>.sentinelone.net)` and deploy. \n4. Mark the checkbox labeled **I agree to the terms and conditions stated above**. \n5. Click **Purchase** to deploy.",
+                                            "title": "Option 1 - Azure Resource Manager (ARM) Template"
+                                        },
+                                        {
+                                            "description": "Use the following step-by-step instructions to deploy the SentinelOne Reports data connector manually with Azure Functions (Deployment via Visual Studio Code).",
+                                            "title": "Option 2 - Manual Deployment of Azure Functions"
+                                        },
+                                        {
+                                            "description": "**1. Deploy a Function App**\n\n> **NOTE:** You will need to [prepare VS code](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-python#prerequisites) for Azure function development.\n\n1. Download the [Azure Function App](https://aka.ms/sentinel-SentinelOneAPI-functionapp) file. Extract archive to your local development computer.\n2. Start VS Code. Choose File in the main menu and select Open Folder.\n3. Select the top level folder from extracted files.\n4. Choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, choose the **Deploy to function app** button.\nIf you aren't already signed in, choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, choose **Sign in to Azure**\nIf you're already signed in, go to the next step.\n5. Provide the following information at the prompts:\n\n\ta. **Select folder:** Choose a folder from your workspace or browse to one that contains your function app.\n\n\tb. **Select Subscription:** Choose the subscription to use.\n\n\tc. Select **Create new Function App in Azure** (Don't choose the Advanced option)\n\n\td. **Enter a globally unique name for the function app:** Type a name that is valid in a URL path. The name you type is validated to make sure that it's unique in Azure Functions. (e.g. SOneXXXXX).\n\n\te. **Select a runtime:** Choose Python 3.11.\n\n\tf. Select a location for new resources. For better performance and lower costs choose the same [region](https://azure.microsoft.com/regions/) where Microsoft Sentinel is located.\n\n6. Deployment will begin. A notification is displayed after your function app is created and the deployment package is applied.\n7. Go to Azure Portal for the Function App configuration."
+                                        },
+                                        {
+                                            "description": "**2. Configure the Function App**\n\n 1. In the Function App, select the Function App Name and select **Configuration**.\n\n 2. In the **Application settings** tab, select ** New application setting**.\n\n 3. Add each of the following application settings individually, with their respective string values (case-sensitive): \n\t\t SentinelOneAPIToken\n\t\t SentinelOneUrl\n\t\t WorkspaceID\n\t\t WorkspaceKey\n\t\t logAnalyticsUri (optional)\n\n> - Use logAnalyticsUri to override the log analytics API endpoint for dedicated cloud. For example, for public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: `https://<CustomerId>.ods.opinsights.azure.us`.\n\n 4. Once all application settings have been entered, click **Save**."
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
+                            "apiVersion": "2023-04-01-preview",
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('DataConnector-', last(split(extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'SentinelOne'),'/'))))]",
+                            "properties": {
+                                "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'SentinelOne')]",
+                                "contentId": "SentinelOne",
+                                "kind": "DataConnector",
+                                "version": "1.0.0",
+                                "source": {
+                                    "kind": "Solution",
+                                    "name": "SentinelOne",
+                                    "sourceId": "azuresentinel.azure-sentinel-solution-sentinelone"
+                                },
+                                "author": {
+                                    "name": "Microsoft",
+                                    "email": "support@microsoft.com"
+                                },
+                                "support": {
+                                    "name": "Microsoft Corporation",
+                                    "email": "support@microsoft.com",
+                                    "tier": "Microsoft",
+                                    "link": "https://support.microsoft.com"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "packageKind": "Solution",
+                "packageVersion": "3.0.6",
+                "packageName": "SentinelOne",
+                "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "SentinelOne",
+                "contentKind": "DataConnector",
+                "displayName": "SentinelOne (using Azure Functions)",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-sentinelone-dc-g2abyuk6lyd6s",
+                "id": "azuresentinel.azure-sentinel-solution-sentinelone-dc-g2abyuk6lyd6s",
+                "version": "1.0.0",
+                "isDeprecated": false
+            }
+        },
+        {
+            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
+            "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('DataConnector-', last(split(extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'SentinelOne'),'/'))))]",
+            "dependsOn": [
+                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'SentinelOne')]"
+            ],
+            "location": "[parameters('workspace-location')]",
+            "properties": {
+                "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'SentinelOne')]",
+                "contentId": "SentinelOne",
+                "kind": "DataConnector",
+                "version": "1.0.0",
+                "source": {
+                    "kind": "Solution",
+                    "name": "SentinelOne",
+                    "sourceId": "azuresentinel.azure-sentinel-solution-sentinelone"
+                },
+                "author": {
+                    "name": "Microsoft",
+                    "email": "support@microsoft.com"
+                },
+                "support": {
+                    "name": "Microsoft Corporation",
+                    "email": "support@microsoft.com",
+                    "tier": "Microsoft",
+                    "link": "https://support.microsoft.com"
+                }
+            }
+        },
+        {
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/','SentinelOne')]",
+            "apiVersion": "2021-03-01-preview",
+            "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
+            "location": "[parameters('workspace-location')]",
+            "kind": "GenericUI",
+            "properties": {
+                "connectorUiConfig": {
+                    "title": "SentinelOne (using Azure Functions)",
+                    "publisher": "SentinelOne",
+                    "descriptionMarkdown": "The [SentinelOne](https://www.sentinelone.com/) data connector provides the capability to ingest common SentinelOne server objects such as Threats, Agents, Applications, Activities, Policies, Groups, and more events into Microsoft Sentinel through the REST API. Refer to API documentation: `https://<SOneInstanceDomain>.sentinelone.net/api-doc/overview` for more information. The connector provides ability to get events which helps to examine potential security risks, analyze your team's use of collaboration, diagnose configuration problems and more.",
+                    "graphQueries": [
+                        {
+                            "metricName": "Total data received",
+                            "legend": "SentinelOne_CL",
+                            "baseQuery": "SentinelOne_CL"
+                        }
+                    ],
+                    "dataTypes": [
+                        {
+                            "name": "SentinelOne_CL",
+                            "lastDataReceivedQuery": "SentinelOne_CL\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)"
+                        }
+                    ],
+                    "connectivityCriterias": [
+                        {
+                            "type": "IsConnectedQuery",
+                            "value": [
+                                "SentinelOne_CL\n            | summarize LastLogReceived = max(TimeGenerated)\n            | project IsConnected = LastLogReceived > ago(30d)"
+                            ]
+                        }
+                    ],
+                    "sampleQueries": [
+                        {
+                            "description": "SentinelOne Events - All Activities.",
+                            "query": "SentinelOne\n | sort by TimeGenerated desc"
+                        }
+                    ],
+                    "availability": {
+                        "status": 1,
+                        "isPreview": false
+                    },
+                    "permissions": {
+                        "resourceProvider": [
+                            {
+                                "provider": "Microsoft.OperationalInsights/workspaces",
+                                "permissionsDisplayText": "read and write permissions on the workspace are required.",
+                                "providerDisplayName": "Workspace",
+                                "scope": "Workspace",
+                                "requiredPermissions": {
+                                    "write": true,
+                                    "read": true,
+                                    "delete": true
+                                }
+                            },
+                            {
+                                "provider": "Microsoft.OperationalInsights/workspaces/sharedKeys",
+                                "permissionsDisplayText": "read permissions to shared keys for the workspace are required. [See the documentation to learn more about workspace keys](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows#obtain-workspace-id-and-key).",
+                                "providerDisplayName": "Keys",
+                                "scope": "Workspace",
+                                "requiredPermissions": {
+                                    "action": true
+                                }
+                            }
+                        ],
+                        "customs": [
+                            {
+                                "name": "Microsoft.Web/sites permissions",
+                                "description": "Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://docs.microsoft.com/azure/azure-functions/)."
+                            },
+                            {
+                                "name": "REST API Credentials/permissions",
+                                "description": "**SentinelOneAPIToken** is required.  See the documentation to learn more about API on the `https://<SOneInstanceDomain>.sentinelone.net/api-doc/overview`."
+                            }
+                        ]
+                    },
+                    "instructionSteps": [
+                        {
+                            "description": ">**NOTE:** This connector uses Azure Functions to connect to the SentinelOne API to pull its logs into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details."
+                        },
+                        {
+                            "description": ">**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App."
+                        },
+                        {
+                            "description": ">**NOTE:** This data connector depends on a parser based on a Kusto Function to work as expected which is deployed as part of the solution. To view the function code in Log Analytics, open Log Analytics/Microsoft Sentinel Logs blade, click Functions and search for the alias SentinelOne and load the function code or click [here](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/SentinelOne/Parsers/SentinelOne.txt). The function usually takes 10-15 minutes to activate after solution installation/update."
+                        },
+                        {
+                            "description": "**STEP 1 - Configuration steps for the SentinelOne API**\n\n Follow the instructions to obtain the credentials.\n\n1. Log in to the SentinelOne Management Console with Admin user credentials.\n2. In the Management Console, click **Settings**.\n3. In the **SETTINGS** view, click **USERS**\n4. Click **New User**.\n5. Enter the information for the new console user.\n5. In Role, select **Admin**.\n6. Click **SAVE**\n7. Save credentials of the new user for using in the data connector."
+                        },
+                        {
+                            "description": "**NOTE :-** Admin access can be delegated using custom roles. Please review SentinelOne [documentation](https://www.sentinelone.com/blog/feature-spotlight-fully-custom-role-based-access-control/) to learn more about custom RBAC."
+                        },
+                        {
+                            "description": "**STEP 2 - Choose ONE from the following two deployment options to deploy the connector and the associated Azure Function**\n\n>**IMPORTANT:** Before deploying the SentinelOne data connector, have the Workspace ID and Workspace Primary Key (can be copied from the following).",
+                            "instructions": [
+                                {
+                                    "parameters": {
+                                        "fillWith": [
+                                            "WorkspaceId"
+                                        ],
+                                        "label": "Workspace ID"
+                                    },
+                                    "type": "CopyableLabel"
+                                },
+                                {
+                                    "parameters": {
+                                        "fillWith": [
+                                            "PrimaryKey"
+                                        ],
+                                        "label": "Primary Key"
+                                    },
+                                    "type": "CopyableLabel"
+                                }
+                            ]
+                        },
+                        {
+                            "description": "Use this method for automated deployment of the SentinelOne Audit data connector using an ARM Tempate.\n\n1. Click the **Deploy to Azure** button below. \n\n\t[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/sentinel-SentinelOneAPI-azuredeploy) [![Deploy to Azure Gov](https://aka.ms/deploytoazuregovbutton)](https://aka.ms/sentinel-SentinelOneAPI-azuredeploy-gov)\n2. Select the preferred **Subscription**, **Resource Group** and **Location**. \n> **NOTE:** Within the same resource group, you can't mix Windows and Linux apps in the same region. Select existing resource group without Windows apps in it or create new resource group.\n3. Enter the **SentinelOneAPIToken**, **SentinelOneUrl** `(https://<SOneInstanceDomain>.sentinelone.net)` and deploy. \n4. Mark the checkbox labeled **I agree to the terms and conditions stated above**. \n5. Click **Purchase** to deploy.",
+                            "title": "Option 1 - Azure Resource Manager (ARM) Template"
+                        },
+                        {
+                            "description": "Use the following step-by-step instructions to deploy the SentinelOne Reports data connector manually with Azure Functions (Deployment via Visual Studio Code).",
+                            "title": "Option 2 - Manual Deployment of Azure Functions"
+                        },
+                        {
+                            "description": "**1. Deploy a Function App**\n\n> **NOTE:** You will need to [prepare VS code](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-python#prerequisites) for Azure function development.\n\n1. Download the [Azure Function App](https://aka.ms/sentinel-SentinelOneAPI-functionapp) file. Extract archive to your local development computer.\n2. Start VS Code. Choose File in the main menu and select Open Folder.\n3. Select the top level folder from extracted files.\n4. Choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, choose the **Deploy to function app** button.\nIf you aren't already signed in, choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, choose **Sign in to Azure**\nIf you're already signed in, go to the next step.\n5. Provide the following information at the prompts:\n\n\ta. **Select folder:** Choose a folder from your workspace or browse to one that contains your function app.\n\n\tb. **Select Subscription:** Choose the subscription to use.\n\n\tc. Select **Create new Function App in Azure** (Don't choose the Advanced option)\n\n\td. **Enter a globally unique name for the function app:** Type a name that is valid in a URL path. The name you type is validated to make sure that it's unique in Azure Functions. (e.g. SOneXXXXX).\n\n\te. **Select a runtime:** Choose Python 3.11.\n\n\tf. Select a location for new resources. For better performance and lower costs choose the same [region](https://azure.microsoft.com/regions/) where Microsoft Sentinel is located.\n\n6. Deployment will begin. A notification is displayed after your function app is created and the deployment package is applied.\n7. Go to Azure Portal for the Function App configuration."
+                        },
+                        {
+                            "description": "**2. Configure the Function App**\n\n 1. In the Function App, select the Function App Name and select **Configuration**.\n\n 2. In the **Application settings** tab, select ** New application setting**.\n\n 3. Add each of the following application settings individually, with their respective string values (case-sensitive): \n\t\t SentinelOneAPIToken\n\t\t SentinelOneUrl\n\t\t WorkspaceID\n\t\t WorkspaceKey\n\t\t logAnalyticsUri (optional)\n\n> - Use logAnalyticsUri to override the log analytics API endpoint for dedicated cloud. For example, for public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: `https://<CustomerId>.ods.opinsights.azure.us`.\n\n 4. Once all application settings have been entered, click **Save**."
+                        }
+                    ],
+                    "id": "SentinelOne",
+                    "additionalRequirementBanner": "These queries are dependent on a parser based on a Kusto Function deployed as part of the solution."
+                }
             }
         },
         {
@@ -2581,7 +2938,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.6",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -2663,7 +3020,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.6",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -2764,10 +3121,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "SentinelOne",
                                         "dataTypes": [
                                             "SentinelOne"
-                                        ],
-                                        "connectorId": "SentinelOne"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -2781,8 +3138,8 @@
                                     {
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountCustomEntity"
+                                                "columnName": "AccountCustomEntity",
+                                                "identifier": "Name"
                                             }
                                         ],
                                         "entityType": "Account"
@@ -2790,8 +3147,8 @@
                                     {
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Address",
-                                                "columnName": "IPCustomEntity"
+                                                "columnName": "IPCustomEntity",
+                                                "identifier": "Address"
                                             }
                                         ],
                                         "entityType": "IP"
@@ -2829,7 +3186,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.6",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -2867,7 +3224,7 @@
                 "description": "Detects when agent was uninstalled from multiple hosts.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.1",
+                    "contentVersion": "1.0.2",
                     "parameters": {},
                     "variables": {},
                     "resources": [
@@ -2881,7 +3238,7 @@
                                 "description": "Detects when agent was uninstalled from multiple hosts.",
                                 "displayName": "Sentinel One - Agent uninstalled from multiple hosts",
                                 "enabled": false,
-                                "query": "SentinelOne\n| where ActivityType == 31\n| summarize count() by DataComputerName, bin(TimeGenerated, 30m)\n| where count_ > 1\n| extend HostCustomEntity = DataComputerName\n",
+                                "query": "SentinelOne\n| where ActivityType == 51\n| summarize count() by DataComputerName, bin(TimeGenerated, 30m)\n| where count_ > 1\n",
                                 "queryFrequency": "PT1H",
                                 "queryPeriod": "PT1H",
                                 "severity": "High",
@@ -2892,10 +3249,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "SentinelOne",
                                         "dataTypes": [
                                             "SentinelOne"
-                                        ],
-                                        "connectorId": "SentinelOne"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -2908,8 +3265,8 @@
                                     {
                                         "fieldMappings": [
                                             {
-                                                "identifier": "HostName",
-                                                "columnName": "HostCustomEntity"
+                                                "columnName": "DataComputerName",
+                                                "identifier": "HostName"
                                             }
                                         ],
                                         "entityType": "Host"
@@ -2926,7 +3283,7 @@
                                 "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '4ad87e4a-d045-4c6b-9652-c9de27fcb442')]",
                                 "contentId": "4ad87e4a-d045-4c6b-9652-c9de27fcb442",
                                 "kind": "AnalyticsRule",
-                                "version": "1.0.1",
+                                "version": "1.0.2",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "SentinelOne",
@@ -2947,16 +3304,16 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.6",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "4ad87e4a-d045-4c6b-9652-c9de27fcb442",
                 "contentKind": "AnalyticsRule",
                 "displayName": "Sentinel One - Agent uninstalled from multiple hosts",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-sentinelone-ar-vlgu23s3sbqnw",
-                "id": "azuresentinel.azure-sentinel-solution-sentinelone-ar-vlgu23s3sbqnw",
-                "version": "1.0.1",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-sentinelone-ar-uav5ornr5qbla",
+                "id": "azuresentinel.azure-sentinel-solution-sentinelone-ar-uav5ornr5qbla",
+                "version": "1.0.2",
                 "isDeprecated": false,
                 "dependencies": {
                     "operator": "AND",
@@ -3010,10 +3367,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "SentinelOne",
                                         "dataTypes": [
                                             "SentinelOne"
-                                        ],
-                                        "connectorId": "SentinelOne"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -3026,8 +3383,8 @@
                                     {
                                         "fieldMappings": [
                                             {
-                                                "identifier": "HostName",
-                                                "columnName": "HostCustomEntity"
+                                                "columnName": "HostCustomEntity",
+                                                "identifier": "HostName"
                                             }
                                         ],
                                         "entityType": "Host"
@@ -3065,7 +3422,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.6",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -3128,10 +3485,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "SentinelOne",
                                         "dataTypes": [
                                             "SentinelOne"
-                                        ],
-                                        "connectorId": "SentinelOne"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -3144,8 +3501,8 @@
                                     {
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountCustomEntity"
+                                                "columnName": "AccountCustomEntity",
+                                                "identifier": "Name"
                                             }
                                         ],
                                         "entityType": "Account"
@@ -3153,12 +3510,12 @@
                                     {
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Value",
-                                                "columnName": "HashCustomEntity"
+                                                "columnName": "HashCustomEntity",
+                                                "identifier": "Value"
                                             },
                                             {
-                                                "identifier": "Algorithm",
-                                                "columnName": "HashAlgorithmCustomEntity"
+                                                "columnName": "HashAlgorithmCustomEntity",
+                                                "identifier": "Algorithm"
                                             }
                                         ],
                                         "entityType": "FileHash"
@@ -3196,7 +3553,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.6",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -3259,10 +3616,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "SentinelOne",
                                         "dataTypes": [
                                             "SentinelOne"
-                                        ],
-                                        "connectorId": "SentinelOne"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -3275,8 +3632,8 @@
                                     {
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountCustomEntity"
+                                                "columnName": "AccountCustomEntity",
+                                                "identifier": "Name"
                                             }
                                         ],
                                         "entityType": "Account"
@@ -3314,7 +3671,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.6",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -3377,10 +3734,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "SentinelOne",
                                         "dataTypes": [
                                             "SentinelOne"
-                                        ],
-                                        "connectorId": "SentinelOne"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -3393,8 +3750,8 @@
                                     {
                                         "fieldMappings": [
                                             {
-                                                "identifier": "HostName",
-                                                "columnName": "HostCustomEntity"
+                                                "columnName": "HostCustomEntity",
+                                                "identifier": "HostName"
                                             }
                                         ],
                                         "entityType": "Host"
@@ -3432,7 +3789,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.6",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -3495,10 +3852,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "SentinelOne",
                                         "dataTypes": [
                                             "SentinelOne"
-                                        ],
-                                        "connectorId": "SentinelOne"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -3511,8 +3868,8 @@
                                     {
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountCustomEntity"
+                                                "columnName": "AccountCustomEntity",
+                                                "identifier": "Name"
                                             }
                                         ],
                                         "entityType": "Account"
@@ -3550,7 +3907,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.6",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -3613,10 +3970,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "SentinelOne",
                                         "dataTypes": [
                                             "SentinelOne"
-                                        ],
-                                        "connectorId": "SentinelOne"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -3629,8 +3986,8 @@
                                     {
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountCustomEntity"
+                                                "columnName": "AccountCustomEntity",
+                                                "identifier": "Name"
                                             }
                                         ],
                                         "entityType": "Account"
@@ -3668,7 +4025,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.6",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -3731,10 +4088,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "SentinelOne",
                                         "dataTypes": [
                                             "SentinelOne"
-                                        ],
-                                        "connectorId": "SentinelOne"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -3747,8 +4104,8 @@
                                     {
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountCustomEntity"
+                                                "columnName": "AccountCustomEntity",
+                                                "identifier": "Name"
                                             }
                                         ],
                                         "entityType": "Account"
@@ -3786,7 +4143,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.6",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -3849,10 +4206,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "SentinelOne",
                                         "dataTypes": [
                                             "SentinelOne"
-                                        ],
-                                        "connectorId": "SentinelOne"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -3867,8 +4224,8 @@
                                     {
                                         "fieldMappings": [
                                             {
-                                                "identifier": "HostName",
-                                                "columnName": "HostCustomEntity"
+                                                "columnName": "HostCustomEntity",
+                                                "identifier": "HostName"
                                             }
                                         ],
                                         "entityType": "Host"
@@ -3906,7 +4263,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.6",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -3969,10 +4326,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "SentinelOne",
                                         "dataTypes": [
                                             "SentinelOne"
-                                        ],
-                                        "connectorId": "SentinelOne"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -3985,8 +4342,8 @@
                                     {
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountCustomEntity"
+                                                "columnName": "AccountCustomEntity",
+                                                "identifier": "Name"
                                             }
                                         ],
                                         "entityType": "Account"
@@ -3994,8 +4351,8 @@
                                     {
                                         "fieldMappings": [
                                             {
-                                                "identifier": "HostName",
-                                                "columnName": "HostCustomEntity"
+                                                "columnName": "HostCustomEntity",
+                                                "identifier": "HostName"
                                             }
                                         ],
                                         "entityType": "Host"
@@ -4033,7 +4390,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.6",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -4132,7 +4489,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.6",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -4218,7 +4575,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.6",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -4304,7 +4661,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.6",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -4390,7 +4747,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.6",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -4476,7 +4833,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.6",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -4562,7 +4919,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.6",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -4648,7 +5005,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.6",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -4734,7 +5091,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.6",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -4820,7 +5177,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.6",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -4906,7 +5263,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.6",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -4924,15 +5281,15 @@
             "apiVersion": "2023-04-01-preview",
             "location": "[parameters('workspace-location')]",
             "properties": {
-                "version": "3.0.3",
+                "version": "3.0.6",
                 "kind": "Solution",
                 "contentSchemaVersion": "3.0.0",
                 "displayName": "SentinelOne",
                 "publisherDisplayName": "Microsoft Sentinel, Microsoft Corporation",
                 "descriptionHtml": "<p><b>Note:</b> Please refer to the following before installing the solution:</p><p>\u2022 Review the solution <a target=\"_blank href=\">Release Notes</a></p><p>The <a target=\"_blank\" href=\"https://www.sentinelone.com/\" rel=\"noopener\">SentinelOne</a> solution provides ability to bring SentinelOne events to your Microsoft Sentinel Workspace to inform and to examine potential security risks, analyze your team's use of collaboration, diagnose configuration problems and more.</p><p><b>Underlying Microsoft Technologies used:</b></p><p>This solution takes a dependency on the following technologies, and some of these dependencies either may be in <a target=\"_blank\" href=\"https://azure.microsoft.com/support/legal/preview-supplemental-terms/\" rel=\"noopener\">Preview</a> state or might result in additional ingestion or operational costs:</p><p>a. <a target=\"_blank\" href=\"https://docs.microsoft.com/azure/azure-monitor/logs/data-collector-api?WT.mc_id=Portal-fx\" rel=\"noopener\">Azure Monitor HTTP Data Collector API</a></p><p>b. <a target=\"_blank\" href=\"https://azure.microsoft.com/services/functions/#overview\" rel=\"noopener\">Azure Functions</a></p><p><b>Data Connectors:</b> 1, <b>Parsers:</b> 1, <b>Workbooks:</b> 1, <b>Analytic Rules:</b> 11, <b>Hunting Queries:</b> 10</p><p><a target=\"_blank\" href=\"https://aka.ms/azuresentinel\" rel=\"noopener\">Learn more about Microsoft Sentinel</a> | <a target=\"_blank\" href=\"https://aka.ms/azuresentinelsolutionsdoc\" rel=\"noopener\">Learn more about Solutions</a></p>",
                 "contentKind": "Solution",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-sentinelone-sl-vhgrq4tfnfkhu",
-                "id": "azuresentinel.azure-sentinel-solution-sentinelone-sl-vhgrq4tfnfkhu",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-sentinelone-sl-i65e75jmihqn6",
+                "id": "azuresentinel.azure-sentinel-solution-sentinelone-sl-i65e75jmihqn6",
                 "icon": "https://store-images.s-microsoft.com/image/apps.64133.de7b62cd-dc4b-44e8-ba88-e15abade5b01.d5ef45e2-268d-4824-92bc-96afd798aac3.7cf9eadc-d371-4415-a897-1abee4fee9c9",
                 "contentId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "parentId": "azuresentinel.azure-sentinel-solution-sentinelone",
@@ -4956,7 +5313,12 @@
                     "criteria": [
                         {
                             "kind": "DataConnector",
-                            "contentId": "SentinelOneConnections",
+                            "contentId": "SentinelOneCCPConnections",
+                            "version": "1.0.0"
+                        },
+                        {
+                            "kind": "DataConnector",
+                            "contentId": "SentinelOne",
                             "version": "1.0.0"
                         },
                         {
@@ -4977,7 +5339,7 @@
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "4ad87e4a-d045-4c6b-9652-c9de27fcb442",
-                            "version": "1.0.1"
+                            "version": "1.0.2"
                         },
                         {
                             "kind": "AnalyticsRule",
