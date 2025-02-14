@@ -1,3 +1,22 @@
+## 7.17.0 (2025-02-14)
+
+### Features
+
+* bump `Entra ID` package template version to 3.3.0 + update embedded rules 4f812a2
+* bump `Microsoft 365` package template version to 3.0.5 + update embedded rules 4fb8fea
+* bump `Okta` package template version to 3.1.3 + update embedded rules 55fcb30
+* bump `SentinelOne` package template version to 3.0.6 + update embedded rules 5223e04
+* bump `Syslog` package template version to 3.0.7 d71983f
+* bump `Threat Intelligence` package template version to 3.1.1 + update embedded rules ca926cb
+* bump `Zscaler Internet Access` package template version to 3.0.3 + update embedded rules 9d9f154
+
+### Miscellaneous Chores
+
+* **deps:** update dependency pre-commit to v4.1.0 7f64c5f
+* **deps:** update dependency trivy to v0.59.1 76e870f
+* **deps:** update tools 18c839a
+* update Github templates 27e6c19
+
 ## 7.16.0 (2025-01-17)
 
 ### Features
