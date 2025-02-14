@@ -42,691 +42,13 @@
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
             "apiVersion": "2023-04-01-preview",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-dc-',uniquestring('Zscaler')))]",
-            "location": "[parameters('workspace-location')]",
-            "dependsOn": [
-                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'zscaler1579058425289.zscaler_internet_access_mss')]"
-            ],
-            "properties": {
-                "description": "Zscaler Internet Access data connector with template version 3.0.2",
-                "mainTemplate": {
-                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0",
-                    "parameters": {},
-                    "variables": {},
-                    "resources": [
-                        {
-                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/','Zscaler')]",
-                            "apiVersion": "2021-03-01-preview",
-                            "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
-                            "location": "[parameters('workspace-location')]",
-                            "kind": "GenericUI",
-                            "properties": {
-                                "connectorUiConfig": {
-                                    "id": "Zscaler",
-                                    "title": "[Deprecated] Zscaler via Legacy Agent",
-                                    "publisher": "Zscaler",
-                                    "logo": "ZscalerLogo.svg",
-                                    "descriptionMarkdown": "The Zscaler data connector allows you to easily connect your Zscaler Internet Access (ZIA) logs with Microsoft Sentinel, to view dashboards, create custom alerts, and improve investigation.  Using Zscaler on Microsoft Sentinel will provide you more insights into your organization\u2019s Internet usage, and will enhance its security operation capabilities.\u200b",
-                                    "graphQueries": [
-                                        {
-                                            "metricName": "Total data received",
-                                            "legend": "Zscaler",
-                                            "baseQuery": "\nCommonSecurityLog\n| where DeviceVendor == \"Zscaler\"\n"
-                                        }
-                                    ],
-                                    "sampleQueries": [
-                                        {
-                                            "query": "\nCommonSecurityLog\n| where DeviceVendor == \"Zscaler\"\n\n            | sort by TimeGenerated"
-                                        }
-                                    ],
-                                    "connectivityCriterias": [
-                                        {
-                                            "type": "IsConnectedQuery",
-                                            "value": [
-                                                "\nCommonSecurityLog\n| where DeviceVendor == \"Zscaler\"\n\n            | summarize LastLogReceived = max(TimeGenerated)\n            | project IsConnected = LastLogReceived > ago(7d)"
-                                            ]
-                                        }
-                                    ],
-                                    "dataTypes": [
-                                        {
-                                            "name": "CommonSecurityLog (Zscaler)",
-                                            "lastDataReceivedQuery": "\nCommonSecurityLog\n| where DeviceVendor == \"Zscaler\"\n\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)"
-                                        }
-                                    ],
-                                    "availability": {
-                                        "status": 1,
-                                        "isPreview": false
-                                    },
-                                    "permissions": {
-                                        "resourceProvider": [
-                                            {
-                                                "provider": "Microsoft.OperationalInsights/workspaces",
-                                                "permissionsDisplayText": "read and write permissions.",
-                                                "providerDisplayName": "Workspace",
-                                                "scope": "Workspace",
-                                                "requiredPermissions": {
-                                                    "read": true,
-                                                    "write": true,
-                                                    "delete": true
-                                                }
-                                            },
-                                            {
-                                                "provider": "Microsoft.OperationalInsights/workspaces/sharedKeys",
-                                                "permissionsDisplayText": "read permissions to shared keys for the workspace. [See the documentation to learn more about workspace keys](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows#obtain-workspace-id-and-key).",
-                                                "providerDisplayName": "Keys",
-                                                "scope": "Workspace",
-                                                "requiredPermissions": {
-                                                    "action": true
-                                                }
-                                            }
-                                        ]
-                                    },
-                                    "instructionSteps": [
-                                        {
-                                            "description": "Install and configure the Linux agent to collect your Common Event Format (CEF) Syslog messages and forward them to Microsoft Sentinel.\n\n> Notice that the data from all regions will be stored in the selected workspace",
-                                            "innerSteps": [
-                                                {
-                                                    "title": "1.1 Select or create a Linux machine",
-                                                    "description": "Select or create a Linux machine that Microsoft Sentinel will use as the proxy between your security solution and Microsoft Sentinel this machine can be on your on-prem environment, Azure or other clouds."
-                                                },
-                                                {
-                                                    "title": "1.2 Install the CEF collector on the Linux machine",
-                                                    "description": "Install the Microsoft Monitoring Agent on your Linux machine and configure the machine to listen on the necessary port and forward messages to your Microsoft Sentinel workspace. The CEF collector collects CEF messages on port 514 TCP.\n\n> 1. Make sure that you have Python on your machine using the following command: python --version.\n\n> 2. You must have elevated permissions (sudo) on your machine.",
-                                                    "instructions": [
-                                                        {
-                                                            "parameters": {
-                                                                "fillWith": [
-                                                                    "WorkspaceId",
-                                                                    "PrimaryKey"
-                                                                ],
-                                                                "label": "Run the following command to install and apply the CEF collector:",
-                                                                "value": "sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py {0} {1}"
-                                                            },
-                                                            "type": "CopyableLabel"
-                                                        }
-                                                    ]
-                                                }
-                                            ],
-                                            "title": "1. Linux Syslog agent configuration"
-                                        },
-                                        {
-                                            "description": "Set Zscaler product to send Syslog messages in CEF format to your Syslog agent. Make sure you to send the logs on port 514 TCP. \n\nGo to [Zscaler Microsoft Sentinel integration guide](https://aka.ms/ZscalerCEFInstructions) to learn more.",
-                                            "title": "2. Forward Common Event Format (CEF) logs to Syslog agent"
-                                        },
-                                        {
-                                            "description": "Follow the instructions to validate your connectivity:\n\nOpen Log Analytics to check if the logs are received using the CommonSecurityLog schema.\n\n>It may take about 20 minutes until the connection streams data to your workspace.\n\nIf the logs are not received, run the following connectivity validation script:\n\n> 1. Make sure that you have Python on your machine using the following command: python --version\n\n>2. You must have elevated permissions (sudo) on your machine",
-                                            "instructions": [
-                                                {
-                                                    "parameters": {
-                                                        "fillWith": [
-                                                            "WorkspaceId"
-                                                        ],
-                                                        "label": "Run the following command to validate your connectivity:",
-                                                        "value": "sudo wget -O cef_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py  {0}"
-                                                    },
-                                                    "type": "CopyableLabel"
-                                                }
-                                            ],
-                                            "title": "3. Validate connection"
-                                        },
-                                        {
-                                            "description": "Make sure to configure the machine's security according to your organization's security policy\n\n\n[Learn more >](https://aka.ms/SecureCEF)",
-                                            "title": "4. Secure your machine "
-                                        }
-                                    ],
-                                    "metadata": {
-                                        "id": "4621323a-6201-4731-966c-012e4f2505be",
-                                        "version": "1.0.0",
-                                        "kind": "dataConnector",
-                                        "source": {
-                                            "kind": "community"
-                                        },
-                                        "author": {
-                                            "name": "Zscaler"
-                                        },
-                                        "support": {
-                                            "name": "Zscaler",
-                                            "link": "https://help.zscaler.com/submit-ticket-links",
-                                            "tier": "developer"
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        {
-                            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
-                            "apiVersion": "2023-04-01-preview",
-                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('DataConnector-', last(split(extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'Zscaler'),'/'))))]",
-                            "properties": {
-                                "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'Zscaler')]",
-                                "contentId": "Zscaler",
-                                "kind": "DataConnector",
-                                "version": "1.0.0",
-                                "source": {
-                                    "kind": "Solution",
-                                    "name": "Zscaler Internet Access",
-                                    "sourceId": "zscaler1579058425289.zscaler_internet_access_mss"
-                                },
-                                "author": {
-                                    "name": "Zscaler"
-                                },
-                                "support": {
-                                    "name": "Zscaler",
-                                    "tier": "Partner",
-                                    "link": "https://help.zscaler.com/submit-ticket-links"
-                                }
-                            }
-                        }
-                    ]
-                },
-                "packageKind": "Solution",
-                "packageVersion": "3.0.2",
-                "packageName": "Zscaler Internet Access",
-                "packageId": "zscaler1579058425289.zscaler_internet_access_mss",
-                "contentSchemaVersion": "3.0.0",
-                "contentId": "Zscaler",
-                "contentKind": "DataConnector",
-                "displayName": "[Deprecated] Zscaler via Legacy Agent",
-                "contentProductId": "zscaler1579058425289.zscaler_internet_access_mss-dc-wspvc7yxal3t6",
-                "id": "zscaler1579058425289.zscaler_internet_access_mss-dc-wspvc7yxal3t6",
-                "version": "1.0.0",
-                "isDeprecated": false
-            }
-        },
-        {
-            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
-            "apiVersion": "2023-04-01-preview",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('DataConnector-', last(split(extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'Zscaler'),'/'))))]",
-            "dependsOn": [
-                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'Zscaler')]"
-            ],
-            "location": "[parameters('workspace-location')]",
-            "properties": {
-                "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'Zscaler')]",
-                "contentId": "Zscaler",
-                "kind": "DataConnector",
-                "version": "1.0.0",
-                "source": {
-                    "kind": "Solution",
-                    "name": "Zscaler Internet Access",
-                    "sourceId": "zscaler1579058425289.zscaler_internet_access_mss"
-                },
-                "author": {
-                    "name": "Zscaler"
-                },
-                "support": {
-                    "name": "Zscaler",
-                    "tier": "Partner",
-                    "link": "https://help.zscaler.com/submit-ticket-links"
-                }
-            }
-        },
-        {
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/','Zscaler')]",
-            "apiVersion": "2021-03-01-preview",
-            "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
-            "location": "[parameters('workspace-location')]",
-            "kind": "GenericUI",
-            "properties": {
-                "connectorUiConfig": {
-                    "title": "[Deprecated] Zscaler via Legacy Agent",
-                    "publisher": "Zscaler",
-                    "descriptionMarkdown": "The Zscaler data connector allows you to easily connect your Zscaler Internet Access (ZIA) logs with Microsoft Sentinel, to view dashboards, create custom alerts, and improve investigation.  Using Zscaler on Microsoft Sentinel will provide you more insights into your organization\u2019s Internet usage, and will enhance its security operation capabilities.\u200b",
-                    "graphQueries": [
-                        {
-                            "metricName": "Total data received",
-                            "legend": "Zscaler",
-                            "baseQuery": "\nCommonSecurityLog\n| where DeviceVendor == \"Zscaler\"\n"
-                        }
-                    ],
-                    "dataTypes": [
-                        {
-                            "name": "CommonSecurityLog (Zscaler)",
-                            "lastDataReceivedQuery": "\nCommonSecurityLog\n| where DeviceVendor == \"Zscaler\"\n\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)"
-                        }
-                    ],
-                    "connectivityCriterias": [
-                        {
-                            "type": "IsConnectedQuery",
-                            "value": [
-                                "\nCommonSecurityLog\n| where DeviceVendor == \"Zscaler\"\n\n            | summarize LastLogReceived = max(TimeGenerated)\n            | project IsConnected = LastLogReceived > ago(7d)"
-                            ]
-                        }
-                    ],
-                    "sampleQueries": [
-                        {
-                            "query": "\nCommonSecurityLog\n| where DeviceVendor == \"Zscaler\"\n\n            | sort by TimeGenerated"
-                        }
-                    ],
-                    "availability": {
-                        "status": 1,
-                        "isPreview": false
-                    },
-                    "permissions": {
-                        "resourceProvider": [
-                            {
-                                "provider": "Microsoft.OperationalInsights/workspaces",
-                                "permissionsDisplayText": "read and write permissions.",
-                                "providerDisplayName": "Workspace",
-                                "scope": "Workspace",
-                                "requiredPermissions": {
-                                    "read": true,
-                                    "write": true,
-                                    "delete": true
-                                }
-                            },
-                            {
-                                "provider": "Microsoft.OperationalInsights/workspaces/sharedKeys",
-                                "permissionsDisplayText": "read permissions to shared keys for the workspace. [See the documentation to learn more about workspace keys](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows#obtain-workspace-id-and-key).",
-                                "providerDisplayName": "Keys",
-                                "scope": "Workspace",
-                                "requiredPermissions": {
-                                    "action": true
-                                }
-                            }
-                        ]
-                    },
-                    "instructionSteps": [
-                        {
-                            "description": "Install and configure the Linux agent to collect your Common Event Format (CEF) Syslog messages and forward them to Microsoft Sentinel.\n\n> Notice that the data from all regions will be stored in the selected workspace",
-                            "innerSteps": [
-                                {
-                                    "title": "1.1 Select or create a Linux machine",
-                                    "description": "Select or create a Linux machine that Microsoft Sentinel will use as the proxy between your security solution and Microsoft Sentinel this machine can be on your on-prem environment, Azure or other clouds."
-                                },
-                                {
-                                    "title": "1.2 Install the CEF collector on the Linux machine",
-                                    "description": "Install the Microsoft Monitoring Agent on your Linux machine and configure the machine to listen on the necessary port and forward messages to your Microsoft Sentinel workspace. The CEF collector collects CEF messages on port 514 TCP.\n\n> 1. Make sure that you have Python on your machine using the following command: python --version.\n\n> 2. You must have elevated permissions (sudo) on your machine.",
-                                    "instructions": [
-                                        {
-                                            "parameters": {
-                                                "fillWith": [
-                                                    "WorkspaceId",
-                                                    "PrimaryKey"
-                                                ],
-                                                "label": "Run the following command to install and apply the CEF collector:",
-                                                "value": "sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py {0} {1}"
-                                            },
-                                            "type": "CopyableLabel"
-                                        }
-                                    ]
-                                }
-                            ],
-                            "title": "1. Linux Syslog agent configuration"
-                        },
-                        {
-                            "description": "Set Zscaler product to send Syslog messages in CEF format to your Syslog agent. Make sure you to send the logs on port 514 TCP. \n\nGo to [Zscaler Microsoft Sentinel integration guide](https://aka.ms/ZscalerCEFInstructions) to learn more.",
-                            "title": "2. Forward Common Event Format (CEF) logs to Syslog agent"
-                        },
-                        {
-                            "description": "Follow the instructions to validate your connectivity:\n\nOpen Log Analytics to check if the logs are received using the CommonSecurityLog schema.\n\n>It may take about 20 minutes until the connection streams data to your workspace.\n\nIf the logs are not received, run the following connectivity validation script:\n\n> 1. Make sure that you have Python on your machine using the following command: python --version\n\n>2. You must have elevated permissions (sudo) on your machine",
-                            "instructions": [
-                                {
-                                    "parameters": {
-                                        "fillWith": [
-                                            "WorkspaceId"
-                                        ],
-                                        "label": "Run the following command to validate your connectivity:",
-                                        "value": "sudo wget -O cef_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py  {0}"
-                                    },
-                                    "type": "CopyableLabel"
-                                }
-                            ],
-                            "title": "3. Validate connection"
-                        },
-                        {
-                            "description": "Make sure to configure the machine's security according to your organization's security policy\n\n\n[Learn more >](https://aka.ms/SecureCEF)",
-                            "title": "4. Secure your machine "
-                        }
-                    ],
-                    "id": "Zscaler"
-                }
-            }
-        },
-        {
-            "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "apiVersion": "2023-04-01-preview",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-dc-',uniquestring('ZscalerAma')))]",
-            "location": "[parameters('workspace-location')]",
-            "dependsOn": [
-                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'zscaler1579058425289.zscaler_internet_access_mss')]"
-            ],
-            "properties": {
-                "description": "Zscaler Internet Access data connector with template version 3.0.2",
-                "mainTemplate": {
-                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0",
-                    "parameters": {},
-                    "variables": {},
-                    "resources": [
-                        {
-                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/','ZscalerAma')]",
-                            "apiVersion": "2021-03-01-preview",
-                            "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
-                            "location": "[parameters('workspace-location')]",
-                            "kind": "GenericUI",
-                            "properties": {
-                                "connectorUiConfig": {
-                                    "id": "ZscalerAma",
-                                    "title": "[Deprecated] Zscaler via AMA",
-                                    "publisher": "Zscaler",
-                                    "logo": "ZscalerLogo.svg",
-                                    "descriptionMarkdown": "The Zscaler data connector allows you to easily connect your Zscaler Internet Access (ZIA) logs with Microsoft Sentinel, to view dashboards, create custom alerts, and improve investigation.  Using Zscaler on Microsoft Sentinel will provide you more insights into your organization\u2019s Internet usage, and will enhance its security operation capabilities.\u200b",
-                                    "graphQueries": [
-                                        {
-                                            "metricName": "Total data received",
-                                            "legend": "Zscaler",
-                                            "baseQuery": "CommonSecurityLog\n |where DeviceVendor =~ 'Zscaler'\n  |extend sent_by_ama = column_ifexists('CollectorHostName','')\n |where isnotempty(sent_by_ama)"
-                                        }
-                                    ],
-                                    "sampleQueries": [
-                                        {
-                                            "query": "\nCommonSecurityLog\n| where DeviceVendor == \"Zscaler\"\n\n            | sort by TimeGenerated"
-                                        }
-                                    ],
-                                    "connectivityCriterias": [
-                                        {
-                                            "type": "IsConnectedQuery",
-                                            "value": [
-                                                "CommonSecurityLog\n |where DeviceVendor =~ 'Zscaler'\n  |extend sent_by_ama = column_ifexists('CollectorHostName','')\n |where isnotempty(sent_by_ama)\n | summarize LastLogReceived = max(TimeGenerated)\n | project IsConnected = LastLogReceived > ago(30d)"
-                                            ]
-                                        }
-                                    ],
-                                    "dataTypes": [
-                                        {
-                                            "name": "CommonSecurityLog (Zscaler)",
-                                            "lastDataReceivedQuery": "CommonSecurityLog\n |where DeviceVendor =~ 'Zscaler'\n  |extend sent_by_ama = column_ifexists('CollectorHostName','')\n |where isnotempty(sent_by_ama)\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)"
-                                        }
-                                    ],
-                                    "availability": {
-                                        "status": 1,
-                                        "isPreview": false
-                                    },
-                                    "permissions": {
-                                        "resourceProvider": [
-                                            {
-                                                "provider": "Microsoft.OperationalInsights/workspaces",
-                                                "permissionsDisplayText": "read and write permissions.",
-                                                "providerDisplayName": "Workspace",
-                                                "scope": "Workspace",
-                                                "requiredPermissions": {
-                                                    "read": true,
-                                                    "write": true,
-                                                    "delete": true
-                                                }
-                                            },
-                                            {
-                                                "provider": "Microsoft.OperationalInsights/workspaces/sharedKeys",
-                                                "permissionsDisplayText": "read permissions to shared keys for the workspace. [See the documentation to learn more about workspace keys](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows#obtain-workspace-id-and-key).",
-                                                "providerDisplayName": "Keys",
-                                                "scope": "Workspace",
-                                                "requiredPermissions": {
-                                                    "action": true
-                                                }
-                                            }
-                                        ],
-                                        "customs": [
-                                            {
-                                                "description": "To collect data from non-Azure VMs, they must have Azure Arc installed and enabled. [Learn more](https://docs.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-install?tabs=ARMAgentPowerShell,PowerShellWindows,PowerShellWindowsArc,CLIWindows,CLIWindowsArc)"
-                                            },
-                                            {
-                                                "description": "Common Event Format (CEF) via AMA and Syslog via AMA data connectors must be installed [Learn more](https://learn.microsoft.com/azure/sentinel/connect-cef-ama#open-the-connector-page-and-create-the-dcr)"
-                                            }
-                                        ]
-                                    },
-                                    "instructionSteps": [
-                                        {
-                                            "instructions": [
-                                                {
-                                                    "parameters": {
-                                                        "title": "1. Kindly follow the steps to configure the data connector",
-                                                        "instructionSteps": [
-                                                            {
-                                                                "title": "Step A. Configure the Common Event Format (CEF) via AMA data connector",
-                                                                "description": "_Note:- CEF logs are collected only from Linux Agents_\n\n1. Navigate to Microsoft Sentinel workspace ---> configuration ---> Data connector blade .\n\n2. Search for 'Common Event Format (CEF) via AMA' data connector and open it.\n\n3. Check If there is no existing DCR configured to collect required facility of logs, Create a new DCR (Data Collection Rule)\n\n\t_Note:- It is recommended to install minimum 1.27 version of AMA agent [Learn more](https://learn.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-manage?tabs=azure-portal ) and ensure there is no duplicate DCR as it can cause log duplicacy_\n\n4. Run the command provided in the CEF via AMA data connector page to configure the CEF collector on the machine"
-                                                            },
-                                                            {
-                                                                "title": "Step B. Forward Common Event Format (CEF) logs to Syslog agent",
-                                                                "description": "Set Zscaler product to send Syslog messages in CEF format to your Syslog agent. Make sure you to send the logs on port 514 TCP. \n\nGo to [Zscaler Microsoft Sentinel integration guide](https://aka.ms/ZscalerCEFInstructions) to learn more."
-                                                            },
-                                                            {
-                                                                "title": "Step C. Validate connection",
-                                                                "description": "Follow the instructions to validate your connectivity:\n\nOpen Log Analytics to check if the logs are received using the CommonSecurityLog schema.\n\nIt may take about 20 minutes until the connection streams data to your workspace.\n\nIf the logs are not received, run the following connectivity validation script:\n\n 1. Make sure that you have Python on your machine using the following command: python -version\n\n2. You must have elevated permissions (sudo) on your machine",
-                                                                "instructions": [
-                                                                    {
-                                                                        "parameters": {
-                                                                            "label": "Run the following command to validate your connectivity:",
-                                                                            "value": "sudo wget -O Sentinel_AMA_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Sentinel_AMA_troubleshoot.py&&sudo python Sentinel_AMA_troubleshoot.py --cef"
-                                                                        },
-                                                                        "type": "CopyableLabel"
-                                                                    }
-                                                                ]
-                                                            }
-                                                        ]
-                                                    },
-                                                    "type": "InstructionStepsGroup"
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "description": "Make sure to configure the machine's security according to your organization's security policy\n\n\n[Learn more >](https://aka.ms/SecureCEF)",
-                                            "title": "2. Secure your machine "
-                                        }
-                                    ],
-                                    "metadata": {
-                                        "id": "4621323a-6201-4731-966c-012e4f2505be",
-                                        "version": "1.0.0",
-                                        "kind": "dataConnector",
-                                        "source": {
-                                            "kind": "community"
-                                        },
-                                        "author": {
-                                            "name": "Zscaler"
-                                        },
-                                        "support": {
-                                            "name": "Zscaler",
-                                            "link": "https://help.zscaler.com/submit-ticket-links",
-                                            "tier": "developer"
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        {
-                            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
-                            "apiVersion": "2023-04-01-preview",
-                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('DataConnector-', last(split(extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'ZscalerAma'),'/'))))]",
-                            "properties": {
-                                "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'ZscalerAma')]",
-                                "contentId": "ZscalerAma",
-                                "kind": "DataConnector",
-                                "version": "1.0.0",
-                                "source": {
-                                    "kind": "Solution",
-                                    "name": "Zscaler Internet Access",
-                                    "sourceId": "zscaler1579058425289.zscaler_internet_access_mss"
-                                },
-                                "author": {
-                                    "name": "Zscaler"
-                                },
-                                "support": {
-                                    "name": "Zscaler",
-                                    "tier": "Partner",
-                                    "link": "https://help.zscaler.com/submit-ticket-links"
-                                }
-                            }
-                        }
-                    ]
-                },
-                "packageKind": "Solution",
-                "packageVersion": "3.0.2",
-                "packageName": "Zscaler Internet Access",
-                "packageId": "zscaler1579058425289.zscaler_internet_access_mss",
-                "contentSchemaVersion": "3.0.0",
-                "contentId": "ZscalerAma",
-                "contentKind": "DataConnector",
-                "displayName": "[Deprecated] Zscaler via AMA",
-                "contentProductId": "zscaler1579058425289.zscaler_internet_access_mss-dc-rmkovxmla6jrc",
-                "id": "zscaler1579058425289.zscaler_internet_access_mss-dc-rmkovxmla6jrc",
-                "version": "1.0.0",
-                "isDeprecated": false
-            }
-        },
-        {
-            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
-            "apiVersion": "2023-04-01-preview",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('DataConnector-', last(split(extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'ZscalerAma'),'/'))))]",
-            "dependsOn": [
-                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'ZscalerAma')]"
-            ],
-            "location": "[parameters('workspace-location')]",
-            "properties": {
-                "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'ZscalerAma')]",
-                "contentId": "ZscalerAma",
-                "kind": "DataConnector",
-                "version": "1.0.0",
-                "source": {
-                    "kind": "Solution",
-                    "name": "Zscaler Internet Access",
-                    "sourceId": "zscaler1579058425289.zscaler_internet_access_mss"
-                },
-                "author": {
-                    "name": "Zscaler"
-                },
-                "support": {
-                    "name": "Zscaler",
-                    "tier": "Partner",
-                    "link": "https://help.zscaler.com/submit-ticket-links"
-                }
-            }
-        },
-        {
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/','ZscalerAma')]",
-            "apiVersion": "2021-03-01-preview",
-            "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
-            "location": "[parameters('workspace-location')]",
-            "kind": "GenericUI",
-            "properties": {
-                "connectorUiConfig": {
-                    "title": "[Deprecated] Zscaler via AMA",
-                    "publisher": "Zscaler",
-                    "descriptionMarkdown": "The Zscaler data connector allows you to easily connect your Zscaler Internet Access (ZIA) logs with Microsoft Sentinel, to view dashboards, create custom alerts, and improve investigation.  Using Zscaler on Microsoft Sentinel will provide you more insights into your organization\u2019s Internet usage, and will enhance its security operation capabilities.\u200b",
-                    "graphQueries": [
-                        {
-                            "metricName": "Total data received",
-                            "legend": "Zscaler",
-                            "baseQuery": "CommonSecurityLog\n |where DeviceVendor =~ 'Zscaler'\n  |extend sent_by_ama = column_ifexists('CollectorHostName','')\n |where isnotempty(sent_by_ama)"
-                        }
-                    ],
-                    "dataTypes": [
-                        {
-                            "name": "CommonSecurityLog (Zscaler)",
-                            "lastDataReceivedQuery": "CommonSecurityLog\n |where DeviceVendor =~ 'Zscaler'\n  |extend sent_by_ama = column_ifexists('CollectorHostName','')\n |where isnotempty(sent_by_ama)\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)"
-                        }
-                    ],
-                    "connectivityCriterias": [
-                        {
-                            "type": "IsConnectedQuery",
-                            "value": [
-                                "CommonSecurityLog\n |where DeviceVendor =~ 'Zscaler'\n  |extend sent_by_ama = column_ifexists('CollectorHostName','')\n |where isnotempty(sent_by_ama)\n | summarize LastLogReceived = max(TimeGenerated)\n | project IsConnected = LastLogReceived > ago(30d)"
-                            ]
-                        }
-                    ],
-                    "sampleQueries": [
-                        {
-                            "query": "\nCommonSecurityLog\n| where DeviceVendor == \"Zscaler\"\n\n            | sort by TimeGenerated"
-                        }
-                    ],
-                    "availability": {
-                        "status": 1,
-                        "isPreview": false
-                    },
-                    "permissions": {
-                        "resourceProvider": [
-                            {
-                                "provider": "Microsoft.OperationalInsights/workspaces",
-                                "permissionsDisplayText": "read and write permissions.",
-                                "providerDisplayName": "Workspace",
-                                "scope": "Workspace",
-                                "requiredPermissions": {
-                                    "read": true,
-                                    "write": true,
-                                    "delete": true
-                                }
-                            },
-                            {
-                                "provider": "Microsoft.OperationalInsights/workspaces/sharedKeys",
-                                "permissionsDisplayText": "read permissions to shared keys for the workspace. [See the documentation to learn more about workspace keys](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows#obtain-workspace-id-and-key).",
-                                "providerDisplayName": "Keys",
-                                "scope": "Workspace",
-                                "requiredPermissions": {
-                                    "action": true
-                                }
-                            }
-                        ],
-                        "customs": [
-                            {
-                                "description": "To collect data from non-Azure VMs, they must have Azure Arc installed and enabled. [Learn more](https://docs.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-install?tabs=ARMAgentPowerShell,PowerShellWindows,PowerShellWindowsArc,CLIWindows,CLIWindowsArc)"
-                            },
-                            {
-                                "description": "Common Event Format (CEF) via AMA and Syslog via AMA data connectors must be installed [Learn more](https://learn.microsoft.com/azure/sentinel/connect-cef-ama#open-the-connector-page-and-create-the-dcr)"
-                            }
-                        ]
-                    },
-                    "instructionSteps": [
-                        {
-                            "instructions": [
-                                {
-                                    "parameters": {
-                                        "title": "1. Kindly follow the steps to configure the data connector",
-                                        "instructionSteps": [
-                                            {
-                                                "title": "Step A. Configure the Common Event Format (CEF) via AMA data connector",
-                                                "description": "_Note:- CEF logs are collected only from Linux Agents_\n\n1. Navigate to Microsoft Sentinel workspace ---> configuration ---> Data connector blade .\n\n2. Search for 'Common Event Format (CEF) via AMA' data connector and open it.\n\n3. Check If there is no existing DCR configured to collect required facility of logs, Create a new DCR (Data Collection Rule)\n\n\t_Note:- It is recommended to install minimum 1.27 version of AMA agent [Learn more](https://learn.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-manage?tabs=azure-portal ) and ensure there is no duplicate DCR as it can cause log duplicacy_\n\n4. Run the command provided in the CEF via AMA data connector page to configure the CEF collector on the machine"
-                                            },
-                                            {
-                                                "title": "Step B. Forward Common Event Format (CEF) logs to Syslog agent",
-                                                "description": "Set Zscaler product to send Syslog messages in CEF format to your Syslog agent. Make sure you to send the logs on port 514 TCP. \n\nGo to [Zscaler Microsoft Sentinel integration guide](https://aka.ms/ZscalerCEFInstructions) to learn more."
-                                            },
-                                            {
-                                                "title": "Step C. Validate connection",
-                                                "description": "Follow the instructions to validate your connectivity:\n\nOpen Log Analytics to check if the logs are received using the CommonSecurityLog schema.\n\nIt may take about 20 minutes until the connection streams data to your workspace.\n\nIf the logs are not received, run the following connectivity validation script:\n\n 1. Make sure that you have Python on your machine using the following command: python -version\n\n2. You must have elevated permissions (sudo) on your machine",
-                                                "instructions": [
-                                                    {
-                                                        "parameters": {
-                                                            "label": "Run the following command to validate your connectivity:",
-                                                            "value": "sudo wget -O Sentinel_AMA_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Sentinel_AMA_troubleshoot.py&&sudo python Sentinel_AMA_troubleshoot.py --cef"
-                                                        },
-                                                        "type": "CopyableLabel"
-                                                    }
-                                                ]
-                                            }
-                                        ]
-                                    },
-                                    "type": "InstructionStepsGroup"
-                                }
-                            ]
-                        },
-                        {
-                            "description": "Make sure to configure the machine's security according to your organization's security policy\n\n\n[Learn more >](https://aka.ms/SecureCEF)",
-                            "title": "2. Secure your machine "
-                        }
-                    ],
-                    "id": "ZscalerAma"
-                }
-            }
-        },
-        {
-            "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "apiVersion": "2023-04-01-preview",
             "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-wb-',uniquestring('ZscalerFirewallWorkbook')))]",
             "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'zscaler1579058425289.zscaler_internet_access_mss')]"
             ],
             "properties": {
-                "description": "ZscalerFirewall Workbook with template version 3.0.2",
+                "description": "Gain insights into your ZIA cloud firewall logs by connecting to Microsoft Sentinel.\nThe Zscaler firewall overview workbook provides an overview and ability to drill down into all cloud firewall activity in your Zscaler instance including non-web related networking events, security events, firewall rules, and bandwidth consumption",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1.0",
@@ -795,7 +117,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Zscaler Internet Access",
                 "packageId": "zscaler1579058425289.zscaler_internet_access_mss",
                 "contentSchemaVersion": "3.0.0",
@@ -817,7 +139,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'zscaler1579058425289.zscaler_internet_access_mss')]"
             ],
             "properties": {
-                "description": "ZscalerOffice365Apps Workbook with template version 3.0.2",
+                "description": "Gain insights into Office 365 use on your network.\nThe Zscaler Office 365 overview workbook shows you the Microsoft apps running on your network and their individual bandwidth consumption. It also helps identify phishing attempts in which attackers disguised themselves as Microsoft services.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1.0",
@@ -886,7 +208,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Zscaler Internet Access",
                 "packageId": "zscaler1579058425289.zscaler_internet_access_mss",
                 "contentSchemaVersion": "3.0.0",
@@ -908,7 +230,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'zscaler1579058425289.zscaler_internet_access_mss')]"
             ],
             "properties": {
-                "description": "ZscalerThreats Workbook with template version 3.0.2",
+                "description": "Gain insights into threats blocked by Zscaler Internet access on your network.\nThe Zscaler threat overview workbook shows your entire threat landscape including blocked malware, IPS/AV rules, and blocked cloud apps. Threats are displayed by threat categories, filetypes, inbound vs outbound threats, usernames, user location, and more.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.2.0",
@@ -977,7 +299,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Zscaler Internet Access",
                 "packageId": "zscaler1579058425289.zscaler_internet_access_mss",
                 "contentSchemaVersion": "3.0.0",
@@ -999,7 +321,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'zscaler1579058425289.zscaler_internet_access_mss')]"
             ],
             "properties": {
-                "description": "ZscalerWebOverview Workbook with template version 3.0.2",
+                "description": "Gain insights into your ZIA web logs by connecting to Microsoft Sentinel.\nThe Zscaler web overview workbook provides a bird's eye view and ability to drill down into all the security and networking events related to web transactions, types of devices, and bandwidth consumption.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1.0",
@@ -1068,7 +390,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Zscaler Internet Access",
                 "packageId": "zscaler1579058425289.zscaler_internet_access_mss",
                 "contentSchemaVersion": "3.0.0",
@@ -1090,10 +412,10 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'zscaler1579058425289.zscaler_internet_access_mss')]"
             ],
             "properties": {
-                "description": "DiscordCDNRiskyDownload_AnalyticalRules Analytics Rule with template version 3.0.2",
+                "description": "Identifies callouts to Discord CDN addresses for risky file extensions. This detection will trigger when a callout for a risky file is made to a discord server that has only been seen once in your environment. Unique discord servers are identified using the server ID that is included in the request URL (DiscordServerId in query). Discord CDN has been used in multiple campaigns to download additional payloads",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.3",
+                    "contentVersion": "1.0.4",
                     "parameters": {},
                     "variables": {},
                     "resources": [
@@ -1121,18 +443,6 @@
                                         "dataTypes": [
                                             "CommonSecurityLog"
                                         ],
-                                        "connectorId": "Zscaler"
-                                    },
-                                    {
-                                        "dataTypes": [
-                                            "CommonSecurityLog"
-                                        ],
-                                        "connectorId": "ZscalerAma"
-                                    },
-                                    {
-                                        "dataTypes": [
-                                            "CommonSecurityLog"
-                                        ],
                                         "connectorId": "CefAma"
                                     }
                                 ],
@@ -1147,31 +457,31 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "FullName",
-                                                "columnName": "SourceUser"
+                                                "columnName": "SourceUser",
+                                                "identifier": "FullName"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Address",
-                                                "columnName": "SourceIP"
+                                                "columnName": "SourceIP",
+                                                "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     },
                                     {
+                                        "entityType": "URL",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Url",
-                                                "columnName": "RequestURL"
+                                                "columnName": "RequestURL",
+                                                "identifier": "Url"
                                             }
-                                        ],
-                                        "entityType": "URL"
+                                        ]
                                     }
                                 ]
                             }
@@ -1185,7 +495,7 @@
                                 "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '010bd98c-a6be-498c-bdcd-502308c0fdae')]",
                                 "contentId": "010bd98c-a6be-498c-bdcd-502308c0fdae",
                                 "kind": "AnalyticsRule",
-                                "version": "1.0.3",
+                                "version": "1.0.4",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "Zscaler Internet Access",
@@ -1204,16 +514,16 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Zscaler Internet Access",
                 "packageId": "zscaler1579058425289.zscaler_internet_access_mss",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "010bd98c-a6be-498c-bdcd-502308c0fdae",
                 "contentKind": "AnalyticsRule",
                 "displayName": "Discord CDN Risky File Download",
-                "contentProductId": "zscaler1579058425289.zscaler_internet_access_mss-ar-to7f62nunq23o",
-                "id": "zscaler1579058425289.zscaler_internet_access_mss-ar-to7f62nunq23o",
-                "version": "1.0.3",
+                "contentProductId": "zscaler1579058425289.zscaler_internet_access_mss-ar-cyaqgyfsohazo",
+                "id": "zscaler1579058425289.zscaler_internet_access_mss-ar-cyaqgyfsohazo",
+                "version": "1.0.4",
                 "isDeprecated": false,
                 "dependencies": {
                     "operator": "AND",
@@ -1221,14 +531,6 @@
                         {
                             "contentKind": "DataType",
                             "contentId": "CommonSecurityLog"
-                        },
-                        {
-                            "contentKind": "DataConnector",
-                            "contentId": "Zscaler"
-                        },
-                        {
-                            "contentKind": "DataConnector",
-                            "contentId": "ZscalerAma"
                         },
                         {
                             "contentKind": "DataConnector",
@@ -1247,10 +549,10 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'zscaler1579058425289.zscaler_internet_access_mss')]"
             ],
             "properties": {
-                "description": "Zscaler-LowVolumeDomainRequests_AnalyticalRules Analytics Rule with template version 3.0.2",
+                "description": "This will look for connections to a domain where only a single file is requested, this is unusual as most modern web applications require additional recources. This type of activity is often assocaited with malware beaconing or tracking URL's delivered in emails. Developed for Zscaler but applicable to any outbound web logging.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.3",
+                    "contentVersion": "1.0.5",
                     "parameters": {},
                     "variables": {},
                     "resources": [
@@ -1264,7 +566,7 @@
                                 "description": "This will look for connections to a domain where only a single file is requested, this is unusual as most modern web applications require additional recources. This type of activity is often assocaited with malware beaconing or tracking URL's delivered in emails. Developed for Zscaler but applicable to any outbound web logging.",
                                 "displayName": "Request for single resource on domain",
                                 "enabled": false,
-                                "query": "let scriptExtensions = dynamic([\".php\", \".aspx\", \".asp\", \".cfml\"]);\n//The number of URI's seen to be suspicious, higher = less likely to be suspicious\nlet uriThreshold = 1;\nCommonSecurityLog\n// Only look at connections that were allowed through the web proxy\n| where DeviceVendor =~ \"Zscaler\" and DeviceAction =~ \"Allowed\"\n// Only look where some data was exchanged.\n| where SentBytes > 0 and ReceivedBytes > 0\n// Extract the Domain\n| extend Domain = iff(countof(DestinationHostName,'.') >= 2, strcat(split(DestinationHostName,'.')[-2], '.',split(DestinationHostName,'.')[-1]), DestinationHostName)\n| extend GetData=iff(RequestURL == \"?\", 1, 0)\n| summarize StartTimeUtc = min(TimeGenerated), EndTimeUtc = max(TimeGenerated), makelist(RequestURL), makelist(DestinationIP), makelist(SourceIP), numOfConnections = count(), make_set(RequestMethod), max(GetData), max(RequestContext) by Domain\n// Determine the number of URIs that have been visited for the domain\n| extend destinationURI = arraylength(list_RequestURL)\n| where destinationURI <= uriThreshold\n| where tostring(list_RequestURL) has_any(scriptExtensions)\n//Remove matches with referer\n| where max_RequestContext == \"\"\n//Keep requests where data was trasferred either in a GET with parameters or a POST\n| where set_RequestMethod in~ (\"POST\") or max_GetData == 1\n//Defeat email click tracking, may increase FN's while decreasing FP's\n| where list_RequestURL !has \"click\" and set_RequestMethod !has \"GET\"\n| mvexpand list_RequestURL, list_DestinationIP\n| extend RequestURL = tostring(list_RequestURL), DestinationIP = tostring(list_DestinationIP), ClientIP = tostring(list_SourceIP)\n//Extend custom entitites for incidents\n| extend timestamp = StartTimeUtc, IPCustomEntity = DestinationIP\n| project-away list_RequestURL, list_DestinationIP, list_SourceIP, destinationURI, Domain, StartTimeUtc, EndTimeUtc, max_GetData, max_RequestContext\n",
+                                "query": "let scriptExtensions = dynamic([\".php\", \".aspx\", \".asp\", \".cfml\"]);\n//The number of URI's seen to be suspicious, higher = less likely to be suspicious\nlet uriThreshold = 1;\nCommonSecurityLog\n// Only look at connections that were allowed through the web proxy\n| where DeviceVendor =~ \"Zscaler\" and DeviceAction =~ \"Allowed\"\n// Only look where some data was exchanged.\n| where SentBytes > 0 and ReceivedBytes > 0\n// Extract the Domain\n| extend Domain = iff(countof(DestinationHostName,'.') >= 2, strcat(split(DestinationHostName,'.')[-2], '.',split(DestinationHostName,'.')[-1]), DestinationHostName)\n| extend GetData=iff(RequestURL == \"?\", 1, 0)\n| summarize StartTimeUtc = min(TimeGenerated), EndTimeUtc = max(TimeGenerated), makelist(RequestURL), makelist(DestinationIP), makelist(SourceIP), numOfConnections = count(), make_set(RequestMethod), max(GetData), max(RequestContext) by Domain\n// Determine the number of URIs that have been visited for the domain\n| extend destinationURI = arraylength(list_RequestURL)\n| where destinationURI <= uriThreshold\n| where tostring(list_RequestURL) has_any(scriptExtensions)\n//Remove matches with referer\n| where max_RequestContext == \"\"\n//Keep requests where data was trasferred either in a GET with parameters or a POST\n| where set_RequestMethod in~ (\"POST\") or max_GetData == 1\n//Defeat email click tracking, may increase FN's while decreasing FP's\n| where list_RequestURL !has \"click\" and set_RequestMethod !has \"GET\"\n| mvexpand list_RequestURL, list_DestinationIP\n| extend RequestURL = tostring(list_RequestURL), DestinationIP = tostring(list_DestinationIP), ClientIP = tostring(list_SourceIP)\n//Extend custom entitites for incidents\n| project-away list_RequestURL, list_DestinationIP, list_SourceIP, destinationURI, Domain, StartTimeUtc, EndTimeUtc, max_GetData, max_RequestContext\n",
                                 "queryFrequency": "P1D",
                                 "queryPeriod": "P1D",
                                 "severity": "Low",
@@ -1274,18 +576,6 @@
                                 "triggerThreshold": 0,
                                 "status": "Available",
                                 "requiredDataConnectors": [
-                                    {
-                                        "dataTypes": [
-                                            "CommonSecurityLog"
-                                        ],
-                                        "connectorId": "Zscaler"
-                                    },
-                                    {
-                                        "dataTypes": [
-                                            "CommonSecurityLog"
-                                        ],
-                                        "connectorId": "ZscalerAma"
-                                    },
                                     {
                                         "dataTypes": [
                                             "CommonSecurityLog"
@@ -1302,13 +592,13 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Address",
-                                                "columnName": "IPCustomEntity"
+                                                "columnName": "DestinationIP",
+                                                "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -1322,7 +612,7 @@
                                 "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '4d500e6d-c984-43a3-9f39-7edec8dcc04d')]",
                                 "contentId": "4d500e6d-c984-43a3-9f39-7edec8dcc04d",
                                 "kind": "AnalyticsRule",
-                                "version": "1.0.3",
+                                "version": "1.0.5",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "Zscaler Internet Access",
@@ -1341,16 +631,16 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Zscaler Internet Access",
                 "packageId": "zscaler1579058425289.zscaler_internet_access_mss",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "4d500e6d-c984-43a3-9f39-7edec8dcc04d",
                 "contentKind": "AnalyticsRule",
                 "displayName": "Request for single resource on domain",
-                "contentProductId": "zscaler1579058425289.zscaler_internet_access_mss-ar-hwkvo4azulhy6",
-                "id": "zscaler1579058425289.zscaler_internet_access_mss-ar-hwkvo4azulhy6",
-                "version": "1.0.3",
+                "contentProductId": "zscaler1579058425289.zscaler_internet_access_mss-ar-heyba7vhwpehe",
+                "id": "zscaler1579058425289.zscaler_internet_access_mss-ar-heyba7vhwpehe",
+                "version": "1.0.5",
                 "isDeprecated": false,
                 "dependencies": {
                     "operator": "AND",
@@ -1358,14 +648,6 @@
                         {
                             "contentKind": "DataType",
                             "contentId": "CommonSecurityLog"
-                        },
-                        {
-                            "contentKind": "DataConnector",
-                            "contentId": "Zscaler"
-                        },
-                        {
-                            "contentKind": "DataConnector",
-                            "contentId": "ZscalerAma"
                         },
                         {
                             "contentKind": "DataConnector",
@@ -1384,7 +666,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'zscaler1579058425289.zscaler_internet_access_mss')]"
             ],
             "properties": {
-                "description": "ZScalerFW_Parser Data Parser with template version 3.0.2",
+                "description": "",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -1442,7 +724,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Zscaler Internet Access",
                 "packageId": "zscaler1579058425289.zscaler_internet_access_mss",
                 "contentSchemaVersion": "3.0.0",
@@ -1513,7 +795,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'zscaler1579058425289.zscaler_internet_access_mss')]"
             ],
             "properties": {
-                "description": "ZScalerWeb_Parser Data Parser with template version 3.0.2",
+                "description": "",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -1571,7 +853,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Zscaler Internet Access",
                 "packageId": "zscaler1579058425289.zscaler_internet_access_mss",
                 "contentSchemaVersion": "3.0.0",
@@ -1642,7 +924,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'zscaler1579058425289.zscaler_internet_access_mss')]"
             ],
             "properties": {
-                "description": "FunctionApp Playbook with template version 3.0.2",
+                "description": "",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0",
@@ -1983,7 +1265,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Zscaler Internet Access",
                 "packageId": "zscaler1579058425289.zscaler_internet_access_mss",
                 "contentSchemaVersion": "3.0.0",
@@ -2005,7 +1287,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'zscaler1579058425289.zscaler_internet_access_mss')]"
             ],
             "properties": {
-                "description": "Zscaler-Authentication-Playbook Playbook with template version 3.0.2",
+                "description": "This playbook generates access token in Zscaler API. Call this playbook as a step in functional Zscaler playbooks. The output is a JSessionID which can be used to do other API actions",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0",
@@ -2358,7 +1640,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Zscaler Internet Access",
                 "packageId": "zscaler1579058425289.zscaler_internet_access_mss",
                 "contentSchemaVersion": "3.0.0",
@@ -2380,7 +1662,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'zscaler1579058425289.zscaler_internet_access_mss')]"
             ],
             "properties": {
-                "description": "Zscaler-Add-Url-To-Category Playbook with template version 3.0.2",
+                "description": "This playbook allows blocks URLs in Zscaler by adding them to categories",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0",
@@ -2700,7 +1982,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Zscaler Internet Access",
                 "packageId": "zscaler1579058425289.zscaler_internet_access_mss",
                 "contentSchemaVersion": "3.0.0",
@@ -2722,7 +2004,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'zscaler1579058425289.zscaler_internet_access_mss')]"
             ],
             "properties": {
-                "description": "Zscaler-Get-Sandbox-Report-For-Hash Playbook with template version 3.0.2",
+                "description": "This playbook post a Zscaler Sandbox report for each FileHash found in the incident.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0",
@@ -3117,7 +2399,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Zscaler Internet Access",
                 "packageId": "zscaler1579058425289.zscaler_internet_access_mss",
                 "contentSchemaVersion": "3.0.0",
@@ -3135,15 +2417,15 @@
             "apiVersion": "2023-04-01-preview",
             "location": "[parameters('workspace-location')]",
             "properties": {
-                "version": "3.0.2",
+                "version": "3.0.3",
                 "kind": "Solution",
                 "contentSchemaVersion": "3.0.0",
                 "displayName": "Zscaler Internet Access",
                 "publisherDisplayName": "Zscaler",
                 "descriptionHtml": "Use this offer to deploy ZIA logs into Microsoft Sentinel.<div>Main users of this offer are IT teams that want to integrate ZIA logs into Microsoft Sentinel.</div><div>This simplifies the deployment process and allows IT teams to be more agile and start to realize the benefit of correlating their Zscaler Internet Access (e.g. Web and Firewall logs) with other signals and use Microsoft Sentinel to maximize the benefits of attack detection, threat visibility, proactive hunting, and threat response. </div>",
                 "contentKind": "Solution",
-                "contentProductId": "zscaler1579058425289.zscaler_internet_access_mss-sl-jtvz2mfteissm",
-                "id": "zscaler1579058425289.zscaler_internet_access_mss-sl-jtvz2mfteissm",
+                "contentProductId": "zscaler1579058425289.zscaler_internet_access_mss-sl-ipcb5xxjlvdxa",
+                "id": "zscaler1579058425289.zscaler_internet_access_mss-sl-ipcb5xxjlvdxa",
                 "icon": "https://store-images.s-microsoft.com/image/apps.15098.1805f830-5c09-4543-943f-1ba4d9a84620.f5eb75ab-61cc-4e78-8b6a-f5a0faea5be8.36f23240-e5b8-457f-81ed-912ddf3d8ef0",
                 "contentId": "zscaler1579058425289.zscaler_internet_access_mss",
                 "parentId": "zscaler1579058425289.zscaler_internet_access_mss",
@@ -3162,16 +2444,6 @@
                 },
                 "dependencies": {
                     "criteria": [
-                        {
-                            "kind": "DataConnector",
-                            "contentId": "Zscaler",
-                            "version": "1.0.0"
-                        },
-                        {
-                            "kind": "DataConnector",
-                            "contentId": "ZscalerAma",
-                            "version": "1.0.0"
-                        },
                         {
                             "kind": "Workbook",
                             "contentId": "ZscalerFirewallWorkbook",
@@ -3195,12 +2467,12 @@
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "010bd98c-a6be-498c-bdcd-502308c0fdae",
-                            "version": "1.0.3"
+                            "version": "1.0.4"
                         },
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "4d500e6d-c984-43a3-9f39-7edec8dcc04d",
-                            "version": "1.0.3"
+                            "version": "1.0.5"
                         },
                         {
                             "kind": "Parser",
@@ -3249,7 +2521,8 @@
                     ]
                 },
                 "isPreview": false,
-                "isDeprecated": false
+                "isDeprecated": false,
+                "migratedToPackageId": null
             },
             "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', 'zscaler1579058425289.zscaler_internet_access_mss')]"
         }

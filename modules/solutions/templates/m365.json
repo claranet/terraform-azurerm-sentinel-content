@@ -48,7 +48,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "Microsoft 365 data connector with template version 3.0.4",
+                "description": "The Microsoft 365 (formerly. Office 365) activity log connector provides insight into ongoing user activities. You will get details of operations such as file downloads. access requests sent. changes to group events. set-mailbox and details of the user who performed the actions. By connecting Microsoft 365 logs into Microsoft Sentinel you can use this data to view dashboards. create custom alerts. and improve your investigation process. For more information. see the [Microsoft Sentinel documentation](https://go.microsoft.com/fwlink/p/?linkid=2219943&wt.mc_id=sentinel_dataconnectordocs_content_cnl_csasci).",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.0",
@@ -138,7 +138,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -244,7 +244,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "SharePointAndOneDrive Workbook with template version 3.0.4",
+                "description": "Gain insights into SharePoint and OneDrive by tracing and analyzing all operations and activities.\nYou can view trends across user operation, find correlations between users and files, and identify interesting information such as user IP addresses.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.0",
@@ -311,7 +311,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -333,7 +333,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "Office365 Workbook with template version 3.0.4",
+                "description": "Gain insights into Office 365 by tracing and analyzing all operations and activities. You can drill down into your SharePoint, OneDrive, and Exchange.\nThis workbook lets you find usage trends across users, files, folders, and mailboxes, making it easier to identify anomalies in your network.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -400,7 +400,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -422,7 +422,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "ExchangeOnline Workbook with template version 3.0.4",
+                "description": "Gain insights into Microsoft Exchange online by tracing and analyzing all Exchange operations and user activities.\nThis workbook let you monitor user activities, including logins, account operations, permission changes, and mailbox creations to discover suspicious trends among them.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.0",
@@ -489,7 +489,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -511,7 +511,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "AnomolousUserAccessingOtherUsersMailbox_HuntingQueries Hunting Query with template version 3.0.4",
+                "description": "Looks for users accessing multiple other users' mailboxes or accessing multiple folders in another users mailbox.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -575,7 +575,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -597,7 +597,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "ExternalUserAddedRemovedInTeams_HuntVersion_HuntingQueries Hunting Query with template version 3.0.4",
+                "description": "This hunting query identifies external user accounts that are added to a Team and then removed within one hour.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -661,7 +661,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -683,7 +683,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "ExternalUserFromNewOrgAddedToTeams_HuntingQueries Hunting Query with template version 3.0.4",
+                "description": "This query identifies external users added to Teams where the user's domain is not one previously seen in Teams data.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -747,7 +747,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -769,7 +769,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "Mail_redirect_via_ExO_transport_rule_hunting_HuntingQueries Hunting Query with template version 3.0.4",
+                "description": "Identifies when Exchange Online transport rule configured to forward emails.\nThis could be an adversary mailbox configured to collect mail from multiple user accounts.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -833,7 +833,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -855,7 +855,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "MultiTeamBot_HuntingQueries Hunting Query with template version 3.0.4",
+                "description": "This hunting query helps identify bots added to multiple Teams in a short space of time.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -919,7 +919,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -941,7 +941,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "MultiTeamOwner_HuntingQueries Hunting Query with template version 3.0.4",
+                "description": "This hunting query identifies users who have been made Owner of multiple Teams.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -1005,7 +1005,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -1027,7 +1027,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "MultipleTeamsDeletes_HuntingQueries Hunting Query with template version 3.0.4",
+                "description": "This hunting query identifies where multiple Teams have been deleted by a single user in a short timeframe.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -1091,7 +1091,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -1113,7 +1113,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "NewBotAddedToTeams_HuntingQueries Hunting Query with template version 3.0.4",
+                "description": "This hunting query helps identify new, and potentially unapproved applications or bots being added to Teams.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -1177,7 +1177,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -1199,7 +1199,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "New_WindowsReservedFileNamesOnOfficeFileServices_HuntingQueries Hunting Query with template version 3.0.4",
+                "description": "This identifies new Windows Reserved Filenames on Office services like SharePoint and OneDrive in the past 7 days. It also detects when a user uploads these files to another user's workspace, which may indicate malicious activity.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -1263,7 +1263,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -1285,7 +1285,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "OfficeMailForwarding_hunting_HuntingQueries Hunting Query with template version 3.0.4",
+                "description": "Adversaries often abuse email-forwarding rules to monitor victim activities, steal information, and gain intelligence on the victim or their organization. This query highlights cases where user mail is being forwarded, including to external domains.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -1349,7 +1349,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -1371,7 +1371,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "TeamsFilesUploaded_HuntingQueries Hunting Query with template version 3.0.4",
+                "description": "This hunting queries identifies files uploaded to SharePoint via a Teams chat and\nsummarizes users and IP addresses that have accessed these files. This allows for \nidentification of anomolous file sharing patterns.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -1435,7 +1435,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -1457,7 +1457,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "UserAddToTeamsAndUploadsFile_HuntingQueries Hunting Query with template version 3.0.4",
+                "description": "This hunting queries identifies users who are added to a Teams Channel or Teams chat\nand within 1 minute of being added upload a file via the chat. This might be\nan indicator of suspicious activity.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -1521,7 +1521,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -1543,7 +1543,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "WindowsReservedFileNamesOnOfficeFileServices_HuntingQueries Hunting Query with template version 3.0.4",
+                "description": "This identifies Windows Reserved Filenames on Office services like SharePoint and OneDrive. It also detects when a user uploads these files to another user's workspace, which may indicate malicious activity.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -1607,7 +1607,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -1629,7 +1629,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "double_file_ext_exes_HuntingQueries Hunting Query with template version 3.0.4",
+                "description": "Provides a summary of executable files with double file extensions in SharePoint \n and the users and IP addresses that have accessed them.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -1693,7 +1693,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -1715,7 +1715,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "new_adminaccountactivity_HuntingQueries Hunting Query with template version 3.0.4",
+                "description": "This will help you discover any new admin account activity which was seen and were not seen historically.\nAny new accounts seen in the results can be validated and investigated for any suspicious activities.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -1779,7 +1779,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -1801,7 +1801,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "new_sharepoint_downloads_by_IP_HuntingQueries Hunting Query with template version 3.0.4",
+                "description": "Shows SharePoint upload/download volume by IPs with high-risk ASNs. New IPs with volume spikes may be unauthorized and exfiltrating documents.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -1865,7 +1865,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -1887,7 +1887,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "new_sharepoint_downloads_by_UserAgent_HuntingQueries Hunting Query with template version 3.0.4",
+                "description": "Tracking via user agent is one way to differentiate between types of connecting device.\nIn homogeneous enterprise environments the user agent associated with an attacker device may stand out as unusual.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -1951,7 +1951,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -1973,7 +1973,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "nonowner_MailboxLogin_HuntingQueries Hunting Query with template version 3.0.4",
+                "description": "Finds non-owner mailbox access by admin/delegate permissions. Whitelist valid users and check others for unauthorized access.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -2037,7 +2037,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -2059,7 +2059,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "powershell_or_nonbrowser_MailboxLogin_HuntingQueries Hunting Query with template version 3.0.4",
+                "description": "Detects mailbox login from Exchange PowerShell. All accounts can use it by default, but admins can change it. Whitelist benign activities.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -2123,7 +2123,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -2145,7 +2145,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "sharepoint_downloads_HuntingQueries Hunting Query with template version 3.0.4",
+                "description": "New user agents associated with a clientIP for SharePoint file uploads/downloads.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -2209,7 +2209,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -2231,7 +2231,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "MultipleUsersEmailForwardedToSameDestination_HuntingQueries Hunting Query with template version 3.0.4",
+                "description": "Identifies when multiple (more than one) users mailboxes are configured to forward to the same destination. \nThis could be an attacker-controlled destination mailbox configured to collect mail from multiple compromised user accounts.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.1",
@@ -2295,7 +2295,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -2317,7 +2317,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "External User added to Team and immediately uploads file_AnalyticalRules Analytics Rule with template version 3.0.4",
+                "description": "This detection identifies when an external user is added to a Team or Teams chat and shares a file which is accessed by many users (>10) and the users is removed within short period of time. This might be an indicator of suspicious activity.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.1.1",
@@ -2365,64 +2365,64 @@
                                 ],
                                 "entityMappings": [
                                     {
-                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "FullName",
-                                                "columnName": "MemberAdded"
+                                                "columnName": "MemberAdded",
+                                                "identifier": "FullName"
                                             },
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "MemberAddedAccountName"
+                                                "columnName": "MemberAddedAccountName",
+                                                "identifier": "Name"
                                             },
                                             {
-                                                "identifier": "UPNSuffix",
-                                                "columnName": "MemberAddedAccountUPNSuffix"
+                                                "columnName": "MemberAddedAccountUPNSuffix",
+                                                "identifier": "UPNSuffix"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "Account"
                                     },
                                     {
-                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "FullName",
-                                                "columnName": "UserWhoAdded"
+                                                "columnName": "UserWhoAdded",
+                                                "identifier": "FullName"
                                             },
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "UserWhoAddedAccountName"
+                                                "columnName": "UserWhoAddedAccountName",
+                                                "identifier": "Name"
                                             },
                                             {
-                                                "identifier": "UPNSuffix",
-                                                "columnName": "UserWhoAddedAccountUPNSuffix"
+                                                "columnName": "UserWhoAddedAccountUPNSuffix",
+                                                "identifier": "UPNSuffix"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "Account"
                                     },
                                     {
-                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "FullName",
-                                                "columnName": "UserWhoDeleted"
+                                                "columnName": "UserWhoDeleted",
+                                                "identifier": "FullName"
                                             },
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "UserWhoDeletedAccountName"
+                                                "columnName": "UserWhoDeletedAccountName",
+                                                "identifier": "Name"
                                             },
                                             {
-                                                "identifier": "UPNSuffix",
-                                                "columnName": "UserWhoDeletedAccountUPNSuffix"
+                                                "columnName": "UserWhoDeletedAccountUPNSuffix",
+                                                "identifier": "UPNSuffix"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "Account"
                                     },
                                     {
-                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Address",
-                                                "columnName": "ClientIP"
+                                                "columnName": "ClientIP",
+                                                "identifier": "Address"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "IP"
                                     }
                                 ]
                             }
@@ -2457,7 +2457,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -2500,7 +2500,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "ExternalUserAddedRemovedInTeams_AnalyticalRules Analytics Rule with template version 3.0.4",
+                "description": "This detection flags the occurrences of external user accounts that are added to a Team and then removed within one hour.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.1.3",
@@ -2542,64 +2542,64 @@
                                 ],
                                 "entityMappings": [
                                     {
-                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "FullName",
-                                                "columnName": "MemberAdded_Removed"
+                                                "columnName": "MemberAdded_Removed",
+                                                "identifier": "FullName"
                                             },
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "MemberAdded_RemovedAccountName"
+                                                "columnName": "MemberAdded_RemovedAccountName",
+                                                "identifier": "Name"
                                             },
                                             {
-                                                "identifier": "UPNSuffix",
-                                                "columnName": "MemberAdded_RemovedAccountUPNSuffix"
+                                                "columnName": "MemberAdded_RemovedAccountUPNSuffix",
+                                                "identifier": "UPNSuffix"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "Account"
                                     },
                                     {
-                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "FullName",
-                                                "columnName": "UserWhoAdded"
+                                                "columnName": "UserWhoAdded",
+                                                "identifier": "FullName"
                                             },
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "UserWhoAddedAccountName"
+                                                "columnName": "UserWhoAddedAccountName",
+                                                "identifier": "Name"
                                             },
                                             {
-                                                "identifier": "UPNSuffix",
-                                                "columnName": "UserWhoAddedAccountUPNSuffix"
+                                                "columnName": "UserWhoAddedAccountUPNSuffix",
+                                                "identifier": "UPNSuffix"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "Account"
                                     },
                                     {
-                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "FullName",
-                                                "columnName": "UserWhoDeleted"
+                                                "columnName": "UserWhoDeleted",
+                                                "identifier": "FullName"
                                             },
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "UserWhoDeletedAccountName"
+                                                "columnName": "UserWhoDeletedAccountName",
+                                                "identifier": "Name"
                                             },
                                             {
-                                                "identifier": "UPNSuffix",
-                                                "columnName": "UserWhoDeletedAccountUPNSuffix"
+                                                "columnName": "UserWhoDeletedAccountUPNSuffix",
+                                                "identifier": "UPNSuffix"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "Account"
                                     },
                                     {
-                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Address",
-                                                "columnName": "ClientIP"
+                                                "columnName": "ClientIP",
+                                                "identifier": "Address"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "IP"
                                     }
                                 ]
                             }
@@ -2634,7 +2634,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -2669,10 +2669,10 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "MailItemsAccessedTimeSeries_AnalyticalRules Analytics Rule with template version 3.0.4",
+                "description": "Identifies anomalous increases in Exchange mail items accessed operations.\nThe query leverages KQL built-in anomaly detection algorithms to find large deviations from baseline patterns.\nSudden increases in execution frequency of sensitive actions should be further investigated for malicious activity.\nManually change scorethreshold from 1.5 to 3 or higher to reduce the noise based on outliers flagged from the query criteria.\nRead more about MailItemsAccessed- https://learn.microsoft.com/en-us/purview/audit-log-investigate-accounts",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "2.0.5",
+                    "contentVersion": "2.0.6",
                     "parameters": {},
                     "variables": {},
                     "resources": [
@@ -2683,7 +2683,7 @@
                             "kind": "Scheduled",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
-                                "description": "Identifies anomalous increases in Exchange mail items accessed operations.\nThe query leverages KQL built-in anomaly detection algorithms to find large deviations from baseline patterns.\nSudden increases in execution frequency of sensitive actions should be further investigated for malicious activity.\nManually change scorethreshold from 1.5 to 3 or higher to reduce the noise based on outliers flagged from the query criteria.\nRead more about MailItemsAccessed- https://docs.microsoft.com/microsoft-365/compliance/advanced-audit?view=o365-worldwide#mailitemsaccessed",
+                                "description": "Identifies anomalous increases in Exchange mail items accessed operations.\nThe query leverages KQL built-in anomaly detection algorithms to find large deviations from baseline patterns.\nSudden increases in execution frequency of sensitive actions should be further investigated for malicious activity.\nManually change scorethreshold from 1.5 to 3 or higher to reduce the noise based on outliers flagged from the query criteria.\nRead more about MailItemsAccessed- https://learn.microsoft.com/en-us/purview/audit-log-investigate-accounts",
                                 "displayName": "Exchange workflow MailItemsAccessed operation anomaly",
                                 "enabled": false,
                                 "query": "let starttime = 14d;\nlet endtime = 1d;\nlet timeframe = 1h;\nlet scorethreshold = 1.5;\nlet percentthreshold = 50;\n// Preparing the time series data aggregated hourly count of MailItemsAccessd Operation in the form of multi-value array to use with time series anomaly function.\nlet TimeSeriesData =\nOfficeActivity\n| where TimeGenerated  between (startofday(ago(starttime))..startofday(ago(endtime)))\n| where OfficeWorkload=~ \"Exchange\" and Operation =~ \"MailItemsAccessed\" and ResultStatus =~ \"Succeeded\"\n| project TimeGenerated, Operation, MailboxOwnerUPN\n| make-series Total=count() on TimeGenerated from startofday(ago(starttime)) to startofday(ago(endtime)) step timeframe;\nlet TimeSeriesAlerts = TimeSeriesData\n| extend (anomalies, score, baseline) = series_decompose_anomalies(Total, scorethreshold, -1, 'linefit')\n| mv-expand Total to typeof(double), TimeGenerated to typeof(datetime), anomalies to typeof(double), score to typeof(double), baseline to typeof(long)\n| where anomalies > 0\n| project TimeGenerated, Total, baseline, anomalies, score;\n// Joining the flagged outlier from the previous step with the original dataset to present contextual information\n// during the anomalyhour to analysts to conduct investigation or informed decisions.\nTimeSeriesAlerts | where TimeGenerated > ago(2d)\n// Join against base logs since specified timeframe to retrive records associated with the hour of anomoly\n| join kind=innerunique (\n    OfficeActivity\n    | where TimeGenerated > ago(2d)\n    | extend DateHour = bin(TimeGenerated, 1h)\n    | where OfficeWorkload=~ \"Exchange\" and Operation =~ \"MailItemsAccessed\" and ResultStatus =~ \"Succeeded\"\n    | summarize HourlyCount=count(), TimeGeneratedMax = arg_max(TimeGenerated, *), IPAdressList = make_set(Client_IPAddress, 1000), SourceIPMax= arg_max(Client_IPAddress, *), ClientInfoStringList= make_set(ClientInfoString, 1000) by MailboxOwnerUPN, Logon_Type, TenantId, UserType, TimeGenerated = bin(TimeGenerated, 1h)\n    | where HourlyCount > 25 // Only considering operations with more than 25 hourly count to reduce False Positivies\n    | order by HourlyCount desc\n) on TimeGenerated\n| extend PercentofTotal = round(HourlyCount/Total, 2) * 100\n| where PercentofTotal > percentthreshold // Filter Users with count of less than 5 percent of TotalEvents per Hour to remove FPs/ users with very low count of MailItemsAccessed events\n| order by PercentofTotal desc\n| project-reorder TimeGeneratedMax, Type, OfficeWorkload, Operation, UserId, SourceIPMax, IPAdressList, ClientInfoStringList, HourlyCount, PercentofTotal, Total, baseline, score, anomalies\n| extend AccountName = tostring(split(UserId, \"@\")[0]), AccountUPNSuffix = tostring(split(UserId, \"@\")[1])\n",
@@ -2711,39 +2711,39 @@
                                 ],
                                 "entityMappings": [
                                     {
-                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "FullName",
-                                                "columnName": "UserId"
+                                                "columnName": "UserId",
+                                                "identifier": "FullName"
                                             },
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountName"
+                                                "columnName": "AccountName",
+                                                "identifier": "Name"
                                             },
                                             {
-                                                "identifier": "UPNSuffix",
-                                                "columnName": "AccountUPNSuffix"
+                                                "columnName": "AccountUPNSuffix",
+                                                "identifier": "UPNSuffix"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "Account"
                                     },
                                     {
-                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Address",
-                                                "columnName": "Client_IPAddress"
+                                                "columnName": "Client_IPAddress",
+                                                "identifier": "Address"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "IP"
                                     },
                                     {
-                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Address",
-                                                "columnName": "SourceIPMax"
+                                                "columnName": "SourceIPMax",
+                                                "identifier": "Address"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "IP"
                                     }
                                 ]
                             }
@@ -2757,7 +2757,7 @@
                                 "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', 'b4ceb583-4c44-4555-8ecf-39f572e827ba')]",
                                 "contentId": "b4ceb583-4c44-4555-8ecf-39f572e827ba",
                                 "kind": "AnalyticsRule",
-                                "version": "2.0.5",
+                                "version": "2.0.6",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "Microsoft 365",
@@ -2778,16 +2778,16 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "b4ceb583-4c44-4555-8ecf-39f572e827ba",
                 "contentKind": "AnalyticsRule",
                 "displayName": "Exchange workflow MailItemsAccessed operation anomaly",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-office365-ar-zdeppsueeyyvm",
-                "id": "azuresentinel.azure-sentinel-solution-office365-ar-zdeppsueeyyvm",
-                "version": "2.0.5",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-office365-ar-ripiqfozpsscm",
+                "id": "azuresentinel.azure-sentinel-solution-office365-ar-ripiqfozpsscm",
+                "version": "2.0.6",
                 "isDeprecated": false,
                 "dependencies": {
                     "operator": "AND",
@@ -2813,7 +2813,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "Mail_redirect_via_ExO_transport_rule_AnalyticalRules Analytics Rule with template version 3.0.4",
+                "description": "Identifies when Exchange Online transport rule configured to forward emails.\nThis could be an adversary mailbox configured to collect mail from multiple user accounts.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.4",
@@ -2857,30 +2857,30 @@
                                 ],
                                 "entityMappings": [
                                     {
-                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "FullName",
-                                                "columnName": "UserId"
+                                                "columnName": "UserId",
+                                                "identifier": "FullName"
                                             },
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountName"
+                                                "columnName": "AccountName",
+                                                "identifier": "Name"
                                             },
                                             {
-                                                "identifier": "UPNSuffix",
-                                                "columnName": "AccountUPNSuffix"
+                                                "columnName": "AccountUPNSuffix",
+                                                "identifier": "UPNSuffix"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "Account"
                                     },
                                     {
-                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Address",
-                                                "columnName": "IPAddress"
+                                                "columnName": "IPAddress",
+                                                "identifier": "Address"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "IP"
                                     }
                                 ]
                             }
@@ -2915,7 +2915,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -2950,7 +2950,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "Malicious_Inbox_Rule_AnalyticalRules Analytics Rule with template version 3.0.4",
+                "description": "Often times after the initial compromise the attackers create inbox rules to delete emails that contain certain keywords.\n This is done so as to limit ability to warn compromised users that they've been compromised. Below is a sample query that tries to detect this.\nReference: https://www.reddit.com/r/sysadmin/comments/7kyp0a/recent_phishing_attempts_my_experience_and_what/",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.4",
@@ -2994,39 +2994,39 @@
                                 ],
                                 "entityMappings": [
                                     {
-                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "FullName",
-                                                "columnName": "UserId"
+                                                "columnName": "UserId",
+                                                "identifier": "FullName"
                                             },
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountName"
+                                                "columnName": "AccountName",
+                                                "identifier": "Name"
                                             },
                                             {
-                                                "identifier": "UPNSuffix",
-                                                "columnName": "AccountUPNSuffix"
+                                                "columnName": "AccountUPNSuffix",
+                                                "identifier": "UPNSuffix"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "Account"
                                     },
                                     {
-                                        "entityType": "Host",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "FullName",
-                                                "columnName": "OriginatingServerName"
+                                                "columnName": "OriginatingServerName",
+                                                "identifier": "FullName"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "Host"
                                     },
                                     {
-                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Address",
-                                                "columnName": "ClientIPAddress"
+                                                "columnName": "ClientIPAddress",
+                                                "identifier": "Address"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "IP"
                                     }
                                 ]
                             }
@@ -3061,7 +3061,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -3096,7 +3096,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "MultipleTeamsDeletes_AnalyticalRules Analytics Rule with template version 3.0.4",
+                "description": "This detection flags the occurrences of deleting multiple teams within an hour.\nThis data is a part of Office 365 Connector in Microsoft Sentinel.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.4",
@@ -3139,21 +3139,21 @@
                                 ],
                                 "entityMappings": [
                                     {
-                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "FullName",
-                                                "columnName": "UserId"
+                                                "columnName": "UserId",
+                                                "identifier": "FullName"
                                             },
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountName"
+                                                "columnName": "AccountName",
+                                                "identifier": "Name"
                                             },
                                             {
-                                                "identifier": "UPNSuffix",
-                                                "columnName": "AccountUPNSuffix"
+                                                "columnName": "AccountUPNSuffix",
+                                                "identifier": "UPNSuffix"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "Account"
                                     }
                                 ]
                             }
@@ -3188,7 +3188,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -3223,7 +3223,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "Office_MailForwarding_AnalyticalRules Analytics Rule with template version 3.0.4",
+                "description": "Identifies when multiple (more than one) users mailboxes are configured to forward to the same destination. \nThis could be an attacker-controlled destination mailbox configured to collect mail from multiple compromised user accounts.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.3",
@@ -3267,30 +3267,30 @@
                                 ],
                                 "entityMappings": [
                                     {
-                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "FullName",
-                                                "columnName": "UserId"
+                                                "columnName": "UserId",
+                                                "identifier": "FullName"
                                             },
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountName"
+                                                "columnName": "AccountName",
+                                                "identifier": "Name"
                                             },
                                             {
-                                                "identifier": "UPNSuffix",
-                                                "columnName": "AccountUPNSuffix"
+                                                "columnName": "AccountUPNSuffix",
+                                                "identifier": "UPNSuffix"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "Account"
                                     },
                                     {
-                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Address",
-                                                "columnName": "ClientIP"
+                                                "columnName": "ClientIP",
+                                                "identifier": "Address"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "IP"
                                     }
                                 ]
                             }
@@ -3325,7 +3325,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -3360,7 +3360,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "Office_Uploaded_Executables_AnalyticalRules Analytics Rule with template version 3.0.4",
+                "description": "Identifies when executable file types are uploaded to Office services such as SharePoint and OneDrive.\nList currently includes 'exe', 'inf', 'gzip', 'cmd', 'bat' file extensions.\nAdditionally, identifies when a given user is uploading these files to another users workspace.\nThis may be indication of a staging location for malware or other malicious activity.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.5",
@@ -3404,48 +3404,48 @@
                                 ],
                                 "entityMappings": [
                                     {
-                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "FullName",
-                                                "columnName": "UserId"
+                                                "columnName": "UserId",
+                                                "identifier": "FullName"
                                             },
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountName"
+                                                "columnName": "AccountName",
+                                                "identifier": "Name"
                                             },
                                             {
-                                                "identifier": "UPNSuffix",
-                                                "columnName": "AccountUPNSuffix"
+                                                "columnName": "AccountUPNSuffix",
+                                                "identifier": "UPNSuffix"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "Account"
                                     },
                                     {
-                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Address",
-                                                "columnName": "ClientIP"
+                                                "columnName": "ClientIP",
+                                                "identifier": "Address"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "IP"
                                     },
                                     {
-                                        "entityType": "URL",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Url",
-                                                "columnName": "Site_Url"
+                                                "columnName": "Site_Url",
+                                                "identifier": "Url"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "URL"
                                     },
                                     {
-                                        "entityType": "File",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "FileNames"
+                                                "columnName": "FileNames",
+                                                "identifier": "Name"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "File"
                                     }
                                 ]
                             }
@@ -3480,7 +3480,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -3515,7 +3515,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "RareOfficeOperations_AnalyticalRules Analytics Rule with template version 3.0.4",
+                "description": "Identifies Office operations that are typically rare and can provide capabilities useful to attackers.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.5",
@@ -3559,39 +3559,39 @@
                                 ],
                                 "entityMappings": [
                                     {
-                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "FullName",
-                                                "columnName": "UserId"
+                                                "columnName": "UserId",
+                                                "identifier": "FullName"
                                             },
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountName"
+                                                "columnName": "AccountName",
+                                                "identifier": "Name"
                                             },
                                             {
-                                                "identifier": "UPNSuffix",
-                                                "columnName": "AccountUPNSuffix"
+                                                "columnName": "AccountUPNSuffix",
+                                                "identifier": "UPNSuffix"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "Account"
                                     },
                                     {
-                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Address",
-                                                "columnName": "ClientIP"
+                                                "columnName": "ClientIP",
+                                                "identifier": "Address"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "IP"
                                     },
                                     {
-                                        "entityType": "CloudApplication",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "AppId",
-                                                "columnName": "AppId"
+                                                "columnName": "AppId",
+                                                "identifier": "AppId"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "CloudApplication"
                                     }
                                 ]
                             }
@@ -3626,7 +3626,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -3661,7 +3661,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "SharePoint_Downloads_byNewIP_AnalyticalRules Analytics Rule with template version 3.0.4",
+                "description": "Identifies anomalies using user behavior by setting a threshold for significant changes in file upload/download activities from new IP addresses. It establishes a baseline of typical behavior, compares it to recent activity, and flags deviations exceeding a default threshold of 25.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.4",
@@ -3703,39 +3703,39 @@
                                 ],
                                 "entityMappings": [
                                     {
-                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "FullName",
-                                                "columnName": "UserId"
+                                                "columnName": "UserId",
+                                                "identifier": "FullName"
                                             },
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountName"
+                                                "columnName": "AccountName",
+                                                "identifier": "Name"
                                             },
                                             {
-                                                "identifier": "UPNSuffix",
-                                                "columnName": "AccountUPNSuffix"
+                                                "columnName": "AccountUPNSuffix",
+                                                "identifier": "UPNSuffix"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "Account"
                                     },
                                     {
-                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Address",
-                                                "columnName": "ClientIP"
+                                                "columnName": "ClientIP",
+                                                "identifier": "Address"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "IP"
                                     },
                                     {
-                                        "entityType": "URL",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Url",
-                                                "columnName": "Site_Url"
+                                                "columnName": "Site_Url",
+                                                "identifier": "Url"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "URL"
                                     }
                                 ]
                             }
@@ -3770,7 +3770,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -3805,7 +3805,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "SharePoint_Downloads_byNewUserAgent_AnalyticalRules Analytics Rule with template version 3.0.4",
+                "description": "Identifies anomalies if the number of documents uploaded or downloaded from device(s) associated with a previously unseen user agent exceeds a threshold (default is 5) and deviation (default is 25).",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.2.4",
@@ -3847,39 +3847,39 @@
                                 ],
                                 "entityMappings": [
                                     {
-                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "FullName",
-                                                "columnName": "UserId"
+                                                "columnName": "UserId",
+                                                "identifier": "FullName"
                                             },
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "UserIdName"
+                                                "columnName": "UserIdName",
+                                                "identifier": "Name"
                                             },
                                             {
-                                                "identifier": "UPNSuffix",
-                                                "columnName": "UserIdUPNSuffix"
+                                                "columnName": "UserIdUPNSuffix",
+                                                "identifier": "UPNSuffix"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "Account"
                                     },
                                     {
-                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Address",
-                                                "columnName": "ClientIP"
+                                                "columnName": "ClientIP",
+                                                "identifier": "Address"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "IP"
                                     },
                                     {
-                                        "entityType": "URL",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Url",
-                                                "columnName": "Site_Url"
+                                                "columnName": "Site_Url",
+                                                "identifier": "Url"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "URL"
                                     }
                                 ]
                             }
@@ -3914,7 +3914,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -3949,7 +3949,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "exchange_auditlogdisabled_AnalyticalRules Analytics Rule with template version 3.0.4",
+                "description": "Identifies when the exchange audit logging has been disabled which may be an adversary attempt to evade detection or avoid other defenses.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.6",
@@ -3991,39 +3991,39 @@
                                 ],
                                 "entityMappings": [
                                     {
-                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "FullName",
-                                                "columnName": "UserId"
+                                                "columnName": "UserId",
+                                                "identifier": "FullName"
                                             },
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountName"
+                                                "columnName": "AccountName",
+                                                "identifier": "Name"
                                             },
                                             {
-                                                "identifier": "UPNSuffix",
-                                                "columnName": "AccountUPNSuffix"
+                                                "columnName": "AccountUPNSuffix",
+                                                "identifier": "UPNSuffix"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "Account"
                                     },
                                     {
-                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountNTDomain"
+                                                "columnName": "AccountNTDomain",
+                                                "identifier": "Name"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "Account"
                                     },
                                     {
-                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Address",
-                                                "columnName": "ClientIP"
+                                                "columnName": "ClientIP",
+                                                "identifier": "Address"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "IP"
                                     }
                                 ]
                             }
@@ -4058,7 +4058,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -4093,7 +4093,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "office_policytampering_AnalyticalRules Analytics Rule with template version 3.0.4",
+                "description": "Identifies if any tampering is done to either auditlog, ATP Safelink, SafeAttachment, AntiPhish or Dlp policy. \nAn adversary may use this technique to evade detection or avoid other policy based defenses.\nReferences: https://docs.microsoft.com/powershell/module/exchange/advanced-threat-protection/remove-antiphishrule?view=exchange-ps.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "2.0.3",
@@ -4137,30 +4137,30 @@
                                 ],
                                 "entityMappings": [
                                     {
-                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "FullName",
-                                                "columnName": "UserId"
+                                                "columnName": "UserId",
+                                                "identifier": "FullName"
                                             },
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountName"
+                                                "columnName": "AccountName",
+                                                "identifier": "Name"
                                             },
                                             {
-                                                "identifier": "UPNSuffix",
-                                                "columnName": "AccountUPNSuffix"
+                                                "columnName": "AccountUPNSuffix",
+                                                "identifier": "UPNSuffix"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "Account"
                                     },
                                     {
-                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Address",
-                                                "columnName": "ClientIP"
+                                                "columnName": "ClientIP",
+                                                "identifier": "Address"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "IP"
                                     }
                                 ]
                             }
@@ -4195,7 +4195,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -4230,7 +4230,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "sharepoint_file_transfer_folders_above_threshold_AnalyticalRules Analytics Rule with template version 3.0.4",
+                "description": "Identifies Office365 Sharepoint File Transfers with distinct folder count above certain threshold in a 15min time period.\n Please note that entity mapping for arrays is not supported, so when there is a single value in an array, we will pull that value from the array as a single string to populate the entity to support entity mapping features within Sentinel. Additionally, if the array is multivalued, we will input a string to indicate this with a unique hash so that matching will not occur.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.6",
@@ -4272,39 +4272,39 @@
                                 ],
                                 "entityMappings": [
                                     {
-                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "FullName",
-                                                "columnName": "UserId"
+                                                "columnName": "UserId",
+                                                "identifier": "FullName"
                                             },
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountName"
+                                                "columnName": "AccountName",
+                                                "identifier": "Name"
                                             },
                                             {
-                                                "identifier": "UPNSuffix",
-                                                "columnName": "AccountUPNSuffix"
+                                                "columnName": "AccountUPNSuffix",
+                                                "identifier": "UPNSuffix"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "Account"
                                     },
                                     {
-                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Address",
-                                                "columnName": "ClientIP"
+                                                "columnName": "ClientIP",
+                                                "identifier": "Address"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "IP"
                                     },
                                     {
-                                        "entityType": "File",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "DirSample"
+                                                "columnName": "DirSample",
+                                                "identifier": "Name"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "File"
                                     }
                                 ],
                                 "customDetails": {
@@ -4314,13 +4314,13 @@
                                 "incidentConfiguration": {
                                     "createIncident": true,
                                     "groupingConfiguration": {
-                                        "matchingMethod": "Selected",
-                                        "enabled": true,
-                                        "reopenClosedIncident": false,
-                                        "lookbackDuration": "PT5H",
                                         "groupByEntities": [
                                             "Account"
-                                        ]
+                                        ],
+                                        "matchingMethod": "Selected",
+                                        "lookbackDuration": "PT5H",
+                                        "enabled": true,
+                                        "reopenClosedIncident": false
                                     }
                                 }
                             }
@@ -4355,7 +4355,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
@@ -4390,10 +4390,10 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-office365')]"
             ],
             "properties": {
-                "description": "sharepoint_file_transfer_above_threshold_AnalyticalRules Analytics Rule with template version 3.0.4",
+                "description": "Identifies Office365 Sharepoint File Transfers above certain threshold in a 15min time period.\n Please note that entity mapping for arrays is not supported, so when there is a single value in an array, we will pull that value from the array as a single string to populate the entity to support entity mapping features within Sentinel. Additionally, if the array is multivalued, we will input a string to indicate this with a unique hash so that matching will not occur.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.5",
+                    "contentVersion": "1.0.6",
                     "parameters": {},
                     "variables": {},
                     "resources": [
@@ -4432,39 +4432,39 @@
                                 ],
                                 "entityMappings": [
                                     {
-                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "FullName",
-                                                "columnName": "UserId"
+                                                "columnName": "UserId",
+                                                "identifier": "FullName"
                                             },
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountName"
+                                                "columnName": "AccountName",
+                                                "identifier": "Name"
                                             },
                                             {
-                                                "identifier": "UPNSuffix",
-                                                "columnName": "AccountUPNSuffix"
+                                                "columnName": "AccountUPNSuffix",
+                                                "identifier": "UPNSuffix"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "Account"
                                     },
                                     {
-                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Address",
-                                                "columnName": "ClientIP"
+                                                "columnName": "ClientIP",
+                                                "identifier": "Address"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "IP"
                                     },
                                     {
-                                        "entityType": "File",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "FileSample"
+                                                "columnName": "FileSample",
+                                                "identifier": "Name"
                                             }
-                                        ]
+                                        ],
+                                        "entityType": "File"
                                     }
                                 ],
                                 "customDetails": {
@@ -4474,13 +4474,13 @@
                                 "incidentConfiguration": {
                                     "createIncident": true,
                                     "groupingConfiguration": {
-                                        "matchingMethod": "Selected",
-                                        "enabled": true,
-                                        "reopenClosedIncident": false,
-                                        "lookbackDuration": "PT5H",
                                         "groupByEntities": [
                                             "Account"
-                                        ]
+                                        ],
+                                        "matchingMethod": "Selected",
+                                        "lookbackDuration": "PT5H",
+                                        "enabled": true,
+                                        "reopenClosedIncident": false
                                     }
                                 }
                             }
@@ -4494,7 +4494,7 @@
                                 "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '8b4f03e7-3460-4401-824d-e65a8dd464f0')]",
                                 "contentId": "8b4f03e7-3460-4401-824d-e65a8dd464f0",
                                 "kind": "AnalyticsRule",
-                                "version": "1.0.5",
+                                "version": "1.0.6",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "Microsoft 365",
@@ -4515,16 +4515,16 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Microsoft 365",
                 "packageId": "azuresentinel.azure-sentinel-solution-office365",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "8b4f03e7-3460-4401-824d-e65a8dd464f0",
                 "contentKind": "AnalyticsRule",
                 "displayName": "Office365 Sharepoint File transfer above threshold",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-office365-ar-bvlt4acygrwxu",
-                "id": "azuresentinel.azure-sentinel-solution-office365-ar-bvlt4acygrwxu",
-                "version": "1.0.5",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-office365-ar-jrbwr6unmq6vo",
+                "id": "azuresentinel.azure-sentinel-solution-office365-ar-jrbwr6unmq6vo",
+                "version": "1.0.6",
                 "isDeprecated": false,
                 "dependencies": {
                     "operator": "AND",
@@ -4546,15 +4546,15 @@
             "apiVersion": "2023-04-01-preview",
             "location": "[parameters('workspace-location')]",
             "properties": {
-                "version": "3.0.4",
+                "version": "3.0.5",
                 "kind": "Solution",
                 "contentSchemaVersion": "3.0.0",
                 "displayName": "Microsoft 365",
                 "publisherDisplayName": "Microsoft Sentinel, Microsoft Corporation",
                 "descriptionHtml": "<p><strong>Note:</strong> Please refer to the following before installing the solution:</p><p>\u2022 Review the solution <a target=\"_blank\" href=\"https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Microsoft%20365/ReleaseNotes.md\" rel=\"noopener\">Release Notes</a></p><p>The Microsoft 365 solution for Microsoft Sentinel enables you to ingest operational logs from Microsoft 365 (formerly, Office 365) to gain insights into user and admin activity across your collaboration platforms such as Teams, SharePoint and Exchange.</p><p><strong>Underlying Microsoft Technologies used:</strong></p><p>This solution takes a dependency on the following technologies, and some of these dependencies either may be in <a target=\"_blank\" href=\"https://azure.microsoft.com/support/legal/preview-supplemental-terms/\" rel=\"noopener\">Preview</a> state or might result in additional ingestion or operational costs:</p><p>a. <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/azure-monitor/logs/data-collector-api?WT.mc_id=Portal-fx\" rel=\"noopener\">Azure Monitor HTTP Data Collector API</a></p><p><strong>Data Connectors:</strong> 1, <strong>Workbooks:</strong> 3, <strong>Analytic Rules:</strong> 15, <strong>Hunting Queries:</strong> 21</p><p><a target=\"_blank\" href=\"https://aka.ms/azuresentinel\" rel=\"noopener\">Learn more about Microsoft Sentinel</a> | <a target=\"_blank\" href=\"https://aka.ms/azuresentinelsolutionsdoc\" rel=\"noopener\">Learn more about Solutions</a></p>",
                 "contentKind": "Solution",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-office365-sl-5nyb5jz3br32i",
-                "id": "azuresentinel.azure-sentinel-solution-office365-sl-5nyb5jz3br32i",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-office365-sl-ftxjjkjwhn3a6",
+                "id": "azuresentinel.azure-sentinel-solution-office365-sl-ftxjjkjwhn3a6",
                 "icon": "https://store-images.s-microsoft.com/image/apps.64133.628c857d-7701-4995-8594-3dca045221d3.6fd2c9d1-2887-4641-b1e3-e66338df1dc8.d2484c7e-70d6-442a-bd31-8e0f9142ee02",
                 "contentId": "azuresentinel.azure-sentinel-solution-office365",
                 "parentId": "azuresentinel.azure-sentinel-solution-office365",
@@ -4714,7 +4714,7 @@
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "b4ceb583-4c44-4555-8ecf-39f572e827ba",
-                            "version": "2.0.5"
+                            "version": "2.0.6"
                         },
                         {
                             "kind": "AnalyticsRule",
@@ -4774,7 +4774,7 @@
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "8b4f03e7-3460-4401-824d-e65a8dd464f0",
-                            "version": "1.0.5"
+                            "version": "1.0.6"
                         }
                     ]
                 },
@@ -4788,7 +4788,8 @@
                     ]
                 },
                 "isPreview": false,
-                "isDeprecated": false
+                "isDeprecated": false,
+                "migratedToPackageId": null
             },
             "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', 'azuresentinel.azure-sentinel-solution-office365')]"
         }

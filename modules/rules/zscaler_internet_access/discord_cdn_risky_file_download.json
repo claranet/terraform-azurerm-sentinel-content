@@ -20,34 +20,34 @@
         ],
         "entityMappings": [
             {
+                "entityType": "Account",
                 "fieldMappings": [
                     {
-                        "identifier": "FullName",
-                        "columnName": "SourceUser"
+                        "columnName": "SourceUser",
+                        "identifier": "FullName"
                     }
-                ],
-                "entityType": "Account"
+                ]
             },
             {
+                "entityType": "IP",
                 "fieldMappings": [
                     {
-                        "identifier": "Address",
-                        "columnName": "SourceIP"
+                        "columnName": "SourceIP",
+                        "identifier": "Address"
                     }
-                ],
-                "entityType": "IP"
+                ]
             },
             {
+                "entityType": "URL",
                 "fieldMappings": [
                     {
-                        "identifier": "Url",
-                        "columnName": "RequestURL"
+                        "columnName": "RequestURL",
+                        "identifier": "Url"
                     }
-                ],
-                "entityType": "URL"
+                ]
             }
         ],
         "alertRuleTemplateName": "010bd98c-a6be-498c-bdcd-502308c0fdae",
-        "templateVersion": "1.0.3"
+        "templateVersion": "1.0.4"
     }
 }

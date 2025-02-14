@@ -20,39 +20,39 @@
         ],
         "entityMappings": [
             {
-                "entityType": "Account",
                 "fieldMappings": [
                     {
-                        "identifier": "FullName",
-                        "columnName": "UserId"
+                        "columnName": "UserId",
+                        "identifier": "FullName"
                     },
                     {
-                        "identifier": "Name",
-                        "columnName": "AccountName"
+                        "columnName": "AccountName",
+                        "identifier": "Name"
                     },
                     {
-                        "identifier": "UPNSuffix",
-                        "columnName": "AccountUPNSuffix"
+                        "columnName": "AccountUPNSuffix",
+                        "identifier": "UPNSuffix"
                     }
-                ]
+                ],
+                "entityType": "Account"
             },
             {
-                "entityType": "IP",
                 "fieldMappings": [
                     {
-                        "identifier": "Address",
-                        "columnName": "ClientIP"
+                        "columnName": "ClientIP",
+                        "identifier": "Address"
                     }
-                ]
+                ],
+                "entityType": "IP"
             },
             {
-                "entityType": "File",
                 "fieldMappings": [
                     {
-                        "identifier": "Name",
-                        "columnName": "FileSample"
+                        "columnName": "FileSample",
+                        "identifier": "Name"
                     }
-                ]
+                ],
+                "entityType": "File"
             }
         ],
         "customDetails": {
@@ -62,16 +62,16 @@
         "incidentConfiguration": {
             "createIncident": true,
             "groupingConfiguration": {
-                "enabled": true,
-                "matchingMethod": "Selected",
-                "reopenClosedIncident": false,
-                "lookbackDuration": "PT5H",
                 "groupByEntities": [
                     "Account"
-                ]
+                ],
+                "matchingMethod": "Selected",
+                "lookbackDuration": "PT5H",
+                "enabled": true,
+                "reopenClosedIncident": false
             }
         },
         "alertRuleTemplateName": "8b4f03e7-3460-4401-824d-e65a8dd464f0",
-        "templateVersion": "1.0.5"
+        "templateVersion": "1.0.6"
     }
 }
