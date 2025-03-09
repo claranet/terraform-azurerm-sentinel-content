@@ -68,42 +68,24 @@ More details about variables set by the `terraform-wrapper` available in the [do
 [Hashicorp Terraform](https://github.com/hashicorp/terraform/). Instead, we recommend to use [OpenTofu](https://github.com/opentofu/opentofu/).
 
 ```hcl
-module "azure_region" {
-  source  = "claranet/regions/azurerm"
-  version = "x.x.x"
-
-  azure_region = var.azure_region
-}
-
-module "rg" {
-  source  = "claranet/rg/azurerm"
-  version = "x.x.x"
-
-  location    = module.azure_region.location
-  client_name = var.client_name
-  environment = var.environment
-  stack       = var.stack
-}
-
 module "logs" {
   source  = "claranet/run/azurerm//modules/logs"
   version = "x.x.x"
 
+  client_name         = var.client_name
+  environment         = var.environment
+  stack               = var.stack
   location            = module.azure_region.location
   location_short      = module.azure_region.location_short
-  resource_group_name = module.rg.resource_group_name
-
-  client_name = var.client_name
-  environment = var.environment
-  stack       = var.stack
+  resource_group_name = module.rg.name
 }
 
 module "sentinel" {
   source  = "claranet/sentinel/azurerm"
   version = "x.x.x"
 
-  log_analytics_workspace_id = module.logs.log_analytics_workspace_id
-  logs_destinations_ids      = [module.logs.log_analytics_workspace_id]
+  log_analytics_workspace_id = module.logs.id
+  logs_destinations_ids      = [module.logs.id]
 
   data_connector_aad_enabled = true
 }
@@ -113,10 +95,10 @@ module "sentinel_content" {
   version = "x.x.x"
 
   location            = module.azure_region.location
-  resource_group_name = module.rg.resource_group_name
+  resource_group_name = module.rg.name
 
-  log_analytics_workspace_id   = module.logs.log_analytics_workspace_id
-  log_analytics_workspace_name = module.logs.log_analytics_workspace_name
+  log_analytics_workspace_id   = module.logs.id
+  log_analytics_workspace_name = module.logs.name
   log_sources                  = ["entra_id", "ti", "xdr"]
 }
 ```
@@ -144,7 +126,7 @@ No resources.
 | log\_analytics\_workspace\_id | The Log Analytics Workspace ID. | `string` | n/a | yes |
 | log\_analytics\_workspace\_name | The Log Analytics Workspace name. | `string` | n/a | yes |
 | log\_sources | Log sources retrieved in Microsoft Sentinel. | `list(string)` | n/a | yes |
-| resource\_group\_name | Resource Group the resources will belong to | `string` | n/a | yes |
+| resource\_group\_name | Resource group name. | `string` | n/a | yes |
 | rules\_enable | Whether the Rules should be deployed. | `bool` | `false` | no |
 | rules\_excluded | Rules that will not be deployed in Microsoft Sentinel. | `list(string)` | `[]` | no |
 | solutions\_enable | Whether the Solutions should be deployed. | `bool` | `true` | no |

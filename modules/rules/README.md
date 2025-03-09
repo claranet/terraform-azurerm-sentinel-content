@@ -37,42 +37,24 @@ More details about variables set by the `terraform-wrapper` available in the [do
 [Hashicorp Terraform](https://github.com/hashicorp/terraform/). Instead, we recommend to use [OpenTofu](https://github.com/opentofu/opentofu/).
 
 ```hcl
-module "azure_region" {
-  source  = "claranet/regions/azurerm"
-  version = "x.x.x"
-
-  azure_region = var.azure_region
-}
-
-module "rg" {
-  source  = "claranet/rg/azurerm"
-  version = "x.x.x"
-
-  location    = module.azure_region.location
-  client_name = var.client_name
-  environment = var.environment
-  stack       = var.stack
-}
-
 module "logs" {
   source  = "claranet/run/azurerm//modules/logs"
   version = "x.x.x"
 
+  client_name         = var.client_name
+  environment         = var.environment
+  stack               = var.stack
   location            = module.azure_region.location
   location_short      = module.azure_region.location_short
-  resource_group_name = module.rg.resource_group_name
-
-  client_name = var.client_name
-  environment = var.environment
-  stack       = var.stack
+  resource_group_name = module.rg.name
 }
 
 module "sentinel" {
   source  = "claranet/sentinel/azurerm"
   version = "x.x.x"
 
-  log_analytics_workspace_id = module.logs.log_analytics_workspace_id
-  logs_destinations_ids      = [module.logs.log_analytics_workspace_id]
+  log_analytics_workspace_id = module.logs.id
+  logs_destinations_ids      = [module.logs.id]
 
   data_connector_aad_enabled = true
 }
@@ -81,7 +63,7 @@ module "rules" {
   source  = "claranet/sentinel-content/azurerm//modules/rules"
   version = "x.x.x"
 
-  log_analytics_workspace_id = module.logs.log_analytics_workspace_id
+  log_analytics_workspace_id = module.logs.id
   log_sources                = ["entra_id", "ti", "xdr"]
 }
 ```
@@ -90,7 +72,7 @@ module "rules" {
 
 | Name | Version |
 |------|---------|
-| azapi | ~> 1.11, < 1.13 |
+| azapi | ~> 2.0 |
 | random | ~> 3.6 |
 
 ## Modules
@@ -101,8 +83,8 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [azapi_resource.rules](https://registry.terraform.io/providers/azure/azapi/latest/docs/resources/resource) | resource |
-| [random_uuid.rules](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/uuid) | resource |
+| [azapi_resource.main](https://registry.terraform.io/providers/azure/azapi/latest/docs/resources/resource) | resource |
+| [random_uuid.main](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/uuid) | resource |
 
 ## Inputs
 

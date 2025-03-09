@@ -1,4 +1,4 @@
-resource "azurerm_resource_group_template_deployment" "solutions" {
+resource "azurerm_resource_group_template_deployment" "main" {
 
   for_each = toset(var.log_sources)
 
@@ -23,4 +23,9 @@ resource "azurerm_resource_group_template_deployment" "solutions" {
   lifecycle {
     ignore_changes = [parameters_content]
   }
+}
+
+moved {
+  from = azurerm_resource_group_template_deployment.solutions
+  to   = azurerm_resource_group_template_deployment.main
 }
