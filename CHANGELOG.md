@@ -1,3 +1,19 @@
+## 8.0.0 (2025-03-13)
+
+### ⚠ BREAKING CHANGES
+
+* **AZ-1088:** module v8 structure and updates
+
+### Features
+
+* **AZ-1088:** module v8 structure and updates 383a95d
+
+### Miscellaneous Chores
+
+* **deps:** update dependency trivy to v0.60.0 3d42e8c
+* **deps:** update pre-commit hook alessandrojcm/commitlint-pre-commit-hook to v9.21.0 0d2397f
+* **deps:** update pre-commit hook alessandrojcm/commitlint-pre-commit-hook to v9.22.0 d9a15e9
+
 ## 7.17.0 (2025-02-14)
 
 ### Features
