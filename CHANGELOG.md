@@ -1,3 +1,17 @@
+## 8.1.0 (2025-04-01)
+
+### Features
+
+* bump `AWS` package template version to 3.0.5 07ca2a9
+* bump `Azure Activity` package template version to 3.0.3 + update embedded rule 89159fa
+* bump `Fortigate` package template version to 3.0.8 61f8af0
+
+### Miscellaneous Chores
+
+* **deps:** update dependency pre-commit to v4.2.0 872c5e0
+* **deps:** update pre-commit hook tofuutils/pre-commit-opentofu to v2.2.0 892a99c
+* **deps:** update tools f30f9c2
+
 ## 8.0.0 (2025-03-13)
 
 ### ⚠ BREAKING CHANGES
