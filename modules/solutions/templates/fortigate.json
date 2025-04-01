@@ -97,7 +97,7 @@
                         }
                     },
                     "variables": {
-                        "functionAppName": "[[parameters('FunctionAppName')]",
+                        "functionAppName": "[[concat(toLower(parameters('FunctionAppName')), uniqueString(resourceGroup().id))]",
                         "hostingPlanName": "[[parameters('FunctionAppName')]",
                         "storageAccountName": "[[concat(uniquestring(resourceGroup().id), 'azfunctions')]",
                         "StorageAccount": "Standard_LRS",
@@ -143,7 +143,7 @@
                         {
                             "type": "Microsoft.Web/sites",
                             "apiVersion": "2020-06-01",
-                            "name": "[[parameters('FunctionAppName')]",
+                            "name": "[[variables('functionAppName')]",
                             "location": "[[parameters('location')]",
                             "kind": "functionapp",
                             "identity": {
@@ -225,7 +225,7 @@
                         },
                         {
                             "apiVersion": "2019-08-01",
-                            "name": "[[concat(variables('FunctionappName'),'/', variables('functionName'))]",
+                            "name": "[[concat(variables('functionAppName'),'/', variables('functionName'))]",
                             "type": "Microsoft.Web/sites/functions",
                             "identity": {
                                 "type": "UserAssigned"
@@ -306,7 +306,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Fortinet FortiGate Next-Generation Firewall connector for Microsoft Sentinel",
                 "packageId": "azuresentinel.azure-sentinel-solution-fortinetfortigate",
                 "contentSchemaVersion": "3.0.0",
@@ -1937,7 +1937,7 @@
                     ],
                     "metadata": {
                         "comments": "This Fortinet custom connector uses Fortinet-Fortigate API to perform different actions on Forinet VM",
-                        "lastUpdateTime": "2024-11-14T15:07:30.498Z",
+                        "lastUpdateTime": "2025-02-25T19:09:01.748Z",
                         "releaseNotes": {
                             "version": "1.0",
                             "title": "[replace('b', 'b', '')]",
@@ -1948,7 +1948,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Fortinet FortiGate Next-Generation Firewall connector for Microsoft Sentinel",
                 "packageId": "azuresentinel.azure-sentinel-solution-fortinetfortigate",
                 "contentSchemaVersion": "3.0.0",
@@ -2017,9 +2017,9 @@
                         }
                     },
                     "variables": {
+                        "functionAppName": "[[concat(toLower(parameters('FunctionAppName')), uniqueString(resourceGroup().id))]",
                         "AzureSentinelConnectionName": "[[concat('azuresentinel-', parameters('PlaybookName'))]",
                         "UserIdentifier": "[[parameters('User Identifier Name')]",
-                        "Functionappname": "[[parameters('FunctionAppName')]",
                         "connection-2": "[[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/', parameters('location'), '/managedApis/azuresentinel')]",
                         "_connection-2": "[[variables('connection-2')]",
                         "workspace-location-inline": "[concat('[resourceGroup().locatio', 'n]')]",
@@ -2302,7 +2302,7 @@
                                                             "type": "ManagedServiceIdentity"
                                                         },
                                                         "function": {
-                                                            "id": "[[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Web/sites/',parameters('FunctionAppName'),'/functions/Fortinet-GetEntityDetails')]"
+                                                            "id": "[[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Web/sites/',variables('functionAppName'),'/functions/Fortinet-GetEntityDetails')]"
                                                         }
                                                     },
                                                     "runAfter": {
@@ -2326,7 +2326,7 @@
                                                             "type": "ManagedServiceIdentity"
                                                         },
                                                         "function": {
-                                                            "id": "[[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Web/sites/',parameters('FunctionAppName'),'/functions/Fortinet-GetEntityDetails')]"
+                                                            "id": "[[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Web/sites/',variables('functionAppName'),'/functions/Fortinet-GetEntityDetails')]"
                                                         }
                                                     },
                                                     "runAfter": {
@@ -5423,7 +5423,10 @@
                             "type": "Microsoft.Logic/workflows",
                             "location": "[[variables('workspace-location-inline')]",
                             "identity": {
-                                "type": "UserAssigned"
+                                "type": "UserAssigned",
+                                "userAssignedIdentities": {
+                                    "[[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('User Identifier Name'))]": {}
+                                }
                             },
                             "apiVersion": "2016-06-01",
                             "tags": {
@@ -5509,7 +5512,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Fortinet FortiGate Next-Generation Firewall connector for Microsoft Sentinel",
                 "packageId": "azuresentinel.azure-sentinel-solution-fortinetfortigate",
                 "contentSchemaVersion": "3.0.0",
@@ -5596,6 +5599,7 @@
                         }
                     },
                     "variables": {
+                        "functionAppName": "[[concat(toLower(parameters('FunctionAppName')), uniqueString(resourceGroup().id))]",
                         "AzureSentinelConnectionName": "[[concat('azuresentinel-', parameters('PlaybookName'))]",
                         "TeamsConnectionName": "[[concat('teamsconnector-', parameters('PlaybookName'))]",
                         "FortinetConnectorConnectionName": "[[concat('FortinetConnector-', parameters('PlaybookName'))]",
@@ -5650,7 +5654,10 @@
                             "name": "[[parameters('PlaybookName')]",
                             "location": "[[variables('workspace-location-inline')]",
                             "identity": {
-                                "type": "UserAssigned"
+                                "type": "UserAssigned",
+                                "userAssignedIdentities": {
+                                    "[[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('User Identifier Name'))]": {}
+                                }
                             },
                             "dependsOn": [
                                 "[[resourceId('Microsoft.Web/connections', variables('FortinetConnectorConnectionName'))]",
@@ -5837,7 +5844,7 @@
                                                             "type": "ManagedServiceIdentity"
                                                         },
                                                         "function": {
-                                                            "id": "[[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Web/sites/',parameters('FunctionAppName'),'/functions/Fortinet-GetEntityDetails')]"
+                                                            "id": "[[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Web/sites/',variables('functionAppName'),'/functions/Fortinet-GetEntityDetails')]"
                                                         },
                                                         "method": "GET",
                                                         "queries": {
@@ -5861,7 +5868,7 @@
                                                             "type": "ManagedServiceIdentity"
                                                         },
                                                         "function": {
-                                                            "id": "[[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Web/sites/',parameters('FunctionAppName'),'/functions/Fortinet-GetEntityDetails')]"
+                                                            "id": "[[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Web/sites/',variables('functionAppName'),'/functions/Fortinet-GetEntityDetails')]"
                                                         },
                                                         "method": "GET",
                                                         "queries": {
@@ -9593,7 +9600,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Fortinet FortiGate Next-Generation Firewall connector for Microsoft Sentinel",
                 "packageId": "azuresentinel.azure-sentinel-solution-fortinetfortigate",
                 "contentSchemaVersion": "3.0.0",
@@ -9680,6 +9687,7 @@
                         }
                     },
                     "variables": {
+                        "functionAppName": "[[concat(toLower(parameters('FunctionAppName')), uniqueString(resourceGroup().id))]",
                         "AzureSentinelConnectionName": "[[concat('azuresentinel-', parameters('PlaybookName'))]",
                         "TeamsConnectionName": "[[concat('teamsconnector-', parameters('PlaybookName'))]",
                         "FortinetConnectorConnectionName": "[[concat('FortinetConnector-', parameters('PlaybookName'))]",
@@ -9734,7 +9742,10 @@
                             "name": "[[parameters('PlaybookName')]",
                             "location": "[[variables('workspace-location-inline')]",
                             "identity": {
-                                "type": "UserAssigned"
+                                "type": "UserAssigned",
+                                "userAssignedIdentities": {
+                                    "[[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('User Identifier Name'))]": {}
+                                }
                             },
                             "dependsOn": [
                                 "[[resourceId('Microsoft.Web/connections', variables('FortinetConnectorConnectionName'))]",
@@ -9937,7 +9948,7 @@
                                                             "type": "ManagedServiceIdentity"
                                                         },
                                                         "function": {
-                                                            "id": "[[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Web/sites/',parameters('FunctionAppName'),'/functions/Fortinet-GetEntityDetails')]"
+                                                            "id": "[[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Web/sites/',variables('functionAppName'),'/functions/Fortinet-GetEntityDetails')]"
                                                         },
                                                         "queries": {
                                                             "entity": "addrgrp",
@@ -9960,7 +9971,7 @@
                                                             "type": "ManagedServiceIdentity"
                                                         },
                                                         "function": {
-                                                            "id": "[[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Web/sites/',parameters('FunctionAppName'),'/functions/Fortinet-GetEntityDetails')]"
+                                                            "id": "[[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Web/sites/',variables('functionAppName'),'/functions/Fortinet-GetEntityDetails')]"
                                                         },
                                                         "method": "GET",
                                                         "queries": {
@@ -11203,7 +11214,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Fortinet FortiGate Next-Generation Firewall connector for Microsoft Sentinel",
                 "packageId": "azuresentinel.azure-sentinel-solution-fortinetfortigate",
                 "contentSchemaVersion": "3.0.0",
@@ -11292,7 +11303,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.7",
+                "packageVersion": "3.0.8",
                 "packageName": "Fortinet FortiGate Next-Generation Firewall connector for Microsoft Sentinel",
                 "packageId": "azuresentinel.azure-sentinel-solution-fortinetfortigate",
                 "contentSchemaVersion": "3.0.0",
@@ -11310,15 +11321,15 @@
             "apiVersion": "2023-04-01-preview",
             "location": "[parameters('workspace-location')]",
             "properties": {
-                "version": "3.0.7",
+                "version": "3.0.8",
                 "kind": "Solution",
                 "contentSchemaVersion": "3.0.0",
                 "displayName": "Fortinet FortiGate Next-Generation Firewall connector",
                 "publisherDisplayName": "Microsoft Sentinel, Microsoft Corporation",
-                "descriptionHtml": "<p><strong>Note:</strong> Please refer to the following before installing the solution:</p><p>\u2022 Review the solution <a target=\"_blank\" href=\"https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Fortinet%20FortiGate%20Next-Generation%20Firewall%20connector%20for%20Microsoft%20Sentinel/ReleaseNotes.md\" rel=\"noopener\">Release Notes</a></p><p>Gain insight into your organization's network and improve your security operation capabilities with the <a target=\"_blank\" href=\"https://www.fortinet.com/products/next-generation-firewall\" rel=\"noopener\">Fortinet FortiGate Next-generation Firewall</a> Solution for Microsoft Sentinel. It allows you to easily connect your FortiGate logs with Microsoft Sentinel. This enables you to view dashboards, create custom alerts, and improve investigation.</p><p>Playbooks are included to help in automated remediation</p><p>For questions about <a target=\"_blank\" href=\"https://azuremarketplace.microsoft.com/en-us/marketplace/apps/fortinet.fortinet_fortigate-vm_v5?tab=Overview\" rel=\"noopener\">FortiGate</a>, please contact Fortinet at <a target=\"_blank\" href=\"mailto:azuresales@fortinet.com\" rel=\"noopener\">azuresales@fortinet.com</a>.</p><p>This solution is dependent on the Common Event Format solution containing the CEF via AMA connector to collect the logs. The CEF solution will be installed as part of this solution installation.</p><p><strong>NOTE:</strong> Microsoft recommends installation of CEF via AMA Connector. The existing connectors are about to be deprecated by <strong>Aug 31, 2024</strong>.</p><p><strong>Workbooks:</strong> 1, <strong>Custom Azure Logic Apps Connectors:</strong> 1, <strong>Function Apps:</strong> 1, <strong>Playbooks:</strong> 3</p><p><a target=\"_blank\" href=\"https://aka.ms/azuresentinel\" rel=\"noopener\">Learn more about Microsoft Sentinel</a> | <a target=\"_blank\" href=\"https://aka.ms/azuresentinelsolutionsdoc\" rel=\"noopener\">Learn more about Solutions</a></p>",
+                "descriptionHtml": "<p><strong>Note:</strong> Please refer to the following before installing the solution:</p><p>\u2022 Review the solution <a target=\"_blank\" href=\"https://ms.portal.azure.com/verifyLink?href=https%3A%2F%2Fgithub.com%2FAzure%2FAzure-Sentinel%2Ftree%2Fmaster%2FSolutions%2FFortinet%2520FortiGate%2520Next-Generation%2520Firewall%2520connector%2520for%2520Microsoft%2520Sentinel%2FReleaseNotes.md&amp;id=fx\" rel=\"noopener\">Release Notes</a></p><p>\u2022 There may be <a target=\"_blank\" href=\"https://ms.portal.azure.com/verifyLink?href=https%3A%2F%2Faka.ms%2Fsentinelsolutionsknownissues&amp;id=fx\" rel=\"noopener\">known issues</a> pertaining to this Solution, please refer to them before installing.</p><p>Gain insight into your organization's network and improve your security operation capabilities with the <a target=\"_blank\" href=\"https://ms.portal.azure.com/verifyLink?href=https%3A%2F%2Fwww.fortinet.com%2Fproducts%2Fnext-generation-firewall&amp;id=fx\" rel=\"noopener\">Fortinet FortiGate Next-generation Firewall</a> Solution for Microsoft Sentinel. It allows you to easily connect your FortiGate logs with Microsoft Sentinel. This enables you to view dashboards, create custom alerts, and improve investigation.</p><p>Playbooks are included to help in automated remediation</p><p>For questions about <a target=\"_blank\" href=\"https://ms.portal.azure.com/verifyLink?href=https%3A%2F%2Fazuremarketplace.microsoft.com%2Fen-us%2Fmarketplace%2Fapps%2Ffortinet.fortinet_fortigate-vm_v5%3Ftab%3DOverview&amp;id=fx\" rel=\"noopener\">FortiGate</a>, please contact Fortinet at <a target=\"_blank\" href=\"mailto:azuresales@fortinet.com\" rel=\"noopener\">azuresales@fortinet.com</a>.</p><p>This solution is dependent on the Common Event Format solution containing the CEF via AMA connector to collect the logs. The CEF solution will be installed as part of this solution installation.</p><p><strong>NOTE:</strong> Microsoft recommends installation of CEF via AMA Connector. The existing connectors were deprecated on <strong>Aug 31, 2024</strong>.</p><p><strong>Workbooks:</strong> 1, <strong>Custom Azure Logic Apps Connectors:</strong> 1, <strong>Function Apps:</strong> 1, <strong>Playbooks:</strong> 3</p><p><a target=\"_blank\" href=\"https://ms.portal.azure.com/verifyLink?href=https%3A%2F%2Faka.ms%2Fazuresentinel&amp;id=fx\" rel=\"noopener\">Learn more about Microsoft Sentinel</a> | <a target=\"_blank\" href=\"https://ms.portal.azure.com/verifyLink?href=https%3A%2F%2Faka.ms%2Fazuresentinelsolutionsdoc&amp;id=fx\" rel=\"noopener\">Learn more about Solutions</a></p>",
                 "contentKind": "Solution",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-fortinetfort-sl-wicshyvcq7p7e",
-                "id": "azuresentinel.azure-sentinel-solution-fortinetfort-sl-wicshyvcq7p7e",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-fortinetfort-sl-mdrjkcu62tzb2",
+                "id": "azuresentinel.azure-sentinel-solution-fortinetfort-sl-mdrjkcu62tzb2",
                 "icon": "https://store-images.s-microsoft.com/image/apps.64828.fb8a6200-e06e-480f-9dce-82ca6ccdd4af.9a421a4d-e81e-4b21-bb16-302b3ee5807a.cf276ff1-48a3-42c1-805e-5d8ee1182833",
                 "contentId": "azuresentinel.azure-sentinel-solution-fortinetfortigate",
                 "parentId": "azuresentinel.azure-sentinel-solution-fortinetfortigate",
