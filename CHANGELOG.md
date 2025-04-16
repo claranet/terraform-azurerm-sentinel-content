@@ -1,3 +1,13 @@
+## 8.2.0 (2025-04-16)
+
+### Features
+
+* bump `Microsoft XDR` package template version to 3.0.12 + update embedded rules 616d631
+
+### Miscellaneous Chores
+
+* **deps:** update dependency terraform-docs to v0.20.0 101cd71
+
 ## 8.1.0 (2025-04-01)
 
 ### Features
