@@ -1,3 +1,13 @@
+## 8.2.1 (2025-04-25)
+
+### Code Refactoring
+
+* bump `Entra ID` package template version to 3.3.1 + update embedded rules 585ab7d
+
+### Miscellaneous Chores
+
+* **deps:** update dependency trivy to v0.61.1 47bd3da
+
 ## 8.2.0 (2025-04-16)
 
 ### Features
