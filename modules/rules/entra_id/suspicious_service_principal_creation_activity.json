@@ -23,59 +23,59 @@
         ],
         "entityMappings": [
             {
+                "entityType": "Account",
                 "fieldMappings": [
                     {
-                        "columnName": "CreatorUserPrincipalName",
-                        "identifier": "FullName"
+                        "identifier": "FullName",
+                        "columnName": "CreatorUserPrincipalName"
                     },
                     {
-                        "columnName": "CreatorName",
-                        "identifier": "Name"
+                        "identifier": "Name",
+                        "columnName": "CreatorName"
                     },
                     {
-                        "columnName": "CreatorUPNSuffix",
-                        "identifier": "UPNSuffix"
+                        "identifier": "UPNSuffix",
+                        "columnName": "CreatorUPNSuffix"
                     }
-                ],
-                "entityType": "Account"
+                ]
             },
             {
+                "entityType": "Account",
                 "fieldMappings": [
                     {
-                        "columnName": "DeleterUserPrincipalName",
-                        "identifier": "FullName"
+                        "identifier": "FullName",
+                        "columnName": "DeleterUserPrincipalName"
                     },
                     {
-                        "columnName": "DeleterName",
-                        "identifier": "Name"
+                        "identifier": "Name",
+                        "columnName": "DeleterName"
                     },
                     {
-                        "columnName": "DeleterSuffix",
-                        "identifier": "UPNSuffix"
+                        "identifier": "UPNSuffix",
+                        "columnName": "DeleterSuffix"
                     }
-                ],
-                "entityType": "Account"
+                ]
             },
             {
+                "entityType": "IP",
                 "fieldMappings": [
                     {
-                        "columnName": "CreatorIPAddress",
-                        "identifier": "Address"
+                        "identifier": "Address",
+                        "columnName": "CreatorIPAddress"
                     }
-                ],
-                "entityType": "IP"
+                ]
             },
             {
+                "entityType": "IP",
                 "fieldMappings": [
                     {
-                        "columnName": "DeleterIPAddress",
-                        "identifier": "Address"
+                        "identifier": "Address",
+                        "columnName": "DeleterIPAddress"
                     }
-                ],
-                "entityType": "IP"
+                ]
             }
         ],
         "alertRuleTemplateName": "6852d9da-8015-4b95-8ecf-d9572ee0395d",
-        "templateVersion": "1.0.3"
+        "templateVersion": "1.0.4"
     }
 }
