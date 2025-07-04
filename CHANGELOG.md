@@ -1,3 +1,25 @@
+## 8.2.2 (2025-07-04)
+
+### Code Refactoring
+
+* bump `CEF` package template version to 3.0.4 3ed143b
+* bump `Entra ID` package template version to 3.3.3 + update embedded rule 5a0c34c
+
+### Miscellaneous Chores
+
+* **⚙️:** ✏️ update template identifier for MR review 639b7f9
+* 🗑️ remove old commitlint configuration files ff2f4c1
+* **deps:** update dependency opentofu to v1.10.0 2012894
+* **deps:** update dependency opentofu to v1.10.1 eca4c1b
+* **deps:** update dependency opentofu to v1.9.1 4bb7390
+* **deps:** update dependency tflint to v0.57.0 846d89a
+* **deps:** update dependency tflint to v0.58.0 90182a3
+* **deps:** update dependency trivy to v0.62.0 c8230d3
+* **deps:** update dependency trivy to v0.62.1 4e2a4a2
+* **deps:** update dependency trivy to v0.63.0 f692b0d
+* **deps:** update pre-commit hook tofuutils/pre-commit-opentofu to v2.2.1 be87494
+* **deps:** update tools 4574c71
+
 ## 8.2.1 (2025-04-25)
 
 ### Code Refactoring
