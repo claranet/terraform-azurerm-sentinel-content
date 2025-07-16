@@ -1,0 +1,35 @@
+{
+    "kind": "Scheduled",
+    "properties": {
+        "description": "Detects when email with high risk score was not rejected or discarded by filters.",
+        "displayName": "ProofpointPOD - High risk message not discarded",
+        "enabled": true,
+        "query": "let lbtime = 10m;\nProofpointPOD\n| where TimeGenerated > ago(lbtime)\n| where EventType == 'message'\n| where NetworkDirection == 'inbound'\n| where FilterDisposition !in ('reject', 'discard')\n| where FilterModulesSpamScoresOverall == '100'\n| project SrcUserUpn, DstUserUpn\n| extend AccountCustomEntity = SrcUserUpn\n",
+        "queryFrequency": "PT10M",
+        "queryPeriod": "PT10M",
+        "severity": "Low",
+        "suppressionDuration": "PT1H",
+        "suppressionEnabled": false,
+        "triggerOperator": "GreaterThan",
+        "triggerThreshold": 0,
+        "tactics": [
+            "InitialAccess"
+        ],
+        "techniques": [
+            "T1566"
+        ],
+        "entityMappings": [
+            {
+                "entityType": "Account",
+                "fieldMappings": [
+                    {
+                        "identifier": "FullName",
+                        "columnName": "AccountCustomEntity"
+                    }
+                ]
+            }
+        ],
+        "alertRuleTemplateName": "c7cd6073-6d2c-4284-a5c8-da27605bdfde",
+        "templateVersion": "1.0.1"
+    }
+}

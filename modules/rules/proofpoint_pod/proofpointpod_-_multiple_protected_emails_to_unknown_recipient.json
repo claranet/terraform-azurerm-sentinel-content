@@ -1,0 +1,35 @@
+{
+    "kind": "Scheduled",
+    "properties": {
+        "description": "Detects when multiple protected messages where sent to early not seen recipient.",
+        "displayName": "ProofpointPOD - Multiple protected emails to unknown recipient",
+        "enabled": true,
+        "query": "let lbtime = 30m;\nlet lbperiod = 14d;\nlet knownrecipients = ProofpointPOD\n| where TimeGenerated > ago(lbperiod)\n| where EventType == 'message'\n| where NetworkDirection == 'outbound'\n| where SrcUserUpn != ''\n| where array_length(todynamic(DstUserUpn)) == 1\n| summarize recipients = make_set(tostring(todynamic(DstUserUpn)[0])) by SrcUserUpn\n| extend commcol = SrcUserUpn;\nProofpointPOD\n| where TimeGenerated between (ago(lbtime) .. now())\n| where EventType == 'message'\n| where NetworkDirection == 'outbound'\n| extend isProtected = todynamic(MsgParts)[0]['isProtected']\n| extend mimePgp = todynamic(MsgParts)[0]['detectedMime']\n| where isProtected == 'true' or mimePgp == 'application/pgp-encrypted'\n| extend DstUserMail = tostring(todynamic(DstUserUpn)[0])\n| extend commcol = tostring(todynamic(DstUserUpn)[0])\n| join knownrecipients on commcol\n| where recipients !contains DstUserMail\n| project SrcUserUpn, DstUserMail\n| extend AccountCustomEntity = SrcUserUpn\n",
+        "queryFrequency": "PT30M",
+        "queryPeriod": "PT30M",
+        "severity": "Medium",
+        "suppressionDuration": "PT1H",
+        "suppressionEnabled": false,
+        "triggerOperator": "GreaterThan",
+        "triggerThreshold": 0,
+        "tactics": [
+            "Exfiltration"
+        ],
+        "techniques": [
+            "T1567"
+        ],
+        "entityMappings": [
+            {
+                "entityType": "Account",
+                "fieldMappings": [
+                    {
+                        "identifier": "FullName",
+                        "columnName": "AccountCustomEntity"
+                    }
+                ]
+            }
+        ],
+        "alertRuleTemplateName": "f8127962-7739-4211-a4a9-390a7a00e91f",
+        "templateVersion": "1.1.1"
+    }
+}
