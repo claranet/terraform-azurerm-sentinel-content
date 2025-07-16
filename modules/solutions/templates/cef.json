@@ -206,7 +206,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Common Event Format",
                 "packageId": "azuresentinel.azure-sentinel-solution-commoneventformat",
                 "contentSchemaVersion": "3.0.0",
@@ -260,19 +260,15 @@
                     "title": "Common Event Format (CEF)",
                     "publisher": "Any",
                     "descriptionMarkdown": "Common Event Format (CEF) is an industry standard format on top of Syslog messages, used by many security vendors to allow event interoperability among different platforms. By connecting your CEF logs to Microsoft Sentinel, you can take advantage of search & correlation, alerting, and threat intelligence enrichment for each log. For more information, see the [Microsoft Sentinel documentation](https://go.microsoft.com/fwlink/p/?linkid=2223902&wt.mc_id=sentinel_dataconnectordocs_content_cnl_csasci).",
-                    "graphQueries": [
-                        {
-                            "metricName": "Total data received",
-                            "legend": "CommonSecurityLog",
-                            "baseQuery": "\nCommonSecurityLog\u200b \n| where DeviceVendor !in (\"Cisco\",\"Check Point\",\"Palo Alto Networks\",\"Fortinet\",\"F5\",\"Barracuda\",\"ExtraHop\",\"OneIdentity\",\"Zscaler\", \"ForgeRock Inc\", \"Cyber-Ark\", \"illusive\", \"Vectra Networks\", \"Citrix\", \"Darktrace\", \"Akamai\", \"Aruba Networks\", \"CrowdStrike\", \"Symantec\", \"Claroty\", \"Contrast Security\", \"Delinea Software\", \"Thycotic Software\", \"FireEye\", \"Forcepoint CSG\", \"Forcepoint\", \"Forcepoint CASB\", \"iboss\", \"Illumio\", \"Imperva Inc.\", \"Infoblox\", \"Morphisec\", \"Netwrix\", \"Nozomi\", \"Onapsis\", \"OSSEC\", \"PingFederate\", \"RidgeSecurity\", \"SonicWall\", \"Trend Micro\", \"vArmour\", \"Votiro\")\n"
-                        }
-                    ],
-                    "dataTypes": [
-                        {
-                            "name": "CommonSecurityLog",
-                            "lastDataReceivedQuery": "\nCommonSecurityLog\u200b \n| where DeviceVendor !in (\"Cisco\",\"Check Point\",\"Palo Alto Networks\",\"Fortinet\",\"F5\",\"Barracuda\",\"ExtraHop\",\"OneIdentity\",\"Zscaler\", \"ForgeRock Inc\", \"Cyber-Ark\", \"illusive\", \"Vectra Networks\", \"Citrix\", \"Darktrace\", \"Akamai\", \"Aruba Networks\", \"CrowdStrike\", \"Symantec\", \"Claroty\", \"Contrast Security\", \"Delinea Software\", \"Thycotic Software\", \"FireEye\", \"Forcepoint CSG\", \"Forcepoint\", \"Forcepoint CASB\", \"iboss\", \"Illumio\", \"Imperva Inc.\", \"Infoblox\", \"Morphisec\", \"Netwrix\", \"Nozomi\", \"Onapsis\", \"OSSEC\", \"PingFederate\", \"RidgeSecurity\", \"SonicWall\", \"Trend Micro\", \"vArmour\", \"Votiro\")\n\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)"
-                        }
-                    ],
+                    "graphQueries": {
+                        "metricName": "Total data received",
+                        "legend": "CommonSecurityLog",
+                        "baseQuery": "\nCommonSecurityLog\u200b \n| where DeviceVendor !in (\"Cisco\",\"Check Point\",\"Palo Alto Networks\",\"Fortinet\",\"F5\",\"Barracuda\",\"ExtraHop\",\"OneIdentity\",\"Zscaler\", \"ForgeRock Inc\", \"Cyber-Ark\", \"illusive\", \"Vectra Networks\", \"Citrix\", \"Darktrace\", \"Akamai\", \"Aruba Networks\", \"CrowdStrike\", \"Symantec\", \"Claroty\", \"Contrast Security\", \"Delinea Software\", \"Thycotic Software\", \"FireEye\", \"Forcepoint CSG\", \"Forcepoint\", \"Forcepoint CASB\", \"iboss\", \"Illumio\", \"Imperva Inc.\", \"Infoblox\", \"Morphisec\", \"Netwrix\", \"Nozomi\", \"Onapsis\", \"OSSEC\", \"PingFederate\", \"RidgeSecurity\", \"SonicWall\", \"Trend Micro\", \"vArmour\", \"Votiro\")\n"
+                    },
+                    "dataTypes": {
+                        "name": "CommonSecurityLog",
+                        "lastDataReceivedQuery": "\nCommonSecurityLog\u200b \n| where DeviceVendor !in (\"Cisco\",\"Check Point\",\"Palo Alto Networks\",\"Fortinet\",\"F5\",\"Barracuda\",\"ExtraHop\",\"OneIdentity\",\"Zscaler\", \"ForgeRock Inc\", \"Cyber-Ark\", \"illusive\", \"Vectra Networks\", \"Citrix\", \"Darktrace\", \"Akamai\", \"Aruba Networks\", \"CrowdStrike\", \"Symantec\", \"Claroty\", \"Contrast Security\", \"Delinea Software\", \"Thycotic Software\", \"FireEye\", \"Forcepoint CSG\", \"Forcepoint\", \"Forcepoint CASB\", \"iboss\", \"Illumio\", \"Imperva Inc.\", \"Infoblox\", \"Morphisec\", \"Netwrix\", \"Nozomi\", \"Onapsis\", \"OSSEC\", \"PingFederate\", \"RidgeSecurity\", \"SonicWall\", \"Trend Micro\", \"vArmour\", \"Votiro\")\n\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)"
+                    },
                     "connectivityCriterias": [
                         {
                             "type": "IsConnectedQuery",
@@ -281,11 +277,9 @@
                             ]
                         }
                     ],
-                    "sampleQueries": [
-                        {
-                            "query": "\nCommonSecurityLog\u200b \n| where DeviceVendor !in (\"Cisco\",\"Check Point\",\"Palo Alto Networks\",\"Fortinet\",\"F5\",\"Barracuda\",\"ExtraHop\",\"OneIdentity\",\"Zscaler\", \"ForgeRock Inc\", \"Cyber-Ark\", \"illusive\", \"Vectra Networks\", \"Citrix\", \"Darktrace\", \"Akamai\", \"Aruba Networks\", \"CrowdStrike\", \"Symantec\", \"Claroty\", \"Contrast Security\", \"Delinea Software\", \"Thycotic Software\", \"FireEye\", \"Forcepoint CSG\", \"Forcepoint\", \"Forcepoint CASB\", \"iboss\", \"Illumio\", \"Imperva Inc.\", \"Infoblox\", \"Morphisec\", \"Netwrix\", \"Nozomi\", \"Onapsis\", \"OSSEC\", \"PingFederate\", \"RidgeSecurity\", \"SonicWall\", \"Trend Micro\", \"vArmour\")\n\n            | sort by TimeGenerated"
-                        }
-                    ],
+                    "sampleQueries": {
+                        "query": "\nCommonSecurityLog\u200b \n| where DeviceVendor !in (\"Cisco\",\"Check Point\",\"Palo Alto Networks\",\"Fortinet\",\"F5\",\"Barracuda\",\"ExtraHop\",\"OneIdentity\",\"Zscaler\", \"ForgeRock Inc\", \"Cyber-Ark\", \"illusive\", \"Vectra Networks\", \"Citrix\", \"Darktrace\", \"Akamai\", \"Aruba Networks\", \"CrowdStrike\", \"Symantec\", \"Claroty\", \"Contrast Security\", \"Delinea Software\", \"Thycotic Software\", \"FireEye\", \"Forcepoint CSG\", \"Forcepoint\", \"Forcepoint CASB\", \"iboss\", \"Illumio\", \"Imperva Inc.\", \"Infoblox\", \"Morphisec\", \"Netwrix\", \"Nozomi\", \"Onapsis\", \"OSSEC\", \"PingFederate\", \"RidgeSecurity\", \"SonicWall\", \"Trend Micro\", \"vArmour\")\n\n            | sort by TimeGenerated"
+                    },
                     "availability": {
                         "status": 1,
                         "isPreview": false
@@ -450,7 +444,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Common Event Format",
                 "packageId": "azuresentinel.azure-sentinel-solution-commoneventformat",
                 "contentSchemaVersion": "3.0.0",
@@ -595,7 +589,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Common Event Format",
                 "packageId": "azuresentinel.azure-sentinel-solution-commoneventformat",
                 "contentSchemaVersion": "3.0.0",
@@ -613,15 +607,15 @@
             "apiVersion": "2023-04-01-preview",
             "location": "[parameters('workspace-location')]",
             "properties": {
-                "version": "3.0.4",
+                "version": "3.0.5",
                 "kind": "Solution",
                 "contentSchemaVersion": "3.0.0",
                 "displayName": "Common Event Format",
                 "publisherDisplayName": "Microsoft Sentinel, Microsoft Corporation",
-                "descriptionHtml": "<p>The Common Event Format (CEF) solution for Microsoft Sentinel allows you to ingest logs from any product and/or appliance that can send logs in the <a target=\"_blank\" href=\"https://docs.microsoft.com/azure/sentinel/connect-common-event-format?WT.mc_id=Portal-fx\" rel=\"noopener\">Common Event Format (CEF) over Syslog messages</a>.</p><p>Installing this solution will deploy two data connectors,</p><ol><li><b>Common Event Format via AMA</b> - This data connector helps in ingesting CEF formatted logs into your Log Analytics Workspace using the new Azure Monitor Agent. Learn more about ingesting using the new Azure Monitor Agent <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/sentinel/connect-cef-ama\" rel=\"noopener\">here</a>. Microsoft recommends using this Data Connector</li><li><b>Common Event Format via Legacy Agent</b> - This data connector helps in ingesting CEF formatted logs into your Log Analytics Workspace using the legacy Log Analytics agent.</li></ol><p><b>NOTE:</b> After the solution is installed, Microsoft recommends configuring and leveraging the <b>Common Event Format via AMA</b> connector for log ingestion. Legacy connector uses the Log Analytics agent, which is deprecated on <b>Aug 31, 2024,</b> and thus should only be installed where AMA is not supported.</p><p></p><p><b>Underlying Microsoft Technologies used:</b></p><p>This solution takes a dependency on the following technologies, and some of these dependencies either may be in <a target=\"_blank\" href=\"https://azure.microsoft.com/support/legal/preview-supplemental-terms/\" rel=\"noopener\">Preview</a> state or might result in additional ingestion or operational costs:</p><p>a. <a target=\"_blank\" href=\"https://docs.microsoft.com/azure/sentinel/connect-common-event-format?WT.mc_id=Portal-fx\" rel=\"noopener\">Agent-based log collection (CEF over Syslog)</a></p><p><b>Data Connectors:</b> 2</p><p><a target=\"_blank\" href=\"https://aka.ms/azuresentinel\" rel=\"noopener\">Learn more about Microsoft Sentinel</a> | <a target=\"_blank\" href=\"https://aka.ms/azuresentinelsolutionsdoc\" rel=\"noopener\">Learn more about Solutions</a></p>",
+                "descriptionHtml": "<p><strong>Note:</strong> Please refer to the following before installing the solution:</p><p>\u2022 Review the solution <a target=\"_blank\" href=\"https://ms.portal.azure.com/verifyLink?href=https%3A%2F%2Fgithub.com%2FAzure%2FAzure-Sentinel%2Ftree%2Fmaster%2FSolutions%2FCommon%2520Event%2520Format%2FReleaseNotes.md&amp;id=fx\" rel=\"noopener\">Release Notes</a></p><p>\u2022 There may be <a target=\"_blank\" href=\"https://ms.portal.azure.com/verifyLink?href=https%3A%2F%2Faka.ms%2Fsentinelsolutionsknownissues&amp;id=fx\" rel=\"noopener\">known issues</a> pertaining to this Solution, please refer to them before installing.</p><p>The Common Event Format (CEF) solution for Microsoft Sentinel allows you to ingest logs from any product and/or appliance that can send logs in the <a target=\"_blank\" href=\"https://docs.microsoft.com/azure/sentinel/connect-common-event-format?WT.mc_id=Portal-fx\" rel=\"noopener\">Common Event Format (CEF) over Syslog messages</a>.</p><p>Installing this solution will deploy two data connectors,</p><ol><li><b>Common Event Format via AMA</b> - This data connector helps in ingesting CEF formatted logs into your Log Analytics Workspace using the new Azure Monitor Agent. Learn more about ingesting using the new Azure Monitor Agent <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/sentinel/connect-cef-ama\" rel=\"noopener\">here</a>. Microsoft recommends using this Data Connector</li><li><b>Common Event Format via Legacy Agent</b> - This data connector helps in ingesting CEF formatted logs into your Log Analytics Workspace using the legacy Log Analytics agent.</li></ol><p><b>NOTE:</b> After the solution is installed, Microsoft recommends configuring and leveraging the <b>Common Event Format via AMA</b> connector for log ingestion. Legacy connector uses the Log Analytics agent, which is deprecated on <b>Aug 31, 2024,</b> and thus should only be installed where AMA is not supported.</p><p></p><p><b>Underlying Microsoft Technologies used:</b></p><p>This solution takes a dependency on the following technologies, and some of these dependencies either may be in <a target=\"_blank\" href=\"https://azure.microsoft.com/support/legal/preview-supplemental-terms/\" rel=\"noopener\">Preview</a> state or might result in additional ingestion or operational costs:</p><p>a. <a target=\"_blank\" href=\"https://docs.microsoft.com/azure/sentinel/connect-common-event-format?WT.mc_id=Portal-fx\" rel=\"noopener\">Agent-based log collection (CEF over Syslog)</a></p><p><strong>Data Connectors:</strong> 2, <strong>Workbooks:</strong> 1</p><p><a target=\"_blank\" href=\"https://aka.ms/azuresentinel\" rel=\"noopener\">Learn more about Microsoft Sentinel</a> | <a target=\"_blank\" href=\"https://aka.ms/azuresentinelsolutionsdoc\" rel=\"noopener\">Learn more about Solutions</a></p>",
                 "contentKind": "Solution",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-commoneventf-sl-bespevz4sgq4g",
-                "id": "azuresentinel.azure-sentinel-solution-commoneventf-sl-bespevz4sgq4g",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-commoneventf-sl-sz2dnzzie2us2",
+                "id": "azuresentinel.azure-sentinel-solution-commoneventf-sl-sz2dnzzie2us2",
                 "icon": "https://store-images.s-microsoft.com/image/apps.64828.04050cde-d5d0-47ee-8577-c53e3dd96f3e.8d36a8ed-a609-4719-ad1b-1581269ebbc5.4a81323c-9d10-401e-b36a-c8150a48ac34",
                 "contentId": "azuresentinel.azure-sentinel-solution-commoneventformat",
                 "parentId": "azuresentinel.azure-sentinel-solution-commoneventformat",
