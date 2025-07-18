@@ -1,0 +1,35 @@
+{
+    "kind": "Scheduled",
+    "properties": {
+        "description": "Detects when email contains suspicious attachment (file type).",
+        "displayName": "ProofpointPOD - Suspicious attachment",
+        "enabled": true,
+        "query": "let lbtime = 10m;\nlet disallowed_ext = dynamic(['ps1', 'exe', 'vbs', 'js', 'scr']);\nProofpointPOD\n| where TimeGenerated > ago(lbtime)\n| where EventType == 'message'\n| where NetworkDirection == 'inbound'\n| where FilterDisposition !in ('reject', 'discard')\n| extend attachedExt = todynamic(MsgParts)[0]['detectedExt']\n| where tolower(attachedExt) in (disallowed_ext)\n| project SrcUserUpn, AccountCustomEntity = parse_json(DstUserUpn)[0], attachedExt\n",
+        "queryFrequency": "PT10M",
+        "queryPeriod": "PT10M",
+        "severity": "Medium",
+        "suppressionDuration": "PT1H",
+        "suppressionEnabled": false,
+        "triggerOperator": "GreaterThan",
+        "triggerThreshold": 0,
+        "tactics": [
+            "InitialAccess"
+        ],
+        "techniques": [
+            "T1566"
+        ],
+        "entityMappings": [
+            {
+                "entityType": "Account",
+                "fieldMappings": [
+                    {
+                        "identifier": "FullName",
+                        "columnName": "AccountCustomEntity"
+                    }
+                ]
+            }
+        ],
+        "alertRuleTemplateName": "f6a51e2c-2d6a-4f92-a090-cfb002ca611f",
+        "templateVersion": "1.0.2"
+    }
+}

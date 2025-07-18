@@ -1,0 +1,35 @@
+{
+    "kind": "Scheduled",
+    "properties": {
+        "description": "Detects when multiple emails where sent to the same recipient with large archived attachments.",
+        "displayName": "ProofpointPOD - Multiple archived attachments to the same recipient",
+        "enabled": true,
+        "query": "let lbtime = 30m;\nlet msgthreshold = 3;\nlet compressedTypes = dynamic(['zip', 'rar', 'tar', 'x-7z-compressed']);\nProofpointPOD\n| where TimeGenerated > ago(lbtime)\n| where EventType == 'message'\n| where NetworkDirection == 'outbound'\n| extend attachedMimeType = todynamic(MsgParts)[0]['detectedMime']\n| where attachedMimeType has_any (compressedTypes)\n| summarize count(), make_set(attachedMimeType) by SrcUserUpn, DstUserUpn\n| where count_ > msgthreshold\n| extend AccountCustomEntity = SrcUserUpn\n",
+        "queryFrequency": "PT30M",
+        "queryPeriod": "PT30M",
+        "severity": "Medium",
+        "suppressionDuration": "PT1H",
+        "suppressionEnabled": false,
+        "triggerOperator": "GreaterThan",
+        "triggerThreshold": 0,
+        "tactics": [
+            "Exfiltration"
+        ],
+        "techniques": [
+            "T1567"
+        ],
+        "entityMappings": [
+            {
+                "entityType": "Account",
+                "fieldMappings": [
+                    {
+                        "identifier": "FullName",
+                        "columnName": "AccountCustomEntity"
+                    }
+                ]
+            }
+        ],
+        "alertRuleTemplateName": "bda5a2bd-979b-4828-a91f-27c2a5048f7f",
+        "templateVersion": "1.0.2"
+    }
+}

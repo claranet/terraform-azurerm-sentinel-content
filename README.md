@@ -23,6 +23,8 @@ __Current log sources supported__ :
 - _gworkspace_
 - _m365_
 - _okta_
+- _proofpoint\_pod_
+- _proofpoint\_tap_
 - _sentinelone_
 - _sonicwall\_fw_
 - _sophos\_endpoint_

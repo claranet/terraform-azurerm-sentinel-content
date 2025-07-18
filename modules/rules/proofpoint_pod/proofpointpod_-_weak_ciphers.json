@@ -1,0 +1,35 @@
+{
+    "kind": "Scheduled",
+    "properties": {
+        "description": "Detects when weak TLS ciphers are used.",
+        "displayName": "ProofpointPOD - Weak ciphers",
+        "enabled": true,
+        "query": "let lbtime = 1h;\nlet tls_ciphers = dynamic(['RC4-SHA', 'DES-CBC3-SHA']);\nProofpointPOD\n| where EventType == 'message'\n| where TlsCipher in (tls_ciphers)\n| extend IPCustomEntity = SrcIpAddr\n",
+        "queryFrequency": "PT1H",
+        "queryPeriod": "PT1H",
+        "severity": "Low",
+        "suppressionDuration": "PT1H",
+        "suppressionEnabled": false,
+        "triggerOperator": "GreaterThan",
+        "triggerThreshold": 0,
+        "tactics": [
+            "CommandandControl"
+        ],
+        "techniques": [
+            "T1573"
+        ],
+        "entityMappings": [
+            {
+                "entityType": "IP",
+                "fieldMappings": [
+                    {
+                        "identifier": "Address",
+                        "columnName": "IPCustomEntity"
+                    }
+                ]
+            }
+        ],
+        "alertRuleTemplateName": "56b0a0cd-894e-4b38-a0a1-c41d9f96649a",
+        "templateVersion": "1.0.2"
+    }
+}
