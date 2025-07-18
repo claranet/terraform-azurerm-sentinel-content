@@ -1,3 +1,20 @@
+## 8.3.0 (2025-07-18)
+
+### Features
+
+* add `Proofpoint POD` and `Proofpoint TAP` packages f1e250c
+
+### Code Refactoring
+
+* bump `CEF` package template version to 3.0.5 e0ceebc
+* bump `Threat Intelligence` package template version to 3.1.2 + update embedded rule 2ea170c
+* bump `Zscaler Private Access` package template version to 3.0.2 d7044c7
+
+### Miscellaneous Chores
+
+* **deps:** update dependency opentofu to v1.10.3 97f171b
+* **deps:** update dependency tflint to v0.58.1 ae1f7c3
+
 ## 8.2.2 (2025-07-04)
 
 ### Code Refactoring
