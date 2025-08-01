@@ -1,0 +1,51 @@
+{
+    "kind": "Scheduled",
+    "properties": {
+        "description": "A Conditional Access policy was updated in Entra ID.",
+        "displayName": "Conditional Access - A Conditional Access policy was updated",
+        "enabled": true,
+        "query": "// A Conditional Access policy was updated.\nAuditLogs\n| where OperationName == \"Update conditional access policy\"\n| extend\n    policy = tostring(TargetResources[0].displayName),\n    modifiedBy = tostring(InitiatedBy.user.userPrincipalName),\n    oldPolicy = tostring(TargetResources[0].modifiedProperties[0].oldValue),\n    newPolicy = tostring(TargetResources[0].modifiedProperties[0].newValue)\n| extend\n    accountName = tostring(split(modifiedBy, \"@\")[0]),\n    upnSuffix = tostring(split(modifiedBy, \"@\")[1])\n| project\n    TimeGenerated,\n    OperationName,\n    policy,\n    modifiedBy,\n    accountName,\n    upnSuffix,\n    oldPolicy,\n    newPolicy,\n    Result\n\n",
+        "queryFrequency": "PT5M",
+        "queryPeriod": "PT5M",
+        "severity": "Informational",
+        "suppressionDuration": "PT1H",
+        "suppressionEnabled": false,
+        "triggerOperator": "GreaterThan",
+        "triggerThreshold": 0,
+        "tactics": [
+            "DefenseEvasion"
+        ],
+        "techniques": [
+            "T1562"
+        ],
+        "entityMappings": [
+            {
+                "fieldMappings": [
+                    {
+                        "identifier": "Name",
+                        "columnName": "accountName"
+                    },
+                    {
+                        "identifier": "UPNSuffix",
+                        "columnName": "upnSuffix"
+                    }
+                ],
+                "entityType": "Account"
+            }
+        ],
+        "eventGroupingSettings": {
+            "aggregationKind": "AlertPerResult"
+        },
+        "incidentConfiguration": {
+            "groupingConfiguration": {
+                "matchingMethod": "AllEntities",
+                "lookbackDuration": "1h",
+                "reopenClosedIncident": false,
+                "enabled": false
+            },
+            "createIncident": true
+        },
+        "alertRuleTemplateName": "ccca6b88-a7b6-41c9-9be2-fc3daeb65b26",
+        "templateVersion": "1.0.0"
+    }
+}
