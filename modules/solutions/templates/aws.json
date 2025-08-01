@@ -133,7 +133,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -340,7 +340,7 @@
                                     },
                                     "instructionSteps": [
                                         {
-                                            "description": "The\u200bre are two options for setting up your AWS environment to send logs from an S3 bucket to your Log Analytics Workspace:",
+                                            "description": "There are two options for setting up your AWS environment to send logs from an S3 bucket to your Log Analytics Workspace:",
                                             "instructions": [
                                                 {
                                                     "parameters": {
@@ -350,8 +350,8 @@
                                                                 "instructions": [
                                                                     {
                                                                         "parameters": {
-                                                                            "govScript": "Download and extract the files from the following link: [AWS S3 Setup Script](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/AWS-S3/ConfigAwsS3DataConnectorScriptsGov.zip).\n\n> 1. Make sure that you have PowerShell on your machine: [Installation instructions for PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell?view=powershell-7.2).\n\n> 2. Make sure that you have the AWS CLI on your machine: [Installation instructions for the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html).\n\nBefore running the script, run the aws configure command from your PowerShell command line, and enter the relevant information as prompted. See [AWS Command Line Interface | Configuration basics](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html) for details.",
-                                                                            "prodScript": "Download and extract the files from the following link: [AWS S3 Setup Script](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/AWS-S3/ConfigAwsS3DataConnectorScripts.zip).\n\n> 1. Make sure that you have PowerShell on your machine: [Installation instructions for PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell?view=powershell-7.2).\n\n> 2. Make sure that you have the AWS CLI on your machine: [Installation instructions for the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html).\n\nBefore running the script, run the aws configure command from your PowerShell command line, and enter the relevant information as prompted. See [AWS Command Line Interface | Configuration basics](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html) for details."
+                                                                            "govScript": "Download and extract the files from the following link: [AWS S3 Setup Script](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/AWS-S3/ConfigAwsS3DataConnectorScriptsGov.zip).\n\n> 1. Make sure that you have PowerShell on your machine: [Installation instructions for PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell?view=powershell-7.2).\n\n> 2. Make sure that you have the AWS CLI on your machine: [Installation instructions for the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html).\n\nBefore running the script, run the aws configure command from your PowerShell command line, and enter the relevant information as prompted. See [AWS Command Line Interface | Configuration basics](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html) for details. Note: When Aws configure is run, Default output format should not be set to None. It must be set to some value, such as json.",
+                                                                            "prodScript": "Download and extract the files from the following link: [AWS S3 Setup Script](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/AWS-S3/ConfigAwsS3DataConnectorScripts.zip).\n\n> 1. Make sure that you have PowerShell on your machine: [Installation instructions for PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell?view=powershell-7.2).\n\n> 2. Make sure that you have the AWS CLI on your machine: [Installation instructions for the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html).\n\nBefore running the script, run the aws configure command from your PowerShell command line, and enter the relevant information as prompted. See [AWS Command Line Interface | Configuration basics](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html) for details. Note: When Aws configure is run, Default output format should not be set to None. It must be set to some value, such as json."
                                                                         },
                                                                         "type": "MarkdownControlEnvBased"
                                                                     },
@@ -425,7 +425,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -578,7 +578,7 @@
                     },
                     "instructionSteps": [
                         {
-                            "description": "The\u200bre are two options for setting up your AWS environment to send logs from an S3 bucket to your Log Analytics Workspace:",
+                            "description": "There are two options for setting up your AWS environment to send logs from an S3 bucket to your Log Analytics Workspace:",
                             "instructions": [
                                 {
                                     "parameters": {
@@ -588,8 +588,8 @@
                                                 "instructions": [
                                                     {
                                                         "parameters": {
-                                                            "govScript": "Download and extract the files from the following link: [AWS S3 Setup Script](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/AWS-S3/ConfigAwsS3DataConnectorScriptsGov.zip).\n\n> 1. Make sure that you have PowerShell on your machine: [Installation instructions for PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell?view=powershell-7.2).\n\n> 2. Make sure that you have the AWS CLI on your machine: [Installation instructions for the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html).\n\nBefore running the script, run the aws configure command from your PowerShell command line, and enter the relevant information as prompted. See [AWS Command Line Interface | Configuration basics](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html) for details.",
-                                                            "prodScript": "Download and extract the files from the following link: [AWS S3 Setup Script](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/AWS-S3/ConfigAwsS3DataConnectorScripts.zip).\n\n> 1. Make sure that you have PowerShell on your machine: [Installation instructions for PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell?view=powershell-7.2).\n\n> 2. Make sure that you have the AWS CLI on your machine: [Installation instructions for the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html).\n\nBefore running the script, run the aws configure command from your PowerShell command line, and enter the relevant information as prompted. See [AWS Command Line Interface | Configuration basics](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html) for details."
+                                                            "govScript": "Download and extract the files from the following link: [AWS S3 Setup Script](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/AWS-S3/ConfigAwsS3DataConnectorScriptsGov.zip).\n\n> 1. Make sure that you have PowerShell on your machine: [Installation instructions for PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell?view=powershell-7.2).\n\n> 2. Make sure that you have the AWS CLI on your machine: [Installation instructions for the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html).\n\nBefore running the script, run the aws configure command from your PowerShell command line, and enter the relevant information as prompted. See [AWS Command Line Interface | Configuration basics](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html) for details. Note: When Aws configure is run, Default output format should not be set to None. It must be set to some value, such as json.",
+                                                            "prodScript": "Download and extract the files from the following link: [AWS S3 Setup Script](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/AWS-S3/ConfigAwsS3DataConnectorScripts.zip).\n\n> 1. Make sure that you have PowerShell on your machine: [Installation instructions for PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell?view=powershell-7.2).\n\n> 2. Make sure that you have the AWS CLI on your machine: [Installation instructions for the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html).\n\nBefore running the script, run the aws configure command from your PowerShell command line, and enter the relevant information as prompted. See [AWS Command Line Interface | Configuration basics](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html) for details. Note: When Aws configure is run, Default output format should not be set to None. It must be set to some value, such as json."
                                                         },
                                                         "type": "MarkdownControlEnvBased"
                                                     },
@@ -888,7 +888,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-amazonwebser-dc-k4vl2lslge46m",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
@@ -1120,20 +1120,20 @@
                     "parameters": {
                         "guidValue": {
                             "defaultValue": "[[newGuid()]",
-                            "type": "string"
+                            "type": "securestring"
                         },
                         "innerWorkspace": {
                             "defaultValue": "[parameters('workspace')]",
-                            "type": "string"
+                            "type": "securestring"
                         },
                         "connectorDefinitionName": {
                             "defaultValue": "Amazon Web Services S3 WAF",
-                            "type": "String",
+                            "type": "securestring",
                             "minLength": 1
                         },
                         "workspace": {
                             "defaultValue": "[parameters('workspace')]",
-                            "type": "string"
+                            "type": "securestring"
                         },
                         "dcrConfig": {
                             "defaultValue": {
@@ -1144,12 +1144,12 @@
                         },
                         "roleArn": {
                             "defaultValue": "roleArn",
-                            "type": "String",
+                            "type": "securestring",
                             "minLength": 1
                         },
                         "queueUrl": {
                             "defaultValue": "queueUrl",
-                            "type": "String",
+                            "type": "securestring",
                             "minLength": 1
                         }
                     },
@@ -1215,7 +1215,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-amazonwebser-rdc-43gm2me3ri2og",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
@@ -1301,7 +1301,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -1389,7 +1389,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -1516,7 +1516,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -1662,7 +1662,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -1806,7 +1806,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -1954,7 +1954,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -2101,7 +2101,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -2245,7 +2245,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -2390,7 +2390,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -2534,7 +2534,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -2678,7 +2678,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -2821,7 +2821,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -2949,9 +2949,9 @@
                                 },
                                 "alertDetailsOverride": {
                                     "alertSeverityColumnName": "Severity",
-                                    "alertTacticsColumnName": "ThreatPurpose",
+                                    "alertDescriptionFormat": "{{Description}}",
                                     "alertDisplayNameFormat": "{{Title}}",
-                                    "alertDescriptionFormat": "{{Description}}"
+                                    "alertTacticsColumnName": "ThreatPurpose"
                                 }
                             }
                         },
@@ -2984,7 +2984,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -3118,7 +3118,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -3252,7 +3252,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -3386,7 +3386,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -3520,7 +3520,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -3654,7 +3654,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -3788,7 +3788,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -3922,7 +3922,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -4056,7 +4056,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -4190,7 +4190,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -4324,7 +4324,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -4458,7 +4458,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -4592,7 +4592,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -4726,7 +4726,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -4860,7 +4860,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -4994,7 +4994,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -5128,7 +5128,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -5262,7 +5262,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -5396,7 +5396,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -5530,7 +5530,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -5664,7 +5664,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -5798,7 +5798,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -5932,7 +5932,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -6066,7 +6066,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -6200,7 +6200,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -6334,7 +6334,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -6468,7 +6468,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -6602,7 +6602,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -6736,7 +6736,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -6870,7 +6870,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -7004,7 +7004,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -7138,7 +7138,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -7272,7 +7272,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -7406,7 +7406,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -7540,7 +7540,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -7674,7 +7674,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -7808,7 +7808,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -7942,7 +7942,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -8076,7 +8076,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -8210,7 +8210,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -8344,7 +8344,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -8478,7 +8478,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -8612,7 +8612,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -8746,7 +8746,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -8880,7 +8880,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -8987,8 +8987,8 @@
                                 ],
                                 "customDetails": {
                                     "SuspiciousCommand": "commands",
-                                    "AWSUserIp": "SourceIpAddress",
-                                    "AWSUser": "UserIdentityUserName"
+                                    "AWSUser": "UserIdentityUserName",
+                                    "AWSUserIp": "SourceIpAddress"
                                 }
                             }
                         },
@@ -9021,7 +9021,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -9126,8 +9126,8 @@
                                 ],
                                 "customDetails": {
                                     "UserAgent": "UserAgent",
-                                    "SourceIpAddress": "SourceIpAddress",
-                                    "AWSUser": "UserIdentityArn"
+                                    "AWSUser": "UserIdentityArn",
+                                    "SourceIpAddress": "SourceIpAddress"
                                 }
                             }
                         },
@@ -9160,7 +9160,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -9170,6 +9170,132 @@
                 "contentProductId": "azuresentinel.azure-sentinel-solution-amazonwebser-ar-l34icyy4td5ii",
                 "id": "azuresentinel.azure-sentinel-solution-amazonwebser-ar-l34icyy4td5ii",
                 "version": "1.0.1",
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "AWSCloudTrail"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "AWS"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
+            "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-ar-',uniquestring('9a6554e6-63d9-4f94-9b32-64d1d40628f2')))]",
+            "location": "[parameters('workspace-location')]",
+            "dependsOn": [
+                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-amazonwebservices')]"
+            ],
+            "properties": {
+                "description": "Establishes persistence by creating an access key on an existing IAM user. This type of action should be validated by Account Admin of AWS Account. Ref : https://stratus-red-team.cloud/attack-techniques/AWS/aws.persistence.iam-backdoor-user/",
+                "mainTemplate": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
+                            "name": "9a6554e6-63d9-4f94-9b32-64d1d40628f2",
+                            "apiVersion": "2023-02-01-preview",
+                            "kind": "Scheduled",
+                            "location": "[parameters('workspace-location')]",
+                            "properties": {
+                                "description": "Establishes persistence by creating an access key on an existing IAM user. This type of action should be validated by Account Admin of AWS Account. Ref : https://stratus-red-team.cloud/attack-techniques/AWS/aws.persistence.iam-backdoor-user/",
+                                "displayName": "Creation of Access Key for IAM User",
+                                "enabled": false,
+                                "query": "AWSCloudTrail\n| where EventName == \"CreateAccessKey\" \n| project-away SourceSystem,Category,Type,TenantId,EventVersion,SessionIssuerAccountId\n",
+                                "queryFrequency": "PT15M",
+                                "queryPeriod": "PT15M",
+                                "severity": "Medium",
+                                "suppressionDuration": "PT1H",
+                                "suppressionEnabled": false,
+                                "triggerOperator": "GreaterThan",
+                                "triggerThreshold": 0,
+                                "status": "Available",
+                                "requiredDataConnectors": [
+                                    {
+                                        "dataTypes": [
+                                            "AWSCloudTrail"
+                                        ],
+                                        "connectorId": "AWS"
+                                    }
+                                ],
+                                "tactics": [
+                                    "Persistence"
+                                ],
+                                "techniques": [
+                                    "T1098"
+                                ],
+                                "entityMappings": [
+                                    {
+                                        "entityType": "Account",
+                                        "fieldMappings": [
+                                            {
+                                                "columnName": "UserIdentityUserName",
+                                                "identifier": "FullName"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "entityType": "IP",
+                                        "fieldMappings": [
+                                            {
+                                                "columnName": "SourceIpAddress",
+                                                "identifier": "Address"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
+                            "apiVersion": "2022-01-01-preview",
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('AnalyticsRule-', last(split(resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '9a6554e6-63d9-4f94-9b32-64d1d40628f2'),'/'))))]",
+                            "properties": {
+                                "description": "Amazon Web Services Analytics Rule 58",
+                                "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '9a6554e6-63d9-4f94-9b32-64d1d40628f2')]",
+                                "contentId": "9a6554e6-63d9-4f94-9b32-64d1d40628f2",
+                                "kind": "AnalyticsRule",
+                                "version": "1.0.0",
+                                "source": {
+                                    "kind": "Solution",
+                                    "name": "Amazon Web Services",
+                                    "sourceId": "azuresentinel.azure-sentinel-solution-amazonwebservices"
+                                },
+                                "author": {
+                                    "name": "Microsoft"
+                                },
+                                "support": {
+                                    "name": "Microsoft Corporation",
+                                    "email": "support@microsoft.com",
+                                    "tier": "Microsoft",
+                                    "link": "https://support.microsoft.com"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "packageKind": "Solution",
+                "packageVersion": "3.0.6",
+                "packageName": "Amazon Web Services",
+                "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "9a6554e6-63d9-4f94-9b32-64d1d40628f2",
+                "contentKind": "AnalyticsRule",
+                "displayName": "Creation of Access Key for IAM User",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-amazonwebser-ar-u5i75s4kzs2fg",
+                "id": "azuresentinel.azure-sentinel-solution-amazonwebser-ar-u5i75s4kzs2fg",
+                "version": "1.0.0",
                 "isDeprecated": false,
                 "dependencies": {
                     "operator": "AND",
@@ -9258,7 +9384,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -9343,7 +9469,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -9428,7 +9554,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -9513,7 +9639,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -9598,7 +9724,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -9683,7 +9809,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -9768,7 +9894,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -9853,7 +9979,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -9938,7 +10064,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -10023,7 +10149,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -10108,7 +10234,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -10193,7 +10319,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -10278,7 +10404,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -10363,7 +10489,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -10448,7 +10574,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -10533,7 +10659,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -10618,7 +10744,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -10703,7 +10829,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -10788,7 +10914,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -10873,7 +10999,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -10958,7 +11084,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -11043,7 +11169,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -11128,7 +11254,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -11213,7 +11339,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -11298,7 +11424,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -11383,7 +11509,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -11468,7 +11594,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -11553,7 +11679,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -11638,7 +11764,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -11723,7 +11849,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -11808,7 +11934,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -11893,7 +12019,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -11978,7 +12104,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -12063,7 +12189,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -12148,7 +12274,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -12233,7 +12359,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -12251,15 +12377,15 @@
             "apiVersion": "2023-04-01-preview",
             "location": "[parameters('workspace-location')]",
             "properties": {
-                "version": "3.0.5",
+                "version": "3.0.6",
                 "kind": "Solution",
                 "contentSchemaVersion": "3.0.0",
                 "displayName": "Amazon Web Services",
                 "publisherDisplayName": "Microsoft Sentinel, Microsoft Corporation",
-                "descriptionHtml": "<p><strong>Note:</strong> Please refer to the following before installing the solution:</p><p>\u2022 Review the solution <a target=\"_blank\" href=\"https://ms.portal.azure.com/verifyLink?href=https%3A%2F%2Fgithub.com%2FAzure%2FAzure-Sentinel%2Ftree%2Fmaster%2FSolutions%2FAmazon%2520Web%2520Services%2FReleaseNotes.md&amp;id=fx\" rel=\"noopener\">Release Notes</a></p><p>\u2022 There may be <a target=\"_blank\" href=\"https://ms.portal.azure.com/verifyLink?href=https%3A%2F%2Faka.ms%2Fsentinelsolutionsknownissues&amp;id=fx\" rel=\"noopener\">known issues</a> pertaining to this Solution, please refer to them before installing.</p><p>The Amazon Web Services solution for Microsoft Sentinel allows you to enable Security monitoring of AWS services by allowing ingestion of logs from the AWS CloudTrail platform, VPC Flow Logs, AWS GuardDuty and AWS CloudWatch.</p><p><strong>Data Connectors:</strong> 3, <strong>Workbooks:</strong> 2, <strong>Analytic Rules:</strong> 57, <strong>Hunting Queries:</strong> 36</p><p><a target=\"_blank\" href=\"https://ms.portal.azure.com/verifyLink?href=https%3A%2F%2Faka.ms%2Fazuresentinel&amp;id=fx\" rel=\"noopener\">Learn more about Microsoft Sentinel</a> | <a target=\"_blank\" href=\"https://ms.portal.azure.com/verifyLink?href=https%3A%2F%2Faka.ms%2Fazuresentinelsolutionsdoc&amp;id=fx\" rel=\"noopener\">Learn more about Solutions</a></p>",
+                "descriptionHtml": "<p><strong>Note:</strong> Please refer to the following before installing the solution:</p><p>\u2022 Review the solution <a target=\"_blank\" href=\"https://ms.portal.azure.com/verifyLink?href=https%3A%2F%2Fgithub.com%2FAzure%2FAzure-Sentinel%2Ftree%2Fmaster%2FSolutions%2FAmazon%2520Web%2520Services%2FReleaseNotes.md&amp;id=fx\" rel=\"noopener\">Release Notes</a></p><p>\u2022 There may be <a target=\"_blank\" href=\"https://ms.portal.azure.com/verifyLink?href=https%3A%2F%2Faka.ms%2Fsentinelsolutionsknownissues&amp;id=fx\" rel=\"noopener\">known issues</a> pertaining to this Solution, please refer to them before installing.</p><p>The Amazon Web Services solution for Microsoft Sentinel allows you to enable Security monitoring of AWS services by allowing ingestion of logs from the AWS CloudTrail platform, VPC Flow Logs, AWS GuardDuty and AWS CloudWatch.</p><p><strong>Data Connectors:</strong> 3, <strong>Workbooks:</strong> 2, <strong>Analytic Rules:</strong> 58, <strong>Hunting Queries:</strong> 36</p><p><a target=\"_blank\" href=\"https://ms.portal.azure.com/verifyLink?href=https%3A%2F%2Faka.ms%2Fazuresentinel&amp;id=fx\" rel=\"noopener\">Learn more about Microsoft Sentinel</a> | <a target=\"_blank\" href=\"https://ms.portal.azure.com/verifyLink?href=https%3A%2F%2Faka.ms%2Fazuresentinelsolutionsdoc&amp;id=fx\" rel=\"noopener\">Learn more about Solutions</a></p>",
                 "contentKind": "Solution",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-amazonwebser-sl-yek6coogmqgsi",
-                "id": "azuresentinel.azure-sentinel-solution-amazonwebser-sl-yek6coogmqgsi",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-amazonwebser-sl-mp7qgwuxmjlki",
+                "id": "azuresentinel.azure-sentinel-solution-amazonwebser-sl-mp7qgwuxmjlki",
                 "icon": "https://store-images.s-microsoft.com/image/apps.64685.2be652b5-01b5-4297-91de-fb1bdca4520e.3b2d6c32-9299-492f-9684-b4890e8acdd9.dff4bda0-283e-49e6-9007-b35209b0a2fd",
                 "contentId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "parentId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
@@ -12589,6 +12715,11 @@
                             "kind": "AnalyticsRule",
                             "contentId": "9e457dc4-81f0-4d25-bc37-a5fa4a17946a",
                             "version": "1.0.1"
+                        },
+                        {
+                            "kind": "AnalyticsRule",
+                            "contentId": "9a6554e6-63d9-4f94-9b32-64d1d40628f2",
+                            "version": "1.0.0"
                         },
                         {
                             "kind": "HuntingQuery",
