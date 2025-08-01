@@ -1,3 +1,23 @@
+## 8.4.0 (2025-08-01)
+
+### Features
+
+* bump  package template version to 3.0.6 + update embedded rule a12d1d2
+
+### Bug Fixes
+
+* lowercase string type for Data Collection Rules bf5ac97
+
+### Code Refactoring
+
+* bump `Cisco Meraki` package template version to 3.0.4 64ec10f
+* bump `Entra ID` package template version to 3.3.5 + update embedded rules db82cf2
+* bump `Google Workspace` package template version to 3.0.1 92ad074
+
+### Miscellaneous Chores
+
+* **deps:** update tools bdc0c49
+
 ## 8.3.0 (2025-07-18)
 
 ### Features
