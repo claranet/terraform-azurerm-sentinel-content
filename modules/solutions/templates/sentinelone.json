@@ -280,37 +280,37 @@
                                         "columns": [
                                             {
                                                 "name": "agentUpdatedVersion",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The version of the agent that was updated."
                                             },
                                             {
                                                 "name": "userId",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The unique identifier for the user."
                                             },
                                             {
                                                 "name": "threatId",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The unique identifier for the threat."
                                             },
                                             {
                                                 "name": "primaryDescription",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The primary description of the event."
                                             },
                                             {
                                                 "name": "secondaryDescription",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The secondary description of the event."
                                             },
                                             {
                                                 "name": "id",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The unique identifier for the record."
                                             },
                                             {
                                                 "name": "groupId",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The unique identifier for the group."
                                             },
                                             {
@@ -320,42 +320,42 @@
                                             },
                                             {
                                                 "name": "accountName",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The name of the account associated with the event."
                                             },
                                             {
                                                 "name": "data",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "Activity metadata."
                                             },
                                             {
                                                 "name": "agentId",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The unique identifier for the agent."
                                             },
                                             {
                                                 "name": "hash",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The hash associated with the event."
                                             },
                                             {
                                                 "name": "updatedAt",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The timestamp (UTC) when the record was last updated."
                                             },
                                             {
                                                 "name": "description",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The description of the event."
                                             },
                                             {
                                                 "name": "activityUuid",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The UUID of the activity associated with the event."
                                             },
                                             {
                                                 "name": "siteId",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The unique identifier for the site."
                                             },
                                             {
@@ -365,27 +365,27 @@
                                             },
                                             {
                                                 "name": "siteName",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The name of the site associated with the event."
                                             },
                                             {
                                                 "name": "accountId",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The unique identifier for the account."
                                             },
                                             {
                                                 "name": "osFamily",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The operating system family, such as macOS."
                                             },
                                             {
                                                 "name": "groupName",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The name of the group associated with the event."
                                             },
                                             {
                                                 "name": "comments",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "Any comments associated with the event."
                                             }
                                         ]
@@ -394,27 +394,27 @@
                                         "columns": [
                                             {
                                                 "name": "uuid",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The unique identifier for the object."
                                             },
                                             {
                                                 "name": "mitigationMode",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The mitigation mode applied."
                                             },
                                             {
                                                 "name": "networkStatus",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The network status of the object."
                                             },
                                             {
                                                 "name": "installerType",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The type of installer used."
                                             },
                                             {
                                                 "name": "mitigationModeSuspicious",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The suspicious mitigation mode applied."
                                             },
                                             {
@@ -429,27 +429,27 @@
                                             },
                                             {
                                                 "name": "lastLoggedInUserName",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The username of the last logged-in user."
                                             },
                                             {
                                                 "name": "osRevision",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The OS revision."
                                             },
                                             {
                                                 "name": "osArch",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The OS architecture."
                                             },
                                             {
                                                 "name": "id",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The unique identifier for the object."
                                             },
                                             {
                                                 "name": "computerName",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The name of the computer."
                                             },
                                             {
@@ -464,12 +464,12 @@
                                             },
                                             {
                                                 "name": "groupId",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The unique identifier for the group."
                                             },
                                             {
                                                 "name": "lastActiveDate",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The timestamp (UTC) when the object was last active."
                                             },
                                             {
@@ -484,27 +484,27 @@
                                             },
                                             {
                                                 "name": "rangerVersion",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The version of the ranger."
                                             },
                                             {
                                                 "name": "accountName",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The account name."
                                             },
                                             {
                                                 "name": "scanStatus",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The scan status of the object."
                                             },
                                             {
                                                 "name": "domain",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The domain of the object."
                                             },
                                             {
                                                 "name": "missingPermissions",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "Details of the missing permissions."
                                             },
                                             {
@@ -514,7 +514,7 @@
                                             },
                                             {
                                                 "name": "groupIp",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The IP address of the group."
                                             },
                                             {
@@ -529,22 +529,22 @@
                                             },
                                             {
                                                 "name": "externalId",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The external identifier associated with the object."
                                             },
                                             {
                                                 "name": "machineType",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The type of machine."
                                             },
                                             {
                                                 "name": "registeredAt",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The timestamp (UTC) when the object was registered."
                                             },
                                             {
                                                 "name": "appsVulnerabilityStatus",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The vulnerability status of the applications."
                                             },
                                             {
@@ -554,27 +554,27 @@
                                             },
                                             {
                                                 "name": "locations",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The locations associated with the object."
                                             },
                                             {
                                                 "name": "scanFinishedAt",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The timestamp (UTC) when the scan was finished."
                                             },
                                             {
                                                 "name": "updatedAt",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The timestamp (UTC) when the object was last updated."
                                             },
                                             {
                                                 "name": "externalIp",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The external IP address of the object."
                                             },
                                             {
                                                 "name": "locationType",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The type of location."
                                             },
                                             {
@@ -589,12 +589,12 @@
                                             },
                                             {
                                                 "name": "cpuId",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The identifier of the CPU."
                                             },
                                             {
                                                 "name": "networkInterfaces",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "Details of the network interfaces."
                                             },
                                             {
@@ -604,32 +604,32 @@
                                             },
                                             {
                                                 "name": "activeDirectory",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "Details about the active directory."
                                             },
                                             {
                                                 "name": "scanStartedAt",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The timestamp (UTC) when the scan was started."
                                             },
                                             {
                                                 "name": "rangerStatus",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The status of the ranger."
                                             },
                                             {
                                                 "name": "siteId",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The unique identifier for the site."
                                             },
                                             {
                                                 "name": "agentVersion",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The version of the agent."
                                             },
                                             {
                                                 "name": "osUsername",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The username associated with the operating system."
                                             },
                                             {
@@ -639,7 +639,7 @@
                                             },
                                             {
                                                 "name": "lastIpToMgmt",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The last IP address used for management."
                                             },
                                             {
@@ -654,7 +654,7 @@
                                             },
                                             {
                                                 "name": "siteName",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The name of the site."
                                             },
                                             {
@@ -669,27 +669,27 @@
                                             },
                                             {
                                                 "name": "consoleMigrationStatus",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The status of the console migration."
                                             },
                                             {
                                                 "name": "osType",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The type of operating system."
                                             },
                                             {
                                                 "name": "accountId",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The unique identifier for the account."
                                             },
                                             {
                                                 "name": "groupName",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The name of the group."
                                             },
                                             {
                                                 "name": "osName",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The name of the operating system."
                                             },
                                             {
@@ -699,17 +699,17 @@
                                             },
                                             {
                                                 "name": "licenseKey",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The license key associated with the object."
                                             },
                                             {
                                                 "name": "userActionsNeeded",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "Details of the user actions needed."
                                             },
                                             {
                                                 "name": "modelName",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The model name of the object."
                                             },
                                             {
@@ -719,17 +719,17 @@
                                             },
                                             {
                                                 "name": "operationalStateExpiration",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "Agent operational state."
                                             },
                                             {
                                                 "name": "remoteProfilingState",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "Agent remote profiling state."
                                             },
                                             {
                                                 "name": "osStartTime",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The Start time of the os."
                                             }
                                         ]
@@ -738,42 +738,42 @@
                                         "columns": [
                                             {
                                                 "name": "sourceProcessInfo",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "Information about the source process."
                                             },
                                             {
                                                 "name": "alertInfo",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "Details about the alert."
                                             },
                                             {
                                                 "name": "agentDetectionInfo",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "Detection information related to the agent."
                                             },
                                             {
                                                 "name": "ruleInfo",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "Information regarding the applied rule."
                                             },
                                             {
                                                 "name": "containerInfo",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "Information about the container."
                                             },
                                             {
                                                 "name": "sourceParentProcessInfo",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "Information about the parent process of the source."
                                             },
                                             {
                                                 "name": "targetProcessInfo",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "Details regarding the target process."
                                             },
                                             {
                                                 "name": "kubernetesInfo",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "Kubernetes-related information."
                                             }
                                         ]
@@ -782,12 +782,12 @@
                                         "columns": [
                                             {
                                                 "name": "creator",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The name of the creator."
                                             },
                                             {
                                                 "name": "registrationToken",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The token used for registration."
                                             },
                                             {
@@ -797,7 +797,7 @@
                                             },
                                             {
                                                 "name": "updatedAt",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The timestamp (UTC) when the object was last updated."
                                             },
                                             {
@@ -812,7 +812,7 @@
                                             },
                                             {
                                                 "name": "name",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The name of the object."
                                             },
                                             {
@@ -822,17 +822,17 @@
                                             },
                                             {
                                                 "name": "filterName",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The name of the filter applied."
                                             },
                                             {
                                                 "name": "type",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The type of the object."
                                             },
                                             {
                                                 "name": "id",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The unique identifier for the object."
                                             },
                                             {
@@ -842,17 +842,17 @@
                                             },
                                             {
                                                 "name": "creatorId",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The unique identifier of the creator."
                                             },
                                             {
                                                 "name": "siteId",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The unique identifier of the site."
                                             },
                                             {
                                                 "name": "filterId",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The unique identifier of the filter."
                                             }
                                         ]
@@ -861,32 +861,32 @@
                                         "columns": [
                                             {
                                                 "name": "threatInfo",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The information regarding the threat."
                                             },
                                             {
                                                 "name": "agentDetectionInfo",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The information of the agent on detectino."
                                             },
                                             {
                                                 "name": "agentRealtimeInfo",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "The information of the agent in real time."
                                             },
                                             {
                                                 "name": "indicators",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "Details of the indicators."
                                             },
                                             {
                                                 "name": "whiteningOptions",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "Details of the whitening options."
                                             },
                                             {
                                                 "name": "id",
-                                                "type": "String",
+                                                "type": "string",
                                                 "description": "Event Id."
                                             }
                                         ]
@@ -973,22 +973,22 @@
                                         },
                                         {
                                             "name": "FilePath",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The path of the file."
                                         },
                                         {
                                             "name": "CloudVerdict",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The cloud verdict for the file."
                                         },
                                         {
                                             "name": "MitigationMode",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The mode of mitigation applied."
                                         },
                                         {
                                             "name": "AgentOsType",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The operating system type of the agent."
                                         },
                                         {
@@ -998,32 +998,32 @@
                                         },
                                         {
                                             "name": "InitiatingUserId",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The unique identifier for the initiating user."
                                         },
                                         {
                                             "name": "Engines",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "Details of the engines used."
                                         },
                                         {
                                             "name": "Id",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The unique identifier for the record."
                                         },
                                         {
                                             "name": "FileExtensionType",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The type of file extension."
                                         },
                                         {
                                             "name": "MitigationStatus",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The status of mitigation."
                                         },
                                         {
                                             "name": "AgentDomain",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The domain of the agent."
                                         },
                                         {
@@ -1038,37 +1038,37 @@
                                         },
                                         {
                                             "name": "FileDisplayName",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The display name of the file."
                                         },
                                         {
                                             "name": "AgentIp",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The IP address of the agent."
                                         },
                                         {
                                             "name": "AccountName",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The name of the account associated with the event."
                                         },
                                         {
                                             "name": "AgentMachineType",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The machine type of the agent."
                                         },
                                         {
                                             "name": "FileVerificationType",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The type of file verification."
                                         },
                                         {
                                             "name": "Indicators",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "Details of the indicators."
                                         },
                                         {
                                             "name": "InitiatedByDescription",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "Description of the initiated by field."
                                         },
                                         {
@@ -1078,27 +1078,27 @@
                                         },
                                         {
                                             "name": "AgentId",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The unique identifier for the agent."
                                         },
                                         {
                                             "name": "ProcessArguments",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The unique identifier for the malicious group."
                                         },
                                         {
                                             "name": "MitigationReport",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "Report of the actions taken by the Agent."
                                         },
                                         {
                                             "name": "ThreatName",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "Details about the threat name."
                                         },
                                         {
                                             "name": "ClassificationSource",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The source of the classification."
                                         },
                                         {
@@ -1108,27 +1108,27 @@
                                         },
                                         {
                                             "name": "InitiatedBy",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "Indicates by whom or what the action was initiated."
                                         },
                                         {
                                             "name": "AgentNetworkStatus",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The network status of the agent."
                                         },
                                         {
                                             "name": "AgentComputerName",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The computer name of the agent."
                                         },
                                         {
                                             "name": "Classification",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The classification of the event."
                                         },
                                         {
                                             "name": "CertId",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The certificate ID."
                                         },
                                         {
@@ -1138,32 +1138,32 @@
                                         },
                                         {
                                             "name": "SiteId",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The unique identifier for the site."
                                         },
                                         {
                                             "name": "AgentVersion",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The version of the agent."
                                         },
                                         {
                                             "name": "FileContentHash",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The hash of the file content."
                                         },
                                         {
                                             "name": "WhiteningOptions",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "Details of the whitening options."
                                         },
                                         {
                                             "name": "Username",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The username associated with the event."
                                         },
                                         {
                                             "name": "FileSha256",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The SHA-256 hash of the file."
                                         },
                                         {
@@ -1173,17 +1173,17 @@
                                         },
                                         {
                                             "name": "CollectionId",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The unique identifier for the collection."
                                         },
                                         {
                                             "name": "SiteName",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The name of the site."
                                         },
                                         {
                                             "name": "AccountId",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The unique identifier for the account."
                                         },
                                         {
@@ -1223,37 +1223,37 @@
                                         },
                                         {
                                             "name": "AgentUpdatedVersion",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The version of the agent that was updated."
                                         },
                                         {
                                             "name": "UserId",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The unique identifier for the user."
                                         },
                                         {
                                             "name": "ThreatId",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The unique identifier for the threat."
                                         },
                                         {
                                             "name": "PrimaryDescription",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The primary description of the event."
                                         },
                                         {
                                             "name": "SecondaryDescription",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The secondary description of the event."
                                         },
                                         {
                                             "name": "Id",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The unique identifier for the record."
                                         },
                                         {
                                             "name": "GroupId",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The unique identifier for the group."
                                         },
                                         {
@@ -1263,22 +1263,22 @@
                                         },
                                         {
                                             "name": "AccountName",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The name of the account associated with the event."
                                         },
                                         {
                                             "name": "Data",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "Activity metadata."
                                         },
                                         {
                                             "name": "AgentId",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The unique identifier for the agent."
                                         },
                                         {
                                             "name": "Hash",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The hash associated with the event."
                                         },
                                         {
@@ -1288,17 +1288,17 @@
                                         },
                                         {
                                             "name": "Description",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The description of the event."
                                         },
                                         {
                                             "name": "ActivityUuid",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The UUID of the activity associated with the event."
                                         },
                                         {
                                             "name": "SiteId",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The unique identifier for the site."
                                         },
                                         {
@@ -1308,27 +1308,27 @@
                                         },
                                         {
                                             "name": "SiteName",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The name of the site associated with the event."
                                         },
                                         {
                                             "name": "AccountId",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The unique identifier for the account."
                                         },
                                         {
                                             "name": "OsFamily",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The operating system family, such as macOS."
                                         },
                                         {
                                             "name": "GroupName",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The name of the group associated with the event."
                                         },
                                         {
                                             "name": "Comments",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "Any comments associated with the event."
                                         }
                                     ]
@@ -1353,27 +1353,27 @@
                                         },
                                         {
                                             "name": "Uuid",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The unique identifier for the object."
                                         },
                                         {
                                             "name": "MitigationMode",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The mitigation mode applied."
                                         },
                                         {
                                             "name": "NetworkStatus",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The network status of the object."
                                         },
                                         {
                                             "name": "InstallerType",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The type of installer used."
                                         },
                                         {
                                             "name": "MitigationModeSuspicious",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The suspicious mitigation mode applied."
                                         },
                                         {
@@ -1388,27 +1388,27 @@
                                         },
                                         {
                                             "name": "LastLoggedInUserName",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The username of the last logged-in user."
                                         },
                                         {
                                             "name": "OsRevision",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The OS revision."
                                         },
                                         {
                                             "name": "OsArch",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The OS architecture."
                                         },
                                         {
                                             "name": "Id",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The unique identifier for the object."
                                         },
                                         {
                                             "name": "ComputerName",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The name of the computer."
                                         },
                                         {
@@ -1423,7 +1423,7 @@
                                         },
                                         {
                                             "name": "GroupId",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The unique identifier for the group."
                                         },
                                         {
@@ -1443,27 +1443,27 @@
                                         },
                                         {
                                             "name": "RangerVersion",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The version of the ranger."
                                         },
                                         {
                                             "name": "AccountName",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The account name."
                                         },
                                         {
                                             "name": "ScanStatus",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The scan status of the object."
                                         },
                                         {
                                             "name": "Domain",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The domain of the object."
                                         },
                                         {
                                             "name": "MissingPermissions",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "Details of the missing permissions."
                                         },
                                         {
@@ -1473,7 +1473,7 @@
                                         },
                                         {
                                             "name": "GroupIp",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The IP address of the group."
                                         },
                                         {
@@ -1488,12 +1488,12 @@
                                         },
                                         {
                                             "name": "ExternalId",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The external identifier associated with the object."
                                         },
                                         {
                                             "name": "MachineType",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The type of machine."
                                         },
                                         {
@@ -1503,7 +1503,7 @@
                                         },
                                         {
                                             "name": "AppsVulnerabilityStatus",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The vulnerability status of the applications."
                                         },
                                         {
@@ -1513,7 +1513,7 @@
                                         },
                                         {
                                             "name": "Locations",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The locations associated with the object."
                                         },
                                         {
@@ -1528,12 +1528,12 @@
                                         },
                                         {
                                             "name": "ExternalIp",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The external IP address of the object."
                                         },
                                         {
                                             "name": "LocationType",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The type of location."
                                         },
                                         {
@@ -1548,12 +1548,12 @@
                                         },
                                         {
                                             "name": "CpuId",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The identifier of the CPU."
                                         },
                                         {
                                             "name": "NetworkInterfaces",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "Details of the network interfaces."
                                         },
                                         {
@@ -1563,7 +1563,7 @@
                                         },
                                         {
                                             "name": "ActiveDirectory",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "Details about the active directory."
                                         },
                                         {
@@ -1573,22 +1573,22 @@
                                         },
                                         {
                                             "name": "RangerStatus",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The status of the ranger."
                                         },
                                         {
                                             "name": "SiteId",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The unique identifier for the site."
                                         },
                                         {
                                             "name": "AgentVersion",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The version of the agent."
                                         },
                                         {
                                             "name": "OsUsername",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The username associated with the operating system."
                                         },
                                         {
@@ -1598,7 +1598,7 @@
                                         },
                                         {
                                             "name": "LastIpToMgmt",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The last IP address used for management."
                                         },
                                         {
@@ -1613,7 +1613,7 @@
                                         },
                                         {
                                             "name": "SiteName",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The name of the site."
                                         },
                                         {
@@ -1628,27 +1628,27 @@
                                         },
                                         {
                                             "name": "ConsoleMigrationStatus",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The status of the console migration."
                                         },
                                         {
                                             "name": "OsType",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The type of operating system."
                                         },
                                         {
                                             "name": "AccountId",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The unique identifier for the account."
                                         },
                                         {
                                             "name": "GroupName",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The name of the group."
                                         },
                                         {
                                             "name": "OsName",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The name of the operating system."
                                         },
                                         {
@@ -1658,17 +1658,17 @@
                                         },
                                         {
                                             "name": "LicenseKey",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The license key associated with the object."
                                         },
                                         {
                                             "name": "UserActionsNeeded",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "Details of the user actions needed."
                                         },
                                         {
                                             "name": "ModelName",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The model name of the object."
                                         },
                                         {
@@ -1683,12 +1683,12 @@
                                         },
                                         {
                                             "name": "OperationalStateExpiration",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "Agent operational state."
                                         },
                                         {
                                             "name": "RemoteProfilingState",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "Agent remote profiling state."
                                         }
                                     ]
@@ -1713,42 +1713,42 @@
                                         },
                                         {
                                             "name": "SourceProcessInfo",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "Information about the source process."
                                         },
                                         {
                                             "name": "AlertInfo",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "Details about the alert."
                                         },
                                         {
                                             "name": "AgentDetectionInfo",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "Detection information related to the agent."
                                         },
                                         {
                                             "name": "RuleInfo",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "Information regarding the applied rule."
                                         },
                                         {
                                             "name": "ContainerInfo",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "Information about the container."
                                         },
                                         {
                                             "name": "SourceParentProcessInfo",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "Information about the parent process of the source."
                                         },
                                         {
                                             "name": "TargetProcessInfo",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "Details regarding the target process."
                                         },
                                         {
                                             "name": "KubernetesInfo",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "Kubernetes-related information."
                                         }
                                     ]
@@ -1773,17 +1773,17 @@
                                         },
                                         {
                                             "name": "Creator",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The name of the creator."
                                         },
                                         {
                                             "name": "RegistrationToken",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The token used for registration."
                                         },
                                         {
                                             "name": "IsDefault",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "Indicates whether this is the default setting."
                                         },
                                         {
@@ -1793,17 +1793,17 @@
                                         },
                                         {
                                             "name": "TotalAgents",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The total number of agents."
                                         },
                                         {
                                             "name": "Inherits",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "Indicates whether the object inherits properties."
                                         },
                                         {
                                             "name": "Name",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The name of the object."
                                         },
                                         {
@@ -1813,17 +1813,17 @@
                                         },
                                         {
                                             "name": "FilterName",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The name of the filter applied."
                                         },
                                         {
                                             "name": "GroupType",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The type of the object."
                                         },
                                         {
                                             "name": "Id",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The unique identifier for the object."
                                         },
                                         {
@@ -1833,17 +1833,17 @@
                                         },
                                         {
                                             "name": "CreatorId",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The unique identifier of the creator."
                                         },
                                         {
                                             "name": "SiteId",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The unique identifier of the site."
                                         },
                                         {
                                             "name": "FilterId",
-                                            "type": "String",
+                                            "type": "string",
                                             "description": "The unique identifier of the filter."
                                         }
                                     ]
@@ -2078,7 +2078,7 @@
                     "parameters": {
                         "connectorDefinitionName": {
                             "defaultValue": "SentinelOne",
-                            "type": "String",
+                            "type": "string",
                             "minLength": 1
                         },
                         "workspace": {
@@ -2094,7 +2094,7 @@
                         },
                         "managementUrl": {
                             "defaultValue": "managementUrl",
-                            "type": "String",
+                            "type": "string",
                             "minLength": 1
                         },
                         "apitoken": {
