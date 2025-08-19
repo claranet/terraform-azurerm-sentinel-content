@@ -39,7 +39,7 @@
         "incidentConfiguration": {
             "groupingConfiguration": {
                 "matchingMethod": "AllEntities",
-                "lookbackDuration": "1h",
+                "lookbackDuration": "PT1H",
                 "reopenClosedIncident": false,
                 "enabled": false
             },
