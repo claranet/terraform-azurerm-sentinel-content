@@ -1,3 +1,16 @@
+## 8.4.1 (2025-08-19)
+
+### Code Refactoring
+
+* bump `Proofpoint POD` package template version to 3.0.5 483cb6f
+* bump `Proofpoint TAP` package template version to 3.0.10 b783482
+* fix `lookbackDuration` field on new Conditional Access Entra builtin rules 655f13e
+
+### Miscellaneous Chores
+
+* **deps:** update pre-commit hook pre-commit/pre-commit-hooks to v6 598e8be
+* **deps:** update tools c0db22e
+
 ## 8.4.0 (2025-08-01)
 
 ### Features
