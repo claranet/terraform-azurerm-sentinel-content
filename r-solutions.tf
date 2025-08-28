@@ -1,5 +1,4 @@
 resource "azurerm_resource_group_template_deployment" "main" {
-
   for_each = toset(var.log_sources)
 
   name                = "deployment-solutions-${each.key}"
@@ -26,6 +25,6 @@ resource "azurerm_resource_group_template_deployment" "main" {
 }
 
 moved {
-  from = azurerm_resource_group_template_deployment.solutions
+  from = module.solutions[0].azurerm_resource_group_template_deployment.main
   to   = azurerm_resource_group_template_deployment.main
 }
