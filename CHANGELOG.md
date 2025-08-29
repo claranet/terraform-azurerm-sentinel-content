@@ -1,3 +1,17 @@
+## 8.5.0 (2025-08-29)
+
+### Features
+
+* **AZ-1611:** remove rule submodule 4940363
+
+### Code Refactoring
+
+* bump `CEF` package template version to 3.0.6 84db5f6
+
+### Miscellaneous Chores
+
+* **deps:** 🔗 bump AzureRM provider version to v4.31+ e01ee5f
+
 ## 8.4.1 (2025-08-19)
 
 ### Code Refactoring
