@@ -99,7 +99,6 @@ module "sentinel_content" {
   location            = module.azure_region.location
   resource_group_name = module.rg.name
 
-  log_analytics_workspace_id   = module.logs.id
   log_analytics_workspace_name = module.logs.name
   log_sources                  = ["entra_id", "ti", "xdr"]
 }
@@ -107,31 +106,28 @@ module "sentinel_content" {
 
 ## Providers
 
-No providers.
+| Name | Version |
+|------|---------|
+| azurerm | ~> 4.31 |
 
 ## Modules
 
-| Name | Source | Version |
-|------|--------|---------|
-| rules | ./modules/rules/ | n/a |
-| solutions | ./modules/solutions/ | n/a |
+No modules.
 
 ## Resources
 
-No resources.
+| Name | Type |
+|------|------|
+| [azurerm_resource_group_template_deployment.main](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group_template_deployment) | resource |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | location | Azure location. | `string` | n/a | yes |
-| log\_analytics\_workspace\_id | The Log Analytics Workspace ID. | `string` | n/a | yes |
 | log\_analytics\_workspace\_name | The Log Analytics Workspace name. | `string` | n/a | yes |
 | log\_sources | Log sources retrieved in Microsoft Sentinel. | `list(string)` | n/a | yes |
 | resource\_group\_name | Resource group name. | `string` | n/a | yes |
-| rules\_enable | Whether the Rules should be deployed. | `bool` | `false` | no |
-| rules\_excluded | Rules that will not be deployed in Microsoft Sentinel. | `list(string)` | `[]` | no |
-| solutions\_enable | Whether the Solutions should be deployed. | `bool` | `true` | no |
 
 ## Outputs
 

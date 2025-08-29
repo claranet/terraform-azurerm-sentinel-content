@@ -27,7 +27,6 @@ module "sentinel_content" {
   location            = module.azure_region.location
   resource_group_name = module.rg.name
 
-  log_analytics_workspace_id   = module.logs.id
   log_analytics_workspace_name = module.logs.name
   log_sources                  = ["entra_id", "ti", "xdr"]
 }
