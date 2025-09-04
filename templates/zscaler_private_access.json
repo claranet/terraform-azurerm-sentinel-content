@@ -115,7 +115,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Zscaler Private Access (ZPA)",
                 "packageId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
                 "contentSchemaVersion": "3.0.0",
@@ -201,7 +201,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Zscaler Private Access (ZPA)",
                 "packageId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
                 "contentSchemaVersion": "3.0.0",
@@ -287,7 +287,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Zscaler Private Access (ZPA)",
                 "packageId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
                 "contentSchemaVersion": "3.0.0",
@@ -373,7 +373,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Zscaler Private Access (ZPA)",
                 "packageId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
                 "contentSchemaVersion": "3.0.0",
@@ -459,7 +459,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Zscaler Private Access (ZPA)",
                 "packageId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
                 "contentSchemaVersion": "3.0.0",
@@ -545,7 +545,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Zscaler Private Access (ZPA)",
                 "packageId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
                 "contentSchemaVersion": "3.0.0",
@@ -631,7 +631,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Zscaler Private Access (ZPA)",
                 "packageId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
                 "contentSchemaVersion": "3.0.0",
@@ -717,7 +717,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Zscaler Private Access (ZPA)",
                 "packageId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
                 "contentSchemaVersion": "3.0.0",
@@ -803,7 +803,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Zscaler Private Access (ZPA)",
                 "packageId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
                 "contentSchemaVersion": "3.0.0",
@@ -889,7 +889,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Zscaler Private Access (ZPA)",
                 "packageId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
                 "contentSchemaVersion": "3.0.0",
@@ -975,7 +975,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Zscaler Private Access (ZPA)",
                 "packageId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
                 "contentSchemaVersion": "3.0.0",
@@ -1000,7 +1000,7 @@
                 "description": "",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.2",
+                    "contentVersion": "1.0.3",
                     "parameters": {},
                     "variables": {},
                     "resources": [
@@ -1014,7 +1014,7 @@
                                 "displayName": "Parser for ZPAEvent",
                                 "category": "Microsoft Sentinel Parser",
                                 "functionAlias": "ZPAEvent",
-                                "query": "ZPA_CL\n| extend EventVendor=\"Zscaler\",\n        EventProduct=\"Private Access\"\n| parse-kv Message as (LogTimestamp:string, Customer:string, NetworkSessionId:string, ConnectionID:string, NetworkProtocol:string, DoubleEncryption:string, SrcIpAddr:string, SrcNatIpAddr:string, SrcGeoLatitude:string, SrcGeoLongitude:string, SrcGeoCountry:string, ClientZEN:string, NetworkRuleName:string, ConnectorZEN:string, ConnectorIP:string, ConnectorPort:string, SrcDvcHostname:string, Application:string, AppGroup:string, DstDomainHostname:string, DstIpAddr:string, PolicyProcessingTime:string, CAProcessingTime:string, ConnectorZENSetupTime:string, ConnectionSetupTime:string, ServerSetupTime:string, AppLearnTime:string, TimestampConnectionStart:string, TimestampConnectionEnd:string, TimestampCATx:string, TimestampCARx:string, TimestampAppLearnStart:string, TimestampZENFirstRxClient:string, TimestampZENFirstTxClient:string, TimestampZENLastRxClient:string, TimestampZENLastTxClient:string, TimestampConnectorZENSetupComplete:string, TimestampZENFirstRxConnector:string, TimestampZENFirstTxConnector:string, TimestampZENLastRxConnector:string, TimestampZENLastTxConnector:string, ZENBytesRxClient:string, ZENBytesTxClient:string, ZENTotalBytesRxConnector:string, ZENBytesRxConnector:string, ZENTotalBytesTxConnector:string, ZENBytesTxConnector:string, Idp:string, Version:string, ZEN:string, CertificateCN:string, PrivateIP:string, DvcIpAddr:string, Latitude:string, Longitude:string, CountryCode:string, TimestampAuthentication:string, TimestampUnAuthentication:string, DvcHostname:string, SrcDvcOs:string, DvcType:string, TrustedNetworks:string, TrustedNetworksNames:string, SAMLAttributes:string, PosturesHit:string, PosturesMiss:string, ZENLatitude:string, ZENLongitude:string, ZENCountryCode:string, SessionType:string, Connector:string, ConnectorGroup:string, CPUUtilization:string, MemUtilization:string, ServiceCount:string, InterfaceDefRoute:string, DefRouteGW:string, PrimaryDNSResolver:string, HostUpTime:string, ConnectorUpTime:string, NumOfInterfaces:string, BytesRxInterface:string, PacketsRxInterface:string, ErrorsRxInterface:string, DiscardsRxInterface:string, BytesTxInterface:string, PacketsTxInterface:string, ErrorsTxInterface:string, DiscardsTxInterface:string, ModifiedTime:string, CreationTime:string, ModifiedBy:string, RequestID:string, AuditOldValue:string, AuditNewValue:string, AuditOperationType:string, ObjectType:string, ObjectName:string, ObjectID:string, CustomerID:string, Exporter:string, TimestampRequestReceiveStart:string,  TimestampRequestReceiveHeaderFinish:string, TimestampRequestReceiveFinish:string, TimestampRequestTransmitStart:string, TimestampRequestTransmitFinish:string, TimestampResponseReceiveStart:string, TimestampResponseReceiveFinish:string, TimestampResponseTransmitStart:string, TimestampResponseTransmitFinish:string, TotalTimeRequestReceive:string, TotalTimeRequestTransmit:string, TotalTimeResponseReceive:string, TotalTimeResponseTransmit:string, TotalTimeConnectionSetup:string, TotalTimeServerResponse:string, HttpRequestMethod:string, NetworkApplicationProtocol:string, UrlHostname:string, UrlOriginal:string, HttpUserAgentOriginal:string, HttpRequestXff:string, NameID:string, HttpStatusCode:string, HttpRequestBodyBytes:string, HttpResponseBodyBytes:string, SrcPortNumber:string, EventResultDetails:string, CorsToken:string, Origin:string, InternalReason:string, ConnectionStatus:string,  SessionStatus:string, Username:string, User:string, ServicePort:string, ServerPort:string, ApplicationPort:string, ZENTotalBytesRxClient:string, TotalBytesRx:string, ZENTotalBytesTxClient:string, TotalBytesTx:string, ) with (pair_delimiter=',', kv_delimiter=':', quote='\"')\n| extend\n        EventResult=column_ifexists('InternalReason', column_ifexists('ConnectionStatus', '')),\n        DvcAction=column_ifexists('ConnectionStatus', column_ifexists('SessionStatus', '')),\n        DstUserName=column_ifexists('Username', column_ifexists('User', '')),\n        DstPortNumber=column_ifexists('ServicePort', column_ifexists('ServerPort', column_ifexists('ApplicationPort', ''))),\n        SrcBytes=column_ifexists('ZENTotalBytesRxClient', column_ifexists('TotalBytesRx', '')),\n        DstBytes=column_ifexists('ZENTotalBytesTxClient', column_ifexists('TotalBytesTx', ''))\n",
+                                "query": "ZPA_CL\n| extend EventVendor=\"Zscaler\",\n        EventProduct=\"Private Access\"\n| parse-kv Message as (LogTimestamp:string, Customer:string, SessionID:string, ConnectionID:string, NetworkProtocol:string, DoubleEncryption:string, SrcIpAddr:string, SrcNatIpAddr:string, SrcGeoLatitude:string, SrcGeoLongitude:string, SrcGeoCountry:string, ClientZEN:string, NetworkRuleName:string, ConnectorZEN:string, ConnectorIP:string, ConnectorPort:string, SrcDvcHostname:string, Application:string, AppGroup:string, DstDomainHostname:string, DstIpAddr:string, PolicyProcessingTime:string, CAProcessingTime:string, ConnectorZENSetupTime:string, ConnectionSetupTime:string, ServerSetupTime:string, AppLearnTime:string, TimestampConnectionStart:string, TimestampConnectionEnd:string, TimestampCATx:string, TimestampCARx:string, TimestampAppLearnStart:string, TimestampZENFirstRxClient:string, TimestampZENFirstTxClient:string, TimestampZENLastRxClient:string, TimestampZENLastTxClient:string, TimestampConnectorZENSetupComplete:string, TimestampZENFirstRxConnector:string, TimestampZENFirstTxConnector:string, TimestampZENLastRxConnector:string, TimestampZENLastTxConnector:string, ZENBytesRxClient:string, ZENBytesTxClient:string, ZENTotalBytesRxConnector:string, ZENBytesRxConnector:string, ZENTotalBytesTxConnector:string, ZENBytesTxConnector:string, Idp:string, Version:string, ZEN:string, CertificateCN:string, PrivateIP:string, DvcIpAddr:string, Latitude:string, Longitude:string, CountryCode:string, TimestampAuthentication:string, TimestampUnAuthentication:string, DvcHostname:string, SrcDvcOs:string, DvcType:string, TrustedNetworks:string, TrustedNetworksNames:string, SAMLAttributes:string, PosturesHit:string, PosturesMiss:string, ZENLatitude:string, ZENLongitude:string, ZENCountryCode:string, SessionType:string, Connector:string, ConnectorGroup:string, CPUUtilization:string, MemUtilization:string, ServiceCount:string, InterfaceDefRoute:string, DefRouteGW:string, PrimaryDNSResolver:string, HostUpTime:string, ConnectorUpTime:string, NumOfInterfaces:string, BytesRxInterface:string, PacketsRxInterface:string, ErrorsRxInterface:string, DiscardsRxInterface:string, BytesTxInterface:string, PacketsTxInterface:string, ErrorsTxInterface:string, DiscardsTxInterface:string, ModifiedTime:string, CreationTime:string, ModifiedBy:string, RequestID:string, AuditOldValue:string, AuditNewValue:string, AuditOperationType:string, ObjectType:string, ObjectName:string, ObjectID:string, CustomerID:string, Exporter:string, TimestampRequestReceiveStart:string,  TimestampRequestReceiveHeaderFinish:string, TimestampRequestReceiveFinish:string, TimestampRequestTransmitStart:string, TimestampRequestTransmitFinish:string, TimestampResponseReceiveStart:string, TimestampResponseReceiveFinish:string, TimestampResponseTransmitStart:string, TimestampResponseTransmitFinish:string, TotalTimeRequestReceive:string, TotalTimeRequestTransmit:string, TotalTimeResponseReceive:string, TotalTimeResponseTransmit:string, TotalTimeConnectionSetup:string, TotalTimeServerResponse:string, HttpRequestMethod:string, NetworkApplicationProtocol:string, UrlHostname:string, UrlOriginal:string, HttpUserAgentOriginal:string, HttpRequestXff:string, NameID:string, HttpStatusCode:string, HttpRequestBodyBytes:string, HttpResponseBodyBytes:string, SrcPortNumber:string, EventResultDetails:string, CorsToken:string, Origin:string, InternalReason:string, ConnectionStatus:string,  SessionStatus:string, Username:string, User:string, ServicePort:string, ServerPort:string, ApplicationPort:string, ZENTotalBytesRxClient:string, TotalBytesRx:string, ZENTotalBytesTxClient:string, TotalBytesTx:string, IPProtocol:double, ClientCountryCode:string, ClientLatitude:string, ClientLongitude:string, ClientPublicIP:string, ClientPrivateIP:string, Policy:string, Host:string, Server:string, ServerIP:string, ClientCity:string, MicroTenantID:string, AppMicroTenantID:string, Platform:string, Hostname:string, NetworkSessionId:string, ) with (pair_delimiter=',', kv_delimiter=':', quote='\"')\n| extend\n        EventResult=column_ifexists('InternalReason', column_ifexists('ConnectionStatus', '')),\n        DvcAction=column_ifexists('ConnectionStatus', column_ifexists('SessionStatus', '')),\n        DstUserName=column_ifexists('Username', column_ifexists('User', '')),\n        DstPortNumber=column_ifexists('ServicePort', column_ifexists('ServerPort', column_ifexists('ApplicationPort', ''))),\n        SrcBytes=column_ifexists('ZENTotalBytesRxClient', column_ifexists('TotalBytesRx', '')),\n        DstBytes=column_ifexists('ZENTotalBytesTxClient', column_ifexists('TotalBytesTx', ''))\n",
                                 "functionParameters": "",
                                 "version": 2,
                                 "tags": [
@@ -1036,7 +1036,7 @@
                                 "parentId": "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches', parameters('workspace'), 'ZPAEvent')]",
                                 "contentId": "ZPAEvent-Parser",
                                 "kind": "Parser",
-                                "version": "1.0.2",
+                                "version": "1.0.3",
                                 "source": {
                                     "name": "Zscaler Private Access (ZPA)",
                                     "kind": "Solution",
@@ -1057,16 +1057,16 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Zscaler Private Access (ZPA)",
                 "packageId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "ZPAEvent-Parser",
                 "contentKind": "Parser",
                 "displayName": "Parser for ZPAEvent",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-zscalerpriva-pr-fep2vxsty4tjg",
-                "id": "azuresentinel.azure-sentinel-solution-zscalerpriva-pr-fep2vxsty4tjg",
-                "version": "1.0.2",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-zscalerpriva-pr-txh7z2cgo7dpq",
+                "id": "azuresentinel.azure-sentinel-solution-zscalerpriva-pr-txh7z2cgo7dpq",
+                "version": "1.0.3",
                 "isDeprecated": false
             }
         },
@@ -1080,7 +1080,7 @@
                 "displayName": "Parser for ZPAEvent",
                 "category": "Microsoft Sentinel Parser",
                 "functionAlias": "ZPAEvent",
-                "query": "ZPA_CL\n| extend EventVendor=\"Zscaler\",\n        EventProduct=\"Private Access\"\n| parse-kv Message as (LogTimestamp:string, Customer:string, NetworkSessionId:string, ConnectionID:string, NetworkProtocol:string, DoubleEncryption:string, SrcIpAddr:string, SrcNatIpAddr:string, SrcGeoLatitude:string, SrcGeoLongitude:string, SrcGeoCountry:string, ClientZEN:string, NetworkRuleName:string, ConnectorZEN:string, ConnectorIP:string, ConnectorPort:string, SrcDvcHostname:string, Application:string, AppGroup:string, DstDomainHostname:string, DstIpAddr:string, PolicyProcessingTime:string, CAProcessingTime:string, ConnectorZENSetupTime:string, ConnectionSetupTime:string, ServerSetupTime:string, AppLearnTime:string, TimestampConnectionStart:string, TimestampConnectionEnd:string, TimestampCATx:string, TimestampCARx:string, TimestampAppLearnStart:string, TimestampZENFirstRxClient:string, TimestampZENFirstTxClient:string, TimestampZENLastRxClient:string, TimestampZENLastTxClient:string, TimestampConnectorZENSetupComplete:string, TimestampZENFirstRxConnector:string, TimestampZENFirstTxConnector:string, TimestampZENLastRxConnector:string, TimestampZENLastTxConnector:string, ZENBytesRxClient:string, ZENBytesTxClient:string, ZENTotalBytesRxConnector:string, ZENBytesRxConnector:string, ZENTotalBytesTxConnector:string, ZENBytesTxConnector:string, Idp:string, Version:string, ZEN:string, CertificateCN:string, PrivateIP:string, DvcIpAddr:string, Latitude:string, Longitude:string, CountryCode:string, TimestampAuthentication:string, TimestampUnAuthentication:string, DvcHostname:string, SrcDvcOs:string, DvcType:string, TrustedNetworks:string, TrustedNetworksNames:string, SAMLAttributes:string, PosturesHit:string, PosturesMiss:string, ZENLatitude:string, ZENLongitude:string, ZENCountryCode:string, SessionType:string, Connector:string, ConnectorGroup:string, CPUUtilization:string, MemUtilization:string, ServiceCount:string, InterfaceDefRoute:string, DefRouteGW:string, PrimaryDNSResolver:string, HostUpTime:string, ConnectorUpTime:string, NumOfInterfaces:string, BytesRxInterface:string, PacketsRxInterface:string, ErrorsRxInterface:string, DiscardsRxInterface:string, BytesTxInterface:string, PacketsTxInterface:string, ErrorsTxInterface:string, DiscardsTxInterface:string, ModifiedTime:string, CreationTime:string, ModifiedBy:string, RequestID:string, AuditOldValue:string, AuditNewValue:string, AuditOperationType:string, ObjectType:string, ObjectName:string, ObjectID:string, CustomerID:string, Exporter:string, TimestampRequestReceiveStart:string,  TimestampRequestReceiveHeaderFinish:string, TimestampRequestReceiveFinish:string, TimestampRequestTransmitStart:string, TimestampRequestTransmitFinish:string, TimestampResponseReceiveStart:string, TimestampResponseReceiveFinish:string, TimestampResponseTransmitStart:string, TimestampResponseTransmitFinish:string, TotalTimeRequestReceive:string, TotalTimeRequestTransmit:string, TotalTimeResponseReceive:string, TotalTimeResponseTransmit:string, TotalTimeConnectionSetup:string, TotalTimeServerResponse:string, HttpRequestMethod:string, NetworkApplicationProtocol:string, UrlHostname:string, UrlOriginal:string, HttpUserAgentOriginal:string, HttpRequestXff:string, NameID:string, HttpStatusCode:string, HttpRequestBodyBytes:string, HttpResponseBodyBytes:string, SrcPortNumber:string, EventResultDetails:string, CorsToken:string, Origin:string, InternalReason:string, ConnectionStatus:string,  SessionStatus:string, Username:string, User:string, ServicePort:string, ServerPort:string, ApplicationPort:string, ZENTotalBytesRxClient:string, TotalBytesRx:string, ZENTotalBytesTxClient:string, TotalBytesTx:string, ) with (pair_delimiter=',', kv_delimiter=':', quote='\"')\n| extend\n        EventResult=column_ifexists('InternalReason', column_ifexists('ConnectionStatus', '')),\n        DvcAction=column_ifexists('ConnectionStatus', column_ifexists('SessionStatus', '')),\n        DstUserName=column_ifexists('Username', column_ifexists('User', '')),\n        DstPortNumber=column_ifexists('ServicePort', column_ifexists('ServerPort', column_ifexists('ApplicationPort', ''))),\n        SrcBytes=column_ifexists('ZENTotalBytesRxClient', column_ifexists('TotalBytesRx', '')),\n        DstBytes=column_ifexists('ZENTotalBytesTxClient', column_ifexists('TotalBytesTx', ''))\n",
+                "query": "ZPA_CL\n| extend EventVendor=\"Zscaler\",\n        EventProduct=\"Private Access\"\n| parse-kv Message as (LogTimestamp:string, Customer:string, SessionID:string, ConnectionID:string, NetworkProtocol:string, DoubleEncryption:string, SrcIpAddr:string, SrcNatIpAddr:string, SrcGeoLatitude:string, SrcGeoLongitude:string, SrcGeoCountry:string, ClientZEN:string, NetworkRuleName:string, ConnectorZEN:string, ConnectorIP:string, ConnectorPort:string, SrcDvcHostname:string, Application:string, AppGroup:string, DstDomainHostname:string, DstIpAddr:string, PolicyProcessingTime:string, CAProcessingTime:string, ConnectorZENSetupTime:string, ConnectionSetupTime:string, ServerSetupTime:string, AppLearnTime:string, TimestampConnectionStart:string, TimestampConnectionEnd:string, TimestampCATx:string, TimestampCARx:string, TimestampAppLearnStart:string, TimestampZENFirstRxClient:string, TimestampZENFirstTxClient:string, TimestampZENLastRxClient:string, TimestampZENLastTxClient:string, TimestampConnectorZENSetupComplete:string, TimestampZENFirstRxConnector:string, TimestampZENFirstTxConnector:string, TimestampZENLastRxConnector:string, TimestampZENLastTxConnector:string, ZENBytesRxClient:string, ZENBytesTxClient:string, ZENTotalBytesRxConnector:string, ZENBytesRxConnector:string, ZENTotalBytesTxConnector:string, ZENBytesTxConnector:string, Idp:string, Version:string, ZEN:string, CertificateCN:string, PrivateIP:string, DvcIpAddr:string, Latitude:string, Longitude:string, CountryCode:string, TimestampAuthentication:string, TimestampUnAuthentication:string, DvcHostname:string, SrcDvcOs:string, DvcType:string, TrustedNetworks:string, TrustedNetworksNames:string, SAMLAttributes:string, PosturesHit:string, PosturesMiss:string, ZENLatitude:string, ZENLongitude:string, ZENCountryCode:string, SessionType:string, Connector:string, ConnectorGroup:string, CPUUtilization:string, MemUtilization:string, ServiceCount:string, InterfaceDefRoute:string, DefRouteGW:string, PrimaryDNSResolver:string, HostUpTime:string, ConnectorUpTime:string, NumOfInterfaces:string, BytesRxInterface:string, PacketsRxInterface:string, ErrorsRxInterface:string, DiscardsRxInterface:string, BytesTxInterface:string, PacketsTxInterface:string, ErrorsTxInterface:string, DiscardsTxInterface:string, ModifiedTime:string, CreationTime:string, ModifiedBy:string, RequestID:string, AuditOldValue:string, AuditNewValue:string, AuditOperationType:string, ObjectType:string, ObjectName:string, ObjectID:string, CustomerID:string, Exporter:string, TimestampRequestReceiveStart:string,  TimestampRequestReceiveHeaderFinish:string, TimestampRequestReceiveFinish:string, TimestampRequestTransmitStart:string, TimestampRequestTransmitFinish:string, TimestampResponseReceiveStart:string, TimestampResponseReceiveFinish:string, TimestampResponseTransmitStart:string, TimestampResponseTransmitFinish:string, TotalTimeRequestReceive:string, TotalTimeRequestTransmit:string, TotalTimeResponseReceive:string, TotalTimeResponseTransmit:string, TotalTimeConnectionSetup:string, TotalTimeServerResponse:string, HttpRequestMethod:string, NetworkApplicationProtocol:string, UrlHostname:string, UrlOriginal:string, HttpUserAgentOriginal:string, HttpRequestXff:string, NameID:string, HttpStatusCode:string, HttpRequestBodyBytes:string, HttpResponseBodyBytes:string, SrcPortNumber:string, EventResultDetails:string, CorsToken:string, Origin:string, InternalReason:string, ConnectionStatus:string,  SessionStatus:string, Username:string, User:string, ServicePort:string, ServerPort:string, ApplicationPort:string, ZENTotalBytesRxClient:string, TotalBytesRx:string, ZENTotalBytesTxClient:string, TotalBytesTx:string, IPProtocol:double, ClientCountryCode:string, ClientLatitude:string, ClientLongitude:string, ClientPublicIP:string, ClientPrivateIP:string, Policy:string, Host:string, Server:string, ServerIP:string, ClientCity:string, MicroTenantID:string, AppMicroTenantID:string, Platform:string, Hostname:string, NetworkSessionId:string, ) with (pair_delimiter=',', kv_delimiter=':', quote='\"')\n| extend\n        EventResult=column_ifexists('InternalReason', column_ifexists('ConnectionStatus', '')),\n        DvcAction=column_ifexists('ConnectionStatus', column_ifexists('SessionStatus', '')),\n        DstUserName=column_ifexists('Username', column_ifexists('User', '')),\n        DstPortNumber=column_ifexists('ServicePort', column_ifexists('ServerPort', column_ifexists('ApplicationPort', ''))),\n        SrcBytes=column_ifexists('ZENTotalBytesRxClient', column_ifexists('TotalBytesRx', '')),\n        DstBytes=column_ifexists('ZENTotalBytesTxClient', column_ifexists('TotalBytesTx', ''))\n",
                 "functionParameters": "",
                 "version": 2,
                 "tags": [
@@ -1103,7 +1103,7 @@
                 "parentId": "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches', parameters('workspace'), 'ZPAEvent')]",
                 "contentId": "ZPAEvent-Parser",
                 "kind": "Parser",
-                "version": "1.0.2",
+                "version": "1.0.3",
                 "source": {
                     "kind": "Solution",
                     "name": "Zscaler Private Access (ZPA)",
@@ -1158,10 +1158,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "CustomLogsAma",
                                         "datatypes": [
                                             "ZPA_CL"
-                                        ],
-                                        "connectorId": "CustomLogsAma"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -1175,8 +1175,8 @@
                                     {
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountCustomEntity"
+                                                "columnName": "AccountCustomEntity",
+                                                "identifier": "Name"
                                             }
                                         ],
                                         "entityType": "Account"
@@ -1184,8 +1184,8 @@
                                     {
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Address",
-                                                "columnName": "IPCustomEntity"
+                                                "columnName": "IPCustomEntity",
+                                                "identifier": "Address"
                                             }
                                         ],
                                         "entityType": "IP"
@@ -1223,7 +1223,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Zscaler Private Access (ZPA)",
                 "packageId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
                 "contentSchemaVersion": "3.0.0",
@@ -1286,10 +1286,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "CustomLogsAma",
                                         "datatypes": [
                                             "ZPA_CL"
-                                        ],
-                                        "connectorId": "CustomLogsAma"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -1303,8 +1303,8 @@
                                     {
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountCustomEntity"
+                                                "columnName": "AccountCustomEntity",
+                                                "identifier": "Name"
                                             }
                                         ],
                                         "entityType": "Account"
@@ -1342,7 +1342,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Zscaler Private Access (ZPA)",
                 "packageId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
                 "contentSchemaVersion": "3.0.0",
@@ -1405,10 +1405,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "CustomLogsAma",
                                         "datatypes": [
                                             "ZPA_CL"
-                                        ],
-                                        "connectorId": "CustomLogsAma"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -1422,8 +1422,8 @@
                                     {
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountCustomEntity"
+                                                "columnName": "AccountCustomEntity",
+                                                "identifier": "Name"
                                             }
                                         ],
                                         "entityType": "Account"
@@ -1431,8 +1431,8 @@
                                     {
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Address",
-                                                "columnName": "IPCustomEntity"
+                                                "columnName": "IPCustomEntity",
+                                                "identifier": "Address"
                                             }
                                         ],
                                         "entityType": "IP"
@@ -1470,7 +1470,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Zscaler Private Access (ZPA)",
                 "packageId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
                 "contentSchemaVersion": "3.0.0",
@@ -1533,10 +1533,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "CustomLogsAma",
                                         "datatypes": [
                                             "ZPA_CL"
-                                        ],
-                                        "connectorId": "CustomLogsAma"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -1550,8 +1550,8 @@
                                     {
                                         "fieldMappings": [
                                             {
-                                                "identifier": "ProcessId",
-                                                "columnName": "ProcessCustomEntity"
+                                                "columnName": "ProcessCustomEntity",
+                                                "identifier": "ProcessId"
                                             }
                                         ],
                                         "entityType": "Process"
@@ -1589,7 +1589,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Zscaler Private Access (ZPA)",
                 "packageId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
                 "contentSchemaVersion": "3.0.0",
@@ -1652,10 +1652,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "CustomLogsAma",
                                         "datatypes": [
                                             "ZPA_CL"
-                                        ],
-                                        "connectorId": "CustomLogsAma"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -1668,8 +1668,8 @@
                                     {
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountCustomEntity"
+                                                "columnName": "AccountCustomEntity",
+                                                "identifier": "Name"
                                             }
                                         ],
                                         "entityType": "Account"
@@ -1707,7 +1707,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Zscaler Private Access (ZPA)",
                 "packageId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
                 "contentSchemaVersion": "3.0.0",
@@ -1770,10 +1770,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "CustomLogsAma",
                                         "datatypes": [
                                             "ZPA_CL"
-                                        ],
-                                        "connectorId": "CustomLogsAma"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -1786,8 +1786,8 @@
                                     {
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountCustomEntity"
+                                                "columnName": "AccountCustomEntity",
+                                                "identifier": "Name"
                                             }
                                         ],
                                         "entityType": "Account"
@@ -1825,7 +1825,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Zscaler Private Access (ZPA)",
                 "packageId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
                 "contentSchemaVersion": "3.0.0",
@@ -1888,10 +1888,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "CustomLogsAma",
                                         "datatypes": [
                                             "ZPA_CL"
-                                        ],
-                                        "connectorId": "CustomLogsAma"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -1905,8 +1905,8 @@
                                     {
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountCustomEntity"
+                                                "columnName": "AccountCustomEntity",
+                                                "identifier": "Name"
                                             }
                                         ],
                                         "entityType": "Account"
@@ -1944,7 +1944,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Zscaler Private Access (ZPA)",
                 "packageId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
                 "contentSchemaVersion": "3.0.0",
@@ -2007,10 +2007,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "CustomLogsAma",
                                         "datatypes": [
                                             "ZPA_CL"
-                                        ],
-                                        "connectorId": "CustomLogsAma"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -2024,8 +2024,8 @@
                                     {
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountCustomEntity"
+                                                "columnName": "AccountCustomEntity",
+                                                "identifier": "Name"
                                             }
                                         ],
                                         "entityType": "Account"
@@ -2033,8 +2033,8 @@
                                     {
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Address",
-                                                "columnName": "IPCustomEntity"
+                                                "columnName": "IPCustomEntity",
+                                                "identifier": "Address"
                                             }
                                         ],
                                         "entityType": "IP"
@@ -2072,7 +2072,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Zscaler Private Access (ZPA)",
                 "packageId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
                 "contentSchemaVersion": "3.0.0",
@@ -2135,10 +2135,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "CustomLogsAma",
                                         "datatypes": [
                                             "ZPA_CL"
-                                        ],
-                                        "connectorId": "CustomLogsAma"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -2152,8 +2152,8 @@
                                     {
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountCustomEntity"
+                                                "columnName": "AccountCustomEntity",
+                                                "identifier": "Name"
                                             }
                                         ],
                                         "entityType": "Account"
@@ -2191,7 +2191,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Zscaler Private Access (ZPA)",
                 "packageId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
                 "contentSchemaVersion": "3.0.0",
@@ -2254,10 +2254,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "CustomLogsAma",
                                         "datatypes": [
                                             "ZPA_CL"
-                                        ],
-                                        "connectorId": "CustomLogsAma"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -2271,8 +2271,8 @@
                                     {
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountCustomEntity"
+                                                "columnName": "AccountCustomEntity",
+                                                "identifier": "Name"
                                             }
                                         ],
                                         "entityType": "Account"
@@ -2280,8 +2280,8 @@
                                     {
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Address",
-                                                "columnName": "IPCustomEntity"
+                                                "columnName": "IPCustomEntity",
+                                                "identifier": "Address"
                                             }
                                         ],
                                         "entityType": "IP"
@@ -2319,7 +2319,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "Zscaler Private Access (ZPA)",
                 "packageId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
                 "contentSchemaVersion": "3.0.0",
@@ -2350,15 +2350,15 @@
             "apiVersion": "2023-04-01-preview",
             "location": "[parameters('workspace-location')]",
             "properties": {
-                "version": "3.0.2",
+                "version": "3.0.3",
                 "kind": "Solution",
                 "contentSchemaVersion": "3.0.0",
                 "displayName": "Zscaler Private Access",
                 "publisherDisplayName": "Microsoft Sentinel, Microsoft Corporation",
                 "descriptionHtml": "<p><strong>Note:</strong> Please refer to the following before installing the solution:</p><p>\u2022 Review the solution <a target=\"_blank\" href=\"https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Zscaler%20Private%20Access%20%28ZPA%29/ReleaseNotes.md\" rel=\"noopener\">Release Notes</a></p><p>The <a target=\"_blank\" href=\"https://www.zscaler.com/\" rel=\"noopener\">Zscaler Private Access (ZPA)</a> solution provides the capability to ingest <a target=\"_blank\" href=\"https://help.zscaler.com/zpa/what-zscaler-private-access\" rel=\"noopener\">Zscaler Private Access events</a> into Microsoft Sentinel.</p><p>This solution is dependent on the Custom logs via AMA connector to collect the logs. The Custom logs solution will be installed as part of this solution installation.</p><p><strong>NOTE</strong>: Microsoft recommends installation of Custom logs via AMA Connector. Legacy connector uses the Log Analytics agent which were deprecated on <strong>Aug 31, 2024.</strong> Using MMA and AMA on same machine can cause log duplication and extra ingestion cost <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/sentinel/ama-migrate?WT.mc_id=Portal-fx\" rel=\"noopener\">more details</a>.</p><p><strong>Parsers:</strong> 1, <strong>Workbooks:</strong> 1, <strong>Analytic Rules:</strong> 10, <strong>Hunting Queries:</strong> 10</p><p><a target=\"_blank\" href=\"https://aka.ms/azuresentinel\" rel=\"noopener\">Learn more about Microsoft Sentinel</a> | <a target=\"_blank\" href=\"https://aka.ms/azuresentinelsolutionsdoc\" rel=\"noopener\">Learn more about Solutions</a></p>",
                 "contentKind": "Solution",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-zscalerpriva-sl-cp6xmetr2y53m",
-                "id": "azuresentinel.azure-sentinel-solution-zscalerpriva-sl-cp6xmetr2y53m",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-zscalerpriva-sl-3frmsjpx7kydg",
+                "id": "azuresentinel.azure-sentinel-solution-zscalerpriva-sl-3frmsjpx7kydg",
                 "icon": "https://store-images.s-microsoft.com/image/apps.16907.74737941-60e1-46cc-98a4-baecc69491f0.617377d3-f330-4fa5-a01f-083bb397f983.ddf820ed-d590-40b6-a176-9edfb5f0c131",
                 "contentId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
                 "parentId": "azuresentinel.azure-sentinel-solution-zscalerprivateaccess",
@@ -2437,7 +2437,7 @@
                         {
                             "kind": "Parser",
                             "contentId": "ZPAEvent-Parser",
-                            "version": "1.0.2"
+                            "version": "1.0.3"
                         },
                         {
                             "kind": "AnalyticsRule",
