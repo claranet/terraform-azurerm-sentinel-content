@@ -1,3 +1,15 @@
+## 8.5.1 (2025-09-05)
+
+### Code Refactoring
+
+* bump `Google Workspace` package template version to 3.0.2 e31d08f
+* bump `Zscaler Private Access` package template version to 3.0.3 c057816
+
+### Miscellaneous Chores
+
+* **deps:** update dependency tflint to v0.59.1 4e85a80
+* **deps:** update dependency trivy to v0.66.0 08a6b89
+
 ## 8.5.0 (2025-08-29)
 
 ### Features
