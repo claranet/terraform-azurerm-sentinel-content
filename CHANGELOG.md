@@ -1,3 +1,15 @@
+## 8.5.2 (2025-10-10)
+
+### Code Refactoring
+
+* bump `Entra ID` package template version to 3.3.6 2ef0830
+
+### Miscellaneous Chores
+
+* **deps:** update dependency opentofu to v1.10.6 3635d6e
+* **deps:** update dependency trivy to v0.67.0 742015b
+* **deps:** update dependency trivy to v0.67.1 716cdea
+
 ## 8.5.1 (2025-09-05)
 
 ### Code Refactoring
