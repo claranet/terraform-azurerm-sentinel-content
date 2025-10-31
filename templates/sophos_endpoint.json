@@ -122,7 +122,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Sophos Endpoint Protection",
                 "packageId": "azuresentinel.azure-sentinel-solution-sophosep",
                 "contentSchemaVersion": "3.0.0",
@@ -385,7 +385,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Sophos Endpoint Protection",
                 "packageId": "azuresentinel.azure-sentinel-solution-sophosep",
                 "contentSchemaVersion": "3.0.0",
@@ -962,6 +962,7 @@
                             "apiVersion": "2022-10-01",
                             "type": "Microsoft.OperationalInsights/workspaces/tables",
                             "location": "[parameters('workspace-location')]",
+                            "kind": null,
                             "properties": {
                                 "schema": {
                                     "name": "SophosEPAlerts_CL",
@@ -1045,6 +1046,7 @@
                             "apiVersion": "2022-10-01",
                             "type": "Microsoft.OperationalInsights/workspaces/tables",
                             "location": "[parameters('workspace-location')]",
+                            "kind": null,
                             "properties": {
                                 "schema": {
                                     "name": "SophosEPEvents_CL",
@@ -1174,7 +1176,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Sophos Endpoint Protection",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-sophosep-dc-pr2idgrp7epoc",
                 "packageId": "azuresentinel.azure-sentinel-solution-sophosep",
@@ -1360,29 +1362,22 @@
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
                     "parameters": {
-                        "ClientId": {
-                            "defaultValue": "-NA-",
-                            "type": "securestring",
-                            "minLength": 1
+                        "guidValue": {
+                            "defaultValue": "[[newGuid()]",
+                            "type": "securestring"
                         },
-                        "ClientSecret": {
-                            "defaultValue": "-NA-",
-                            "type": "securestring",
-                            "minLength": 1
-                        },
-                        "sophosRegion": {
-                            "defaultValue": "Enter sophosRegion value",
-                            "type": "String",
-                            "minLength": 1
+                        "innerWorkspace": {
+                            "defaultValue": "[parameters('workspace')]",
+                            "type": "securestring"
                         },
                         "connectorDefinitionName": {
                             "defaultValue": "Sophos Endpoint Protection (using REST API)",
-                            "type": "String",
+                            "type": "securestring",
                             "minLength": 1
                         },
                         "workspace": {
                             "defaultValue": "[parameters('workspace')]",
-                            "type": "string"
+                            "type": "securestring"
                         },
                         "dcrConfig": {
                             "defaultValue": {
@@ -1393,7 +1388,22 @@
                         },
                         "sophosTenantId": {
                             "defaultValue": "sophosTenantId",
-                            "type": "String",
+                            "type": "securestring",
+                            "minLength": 1
+                        },
+                        "sophosRegion": {
+                            "defaultValue": "sophosRegion",
+                            "type": "securestring",
+                            "minLength": 1
+                        },
+                        "ClientId": {
+                            "defaultValue": "-NA-",
+                            "type": "securestring",
+                            "minLength": 1
+                        },
+                        "ClientSecret": {
+                            "defaultValue": "-NA-",
+                            "type": "securestring",
                             "minLength": 1
                         },
                         "AuthorizationCode": {
@@ -1433,7 +1443,7 @@
                             }
                         },
                         {
-                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', 'SophosEndpointProtectionCCPAlertsPolling')]",
+                            "name": "[[concat(parameters('innerWorkspace'),'/Microsoft.SecurityInsights/', 'SophosEndpointProtectionCCPAlertsPolling', parameters('guidValue'))]",
                             "apiVersion": "2023-02-01-preview",
                             "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
                             "location": "[parameters('workspace-location')]",
@@ -1448,8 +1458,8 @@
                                 },
                                 "auth": {
                                     "type": "OAuth2",
-                                    "ClientSecret": "[[parameters('ClientSecret')]",
-                                    "ClientId": "[[parameters('ClientId')]",
+                                    "ClientSecret": "[[parameters('clientSecret')]",
+                                    "ClientId": "[[parameters('clientId')]",
                                     "TokenEndpoint": "https://id.sophos.com/api/v2/oauth2/token",
                                     "tokenEndpointHeaders": {
                                         "Accept": "application/json",
@@ -1460,7 +1470,7 @@
                                     "grantType": "client_credentials"
                                 },
                                 "request": {
-                                    "apiEndpoint": "[[concat('https://api-', parameters('sophosRegion'), '.central.sophos.com/siem/v1/alerts')]",
+                                    "apiEndpoint": "[[concat('https://api-',parameters('sophosRegion'),'.central.sophos.com/siem/v1/alerts')]",
                                     "rateLimitQPS": 10,
                                     "queryWindowInMin": 5,
                                     "httpMethod": "GET",
@@ -1487,7 +1497,7 @@
                             }
                         },
                         {
-                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', 'SophosEndpointProtectionCCPEventsPolling')]",
+                            "name": "[[concat(parameters('innerWorkspace'),'/Microsoft.SecurityInsights/', 'SophosEndpointProtectionCCPEventsPolling', parameters('guidValue'))]",
                             "apiVersion": "2023-02-01-preview",
                             "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
                             "location": "[parameters('workspace-location')]",
@@ -1502,8 +1512,8 @@
                                 },
                                 "auth": {
                                     "type": "OAuth2",
-                                    "ClientSecret": "[[parameters('ClientSecret')]",
-                                    "ClientId": "[[parameters('ClientId')]",
+                                    "ClientSecret": "[[parameters('clientSecret')]",
+                                    "ClientId": "[[parameters('clientId')]",
                                     "TokenEndpoint": "https://id.sophos.com/api/v2/oauth2/token",
                                     "tokenEndpointHeaders": {
                                         "Accept": "application/json",
@@ -1514,7 +1524,7 @@
                                     "grantType": "client_credentials"
                                 },
                                 "request": {
-                                    "apiEndpoint": "[[concat('https://api-', parameters('sophosRegion'), '.central.sophos.com/siem/v1/events')]",
+                                    "apiEndpoint": "[[concat('https://api-',parameters('sophosRegion'),'.central.sophos.com/siem/v1/events')]",
                                     "rateLimitQPS": 10,
                                     "queryWindowInMin": 5,
                                     "httpMethod": "GET",
@@ -1543,7 +1553,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.5",
+                "packageVersion": "3.0.6",
                 "packageName": "Sophos Endpoint Protection",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-sophosep-rdc-mz5giusssbwxk",
                 "packageId": "azuresentinel.azure-sentinel-solution-sophosep",
@@ -1559,15 +1569,15 @@
             "apiVersion": "2023-04-01-preview",
             "location": "[parameters('workspace-location')]",
             "properties": {
-                "version": "3.0.5",
+                "version": "3.0.6",
                 "kind": "Solution",
                 "contentSchemaVersion": "3.0.0",
                 "displayName": "Sophos Endpoint Protection",
                 "publisherDisplayName": "Microsoft Sentinel, Microsoft Corporation",
                 "descriptionHtml": "<p><strong>Note:</strong> Please refer to the following before installing the solution:</p><p>\u2022 Review the solution <a target=\"_blank\" href=\"https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Sophos%20Endpoint%20Protection/ReleaseNotes.md\" rel=\"noopener\">Release Notes</a></p><p>The <a target=\"_blank\" href=\"https://www.sophos.com/products/endpoint-antivirus.aspx\" rel=\"noopener\">Sophos Endpoint Protection</a> solution provides the capability to ingest to ingest <a target=\"_blank\" href=\"https://developer.sophos.com/docs/siem-v1/1/routes/events/get\" rel=\"noopener\">Sophos events</a> and <a target=\"_blank\" href=\"https://developer.sophos.com/docs/siem-v1/1/routes/alerts/get\" rel=\"noopener\">Sophos alerts</a> into Microsoft Sentinel. Refer to <a target=\"_blank\" href=\"https://docs.sophos.com/central/Customer/help/en-us/central/Customer/concepts/Logs.html\" rel=\"noopener\">Sophos Central documentation</a> for more information.</p><p><strong>Underlying Microsoft Technologies used:</strong></p><p>This solution takes a dependency on the following technologies, and some of these dependencies either may be in <a target=\"_blank\" href=\"https://azure.microsoft.com/support/legal/preview-supplemental-terms/\" rel=\"noopener\">Preview</a> state or might result in additional ingestion or operational costs:</p><p>a. <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/azure-monitor/logs/data-collector-api?WT.mc_id=Portal-fx\" rel=\"noopener\">Azure Monitor HTTP Data Collector API</a></p><p>b. <a target=\"_blank\" href=\"https://azure.microsoft.com/services/functions/#overview\" rel=\"noopener\">Azure Functions</a></p><p>c. <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/sentinel/create-custom-connector?WT.mc_id=Portal-fx#connect-with-the-codeless-connector-platform\" rel=\"noopener\">Codeless Connector Platform (CCP)</a></p><p><strong>Data Connectors:</strong> 2, <strong>Parsers:</strong> 1</p><p><a target=\"_blank\" href=\"https://aka.ms/azuresentinel\" rel=\"noopener\">Learn more about Microsoft Sentinel</a> | <a target=\"_blank\" href=\"https://aka.ms/azuresentinelsolutionsdoc\" rel=\"noopener\">Learn more about Solutions</a></p>",
                 "contentKind": "Solution",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-sophosep-sl-requotohfanc2",
-                "id": "azuresentinel.azure-sentinel-solution-sophosep-sl-requotohfanc2",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-sophosep-sl-3r2cgrk4doip4",
+                "id": "azuresentinel.azure-sentinel-solution-sophosep-sl-3r2cgrk4doip4",
                 "icon": "https://store-images.s-microsoft.com/image/apps.41419.2b740b78-b211-45f8-839b-2f67e70008bc.19cf8bba-0f67-4e4d-b042-90d70a5dfef1.1d473b06-07e6-4bbb-90de-c8ee4f473ad3",
                 "contentId": "azuresentinel.azure-sentinel-solution-sophosep",
                 "parentId": "azuresentinel.azure-sentinel-solution-sophosep",
