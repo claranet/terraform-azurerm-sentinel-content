@@ -1,3 +1,15 @@
+## 8.5.3 (2025-10-31)
+
+### Code Refactoring
+
+* bump `AWS` package template version to 3.0.7 619a771
+* bump `Sophos Endpoint` package template version to 3.0.6 3d6f86a
+
+### Miscellaneous Chores
+
+* **deps:** update dependency trivy to v0.67.2 b393b11
+* **deps:** update pre-commit hook tofuutils/pre-commit-opentofu to v2.2.2 a5379a3
+
 ## 8.5.2 (2025-10-10)
 
 ### Code Refactoring
