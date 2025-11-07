@@ -1,3 +1,13 @@
+## 8.5.4 (2025-11-07)
+
+### Code Refactoring
+
+* bump `Azure WAF` package template version to 3.0.2 435777c
+
+### Miscellaneous Chores
+
+* **deps:** update dependency opentofu to v1.10.7 908b535
+
 ## 8.5.3 (2025-10-31)
 
 ### Code Refactoring
