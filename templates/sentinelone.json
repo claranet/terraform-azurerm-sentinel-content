@@ -280,37 +280,37 @@
                                         "columns": [
                                             {
                                                 "name": "agentUpdatedVersion",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The version of the agent that was updated."
                                             },
                                             {
                                                 "name": "userId",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The unique identifier for the user."
                                             },
                                             {
                                                 "name": "threatId",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The unique identifier for the threat."
                                             },
                                             {
                                                 "name": "primaryDescription",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The primary description of the event."
                                             },
                                             {
                                                 "name": "secondaryDescription",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The secondary description of the event."
                                             },
                                             {
                                                 "name": "id",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The unique identifier for the record."
                                             },
                                             {
                                                 "name": "groupId",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The unique identifier for the group."
                                             },
                                             {
@@ -320,42 +320,42 @@
                                             },
                                             {
                                                 "name": "accountName",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The name of the account associated with the event."
                                             },
                                             {
                                                 "name": "data",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "Activity metadata."
                                             },
                                             {
                                                 "name": "agentId",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The unique identifier for the agent."
                                             },
                                             {
                                                 "name": "hash",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The hash associated with the event."
                                             },
                                             {
                                                 "name": "updatedAt",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The timestamp (UTC) when the record was last updated."
                                             },
                                             {
                                                 "name": "description",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The description of the event."
                                             },
                                             {
                                                 "name": "activityUuid",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The UUID of the activity associated with the event."
                                             },
                                             {
                                                 "name": "siteId",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The unique identifier for the site."
                                             },
                                             {
@@ -365,27 +365,27 @@
                                             },
                                             {
                                                 "name": "siteName",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The name of the site associated with the event."
                                             },
                                             {
                                                 "name": "accountId",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The unique identifier for the account."
                                             },
                                             {
                                                 "name": "osFamily",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The operating system family, such as macOS."
                                             },
                                             {
                                                 "name": "groupName",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The name of the group associated with the event."
                                             },
                                             {
                                                 "name": "comments",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "Any comments associated with the event."
                                             }
                                         ]
@@ -394,27 +394,27 @@
                                         "columns": [
                                             {
                                                 "name": "uuid",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The unique identifier for the object."
                                             },
                                             {
                                                 "name": "mitigationMode",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The mitigation mode applied."
                                             },
                                             {
                                                 "name": "networkStatus",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The network status of the object."
                                             },
                                             {
                                                 "name": "installerType",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The type of installer used."
                                             },
                                             {
                                                 "name": "mitigationModeSuspicious",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The suspicious mitigation mode applied."
                                             },
                                             {
@@ -429,27 +429,27 @@
                                             },
                                             {
                                                 "name": "lastLoggedInUserName",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The username of the last logged-in user."
                                             },
                                             {
                                                 "name": "osRevision",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The OS revision."
                                             },
                                             {
                                                 "name": "osArch",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The OS architecture."
                                             },
                                             {
                                                 "name": "id",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The unique identifier for the object."
                                             },
                                             {
                                                 "name": "computerName",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The name of the computer."
                                             },
                                             {
@@ -464,12 +464,12 @@
                                             },
                                             {
                                                 "name": "groupId",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The unique identifier for the group."
                                             },
                                             {
                                                 "name": "lastActiveDate",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The timestamp (UTC) when the object was last active."
                                             },
                                             {
@@ -484,27 +484,27 @@
                                             },
                                             {
                                                 "name": "rangerVersion",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The version of the ranger."
                                             },
                                             {
                                                 "name": "accountName",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The account name."
                                             },
                                             {
                                                 "name": "scanStatus",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The scan status of the object."
                                             },
                                             {
                                                 "name": "domain",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The domain of the object."
                                             },
                                             {
                                                 "name": "missingPermissions",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "Details of the missing permissions."
                                             },
                                             {
@@ -514,7 +514,7 @@
                                             },
                                             {
                                                 "name": "groupIp",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The IP address of the group."
                                             },
                                             {
@@ -529,22 +529,22 @@
                                             },
                                             {
                                                 "name": "externalId",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The external identifier associated with the object."
                                             },
                                             {
                                                 "name": "machineType",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The type of machine."
                                             },
                                             {
                                                 "name": "registeredAt",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The timestamp (UTC) when the object was registered."
                                             },
                                             {
                                                 "name": "appsVulnerabilityStatus",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The vulnerability status of the applications."
                                             },
                                             {
@@ -554,27 +554,27 @@
                                             },
                                             {
                                                 "name": "locations",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The locations associated with the object."
                                             },
                                             {
                                                 "name": "scanFinishedAt",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The timestamp (UTC) when the scan was finished."
                                             },
                                             {
                                                 "name": "updatedAt",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The timestamp (UTC) when the object was last updated."
                                             },
                                             {
                                                 "name": "externalIp",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The external IP address of the object."
                                             },
                                             {
                                                 "name": "locationType",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The type of location."
                                             },
                                             {
@@ -589,12 +589,12 @@
                                             },
                                             {
                                                 "name": "cpuId",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The identifier of the CPU."
                                             },
                                             {
                                                 "name": "networkInterfaces",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "Details of the network interfaces."
                                             },
                                             {
@@ -604,32 +604,32 @@
                                             },
                                             {
                                                 "name": "activeDirectory",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "Details about the active directory."
                                             },
                                             {
                                                 "name": "scanStartedAt",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The timestamp (UTC) when the scan was started."
                                             },
                                             {
                                                 "name": "rangerStatus",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The status of the ranger."
                                             },
                                             {
                                                 "name": "siteId",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The unique identifier for the site."
                                             },
                                             {
                                                 "name": "agentVersion",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The version of the agent."
                                             },
                                             {
                                                 "name": "osUsername",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The username associated with the operating system."
                                             },
                                             {
@@ -639,7 +639,7 @@
                                             },
                                             {
                                                 "name": "lastIpToMgmt",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The last IP address used for management."
                                             },
                                             {
@@ -654,7 +654,7 @@
                                             },
                                             {
                                                 "name": "siteName",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The name of the site."
                                             },
                                             {
@@ -669,27 +669,27 @@
                                             },
                                             {
                                                 "name": "consoleMigrationStatus",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The status of the console migration."
                                             },
                                             {
                                                 "name": "osType",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The type of operating system."
                                             },
                                             {
                                                 "name": "accountId",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The unique identifier for the account."
                                             },
                                             {
                                                 "name": "groupName",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The name of the group."
                                             },
                                             {
                                                 "name": "osName",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The name of the operating system."
                                             },
                                             {
@@ -699,17 +699,17 @@
                                             },
                                             {
                                                 "name": "licenseKey",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The license key associated with the object."
                                             },
                                             {
                                                 "name": "userActionsNeeded",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "Details of the user actions needed."
                                             },
                                             {
                                                 "name": "modelName",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The model name of the object."
                                             },
                                             {
@@ -719,17 +719,17 @@
                                             },
                                             {
                                                 "name": "operationalStateExpiration",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "Agent operational state."
                                             },
                                             {
                                                 "name": "remoteProfilingState",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "Agent remote profiling state."
                                             },
                                             {
                                                 "name": "osStartTime",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The Start time of the os."
                                             }
                                         ]
@@ -738,42 +738,42 @@
                                         "columns": [
                                             {
                                                 "name": "sourceProcessInfo",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "Information about the source process."
                                             },
                                             {
                                                 "name": "alertInfo",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "Details about the alert."
                                             },
                                             {
                                                 "name": "agentDetectionInfo",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "Detection information related to the agent."
                                             },
                                             {
                                                 "name": "ruleInfo",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "Information regarding the applied rule."
                                             },
                                             {
                                                 "name": "containerInfo",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "Information about the container."
                                             },
                                             {
                                                 "name": "sourceParentProcessInfo",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "Information about the parent process of the source."
                                             },
                                             {
                                                 "name": "targetProcessInfo",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "Details regarding the target process."
                                             },
                                             {
                                                 "name": "kubernetesInfo",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "Kubernetes-related information."
                                             }
                                         ]
@@ -782,12 +782,12 @@
                                         "columns": [
                                             {
                                                 "name": "creator",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The name of the creator."
                                             },
                                             {
                                                 "name": "registrationToken",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The token used for registration."
                                             },
                                             {
@@ -797,7 +797,7 @@
                                             },
                                             {
                                                 "name": "updatedAt",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The timestamp (UTC) when the object was last updated."
                                             },
                                             {
@@ -812,7 +812,7 @@
                                             },
                                             {
                                                 "name": "name",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The name of the object."
                                             },
                                             {
@@ -822,17 +822,17 @@
                                             },
                                             {
                                                 "name": "filterName",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The name of the filter applied."
                                             },
                                             {
                                                 "name": "type",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The type of the object."
                                             },
                                             {
                                                 "name": "id",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The unique identifier for the object."
                                             },
                                             {
@@ -842,17 +842,17 @@
                                             },
                                             {
                                                 "name": "creatorId",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The unique identifier of the creator."
                                             },
                                             {
                                                 "name": "siteId",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The unique identifier of the site."
                                             },
                                             {
                                                 "name": "filterId",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The unique identifier of the filter."
                                             }
                                         ]
@@ -861,32 +861,32 @@
                                         "columns": [
                                             {
                                                 "name": "threatInfo",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The information regarding the threat."
                                             },
                                             {
                                                 "name": "agentDetectionInfo",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The information of the agent on detectino."
                                             },
                                             {
                                                 "name": "agentRealtimeInfo",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "The information of the agent in real time."
                                             },
                                             {
                                                 "name": "indicators",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "Details of the indicators."
                                             },
                                             {
                                                 "name": "whiteningOptions",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "Details of the whitening options."
                                             },
                                             {
                                                 "name": "id",
-                                                "type": "string",
+                                                "type": "String",
                                                 "description": "Event Id."
                                             }
                                         ]
@@ -956,256 +956,6 @@
                             }
                         },
                         {
-                            "name": "SentinelOneThreats_CL",
-                            "apiVersion": "2022-10-01",
-                            "type": "Microsoft.OperationalInsights/workspaces/tables",
-                            "location": "[parameters('workspace-location')]",
-                            "kind": null,
-                            "properties": {
-                                "schema": {
-                                    "name": "SentinelOneThreats_CL",
-                                    "columns": [
-                                        {
-                                            "name": "TimeGenerated",
-                                            "type": "datetime",
-                                            "isDefaultDisplay": true,
-                                            "description": "The timestamp (UTC) reflecting the time in which the event was generated."
-                                        },
-                                        {
-                                            "name": "FilePath",
-                                            "type": "string",
-                                            "description": "The path of the file."
-                                        },
-                                        {
-                                            "name": "CloudVerdict",
-                                            "type": "string",
-                                            "description": "The cloud verdict for the file."
-                                        },
-                                        {
-                                            "name": "MitigationMode",
-                                            "type": "string",
-                                            "description": "The mode of mitigation applied."
-                                        },
-                                        {
-                                            "name": "AgentOsType",
-                                            "type": "string",
-                                            "description": "The operating system type of the agent."
-                                        },
-                                        {
-                                            "name": "AgentInfected",
-                                            "type": "boolean",
-                                            "description": "Indicates whether the agent is infected."
-                                        },
-                                        {
-                                            "name": "InitiatingUserId",
-                                            "type": "string",
-                                            "description": "The unique identifier for the initiating user."
-                                        },
-                                        {
-                                            "name": "Engines",
-                                            "type": "string",
-                                            "description": "Details of the engines used."
-                                        },
-                                        {
-                                            "name": "Id",
-                                            "type": "string",
-                                            "description": "The unique identifier for the record."
-                                        },
-                                        {
-                                            "name": "FileExtensionType",
-                                            "type": "string",
-                                            "description": "The type of file extension."
-                                        },
-                                        {
-                                            "name": "MitigationStatus",
-                                            "type": "string",
-                                            "description": "The status of mitigation."
-                                        },
-                                        {
-                                            "name": "AgentDomain",
-                                            "type": "string",
-                                            "description": "The domain of the agent."
-                                        },
-                                        {
-                                            "name": "CreatedAt",
-                                            "type": "datetime",
-                                            "description": "The timestamp (UTC) when the record was created."
-                                        },
-                                        {
-                                            "name": "IsCertValid",
-                                            "type": "boolean",
-                                            "description": "Indicates whether the certificate is valid."
-                                        },
-                                        {
-                                            "name": "FileDisplayName",
-                                            "type": "string",
-                                            "description": "The display name of the file."
-                                        },
-                                        {
-                                            "name": "AgentIp",
-                                            "type": "string",
-                                            "description": "The IP address of the agent."
-                                        },
-                                        {
-                                            "name": "AccountName",
-                                            "type": "string",
-                                            "description": "The name of the account associated with the event."
-                                        },
-                                        {
-                                            "name": "AgentMachineType",
-                                            "type": "string",
-                                            "description": "The machine type of the agent."
-                                        },
-                                        {
-                                            "name": "FileVerificationType",
-                                            "type": "string",
-                                            "description": "The type of file verification."
-                                        },
-                                        {
-                                            "name": "Indicators",
-                                            "type": "string",
-                                            "description": "Details of the indicators."
-                                        },
-                                        {
-                                            "name": "InitiatedByDescription",
-                                            "type": "string",
-                                            "description": "Description of the initiated by field."
-                                        },
-                                        {
-                                            "name": "AutomaticallyResolved",
-                                            "type": "boolean",
-                                            "description": "Indicates whether the issue was automatically resolved."
-                                        },
-                                        {
-                                            "name": "AgentId",
-                                            "type": "string",
-                                            "description": "The unique identifier for the agent."
-                                        },
-                                        {
-                                            "name": "ProcessArguments",
-                                            "type": "string",
-                                            "description": "The unique identifier for the malicious group."
-                                        },
-                                        {
-                                            "name": "MitigationReport",
-                                            "type": "string",
-                                            "description": "Report of the actions taken by the Agent."
-                                        },
-                                        {
-                                            "name": "ThreatName",
-                                            "type": "string",
-                                            "description": "Details about the threat name."
-                                        },
-                                        {
-                                            "name": "ClassificationSource",
-                                            "type": "string",
-                                            "description": "The source of the classification."
-                                        },
-                                        {
-                                            "name": "UpdatedAt",
-                                            "type": "datetime",
-                                            "description": "The timestamp (UTC) when the record was last updated."
-                                        },
-                                        {
-                                            "name": "InitiatedBy",
-                                            "type": "string",
-                                            "description": "Indicates by whom or what the action was initiated."
-                                        },
-                                        {
-                                            "name": "AgentNetworkStatus",
-                                            "type": "string",
-                                            "description": "The network status of the agent."
-                                        },
-                                        {
-                                            "name": "AgentComputerName",
-                                            "type": "string",
-                                            "description": "The computer name of the agent."
-                                        },
-                                        {
-                                            "name": "Classification",
-                                            "type": "string",
-                                            "description": "The classification of the event."
-                                        },
-                                        {
-                                            "name": "CertId",
-                                            "type": "string",
-                                            "description": "The certificate ID."
-                                        },
-                                        {
-                                            "name": "AgentIsActive",
-                                            "type": "boolean",
-                                            "description": "Indicates whether the agent is active."
-                                        },
-                                        {
-                                            "name": "SiteId",
-                                            "type": "string",
-                                            "description": "The unique identifier for the site."
-                                        },
-                                        {
-                                            "name": "AgentVersion",
-                                            "type": "string",
-                                            "description": "The version of the agent."
-                                        },
-                                        {
-                                            "name": "FileContentHash",
-                                            "type": "string",
-                                            "description": "The hash of the file content."
-                                        },
-                                        {
-                                            "name": "WhiteningOptions",
-                                            "type": "string",
-                                            "description": "Details of the whitening options."
-                                        },
-                                        {
-                                            "name": "Username",
-                                            "type": "string",
-                                            "description": "The username associated with the event."
-                                        },
-                                        {
-                                            "name": "FileSha256",
-                                            "type": "string",
-                                            "description": "The SHA-256 hash of the file."
-                                        },
-                                        {
-                                            "name": "AgentIsDecommissioned",
-                                            "type": "boolean",
-                                            "description": "Indicates whether the agent is decommissioned."
-                                        },
-                                        {
-                                            "name": "CollectionId",
-                                            "type": "string",
-                                            "description": "The unique identifier for the collection."
-                                        },
-                                        {
-                                            "name": "SiteName",
-                                            "type": "string",
-                                            "description": "The name of the site."
-                                        },
-                                        {
-                                            "name": "AccountId",
-                                            "type": "string",
-                                            "description": "The unique identifier for the account."
-                                        },
-                                        {
-                                            "name": "ThreatInfo",
-                                            "type": "dynamic",
-                                            "description": "The information about the threat."
-                                        },
-                                        {
-                                            "name": "AgentDetectionInfo",
-                                            "type": "dynamic",
-                                            "description": "The information of the agent in detection."
-                                        },
-                                        {
-                                            "name": "AgentRealtimeInfo",
-                                            "type": "dynamic",
-                                            "description": "The information of the agent in realtime."
-                                        }
-                                    ]
-                                }
-                            }
-                        },
-                        {
                             "name": "SentinelOneActivities_CL",
                             "apiVersion": "2022-10-01",
                             "type": "Microsoft.OperationalInsights/workspaces/tables",
@@ -1223,37 +973,37 @@
                                         },
                                         {
                                             "name": "AgentUpdatedVersion",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The version of the agent that was updated."
                                         },
                                         {
                                             "name": "UserId",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The unique identifier for the user."
                                         },
                                         {
                                             "name": "ThreatId",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The unique identifier for the threat."
                                         },
                                         {
                                             "name": "PrimaryDescription",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The primary description of the event."
                                         },
                                         {
                                             "name": "SecondaryDescription",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The secondary description of the event."
                                         },
                                         {
                                             "name": "Id",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The unique identifier for the record."
                                         },
                                         {
                                             "name": "GroupId",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The unique identifier for the group."
                                         },
                                         {
@@ -1263,22 +1013,22 @@
                                         },
                                         {
                                             "name": "AccountName",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The name of the account associated with the event."
                                         },
                                         {
                                             "name": "Data",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "Activity metadata."
                                         },
                                         {
                                             "name": "AgentId",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The unique identifier for the agent."
                                         },
                                         {
                                             "name": "Hash",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The hash associated with the event."
                                         },
                                         {
@@ -1288,17 +1038,17 @@
                                         },
                                         {
                                             "name": "Description",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The description of the event."
                                         },
                                         {
                                             "name": "ActivityUuid",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The UUID of the activity associated with the event."
                                         },
                                         {
                                             "name": "SiteId",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The unique identifier for the site."
                                         },
                                         {
@@ -1308,27 +1058,27 @@
                                         },
                                         {
                                             "name": "SiteName",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The name of the site associated with the event."
                                         },
                                         {
                                             "name": "AccountId",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The unique identifier for the account."
                                         },
                                         {
                                             "name": "OsFamily",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The operating system family, such as macOS."
                                         },
                                         {
                                             "name": "GroupName",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The name of the group associated with the event."
                                         },
                                         {
                                             "name": "Comments",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "Any comments associated with the event."
                                         }
                                     ]
@@ -1353,27 +1103,27 @@
                                         },
                                         {
                                             "name": "Uuid",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The unique identifier for the object."
                                         },
                                         {
                                             "name": "MitigationMode",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The mitigation mode applied."
                                         },
                                         {
                                             "name": "NetworkStatus",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The network status of the object."
                                         },
                                         {
                                             "name": "InstallerType",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The type of installer used."
                                         },
                                         {
                                             "name": "MitigationModeSuspicious",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The suspicious mitigation mode applied."
                                         },
                                         {
@@ -1388,27 +1138,27 @@
                                         },
                                         {
                                             "name": "LastLoggedInUserName",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The username of the last logged-in user."
                                         },
                                         {
                                             "name": "OsRevision",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The OS revision."
                                         },
                                         {
                                             "name": "OsArch",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The OS architecture."
                                         },
                                         {
                                             "name": "Id",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The unique identifier for the object."
                                         },
                                         {
                                             "name": "ComputerName",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The name of the computer."
                                         },
                                         {
@@ -1423,7 +1173,7 @@
                                         },
                                         {
                                             "name": "GroupId",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The unique identifier for the group."
                                         },
                                         {
@@ -1443,27 +1193,27 @@
                                         },
                                         {
                                             "name": "RangerVersion",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The version of the ranger."
                                         },
                                         {
                                             "name": "AccountName",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The account name."
                                         },
                                         {
                                             "name": "ScanStatus",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The scan status of the object."
                                         },
                                         {
                                             "name": "Domain",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The domain of the object."
                                         },
                                         {
                                             "name": "MissingPermissions",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "Details of the missing permissions."
                                         },
                                         {
@@ -1473,7 +1223,7 @@
                                         },
                                         {
                                             "name": "GroupIp",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The IP address of the group."
                                         },
                                         {
@@ -1488,12 +1238,12 @@
                                         },
                                         {
                                             "name": "ExternalId",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The external identifier associated with the object."
                                         },
                                         {
                                             "name": "MachineType",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The type of machine."
                                         },
                                         {
@@ -1503,7 +1253,7 @@
                                         },
                                         {
                                             "name": "AppsVulnerabilityStatus",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The vulnerability status of the applications."
                                         },
                                         {
@@ -1513,7 +1263,7 @@
                                         },
                                         {
                                             "name": "Locations",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The locations associated with the object."
                                         },
                                         {
@@ -1528,12 +1278,12 @@
                                         },
                                         {
                                             "name": "ExternalIp",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The external IP address of the object."
                                         },
                                         {
                                             "name": "LocationType",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The type of location."
                                         },
                                         {
@@ -1548,12 +1298,12 @@
                                         },
                                         {
                                             "name": "CpuId",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The identifier of the CPU."
                                         },
                                         {
                                             "name": "NetworkInterfaces",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "Details of the network interfaces."
                                         },
                                         {
@@ -1563,7 +1313,7 @@
                                         },
                                         {
                                             "name": "ActiveDirectory",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "Details about the active directory."
                                         },
                                         {
@@ -1573,22 +1323,22 @@
                                         },
                                         {
                                             "name": "RangerStatus",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The status of the ranger."
                                         },
                                         {
                                             "name": "SiteId",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The unique identifier for the site."
                                         },
                                         {
                                             "name": "AgentVersion",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The version of the agent."
                                         },
                                         {
                                             "name": "OsUsername",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The username associated with the operating system."
                                         },
                                         {
@@ -1598,7 +1348,7 @@
                                         },
                                         {
                                             "name": "LastIpToMgmt",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The last IP address used for management."
                                         },
                                         {
@@ -1613,7 +1363,7 @@
                                         },
                                         {
                                             "name": "SiteName",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The name of the site."
                                         },
                                         {
@@ -1628,27 +1378,27 @@
                                         },
                                         {
                                             "name": "ConsoleMigrationStatus",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The status of the console migration."
                                         },
                                         {
                                             "name": "OsType",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The type of operating system."
                                         },
                                         {
                                             "name": "AccountId",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The unique identifier for the account."
                                         },
                                         {
                                             "name": "GroupName",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The name of the group."
                                         },
                                         {
                                             "name": "OsName",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The name of the operating system."
                                         },
                                         {
@@ -1658,17 +1408,17 @@
                                         },
                                         {
                                             "name": "LicenseKey",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The license key associated with the object."
                                         },
                                         {
                                             "name": "UserActionsNeeded",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "Details of the user actions needed."
                                         },
                                         {
                                             "name": "ModelName",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The model name of the object."
                                         },
                                         {
@@ -1683,12 +1433,12 @@
                                         },
                                         {
                                             "name": "OperationalStateExpiration",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "Agent operational state."
                                         },
                                         {
                                             "name": "RemoteProfilingState",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "Agent remote profiling state."
                                         }
                                     ]
@@ -1713,42 +1463,42 @@
                                         },
                                         {
                                             "name": "SourceProcessInfo",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "Information about the source process."
                                         },
                                         {
                                             "name": "AlertInfo",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "Details about the alert."
                                         },
                                         {
                                             "name": "AgentDetectionInfo",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "Detection information related to the agent."
                                         },
                                         {
                                             "name": "RuleInfo",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "Information regarding the applied rule."
                                         },
                                         {
                                             "name": "ContainerInfo",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "Information about the container."
                                         },
                                         {
                                             "name": "SourceParentProcessInfo",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "Information about the parent process of the source."
                                         },
                                         {
                                             "name": "TargetProcessInfo",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "Details regarding the target process."
                                         },
                                         {
                                             "name": "KubernetesInfo",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "Kubernetes-related information."
                                         }
                                     ]
@@ -1773,17 +1523,17 @@
                                         },
                                         {
                                             "name": "Creator",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The name of the creator."
                                         },
                                         {
                                             "name": "RegistrationToken",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The token used for registration."
                                         },
                                         {
                                             "name": "IsDefault",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "Indicates whether this is the default setting."
                                         },
                                         {
@@ -1793,17 +1543,17 @@
                                         },
                                         {
                                             "name": "TotalAgents",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The total number of agents."
                                         },
                                         {
                                             "name": "Inherits",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "Indicates whether the object inherits properties."
                                         },
                                         {
                                             "name": "Name",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The name of the object."
                                         },
                                         {
@@ -1813,17 +1563,17 @@
                                         },
                                         {
                                             "name": "FilterName",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The name of the filter applied."
                                         },
                                         {
                                             "name": "GroupType",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The type of the object."
                                         },
                                         {
                                             "name": "Id",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The unique identifier for the object."
                                         },
                                         {
@@ -1833,18 +1583,268 @@
                                         },
                                         {
                                             "name": "CreatorId",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The unique identifier of the creator."
                                         },
                                         {
                                             "name": "SiteId",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The unique identifier of the site."
                                         },
                                         {
                                             "name": "FilterId",
-                                            "type": "string",
+                                            "type": "String",
                                             "description": "The unique identifier of the filter."
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "SentinelOneThreats_CL",
+                            "apiVersion": "2022-10-01",
+                            "type": "Microsoft.OperationalInsights/workspaces/tables",
+                            "location": "[parameters('workspace-location')]",
+                            "kind": null,
+                            "properties": {
+                                "schema": {
+                                    "name": "SentinelOneThreats_CL",
+                                    "columns": [
+                                        {
+                                            "name": "TimeGenerated",
+                                            "type": "datetime",
+                                            "isDefaultDisplay": true,
+                                            "description": "The timestamp (UTC) reflecting the time in which the event was generated."
+                                        },
+                                        {
+                                            "name": "FilePath",
+                                            "type": "String",
+                                            "description": "The path of the file."
+                                        },
+                                        {
+                                            "name": "CloudVerdict",
+                                            "type": "String",
+                                            "description": "The cloud verdict for the file."
+                                        },
+                                        {
+                                            "name": "MitigationMode",
+                                            "type": "String",
+                                            "description": "The mode of mitigation applied."
+                                        },
+                                        {
+                                            "name": "AgentOsType",
+                                            "type": "String",
+                                            "description": "The operating system type of the agent."
+                                        },
+                                        {
+                                            "name": "AgentInfected",
+                                            "type": "boolean",
+                                            "description": "Indicates whether the agent is infected."
+                                        },
+                                        {
+                                            "name": "InitiatingUserId",
+                                            "type": "String",
+                                            "description": "The unique identifier for the initiating user."
+                                        },
+                                        {
+                                            "name": "Engines",
+                                            "type": "String",
+                                            "description": "Details of the engines used."
+                                        },
+                                        {
+                                            "name": "Id",
+                                            "type": "String",
+                                            "description": "The unique identifier for the record."
+                                        },
+                                        {
+                                            "name": "FileExtensionType",
+                                            "type": "String",
+                                            "description": "The type of file extension."
+                                        },
+                                        {
+                                            "name": "MitigationStatus",
+                                            "type": "String",
+                                            "description": "The status of mitigation."
+                                        },
+                                        {
+                                            "name": "AgentDomain",
+                                            "type": "String",
+                                            "description": "The domain of the agent."
+                                        },
+                                        {
+                                            "name": "CreatedAt",
+                                            "type": "datetime",
+                                            "description": "The timestamp (UTC) when the record was created."
+                                        },
+                                        {
+                                            "name": "IsCertValid",
+                                            "type": "boolean",
+                                            "description": "Indicates whether the certificate is valid."
+                                        },
+                                        {
+                                            "name": "FileDisplayName",
+                                            "type": "String",
+                                            "description": "The display name of the file."
+                                        },
+                                        {
+                                            "name": "AgentIp",
+                                            "type": "String",
+                                            "description": "The IP address of the agent."
+                                        },
+                                        {
+                                            "name": "AccountName",
+                                            "type": "String",
+                                            "description": "The name of the account associated with the event."
+                                        },
+                                        {
+                                            "name": "AgentMachineType",
+                                            "type": "String",
+                                            "description": "The machine type of the agent."
+                                        },
+                                        {
+                                            "name": "FileVerificationType",
+                                            "type": "String",
+                                            "description": "The type of file verification."
+                                        },
+                                        {
+                                            "name": "Indicators",
+                                            "type": "String",
+                                            "description": "Details of the indicators."
+                                        },
+                                        {
+                                            "name": "InitiatedByDescription",
+                                            "type": "String",
+                                            "description": "Description of the initiated by field."
+                                        },
+                                        {
+                                            "name": "AutomaticallyResolved",
+                                            "type": "boolean",
+                                            "description": "Indicates whether the issue was automatically resolved."
+                                        },
+                                        {
+                                            "name": "AgentId",
+                                            "type": "String",
+                                            "description": "The unique identifier for the agent."
+                                        },
+                                        {
+                                            "name": "ProcessArguments",
+                                            "type": "String",
+                                            "description": "The unique identifier for the malicious group."
+                                        },
+                                        {
+                                            "name": "MitigationReport",
+                                            "type": "String",
+                                            "description": "Report of the actions taken by the Agent."
+                                        },
+                                        {
+                                            "name": "ThreatName",
+                                            "type": "String",
+                                            "description": "Details about the threat name."
+                                        },
+                                        {
+                                            "name": "ClassificationSource",
+                                            "type": "String",
+                                            "description": "The source of the classification."
+                                        },
+                                        {
+                                            "name": "UpdatedAt",
+                                            "type": "datetime",
+                                            "description": "The timestamp (UTC) when the record was last updated."
+                                        },
+                                        {
+                                            "name": "InitiatedBy",
+                                            "type": "String",
+                                            "description": "Indicates by whom or what the action was initiated."
+                                        },
+                                        {
+                                            "name": "AgentNetworkStatus",
+                                            "type": "String",
+                                            "description": "The network status of the agent."
+                                        },
+                                        {
+                                            "name": "AgentComputerName",
+                                            "type": "String",
+                                            "description": "The computer name of the agent."
+                                        },
+                                        {
+                                            "name": "Classification",
+                                            "type": "String",
+                                            "description": "The classification of the event."
+                                        },
+                                        {
+                                            "name": "CertId",
+                                            "type": "String",
+                                            "description": "The certificate ID."
+                                        },
+                                        {
+                                            "name": "AgentIsActive",
+                                            "type": "boolean",
+                                            "description": "Indicates whether the agent is active."
+                                        },
+                                        {
+                                            "name": "SiteId",
+                                            "type": "String",
+                                            "description": "The unique identifier for the site."
+                                        },
+                                        {
+                                            "name": "AgentVersion",
+                                            "type": "String",
+                                            "description": "The version of the agent."
+                                        },
+                                        {
+                                            "name": "FileContentHash",
+                                            "type": "String",
+                                            "description": "The hash of the file content."
+                                        },
+                                        {
+                                            "name": "WhiteningOptions",
+                                            "type": "String",
+                                            "description": "Details of the whitening options."
+                                        },
+                                        {
+                                            "name": "Username",
+                                            "type": "String",
+                                            "description": "The username associated with the event."
+                                        },
+                                        {
+                                            "name": "FileSha256",
+                                            "type": "String",
+                                            "description": "The SHA-256 hash of the file."
+                                        },
+                                        {
+                                            "name": "AgentIsDecommissioned",
+                                            "type": "boolean",
+                                            "description": "Indicates whether the agent is decommissioned."
+                                        },
+                                        {
+                                            "name": "CollectionId",
+                                            "type": "String",
+                                            "description": "The unique identifier for the collection."
+                                        },
+                                        {
+                                            "name": "SiteName",
+                                            "type": "String",
+                                            "description": "The name of the site."
+                                        },
+                                        {
+                                            "name": "AccountId",
+                                            "type": "String",
+                                            "description": "The unique identifier for the account."
+                                        },
+                                        {
+                                            "name": "ThreatInfo",
+                                            "type": "dynamic",
+                                            "description": "The information about the threat."
+                                        },
+                                        {
+                                            "name": "AgentDetectionInfo",
+                                            "type": "dynamic",
+                                            "description": "The information of the agent in detection."
+                                        },
+                                        {
+                                            "name": "AgentRealtimeInfo",
+                                            "type": "dynamic",
+                                            "description": "The information of the agent in realtime."
                                         }
                                     ]
                                 }
@@ -1853,7 +1853,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.0.7",
                 "packageName": "SentinelOne",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-sentinelone-dc-bi2frq64rnvnq",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
@@ -1949,7 +1949,8 @@
                     ],
                     "connectivityCriteria": [
                         {
-                            "type": "HasDataConnectors"
+                            "type": "HasDataConnectors",
+                            "value": null
                         }
                     ],
                     "availability": {
@@ -2076,14 +2077,22 @@
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
                     "parameters": {
+                        "guidValue": {
+                            "defaultValue": "[[newGuid()]",
+                            "type": "securestring"
+                        },
+                        "innerWorkspace": {
+                            "defaultValue": "[parameters('workspace')]",
+                            "type": "securestring"
+                        },
                         "connectorDefinitionName": {
                             "defaultValue": "SentinelOne",
-                            "type": "string",
+                            "type": "securestring",
                             "minLength": 1
                         },
                         "workspace": {
                             "defaultValue": "[parameters('workspace')]",
-                            "type": "string"
+                            "type": "securestring"
                         },
                         "dcrConfig": {
                             "defaultValue": {
@@ -2094,7 +2103,7 @@
                         },
                         "managementUrl": {
                             "defaultValue": "managementUrl",
-                            "type": "string",
+                            "type": "securestring",
                             "minLength": 1
                         },
                         "apitoken": {
@@ -2134,7 +2143,7 @@
                             }
                         },
                         {
-                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', 'SentinelOnePoller_activities_created_events')]",
+                            "name": "[[concat(parameters('innerWorkspace'),'/Microsoft.SecurityInsights/', 'SentinelOnePoller_activities_created_events', parameters('guidValue'))]",
                             "apiVersion": "2023-02-01-preview",
                             "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
                             "location": "[parameters('workspace-location')]",
@@ -2185,7 +2194,7 @@
                             }
                         },
                         {
-                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', 'SentinelOnePoller_agents_created_events')]",
+                            "name": "[[concat(parameters('innerWorkspace'),'/Microsoft.SecurityInsights/', 'SentinelOnePoller_agents_created_events', parameters('guidValue'))]",
                             "apiVersion": "2023-02-01-preview",
                             "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
                             "location": "[parameters('workspace-location')]",
@@ -2236,7 +2245,7 @@
                             }
                         },
                         {
-                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', 'SentinelOnePoller_agents_updated_events')]",
+                            "name": "[[concat(parameters('innerWorkspace'),'/Microsoft.SecurityInsights/', 'SentinelOnePoller_agents_updated_events', parameters('guidValue'))]",
                             "apiVersion": "2023-02-01-preview",
                             "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
                             "location": "[parameters('workspace-location')]",
@@ -2287,7 +2296,7 @@
                             }
                         },
                         {
-                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', 'SentinelOnePoller_alerts_created_events')]",
+                            "name": "[[concat(parameters('innerWorkspace'),'/Microsoft.SecurityInsights/', 'SentinelOnePoller_alerts_created_events', parameters('guidValue'))]",
                             "apiVersion": "2023-02-01-preview",
                             "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
                             "location": "[parameters('workspace-location')]",
@@ -2338,7 +2347,7 @@
                             }
                         },
                         {
-                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', 'SentinelOnePoller_groups_updated_events')]",
+                            "name": "[[concat(parameters('innerWorkspace'),'/Microsoft.SecurityInsights/', 'SentinelOnePoller_groups_updated_events', parameters('guidValue'))]",
                             "apiVersion": "2023-02-01-preview",
                             "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
                             "location": "[parameters('workspace-location')]",
@@ -2389,7 +2398,7 @@
                             }
                         },
                         {
-                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', 'SentinelOnePoller_threats_created_events')]",
+                            "name": "[[concat(parameters('innerWorkspace'),'/Microsoft.SecurityInsights/', 'SentinelOnePoller_threats_created_events', parameters('guidValue'))]",
                             "apiVersion": "2023-02-01-preview",
                             "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
                             "location": "[parameters('workspace-location')]",
@@ -2440,7 +2449,7 @@
                             }
                         },
                         {
-                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', 'SentinelOnePoller_threats_updated_events')]",
+                            "name": "[[concat(parameters('innerWorkspace'),'/Microsoft.SecurityInsights/', 'SentinelOnePoller_threats_updated_events', parameters('guidValue'))]",
                             "apiVersion": "2023-02-01-preview",
                             "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
                             "location": "[parameters('workspace-location')]",
@@ -2493,7 +2502,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.0.7",
                 "packageName": "SentinelOne",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-sentinelone-rdc-ooli7lyno5ceo",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
@@ -2684,7 +2693,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.0.7",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -2938,7 +2947,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.0.7",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -3020,7 +3029,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.0.7",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -3121,10 +3130,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "SentinelOne",
                                         "dataTypes": [
                                             "SentinelOne"
-                                        ]
+                                        ],
+                                        "connectorId": "SentinelOne"
                                     }
                                 ],
                                 "tactics": [
@@ -3136,22 +3145,22 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountCustomEntity",
                                                 "identifier": "Name"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "IPCustomEntity",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -3186,7 +3195,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.0.7",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -3249,10 +3258,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "SentinelOne",
                                         "dataTypes": [
                                             "SentinelOne"
-                                        ]
+                                        ],
+                                        "connectorId": "SentinelOne"
                                     }
                                 ],
                                 "tactics": [
@@ -3263,13 +3272,13 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Host",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "DataComputerName",
                                                 "identifier": "HostName"
                                             }
-                                        ],
-                                        "entityType": "Host"
+                                        ]
                                     }
                                 ]
                             }
@@ -3304,7 +3313,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.0.7",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -3367,10 +3376,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "SentinelOne",
                                         "dataTypes": [
                                             "SentinelOne"
-                                        ]
+                                        ],
+                                        "connectorId": "SentinelOne"
                                     }
                                 ],
                                 "tactics": [
@@ -3381,13 +3390,13 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Host",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "HostCustomEntity",
                                                 "identifier": "HostName"
                                             }
-                                        ],
-                                        "entityType": "Host"
+                                        ]
                                     }
                                 ]
                             }
@@ -3422,7 +3431,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.0.7",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -3485,10 +3494,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "SentinelOne",
                                         "dataTypes": [
                                             "SentinelOne"
-                                        ]
+                                        ],
+                                        "connectorId": "SentinelOne"
                                     }
                                 ],
                                 "tactics": [
@@ -3499,15 +3508,16 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountCustomEntity",
                                                 "identifier": "Name"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "FileHash",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "HashCustomEntity",
@@ -3517,8 +3527,7 @@
                                                 "columnName": "HashAlgorithmCustomEntity",
                                                 "identifier": "Algorithm"
                                             }
-                                        ],
-                                        "entityType": "FileHash"
+                                        ]
                                     }
                                 ]
                             }
@@ -3553,7 +3562,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.0.7",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -3616,10 +3625,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "SentinelOne",
                                         "dataTypes": [
                                             "SentinelOne"
-                                        ]
+                                        ],
+                                        "connectorId": "SentinelOne"
                                     }
                                 ],
                                 "tactics": [
@@ -3630,13 +3639,13 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountCustomEntity",
                                                 "identifier": "Name"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     }
                                 ]
                             }
@@ -3671,7 +3680,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.0.7",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -3734,10 +3743,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "SentinelOne",
                                         "dataTypes": [
                                             "SentinelOne"
-                                        ]
+                                        ],
+                                        "connectorId": "SentinelOne"
                                     }
                                 ],
                                 "tactics": [
@@ -3748,13 +3757,13 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Host",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "HostCustomEntity",
                                                 "identifier": "HostName"
                                             }
-                                        ],
-                                        "entityType": "Host"
+                                        ]
                                     }
                                 ]
                             }
@@ -3789,7 +3798,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.0.7",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -3852,10 +3861,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "SentinelOne",
                                         "dataTypes": [
                                             "SentinelOne"
-                                        ]
+                                        ],
+                                        "connectorId": "SentinelOne"
                                     }
                                 ],
                                 "tactics": [
@@ -3866,13 +3875,13 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountCustomEntity",
                                                 "identifier": "Name"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     }
                                 ]
                             }
@@ -3907,7 +3916,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.0.7",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -3970,10 +3979,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "SentinelOne",
                                         "dataTypes": [
                                             "SentinelOne"
-                                        ]
+                                        ],
+                                        "connectorId": "SentinelOne"
                                     }
                                 ],
                                 "tactics": [
@@ -3984,13 +3993,13 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountCustomEntity",
                                                 "identifier": "Name"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     }
                                 ]
                             }
@@ -4025,7 +4034,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.0.7",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -4088,10 +4097,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "SentinelOne",
                                         "dataTypes": [
                                             "SentinelOne"
-                                        ]
+                                        ],
+                                        "connectorId": "SentinelOne"
                                     }
                                 ],
                                 "tactics": [
@@ -4102,13 +4111,13 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountCustomEntity",
                                                 "identifier": "Name"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     }
                                 ]
                             }
@@ -4143,7 +4152,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.0.7",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -4206,10 +4215,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "SentinelOne",
                                         "dataTypes": [
                                             "SentinelOne"
-                                        ]
+                                        ],
+                                        "connectorId": "SentinelOne"
                                     }
                                 ],
                                 "tactics": [
@@ -4222,13 +4231,13 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Host",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "HostCustomEntity",
                                                 "identifier": "HostName"
                                             }
-                                        ],
-                                        "entityType": "Host"
+                                        ]
                                     }
                                 ]
                             }
@@ -4263,7 +4272,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.0.7",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -4326,10 +4335,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "SentinelOne",
                                         "dataTypes": [
                                             "SentinelOne"
-                                        ]
+                                        ],
+                                        "connectorId": "SentinelOne"
                                     }
                                 ],
                                 "tactics": [
@@ -4340,22 +4349,22 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AccountCustomEntity",
                                                 "identifier": "Name"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "Host",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "HostCustomEntity",
                                                 "identifier": "HostName"
                                             }
-                                        ],
-                                        "entityType": "Host"
+                                        ]
                                     }
                                 ]
                             }
@@ -4390,7 +4399,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.0.7",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -4489,7 +4498,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.0.7",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -4575,7 +4584,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.0.7",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -4661,7 +4670,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.0.7",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -4747,7 +4756,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.0.7",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -4833,7 +4842,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.0.7",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -4919,7 +4928,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.0.7",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -5005,7 +5014,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.0.7",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -5091,7 +5100,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.0.7",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -5177,7 +5186,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.0.7",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -5263,7 +5272,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.0.7",
                 "packageName": "SentinelOne",
                 "packageId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "contentSchemaVersion": "3.0.0",
@@ -5281,15 +5290,15 @@
             "apiVersion": "2023-04-01-preview",
             "location": "[parameters('workspace-location')]",
             "properties": {
-                "version": "3.0.6",
+                "version": "3.0.7",
                 "kind": "Solution",
                 "contentSchemaVersion": "3.0.0",
                 "displayName": "SentinelOne",
                 "publisherDisplayName": "Microsoft Sentinel, Microsoft Corporation",
-                "descriptionHtml": "<p><b>Note:</b> Please refer to the following before installing the solution:</p><p>\u2022 Review the solution <a target=\"_blank href=\">Release Notes</a></p><p>The <a target=\"_blank\" href=\"https://www.sentinelone.com/\" rel=\"noopener\">SentinelOne</a> solution provides ability to bring SentinelOne events to your Microsoft Sentinel Workspace to inform and to examine potential security risks, analyze your team's use of collaboration, diagnose configuration problems and more.</p><p><b>Underlying Microsoft Technologies used:</b></p><p>This solution takes a dependency on the following technologies, and some of these dependencies either may be in <a target=\"_blank\" href=\"https://azure.microsoft.com/support/legal/preview-supplemental-terms/\" rel=\"noopener\">Preview</a> state or might result in additional ingestion or operational costs:</p><p>a. <a target=\"_blank\" href=\"https://docs.microsoft.com/azure/azure-monitor/logs/data-collector-api?WT.mc_id=Portal-fx\" rel=\"noopener\">Azure Monitor HTTP Data Collector API</a></p><p>b. <a target=\"_blank\" href=\"https://azure.microsoft.com/services/functions/#overview\" rel=\"noopener\">Azure Functions</a></p><p><b>Data Connectors:</b> 1, <b>Parsers:</b> 1, <b>Workbooks:</b> 1, <b>Analytic Rules:</b> 11, <b>Hunting Queries:</b> 10</p><p><a target=\"_blank\" href=\"https://aka.ms/azuresentinel\" rel=\"noopener\">Learn more about Microsoft Sentinel</a> | <a target=\"_blank\" href=\"https://aka.ms/azuresentinelsolutionsdoc\" rel=\"noopener\">Learn more about Solutions</a></p>",
+                "descriptionHtml": "<p><strong>Note:</strong> Please refer to the following before installing the solution:</p><p>\u2022 Review the solution <a target=\"_blank\" href=\"https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SentinelOne/ReleaseNotes.md\" rel=\"noopener\">Release Notes</a></p><p>The <a target=\"_blank\" href=\"https://www.sentinelone.com/\" rel=\"noopener\">SentinelOne</a> solution provides ability to bring SentinelOne events to your Microsoft Sentinel Workspace to inform and to examine potential security risks, analyze your team's use of collaboration, diagnose configuration problems and more.</p><p><strong>Underlying Microsoft Technologies used:</strong></p><p>This solution takes a dependency on the following technologies, and some of these dependencies either may be in <a target=\"_blank\" href=\"https://azure.microsoft.com/support/legal/preview-supplemental-terms/\" rel=\"noopener\">Preview</a> state or might result in additional ingestion or operational costs:</p><p>a. <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/azure-monitor/logs/data-collector-api?WT.mc_id=Portal-fx\" rel=\"noopener\">Azure Monitor HTTP Data Collector API</a></p><p>b. <a target=\"_blank\" href=\"https://azure.microsoft.com/services/functions/#overview\" rel=\"noopener\">Azure Functions</a></p><p><strong>Data Connectors:</strong> 2, <strong>Parsers:</strong> 1, <strong>Workbooks:</strong> 1, <strong>Analytic Rules:</strong> 11, <strong>Hunting Queries:</strong> 10</p><p><a target=\"_blank\" href=\"https://aka.ms/azuresentinel\" rel=\"noopener\">Learn more about Microsoft Sentinel</a> | <a target=\"_blank\" href=\"https://aka.ms/azuresentinelsolutionsdoc\" rel=\"noopener\">Learn more about Solutions</a></p>",
                 "contentKind": "Solution",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-sentinelone-sl-i65e75jmihqn6",
-                "id": "azuresentinel.azure-sentinel-solution-sentinelone-sl-i65e75jmihqn6",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-sentinelone-sl-wfzkbgzomt7su",
+                "id": "azuresentinel.azure-sentinel-solution-sentinelone-sl-wfzkbgzomt7su",
                 "icon": "https://store-images.s-microsoft.com/image/apps.64133.de7b62cd-dc4b-44e8-ba88-e15abade5b01.d5ef45e2-268d-4824-92bc-96afd798aac3.7cf9eadc-d371-4415-a897-1abee4fee9c9",
                 "contentId": "azuresentinel.azure-sentinel-solution-sentinelone",
                 "parentId": "azuresentinel.azure-sentinel-solution-sentinelone",

@@ -160,7 +160,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.3",
+                "packageVersion": "3.1.4",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -295,7 +295,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.3",
+                "packageVersion": "3.1.4",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -430,7 +430,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.3",
+                "packageVersion": "3.1.4",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -579,7 +579,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.3",
+                "packageVersion": "3.1.4",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -734,7 +734,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.3",
+                "packageVersion": "3.1.4",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -777,10 +777,10 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-okta')]"
             ],
             "properties": {
-                "description": "MFA fatigue attack is a cybersecurity threat where attackers exploit user exhaustion from multi-factor authentication prompts to trick them into providing their MFA details thus compromising their own security. The query identifies MFA fatigue attempts in the Okta data. \n Ref: https://sec.okta.com/everythingisyes.",
+                "description": "MFA fatigue attack is a cybersecurity threat where attackers exploit user exhaustion from multi-factor authentication prompts to trick them into providing their MFA details thus compromising their own security. The query identifies MFA fatigue attempts in the Okta data. \n Ref: www.okta.com/blog/identity-security/mfa-fatigue-growing-security-concern/.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.1.1",
+                    "contentVersion": "1.1.2",
                     "parameters": {},
                     "variables": {},
                     "resources": [
@@ -791,7 +791,7 @@
                             "kind": "Scheduled",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
-                                "description": "MFA fatigue attack is a cybersecurity threat where attackers exploit user exhaustion from multi-factor authentication prompts to trick them into providing their MFA details thus compromising their own security. The query identifies MFA fatigue attempts in the Okta data. \n Ref: https://sec.okta.com/everythingisyes.",
+                                "description": "MFA fatigue attack is a cybersecurity threat where attackers exploit user exhaustion from multi-factor authentication prompts to trick them into providing their MFA details thus compromising their own security. The query identifies MFA fatigue attempts in the Okta data. \n Ref: www.okta.com/blog/identity-security/mfa-fatigue-growing-security-concern/.",
                                 "displayName": "MFA Fatigue (OKTA)",
                                 "enabled": false,
                                 "query": "let PushThreshold = 10;\nOktaSSO\n| where ((eventType_s ==\"user.authentication.auth_via_mfa\" and column_ifexists('debugContext_debugData_factor_s', '') == \"OKTA_VERIFY_PUSH\") or eventType_s == \"system.push.send_factor_verify_push\" or eventType_s == \"user.mfa.okta_verify.deny_push\") \n| summarize IPAddress = make_set(client_ipAddress_s,100), City = make_set(client_geographicalContext_city_s,100),\n          successes = countif(eventType_s == \"user.authentication.auth_via_mfa\"),\n          denies = countif(eventType_s == \"user.mfa.okta_verify.deny_push\"),\n          pushes = countif(eventType_s == \"system.push.send_factor_verify_push\") by TimeGenerated, authenticationContext_externalSessionId_s, actor_alternateId_s,actor_displayName_s, outcome_result_s \n| summarize lasttime = max(TimeGenerated), firsttime = min(TimeGenerated),\n          successes = sum(successes), failures = sum(denies), pushes = sum(pushes) by  authenticationContext_externalSessionId_s, actor_alternateId_s,actor_displayName_s, outcome_result_s \n| extend seconds = lasttime - firsttime\n| where pushes >  (PushThreshold)\n| extend totalattempts = successes + failures\n| extend finding = case(\n            failures == pushes and pushes > 1, \"Authentication attempts not successful because multiple pushes denied\",\n            totalattempts == 0, \"Multiple pushes sent and ignored\",\n            successes > 0 and pushes > 3, \"Multiple pushes sent, eventual successful authentication!\",\n            \"Normal authentication pattern\")\n",
@@ -849,7 +849,7 @@
                                 "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', 'c2697b81-7fe9-4f57-ba1d-de46c6f91f9c')]",
                                 "contentId": "c2697b81-7fe9-4f57-ba1d-de46c6f91f9c",
                                 "kind": "AnalyticsRule",
-                                "version": "1.1.1",
+                                "version": "1.1.2",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "Okta Single Sign-On",
@@ -870,16 +870,16 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.3",
+                "packageVersion": "3.1.4",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "c2697b81-7fe9-4f57-ba1d-de46c6f91f9c",
                 "contentKind": "AnalyticsRule",
                 "displayName": "MFA Fatigue (OKTA)",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-okta-ar-pdl4eyw4dq73y",
-                "id": "azuresentinel.azure-sentinel-solution-okta-ar-pdl4eyw4dq73y",
-                "version": "1.1.1",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-okta-ar-gyszsk426nqe2",
+                "id": "azuresentinel.azure-sentinel-solution-okta-ar-gyszsk426nqe2",
+                "version": "1.1.2",
                 "isDeprecated": false,
                 "dependencies": {
                     "operator": "AND",
@@ -1018,7 +1018,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.3",
+                "packageVersion": "3.1.4",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -1163,7 +1163,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.3",
+                "packageVersion": "3.1.4",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -1303,7 +1303,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.3",
+                "packageVersion": "3.1.4",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -1542,7 +1542,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.3",
+                "packageVersion": "3.1.4",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -2390,7 +2390,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.3",
+                "packageVersion": "3.1.4",
                 "packageName": "Okta Single Sign-On",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-okta-dc-aabcn6l2oqasy",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
@@ -2689,7 +2689,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.3",
+                "packageVersion": "3.1.4",
                 "packageName": "Okta Single Sign-On",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-okta-rdc-lhzkfmfydnqwm",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
@@ -2773,7 +2773,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.3",
+                "packageVersion": "3.1.4",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -2859,7 +2859,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.3",
+                "packageVersion": "3.1.4",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -2945,7 +2945,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.3",
+                "packageVersion": "3.1.4",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -3031,7 +3031,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.3",
+                "packageVersion": "3.1.4",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -3117,7 +3117,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.3",
+                "packageVersion": "3.1.4",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -3203,7 +3203,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.3",
+                "packageVersion": "3.1.4",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -3289,7 +3289,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.3",
+                "packageVersion": "3.1.4",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -3375,7 +3375,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.3",
+                "packageVersion": "3.1.4",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -3461,7 +3461,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.3",
+                "packageVersion": "3.1.4",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -3547,7 +3547,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.3",
+                "packageVersion": "3.1.4",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -4843,7 +4843,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.3",
+                "packageVersion": "3.1.4",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -5203,7 +5203,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.3",
+                "packageVersion": "3.1.4",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -5655,7 +5655,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.3",
+                "packageVersion": "3.1.4",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -6163,7 +6163,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.3",
+                "packageVersion": "3.1.4",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -6260,7 +6260,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.3",
+                "packageVersion": "3.1.4",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -6342,7 +6342,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.3",
+                "packageVersion": "3.1.4",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -6411,15 +6411,15 @@
             "apiVersion": "2023-04-01-preview",
             "location": "[parameters('workspace-location')]",
             "properties": {
-                "version": "3.1.3",
+                "version": "3.1.4",
                 "kind": "Solution",
                 "contentSchemaVersion": "3.0.0",
                 "displayName": "Okta Single Sign-On",
                 "publisherDisplayName": "Microsoft Sentinel, Microsoft Corporation",
                 "descriptionHtml": "<p><strong>Note:</strong> Please refer to the following before installing the solution:</p><p>\u2022 Review the solution <a target=\"_blank\" href=\"https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Okta%20Single%20Sign-On/ReleaseNotes.md\" rel=\"noopener\">Release Notes</a></p><p>The <a target=\"_blank\" href=\"https://www.okta.com/products/single-sign-on\" rel=\"noopener\">Okta Single Sign-On (SSO)</a> solution for Microsoft Sentinel provides the capability to ingest <a target=\"_blank\" href=\"https://www.okta.com/integrate/documentation/isv-syslog-references/\" rel=\"noopener\">audit and event logs</a> into Microsoft Sentinel using the Okta API.</p><p><strong>Underlying Microsoft Technologies used:</strong></p><p>This solution takes a dependency on the following technologies, and some of these dependencies either may be in <a target=\"_blank\" href=\"https://azure.microsoft.com/support/legal/preview-supplemental-terms/\" rel=\"noopener\">Preview</a> state or might result in additional ingestion or operational costs:</p><p>a. <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/azure-monitor/logs/data-collector-api?WT.mc_id=Portal-fx\" rel=\"noopener\">Azure Monitor HTTP Data Collector API</a></p><p>b. <a target=\"_blank\" href=\"https://azure.microsoft.com/services/functions/#overview\" rel=\"noopener\">Azure Functions</a></p><p>c. <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/sentinel/create-codeless-connector?tabs=deploy-via-arm-template%2Cconnect-via-the-azure-portal&amp;WT.mc_id=Portal-fx\" rel=\"noopener\">Codeless Connector Platform (CCP)</a></p><p><strong>Data Connectors:</strong> 2, <strong>Parsers:</strong> 1, <strong>Workbooks:</strong> 1, <strong>Analytic Rules:</strong> 9, <strong>Hunting Queries:</strong> 10, <strong>Custom Azure Logic Apps Connectors:</strong> 1, <strong>Playbooks:</strong> 3</p><p><a target=\"_blank\" href=\"https://aka.ms/azuresentinel\" rel=\"noopener\">Learn more about Microsoft Sentinel</a> | <a target=\"_blank\" href=\"https://aka.ms/azuresentinelsolutionsdoc\" rel=\"noopener\">Learn more about Solutions</a></p>",
                 "contentKind": "Solution",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-okta-sl-jg4bmqrutuafq",
-                "id": "azuresentinel.azure-sentinel-solution-okta-sl-jg4bmqrutuafq",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-okta-sl-626skbuqxajse",
+                "id": "azuresentinel.azure-sentinel-solution-okta-sl-626skbuqxajse",
                 "icon": "https://store-images.s-microsoft.com/image/apps.34108.b239392b-efc9-4022-9c36-fed4f0ded1e3.323909ea-f2e8-42ce-8010-8db7d28f23cd.47066c0b-5d4e-4c49-9321-8ce6822828c8",
                 "contentId": "azuresentinel.azure-sentinel-solution-okta",
                 "parentId": "azuresentinel.azure-sentinel-solution-okta",
@@ -6469,7 +6469,7 @@
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "c2697b81-7fe9-4f57-ba1d-de46c6f91f9c",
-                            "version": "1.1.1"
+                            "version": "1.1.2"
                         },
                         {
                             "kind": "AnalyticsRule",
