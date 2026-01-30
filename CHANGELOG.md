@@ -1,3 +1,35 @@
+## 8.6.0 (2026-01-30)
+
+### Features
+
+* bump `Microsoft XDR` package template version to 3.0.13 bc1e4f6
+
+### Code Refactoring
+
+* bump `AWS` package template version to 3.0.8 2fbf838
+* bump `Cisco Meraki` package template version to 3.0.5 11d75b0
+* bump `Entra ID` package template version to 3.3.7 43a1a25
+* bump `Okta` package template version to 3.1.4 75702d2
+* bump `SentinelOne` package template version to 3.0.7 4d4790d
+* bump `Windows Security` package template version to 3.0.10 286e8eb
+* bump `Zscaler Private Access` package template version to 3.0.4 f1f8872
+
+### Miscellaneous Chores
+
+* **deps:** update dependency opentofu to v1.11.2 73ee429
+* **deps:** update dependency opentofu to v1.11.3 0a46a4e
+* **deps:** update dependency opentofu to v1.11.4 cc282b7
+* **deps:** update dependency pre-commit to v4.4.0 38c8204
+* **deps:** update dependency pre-commit to v4.5.0 9064b77
+* **deps:** update dependency pre-commit to v4.5.1 b4a9cf0
+* **deps:** update dependency tflint to v0.60.0 64445fe
+* **deps:** update dependency trivy to v0.68.1 b528805
+* **deps:** update dependency trivy to v0.68.2 48a3d24
+* **deps:** update pre-commit hook crate-ci/committed to v1.1.10 bbe97de
+* **deps:** update pre-commit hook crate-ci/committed to v1.1.8 884269f
+* **deps:** update pre-commit hook crate-ci/committed to v1.1.9 ce5e146
+* **deps:** update tools 612d672
+
 ## 8.5.4 (2025-11-07)
 
 ### Code Refactoring
