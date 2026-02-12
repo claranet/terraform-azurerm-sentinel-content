@@ -1,3 +1,17 @@
+## 8.6.1 (2026-02-12)
+
+### Code Refactoring
+
+* bump `Threat Intelligence` package template version to 3.1.3 e8c76ec
+* bump `Windows Security` package template version to 3.0.11 878193d
+* **gitlab MR template:** ♻️ update default reviewers group with Azure Factory 🔧 5f1f54b
+
+### Miscellaneous Chores
+
+* **deps:** update dependency tflint to v0.61.0 76239e3
+* **deps:** update dependency trivy to v0.69.0 6181922
+* **deps:** update dependency trivy to v0.69.1 8598a7a
+
 ## 8.6.0 (2026-01-30)
 
 ### Features
