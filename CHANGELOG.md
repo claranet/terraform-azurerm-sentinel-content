@@ -1,3 +1,17 @@
+## 8.6.2 (2026-02-27)
+
+### Code Refactoring
+
+* bump `Azure Firewall` package template version to 3.0.5 826a5c9
+* bump `Entra ID` package template version to 3.3.8 5d202e5
+* bump `Google Workspace` package template version to 3.0.3 898f128
+
+### Miscellaneous Chores
+
+* **deps:** 🔗 bump tflint rules version 1f559ae
+* **deps:** update dependency opentofu to v1.11.5 fd9adf4
+* **deps:** update pre-commit hook crate-ci/committed to v1.1.11 74a2d20
+
 ## 8.6.1 (2026-02-12)
 
 ### Code Refactoring
