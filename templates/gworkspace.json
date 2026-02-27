@@ -149,7 +149,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -231,7 +231,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -346,13 +346,13 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountCustomEntity"
+                                                "columnName": "AccountCustomEntity",
+                                                "identifier": "Name"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     }
                                 ]
                             }
@@ -387,7 +387,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -465,13 +465,13 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountCustomEntity"
+                                                "columnName": "AccountCustomEntity",
+                                                "identifier": "Name"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     }
                                 ]
                             }
@@ -506,7 +506,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -584,13 +584,13 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountCustomEntity"
+                                                "columnName": "AccountCustomEntity",
+                                                "identifier": "Name"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     }
                                 ]
                             }
@@ -625,7 +625,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -702,13 +702,13 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountCustomEntity"
+                                                "columnName": "AccountCustomEntity",
+                                                "identifier": "Name"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     }
                                 ]
                             }
@@ -743,7 +743,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -822,13 +822,13 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Address",
-                                                "columnName": "IPCustomEntity"
+                                                "columnName": "IPCustomEntity",
+                                                "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -863,7 +863,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -940,13 +940,13 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountCustomEntity"
+                                                "columnName": "AccountCustomEntity",
+                                                "identifier": "Name"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     }
                                 ]
                             }
@@ -981,7 +981,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -1058,13 +1058,13 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountCustomEntity"
+                                                "columnName": "AccountCustomEntity",
+                                                "identifier": "Name"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     }
                                 ]
                             }
@@ -1099,7 +1099,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -1176,22 +1176,22 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "File",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "FileCustomEntity"
+                                                "columnName": "FileCustomEntity",
+                                                "identifier": "Name"
                                             }
-                                        ],
-                                        "entityType": "File"
+                                        ]
                                     },
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountCustomEntity"
+                                                "columnName": "AccountCustomEntity",
+                                                "identifier": "Name"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     }
                                 ]
                             }
@@ -1226,7 +1226,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -1303,13 +1303,13 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountCustomEntity"
+                                                "columnName": "AccountCustomEntity",
+                                                "identifier": "Name"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     }
                                 ]
                             }
@@ -1344,7 +1344,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -1423,13 +1423,13 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "AccountCustomEntity"
+                                                "columnName": "AccountCustomEntity",
+                                                "identifier": "Name"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     }
                                 ]
                             }
@@ -1464,7 +1464,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -1575,7 +1575,7 @@
                                                 {
                                                     "type": "Markdown",
                                                     "parameters": {
-                                                        "content": "#### Configuration steps for the Google Reports API\n\n1. Login to Google cloud console with your Workspace Admin credentials https://console.cloud.google.com.\n2. Using the search option (available at the top middle), Search for ***APIs & Services***\n3. From ***APIs & Services*** -> ***Enabled APIs & Services***, enable **Admin SDK API** for this project.\n 4. Go to ***APIs & Services*** -> ***OAuth Consent Screen***. If not already configured, create a OAuth Consent Screen with the following steps:\n\t 1. Provide App Name and other mandatory information.\n\t 2. Add authorized domains with API Access Enabled.\n\t 3. In Scopes section, add **Admin SDK API** scope.\n\t 4. In Test Users section, make sure the domain admin account is added.\n 5. Go to ***APIs & Services*** -> ***Credentials*** and create OAuth 2.0 Client ID\n\t 1. Click on Create Credentials on the top and select Oauth client Id.\n\t 2. Select Web Application from the Application Type drop down.\n\t 3. Provide a suitable name to the Web App and add https://portal.azure.com/TokenAuthorize/ExtensionName/Microsoft_Azure_Security_Insights as the Authorized redirect URIs.\n\t 4. Once you click Create, you will be provided with the Client ID and Client Secret. \n\tCopy these values and use them in the configuration steps below."
+                                                        "content": "#### Configuration steps for the Google Reports API\n\n1. Login to Google cloud console with your Workspace Admin credentials https://console.cloud.google.com.\n2. Using the search option (available at the top middle), Search for ***APIs & Services***\n3. From ***APIs & Services*** -> ***Enabled APIs & Services***, enable **Admin SDK API** for this project.\n 4. Go to ***APIs & Services*** -> ***OAuth Consent Screen***. If not already configured, create a OAuth Consent Screen with the following steps:\n\t 1. Provide App Name and other mandatory information.\n\t 2. Add authorized domains with API Access Enabled.\n\t 3. In Scopes section, add **Admin SDK API** scope.\n\t 4. In Test Users section, make sure the domain admin account is added.\n 5. Go to ***APIs & Services*** -> ***Credentials*** and create OAuth 2.0 Client ID\n\t 1. Click on Create Credentials on the top and select Oauth client Id.\n\t 2. Select Web Application from the Application Type drop down.\n\t 3. Provide a suitable name to the Web App and add the Redirect URI in the form below as the Authorized redirect URIs.\n\t 4. Once you click Create, you will be provided with the Client ID and Client Secret. \n\tCopy these values and use them in the configuration steps below."
                                                     }
                                                 },
                                                 {
@@ -1591,7 +1591,9 @@
                                                         "clientIdLabel": "Client ID",
                                                         "clientSecretLabel": "Client Secret",
                                                         "connectButtonLabel": "Connect",
-                                                        "disconnectButtonLabel": "Disconnect"
+                                                        "disconnectButtonLabel": "Disconnect",
+                                                        "sendRedirectUri": true,
+                                                        "showRedirectUri": true
                                                     }
                                                 },
                                                 {
@@ -1683,7 +1685,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "GoogleWorkspaceReports",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-googleworksp-dc-umrgngdrsppba",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
@@ -1761,7 +1763,7 @@
                                 {
                                     "type": "Markdown",
                                     "parameters": {
-                                        "content": "#### Configuration steps for the Google Reports API\n\n1. Login to Google cloud console with your Workspace Admin credentials https://console.cloud.google.com.\n2. Using the search option (available at the top middle), Search for ***APIs & Services***\n3. From ***APIs & Services*** -> ***Enabled APIs & Services***, enable **Admin SDK API** for this project.\n 4. Go to ***APIs & Services*** -> ***OAuth Consent Screen***. If not already configured, create a OAuth Consent Screen with the following steps:\n\t 1. Provide App Name and other mandatory information.\n\t 2. Add authorized domains with API Access Enabled.\n\t 3. In Scopes section, add **Admin SDK API** scope.\n\t 4. In Test Users section, make sure the domain admin account is added.\n 5. Go to ***APIs & Services*** -> ***Credentials*** and create OAuth 2.0 Client ID\n\t 1. Click on Create Credentials on the top and select Oauth client Id.\n\t 2. Select Web Application from the Application Type drop down.\n\t 3. Provide a suitable name to the Web App and add https://portal.azure.com/TokenAuthorize/ExtensionName/Microsoft_Azure_Security_Insights as the Authorized redirect URIs.\n\t 4. Once you click Create, you will be provided with the Client ID and Client Secret. \n\tCopy these values and use them in the configuration steps below."
+                                        "content": "#### Configuration steps for the Google Reports API\n\n1. Login to Google cloud console with your Workspace Admin credentials https://console.cloud.google.com.\n2. Using the search option (available at the top middle), Search for ***APIs & Services***\n3. From ***APIs & Services*** -> ***Enabled APIs & Services***, enable **Admin SDK API** for this project.\n 4. Go to ***APIs & Services*** -> ***OAuth Consent Screen***. If not already configured, create a OAuth Consent Screen with the following steps:\n\t 1. Provide App Name and other mandatory information.\n\t 2. Add authorized domains with API Access Enabled.\n\t 3. In Scopes section, add **Admin SDK API** scope.\n\t 4. In Test Users section, make sure the domain admin account is added.\n 5. Go to ***APIs & Services*** -> ***Credentials*** and create OAuth 2.0 Client ID\n\t 1. Click on Create Credentials on the top and select Oauth client Id.\n\t 2. Select Web Application from the Application Type drop down.\n\t 3. Provide a suitable name to the Web App and add the Redirect URI in the form below as the Authorized redirect URIs.\n\t 4. Once you click Create, you will be provided with the Client ID and Client Secret. \n\tCopy these values and use them in the configuration steps below."
                                     }
                                 },
                                 {
@@ -1777,7 +1779,9 @@
                                         "clientIdLabel": "Client ID",
                                         "clientSecretLabel": "Client Secret",
                                         "connectButtonLabel": "Connect",
-                                        "disconnectButtonLabel": "Disconnect"
+                                        "disconnectButtonLabel": "Disconnect",
+                                        "sendRedirectUri": true,
+                                        "showRedirectUri": true
                                     }
                                 },
                                 {
@@ -1891,6 +1895,11 @@
                             "defaultValue": "-NA-",
                             "type": "securestring",
                             "minLength": 1
+                        },
+                        "redirectUri": {
+                            "defaultValue": "-NA-",
+                            "type": "securestring",
+                            "minLength": 1
                         }
                     },
                     "variables": {
@@ -1956,7 +1965,7 @@
                                         "access_type": "offline"
                                     },
                                     "scope": "https://www.googleapis.com/auth/admin.reports.audit.readonly",
-                                    "redirectUri": "https://portal.azure.com/TokenAuthorize/ExtensionName/Microsoft_Azure_Security_Insights"
+                                    "redirectUri": "[[parameters('redirectUri')]"
                                 },
                                 "request": {
                                     "apiEndpoint": "https://admin.googleapis.com/admin/reports/v1/activity/users/all/applications/access_transparency",
@@ -2025,7 +2034,7 @@
                                         "access_type": "offline"
                                     },
                                     "scope": "https://www.googleapis.com/auth/admin.reports.audit.readonly",
-                                    "redirectUri": "https://portal.azure.com/TokenAuthorize/ExtensionName/Microsoft_Azure_Security_Insights"
+                                    "redirectUri": "[[parameters('redirectUri')]"
                                 },
                                 "request": {
                                     "apiEndpoint": "https://admin.googleapis.com/admin/reports/v1/activity/users/all/applications/admin",
@@ -2094,7 +2103,7 @@
                                         "access_type": "offline"
                                     },
                                     "scope": "https://www.googleapis.com/auth/admin.reports.audit.readonly",
-                                    "redirectUri": "https://portal.azure.com/TokenAuthorize/ExtensionName/Microsoft_Azure_Security_Insights"
+                                    "redirectUri": "[[parameters('redirectUri')]"
                                 },
                                 "request": {
                                     "apiEndpoint": "https://admin.googleapis.com/admin/reports/v1/activity/users/all/applications/calendar",
@@ -2163,7 +2172,7 @@
                                         "access_type": "offline"
                                     },
                                     "scope": "https://www.googleapis.com/auth/admin.reports.audit.readonly",
-                                    "redirectUri": "https://portal.azure.com/TokenAuthorize/ExtensionName/Microsoft_Azure_Security_Insights"
+                                    "redirectUri": "[[parameters('redirectUri')]"
                                 },
                                 "request": {
                                     "apiEndpoint": "https://admin.googleapis.com/admin/reports/v1/activity/users/all/applications/chat",
@@ -2232,7 +2241,7 @@
                                         "access_type": "offline"
                                     },
                                     "scope": "https://www.googleapis.com/auth/admin.reports.audit.readonly",
-                                    "redirectUri": "https://portal.azure.com/TokenAuthorize/ExtensionName/Microsoft_Azure_Security_Insights"
+                                    "redirectUri": "[[parameters('redirectUri')]"
                                 },
                                 "request": {
                                     "apiEndpoint": "https://admin.googleapis.com/admin/reports/v1/activity/users/all/applications/drive",
@@ -2301,7 +2310,7 @@
                                         "access_type": "offline"
                                     },
                                     "scope": "https://www.googleapis.com/auth/admin.reports.audit.readonly",
-                                    "redirectUri": "https://portal.azure.com/TokenAuthorize/ExtensionName/Microsoft_Azure_Security_Insights"
+                                    "redirectUri": "[[parameters('redirectUri')]"
                                 },
                                 "request": {
                                     "apiEndpoint": "https://admin.googleapis.com/admin/reports/v1/activity/users/all/applications/gcp",
@@ -2370,7 +2379,7 @@
                                         "access_type": "offline"
                                     },
                                     "scope": "https://www.googleapis.com/auth/admin.reports.audit.readonly",
-                                    "redirectUri": "https://portal.azure.com/TokenAuthorize/ExtensionName/Microsoft_Azure_Security_Insights"
+                                    "redirectUri": "[[parameters('redirectUri')]"
                                 },
                                 "request": {
                                     "apiEndpoint": "https://admin.googleapis.com/admin/reports/v1/activity/users/all/applications/gplus",
@@ -2439,7 +2448,7 @@
                                         "access_type": "offline"
                                     },
                                     "scope": "https://www.googleapis.com/auth/admin.reports.audit.readonly",
-                                    "redirectUri": "https://portal.azure.com/TokenAuthorize/ExtensionName/Microsoft_Azure_Security_Insights"
+                                    "redirectUri": "[[parameters('redirectUri')]"
                                 },
                                 "request": {
                                     "apiEndpoint": "https://admin.googleapis.com/admin/reports/v1/activity/users/all/applications/groups",
@@ -2508,7 +2517,7 @@
                                         "access_type": "offline"
                                     },
                                     "scope": "https://www.googleapis.com/auth/admin.reports.audit.readonly",
-                                    "redirectUri": "https://portal.azure.com/TokenAuthorize/ExtensionName/Microsoft_Azure_Security_Insights"
+                                    "redirectUri": "[[parameters('redirectUri')]"
                                 },
                                 "request": {
                                     "apiEndpoint": "https://admin.googleapis.com/admin/reports/v1/activity/users/all/applications/groups_enterprise",
@@ -2577,7 +2586,7 @@
                                         "access_type": "offline"
                                     },
                                     "scope": "https://www.googleapis.com/auth/admin.reports.audit.readonly",
-                                    "redirectUri": "https://portal.azure.com/TokenAuthorize/ExtensionName/Microsoft_Azure_Security_Insights"
+                                    "redirectUri": "[[parameters('redirectUri')]"
                                 },
                                 "request": {
                                     "apiEndpoint": "https://admin.googleapis.com/admin/reports/v1/activity/users/all/applications/jamboard",
@@ -2646,7 +2655,7 @@
                                         "access_type": "offline"
                                     },
                                     "scope": "https://www.googleapis.com/auth/admin.reports.audit.readonly",
-                                    "redirectUri": "https://portal.azure.com/TokenAuthorize/ExtensionName/Microsoft_Azure_Security_Insights"
+                                    "redirectUri": "[[parameters('redirectUri')]"
                                 },
                                 "request": {
                                     "apiEndpoint": "https://admin.googleapis.com/admin/reports/v1/activity/users/all/applications/login",
@@ -2715,7 +2724,7 @@
                                         "access_type": "offline"
                                     },
                                     "scope": "https://www.googleapis.com/auth/admin.reports.audit.readonly",
-                                    "redirectUri": "https://portal.azure.com/TokenAuthorize/ExtensionName/Microsoft_Azure_Security_Insights"
+                                    "redirectUri": "[[parameters('redirectUri')]"
                                 },
                                 "request": {
                                     "apiEndpoint": "https://admin.googleapis.com/admin/reports/v1/activity/users/all/applications/meet",
@@ -2784,7 +2793,7 @@
                                         "access_type": "offline"
                                     },
                                     "scope": "https://www.googleapis.com/auth/admin.reports.audit.readonly",
-                                    "redirectUri": "https://portal.azure.com/TokenAuthorize/ExtensionName/Microsoft_Azure_Security_Insights"
+                                    "redirectUri": "[[parameters('redirectUri')]"
                                 },
                                 "request": {
                                     "apiEndpoint": "https://admin.googleapis.com/admin/reports/v1/activity/users/all/applications/mobile",
@@ -2853,7 +2862,7 @@
                                         "access_type": "offline"
                                     },
                                     "scope": "https://www.googleapis.com/auth/admin.reports.audit.readonly",
-                                    "redirectUri": "https://portal.azure.com/TokenAuthorize/ExtensionName/Microsoft_Azure_Security_Insights"
+                                    "redirectUri": "[[parameters('redirectUri')]"
                                 },
                                 "request": {
                                     "apiEndpoint": "https://admin.googleapis.com/admin/reports/v1/activity/users/all/applications/rules",
@@ -2922,7 +2931,7 @@
                                         "access_type": "offline"
                                     },
                                     "scope": "https://www.googleapis.com/auth/admin.reports.audit.readonly",
-                                    "redirectUri": "https://portal.azure.com/TokenAuthorize/ExtensionName/Microsoft_Azure_Security_Insights"
+                                    "redirectUri": "[[parameters('redirectUri')]"
                                 },
                                 "request": {
                                     "apiEndpoint": "https://admin.googleapis.com/admin/reports/v1/activity/users/all/applications/saml",
@@ -2991,7 +3000,7 @@
                                         "access_type": "offline"
                                     },
                                     "scope": "https://www.googleapis.com/auth/admin.reports.audit.readonly",
-                                    "redirectUri": "https://portal.azure.com/TokenAuthorize/ExtensionName/Microsoft_Azure_Security_Insights"
+                                    "redirectUri": "[[parameters('redirectUri')]"
                                 },
                                 "request": {
                                     "apiEndpoint": "https://admin.googleapis.com/admin/reports/v1/activity/users/all/applications/token",
@@ -3060,7 +3069,7 @@
                                         "access_type": "offline"
                                     },
                                     "scope": "https://www.googleapis.com/auth/admin.reports.audit.readonly",
-                                    "redirectUri": "https://portal.azure.com/TokenAuthorize/ExtensionName/Microsoft_Azure_Security_Insights"
+                                    "redirectUri": "[[parameters('redirectUri')]"
                                 },
                                 "request": {
                                     "apiEndpoint": "https://admin.googleapis.com/admin/reports/v1/activity/users/all/applications/user_accounts",
@@ -3129,7 +3138,7 @@
                                         "access_type": "offline"
                                     },
                                     "scope": "https://www.googleapis.com/auth/admin.reports.audit.readonly",
-                                    "redirectUri": "https://portal.azure.com/TokenAuthorize/ExtensionName/Microsoft_Azure_Security_Insights"
+                                    "redirectUri": "[[parameters('redirectUri')]"
                                 },
                                 "request": {
                                     "apiEndpoint": "https://admin.googleapis.com/admin/reports/v1/activity/users/all/applications/context_aware_access",
@@ -3198,7 +3207,7 @@
                                         "access_type": "offline"
                                     },
                                     "scope": "https://www.googleapis.com/auth/admin.reports.audit.readonly",
-                                    "redirectUri": "https://portal.azure.com/TokenAuthorize/ExtensionName/Microsoft_Azure_Security_Insights"
+                                    "redirectUri": "[[parameters('redirectUri')]"
                                 },
                                 "request": {
                                     "apiEndpoint": "https://admin.googleapis.com/admin/reports/v1/activity/users/all/applications/chrome",
@@ -3267,7 +3276,7 @@
                                         "access_type": "offline"
                                     },
                                     "scope": "https://www.googleapis.com/auth/admin.reports.audit.readonly",
-                                    "redirectUri": "https://portal.azure.com/TokenAuthorize/ExtensionName/Microsoft_Azure_Security_Insights"
+                                    "redirectUri": "[[parameters('redirectUri')]"
                                 },
                                 "request": {
                                     "apiEndpoint": "https://admin.googleapis.com/admin/reports/v1/activity/users/all/applications/data_studio",
@@ -3336,7 +3345,7 @@
                                         "access_type": "offline"
                                     },
                                     "scope": "https://www.googleapis.com/auth/admin.reports.audit.readonly",
-                                    "redirectUri": "https://portal.azure.com/TokenAuthorize/ExtensionName/Microsoft_Azure_Security_Insights"
+                                    "redirectUri": "[[parameters('redirectUri')]"
                                 },
                                 "request": {
                                     "apiEndpoint": "https://admin.googleapis.com/admin/reports/v1/activity/users/all/applications/keep",
@@ -3375,7 +3384,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "GoogleWorkspaceReports",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-googleworksp-rdc-lbulbncd5hdwm",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
@@ -3459,7 +3468,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -3545,7 +3554,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -3631,7 +3640,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -3717,7 +3726,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -3803,7 +3812,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -3889,7 +3898,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -3975,7 +3984,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -4061,7 +4070,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -4147,7 +4156,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -4233,7 +4242,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -4319,7 +4328,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -4405,7 +4414,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.2",
+                "packageVersion": "3.0.3",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -4423,15 +4432,15 @@
             "apiVersion": "2023-04-01-preview",
             "location": "[parameters('workspace-location')]",
             "properties": {
-                "version": "3.0.2",
+                "version": "3.0.3",
                 "kind": "Solution",
                 "contentSchemaVersion": "3.0.0",
                 "displayName": "Google Workspace Reports",
                 "publisherDisplayName": "Microsoft Sentinel, Microsoft Corporation",
                 "descriptionHtml": "<p><strong>Note:</strong> Please refer to the following before installing the solution:</p><p>\u2022 Review the solution <a target=\"_blank\" href=\"https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/GoogleWorkspaceReports/ReleaseNotes.md\" rel=\"noopener\">Release Notes</a></p><p>The <a target=\"_blank\" href=\"https://workspace.google.com/\" rel=\"noopener\">Google Workspace</a> solution for Microsoft Sentinel enables you to ingest Google Workspace Activity events into Microsoft Sentinel.</p><p><strong>Underlying Microsoft Technologies used:</strong></p><p>This solution takes a dependency on the following technologies, and some of these dependencies either may be in <a target=\"_blank\" href=\"https://azure.microsoft.com/support/legal/preview-supplemental-terms/\" rel=\"noopener\">Preview</a> state or might result in additional ingestion or operational costs:</p><p>\u2022 <a target=\"_blank\" href=\"https://aka.ms/Sentinel-CCP_Platform\" rel=\"noopener\">Microsoft Sentinel Codeless Connector Framework</a></p><p><strong>Data Connectors:</strong> 1, <strong>Parsers:</strong> 1, <strong>Workbooks:</strong> 1, <strong>Analytic Rules:</strong> 10, <strong>Hunting Queries:</strong> 12</p><p><a target=\"_blank\" href=\"https://aka.ms/azuresentinel\" rel=\"noopener\">Learn more about Microsoft Sentinel</a> | <a target=\"_blank\" href=\"https://aka.ms/azuresentinelsolutionsdoc\" rel=\"noopener\">Learn more about Solutions</a></p>",
                 "contentKind": "Solution",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-googleworksp-sl-x6vskvul4jcha",
-                "id": "azuresentinel.azure-sentinel-solution-googleworksp-sl-x6vskvul4jcha",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-googleworksp-sl-6a5l6f2lvlre4",
+                "id": "azuresentinel.azure-sentinel-solution-googleworksp-sl-6a5l6f2lvlre4",
                 "icon": "https://store-images.s-microsoft.com/image/apps.6107.7aa78aae-c722-4dc0-993c-3401b43c13d7.04302653-1009-4206-84fc-54ae9ec5b67c.98790eca-f40c-4dc5-8691-2813c64d99ff",
                 "contentId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "parentId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
