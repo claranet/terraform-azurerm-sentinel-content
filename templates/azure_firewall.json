@@ -48,7 +48,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'sentinel4azurefirewall.sentinel4azurefirewall')]"
             ],
             "properties": {
-                "description": "AzureFirewallWorkbook Workbook with template version 3.0.4",
+                "description": "Gain insights into Azure Firewall events. You can learn about your application and network rules, see metrics for firewall activities across URLs, ports, and addresses across multiple workspaces.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.3.0",
@@ -115,7 +115,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Azure Firewall",
                 "packageId": "sentinel4azurefirewall.sentinel4azurefirewall",
                 "contentSchemaVersion": "3.0.0",
@@ -137,7 +137,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'sentinel4azurefirewall.sentinel4azurefirewall')]"
             ],
             "properties": {
-                "description": "AzureFirewallWorkbook-StructuredLogs Workbook with template version 3.0.4",
+                "description": "Gain insights into Azure Firewall events using the new Structured Logs for Azure Firewall. You can learn about your application and network rules, see metrics for firewall activities across URLs, ports, and addresses across multiple workspaces.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -216,7 +216,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Azure Firewall",
                 "packageId": "sentinel4azurefirewall.sentinel4azurefirewall",
                 "contentSchemaVersion": "3.0.0",
@@ -238,7 +238,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'sentinel4azurefirewall.sentinel4azurefirewall')]"
             ],
             "properties": {
-                "description": "Azure Firewall data connector with template version 3.0.4",
+                "description": "Connect to Azure Firewall. Azure Firewall is a managed. cloud-based network security service that protects your Azure Virtual Network resources. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. For more information. see the [Microsoft Sentinel documentation](https://go.microsoft.com/fwlink/p/?linkid=2220124&wt.mc_id=sentinel_dataconnectordocs_content_cnl_csasci).",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -400,7 +400,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Azure Firewall",
                 "packageId": "sentinel4azurefirewall.sentinel4azurefirewall",
                 "contentSchemaVersion": "3.0.0",
@@ -578,7 +578,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'sentinel4azurefirewall.sentinel4azurefirewall')]"
             ],
             "properties": {
-                "description": "AzureFirewallConnector Playbook with template version 3.0.4",
+                "description": "",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0",
@@ -3868,7 +3868,7 @@
                     ],
                     "metadata": {
                         "comments": "This Azure Firewall connector uses Firewall, IP Groups and Firewall Policies APIs to perform different actions on the Firewall, IP Groups and Firewall Policies.",
-                        "lastUpdateTime": "2024-02-12T11:10:21.962Z",
+                        "lastUpdateTime": "2026-02-11T15:42:56.395Z",
                         "releaseNotes": {
                             "version": "1.0",
                             "title": "[replace('b', 'b', '')]",
@@ -3879,7 +3879,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Azure Firewall",
                 "packageId": "sentinel4azurefirewall.sentinel4azurefirewall",
                 "contentSchemaVersion": "3.0.0",
@@ -3901,7 +3901,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'sentinel4azurefirewall.sentinel4azurefirewall')]"
             ],
             "properties": {
-                "description": "AzureFirewall-BlockIP-addToIPGroup Playbook with template version 3.0.4",
+                "description": "This playbook allows blocking/allowing IPs in Azure Firewall. It allows to make changes on IP groups, which are attached to rules, instead of make direct changes on Azure Firewall. It also allows using the same IP group for multiple firewalls. [Learn more about IP Groups in Azure Firewall](https://docs.microsoft.com/azure/firewall/ip-groups)",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0",
@@ -4478,7 +4478,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Azure Firewall",
                 "packageId": "sentinel4azurefirewall.sentinel4azurefirewall",
                 "contentSchemaVersion": "3.0.0",
@@ -4500,7 +4500,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'sentinel4azurefirewall.sentinel4azurefirewall')]"
             ],
             "properties": {
-                "description": "AzureFirewall-AddIPtoTIAllowList Playbook with template version 3.0.4",
+                "description": "This playbook allows the SOC to automatically response to Microsoft Sentinel incidents which includes IPs, by adding the IPs to the TI Allow list in Azure Firewall Policy.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0",
@@ -5077,7 +5077,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Azure Firewall",
                 "packageId": "sentinel4azurefirewall.sentinel4azurefirewall",
                 "contentSchemaVersion": "3.0.0",
@@ -5099,7 +5099,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'sentinel4azurefirewall.sentinel4azurefirewall')]"
             ],
             "properties": {
-                "description": "AzureFirewall-BlockIP-addNewRule Playbook with template version 3.0.4",
+                "description": "This playbook uses the Azure Firewall connector to add IP Address to the Deny Network Rules collection based on the Microsoft Sentinel Incident",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0",
@@ -5911,7 +5911,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Azure Firewall",
                 "packageId": "sentinel4azurefirewall.sentinel4azurefirewall",
                 "contentSchemaVersion": "3.0.0",
@@ -5933,7 +5933,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'sentinel4azurefirewall.sentinel4azurefirewall')]"
             ],
             "properties": {
-                "description": "Azure Firewall - First Time Source IP to Destination Using Port_HuntingQueries Hunting Query with template version 3.0.4",
+                "description": "Identifies the first time a source IP communicates with a destination using a specific port based on learning period activity. \nConfigurable Parameters: - Learning period time - learning period for threshold calculation in days. Default is set to 7.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -5993,7 +5993,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Azure Firewall",
                 "packageId": "sentinel4azurefirewall.sentinel4azurefirewall",
                 "contentSchemaVersion": "3.0.0",
@@ -6015,7 +6015,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'sentinel4azurefirewall.sentinel4azurefirewall')]"
             ],
             "properties": {
-                "description": "Azure Firewall - First time source IP to Destination_HuntingQueries Hunting Query with template version 3.0.4",
+                "description": "Identifies the first time a source IP communicates with a destination based on a configurable learning period.\nConfigurable Parameters: - Learning period time - learning period for threshold calculation in days. Default is set to 7.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -6075,7 +6075,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Azure Firewall",
                 "packageId": "sentinel4azurefirewall.sentinel4azurefirewall",
                 "contentSchemaVersion": "3.0.0",
@@ -6097,7 +6097,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'sentinel4azurefirewall.sentinel4azurefirewall')]"
             ],
             "properties": {
-                "description": "Azure Firewall - Source IP Abnormally Connects to Multiple Destinations_HuntingQueries Hunting Query with template version 3.0.4",
+                "description": "Identifies source IP that abnormally connects to multiple destinations according to learning period activity. This can indicate initial access attempts by attackers, trying to jump between different machines in the organization.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -6157,7 +6157,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Azure Firewall",
                 "packageId": "sentinel4azurefirewall.sentinel4azurefirewall",
                 "contentSchemaVersion": "3.0.0",
@@ -6179,7 +6179,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'sentinel4azurefirewall.sentinel4azurefirewall')]"
             ],
             "properties": {
-                "description": "Azure Firewall - Uncommon Port for Organization_HuntingQueries Hunting Query with template version 3.0.4",
+                "description": "Identifies abnormal ports used in the organization based on learning period activity. This can indicate exfiltration attack or C2 control from machines in the organization by using new a port that has never been used.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -6239,7 +6239,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Azure Firewall",
                 "packageId": "sentinel4azurefirewall.sentinel4azurefirewall",
                 "contentSchemaVersion": "3.0.0",
@@ -6261,7 +6261,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'sentinel4azurefirewall.sentinel4azurefirewall')]"
             ],
             "properties": {
-                "description": "Azure Firewall - Uncommon Port to IP_HuntingQueries Hunting Query with template version 3.0.4",
+                "description": "Identifies abnormal ports used by machines to connect to a destination IP based on learning period activity. This can indicate exfiltration attack or C2 control from machines in the organization by using new a port that has never been used.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -6321,7 +6321,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Azure Firewall",
                 "packageId": "sentinel4azurefirewall.sentinel4azurefirewall",
                 "contentSchemaVersion": "3.0.0",
@@ -6343,7 +6343,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'sentinel4azurefirewall.sentinel4azurefirewall')]"
             ],
             "properties": {
-                "description": "SeveralDenyActionsRegistered_AnalyticalRules Analytics Rule with template version 3.0.4",
+                "description": "Identifies attack pattern when attacker tries to move, or scan, from resource to resource on the network and creates an incident when a source has more than 1 registered deny action in Azure Firewall.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1.1",
@@ -6353,7 +6353,7 @@
                         {
                             "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
                             "name": "f8dad4e9-3f19-4d70-ab7f-8f19ccd43a3e",
-                            "apiVersion": "2022-04-01-preview",
+                            "apiVersion": "2023-02-01-preview",
                             "kind": "Scheduled",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -6371,14 +6371,14 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureFirewall",
                                         "dataTypes": [
                                             "AzureDiagnostics",
                                             "AZFWApplicationRule",
                                             "AZFWNetworkRule",
                                             "AZFWFlowTrace",
                                             "AZFWIdpsSignature"
-                                        ],
-                                        "connectorId": "AzureFirewall"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -6396,8 +6396,8 @@
                                         "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Address",
-                                                "columnName": "SourceIp"
+                                                "columnName": "SourceIp",
+                                                "identifier": "Address"
                                             }
                                         ]
                                     },
@@ -6405,8 +6405,8 @@
                                         "entityType": "URL",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Url",
-                                                "columnName": "Fqdn"
+                                                "columnName": "Fqdn",
+                                                "identifier": "Url"
                                             }
                                         ]
                                     }
@@ -6443,7 +6443,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Azure Firewall",
                 "packageId": "sentinel4azurefirewall.sentinel4azurefirewall",
                 "contentSchemaVersion": "3.0.0",
@@ -6453,7 +6453,36 @@
                 "contentProductId": "sentinel4azurefirewall.sentinel4azurefirewall-ar-mxmkzbvrauuoc",
                 "id": "sentinel4azurefirewall.sentinel4azurefirewall-ar-mxmkzbvrauuoc",
                 "version": "1.1.1",
-                "isDeprecated": false
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "AzureDiagnostics"
+                        },
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "AZFWApplicationRule"
+                        },
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "AZFWNetworkRule"
+                        },
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "AZFWFlowTrace"
+                        },
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "AZFWIdpsSignature"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "AzureFirewall"
+                        }
+                    ]
+                }
             }
         },
         {
@@ -6465,7 +6494,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'sentinel4azurefirewall.sentinel4azurefirewall')]"
             ],
             "properties": {
-                "description": "Azure Firewall - Port Sweep_AnalyticalRules Analytics Rule with template version 3.0.4",
+                "description": "Identifies a source IP scanning same open ports on the Azure Firewall IPs. This can indicate malicious scanning of port by an attacker, trying to reveal IPs with specific ports open in the organization. The ports can be compromised by attackers for initial access, most often by exploiting vulnerability.\n\nConfigurable Parameters:\n\n- Port sweep time - the time range to look for multiple hosts scanned. Default is set to 30 seconds.\n- Minimum different hosts threshold - alert only if more than this number of hosts scanned. Default is set to 200.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.2.2",
@@ -6475,7 +6504,7 @@
                         {
                             "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
                             "name": "720335f4-ee8c-4270-9424-d0859222168c",
-                            "apiVersion": "2022-04-01-preview",
+                            "apiVersion": "2023-02-01-preview",
                             "kind": "Scheduled",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -6493,12 +6522,12 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureFirewall",
                                         "dataTypes": [
                                             "AzureDiagnostics",
                                             "AZFWApplicationRule",
                                             "AZFWNetworkRule"
-                                        ],
-                                        "connectorId": "AzureFirewall"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -6512,8 +6541,8 @@
                                         "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Address",
-                                                "columnName": "SourceIp"
+                                                "columnName": "SourceIp",
+                                                "identifier": "Address"
                                             }
                                         ]
                                     },
@@ -6521,8 +6550,8 @@
                                         "entityType": "URL",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Url",
-                                                "columnName": "Fqdn"
+                                                "columnName": "Fqdn",
+                                                "identifier": "Url"
                                             }
                                         ]
                                     }
@@ -6559,7 +6588,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Azure Firewall",
                 "packageId": "sentinel4azurefirewall.sentinel4azurefirewall",
                 "contentSchemaVersion": "3.0.0",
@@ -6569,7 +6598,28 @@
                 "contentProductId": "sentinel4azurefirewall.sentinel4azurefirewall-ar-l426gemjvn37s",
                 "id": "sentinel4azurefirewall.sentinel4azurefirewall-ar-l426gemjvn37s",
                 "version": "1.2.2",
-                "isDeprecated": false
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "AzureDiagnostics"
+                        },
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "AZFWApplicationRule"
+                        },
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "AZFWNetworkRule"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "AzureFirewall"
+                        }
+                    ]
+                }
             }
         },
         {
@@ -6581,7 +6631,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'sentinel4azurefirewall.sentinel4azurefirewall')]"
             ],
             "properties": {
-                "description": "Azure Firewall - Port Scan_AnalyticalRules Analytics Rule with template version 3.0.4",
+                "description": "Identifies a source IP scanning multiple open ports on Azure Firewall. This can indicate malicious scanning of ports by an attacker, trying to reveal open ports in the organization that can be compromised for initial access.\n\nConfigurable Parameters:\n\n- Port scan time - the time range to look for multiple ports scanned. Default is set to 30 seconds.\n- Minimum different ports threshold - alert only if more than this number of ports scanned. Default is set to 100.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1.2",
@@ -6591,7 +6641,7 @@
                         {
                             "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
                             "name": "b2c5907b-1040-4692-9802-9946031017e8",
-                            "apiVersion": "2022-04-01-preview",
+                            "apiVersion": "2023-02-01-preview",
                             "kind": "Scheduled",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -6609,12 +6659,12 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureFirewall",
                                         "dataTypes": [
                                             "AzureDiagnostics",
                                             "AZFWApplicationRule",
                                             "AZFWNetworkRule"
-                                        ],
-                                        "connectorId": "AzureFirewall"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
@@ -6628,8 +6678,8 @@
                                         "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Address",
-                                                "columnName": "SourceIp"
+                                                "columnName": "SourceIp",
+                                                "identifier": "Address"
                                             }
                                         ]
                                     },
@@ -6637,8 +6687,8 @@
                                         "entityType": "URL",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Url",
-                                                "columnName": "Fqdn"
+                                                "columnName": "Fqdn",
+                                                "identifier": "Url"
                                             }
                                         ]
                                     }
@@ -6675,7 +6725,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Azure Firewall",
                 "packageId": "sentinel4azurefirewall.sentinel4azurefirewall",
                 "contentSchemaVersion": "3.0.0",
@@ -6685,7 +6735,28 @@
                 "contentProductId": "sentinel4azurefirewall.sentinel4azurefirewall-ar-27btpitfrpbvq",
                 "id": "sentinel4azurefirewall.sentinel4azurefirewall-ar-27btpitfrpbvq",
                 "version": "1.1.2",
-                "isDeprecated": false
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "AzureDiagnostics"
+                        },
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "AZFWApplicationRule"
+                        },
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "AZFWNetworkRule"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "AzureFirewall"
+                        }
+                    ]
+                }
             }
         },
         {
@@ -6697,24 +6768,24 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'sentinel4azurefirewall.sentinel4azurefirewall')]"
             ],
             "properties": {
-                "description": "Azure Firewall - Multiple Sources Affected by the Same TI Destination_AnalyticalRules Analytics Rule with template version 3.0.4",
+                "description": "Identifies multiple machines trying to reach out to the same destination blocked by TI in Azure Firewall. This can indicate attack on the organization by the same attack group.\n\nConfigurable Parameters:\n\n- Minimum affected threshold - alert only if more than this number of hosts affected. Default is set to 5.\n- Recommendation is to use the new resource specific logs. If you are using both, the TiTraffic Count will be duplicated.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.1.2",
+                    "contentVersion": "1.1.4",
                     "parameters": {},
                     "variables": {},
                     "resources": [
                         {
                             "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
                             "name": "4644baf7-3464-45dd-bd9d-e07687e25f81",
-                            "apiVersion": "2022-04-01-preview",
+                            "apiVersion": "2023-02-01-preview",
                             "kind": "Scheduled",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
                                 "description": "Identifies multiple machines trying to reach out to the same destination blocked by TI in Azure Firewall. This can indicate attack on the organization by the same attack group.\n\nConfigurable Parameters:\n\n- Minimum affected threshold - alert only if more than this number of hosts affected. Default is set to 5.\n- Recommendation is to use the new resource specific logs. If you are using both, the TiTraffic Count will be duplicated.",
                                 "displayName": "Multiple Sources Affected by the Same TI Destination",
                                 "enabled": false,
-                                "query": "let RunTime = 1d; \nlet StartRunTime = 1d; \nlet EndRunTime = StartRunTime - RunTime; \nlet MinAffectedThreshold = 5;\nunion isfuzzy=true\n(AzureDiagnostics \n| where TimeGenerated  between (ago(StartRunTime) .. ago(EndRunTime))\n| where OperationName == \"AzureFirewallThreatIntelLog\"\n| parse msg_s with * \"from \" SourceIp \":\" SourcePort:int \" to \" Fqdn \":\" DestinationPort:int  \".\" * \"Action: Deny. \" ThreatDescription),\n(AZFWThreatIntel\n| where TimeGenerated between (ago(StartRunTime) .. ago(EndRunTime)))\n| summarize TiTrafficCount = count(), dCountSourceIps = dcount(SourceIp), AffectedIps = make_set(SourceIp, 10000) by Fqdn, ThreatDescription\n| where array_length(AffectedIps) > MinAffectedThreshold\n| mv-expand SourceIp = AffectedIps\n| order by TiTrafficCount desc, Fqdn asc, parse_ipv4(tostring(SourceIp)) asc\n",
+                                "query": "let RunTime = 1d; \nlet StartRunTime = 1d; \nlet EndRunTime = StartRunTime - RunTime; \nlet MinAffectedThreshold = 5;\nunion isfuzzy=true\n(AzureDiagnostics \n| where TimeGenerated  between (ago(StartRunTime) .. ago(EndRunTime))\n| where OperationName == \"AzureFirewallThreatIntelLog\"\n| parse msg_s with * \"from \" SourceIp \":\" SourcePort:int \" to \" Fqdn \":\" DestinationPort:int  \".\" * \"Action: Deny. \" ThreatDescription),\n(AZFWThreatIntel\n| where TimeGenerated between (ago(StartRunTime) .. ago(EndRunTime)))\n| extend Fqdn = DestinationIp\n| summarize TiTrafficCount = count(), dCountSourceIps = dcount(SourceIp), AffectedIps = make_set(SourceIp, 10000) by Fqdn, ThreatDescription\n| where array_length(AffectedIps) > MinAffectedThreshold\n| mv-expand SourceIp = AffectedIps\n| order by TiTrafficCount desc, Fqdn asc, parse_ipv4(tostring(SourceIp)) asc\n",
                                 "queryFrequency": "P1D",
                                 "queryPeriod": "P1D",
                                 "severity": "Medium",
@@ -6725,24 +6796,28 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
+                                        "connectorId": "AzureFirewall",
                                         "dataTypes": [
                                             "AzureDiagnostics",
                                             "AZFWThreatIntel"
-                                        ],
-                                        "connectorId": "AzureFirewall"
+                                        ]
                                     }
                                 ],
                                 "tactics": [
                                     "Exfiltration",
                                     "CommandAndControl"
                                 ],
+                                "techniques": [
+                                    "T1041",
+                                    "T1071"
+                                ],
                                 "entityMappings": [
                                     {
                                         "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Address",
-                                                "columnName": "SourceIp"
+                                                "columnName": "SourceIp",
+                                                "identifier": "Address"
                                             }
                                         ]
                                     },
@@ -6750,8 +6825,8 @@
                                         "entityType": "URL",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Url",
-                                                "columnName": "Fqdn"
+                                                "columnName": "Fqdn",
+                                                "identifier": "Url"
                                             }
                                         ]
                                     }
@@ -6766,6 +6841,284 @@
                                 "description": "Azure Firewall Analytics Rule 4",
                                 "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '4644baf7-3464-45dd-bd9d-e07687e25f81')]",
                                 "contentId": "4644baf7-3464-45dd-bd9d-e07687e25f81",
+                                "kind": "AnalyticsRule",
+                                "version": "1.1.4",
+                                "source": {
+                                    "kind": "Solution",
+                                    "name": "Azure Firewall",
+                                    "sourceId": "sentinel4azurefirewall.sentinel4azurefirewall"
+                                },
+                                "author": {
+                                    "name": "Microsoft",
+                                    "email": "support@microsoft.com"
+                                },
+                                "support": {
+                                    "tier": "Microsoft",
+                                    "name": "Microsoft Corporation",
+                                    "email": "support@microsoft.com",
+                                    "link": "https://support.microsoft.com/"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "packageKind": "Solution",
+                "packageVersion": "3.0.5",
+                "packageName": "Azure Firewall",
+                "packageId": "sentinel4azurefirewall.sentinel4azurefirewall",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "4644baf7-3464-45dd-bd9d-e07687e25f81",
+                "contentKind": "AnalyticsRule",
+                "displayName": "Multiple Sources Affected by the Same TI Destination",
+                "contentProductId": "sentinel4azurefirewall.sentinel4azurefirewall-ar-n4aqdg5jxwpqu",
+                "id": "sentinel4azurefirewall.sentinel4azurefirewall-ar-n4aqdg5jxwpqu",
+                "version": "1.1.4",
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "AzureDiagnostics"
+                        },
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "AZFWThreatIntel"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "AzureFirewall"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
+            "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-ar-',uniquestring('826f930c-2f25-4508-8e75-a95b809a4e15')))]",
+            "location": "[parameters('workspace-location')]",
+            "dependsOn": [
+                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'sentinel4azurefirewall.sentinel4azurefirewall')]"
+            ],
+            "properties": {
+                "description": "Identifies communication for well known protocol over a non-standard port based on learning period activity. This can indicate malicious communication (C2) or exfiltration by attackers trying to communicate over known ports (22:SSH, 80:HTTP) but dont use the known protocol headers to match the port number.\n\nConfigurable Parameters:\n\n- Learning period time - learning period for protocol learning in days. Default is set to 7.",
+                "mainTemplate": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.1.3",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
+                            "name": "826f930c-2f25-4508-8e75-a95b809a4e15",
+                            "apiVersion": "2023-02-01-preview",
+                            "kind": "Scheduled",
+                            "location": "[parameters('workspace-location')]",
+                            "properties": {
+                                "description": "Identifies communication for well known protocol over a non-standard port based on learning period activity. This can indicate malicious communication (C2) or exfiltration by attackers trying to communicate over known ports (22:SSH, 80:HTTP) but dont use the known protocol headers to match the port number.\n\nConfigurable Parameters:\n\n- Learning period time - learning period for protocol learning in days. Default is set to 7.",
+                                "displayName": "Abnormal Port to Protocol",
+                                "enabled": false,
+                                "query": "let LearningPeriod = 7d;\nlet RunTime = 1h;\nlet StartLearningPeriod = LearningPeriod + RunTime;\nlet DetectionWindowStart = ago(RunTime);\nlet LearningPortToProtocol1 =  (AzureDiagnostics\n| where OperationName == \"AzureFirewallApplicationRuleLog\"\n| where TimeGenerated between (ago(StartLearningPeriod) .. ago(RunTime))\n| extend msg_s= column_ifexists('msg_s',Message)\n| parse msg_s with Protocol \" request from \" SourceIp \":\" SourcePort:int \" to \" Fqdn \":\" DestinationPort:int \".\" *\n| where isnotempty(DestinationPort)\n| summarize LearningTimeCount = count() by LearningTimeDstPort = DestinationPort, LearningTimeProtocol = Protocol, SourceIp, Fqdn);\nlet LearningPortToProtocol2 = (AZFWNetworkRule\n| where TimeGenerated between (ago(StartLearningPeriod) .. ago(RunTime))\n| where isnotempty(DestinationPort)\n| extend Fqdn = DestinationIp\n| summarize LearningTimeCount = count() by LearningTimeDstPort = DestinationPort, LearningTimeProtocol = Protocol, SourceIp, Fqdn);\nlet LearningPortToProtocol3 = (AZFWApplicationRule\n| where TimeGenerated between (ago(StartLearningPeriod) .. ago(RunTime))\n| where isnotempty(DestinationPort)\n| summarize LearningTimeCount = count() by LearningTimeDstPort = DestinationPort, LearningTimeProtocol = Protocol, SourceIp, Fqdn);\nlet AlertTimePortToProtocol1 = (AzureDiagnostics\n| where TimeGenerated between (DetectionWindowStart .. now())\n| where OperationName == \"AzureFirewallApplicationRuleLog\"\n| extend msg_s= column_ifexists('msg_s',Message)\n| parse msg_s with Protocol \" request from \" SourceIp \":\" SourcePort \" to \" Fqdn \":\" DestinationPort:int \".\" *\n| where isnotempty(DestinationPort)\n| summarize AlertTimeCount = count() by AlertTimeDstPort = DestinationPort, AlertTimeProtocol = Protocol);\nlet AlertTimePortToProtocol2 = (AZFWNetworkRule\n| where TimeGenerated between (DetectionWindowStart .. now())\n| where isnotempty(DestinationPort)\n| extend Fqdn = DestinationIp\n| summarize AlertTimeCount = count() by AlertTimeDstPort = DestinationPort, AlertTimeProtocol = Protocol);\nlet AlertTimePortToProtocol3 = (AZFWApplicationRule\n| where TimeGenerated between (DetectionWindowStart .. now())\n| where isnotempty(DestinationPort)\n| summarize AlertTimeCount = count() by AlertTimeDstPort = DestinationPort, AlertTimeProtocol = Protocol);\n(union isfuzzy=true \n(AlertTimePortToProtocol1 \n| join kind=leftouter (LearningPortToProtocol1) on $left.AlertTimeDstPort == $right.LearningTimeDstPort\n| where LearningTimeProtocol != AlertTimeProtocol),\n(AlertTimePortToProtocol2 \n| join kind=leftouter (LearningPortToProtocol2) on $left.AlertTimeDstPort == $right.LearningTimeDstPort\n| where LearningTimeProtocol != AlertTimeProtocol),\n(AlertTimePortToProtocol3 \n| join kind=leftouter (LearningPortToProtocol3) on $left.AlertTimeDstPort == $right.LearningTimeDstPort\n| where LearningTimeProtocol != AlertTimeProtocol))\n",
+                                "queryFrequency": "PT1H",
+                                "queryPeriod": "P8D",
+                                "severity": "Medium",
+                                "suppressionDuration": "PT1H",
+                                "suppressionEnabled": false,
+                                "triggerOperator": "GreaterThan",
+                                "triggerThreshold": 1,
+                                "status": "Available",
+                                "requiredDataConnectors": [
+                                    {
+                                        "connectorId": "AzureFirewall",
+                                        "dataTypes": [
+                                            "AzureDiagnostics",
+                                            "AZFWApplicationRule",
+                                            "AZFWNetworkRule"
+                                        ]
+                                    }
+                                ],
+                                "tactics": [
+                                    "Exfiltration",
+                                    "CommandAndControl"
+                                ],
+                                "techniques": [
+                                    "T1041",
+                                    "T1571"
+                                ],
+                                "entityMappings": [
+                                    {
+                                        "entityType": "IP",
+                                        "fieldMappings": [
+                                            {
+                                                "columnName": "SourceIp",
+                                                "identifier": "Address"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "entityType": "URL",
+                                        "fieldMappings": [
+                                            {
+                                                "columnName": "Fqdn",
+                                                "identifier": "Url"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
+                            "apiVersion": "2022-01-01-preview",
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('AnalyticsRule-', last(split(resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '826f930c-2f25-4508-8e75-a95b809a4e15'),'/'))))]",
+                            "properties": {
+                                "description": "Azure Firewall Analytics Rule 5",
+                                "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '826f930c-2f25-4508-8e75-a95b809a4e15')]",
+                                "contentId": "826f930c-2f25-4508-8e75-a95b809a4e15",
+                                "kind": "AnalyticsRule",
+                                "version": "1.1.3",
+                                "source": {
+                                    "kind": "Solution",
+                                    "name": "Azure Firewall",
+                                    "sourceId": "sentinel4azurefirewall.sentinel4azurefirewall"
+                                },
+                                "author": {
+                                    "name": "Microsoft",
+                                    "email": "support@microsoft.com"
+                                },
+                                "support": {
+                                    "tier": "Microsoft",
+                                    "name": "Microsoft Corporation",
+                                    "email": "support@microsoft.com",
+                                    "link": "https://support.microsoft.com/"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "packageKind": "Solution",
+                "packageVersion": "3.0.5",
+                "packageName": "Azure Firewall",
+                "packageId": "sentinel4azurefirewall.sentinel4azurefirewall",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "826f930c-2f25-4508-8e75-a95b809a4e15",
+                "contentKind": "AnalyticsRule",
+                "displayName": "Abnormal Port to Protocol",
+                "contentProductId": "sentinel4azurefirewall.sentinel4azurefirewall-ar-dn23cw3nj4zs4",
+                "id": "sentinel4azurefirewall.sentinel4azurefirewall-ar-dn23cw3nj4zs4",
+                "version": "1.1.3",
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "AzureDiagnostics"
+                        },
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "AZFWApplicationRule"
+                        },
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "AZFWNetworkRule"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "AzureFirewall"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
+            "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-ar-',uniquestring('d36bb1e3-5abc-4037-ad9a-24ba3469819e')))]",
+            "location": "[parameters('workspace-location')]",
+            "dependsOn": [
+                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'sentinel4azurefirewall.sentinel4azurefirewall')]"
+            ],
+            "properties": {
+                "description": "Identifies abnormal deny rate for specific source IP to destination IP based on the normal average and standard deviation learned during a configured period. This can indicate potential exfiltration, initial access or C2, where attacker tries to exploit the same vulnerability on machines in the organization, but is being blocked by firewall rules.\n\nConfigurable Parameters:\n\n- Minimum of stds threshold - the number of stds to use in the threshold calculation. Default is set to 3.\n- Learning period time - learning period for threshold calculation in days. Default is set to 5.\n- Bin time - learning buckets time in hours. Default is set to 1 hour.\n- Minimum threshold - minimum threshold for alert. Default is set to 5.\n- Minimum bucket threshold - minimum learning buckets threshold for alert. Default is set to 5.",
+                "mainTemplate": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.1.2",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
+                            "name": "d36bb1e3-5abc-4037-ad9a-24ba3469819e",
+                            "apiVersion": "2023-02-01-preview",
+                            "kind": "Scheduled",
+                            "location": "[parameters('workspace-location')]",
+                            "properties": {
+                                "description": "Identifies abnormal deny rate for specific source IP to destination IP based on the normal average and standard deviation learned during a configured period. This can indicate potential exfiltration, initial access or C2, where attacker tries to exploit the same vulnerability on machines in the organization, but is being blocked by firewall rules.\n\nConfigurable Parameters:\n\n- Minimum of stds threshold - the number of stds to use in the threshold calculation. Default is set to 3.\n- Learning period time - learning period for threshold calculation in days. Default is set to 5.\n- Bin time - learning buckets time in hours. Default is set to 1 hour.\n- Minimum threshold - minimum threshold for alert. Default is set to 5.\n- Minimum bucket threshold - minimum learning buckets threshold for alert. Default is set to 5.",
+                                "displayName": "Abnormal Deny Rate for Source IP",
+                                "enabled": false,
+                                "query": "let LearningPeriod = 1d;\nlet RunTime = 1h;\nlet StartLearningPeriod = LearningPeriod + RunTime;\nlet EndRunTime = RunTime - 1h;\nlet BinTime = 1h;\nlet NumOfStdsThreshold = 3;\nlet MinThreshold = 5.0;\nlet MinLearningBuckets = 5;\nlet TrafficLogs = (union isfuzzy=true\n(AzureDiagnostics\n| where OperationName == \"AzureFirewallApplicationRuleLog\" or OperationName == \"AzureFirewallNetworkRuleLog\" \n| parse msg_s with * \"from \" SourceIp \":\" SourcePort:int \" to \" Fqdn \":\" DestinationPort:int \". \" * \"Action: \" Action \".\" *\n| where Action == \"Deny\"\n| where isnotempty(Fqdn) and isnotempty(SourceIp)),\n(AZFWNetworkRule\n| extend Fqdn = DestinationIp\n| where Action == \"Deny\"\n| where isnotempty(Fqdn) and isnotempty(SourceIp)),\n(AZFWFlowTrace\n| extend Fqdn = DestinationIp\n| where Action == \"Deny\"\n| where isnotempty(Fqdn) and isnotempty(SourceIp)),\n(AZFWIdpsSignature\n| extend Fqdn = DestinationIp\n| where Action == \"Deny\"\n| where isnotempty(Fqdn) and isnotempty(SourceIp)),\n(AZFWApplicationRule\n| where Action == \"Deny\"\n| where isnotempty(Fqdn) and isnotempty(SourceIp)));\nlet LearningSrcIpDenyRate = (TrafficLogs\n| where TimeGenerated between (ago(StartLearningPeriod) .. ago(RunTime))\n| summarize count() by SourceIp, bin(TimeGenerated, BinTime), Fqdn\n| summarize LearningTimeSrcIpDenyRateAvg = avg(count_), LearningTimeSrcIpDenyRateStd = stdev(count_), LearningTimeBuckets = count() by SourceIp, Fqdn\n| where LearningTimeBuckets > MinLearningBuckets);\nlet AlertTimeSrcIpDenyRate = (TrafficLogs\n| where TimeGenerated between (ago(RunTime) .. ago(EndRunTime))\n| summarize AlertTimeSrcIpDenyRateCount = count() by SourceIp);\nAlertTimeSrcIpDenyRate\n| join kind=leftouter (LearningSrcIpDenyRate) on SourceIp\n| extend LearningThreshold = max_of(LearningTimeSrcIpDenyRateAvg + NumOfStdsThreshold * LearningTimeSrcIpDenyRateStd, MinThreshold)\n| where AlertTimeSrcIpDenyRateCount > LearningThreshold\n| project-away SourceIp1, LearningTimeSrcIpDenyRateAvg, LearningTimeSrcIpDenyRateStd\n",
+                                "queryFrequency": "PT1H",
+                                "queryPeriod": "PT25H",
+                                "severity": "Medium",
+                                "suppressionDuration": "PT1H",
+                                "suppressionEnabled": false,
+                                "triggerOperator": "GreaterThan",
+                                "triggerThreshold": 1,
+                                "status": "Available",
+                                "requiredDataConnectors": [
+                                    {
+                                        "connectorId": "AzureFirewall",
+                                        "dataTypes": [
+                                            "AzureDiagnostics",
+                                            "AZFWApplicationRule",
+                                            "AZFWNetworkRule",
+                                            "AZFWFlowTrace",
+                                            "AZFWIdpsSignature"
+                                        ]
+                                    }
+                                ],
+                                "tactics": [
+                                    "InitialAccess",
+                                    "Exfiltration",
+                                    "CommandAndControl"
+                                ],
+                                "techniques": [
+                                    "T1190",
+                                    "T1041",
+                                    "T1568"
+                                ],
+                                "entityMappings": [
+                                    {
+                                        "entityType": "IP",
+                                        "fieldMappings": [
+                                            {
+                                                "columnName": "SourceIp",
+                                                "identifier": "Address"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "entityType": "URL",
+                                        "fieldMappings": [
+                                            {
+                                                "columnName": "Fqdn",
+                                                "identifier": "Url"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
+                            "apiVersion": "2022-01-01-preview",
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('AnalyticsRule-', last(split(resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', 'd36bb1e3-5abc-4037-ad9a-24ba3469819e'),'/'))))]",
+                            "properties": {
+                                "description": "Azure Firewall Analytics Rule 6",
+                                "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', 'd36bb1e3-5abc-4037-ad9a-24ba3469819e')]",
+                                "contentId": "d36bb1e3-5abc-4037-ad9a-24ba3469819e",
                                 "kind": "AnalyticsRule",
                                 "version": "1.1.2",
                                 "source": {
@@ -6788,249 +7141,650 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.4",
-                "packageName": "Azure Firewall",
-                "packageId": "sentinel4azurefirewall.sentinel4azurefirewall",
-                "contentSchemaVersion": "3.0.0",
-                "contentId": "4644baf7-3464-45dd-bd9d-e07687e25f81",
-                "contentKind": "AnalyticsRule",
-                "displayName": "Multiple Sources Affected by the Same TI Destination",
-                "contentProductId": "sentinel4azurefirewall.sentinel4azurefirewall-ar-rtav7bip6lhli",
-                "id": "sentinel4azurefirewall.sentinel4azurefirewall-ar-rtav7bip6lhli",
-                "version": "1.1.2",
-                "isDeprecated": false
-            }
-        },
-        {
-            "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "apiVersion": "2023-04-01-preview",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-ar-',uniquestring('826f930c-2f25-4508-8e75-a95b809a4e15')))]",
-            "location": "[parameters('workspace-location')]",
-            "dependsOn": [
-                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'sentinel4azurefirewall.sentinel4azurefirewall')]"
-            ],
-            "properties": {
-                "description": "Azure Firewall - Abnormal Port to Protocol_AnalyticalRules Analytics Rule with template version 3.0.4",
-                "mainTemplate": {
-                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.1.1",
-                    "parameters": {},
-                    "variables": {},
-                    "resources": [
-                        {
-                            "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
-                            "name": "826f930c-2f25-4508-8e75-a95b809a4e15",
-                            "apiVersion": "2022-04-01-preview",
-                            "kind": "Scheduled",
-                            "location": "[parameters('workspace-location')]",
-                            "properties": {
-                                "description": "Identifies communication for well known protocol over a non-standard port based on learning period activity. This can indicate malicious communication (C2) or exfiltration by attackers trying to communicate over known ports (22:SSH, 80:HTTP) but dont use the known protocol headers to match the port number.\n\nConfigurable Parameters:\n\n- Learning period time - learning period for protocol learning in days. Default is set to 7.",
-                                "displayName": "Abnormal Port to Protocol",
-                                "enabled": false,
-                                "query": "let LearningPeriod = 7d;\nlet RunTime = 1d;\nlet StartLearningPeriod = LearningPeriod + RunTime;\nlet EndRunTime = RunTime - 1d;\nlet LearningPortToProtocol1 =  (AzureDiagnostics\n| where OperationName == \"AzureFirewallApplicationRuleLog\"\n| where TimeGenerated between (ago(StartLearningPeriod) .. ago(RunTime))\n| extend msg_s= column_ifexists('msg_s',Message)\n| parse msg_s with Protocol \" request from \" SourceIp \":\" SourcePort:int \" to \" Fqdn \":\" DestinationPort:int \".\" *\n| where isnotempty(DestinationPort)\n| summarize LearningTimeCount = count() by LearningTimeDstPort = DestinationPort, LearningTimeProtocol = Protocol, SourceIp, Fqdn);\nlet LearningPortToProtocol2 = (AZFWNetworkRule\n| where TimeGenerated between (ago(StartLearningPeriod) .. ago(RunTime))\n| where isnotempty(DestinationPort)\n| extend Fqdn = DestinationIp\n| summarize LearningTimeCount = count() by LearningTimeDstPort = DestinationPort, LearningTimeProtocol = Protocol, SourceIp, Fqdn);\nlet LearningPortToProtocol3 = (AZFWApplicationRule\n| where TimeGenerated between (ago(StartLearningPeriod) .. ago(RunTime))\n| where isnotempty(DestinationPort)\n| summarize LearningTimeCount = count() by LearningTimeDstPort = DestinationPort, LearningTimeProtocol = Protocol, SourceIp, Fqdn);\nlet AlertTimePortToProtocol1 = (AzureDiagnostics\n| where TimeGenerated between (ago(RunTime) .. ago(EndRunTime))\n| where OperationName == \"AzureFirewallApplicationRuleLog\"\n| extend msg_s= column_ifexists('msg_s',Message)\n| parse msg_s with Protocol \" request from \" SourceIp \":\" SourcePort \" to \" Fqdn \":\" DestinationPort:int \".\" *\n| where isnotempty(DestinationPort)\n| summarize AlertTimeCount = count() by AlertTimeDstPort = DestinationPort, AlertTimeProtocol = Protocol);\nlet AlertTimePortToProtocol2 = (AZFWNetworkRule\n| where TimeGenerated between (ago(RunTime) .. ago(EndRunTime))\n| where isnotempty(DestinationPort)\n| extend Fqdn = DestinationIp\n| summarize AlertTimeCount = count() by AlertTimeDstPort = DestinationPort, AlertTimeProtocol = Protocol);\nlet AlertTimePortToProtocol3 = (AZFWApplicationRule\n| where TimeGenerated between (ago(RunTime) .. ago(EndRunTime))\n| where isnotempty(DestinationPort)\n| summarize AlertTimeCount = count() by AlertTimeDstPort = DestinationPort, AlertTimeProtocol = Protocol);\n(union isfuzzy=true \n(AlertTimePortToProtocol1 \n| join kind=leftouter (LearningPortToProtocol1) on $left.AlertTimeDstPort == $right.LearningTimeDstPort\n| where LearningTimeProtocol != AlertTimeProtocol),\n(AlertTimePortToProtocol2 \n| join kind=leftouter (LearningPortToProtocol2) on $left.AlertTimeDstPort == $right.LearningTimeDstPort\n| where LearningTimeProtocol != AlertTimeProtocol),\n(AlertTimePortToProtocol3 \n| join kind=leftouter (LearningPortToProtocol3) on $left.AlertTimeDstPort == $right.LearningTimeDstPort\n| where LearningTimeProtocol != AlertTimeProtocol))\n",
-                                "queryFrequency": "PT1H",
-                                "queryPeriod": "P8D",
-                                "severity": "Medium",
-                                "suppressionDuration": "PT1H",
-                                "suppressionEnabled": false,
-                                "triggerOperator": "GreaterThan",
-                                "triggerThreshold": 1,
-                                "status": "Available",
-                                "requiredDataConnectors": [
-                                    {
-                                        "dataTypes": [
-                                            "AzureDiagnostics",
-                                            "AZFWApplicationRule",
-                                            "AZFWNetworkRule"
-                                        ],
-                                        "connectorId": "AzureFirewall"
-                                    }
-                                ],
-                                "tactics": [
-                                    "DefenseEvasion",
-                                    "Exfiltration",
-                                    "CommandAndControl"
-                                ],
-                                "entityMappings": [
-                                    {
-                                        "entityType": "IP",
-                                        "fieldMappings": [
-                                            {
-                                                "identifier": "Address",
-                                                "columnName": "SourceIp"
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "entityType": "URL",
-                                        "fieldMappings": [
-                                            {
-                                                "identifier": "Url",
-                                                "columnName": "Fqdn"
-                                            }
-                                        ]
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
-                            "apiVersion": "2022-01-01-preview",
-                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('AnalyticsRule-', last(split(resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '826f930c-2f25-4508-8e75-a95b809a4e15'),'/'))))]",
-                            "properties": {
-                                "description": "Azure Firewall Analytics Rule 5",
-                                "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '826f930c-2f25-4508-8e75-a95b809a4e15')]",
-                                "contentId": "826f930c-2f25-4508-8e75-a95b809a4e15",
-                                "kind": "AnalyticsRule",
-                                "version": "1.1.1",
-                                "source": {
-                                    "kind": "Solution",
-                                    "name": "Azure Firewall",
-                                    "sourceId": "sentinel4azurefirewall.sentinel4azurefirewall"
-                                },
-                                "author": {
-                                    "name": "Microsoft",
-                                    "email": "support@microsoft.com"
-                                },
-                                "support": {
-                                    "tier": "Microsoft",
-                                    "name": "Microsoft Corporation",
-                                    "email": "support@microsoft.com",
-                                    "link": "https://support.microsoft.com/"
-                                }
-                            }
-                        }
-                    ]
-                },
-                "packageKind": "Solution",
-                "packageVersion": "3.0.4",
-                "packageName": "Azure Firewall",
-                "packageId": "sentinel4azurefirewall.sentinel4azurefirewall",
-                "contentSchemaVersion": "3.0.0",
-                "contentId": "826f930c-2f25-4508-8e75-a95b809a4e15",
-                "contentKind": "AnalyticsRule",
-                "displayName": "Abnormal Port to Protocol",
-                "contentProductId": "sentinel4azurefirewall.sentinel4azurefirewall-ar-sonildqct5b2a",
-                "id": "sentinel4azurefirewall.sentinel4azurefirewall-ar-sonildqct5b2a",
-                "version": "1.1.1",
-                "isDeprecated": false
-            }
-        },
-        {
-            "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
-            "apiVersion": "2023-04-01-preview",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-ar-',uniquestring('d36bb1e3-5abc-4037-ad9a-24ba3469819e')))]",
-            "location": "[parameters('workspace-location')]",
-            "dependsOn": [
-                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'sentinel4azurefirewall.sentinel4azurefirewall')]"
-            ],
-            "properties": {
-                "description": "Azure Firewall - Abnormal Deny Rate for Source IP_AnalyticalRules Analytics Rule with template version 3.0.4",
-                "mainTemplate": {
-                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.1.1",
-                    "parameters": {},
-                    "variables": {},
-                    "resources": [
-                        {
-                            "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
-                            "name": "d36bb1e3-5abc-4037-ad9a-24ba3469819e",
-                            "apiVersion": "2022-04-01-preview",
-                            "kind": "Scheduled",
-                            "location": "[parameters('workspace-location')]",
-                            "properties": {
-                                "description": "Identifies abnormal deny rate for specific source IP to destination IP based on the normal average and standard deviation learned during a configured period. This can indicate potential exfiltration, initial access or C2, where attacker tries to exploit the same vulnerability on machines in the organization, but is being blocked by firewall rules.\n\nConfigurable Parameters:\n\n- Minimum of stds threshold - the number of stds to use in the threshold calculation. Default is set to 3.\n- Learning period time - learning period for threshold calculation in days. Default is set to 5.\n- Bin time - learning buckets time in hours. Default is set to 1 hour.\n- Minimum threshold - minimum threshold for alert. Default is set to 5.\n- Minimum bucket threshold - minimum learning buckets threshold for alert. Default is set to 5.",
-                                "displayName": "Abnormal Deny Rate for Source IP",
-                                "enabled": false,
-                                "query": "let LearningPeriod = 1d;\nlet RunTime = 1h;\nlet StartLearningPeriod = LearningPeriod + RunTime;\nlet EndRunTime = RunTime - 1h;\nlet BinTime = 1h;\nlet NumOfStdsThreshold = 3;\nlet MinThreshold = 5.0;\nlet MinLearningBuckets = 5;\nlet TrafficLogs = (union isfuzzy=true\n(AzureDiagnostics\n| where OperationName == \"AzureFirewallApplicationRuleLog\" or OperationName == \"AzureFirewallNetworkRuleLog\" \n| parse msg_s with * \"from \" SourceIp \":\" SourcePort:int \" to \" Fqdn \":\" DestinationPort:int \". \" * \"Action: \" Action \".\" *\n| where Action == \"Deny\"\n| where isnotempty(Fqdn) and isnotempty(SourceIp)),\n(AZFWNetworkRule\n| extend Fqdn = DestinationIp\n| where Action == \"Deny\"\n| where isnotempty(Fqdn) and isnotempty(SourceIp)),\n(AZFWFlowTrace\n| extend Fqdn = DestinationIp\n| where Action == \"Deny\"\n| where isnotempty(Fqdn) and isnotempty(SourceIp)),\n(AZFWIdpsSignature\n| extend Fqdn = DestinationIp\n| where Action == \"Deny\"\n| where isnotempty(Fqdn) and isnotempty(SourceIp)),\n(AZFWApplicationRule\n| where Action == \"Deny\"\n| where isnotempty(Fqdn) and isnotempty(SourceIp)));\nlet LearningSrcIpDenyRate = (TrafficLogs\n| where TimeGenerated between (ago(StartLearningPeriod) .. ago(RunTime))\n| summarize count() by SourceIp, bin(TimeGenerated, BinTime), Fqdn\n| summarize LearningTimeSrcIpDenyRateAvg = avg(count_), LearningTimeSrcIpDenyRateStd = stdev(count_), LearningTimeBuckets = count() by SourceIp, Fqdn\n| where LearningTimeBuckets > MinLearningBuckets);\nlet AlertTimeSrcIpDenyRate = (TrafficLogs\n| where TimeGenerated between (ago(RunTime) .. ago(EndRunTime))\n| summarize AlertTimeSrcIpDenyRateCount = count() by SourceIp);\nAlertTimeSrcIpDenyRate\n| join kind=leftouter (LearningSrcIpDenyRate) on SourceIp\n| extend LearningThreshold = max_of(LearningTimeSrcIpDenyRateAvg + NumOfStdsThreshold * LearningTimeSrcIpDenyRateStd, MinThreshold)\n| where AlertTimeSrcIpDenyRateCount > LearningThreshold\n| project-away SourceIp1, LearningTimeSrcIpDenyRateAvg, LearningTimeSrcIpDenyRateStd\n",
-                                "queryFrequency": "PT1H",
-                                "queryPeriod": "PT25H",
-                                "severity": "Medium",
-                                "suppressionDuration": "PT1H",
-                                "suppressionEnabled": false,
-                                "triggerOperator": "GreaterThan",
-                                "triggerThreshold": 1,
-                                "status": "Available",
-                                "requiredDataConnectors": [
-                                    {
-                                        "dataTypes": [
-                                            "AzureDiagnostics",
-                                            "AZFWApplicationRule",
-                                            "AZFWNetworkRule",
-                                            "AZFWFlowTrace",
-                                            "AZFWIdpsSignature"
-                                        ],
-                                        "connectorId": "AzureFirewall"
-                                    }
-                                ],
-                                "tactics": [
-                                    "InitialAccess",
-                                    "Exfiltration",
-                                    "CommandAndControl"
-                                ],
-                                "entityMappings": [
-                                    {
-                                        "entityType": "IP",
-                                        "fieldMappings": [
-                                            {
-                                                "identifier": "Address",
-                                                "columnName": "SourceIp"
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "entityType": "URL",
-                                        "fieldMappings": [
-                                            {
-                                                "identifier": "Url",
-                                                "columnName": "Fqdn"
-                                            }
-                                        ]
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
-                            "apiVersion": "2022-01-01-preview",
-                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('AnalyticsRule-', last(split(resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', 'd36bb1e3-5abc-4037-ad9a-24ba3469819e'),'/'))))]",
-                            "properties": {
-                                "description": "Azure Firewall Analytics Rule 6",
-                                "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', 'd36bb1e3-5abc-4037-ad9a-24ba3469819e')]",
-                                "contentId": "d36bb1e3-5abc-4037-ad9a-24ba3469819e",
-                                "kind": "AnalyticsRule",
-                                "version": "1.1.1",
-                                "source": {
-                                    "kind": "Solution",
-                                    "name": "Azure Firewall",
-                                    "sourceId": "sentinel4azurefirewall.sentinel4azurefirewall"
-                                },
-                                "author": {
-                                    "name": "Microsoft",
-                                    "email": "support@microsoft.com"
-                                },
-                                "support": {
-                                    "tier": "Microsoft",
-                                    "name": "Microsoft Corporation",
-                                    "email": "support@microsoft.com",
-                                    "link": "https://support.microsoft.com/"
-                                }
-                            }
-                        }
-                    ]
-                },
-                "packageKind": "Solution",
-                "packageVersion": "3.0.4",
+                "packageVersion": "3.0.5",
                 "packageName": "Azure Firewall",
                 "packageId": "sentinel4azurefirewall.sentinel4azurefirewall",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "d36bb1e3-5abc-4037-ad9a-24ba3469819e",
                 "contentKind": "AnalyticsRule",
                 "displayName": "Abnormal Deny Rate for Source IP",
-                "contentProductId": "sentinel4azurefirewall.sentinel4azurefirewall-ar-4yxnvtwr2jaze",
-                "id": "sentinel4azurefirewall.sentinel4azurefirewall-ar-4yxnvtwr2jaze",
-                "version": "1.1.1",
-                "isDeprecated": false
+                "contentProductId": "sentinel4azurefirewall.sentinel4azurefirewall-ar-er53hqfapskoe",
+                "id": "sentinel4azurefirewall.sentinel4azurefirewall-ar-er53hqfapskoe",
+                "version": "1.1.2",
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "AzureDiagnostics"
+                        },
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "AZFWApplicationRule"
+                        },
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "AZFWNetworkRule"
+                        },
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "AZFWFlowTrace"
+                        },
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "AZFWIdpsSignature"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "AzureFirewall"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
+            "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-ar-',uniquestring('c3ffdbe6-2e62-4984-9e80-933ed90b2f6a')))]",
+            "location": "[parameters('workspace-location')]",
+            "dependsOn": [
+                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'sentinel4azurefirewall.sentinel4azurefirewall')]"
+            ],
+            "properties": {
+                "description": "Identifies DDoS attack in Azure Firewall IDPS logs.",
+                "mainTemplate": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
+                            "name": "c3ffdbe6-2e62-4984-9e80-933ed90b2f6a",
+                            "apiVersion": "2023-02-01-preview",
+                            "kind": "Scheduled",
+                            "location": "[parameters('workspace-location')]",
+                            "properties": {
+                                "description": "Identifies DDoS attack in Azure Firewall IDPS logs.",
+                                "displayName": "DDoS attack detected",
+                                "enabled": false,
+                                "query": "let TimeWindow   = 90d;    \nlet HitThreshold = 10;\nlet MinSeverity  = 2;\nlet EnableCategoryFilter    = true;\nlet EnableDescriptionFilter = false;\nlet EnableActionFilter      = false;\nlet CategoriesOfInterest = dynamic([\n    \"Attempted Denial of Service\",\n    \"Denial of Service\",\n    \"Detection of a Denial of Service Attack\"\n]);\nlet DescriptionsOfInterest = dynamic([\n    \"attempted-dos\",\n    \"successful-dos\",\n    \"denial-of-service\"\n]);\nlet MatchActions = dynamic([\"Deny\", \"alert\"]);\nAZFWIdpsSignature\n| where TimeGenerated >= ago(TimeWindow)\n| where Severity >= MinSeverity\n| where (EnableCategoryFilter == false) or (Category has_any (CategoriesOfInterest))\n| where (EnableDescriptionFilter == false) or (Description has_any (DescriptionsOfInterest))\n| where (EnableActionFilter == false) or (Action in~ (MatchActions))\n| summarize\n    StartTime   = min(TimeGenerated),\n    EndTime     = max(TimeGenerated),\n    TotalHits   = count(),\n    MaxSeverity = max(Severity),\n    Actions     = make_set(Action, 5),\n    Signatures  = make_set(SignatureId, 20),\n    Description = make_set(substring(tostring(Description), 0, 120), 3)\n    by SourceIp, ThreatCategory = Category\n| where TotalHits >= HitThreshold\n| project\n    StartTime,\n    EndTime,\n    SourceIp,\n    ThreatCategory,\n    TotalHits,\n    MaxSeverity,\n    Actions,\n    Signatures,\n    Description\n| order by MaxSeverity desc, TotalHits desc\n",
+                                "queryFrequency": "PT1H",
+                                "queryPeriod": "PT24H",
+                                "severity": "High",
+                                "suppressionDuration": "PT1H",
+                                "suppressionEnabled": false,
+                                "triggerOperator": "GreaterThan",
+                                "triggerThreshold": 1,
+                                "status": "Available",
+                                "requiredDataConnectors": [
+                                    {
+                                        "connectorId": "AzureFirewall",
+                                        "dataTypes": [
+                                            "AZFWIdpsSignature"
+                                        ]
+                                    }
+                                ],
+                                "tactics": [
+                                    "Impact"
+                                ],
+                                "techniques": [
+                                    "T1498"
+                                ],
+                                "entityMappings": [
+                                    {
+                                        "entityType": "IP",
+                                        "fieldMappings": [
+                                            {
+                                                "columnName": "SourceIp",
+                                                "identifier": "Address"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
+                            "apiVersion": "2022-01-01-preview",
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('AnalyticsRule-', last(split(resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', 'c3ffdbe6-2e62-4984-9e80-933ed90b2f6a'),'/'))))]",
+                            "properties": {
+                                "description": "Azure Firewall Analytics Rule 7",
+                                "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', 'c3ffdbe6-2e62-4984-9e80-933ed90b2f6a')]",
+                                "contentId": "c3ffdbe6-2e62-4984-9e80-933ed90b2f6a",
+                                "kind": "AnalyticsRule",
+                                "version": "1.0.0",
+                                "source": {
+                                    "kind": "Solution",
+                                    "name": "Azure Firewall",
+                                    "sourceId": "sentinel4azurefirewall.sentinel4azurefirewall"
+                                },
+                                "author": {
+                                    "name": "Microsoft",
+                                    "email": "support@microsoft.com"
+                                },
+                                "support": {
+                                    "tier": "Microsoft",
+                                    "name": "Microsoft Corporation",
+                                    "email": "support@microsoft.com",
+                                    "link": "https://support.microsoft.com/"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "packageKind": "Solution",
+                "packageVersion": "3.0.5",
+                "packageName": "Azure Firewall",
+                "packageId": "sentinel4azurefirewall.sentinel4azurefirewall",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "c3ffdbe6-2e62-4984-9e80-933ed90b2f6a",
+                "contentKind": "AnalyticsRule",
+                "displayName": "DDoS attack detected",
+                "contentProductId": "sentinel4azurefirewall.sentinel4azurefirewall-ar-q3lbzc5lwuxwg",
+                "id": "sentinel4azurefirewall.sentinel4azurefirewall-ar-q3lbzc5lwuxwg",
+                "version": "1.0.0",
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "AZFWIdpsSignature"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "AzureFirewall"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
+            "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-ar-',uniquestring('7a0f78b3-9a55-4ad0-a56d-b6616fdbff6a')))]",
+            "location": "[parameters('workspace-location')]",
+            "dependsOn": [
+                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'sentinel4azurefirewall.sentinel4azurefirewall')]"
+            ],
+            "properties": {
+                "description": "Identifies Elevation of Privilege attempt Azure Firewall IDPS logs.",
+                "mainTemplate": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
+                            "name": "7a0f78b3-9a55-4ad0-a56d-b6616fdbff6a",
+                            "apiVersion": "2023-02-01-preview",
+                            "kind": "Scheduled",
+                            "location": "[parameters('workspace-location')]",
+                            "properties": {
+                                "description": "Identifies Elevation of Privilege attempt Azure Firewall IDPS logs.",
+                                "displayName": "Elevation of Privilege attempt detected",
+                                "enabled": false,
+                                "query": "let TimeWindow   = 90d;    // How far back to look \nlet HitThreshold = 10;     // Minimum hits to alert per SourceIp + Category\nlet MinSeverity  = 1;      // Set Minimum Severity\n// Feature flags for optional filters\nlet EnableCategoryFilter    = true;   // Filter 1\nlet EnableDescriptionFilter = false;  // Filter 2\nlet EnableActionFilter      = false;  // Filter 3\n// Filter 1: Categories of interest\nlet CategoriesOfInterest = dynamic([\n    \"Attempted User Privilege Gain\",\n    \"Unsuccessful User Privilege Gain\",\n    \"Successful User Privilege Gain\",\n    \"Attempted Administrator Privilege Gain\",\n    \"Successful Administrator Privilege Gain\"\n]);\n// Filter 2: Descriptions of interest\nlet DescriptionsOfInterest = dynamic([\n    \"attempted-user\",\n    \"unsuccessful-user\",\n    \"successful-user\",\n    \"attempted-admin\",\n    \"successful-admin\"\n]);\n// Filter 3: Action match\nlet MatchActions = dynamic([\"Deny\", \"alert\"]);\nAZFWIdpsSignature\n| where TimeGenerated >= ago(TimeWindow)\n| where Severity >= MinSeverity\n// Filter 1: Category filter (optional)\n| where (EnableCategoryFilter == false) or (Category has_any (CategoriesOfInterest))\n// Filter 2: Description filter (optional)\n| where (EnableDescriptionFilter == false) or (Description has_any (DescriptionsOfInterest))\n// Filter 3: Action filter (optional)\n| where (EnableActionFilter == false) or (Action in~ (MatchActions))\n| summarize\n    StartTime   = min(TimeGenerated),\n    EndTime     = max(TimeGenerated),\n    TotalHits   = count(),\n    MaxSeverity = max(Severity),\n    Actions     = make_set(Action, 5),\n    Signatures  = make_set(SignatureId, 20),\n    Description = make_set(substring(tostring(Description), 0, 120), 3)\n    by SourceIp, ThreatCategory = Category\n| where TotalHits >= HitThreshold\n| project\n    StartTime,\n    EndTime,\n    SourceIp,\n    ThreatCategory,\n    TotalHits,\n    MaxSeverity,\n    Actions,\n    Signatures,\n    Description\n| order by MaxSeverity desc, TotalHits desc\n",
+                                "queryFrequency": "PT1H",
+                                "queryPeriod": "PT24H",
+                                "severity": "High",
+                                "suppressionDuration": "PT1H",
+                                "suppressionEnabled": false,
+                                "triggerOperator": "GreaterThan",
+                                "triggerThreshold": 1,
+                                "status": "Available",
+                                "requiredDataConnectors": [
+                                    {
+                                        "connectorId": "AzureFirewall",
+                                        "dataTypes": [
+                                            "AZFWIdpsSignature"
+                                        ]
+                                    }
+                                ],
+                                "tactics": [
+                                    "InitialAccess",
+                                    "CredentialAccess"
+                                ],
+                                "techniques": [
+                                    "T1078",
+                                    "T1110"
+                                ],
+                                "entityMappings": [
+                                    {
+                                        "entityType": "IP",
+                                        "fieldMappings": [
+                                            {
+                                                "columnName": "SourceIp",
+                                                "identifier": "Address"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
+                            "apiVersion": "2022-01-01-preview",
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('AnalyticsRule-', last(split(resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '7a0f78b3-9a55-4ad0-a56d-b6616fdbff6a'),'/'))))]",
+                            "properties": {
+                                "description": "Azure Firewall Analytics Rule 8",
+                                "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '7a0f78b3-9a55-4ad0-a56d-b6616fdbff6a')]",
+                                "contentId": "7a0f78b3-9a55-4ad0-a56d-b6616fdbff6a",
+                                "kind": "AnalyticsRule",
+                                "version": "1.0.0",
+                                "source": {
+                                    "kind": "Solution",
+                                    "name": "Azure Firewall",
+                                    "sourceId": "sentinel4azurefirewall.sentinel4azurefirewall"
+                                },
+                                "author": {
+                                    "name": "Microsoft",
+                                    "email": "support@microsoft.com"
+                                },
+                                "support": {
+                                    "tier": "Microsoft",
+                                    "name": "Microsoft Corporation",
+                                    "email": "support@microsoft.com",
+                                    "link": "https://support.microsoft.com/"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "packageKind": "Solution",
+                "packageVersion": "3.0.5",
+                "packageName": "Azure Firewall",
+                "packageId": "sentinel4azurefirewall.sentinel4azurefirewall",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "7a0f78b3-9a55-4ad0-a56d-b6616fdbff6a",
+                "contentKind": "AnalyticsRule",
+                "displayName": "Elevation of Privilege attempt detected",
+                "contentProductId": "sentinel4azurefirewall.sentinel4azurefirewall-ar-qcskzczqowgig",
+                "id": "sentinel4azurefirewall.sentinel4azurefirewall-ar-qcskzczqowgig",
+                "version": "1.0.0",
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "AZFWIdpsSignature"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "AzureFirewall"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
+            "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-ar-',uniquestring('504257c1-81e2-4609-8d40-b395e62f11c7')))]",
+            "location": "[parameters('workspace-location')]",
+            "dependsOn": [
+                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'sentinel4azurefirewall.sentinel4azurefirewall')]"
+            ],
+            "properties": {
+                "description": "Identifies high severity malicious activity in Azure Firewall IDPS logs.",
+                "mainTemplate": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
+                            "name": "504257c1-81e2-4609-8d40-b395e62f11c7",
+                            "apiVersion": "2023-02-01-preview",
+                            "kind": "Scheduled",
+                            "location": "[parameters('workspace-location')]",
+                            "properties": {
+                                "description": "Identifies high severity malicious activity in Azure Firewall IDPS logs.",
+                                "displayName": "High severity malicious activity detected",
+                                "enabled": false,
+                                "query": "let TimeWindow   = 90d;    // How far back to look \nlet HitThreshold = 10;     // Minimum hits to alert per SourceIp + Category\nlet MinSeverity  = 1;      // Set Minimum Severity\nlet EnableCategoryFilter    = true;   // Filter 1: use CategoriesOfInterest\nlet EnableDescriptionFilter = false;  // Filter 2: use DescriptionsOfInterest\nlet EnableActionFilter      = false;  // Filter 3: use MatchActions\nlet CategoriesOfInterest    = dynamic([\n    \"Targeted Malicious Activity was Detected\",\n    \"Exploit Kit Activity Detected\",\n    \"Domain Observed Used for C2 Detected\",\n    \"Successful Credential Theft Detected\",\n    \"Malware Command and Control Activity Detected\",\n    \"Executable code was detected\",\n    \"A Network Trojan was detected\"\n]);\nlet DescriptionsOfInterest  = dynamic([\n    \"targeted-activity\",\n    \"exploit-kit\",\n    \"domain-c2\",\n    \"credential-theft\",\n    \"command-and-control\",\n    \"shellcode-detect\",\n    \"trojan-activity\"\n]);\nlet MatchActions = dynamic([\"Deny\", \"alert\"]);\nAZFWIdpsSignature\n| where TimeGenerated >= ago(TimeWindow)\n| where Severity >= MinSeverity\n// Filter 1: Category filter (optional)\n| where (EnableCategoryFilter == false) or (Category has_any (CategoriesOfInterest))\n// Filter 2: Description filter (optional)\n| where (EnableDescriptionFilter == false) or (Description has_any (DescriptionsOfInterest))\n// Filter 3: Action filter (optional)\n| where (EnableActionFilter == false) or (Action in~ (MatchActions))\n| summarize\n    StartTime   = min(TimeGenerated),\n    EndTime     = max(TimeGenerated),\n    TotalHits   = count(),\n    MaxSeverity = max(Severity),\n    Actions     = make_set(Action, 5),\n    Signatures  = make_set(SignatureId, 20),\n    Description = make_set(substring(tostring(Description), 0, 120), 3)\n    by SourceIp, ThreatCategory = Category\n| where TotalHits >= HitThreshold\n| project\n    StartTime,\n    EndTime,\n    SourceIp,\n    ThreatCategory,\n    TotalHits,\n    MaxSeverity,\n    Actions,\n    Signatures,\n    Description\n| order by MaxSeverity desc, TotalHits desc\n",
+                                "queryFrequency": "PT1H",
+                                "queryPeriod": "PT24H",
+                                "severity": "High",
+                                "suppressionDuration": "PT1H",
+                                "suppressionEnabled": false,
+                                "triggerOperator": "GreaterThan",
+                                "triggerThreshold": 1,
+                                "status": "Available",
+                                "requiredDataConnectors": [
+                                    {
+                                        "connectorId": "AzureFirewall",
+                                        "dataTypes": [
+                                            "AZFWIdpsSignature"
+                                        ]
+                                    }
+                                ],
+                                "tactics": [
+                                    "InitialAccess",
+                                    "Exfiltration",
+                                    "CredentialAccess",
+                                    "CommandAndControl",
+                                    "Execution"
+                                ],
+                                "techniques": [
+                                    "T1190",
+                                    "T1041",
+                                    "T1003",
+                                    "T1204"
+                                ],
+                                "entityMappings": [
+                                    {
+                                        "entityType": "IP",
+                                        "fieldMappings": [
+                                            {
+                                                "columnName": "SourceIp",
+                                                "identifier": "Address"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
+                            "apiVersion": "2022-01-01-preview",
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('AnalyticsRule-', last(split(resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '504257c1-81e2-4609-8d40-b395e62f11c7'),'/'))))]",
+                            "properties": {
+                                "description": "Azure Firewall Analytics Rule 9",
+                                "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '504257c1-81e2-4609-8d40-b395e62f11c7')]",
+                                "contentId": "504257c1-81e2-4609-8d40-b395e62f11c7",
+                                "kind": "AnalyticsRule",
+                                "version": "1.0.0",
+                                "source": {
+                                    "kind": "Solution",
+                                    "name": "Azure Firewall",
+                                    "sourceId": "sentinel4azurefirewall.sentinel4azurefirewall"
+                                },
+                                "author": {
+                                    "name": "Microsoft",
+                                    "email": "support@microsoft.com"
+                                },
+                                "support": {
+                                    "tier": "Microsoft",
+                                    "name": "Microsoft Corporation",
+                                    "email": "support@microsoft.com",
+                                    "link": "https://support.microsoft.com/"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "packageKind": "Solution",
+                "packageVersion": "3.0.5",
+                "packageName": "Azure Firewall",
+                "packageId": "sentinel4azurefirewall.sentinel4azurefirewall",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "504257c1-81e2-4609-8d40-b395e62f11c7",
+                "contentKind": "AnalyticsRule",
+                "displayName": "High severity malicious activity detected",
+                "contentProductId": "sentinel4azurefirewall.sentinel4azurefirewall-ar-apwttbiwo7m6u",
+                "id": "sentinel4azurefirewall.sentinel4azurefirewall-ar-apwttbiwo7m6u",
+                "version": "1.0.0",
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "AZFWIdpsSignature"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "AzureFirewall"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
+            "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-ar-',uniquestring('dfbe3963-42fb-4ebe-a00c-1cc44e2aa9f0')))]",
+            "location": "[parameters('workspace-location')]",
+            "dependsOn": [
+                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'sentinel4azurefirewall.sentinel4azurefirewall')]"
+            ],
+            "properties": {
+                "description": "Identifies medium severity malicious activity in Azure Firewall IDPS logs.",
+                "mainTemplate": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
+                            "name": "dfbe3963-42fb-4ebe-a00c-1cc44e2aa9f0",
+                            "apiVersion": "2023-02-01-preview",
+                            "kind": "Scheduled",
+                            "location": "[parameters('workspace-location')]",
+                            "properties": {
+                                "description": "Identifies medium severity malicious activity in Azure Firewall IDPS logs.",
+                                "displayName": "Medium severity malicious activity detected",
+                                "enabled": false,
+                                "query": "let TimeWindow   = 90d;    \nlet HitThreshold = 10;\nlet MinSeverity  = 2;\nlet EnableCategoryFilter    = true;\nlet EnableDescriptionFilter = false;\nlet EnableActionFilter      = false;\nlet CategoriesOfInterest = dynamic([\n    \"Possibly Unwanted Program Detected\",\n    \"Possible Social Engineering Attempted\",\n    \"Crypto Currency Mining Activity Detected\",\n    \"A suspicious filename was detected\",\n    \"A system call was detected\"\n]);\nlet DescriptionsOfInterest = dynamic([\n    \"pup-activity\",\n    \"social-engineering\",\n    \"coin-mining\",\n    \"suspicious-filename-detect\",\n    \"system-call-detect\"\n]);\nlet MatchActions = dynamic([\"Deny\", \"alert\"]);\nAZFWIdpsSignature\n| where TimeGenerated >= ago(TimeWindow)\n| where Severity >= MinSeverity\n| where (EnableCategoryFilter == false) or (Category has_any (CategoriesOfInterest))\n| where (EnableDescriptionFilter == false) or (Description has_any (DescriptionsOfInterest))\n| where (EnableActionFilter == false) or (Action in~ (MatchActions))\n| summarize\n    StartTime   = min(TimeGenerated),\n    EndTime     = max(TimeGenerated),\n    TotalHits   = count(),\n    MaxSeverity = max(Severity),\n    Actions     = make_set(Action, 5),\n    Signatures  = make_set(SignatureId, 20),\n    Description = make_set(substring(tostring(Description), 0, 120), 3)\n    by SourceIp, ThreatCategory = Category\n| where TotalHits >= HitThreshold\n| project\n    StartTime,\n    EndTime,\n    SourceIp,\n    ThreatCategory,\n    TotalHits,\n    MaxSeverity,\n    Actions,\n    Signatures,\n    Description\n| order by MaxSeverity desc, TotalHits desc\n",
+                                "queryFrequency": "PT1H",
+                                "queryPeriod": "PT24H",
+                                "severity": "Medium",
+                                "suppressionDuration": "PT1H",
+                                "suppressionEnabled": false,
+                                "triggerOperator": "GreaterThan",
+                                "triggerThreshold": 1,
+                                "status": "Available",
+                                "requiredDataConnectors": [
+                                    {
+                                        "connectorId": "AzureFirewall",
+                                        "dataTypes": [
+                                            "AZFWIdpsSignature"
+                                        ]
+                                    }
+                                ],
+                                "tactics": [
+                                    "InitialAccess",
+                                    "Execution",
+                                    "DefenseEvasion",
+                                    "Impact"
+                                ],
+                                "techniques": [
+                                    "T1496",
+                                    "T1204",
+                                    "T1036"
+                                ],
+                                "entityMappings": [
+                                    {
+                                        "entityType": "IP",
+                                        "fieldMappings": [
+                                            {
+                                                "columnName": "SourceIp",
+                                                "identifier": "Address"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
+                            "apiVersion": "2022-01-01-preview",
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('AnalyticsRule-', last(split(resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', 'dfbe3963-42fb-4ebe-a00c-1cc44e2aa9f0'),'/'))))]",
+                            "properties": {
+                                "description": "Azure Firewall Analytics Rule 10",
+                                "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', 'dfbe3963-42fb-4ebe-a00c-1cc44e2aa9f0')]",
+                                "contentId": "dfbe3963-42fb-4ebe-a00c-1cc44e2aa9f0",
+                                "kind": "AnalyticsRule",
+                                "version": "1.0.0",
+                                "source": {
+                                    "kind": "Solution",
+                                    "name": "Azure Firewall",
+                                    "sourceId": "sentinel4azurefirewall.sentinel4azurefirewall"
+                                },
+                                "author": {
+                                    "name": "Microsoft",
+                                    "email": "support@microsoft.com"
+                                },
+                                "support": {
+                                    "tier": "Microsoft",
+                                    "name": "Microsoft Corporation",
+                                    "email": "support@microsoft.com",
+                                    "link": "https://support.microsoft.com/"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "packageKind": "Solution",
+                "packageVersion": "3.0.5",
+                "packageName": "Azure Firewall",
+                "packageId": "sentinel4azurefirewall.sentinel4azurefirewall",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "dfbe3963-42fb-4ebe-a00c-1cc44e2aa9f0",
+                "contentKind": "AnalyticsRule",
+                "displayName": "Medium severity malicious activity detected",
+                "contentProductId": "sentinel4azurefirewall.sentinel4azurefirewall-ar-2bdvn5ux52axa",
+                "id": "sentinel4azurefirewall.sentinel4azurefirewall-ar-2bdvn5ux52axa",
+                "version": "1.0.0",
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "AZFWIdpsSignature"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "AzureFirewall"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
+            "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-ar-',uniquestring('8159a8d2-13a5-49af-847b-e062c45ab92b')))]",
+            "location": "[parameters('workspace-location')]",
+            "dependsOn": [
+                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'sentinel4azurefirewall.sentinel4azurefirewall')]"
+            ],
+            "properties": {
+                "description": "Identifies Web application attack in Azure Firewall IDPS logs.",
+                "mainTemplate": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
+                            "name": "8159a8d2-13a5-49af-847b-e062c45ab92b",
+                            "apiVersion": "2023-02-01-preview",
+                            "kind": "Scheduled",
+                            "location": "[parameters('workspace-location')]",
+                            "properties": {
+                                "description": "Identifies Web application attack in Azure Firewall IDPS logs.",
+                                "displayName": "Web Application attack detected",
+                                "enabled": false,
+                                "query": "let TimeWindow   = 90d;    \nlet HitThreshold = 10;     \nlet MinSeverity  = 2;\nlet EnableCategoryFilter    = true;\nlet EnableDescriptionFilter = false;\nlet EnableActionFilter      = false;\nlet CategoriesOfInterest = dynamic([\n    \"access to a potentially vulnerable web application\",\n    \"Web Application Attack\"\n]);\nlet DescriptionsOfInterest = dynamic([\n    \"web-application-activity\",\n    \"web-application-attack\"\n]);\nlet MatchActions = dynamic([\"Deny\", \"alert\"]);\nAZFWIdpsSignature\n| where TimeGenerated >= ago(TimeWindow)\n| where Severity >= MinSeverity\n| where (EnableCategoryFilter == false) or (Category has_any (CategoriesOfInterest))\n| where (EnableDescriptionFilter == false) or (Description has_any (DescriptionsOfInterest))\n| where (EnableActionFilter == false) or (Action in~ (MatchActions))\n| summarize\n    StartTime   = min(TimeGenerated),\n    EndTime     = max(TimeGenerated),\n    TotalHits   = count(),\n    MaxSeverity = max(Severity),\n    Actions     = make_set(Action, 5),\n    Signatures  = make_set(SignatureId, 20),\n    Description = make_set(substring(tostring(Description), 0, 120), 3)\n    by SourceIp, ThreatCategory = Category\n| where TotalHits >= HitThreshold\n| project\n    StartTime,\n    EndTime,\n    SourceIp,\n    ThreatCategory,\n    TotalHits,\n    MaxSeverity,\n    Actions,\n    Signatures,\n    Description\n| order by MaxSeverity desc, TotalHits desc\n",
+                                "queryFrequency": "PT1H",
+                                "queryPeriod": "PT24H",
+                                "severity": "High",
+                                "suppressionDuration": "PT1H",
+                                "suppressionEnabled": false,
+                                "triggerOperator": "GreaterThan",
+                                "triggerThreshold": 1,
+                                "status": "Available",
+                                "requiredDataConnectors": [
+                                    {
+                                        "connectorId": "AzureFirewall",
+                                        "dataTypes": [
+                                            "AZFWIdpsSignature"
+                                        ]
+                                    }
+                                ],
+                                "tactics": [
+                                    "InitialAccess"
+                                ],
+                                "techniques": [
+                                    "T1190"
+                                ],
+                                "entityMappings": [
+                                    {
+                                        "entityType": "IP",
+                                        "fieldMappings": [
+                                            {
+                                                "columnName": "SourceIp",
+                                                "identifier": "Address"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
+                            "apiVersion": "2022-01-01-preview",
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('AnalyticsRule-', last(split(resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '8159a8d2-13a5-49af-847b-e062c45ab92b'),'/'))))]",
+                            "properties": {
+                                "description": "Azure Firewall Analytics Rule 11",
+                                "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '8159a8d2-13a5-49af-847b-e062c45ab92b')]",
+                                "contentId": "8159a8d2-13a5-49af-847b-e062c45ab92b",
+                                "kind": "AnalyticsRule",
+                                "version": "1.0.0",
+                                "source": {
+                                    "kind": "Solution",
+                                    "name": "Azure Firewall",
+                                    "sourceId": "sentinel4azurefirewall.sentinel4azurefirewall"
+                                },
+                                "author": {
+                                    "name": "Microsoft",
+                                    "email": "support@microsoft.com"
+                                },
+                                "support": {
+                                    "tier": "Microsoft",
+                                    "name": "Microsoft Corporation",
+                                    "email": "support@microsoft.com",
+                                    "link": "https://support.microsoft.com/"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "packageKind": "Solution",
+                "packageVersion": "3.0.5",
+                "packageName": "Azure Firewall",
+                "packageId": "sentinel4azurefirewall.sentinel4azurefirewall",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "8159a8d2-13a5-49af-847b-e062c45ab92b",
+                "contentKind": "AnalyticsRule",
+                "displayName": "Web Application attack detected",
+                "contentProductId": "sentinel4azurefirewall.sentinel4azurefirewall-ar-ddcmpipzcjkvi",
+                "id": "sentinel4azurefirewall.sentinel4azurefirewall-ar-ddcmpipzcjkvi",
+                "version": "1.0.0",
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "AZFWIdpsSignature"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "AzureFirewall"
+                        }
+                    ]
+                }
             }
         },
         {
@@ -7038,15 +7792,15 @@
             "apiVersion": "2023-04-01-preview",
             "location": "[parameters('workspace-location')]",
             "properties": {
-                "version": "3.0.4",
+                "version": "3.0.5",
                 "kind": "Solution",
                 "contentSchemaVersion": "3.0.0",
                 "displayName": "Azure Firewall",
                 "publisherDisplayName": "Microsoft Corporation",
-                "descriptionHtml": "<div><p><strong>Note:</strong> Please refer to the following before installing the solution:</p><p>\u2022 Review the solution <a target=\"_blank\" href=\"https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Azure%20Firewall/ReleaseNotes.md\" rel=\"noopener\">Release Notes</a></p><p>\u2022 There may be <a target=\"_blank\" href=\"https://aka.ms/sentinelsolutionsknownissues\" rel=\"noopener\">known issues</a> pertaining to this Solution, please refer to them before installing.</p><p>The <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/firewall/overview?WT.mc_id=Portal-fx\" rel=\"noopener\">Azure Firewall</a> solution for Microsoft Sentinel enables ingestion of DNS Proxy, Application Rule and Network Rule <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/firewall/logs-and-metrics?WT.mc_id=Portal-fx\" rel=\"noopener\">logs</a> from Azure Firewalls.</p><p><strong>Underlying Microsoft Technologies used:</strong></p><p>This solution takes a dependency on the following technologies, and some of these dependencies either may be in <a target=\"_blank\" href=\"https://azure.microsoft.com/support/legal/preview-supplemental-terms/\" rel=\"noopener\">Preview</a> state or might result in additional ingestion or operational costs:</p><p>a. <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal&amp;WT.mc_id=Portal-fx\" rel=\"noopener\">Azure Monitor Resource Diagnostics</a></p><p><strong>Data Connectors:</strong> 1, <strong>Workbooks:</strong> 2, <strong>Analytic Rules:</strong> 6, <strong>Hunting Queries:</strong> 5, <strong>Custom Azure Logic Apps Connectors:</strong> 1, <strong>Playbooks:</strong> 3</p><p><a target=\"_blank\" href=\"https://aka.ms/azuresentinel\" rel=\"noopener\">Learn more about Microsoft Sentinel</a> | <a target=\"_blank\" href=\"https://aka.ms/azuresentinelsolutionsdoc\" rel=\"noopener\">Learn more about Solutions</a></p><p><br></p></div><div>More info on deployment can be found here:</div><div><a title=\"https://techcommunity.microsoft.com/t5/azure-network-security/new-detections-hunting-queries-and-response-automation-in-azure/ba-p/2688746\" href=\"https://techcommunity.microsoft.com/t5/azure-network-security/new-detections-hunting-queries-and-response-automation-in-azure/ba-p/2688746\" rel=\"noopener noreferrer\" target=\"_blank\" tabindex=\"-1\">New Detections, Hunting Queries and Response Automation in Azure Firewall Solution for Microsoft Sentinel (microsoft.com)</a><br></div><div><a title=\"https://techcommunity.microsoft.com/t5/azure-network-security/automated-detection-and-response-for-azure-firewall-with-the-new/ba-p/2414224\" href=\"https://techcommunity.microsoft.com/t5/azure-network-security/automated-detection-and-response-for-azure-firewall-with-the-new/ba-p/2414224\" rel=\"noopener noreferrer\" target=\"_blank\" tabindex=\"-1\">Automated Detection and Response for Azure Firewall with the New Logic App Connector and Playbooks (microsoft.com)</a><br></div>",
+                "descriptionHtml": "<div><p><strong>Note:</strong> Please refer to the following before installing the solution:</p><p>\u2022 Review the solution <a target=\"_blank\" href=\"https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Azure%20Firewall/ReleaseNotes.md\" rel=\"noopener\">Release Notes</a></p><p>The <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/firewall/overview?WT.mc_id=Portal-fx\" rel=\"noopener\">Azure Firewall</a> solution for Microsoft Sentinel enables ingestion of DNS Proxy, Application Rule and Network Rule <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/firewall/logs-and-metrics?WT.mc_id=Portal-fx\" rel=\"noopener\">logs</a> from Azure Firewalls.</p><p><strong>Underlying Microsoft Technologies used:</strong></p><p>This solution takes a dependency on the following technologies, and some of these dependencies either may be in <a target=\"_blank\" href=\"https://azure.microsoft.com/support/legal/preview-supplemental-terms/\" rel=\"noopener\">Preview</a> state or might result in additional ingestion or operational costs:</p><p>a. <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal&amp;WT.mc_id=Portal-fx\" rel=\"noopener\">Azure Monitor Resource Diagnostics</a></p><p><strong>Data Connectors:</strong> 1, <strong>Workbooks:</strong> 2, <strong>Analytic Rules:</strong> 11, <strong>Hunting Queries:</strong> 5, <strong>Custom Azure Logic Apps Connectors:</strong> 1, <strong>Playbooks:</strong> 3</p><p><a target=\"_blank\" href=\"https://aka.ms/azuresentinel\" rel=\"noopener\">Learn more about Microsoft Sentinel</a> | <a target=\"_blank\" href=\"https://aka.ms/azuresentinelsolutionsdoc\" rel=\"noopener\">Learn more about Solutions</a></p><p><br></p></div><div>More info on deployment can be found here:</div><div><a title=\"https://techcommunity.microsoft.com/t5/azure-network-security/new-detections-hunting-queries-and-response-automation-in-azure/ba-p/2688746\" href=\"https://techcommunity.microsoft.com/t5/azure-network-security/new-detections-hunting-queries-and-response-automation-in-azure/ba-p/2688746\" rel=\"noopener noreferrer\" target=\"_blank\" tabindex=\"-1\">New Detections, Hunting Queries and Response Automation in Azure Firewall Solution for Microsoft Sentinel (microsoft.com)</a><br></div><div><a title=\"https://techcommunity.microsoft.com/t5/azure-network-security/automated-detection-and-response-for-azure-firewall-with-the-new/ba-p/2414224\" href=\"https://techcommunity.microsoft.com/t5/azure-network-security/automated-detection-and-response-for-azure-firewall-with-the-new/ba-p/2414224\" rel=\"noopener noreferrer\" target=\"_blank\" tabindex=\"-1\">Automated Detection and Response for Azure Firewall with the New Logic App Connector and Playbooks (microsoft.com)</a><br></div>",
                 "contentKind": "Solution",
-                "contentProductId": "sentinel4azurefirewall.sentinel4azurefirewall-sl-w7phvb6yjdpq2",
-                "id": "sentinel4azurefirewall.sentinel4azurefirewall-sl-w7phvb6yjdpq2",
+                "contentProductId": "sentinel4azurefirewall.sentinel4azurefirewall-sl-6bdxp6ek5sjqw",
+                "id": "sentinel4azurefirewall.sentinel4azurefirewall-sl-6bdxp6ek5sjqw",
                 "icon": "https://store-images.s-microsoft.com/image/apps.60619.78ff700e-acd7-43e5-957b-76f441e6fb5d.c6e7f555-30ce-4847-b4b5-b48428f8876e.72eac9d7-f90b-4562-82fe-316c572ece51",
                 "contentId": "sentinel4azurefirewall.sentinel4azurefirewall",
                 "parentId": "sentinel4azurefirewall.sentinel4azurefirewall",
@@ -7146,17 +7900,42 @@
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "4644baf7-3464-45dd-bd9d-e07687e25f81",
-                            "version": "1.1.2"
+                            "version": "1.1.4"
                         },
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "826f930c-2f25-4508-8e75-a95b809a4e15",
-                            "version": "1.1.1"
+                            "version": "1.1.3"
                         },
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "d36bb1e3-5abc-4037-ad9a-24ba3469819e",
-                            "version": "1.1.1"
+                            "version": "1.1.2"
+                        },
+                        {
+                            "kind": "AnalyticsRule",
+                            "contentId": "c3ffdbe6-2e62-4984-9e80-933ed90b2f6a",
+                            "version": "1.0.0"
+                        },
+                        {
+                            "kind": "AnalyticsRule",
+                            "contentId": "7a0f78b3-9a55-4ad0-a56d-b6616fdbff6a",
+                            "version": "1.0.0"
+                        },
+                        {
+                            "kind": "AnalyticsRule",
+                            "contentId": "504257c1-81e2-4609-8d40-b395e62f11c7",
+                            "version": "1.0.0"
+                        },
+                        {
+                            "kind": "AnalyticsRule",
+                            "contentId": "dfbe3963-42fb-4ebe-a00c-1cc44e2aa9f0",
+                            "version": "1.0.0"
+                        },
+                        {
+                            "kind": "AnalyticsRule",
+                            "contentId": "8159a8d2-13a5-49af-847b-e062c45ab92b",
+                            "version": "1.0.0"
                         }
                     ]
                 },
@@ -7171,7 +7950,8 @@
                     ]
                 },
                 "isPreview": false,
-                "isDeprecated": false
+                "isDeprecated": false,
+                "migratedToPackageId": null
             },
             "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', 'sentinel4azurefirewall.sentinel4azurefirewall')]"
         }
