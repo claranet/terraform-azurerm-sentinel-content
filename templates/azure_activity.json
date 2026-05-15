@@ -120,7 +120,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Azure Activity",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivity",
                 "contentSchemaVersion": "3.0.0",
@@ -217,7 +217,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2022-10-01",
+                            "apiVersion": "2025-07-01",
                             "name": "Azure_Activity_Hunting_Query_1",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -272,7 +272,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Azure Activity",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivity",
                 "contentSchemaVersion": "3.0.0",
@@ -303,7 +303,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2022-10-01",
+                            "apiVersion": "2025-07-01",
                             "name": "Azure_Activity_Hunting_Query_2",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -358,7 +358,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Azure Activity",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivity",
                 "contentSchemaVersion": "3.0.0",
@@ -389,7 +389,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2022-10-01",
+                            "apiVersion": "2025-07-01",
                             "name": "Azure_Activity_Hunting_Query_3",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -444,7 +444,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Azure Activity",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivity",
                 "contentSchemaVersion": "3.0.0",
@@ -475,7 +475,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2022-10-01",
+                            "apiVersion": "2025-07-01",
                             "name": "Azure_Activity_Hunting_Query_4",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -530,7 +530,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Azure Activity",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivity",
                 "contentSchemaVersion": "3.0.0",
@@ -561,7 +561,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2022-10-01",
+                            "apiVersion": "2025-07-01",
                             "name": "Azure_Activity_Hunting_Query_5",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -616,7 +616,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Azure Activity",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivity",
                 "contentSchemaVersion": "3.0.0",
@@ -647,7 +647,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2022-10-01",
+                            "apiVersion": "2025-07-01",
                             "name": "Azure_Activity_Hunting_Query_6",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -702,7 +702,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Azure Activity",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivity",
                 "contentSchemaVersion": "3.0.0",
@@ -733,7 +733,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2022-10-01",
+                            "apiVersion": "2025-07-01",
                             "name": "Azure_Activity_Hunting_Query_7",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -788,7 +788,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Azure Activity",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivity",
                 "contentSchemaVersion": "3.0.0",
@@ -819,7 +819,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2022-10-01",
+                            "apiVersion": "2025-07-01",
                             "name": "Azure_Activity_Hunting_Query_8",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -874,7 +874,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Azure Activity",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivity",
                 "contentSchemaVersion": "3.0.0",
@@ -905,7 +905,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2022-10-01",
+                            "apiVersion": "2025-07-01",
                             "name": "Azure_Activity_Hunting_Query_9",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -960,7 +960,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Azure Activity",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivity",
                 "contentSchemaVersion": "3.0.0",
@@ -991,7 +991,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2022-10-01",
+                            "apiVersion": "2025-07-01",
                             "name": "Azure_Activity_Hunting_Query_10",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -1046,7 +1046,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Azure Activity",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivity",
                 "contentSchemaVersion": "3.0.0",
@@ -1077,7 +1077,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2022-10-01",
+                            "apiVersion": "2025-07-01",
                             "name": "Azure_Activity_Hunting_Query_11",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -1132,7 +1132,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Azure Activity",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivity",
                 "contentSchemaVersion": "3.0.0",
@@ -1163,7 +1163,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2022-10-01",
+                            "apiVersion": "2025-07-01",
                             "name": "Azure_Activity_Hunting_Query_12",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -1218,7 +1218,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Azure Activity",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivity",
                 "contentSchemaVersion": "3.0.0",
@@ -1249,7 +1249,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2022-10-01",
+                            "apiVersion": "2025-07-01",
                             "name": "Azure_Activity_Hunting_Query_13",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -1304,7 +1304,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Azure Activity",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivity",
                 "contentSchemaVersion": "3.0.0",
@@ -1329,13 +1329,13 @@
                 "description": "The Custom Script Extension in Azure executes scripts on VMs, useful for post-deployment tasks. Scripts can be from various sources and could be used maliciously. The query identifies rare custom script extensions executed in your environment.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "2.0.1",
+                    "contentVersion": "2.0.2",
                     "parameters": {},
                     "variables": {},
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2022-10-01",
+                            "apiVersion": "2025-07-01",
                             "name": "Azure_Activity_Hunting_Query_14",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -1369,7 +1369,7 @@
                                 "parentId": "[resourceId('Microsoft.OperationalInsights/savedSearches', '81fd68a2-9ad6-4a1c-7bd7-18efe5c99081')]",
                                 "contentId": "81fd68a2-9ad6-4a1c-7bd7-18efe5c99081",
                                 "kind": "HuntingQuery",
-                                "version": "2.0.1",
+                                "version": "2.0.2",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "Azure Activity",
@@ -1390,16 +1390,16 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Azure Activity",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivity",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "81fd68a2-9ad6-4a1c-7bd7-18efe5c99081",
                 "contentKind": "HuntingQuery",
                 "displayName": "Rare Custom Script Extension",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-azureactivit-hq-2hqmimkjqtcs4",
-                "id": "azuresentinel.azure-sentinel-solution-azureactivit-hq-2hqmimkjqtcs4",
-                "version": "2.0.1",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-azureactivit-hq-w5nl5r3czqbou",
+                "id": "azuresentinel.azure-sentinel-solution-azureactivit-hq-w5nl5r3czqbou",
+                "version": "2.0.2",
                 "isDeprecated": false
             }
         },
@@ -1421,7 +1421,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2022-10-01",
+                            "apiVersion": "2025-07-01",
                             "name": "Azure_Activity_Hunting_Query_15",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -1476,7 +1476,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Azure Activity",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivity",
                 "contentSchemaVersion": "3.0.0",
@@ -1526,10 +1526,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActivity",
                                         "dataTypes": [
                                             "AzureActivity"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActivity"
                                     }
                                 ],
                                 "tactics": [
@@ -1540,6 +1540,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "Caller",
@@ -1553,17 +1554,16 @@
                                                 "columnName": "UPNSuffix",
                                                 "identifier": "UPNSuffix"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "CallerIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -1598,7 +1598,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Azure Activity",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivity",
                 "contentSchemaVersion": "3.0.0",
@@ -1661,10 +1661,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActivity",
                                         "dataTypes": [
                                             "AzureActivity"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActivity"
                                     }
                                 ],
                                 "tactics": [
@@ -1678,6 +1678,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "Caller",
@@ -1691,17 +1692,16 @@
                                                 "columnName": "UPNSuffix",
                                                 "identifier": "UPNSuffix"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "CallerIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -1736,7 +1736,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Azure Activity",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivity",
                 "contentSchemaVersion": "3.0.0",
@@ -1799,10 +1799,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActivity",
                                         "dataTypes": [
                                             "AzureActivity"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActivity"
                                     }
                                 ],
                                 "tactics": [
@@ -1815,6 +1815,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "Caller",
@@ -1828,17 +1829,16 @@
                                                 "columnName": "UPNSuffix",
                                                 "identifier": "UPNSuffix"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "CallerIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -1873,7 +1873,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Azure Activity",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivity",
                 "contentSchemaVersion": "3.0.0",
@@ -1936,10 +1936,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActivity",
                                         "dataTypes": [
                                             "AzureActivity"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActivity"
                                     }
                                 ],
                                 "tactics": [
@@ -1950,6 +1950,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "Caller",
@@ -1963,26 +1964,25 @@
                                                 "columnName": "UPNSuffix",
                                                 "identifier": "UPNSuffix"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AadUserId",
                                                 "identifier": "AadUserId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "CallerIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -2017,7 +2017,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Azure Activity",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivity",
                 "contentSchemaVersion": "3.0.0",
@@ -2080,10 +2080,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActivity",
                                         "dataTypes": [
                                             "AzureActivity"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActivity"
                                     }
                                 ],
                                 "tactics": [
@@ -2094,6 +2094,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "Caller",
@@ -2107,26 +2108,25 @@
                                                 "columnName": "UPNSuffix",
                                                 "identifier": "UPNSuffix"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "Host",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "ComputerName",
                                                 "identifier": "HostName"
                                             }
-                                        ],
-                                        "entityType": "Host"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "CallerIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -2161,7 +2161,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Azure Activity",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivity",
                 "contentSchemaVersion": "3.0.0",
@@ -2224,16 +2224,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActivity",
                                         "dataTypes": [
                                             "AzureActivity"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActivity"
                                     },
                                     {
-                                        "connectorId": "BehaviorAnalytics",
                                         "dataTypes": [
                                             "IdentityInfo"
-                                        ]
+                                        ],
+                                        "connectorId": "BehaviorAnalytics"
                                     }
                                 ],
                                 "tactics": [
@@ -2246,6 +2246,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "Caller",
@@ -2259,17 +2260,16 @@
                                                 "columnName": "UPNSuffix",
                                                 "identifier": "UPNSuffix"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "CallerIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -2304,7 +2304,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Azure Activity",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivity",
                 "contentSchemaVersion": "3.0.0",
@@ -2371,10 +2371,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActivity",
                                         "dataTypes": [
                                             "AzureActivity"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActivity"
                                     }
                                 ],
                                 "tactics": [
@@ -2385,6 +2385,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "Caller",
@@ -2398,17 +2399,16 @@
                                                 "columnName": "UPNSuffix",
                                                 "identifier": "UPNSuffix"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "CallerIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -2443,7 +2443,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Azure Activity",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivity",
                 "contentSchemaVersion": "3.0.0",
@@ -2502,10 +2502,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActivity",
                                         "dataTypes": [
                                             "AzureActivity"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActivity"
                                     }
                                 ],
                                 "tactics": [
@@ -2516,6 +2516,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "Caller",
@@ -2529,26 +2530,25 @@
                                                 "columnName": "UPNSuffix",
                                                 "identifier": "UPNSuffix"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "Host",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "ComputerName",
                                                 "identifier": "HostName"
                                             }
-                                        ],
-                                        "entityType": "Host"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "CallerIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -2583,7 +2583,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Azure Activity",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivity",
                 "contentSchemaVersion": "3.0.0",
@@ -2646,10 +2646,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActivity",
                                         "dataTypes": [
                                             "AzureActivity"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActivity"
                                     }
                                 ],
                                 "tactics": [
@@ -2660,6 +2660,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "Caller",
@@ -2673,17 +2674,16 @@
                                                 "columnName": "UPNSuffix",
                                                 "identifier": "UPNSuffix"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "UserIP",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -2718,7 +2718,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Azure Activity",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivity",
                 "contentSchemaVersion": "3.0.0",
@@ -2781,10 +2781,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActivity",
                                         "dataTypes": [
                                             "AzureActivity"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActivity"
                                     }
                                 ],
                                 "tactics": [
@@ -2795,6 +2795,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "Caller",
@@ -2808,26 +2809,25 @@
                                                 "columnName": "UPNSuffix",
                                                 "identifier": "UPNSuffix"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AadUserId",
                                                 "identifier": "AadUserId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "CallerIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -2862,7 +2862,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Azure Activity",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivity",
                 "contentSchemaVersion": "3.0.0",
@@ -2925,10 +2925,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActivity",
                                         "dataTypes": [
                                             "AzureActivity"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActivity"
                                     }
                                 ],
                                 "tactics": [
@@ -2941,6 +2941,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "Caller",
@@ -2954,17 +2955,16 @@
                                                 "columnName": "UPNSuffix",
                                                 "identifier": "UPNSuffix"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "CallerIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     }
                                 ]
                             }
@@ -2999,7 +2999,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Azure Activity",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivity",
                 "contentSchemaVersion": "3.0.0",
@@ -3062,10 +3062,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActivity",
                                         "dataTypes": [
                                             "AzureActivity"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActivity"
                                     }
                                 ],
                                 "tactics": [
@@ -3076,6 +3076,7 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "Caller",
@@ -3089,17 +3090,16 @@
                                                 "columnName": "UPNSuffix",
                                                 "identifier": "UPNSuffix"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "AadUserId",
                                                 "identifier": "AadUserId"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     }
                                 ]
                             }
@@ -3134,7 +3134,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Azure Activity",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivity",
                 "contentSchemaVersion": "3.0.0",
@@ -3197,10 +3197,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActivity",
                                         "dataTypes": [
                                             "AzureActivity"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActivity"
                                     }
                                 ],
                                 "tactics": [
@@ -3211,15 +3211,16 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "AzureResource",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "_ResourceId",
                                                 "identifier": "ResourceId"
                                             }
-                                        ],
-                                        "entityType": "AzureResource"
+                                        ]
                                     },
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "Caller",
@@ -3233,20 +3234,19 @@
                                                 "columnName": "UPNSuffix",
                                                 "identifier": "UPNSuffix"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     }
                                 ],
                                 "eventGroupingSettings": {
                                     "aggregationKind": "SingleAlert"
                                 },
                                 "customDetails": {
-                                    "DestinationTenantId": "DestinationTenantId",
-                                    "SourceTenantId": "SourceTenantId"
+                                    "SourceTenantId": "SourceTenantId",
+                                    "DestinationTenantId": "DestinationTenantId"
                                 },
                                 "alertDetailsOverride": {
-                                    "alertDescriptionFormat": "The user {{Caller}} moved a subscription:\n\n{{Summary}}\n\nIf this was not expected, it may indicate a subscription hijacking event.\n",
-                                    "alertDisplayNameFormat": "Subscription {{SubscriptionId}} changed tenants\n"
+                                    "alertDisplayNameFormat": "Subscription {{SubscriptionId}} changed tenants\n",
+                                    "alertDescriptionFormat": "The user {{Caller}} moved a subscription:\n\n{{Summary}}\n\nIf this was not expected, it may indicate a subscription hijacking event.\n"
                                 }
                             }
                         },
@@ -3280,7 +3280,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Azure Activity",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivity",
                 "contentSchemaVersion": "3.0.0",
@@ -3343,10 +3343,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActivity",
                                         "dataTypes": [
                                             "AzureActivity"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActivity"
                                     }
                                 ],
                                 "tactics": [
@@ -3361,31 +3361,31 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "Caller",
                                                 "identifier": "Name"
                                             }
-                                        ],
-                                        "entityType": "Account"
+                                        ]
                                     },
                                     {
+                                        "entityType": "IP",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "CallerIpAddress",
                                                 "identifier": "Address"
                                             }
-                                        ],
-                                        "entityType": "IP"
+                                        ]
                                     },
                                     {
+                                        "entityType": "AzureResource",
                                         "fieldMappings": [
                                             {
                                                 "columnName": "_ResourceId",
                                                 "identifier": "ResourceId"
                                             }
-                                        ],
-                                        "entityType": "AzureResource"
+                                        ]
                                     }
                                 ],
                                 "eventGroupingSettings": {
@@ -3423,7 +3423,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Azure Activity",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivity",
                 "contentSchemaVersion": "3.0.0",
@@ -3525,7 +3525,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Azure Activity",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivity",
                 "contentSchemaVersion": "3.0.0",
@@ -3614,7 +3614,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "Azure Activity",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivity",
                 "contentSchemaVersion": "3.0.0",
@@ -3632,15 +3632,15 @@
             "apiVersion": "2023-04-01-preview",
             "location": "[parameters('workspace-location')]",
             "properties": {
-                "version": "3.0.3",
+                "version": "3.0.4",
                 "kind": "Solution",
                 "contentSchemaVersion": "3.0.0",
                 "displayName": "Azure Activity",
                 "publisherDisplayName": "Microsoft Sentinel, Microsoft Corporation",
                 "descriptionHtml": "<p><strong>Note:</strong> Please refer to the following before installing the solution:</p><p>\u2022 Review the solution <a target=\"_blank\" href=\"https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Azure%20Activity/ReleaseNotes.md\" rel=\"noopener\">Release Notes</a></p><p>The <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/azure-monitor/essentials/activity-log?WT.mc_id=Portal-fx\" rel=\"noopener\">Azure Activity</a> solution for Microsoft Sentinel enables you to ingest Azure Activity Administrative, Security, Service Health, Alert, Recommendation, Policy, Autoscale and Resource Health <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/azure-monitor/reference/tables/azureactivity?WT.mc_id=Portal-fx\" rel=\"noopener\">logs</a> using Diagnostic Settings into Microsoft Sentinel.</p><p><strong>Data Connectors:</strong> 1, <strong>Workbooks:</strong> 2, <strong>Analytic Rules:</strong> 14, <strong>Hunting Queries:</strong> 15</p><p><a target=\"_blank\" href=\"https://aka.ms/azuresentinel\" rel=\"noopener\">Learn more about Microsoft Sentinel</a> | <a target=\"_blank\" href=\"https://aka.ms/azuresentinelsolutionsdoc\" rel=\"noopener\">Learn more about Solutions</a></p>",
                 "contentKind": "Solution",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-azureactivit-sl-x6rxfrmsjp3pw",
-                "id": "azuresentinel.azure-sentinel-solution-azureactivit-sl-x6rxfrmsjp3pw",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-azureactivit-sl-n4ejh4he7x6o4",
+                "id": "azuresentinel.azure-sentinel-solution-azureactivit-sl-n4ejh4he7x6o4",
                 "icon": "https://store-images.s-microsoft.com/image/apps.64828.1f6369a4-223e-4c86-808c-1d26a17c4def.5cdcf0e0-1405-4829-b75c-eebf340fe7f6.8700ba50-ca62-485b-8a98-caeb96314bd0",
                 "contentId": "azuresentinel.azure-sentinel-solution-azureactivity",
                 "parentId": "azuresentinel.azure-sentinel-solution-azureactivity",
@@ -3735,7 +3735,7 @@
                         {
                             "kind": "HuntingQuery",
                             "contentId": "81fd68a2-9ad6-4a1c-7bd7-18efe5c99081",
-                            "version": "2.0.1"
+                            "version": "2.0.2"
                         },
                         {
                             "kind": "HuntingQuery",
