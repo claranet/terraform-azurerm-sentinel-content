@@ -71,7 +71,7 @@
                     "resources": [
                         {
                             "name": "[concat(parameters('workspace'),'/','Sophos Endpoint Protection Data Parser')]",
-                            "apiVersion": "2022-10-01",
+                            "apiVersion": "2025-07-01",
                             "type": "Microsoft.OperationalInsights/workspaces/savedSearches",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -122,7 +122,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.0.8",
                 "packageName": "Sophos Endpoint Protection",
                 "packageId": "azuresentinel.azure-sentinel-solution-sophosep",
                 "contentSchemaVersion": "3.0.0",
@@ -137,7 +137,7 @@
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/savedSearches",
-            "apiVersion": "2022-10-01",
+            "apiVersion": "2025-07-01",
             "name": "[concat(parameters('workspace'),'/','Sophos Endpoint Protection Data Parser')]",
             "location": "[parameters('workspace-location')]",
             "properties": {
@@ -211,7 +211,7 @@
                             "properties": {
                                 "connectorUiConfig": {
                                     "id": "SophosEP",
-                                    "title": "Sophos Endpoint Protection (using Azure Functions)",
+                                    "title": "[DEPRECATED] Sophos Endpoint Protection (using Azure Function) (using Azure Functions)",
                                     "publisher": "Sophos",
                                     "descriptionMarkdown": "The [Sophos Endpoint Protection](https://www.sophos.com/en-us/products/endpoint-antivirus.aspx) data connector provides the capability to ingest [Sophos events](https://docs.sophos.com/central/Customer/help/en-us/central/Customer/common/concepts/Events.html) into Microsoft Sentinel. Refer to [Sophos Central Admin documentation](https://docs.sophos.com/central/Customer/help/en-us/central/Customer/concepts/Logs.html) for more information.",
                                     "additionalRequirementBanner": "This data connector depends on a parser based on a Kusto Function to work as expected [**SophosEPEvent**](https://aka.ms/sentinel-SophosEP-parser) which is deployed with the Microsoft Sentinel Solution.",
@@ -385,13 +385,13 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.0.8",
                 "packageName": "Sophos Endpoint Protection",
                 "packageId": "azuresentinel.azure-sentinel-solution-sophosep",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "SophosEP",
                 "contentKind": "DataConnector",
-                "displayName": "Sophos Endpoint Protection (using Azure Functions)",
+                "displayName": "[DEPRECATED] Sophos Endpoint Protection (using Azure Function) (using Azure Functions)",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-sophosep-dc-crbywzfay6dzw",
                 "id": "azuresentinel.azure-sentinel-solution-sophosep-dc-crbywzfay6dzw",
                 "version": "1.0.0",
@@ -436,7 +436,7 @@
             "kind": "GenericUI",
             "properties": {
                 "connectorUiConfig": {
-                    "title": "Sophos Endpoint Protection (using Azure Functions)",
+                    "title": "[DEPRECATED] Sophos Endpoint Protection (using Azure Function) (using Azure Functions)",
                     "publisher": "Sophos",
                     "descriptionMarkdown": "The [Sophos Endpoint Protection](https://www.sophos.com/en-us/products/endpoint-antivirus.aspx) data connector provides the capability to ingest [Sophos events](https://docs.sophos.com/central/Customer/help/en-us/central/Customer/common/concepts/Events.html) into Microsoft Sentinel. Refer to [Sophos Central Admin documentation](https://docs.sophos.com/central/Customer/help/en-us/central/Customer/concepts/Logs.html) for more information.",
                     "graphQueries": [
@@ -585,18 +585,18 @@
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
             "apiVersion": "2023-04-01-preview",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', concat(parameters('workspace'),'-dc-',uniquestring('SophosEndpointProtectionCCPDefinition')), '1.0.0')]",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', concat(parameters('workspace'),'-dc-',uniquestring('SophosEndpointProtectionCCPDefinition')), '3.0.8')]",
             "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-sophosep')]"
             ],
             "properties": {
                 "contentId": "SophosEndpointProtectionCCPDefinition",
-                "displayName": "Sophos Endpoint Protection (using REST API)",
+                "displayName": "Sophos Endpoint Protection (via Codeless Connector Platform)",
                 "contentKind": "DataConnector",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0",
+                    "contentVersion": "3.0.8",
                     "parameters": {},
                     "variables": {},
                     "resources": [
@@ -609,7 +609,7 @@
                             "properties": {
                                 "connectorUiConfig": {
                                     "id": "SophosEndpointProtectionCCPDefinition",
-                                    "title": "Sophos Endpoint Protection (using REST API)",
+                                    "title": "Sophos Endpoint Protection (via Codeless Connector Platform)",
                                     "publisher": "Microsoft",
                                     "descriptionMarkdown": "The [Sophos Endpoint Protection](https://www.sophos.com/en-us/products/endpoint-antivirus.aspx) data connector provides the capability to ingest [Sophos events](https://developer.sophos.com/docs/siem-v1/1/routes/events/get) and [Sophos alerts](https://developer.sophos.com/docs/siem-v1/1/routes/alerts/get) into Microsoft Sentinel. Refer to [Sophos Central Admin documentation](https://docs.sophos.com/central/Customer/help/en-us/central/Customer/concepts/Logs.html) for more information.",
                                     "graphQueriesTableName": "SophosEPEvents_CL",
@@ -732,7 +732,7 @@
                                 "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectorDefinitions', 'SophosEndpointProtectionCCPDefinition')]",
                                 "contentId": "SophosEndpointProtectionCCPDefinition",
                                 "kind": "DataConnector",
-                                "version": "1.0.0",
+                                "version": "3.0.8",
                                 "source": {
                                     "sourceId": "azuresentinel.azure-sentinel-solution-sophosep",
                                     "name": "Sophos Endpoint Protection",
@@ -751,7 +751,7 @@
                                 "dependencies": {
                                     "criteria": [
                                         {
-                                            "version": "1.0.0",
+                                            "version": "3.0.8",
                                             "contentId": "SophosEndpointProtectionCCPDefinitionConnections",
                                             "kind": "ResourcesDataConnector"
                                         }
@@ -1176,13 +1176,13 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.0.8",
                 "packageName": "Sophos Endpoint Protection",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-sophosep-dc-pr2idgrp7epoc",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-sophosep-dc-6cnw6tz34gpcc",
                 "packageId": "azuresentinel.azure-sentinel-solution-sophosep",
                 "contentSchemaVersion": "3.0.0",
-                "version": "1.0.0",
-                "id": "azuresentinel.azure-sentinel-solution-sophosep-dc-pr2idgrp7epoc",
+                "version": "3.0.8",
+                "id": "azuresentinel.azure-sentinel-solution-sophosep-dc-6cnw6tz34gpcc",
                 "isDeprecated": false,
                 "description": ""
             }
@@ -1196,7 +1196,7 @@
             "properties": {
                 "connectorUiConfig": {
                     "id": "SophosEndpointProtectionCCPDefinition",
-                    "title": "Sophos Endpoint Protection (using REST API)",
+                    "title": "Sophos Endpoint Protection (via Codeless Connector Platform)",
                     "publisher": "Microsoft",
                     "descriptionMarkdown": "The [Sophos Endpoint Protection](https://www.sophos.com/en-us/products/endpoint-antivirus.aspx) data connector provides the capability to ingest [Sophos events](https://developer.sophos.com/docs/siem-v1/1/routes/events/get) and [Sophos alerts](https://developer.sophos.com/docs/siem-v1/1/routes/alerts/get) into Microsoft Sentinel. Refer to [Sophos Central Admin documentation](https://docs.sophos.com/central/Customer/help/en-us/central/Customer/concepts/Logs.html) for more information.",
                     "graphQueriesTableName": "SophosEPEvents_CL",
@@ -1319,7 +1319,7 @@
                 "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectorDefinitions', 'SophosEndpointProtectionCCPDefinition')]",
                 "contentId": "SophosEndpointProtectionCCPDefinition",
                 "kind": "DataConnector",
-                "version": "1.0.0",
+                "version": "3.0.8",
                 "source": {
                     "sourceId": "azuresentinel.azure-sentinel-solution-sophosep",
                     "name": "Sophos Endpoint Protection",
@@ -1338,7 +1338,7 @@
                 "dependencies": {
                     "criteria": [
                         {
-                            "version": "1.0.0",
+                            "version": "3.0.8",
                             "contentId": "SophosEndpointProtectionCCPDefinitionConnections",
                             "kind": "ResourcesDataConnector"
                         }
@@ -1349,18 +1349,18 @@
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
             "apiVersion": "2023-04-01-preview",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', concat(parameters('workspace'),'-dc-',uniquestring('SophosEndpointProtectionCCPDefinitionConnections')), '1.0.0')]",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', concat(parameters('workspace'),'-dc-',uniquestring('SophosEndpointProtectionCCPDefinitionConnections')), '3.0.8')]",
             "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-sophosep')]"
             ],
             "properties": {
                 "contentId": "SophosEndpointProtectionCCPDefinitionConnections",
-                "displayName": "Sophos Endpoint Protection (using REST API)",
+                "displayName": "Sophos Endpoint Protection (via Codeless Connector Platform)",
                 "contentKind": "ResourcesDataConnector",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0",
+                    "contentVersion": "3.0.8",
                     "parameters": {
                         "guidValue": {
                             "defaultValue": "[[newGuid()]",
@@ -1371,7 +1371,7 @@
                             "type": "securestring"
                         },
                         "connectorDefinitionName": {
-                            "defaultValue": "Sophos Endpoint Protection (using REST API)",
+                            "defaultValue": "Sophos Endpoint Protection (via Codeless Connector Platform)",
                             "type": "securestring",
                             "minLength": 1
                         },
@@ -1410,6 +1410,11 @@
                             "defaultValue": "-NA-",
                             "type": "securestring",
                             "minLength": 1
+                        },
+                        "redirectUri": {
+                            "defaultValue": "-NA-",
+                            "type": "securestring",
+                            "minLength": 1
                         }
                     },
                     "variables": {
@@ -1424,7 +1429,7 @@
                                 "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'SophosEndpointProtectionCCPDefinitionConnections')]",
                                 "contentId": "SophosEndpointProtectionCCPDefinitionConnections",
                                 "kind": "ResourcesDataConnector",
-                                "version": "1.0.0",
+                                "version": "3.0.8",
                                 "source": {
                                     "sourceId": "azuresentinel.azure-sentinel-solution-sophosep",
                                     "name": "Sophos Endpoint Protection",
@@ -1553,13 +1558,13 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.0.8",
                 "packageName": "Sophos Endpoint Protection",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-sophosep-rdc-mz5giusssbwxk",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-sophosep-rdc-bmcz4nex5iar4",
                 "packageId": "azuresentinel.azure-sentinel-solution-sophosep",
                 "contentSchemaVersion": "3.0.0",
-                "version": "1.0.0",
-                "id": "azuresentinel.azure-sentinel-solution-sophosep-rdc-mz5giusssbwxk",
+                "version": "3.0.8",
+                "id": "azuresentinel.azure-sentinel-solution-sophosep-rdc-bmcz4nex5iar4",
                 "isDeprecated": false,
                 "description": ""
             }
@@ -1569,16 +1574,16 @@
             "apiVersion": "2023-04-01-preview",
             "location": "[parameters('workspace-location')]",
             "properties": {
-                "version": "3.0.6",
+                "version": "3.0.8",
                 "kind": "Solution",
                 "contentSchemaVersion": "3.0.0",
                 "displayName": "Sophos Endpoint Protection",
                 "publisherDisplayName": "Microsoft Sentinel, Microsoft Corporation",
                 "descriptionHtml": "<p><strong>Note:</strong> Please refer to the following before installing the solution:</p><p>\u2022 Review the solution <a target=\"_blank\" href=\"https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Sophos%20Endpoint%20Protection/ReleaseNotes.md\" rel=\"noopener\">Release Notes</a></p><p>The <a target=\"_blank\" href=\"https://www.sophos.com/products/endpoint-antivirus.aspx\" rel=\"noopener\">Sophos Endpoint Protection</a> solution provides the capability to ingest to ingest <a target=\"_blank\" href=\"https://developer.sophos.com/docs/siem-v1/1/routes/events/get\" rel=\"noopener\">Sophos events</a> and <a target=\"_blank\" href=\"https://developer.sophos.com/docs/siem-v1/1/routes/alerts/get\" rel=\"noopener\">Sophos alerts</a> into Microsoft Sentinel. Refer to <a target=\"_blank\" href=\"https://docs.sophos.com/central/Customer/help/en-us/central/Customer/concepts/Logs.html\" rel=\"noopener\">Sophos Central documentation</a> for more information.</p><p><strong>Underlying Microsoft Technologies used:</strong></p><p>This solution takes a dependency on the following technologies, and some of these dependencies either may be in <a target=\"_blank\" href=\"https://azure.microsoft.com/support/legal/preview-supplemental-terms/\" rel=\"noopener\">Preview</a> state or might result in additional ingestion or operational costs:</p><p>a. <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/azure-monitor/logs/data-collector-api?WT.mc_id=Portal-fx\" rel=\"noopener\">Azure Monitor HTTP Data Collector API</a></p><p>b. <a target=\"_blank\" href=\"https://azure.microsoft.com/services/functions/#overview\" rel=\"noopener\">Azure Functions</a></p><p>c. <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/sentinel/create-custom-connector?WT.mc_id=Portal-fx#connect-with-the-codeless-connector-platform\" rel=\"noopener\">Codeless Connector Platform (CCP)</a></p><p><strong>Data Connectors:</strong> 2, <strong>Parsers:</strong> 1</p><p><a target=\"_blank\" href=\"https://aka.ms/azuresentinel\" rel=\"noopener\">Learn more about Microsoft Sentinel</a> | <a target=\"_blank\" href=\"https://aka.ms/azuresentinelsolutionsdoc\" rel=\"noopener\">Learn more about Solutions</a></p>",
                 "contentKind": "Solution",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-sophosep-sl-3r2cgrk4doip4",
-                "id": "azuresentinel.azure-sentinel-solution-sophosep-sl-3r2cgrk4doip4",
-                "icon": "https://store-images.s-microsoft.com/image/apps.41419.2b740b78-b211-45f8-839b-2f67e70008bc.19cf8bba-0f67-4e4d-b042-90d70a5dfef1.1d473b06-07e6-4bbb-90de-c8ee4f473ad3",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-sophosep-sl-iyeddlepgtdza",
+                "id": "azuresentinel.azure-sentinel-solution-sophosep-sl-iyeddlepgtdza",
+                "icon": "https://catalogartifact.azureedge.net/publicartifacts/azuresentinel.azure-sentinel-solution-sophosep-a6434c0a-a70f-4c8c-85ef-3f031a5caa39/image1_Sophas.png",
                 "contentId": "azuresentinel.azure-sentinel-solution-sophosep",
                 "parentId": "azuresentinel.azure-sentinel-solution-sophosep",
                 "source": {
@@ -1612,7 +1617,7 @@
                         {
                             "kind": "DataConnector",
                             "contentId": "SophosEndpointProtectionCCPDefinitionConnections",
-                            "version": "1.0.0"
+                            "version": "3.0.8"
                         }
                     ]
                 },
