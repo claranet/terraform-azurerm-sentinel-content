@@ -1,3 +1,24 @@
+## 8.6.4 (2026-05-15)
+
+### Code Refactoring
+
+* bump `Azure Activity` package template version to 3.0.4 dcb519c
+* bump `Entra ID` package template version to 3.3.12 8ef13e3
+* bump `Google Workspace` package template version to 3.0.4 23eeafe
+* bump `Okta` package template version to 3.1.7 7064b79
+* bump `SentinelOne` package template version to 3.0.9 0089c24
+* bump `Sophos Endpoint` package template version to 3.0.8 99b3650
+* bump `Windows Security` package template version to 3.0.12 ff159fb
+
+### Miscellaneous Chores
+
+* **deps:** 🔗 update mise conf for OpenTofu 1222e65
+* **deps:** update dependency terraform-docs to v0.23.0 468611d
+* **deps:** update pre-commit hook tofuutils/pre-commit-opentofu to v2.3.0 ec2afff
+* **pre-commit:** 🔧 move to prek 2afdbd2
+* **tfdocs:** bump tfdocs to v0.22 🔧 0375c33
+* update mise.lock file fe25397
+
 ## 8.6.3 (2026-03-27)
 
 ### Bug Fixes
