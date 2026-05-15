@@ -23,6 +23,14 @@
             "metadata": {
                 "description": "Workspace name for Log Analytics where Microsoft Sentinel is setup"
             }
+        },
+        "watchlist1-id": {
+            "type": "String",
+            "defaultValue": "ConditionalAccessBenignStatusCodes",
+            "minLength": 1,
+            "metadata": {
+                "description": "Unique id for the watchlist"
+            }
         }
     },
     "resources": [
@@ -230,7 +238,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -495,7 +503,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -584,7 +592,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -685,7 +693,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -710,7 +718,7 @@
                 "description": "Search for user principal name (UPN) events. Look for accounts created and then deleted in under 24 hours. Attackers may create an account for their use, and then remove the account when no longer needed.\nRef : https://docs.microsoft.com/azure/active-directory/fundamentals/security-operations-user-accounts#short-lived-account",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.1.0",
+                    "contentVersion": "1.1.1",
                     "parameters": {},
                     "variables": {},
                     "resources": [
@@ -724,9 +732,9 @@
                                 "description": "Search for user principal name (UPN) events. Look for accounts created and then deleted in under 24 hours. Attackers may create an account for their use, and then remove the account when no longer needed.\nRef : https://docs.microsoft.com/azure/active-directory/fundamentals/security-operations-user-accounts#short-lived-account",
                                 "displayName": "Account Created and Deleted in Short Timeframe",
                                 "enabled": false,
-                                "query": "let queryfrequency = 1h;\nlet queryperiod = 1d;\nAuditLogs\n| where TimeGenerated > ago(queryfrequency)\n| where OperationName =~ \"Delete user\"\n| mv-apply TargetResource = TargetResources on \n  (\n      where TargetResource.type == \"User\"\n      | extend TargetUserPrincipalName = extract(@'([a-f0-9]{32})?(.*)', 2, tostring(TargetResource.userPrincipalName))\n  )\n| extend DeletedByApp = tostring(InitiatedBy.app.displayName),\nDeletedByAppServicePrincipalId = tostring(InitiatedBy.app.servicePrincipalId),\nDeletedByUserPrincipalName = tostring(InitiatedBy.user.userPrincipalName),\nDeletedByAadUserId = tostring(InitiatedBy.user.id),\nDeletedByIPAddress = tostring(InitiatedBy.user.ipAddress)\n| project Deletion_TimeGenerated = TimeGenerated, TargetUserPrincipalName, DeletedByApp, DeletedByAppServicePrincipalId, DeletedByUserPrincipalName, DeletedByAadUserId, DeletedByIPAddress, \nDeletion_AdditionalDetails = AdditionalDetails, Deletion_InitiatedBy = InitiatedBy, Deletion_TargetResources = TargetResources\n| join kind=inner (\n    AuditLogs\n    | where TimeGenerated > ago(queryperiod)\n    | where OperationName =~ \"Add user\"      \n    | mv-apply TargetResource = TargetResources on \n      (\n          where TargetResource.type == \"User\"\n          | extend TargetUserPrincipalName = trim(@'\"',tostring(TargetResource.userPrincipalName))\n      )\n    | project-rename Creation_TimeGenerated = TimeGenerated\n) on TargetUserPrincipalName\n| extend TimeDelta = Deletion_TimeGenerated - Creation_TimeGenerated\n| where  TimeDelta between (time(0s) .. queryperiod)\n| extend CreatedByApp = tostring(InitiatedBy.app.displayName),\nCreatedByAppServicePrincipalId = tostring(InitiatedBy.app.servicePrincipalId),\nCreatedByUserPrincipalName = tostring(InitiatedBy.user.userPrincipalName),\nCreatedByAadUserId = tostring(InitiatedBy.user.id),\nCreatedByIPAddress = tostring(InitiatedBy.user.ipAddress)\n| project Creation_TimeGenerated, Deletion_TimeGenerated, TimeDelta, TargetUserPrincipalName, DeletedByApp, DeletedByAppServicePrincipalId, DeletedByUserPrincipalName, DeletedByAadUserId, DeletedByIPAddress, \nCreatedByApp, CreatedByAppServicePrincipalId, CreatedByUserPrincipalName, CreatedByAadUserId, CreatedByIPAddress, Creation_AdditionalDetails = AdditionalDetails, Creation_InitiatedBy = InitiatedBy, Creation_TargetResources = TargetResources, Deletion_AdditionalDetails, Deletion_InitiatedBy, Deletion_TargetResources\n| extend TargetName = tostring(split(TargetUserPrincipalName,'@',0)[0]), TargetUPNSuffix = tostring(split(TargetUserPrincipalName,'@',1)[0])\n| extend CreatedByName = tostring(split(CreatedByUserPrincipalName,'@',0)[0]), CreatedByUPNSuffix = tostring(split(CreatedByUserPrincipalName,'@',1)[0])\n| extend DeletedByName = tostring(split(DeletedByUserPrincipalName,'@',0)[0]), DeletedByUPNSuffix = tostring(split(DeletedByUserPrincipalName,'@',1)[0])\n",
+                                "query": "let queryfrequency = 1h;\nlet queryperiod = 7d; // Increased queryperiod to 7 days to mitigate timing-based bypasses\nAuditLogs\n| where TimeGenerated > ago(queryfrequency)\n| where OperationName =~ \"Delete user\"\n| mv-apply TargetResource = TargetResources on \n  (\n      where TargetResource.type == \"User\"\n      // Normalize TargetUserPrincipalName by removing optional 32-char hex prefixes and underscores\n      // Making extraction case-insensitive, and converting the result to lowercase for consistency\n      | extend TargetUserPrincipalName = tolower(extract(@\"(?i)([a-f0-9]{32})?_?(.*)\", 2, tostring(TargetResource.userPrincipalName)))\n      // Standardize UserId to ensure consistent, immutable identification\n      | extend UserId = tostring(TargetResource.id)\n  )\n| extend DeletedByApp = tostring(InitiatedBy.app.displayName),\nDeletedByAppServicePrincipalId = tostring(InitiatedBy.app.servicePrincipalId),\nDeletedByUserPrincipalName = tostring(InitiatedBy.user.userPrincipalName),\nDeletedByAadUserId = tostring(InitiatedBy.user.id),\nDeletedByIPAddress = tostring(InitiatedBy.user.ipAddress)\n| project Deletion_TimeGenerated = TimeGenerated, TargetUserPrincipalName, UserId, DeletedByApp, DeletedByAppServicePrincipalId, DeletedByUserPrincipalName, DeletedByAadUserId, DeletedByIPAddress, \nDeletion_AdditionalDetails = AdditionalDetails, Deletion_InitiatedBy = InitiatedBy, Deletion_TargetResources = TargetResources\n| join kind=inner (\n    AuditLogs\n    | where TimeGenerated > ago(queryperiod)\n    | where OperationName =~ \"Add user\"      \n    | mv-apply TargetResource = TargetResources on \n      (\n          where TargetResource.type == \"User\"\n          // Normalize TargetUserPrincipalName by removing optional 32-char hex prefixes and underscores\n          // Making extraction case-insensitive, and converting the result to lowercase for consistency\n          | extend TargetUserPrincipalName = tolower(extract(@\"(?i)([a-f0-9]{32})?_?(.*)\", 2, tostring(TargetResource.userPrincipalName)))\n          // Standardize UserId to ensure consistent, immutable identification\n          | extend UserId = tostring(TargetResource.id)\n      )\n    | project-rename Creation_TimeGenerated = TimeGenerated\n) on UserId\n| extend TimeDelta = Deletion_TimeGenerated - Creation_TimeGenerated\n| where  TimeDelta between (time(0s) .. queryperiod)\n| extend CreatedByApp = tostring(InitiatedBy.app.displayName),\nCreatedByAppServicePrincipalId = tostring(InitiatedBy.app.servicePrincipalId),\nCreatedByUserPrincipalName = tostring(InitiatedBy.user.userPrincipalName),\nCreatedByAadUserId = tostring(InitiatedBy.user.id),\nCreatedByIPAddress = tostring(InitiatedBy.user.ipAddress)\n| project Creation_TimeGenerated, Deletion_TimeGenerated, TimeDelta, UserId, TargetUserPrincipalName, DeletedByApp, DeletedByAppServicePrincipalId, DeletedByUserPrincipalName, DeletedByAadUserId, DeletedByIPAddress, \nCreatedByApp, CreatedByAppServicePrincipalId, CreatedByUserPrincipalName, CreatedByAadUserId, CreatedByIPAddress, Creation_AdditionalDetails = AdditionalDetails, Creation_InitiatedBy = InitiatedBy, Creation_TargetResources = TargetResources, Deletion_AdditionalDetails, Deletion_InitiatedBy, Deletion_TargetResources\n| extend TargetName = tostring(split(TargetUserPrincipalName,'@',0)[0]), TargetUPNSuffix = tostring(split(TargetUserPrincipalName,'@',1)[0])\n| extend CreatedByName = tostring(split(CreatedByUserPrincipalName,'@',0)[0]), CreatedByUPNSuffix = tostring(split(CreatedByUserPrincipalName,'@',1)[0])\n| extend DeletedByName = tostring(split(DeletedByUserPrincipalName,'@',0)[0]), DeletedByUPNSuffix = tostring(split(DeletedByUserPrincipalName,'@',1)[0])\n",
                                 "queryFrequency": "PT1H",
-                                "queryPeriod": "P1D",
+                                "queryPeriod": "P7D",
                                 "severity": "High",
                                 "suppressionDuration": "PT1H",
                                 "suppressionEnabled": false,
@@ -850,7 +858,7 @@
                                 "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', 'bb616d82-108f-47d3-9dec-9652ea0d3bf6')]",
                                 "contentId": "bb616d82-108f-47d3-9dec-9652ea0d3bf6",
                                 "kind": "AnalyticsRule",
-                                "version": "1.1.0",
+                                "version": "1.1.1",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "Microsoft Entra ID",
@@ -871,16 +879,16 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "bb616d82-108f-47d3-9dec-9652ea0d3bf6",
                 "contentKind": "AnalyticsRule",
                 "displayName": "Account Created and Deleted in Short Timeframe",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-azureactived-ar-p5pbzgmlkfrou",
-                "id": "azuresentinel.azure-sentinel-solution-azureactived-ar-p5pbzgmlkfrou",
-                "version": "1.1.0",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-azureactived-ar-52feijq2zg33m",
+                "id": "azuresentinel.azure-sentinel-solution-azureactived-ar-52feijq2zg33m",
+                "version": "1.1.1",
                 "isDeprecated": false,
                 "dependencies": {
                     "operator": "AND",
@@ -1031,7 +1039,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -1191,7 +1199,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -1309,7 +1317,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -1506,7 +1514,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -1622,8 +1630,8 @@
                                     "Application": "AppDisplayName"
                                 },
                                 "alertDetailsOverride": {
-                                    "alertDescriptionFormat": "This query over Microsoft Entra ID sign-in considers all user sign-ins for each Microsoft Entra ID application and picks out the most anomalous change in location profile for a user within an\nindividual application. This has detected {{UserPrincipalName}} signing into {{AppDisplayName}} from {{CountOfLocations}} \ndifferent locations.\n",
-                                    "alertDisplayNameFormat": "Anomalous sign-in location by {{UserPrincipalName}} to {{AppDisplayName}}"
+                                    "alertDisplayNameFormat": "Anomalous sign-in location by {{UserPrincipalName}} to {{AppDisplayName}}",
+                                    "alertDescriptionFormat": "This query over Microsoft Entra ID sign-in considers all user sign-ins for each Microsoft Entra ID application and picks out the most anomalous change in location profile for a user within an\nindividual application. This has detected {{UserPrincipalName}} signing into {{AppDisplayName}} from {{CountOfLocations}} \ndifferent locations.\n"
                                 }
                             }
                         },
@@ -1657,7 +1665,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -1828,7 +1836,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -1986,7 +1994,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -2170,7 +2178,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -2283,8 +2291,8 @@
                                     }
                                 ],
                                 "alertDetailsOverride": {
-                                    "alertDescriptionFormat": "This query looks for successful sign in attempts to the Azure Portal where the user who is signing in from another Azure tenant,\nand the IP address the login attempt is from is an Azure IP. A threat actor who compromises an Azure tenant may look\nto pivot to other tenants leveraging cross-tenant delegated access in this manner.\nIn this instance {{UserPrincipalName}} logged in at {{FirstSeen}} from IP Address {{IPAddress}}.\n",
-                                    "alertDisplayNameFormat": "Azure Portal sign in by {{UserPrincipalName}} from another Azure Tenant with IP Address {{IPAddress}}"
+                                    "alertDisplayNameFormat": "Azure Portal sign in by {{UserPrincipalName}} from another Azure Tenant with IP Address {{IPAddress}}",
+                                    "alertDescriptionFormat": "This query looks for successful sign in attempts to the Azure Portal where the user who is signing in from another Azure tenant,\nand the IP address the login attempt is from is an Azure IP. A threat actor who compromises an Azure tenant may look\nto pivot to other tenants leveraging cross-tenant delegated access in this manner.\nIn this instance {{UserPrincipalName}} logged in at {{FirstSeen}} from IP Address {{IPAddress}}.\n"
                                 }
                             }
                         },
@@ -2318,7 +2326,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -2468,7 +2476,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -2511,10 +2519,10 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "Identifies evidence of brute force activity against a Windows 365 Cloud PC by highlighting multiple authentication failures and by a successful authentication within a given time window.",
+                "description": "Identifies evidence of brute force activity against Windows devices authenticated via Entra ID (including Entra-joined, hybrid-joined, and Windows 365 Cloud PCs) by detecting multiple authentication failures followed by a successful authentication within a defined time window.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "2.0.1",
+                    "contentVersion": "2.0.2",
                     "parameters": {},
                     "variables": {},
                     "resources": [
@@ -2525,8 +2533,8 @@
                             "kind": "Scheduled",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
-                                "description": "Identifies evidence of brute force activity against a Windows 365 Cloud PC by highlighting multiple authentication failures and by a successful authentication within a given time window.",
-                                "displayName": "Brute force attack against a Cloud PC",
+                                "description": "Identifies evidence of brute force activity against Windows devices authenticated via Entra ID (including Entra-joined, hybrid-joined, and Windows 365 Cloud PCs) by detecting multiple authentication failures followed by a successful authentication within a defined time window.",
+                                "displayName": "Brute force attack against an Entra-authenticated Windows device",
                                 "enabled": false,
                                 "query": "let authenticationWindow = 20m;\nlet sensitivity = 2.5;\nSigninLogs\n| where AppDisplayName =~ \"Windows Sign In\"\n| extend FailureOrSuccess = iff(ResultType in (\"0\", \"50125\", \"50140\", \"70043\", \"70044\"), \"Success\", \"Failure\")\n| summarize FailureCount = countif(FailureOrSuccess==\"Failure\"), SuccessCount = countif(FailureOrSuccess==\"Success\"), IPAddresses = make_set(IPAddress,1000)\n                          by bin(TimeGenerated, authenticationWindow), UserDisplayName, UserPrincipalName\n| extend FailureSuccessDiff = FailureCount - SuccessCount\n| where FailureSuccessDiff > 0\n| summarize Diff = make_list(FailureSuccessDiff, 10000), TimeStamp = make_list(TimeGenerated, 10000) by UserDisplayName, UserPrincipalName//, tostring(IPAddresses)\n| extend (Anomalies, Score, Baseline) = series_decompose_anomalies(Diff, sensitivity, -1, 'linefit')  \n| mv-expand Diff to typeof(double), TimeStamp to typeof(datetime), Anomalies to typeof(double), Score to typeof(double), Baseline to typeof(long)\n| where Anomalies > 0\n| summarize by UserDisplayName, UserPrincipalName, Anomalies, Score, Baseline, FailureToSuccessDiff = Diff\n| join kind=leftouter (\n      SigninLogs\n      | where AppDisplayName =~ \"Windows Sign In\"\n      | extend OS = DeviceDetail.operatingSystem, Browser = DeviceDetail.browser\n      | extend StatusCode = tostring(Status.errorCode), StatusDetails = tostring(Status.additionalDetails)\n      | extend State = tostring(LocationDetails.state), City = tostring(LocationDetails.city)\n      | summarize StartTime = min(TimeGenerated), \n                  EndTime = max(TimeGenerated), \n                  IPAddresses = make_set(IPAddress,100), \n                  OS = make_set(OS,20), \n                  Browser = make_set(Browser,20), \n                  City = make_set(City,100), \n                  ResultType = make_set(ResultType,100)\n              by UserDisplayName, UserPrincipalName, UserId, AppDisplayName\n  ) on UserDisplayName, UserPrincipalName\n| project-away UserDisplayName1, UserPrincipalName1\n| extend IPAddressFirst = tostring(IPAddresses[0])\n| extend Name = tostring(split(UserPrincipalName,'@',0)[0]), UPNSuffix = tostring(split(UserPrincipalName,'@',1)[0])\n",
                                 "queryFrequency": "P1D",
@@ -2599,7 +2607,7 @@
                                 "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '3fbc20a4-04c4-464e-8fcb-6667f53e4987')]",
                                 "contentId": "3fbc20a4-04c4-464e-8fcb-6667f53e4987",
                                 "kind": "AnalyticsRule",
-                                "version": "2.0.1",
+                                "version": "2.0.2",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "Microsoft Entra ID",
@@ -2620,16 +2628,16 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "3fbc20a4-04c4-464e-8fcb-6667f53e4987",
                 "contentKind": "AnalyticsRule",
-                "displayName": "Brute force attack against a Cloud PC",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-azureactived-ar-bn2gsvs44mkpi",
-                "id": "azuresentinel.azure-sentinel-solution-azureactived-ar-bn2gsvs44mkpi",
-                "version": "2.0.1",
+                "displayName": "Brute force attack against an Entra-authenticated Windows device",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-azureactived-ar-trbm3kumw23sg",
+                "id": "azuresentinel.azure-sentinel-solution-azureactived-ar-trbm3kumw23sg",
+                "version": "2.0.2",
                 "isDeprecated": false,
                 "dependencies": {
                     "operator": "AND",
@@ -2766,8 +2774,8 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "InitiatedByUser": "InitiatedByUser",
-                                    "TargetUser": "TargetUserPrincipalName"
+                                    "TargetUser": "TargetUserPrincipalName",
+                                    "InitiatedByUser": "InitiatedByUser"
                                 }
                             }
                         },
@@ -2801,7 +2809,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -2836,10 +2844,10 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]"
             ],
             "properties": {
-                "description": "Identifies an attempt to Bypass conditional access rule(s) in Microsoft Entra ID.\nThe ConditionalAccessStatus column value details if there was an attempt to bypass Conditional Access or if the Conditional access rule was not satisfied (ConditionalAccessStatus == 1).\nReferences:\nhttps://docs.microsoft.com/azure/active-directory/conditional-access/overview\nhttps://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins\nhttps://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-sign-ins-error-codes\nConditionalAccessStatus == 0 // Success\nConditionalAccessStatus == 1 // Failure\nConditionalAccessStatus == 2 // Not Applied\nConditionalAccessStatus == 3 // unknown",
+                "description": "Identifies an attempt to Bypass conditional access rule(s) in Microsoft Entra ID.\nThe ConditionalAccessStatus column value details if there was an attempt to bypass Conditional Access or if the Conditional access rule was not satisfied (ConditionalAccessStatus == 1).\nReferences:\nhttps://docs.microsoft.com/azure/active-directory/conditional-access/overview\nhttps://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins\nhttps://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-sign-ins-error-codes\nConditionalAccessStatus == 0 // Success\nConditionalAccessStatus == 1 // Failure\nConditionalAccessStatus == 2 // Not Applied\nConditionalAccessStatus == 3 // unknown\nNote:\nThis analytic rule is designed to identify potential attempts to bypass Conditional Access policies. Depending on your organization's configuration, some Conditional Access failures may be legitimate and expected.\nIt is recommended to review alerts generated by this rule in the context of your organization's Conditional Access policies and adjust the detection threshold as needed to reduce false positives.\nThis rule includes an optional filter that leverages a watchlist (ConditionalAccessBenignStatusCodes) to exclude known benign status codes. You can customize this watchlist with status codes that are expected in your environment and do not indicate malicious activity.\nBy default, the watchlist-based filtering is commented out to provide full visibility into all relevant events. You may choose to enable this filter by uncommenting the corresponding line in the query to reduce noise from known benign scenarios.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.7",
+                    "contentVersion": "1.0.8",
                     "parameters": {},
                     "variables": {},
                     "resources": [
@@ -2850,10 +2858,10 @@
                             "kind": "Scheduled",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
-                                "description": "Identifies an attempt to Bypass conditional access rule(s) in Microsoft Entra ID.\nThe ConditionalAccessStatus column value details if there was an attempt to bypass Conditional Access or if the Conditional access rule was not satisfied (ConditionalAccessStatus == 1).\nReferences:\nhttps://docs.microsoft.com/azure/active-directory/conditional-access/overview\nhttps://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins\nhttps://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-sign-ins-error-codes\nConditionalAccessStatus == 0 // Success\nConditionalAccessStatus == 1 // Failure\nConditionalAccessStatus == 2 // Not Applied\nConditionalAccessStatus == 3 // unknown",
+                                "description": "Identifies an attempt to Bypass conditional access rule(s) in Microsoft Entra ID.\nThe ConditionalAccessStatus column value details if there was an attempt to bypass Conditional Access or if the Conditional access rule was not satisfied (ConditionalAccessStatus == 1).\nReferences:\nhttps://docs.microsoft.com/azure/active-directory/conditional-access/overview\nhttps://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins\nhttps://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-sign-ins-error-codes\nConditionalAccessStatus == 0 // Success\nConditionalAccessStatus == 1 // Failure\nConditionalAccessStatus == 2 // Not Applied\nConditionalAccessStatus == 3 // unknown\nNote:\nThis analytic rule is designed to identify potential attempts to bypass Conditional Access policies. Depending on your organization's configuration, some Conditional Access failures may be legitimate and expected.\nIt is recommended to review alerts generated by this rule in the context of your organization's Conditional Access policies and adjust the detection threshold as needed to reduce false positives.\nThis rule includes an optional filter that leverages a watchlist (ConditionalAccessBenignStatusCodes) to exclude known benign status codes. You can customize this watchlist with status codes that are expected in your environment and do not indicate malicious activity.\nBy default, the watchlist-based filtering is commented out to provide full visibility into all relevant events. You may choose to enable this filter by uncommenting the corresponding line in the query to reduce noise from known benign scenarios.",
                                 "displayName": "Attempt to bypass conditional access rule in Microsoft Entra ID",
                                 "enabled": false,
-                                "query": "let threshold = 1; // Modify this threshold value to reduce false positives based on your environment\nlet aadFunc = (tableName:string){\ntable(tableName)\n| where ConditionalAccessStatus == 1 or ConditionalAccessStatus =~ \"failure\"\n| mv-apply CAP = parse_json(ConditionalAccessPolicies) on (\n  project ConditionalAccessPoliciesName = CAP.displayName, result = CAP.result\n  | where result =~ \"failure\"\n)\n| extend DeviceDetail = todynamic(DeviceDetail), Status = todynamic(Status), LocationDetails = todynamic(LocationDetails)\n| extend OS = DeviceDetail.operatingSystem, Browser = DeviceDetail.browser\n| extend State = tostring(LocationDetails.state), City = tostring(LocationDetails.city), Region = tostring(LocationDetails.countryOrRegion)\n| extend StatusCode = tostring(Status.errorCode), StatusDetails = tostring(Status.additionalDetails)\n| extend Status = strcat(StatusCode, \": \", ResultDescription)\n| summarize StartTime = min(TimeGenerated), EndTime = max(TimeGenerated), Status = make_list(Status,10), StatusDetails = make_list(StatusDetails,50), IPAddresses = make_list(IPAddress,100), IPAddressCount = dcount(IPAddress), CorrelationIds = make_list(CorrelationId,100), ConditionalAccessPoliciesName = make_list(ConditionalAccessPoliciesName,100)\nby UserPrincipalName, UserId, AppDisplayName, tostring(Browser), tostring(OS), City, State, Region, Type\n| where IPAddressCount > threshold and StatusDetails !has \"MFA successfully completed\"\n| mv-expand IPAddresses, Status, StatusDetails, CorrelationIds\n| extend Status = strcat(Status, \" \", StatusDetails)\n| summarize IPAddresses = make_set(IPAddresses,100), Status = make_set(Status,10), CorrelationIds = make_set(CorrelationIds,100), ConditionalAccessPoliciesName = make_set(ConditionalAccessPoliciesName,100)\nby StartTime, EndTime, UserPrincipalName, UserId, AppDisplayName, tostring(Browser), tostring(OS), City, State, Region, IPAddressCount, Type\n| extend IPAddressFirst = tostring(IPAddresses[0]), Name = tostring(split(UserPrincipalName, \"@\")[0]), UPNSuffix = tostring(split(UserPrincipalName, \"@\")[1])\n};\nlet aadSignin = aadFunc(\"SigninLogs\");\nlet aadNonInt = aadFunc(\"AADNonInteractiveUserSignInLogs\");\nunion isfuzzy=true aadSignin, aadNonInt\n",
+                                "query": "let threshold = 1; // Modify this threshold value to reduce false positives based on your environment\nlet aadFunc = (tableName:string){\ntable(tableName)\n| where ConditionalAccessStatus == 1 or ConditionalAccessStatus =~ \"failure\"\n| mv-apply CAP = parse_json(ConditionalAccessPolicies) on (\n  project ConditionalAccessPoliciesName = CAP.displayName, result = CAP.result\n  | where result =~ \"failure\"\n)\n| extend DeviceDetail = todynamic(DeviceDetail), Status = todynamic(Status), LocationDetails = todynamic(LocationDetails)\n| extend OS = DeviceDetail.operatingSystem, Browser = DeviceDetail.browser\n| extend State = tostring(LocationDetails.state), City = tostring(LocationDetails.city), Region = tostring(LocationDetails.countryOrRegion)\n| extend StatusCode = tostring(Status.errorCode), StatusDetails = tostring(Status.additionalDetails)\n// Filter out status codes using watchlist\n// uncomment the following line to enable watchlist filtering\n// | join kind=leftanti (_GetWatchlist(\"ConditionalAccessBenignStatusCodes\") | project StatusCode) on StatusCode\n| extend Status = strcat(StatusCode, \": \", ResultDescription)\n| summarize StartTime = min(TimeGenerated), EndTime = max(TimeGenerated), Status = make_list(Status,10), StatusDetails = make_list(StatusDetails,50), IPAddresses = make_list(IPAddress,100), IPAddressCount = dcount(IPAddress), CorrelationIds = make_list(CorrelationId,100), ConditionalAccessPoliciesName = make_list(ConditionalAccessPoliciesName,100)\nby UserPrincipalName, UserId, AppDisplayName, tostring(Browser), tostring(OS), City, State, Region, Type\n| where IPAddressCount > threshold and StatusDetails !has \"MFA successfully completed\"\n| mv-expand IPAddresses, Status, StatusDetails, CorrelationIds\n| extend Status = strcat(Status, \" \", StatusDetails)\n| summarize IPAddresses = make_set(IPAddresses,100), Status = make_set(Status,10), CorrelationIds = make_set(CorrelationIds,100), ConditionalAccessPoliciesName = make_set(ConditionalAccessPoliciesName,100)\nby StartTime, EndTime, UserPrincipalName, UserId, AppDisplayName, tostring(Browser), tostring(OS), City, State, Region, IPAddressCount, Type\n| extend IPAddressFirst = tostring(IPAddresses[0]), Name = tostring(split(UserPrincipalName, \"@\")[0]), UPNSuffix = tostring(split(UserPrincipalName, \"@\")[1])\n};\nlet aadSignin = aadFunc(\"SigninLogs\");\nlet aadNonInt = aadFunc(\"AADNonInteractiveUserSignInLogs\");\nunion isfuzzy=true aadSignin, aadNonInt\n",
                                 "queryFrequency": "P1D",
                                 "queryPeriod": "P1D",
                                 "severity": "Low",
@@ -2932,7 +2940,7 @@
                                 "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '3af9285d-bb98-4a35-ad29-5ea39ba0c628')]",
                                 "contentId": "3af9285d-bb98-4a35-ad29-5ea39ba0c628",
                                 "kind": "AnalyticsRule",
-                                "version": "1.0.7",
+                                "version": "1.0.8",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "Microsoft Entra ID",
@@ -2953,16 +2961,16 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "3af9285d-bb98-4a35-ad29-5ea39ba0c628",
                 "contentKind": "AnalyticsRule",
                 "displayName": "Attempt to bypass conditional access rule in Microsoft Entra ID",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-azureactived-ar-7uaqcomkzvuou",
-                "id": "azuresentinel.azure-sentinel-solution-azureactived-ar-7uaqcomkzvuou",
-                "version": "1.0.7",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-azureactived-ar-jaoj5swamrr5a",
+                "id": "azuresentinel.azure-sentinel-solution-azureactived-ar-jaoj5swamrr5a",
+                "version": "1.0.8",
                 "isDeprecated": false,
                 "dependencies": {
                     "operator": "AND",
@@ -3169,7 +3177,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -3335,7 +3343,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -3501,7 +3509,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -3667,7 +3675,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -3833,7 +3841,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -3999,7 +4007,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -4165,7 +4173,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -4306,7 +4314,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -4446,7 +4454,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -4623,7 +4631,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -4765,12 +4773,12 @@
                                 ],
                                 "customDetails": {
                                     "OAuthApplication": "OAuthAppName",
-                                    "UserAgent": "InitiatingUserAgent",
-                                    "OAuthAppId": "AppId"
+                                    "OAuthAppId": "AppId",
+                                    "UserAgent": "InitiatingUserAgent"
                                 },
                                 "alertDetailsOverride": {
-                                    "alertDescriptionFormat": "This detection looks for the full_access_as_app permission being granted to an OAuth application with Admin Consent.\nThis permission provide access to all Exchange mailboxes via the EWS API can could be exploited to access sensitive data \nby being added to a compromised application. The application granted this permission should be reviewed to ensure that it \nis absolutely necessary for the applications function.\nIn this case {{GrantInitiatedBy}} granted full_access_as_app to {{OAuthAppName}} from {{InitiatingIpAddress}}\nRef: https://learn.microsoft.com/graph/auth-limit-mailbox-access\n",
-                                    "alertDisplayNameFormat": "User or App {{GrantInitiatedBy}} granted full_access_as_app to {{OAuthAppName}}"
+                                    "alertDisplayNameFormat": "User or App {{GrantInitiatedBy}} granted full_access_as_app to {{OAuthAppName}}",
+                                    "alertDescriptionFormat": "This detection looks for the full_access_as_app permission being granted to an OAuth application with Admin Consent.\nThis permission provide access to all Exchange mailboxes via the EWS API can could be exploited to access sensitive data \nby being added to a compromised application. The application granted this permission should be reviewed to ensure that it \nis absolutely necessary for the applications function.\nIn this case {{GrantInitiatedBy}} granted full_access_as_app to {{OAuthAppName}} from {{InitiatingIpAddress}}\nRef: https://learn.microsoft.com/graph/auth-limit-mailbox-access\n"
                                 }
                             }
                         },
@@ -4804,7 +4812,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -4945,7 +4953,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -5118,7 +5126,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -5310,7 +5318,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -5463,7 +5471,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -5627,7 +5635,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -5782,7 +5790,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -5941,7 +5949,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -6092,7 +6100,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -6262,7 +6270,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -6399,8 +6407,8 @@
                                     "aggregationKind": "SingleAlert"
                                 },
                                 "alertDetailsOverride": {
-                                    "alertDescriptionFormat": "This detection looks for new onmicrosoft domains being added to a tenant. An attacker who compromises a tenant may register a new onmicrosoft domain in order to masquerade as a service provider for launching phishing accounts. Domain additions are not a common occurrence and users should validate that {{ActionInitiatedBy}} added {{DomainAdded}} with a legitimate purpose.",
-                                    "alertDisplayNameFormat": "{{DomainAdded}} added to tenant by {{ActionInitiatedBy}}"
+                                    "alertDisplayNameFormat": "{{DomainAdded}} added to tenant by {{ActionInitiatedBy}}",
+                                    "alertDescriptionFormat": "This detection looks for new onmicrosoft domains being added to a tenant. An attacker who compromises a tenant may register a new onmicrosoft domain in order to masquerade as a service provider for launching phishing accounts. Domain additions are not a common occurrence and users should validate that {{ActionInitiatedBy}} added {{DomainAdded}} with a legitimate purpose."
                                 }
                             }
                         },
@@ -6434,7 +6442,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -6590,7 +6598,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -6742,7 +6750,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -6908,7 +6916,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -7060,7 +7068,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -7213,7 +7221,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -7382,7 +7390,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -7551,7 +7559,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -7719,7 +7727,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -7892,7 +7900,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -7993,13 +8001,13 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "ResourceDisplayName": "ResourceDisplayName",
-                                    "DomainAdded": "DomainName",
-                                    "ModifiedProperties": "ModifiedProperties",
-                                    "SignInTime": "SignInTime",
+                                    "AppDisplayName": "AppDisplayName",
                                     "InitiatedBy": "InitiatedBy",
-                                    "DomainAddedTime": "DomainAddedTime",
-                                    "AppDisplayName": "AppDisplayName"
+                                    "DomainAdded": "DomainName",
+                                    "SignInTime": "SignInTime",
+                                    "ResourceDisplayName": "ResourceDisplayName",
+                                    "ModifiedProperties": "ModifiedProperties",
+                                    "DomainAddedTime": "DomainAddedTime"
                                 }
                             }
                         },
@@ -8033,7 +8041,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -8187,7 +8195,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -8376,7 +8384,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -8522,7 +8530,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -8657,7 +8665,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -8789,7 +8797,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -8929,7 +8937,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -9095,7 +9103,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -9227,7 +9235,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -9399,7 +9407,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -9572,8 +9580,8 @@
                                     }
                                 ],
                                 "alertDetailsOverride": {
-                                    "alertDescriptionFormat": "This query looks for suspicious updates to an Microsoft Entra ID joined device where the device name is changed and the device falls out of compliance.\nIn this case {{OldDeviceName}} was renamed to {{NewDeviceName}} and {{UpdatedPropertiesCount}} properties were changed.\nThis could occur when a threat actor updates the details of an Autopilot provisioned device using a stolen device ticket, in order to access certificates and keys.\nRef: https://dirkjanm.io/assets/raw/Insomnihack%20Breaking%20and%20fixing%20Azure%20AD%20device%20identity%20security.pdf\n",
-                                    "alertDisplayNameFormat": "Suspicious Entra ID Joined Device Update {{OldDeviceName}} renamed to {{NewDeviceName}} and {{UpdatedPropertiesCount}} properties changed"
+                                    "alertDisplayNameFormat": "Suspicious Entra ID Joined Device Update {{OldDeviceName}} renamed to {{NewDeviceName}} and {{UpdatedPropertiesCount}} properties changed",
+                                    "alertDescriptionFormat": "This query looks for suspicious updates to an Microsoft Entra ID joined device where the device name is changed and the device falls out of compliance.\nIn this case {{OldDeviceName}} was renamed to {{NewDeviceName}} and {{UpdatedPropertiesCount}} properties were changed.\nThis could occur when a threat actor updates the details of an Autopilot provisioned device using a stolen device ticket, in order to access certificates and keys.\nRef: https://dirkjanm.io/assets/raw/Insomnihack%20Breaking%20and%20fixing%20Azure%20AD%20device%20identity%20security.pdf\n"
                                 }
                             }
                         },
@@ -9607,7 +9615,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -9760,7 +9768,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -9925,7 +9933,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -10092,8 +10100,8 @@
                                     "aggregationKind": "AlertPerResult"
                                 },
                                 "alertDetailsOverride": {
-                                    "alertDescriptionFormat": "This query looks uses Microsoft Sentinel's UEBA features to look for suspicious logons followed by modifications to MFA settings by that user.\nIn this case {{InitiatorUPN}} logged in followed by a modification to MFA settings for {{TargetUPN}}.\nThe sign in was from {{SourceIPAddress}}.\n",
-                                    "alertDisplayNameFormat": "Suspicious Sign In by {{InitiatorUPN}} Followed by MFA Modification to {{TargetUPN}}"
+                                    "alertDisplayNameFormat": "Suspicious Sign In by {{InitiatorUPN}} Followed by MFA Modification to {{TargetUPN}}",
+                                    "alertDescriptionFormat": "This query looks uses Microsoft Sentinel's UEBA features to look for suspicious logons followed by modifications to MFA settings by that user.\nIn this case {{InitiatorUPN}} logged in followed by a modification to MFA settings for {{TargetUPN}}.\nThe sign in was from {{SourceIPAddress}}.\n"
                                 }
                             }
                         },
@@ -10127,7 +10135,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -10320,7 +10328,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -10484,7 +10492,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -10680,7 +10688,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -10853,7 +10861,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -11026,7 +11034,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -11128,8 +11136,8 @@
                                     "createIncident": true,
                                     "groupingConfiguration": {
                                         "enabled": false,
-                                        "lookbackDuration": "PT5H",
                                         "reopenClosedIncident": false,
+                                        "lookbackDuration": "PT5H",
                                         "matchingMethod": "AllEntities"
                                     }
                                 }
@@ -11165,7 +11173,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -11265,8 +11273,8 @@
                                     "createIncident": true,
                                     "groupingConfiguration": {
                                         "enabled": false,
-                                        "lookbackDuration": "PT1H",
                                         "reopenClosedIncident": false,
+                                        "lookbackDuration": "PT1H",
                                         "matchingMethod": "AllEntities"
                                     }
                                 }
@@ -11302,7 +11310,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -11399,8 +11407,8 @@
                                     "createIncident": true,
                                     "groupingConfiguration": {
                                         "enabled": false,
-                                        "lookbackDuration": "PT1H",
                                         "reopenClosedIncident": false,
+                                        "lookbackDuration": "PT1H",
                                         "matchingMethod": "AllEntities"
                                     }
                                 }
@@ -11436,7 +11444,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -11536,8 +11544,8 @@
                                     "createIncident": true,
                                     "groupingConfiguration": {
                                         "enabled": false,
-                                        "lookbackDuration": "PT1H",
                                         "reopenClosedIncident": false,
+                                        "lookbackDuration": "PT1H",
                                         "matchingMethod": "AllEntities"
                                     }
                                 }
@@ -11573,7 +11581,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -11673,8 +11681,8 @@
                                     "createIncident": true,
                                     "groupingConfiguration": {
                                         "enabled": false,
-                                        "lookbackDuration": "PT1H",
                                         "reopenClosedIncident": false,
+                                        "lookbackDuration": "PT1H",
                                         "matchingMethod": "AllEntities"
                                     }
                                 }
@@ -11710,7 +11718,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -11810,8 +11818,8 @@
                                     "createIncident": true,
                                     "groupingConfiguration": {
                                         "enabled": false,
-                                        "lookbackDuration": "PT5M",
                                         "reopenClosedIncident": false,
+                                        "lookbackDuration": "PT5M",
                                         "matchingMethod": "AllEntities"
                                     }
                                 }
@@ -11847,7 +11855,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -11944,8 +11952,8 @@
                                     "createIncident": true,
                                     "groupingConfiguration": {
                                         "enabled": false,
-                                        "lookbackDuration": "PT1H",
                                         "reopenClosedIncident": false,
+                                        "lookbackDuration": "PT1H",
                                         "matchingMethod": "AllEntities"
                                     }
                                 }
@@ -11981,7 +11989,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -12081,8 +12089,8 @@
                                     "createIncident": true,
                                     "groupingConfiguration": {
                                         "enabled": false,
-                                        "lookbackDuration": "PT1H",
                                         "reopenClosedIncident": false,
+                                        "lookbackDuration": "PT1H",
                                         "matchingMethod": "AllEntities"
                                     }
                                 }
@@ -12118,7 +12126,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -12218,8 +12226,8 @@
                                     "createIncident": true,
                                     "groupingConfiguration": {
                                         "enabled": false,
-                                        "lookbackDuration": "PT1H",
                                         "reopenClosedIncident": false,
+                                        "lookbackDuration": "PT1H",
                                         "matchingMethod": "AllEntities"
                                     }
                                 }
@@ -12255,7 +12263,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -12352,8 +12360,8 @@
                                     "createIncident": true,
                                     "groupingConfiguration": {
                                         "enabled": false,
-                                        "lookbackDuration": "PT5H",
                                         "reopenClosedIncident": false,
+                                        "lookbackDuration": "PT5H",
                                         "matchingMethod": "AllEntities"
                                     }
                                 }
@@ -12389,7 +12397,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -12847,7 +12855,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -13165,18 +13173,17 @@
                                                     "type": "If"
                                                 },
                                                 "Update_user_-_disable_user": {
-                                                    "type": "ApiConnection",
+                                                    "type": "Http",
                                                     "inputs": {
+                                                        "authentication": {
+                                                            "audience": "https://graph.microsoft.com/",
+                                                            "type": "ManagedServiceIdentity"
+                                                        },
                                                         "body": {
                                                             "accountEnabled": false
                                                         },
-                                                        "host": {
-                                                            "connection": {
-                                                                "name": "@parameters('$connections')['azuread']['connectionId']"
-                                                            }
-                                                        },
-                                                        "method": "patch",
-                                                        "path": "/v1.0/users/@{encodeURIComponent(concat(items('For_each')?['Name'], '@', items('for_each')?['UPNSuffix']))}"
+                                                        "method": "PATCH",
+                                                        "uri": "https://graph.microsoft.com/v1.0/users/@{concat(items('For_each')?['Name'], '@', items('for_each')?['UPNSuffix'])}"
                                                     }
                                                 }
                                             },
@@ -13275,7 +13282,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -13712,7 +13719,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -14132,7 +14139,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -14534,7 +14541,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -14919,7 +14926,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -15382,7 +15389,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -15789,7 +15796,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -16123,7 +16130,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -16435,7 +16442,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -16652,7 +16659,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.8",
+                "packageVersion": "3.3.12",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -16666,20 +16673,42 @@
             }
         },
         {
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',parameters('watchlist1-id'))]",
+            "type": "Microsoft.OperationalInsights/workspaces/providers/Watchlists",
+            "properties": {
+                "displayName": "ConditionalAccessBenignStatusCodes",
+                "source": "ConditionalAccessBenignStatusCodes.csv",
+                "description": "Contains known benign Conditional Access status codes that should be filtered out from bypass detection to reduce false positives. These codes represent expected user behavior like MFA prompts, location changes, and session expiration.",
+                "provider": "Microsoft",
+                "isDeleted": false,
+                "labels": [
+                    "ConditionalAccess",
+                    "FalsePositiveReduction",
+                    "EntraID"
+                ],
+                "defaultDuration": "P1000Y",
+                "contentType": "Text/Csv",
+                "numberOfLinesToSkip": 0,
+                "itemsSearchKey": "StatusCode",
+                "rawContent": "StatusCode,Description\r\n50074,UserStrongAuthClientAuthNRequiredInterrupt - Strong authentication is required and the user did not pass the MFA challenge\r\n50076,UserStrongAuthClientAuthNRequired - Due to a configuration change made by the admin such as a Conditional Access policy per-user enforcement or because you moved to a new location the user must use multifactor authentication to access the resource\r\n50097,DeviceAuthenticationRequired - Device authentication is required\r\n50125,PasswordResetRegistrationRequiredInterrupt - Sign-in was interrupted because of a password reset or password registration entry\r\n50140,KmsiInterrupt - This error occurred due to Keep me signed in interrupt when the user was signing-in\r\n70043,BadTokenDueToSignInFrequency - The refresh token has expired or is invalid due to sign-in frequency checks by Conditional Access\r\n700082,ExpiredOrRevokedGrantInactiveToken - The refresh token has expired due to inactivity\r\n"
+            },
+            "apiVersion": "2022-08-01"
+        },
+        {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentPackages",
             "apiVersion": "2023-04-01-preview",
             "location": "[parameters('workspace-location')]",
             "properties": {
-                "version": "3.3.8",
+                "version": "3.3.12",
                 "kind": "Solution",
                 "contentSchemaVersion": "3.0.0",
                 "displayName": "Microsoft Entra ID",
                 "publisherDisplayName": "Microsoft Sentinel, Microsoft Corporation",
                 "descriptionHtml": "<p><strong>Note:</strong> Please refer to the following before installing the solution:</p><p>\u2022 Review the solution <a target=\"_blank\" href=\"https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Microsoft%20Entra%20ID/ReleaseNotes.md\" rel=\"noopener\">Release Notes</a></p><p>The <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis?WT.mc_id=Portal-fx\" rel=\"noopener\">Microsoft Entra ID</a> solution for Microsoft Sentinel enables you to ingest Microsoft Entra ID <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/active-directory/reports-monitoring/concept-audit-logs?WT.mc_id=Portal-fx\" rel=\"noopener\">Audit</a>, <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins?WT.mc_id=Portal-fx\" rel=\"noopener\">Sign-in</a>, <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs?WT.mc_id=Portal-fx\" rel=\"noopener\">Provisioning</a>, <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-investigate-risk?WT.mc_id=Portal-fx#risky-users\" rel=\"noopener\">Risk Events and Risky User/Service Principal</a> logs using Diagnostic Settings into Microsoft Sentinel.</p><p><strong>Data Connectors:</strong> 1, <strong>Workbooks:</strong> 3, <strong>Analytic Rules:</strong> 73, <strong>Playbooks:</strong> 11</p><p><a target=\"_blank\" href=\"https://aka.ms/azuresentinel\" rel=\"noopener\">Learn more about Microsoft Sentinel</a> | <a target=\"_blank\" href=\"https://aka.ms/azuresentinelsolutionsdoc\" rel=\"noopener\">Learn more about Solutions</a></p>",
                 "contentKind": "Solution",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-azureactived-sl-uu6gkttslfsn2",
-                "id": "azuresentinel.azure-sentinel-solution-azureactived-sl-uu6gkttslfsn2",
-                "icon": "https://store-images.s-microsoft.com/image/apps.63019.f4e33ccb-a961-4bde-8f74-f1ba3bc32580.34d92f17-5ffa-4794-8462-1fa3b920db07.258df8cd-f330-41f7-bb62-953620add315",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-azureactived-sl-6ibkz6t5qdiai",
+                "id": "azuresentinel.azure-sentinel-solution-azureactived-sl-6ibkz6t5qdiai",
+                "icon": "https://catalogartifact.azureedge.net/publicartifacts/azuresentinel.azure-sentinel-solution-azureactivedirectory-c4eea393-da82-4e4b-a245-c13a5c5bc67b/image1_EntraIDLogo.png",
                 "contentId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "parentId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "source": {
@@ -16723,7 +16752,7 @@
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "bb616d82-108f-47d3-9dec-9652ea0d3bf6",
-                            "version": "1.1.0"
+                            "version": "1.1.1"
                         },
                         {
                             "kind": "AnalyticsRule",
@@ -16778,7 +16807,7 @@
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "3fbc20a4-04c4-464e-8fcb-6667f53e4987",
-                            "version": "2.0.1"
+                            "version": "2.0.2"
                         },
                         {
                             "kind": "AnalyticsRule",
@@ -16788,7 +16817,7 @@
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "3af9285d-bb98-4a35-ad29-5ea39ba0c628",
-                            "version": "1.0.7"
+                            "version": "1.0.8"
                         },
                         {
                             "kind": "AnalyticsRule",
@@ -17139,6 +17168,11 @@
                             "kind": "Playbook",
                             "contentId": "Revoke-AADSignInSessions-entity-trigger",
                             "version": "1.0"
+                        },
+                        {
+                            "kind": "Watchlist",
+                            "contentId": "ConditionalAccessBenignStatusCodes",
+                            "version": "3.3.12"
                         }
                     ]
                 },

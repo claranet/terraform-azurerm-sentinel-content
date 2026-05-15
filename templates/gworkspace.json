@@ -149,7 +149,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -180,7 +180,7 @@
                     "resources": [
                         {
                             "name": "[concat(parameters('workspace'),'/','GWorkspaceActivityReports')]",
-                            "apiVersion": "2022-10-01",
+                            "apiVersion": "2025-07-01",
                             "type": "Microsoft.OperationalInsights/workspaces/savedSearches",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -231,7 +231,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -246,7 +246,7 @@
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/savedSearches",
-            "apiVersion": "2022-10-01",
+            "apiVersion": "2025-07-01",
             "name": "[concat(parameters('workspace'),'/','GWorkspaceActivityReports')]",
             "location": "[parameters('workspace-location')]",
             "properties": {
@@ -332,10 +332,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "GoogleWorkspaceReportsAPI",
                                         "dataTypes": [
                                             "GWorkspaceActivityReports"
-                                        ]
+                                        ],
+                                        "connectorId": "GoogleWorkspaceReportsAPI"
                                     }
                                 ],
                                 "tactics": [
@@ -387,7 +387,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -450,10 +450,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "GoogleWorkspaceReportsAPI",
                                         "dataTypes": [
                                             "GWorkspaceActivityReports"
-                                        ]
+                                        ],
+                                        "connectorId": "GoogleWorkspaceReportsAPI"
                                     }
                                 ],
                                 "tactics": [
@@ -506,7 +506,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -569,10 +569,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "GoogleWorkspaceReportsAPI",
                                         "dataTypes": [
                                             "GWorkspaceActivityReports"
-                                        ]
+                                        ],
+                                        "connectorId": "GoogleWorkspaceReportsAPI"
                                     }
                                 ],
                                 "tactics": [
@@ -625,7 +625,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -688,10 +688,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "GoogleWorkspaceReportsAPI",
                                         "dataTypes": [
                                             "GWorkspaceActivityReports"
-                                        ]
+                                        ],
+                                        "connectorId": "GoogleWorkspaceReportsAPI"
                                     }
                                 ],
                                 "tactics": [
@@ -743,7 +743,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -806,10 +806,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "GoogleWorkspaceReportsAPI",
                                         "dataTypes": [
                                             "GWorkspaceActivityReports"
-                                        ]
+                                        ],
+                                        "connectorId": "GoogleWorkspaceReportsAPI"
                                     }
                                 ],
                                 "tactics": [
@@ -863,7 +863,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -926,10 +926,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "GoogleWorkspaceReportsAPI",
                                         "dataTypes": [
                                             "GWorkspaceActivityReports"
-                                        ]
+                                        ],
+                                        "connectorId": "GoogleWorkspaceReportsAPI"
                                     }
                                 ],
                                 "tactics": [
@@ -981,7 +981,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -1044,10 +1044,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "GoogleWorkspaceReportsAPI",
                                         "dataTypes": [
                                             "GWorkspaceActivityReports"
-                                        ]
+                                        ],
+                                        "connectorId": "GoogleWorkspaceReportsAPI"
                                     }
                                 ],
                                 "tactics": [
@@ -1099,7 +1099,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -1162,10 +1162,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "GoogleWorkspaceReportsAPI",
                                         "dataTypes": [
                                             "GWorkspaceActivityReports"
-                                        ]
+                                        ],
+                                        "connectorId": "GoogleWorkspaceReportsAPI"
                                     }
                                 ],
                                 "tactics": [
@@ -1226,7 +1226,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -1289,10 +1289,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "GoogleWorkspaceReportsAPI",
                                         "dataTypes": [
                                             "GWorkspaceActivityReports"
-                                        ]
+                                        ],
+                                        "connectorId": "GoogleWorkspaceReportsAPI"
                                     }
                                 ],
                                 "tactics": [
@@ -1344,7 +1344,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -1407,10 +1407,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "GoogleWorkspaceReportsAPI",
                                         "dataTypes": [
                                             "GWorkspaceActivityReports"
-                                        ]
+                                        ],
+                                        "connectorId": "GoogleWorkspaceReportsAPI"
                                     }
                                 ],
                                 "tactics": [
@@ -1464,7 +1464,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -1493,7 +1493,7 @@
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
             "apiVersion": "2023-04-01-preview",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', concat(parameters('workspace'),'-dc-',uniquestring('GoogleWorkspaceCCPDefinition')), '1.0.0')]",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', concat(parameters('workspace'),'-dc-',uniquestring('GoogleWorkspaceCCPDefinition')), '3.0.4')]",
             "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-googleworkspacereports')]"
@@ -1504,7 +1504,7 @@
                 "contentKind": "DataConnector",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0",
+                    "contentVersion": "3.0.4",
                     "parameters": {},
                     "variables": {},
                     "resources": [
@@ -1546,7 +1546,7 @@
                                         }
                                     ],
                                     "availability": {
-                                        "isPreview": true
+                                        "isPreview": false
                                     },
                                     "permissions": {
                                         "resourceProvider": [
@@ -1575,7 +1575,7 @@
                                                 {
                                                     "type": "Markdown",
                                                     "parameters": {
-                                                        "content": "#### Configuration steps for the Google Reports API\n\n1. Login to Google cloud console with your Workspace Admin credentials https://console.cloud.google.com.\n2. Using the search option (available at the top middle), Search for ***APIs & Services***\n3. From ***APIs & Services*** -> ***Enabled APIs & Services***, enable **Admin SDK API** for this project.\n 4. Go to ***APIs & Services*** -> ***OAuth Consent Screen***. If not already configured, create a OAuth Consent Screen with the following steps:\n\t 1. Provide App Name and other mandatory information.\n\t 2. Add authorized domains with API Access Enabled.\n\t 3. In Scopes section, add **Admin SDK API** scope.\n\t 4. In Test Users section, make sure the domain admin account is added.\n 5. Go to ***APIs & Services*** -> ***Credentials*** and create OAuth 2.0 Client ID\n\t 1. Click on Create Credentials on the top and select Oauth client Id.\n\t 2. Select Web Application from the Application Type drop down.\n\t 3. Provide a suitable name to the Web App and add the Redirect URI in the form below as the Authorized redirect URIs.\n\t 4. Once you click Create, you will be provided with the Client ID and Client Secret. \n\tCopy these values and use them in the configuration steps below."
+                                                        "content": "#### Configuration steps for the Google Reports API\n\n1. Login to Google cloud console with your Workspace Admin credentials https://console.cloud.google.com.\n2. Using the search option (available at the top middle), Search for ***APIs & Services***\n3. From ***APIs & Services*** -> ***Enabled APIs & Services***, enable **Admin SDK API** for this project.\n 4. Go to ***APIs & Services*** -> ***OAuth Consent Screen***. If not already configured, create a OAuth Consent Screen with the following steps:\n\t 1. Provide App Name and other mandatory information.\n\t 2. Pick External as User Type for the Audience.\n 5. Go to ***APIs & Services*** -> ***Credentials*** and create OAuth 2.0 Client ID\n\t 1. Click on Create Credentials on the top and select Oauth client Id.\n\t 2. Select Web Application from the Application Type drop down.\n\t 3. Provide a suitable name to the Web App and add the Redirect URI in the form below as the Authorized redirect URIs.\n\t 4. Once you click Create, you will be provided with the Client ID and Client Secret. \n\tCopy these values and use them in the configuration steps below.\n 6. Go to ***Google Auth Platform*** -> ***Data Access***: Add ***Admin SDK API*** scope"
                                                     }
                                                 },
                                                 {
@@ -1626,7 +1626,7 @@
                                 "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectorDefinitions', 'GoogleWorkspaceCCPDefinition')]",
                                 "contentId": "GoogleWorkspaceCCPDefinition",
                                 "kind": "DataConnector",
-                                "version": "1.0.0",
+                                "version": "3.0.4",
                                 "source": {
                                     "sourceId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                                     "name": "GoogleWorkspaceReports",
@@ -1645,7 +1645,7 @@
                                 "dependencies": {
                                     "criteria": [
                                         {
-                                            "version": "1.0.0",
+                                            "version": "3.0.4",
                                             "contentId": "GoogleWorkspaceCCPDefinitionConnections",
                                             "kind": "ResourcesDataConnector"
                                         }
@@ -1685,13 +1685,13 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "GoogleWorkspaceReports",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-googleworksp-dc-umrgngdrsppba",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-googleworksp-dc-74sqnvjjnuyts",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
-                "version": "1.0.0",
-                "id": "azuresentinel.azure-sentinel-solution-googleworksp-dc-umrgngdrsppba",
+                "version": "3.0.4",
+                "id": "azuresentinel.azure-sentinel-solution-googleworksp-dc-74sqnvjjnuyts",
                 "isDeprecated": false,
                 "description": ""
             }
@@ -1734,7 +1734,7 @@
                         }
                     ],
                     "availability": {
-                        "isPreview": true
+                        "isPreview": false
                     },
                     "permissions": {
                         "resourceProvider": [
@@ -1763,7 +1763,7 @@
                                 {
                                     "type": "Markdown",
                                     "parameters": {
-                                        "content": "#### Configuration steps for the Google Reports API\n\n1. Login to Google cloud console with your Workspace Admin credentials https://console.cloud.google.com.\n2. Using the search option (available at the top middle), Search for ***APIs & Services***\n3. From ***APIs & Services*** -> ***Enabled APIs & Services***, enable **Admin SDK API** for this project.\n 4. Go to ***APIs & Services*** -> ***OAuth Consent Screen***. If not already configured, create a OAuth Consent Screen with the following steps:\n\t 1. Provide App Name and other mandatory information.\n\t 2. Add authorized domains with API Access Enabled.\n\t 3. In Scopes section, add **Admin SDK API** scope.\n\t 4. In Test Users section, make sure the domain admin account is added.\n 5. Go to ***APIs & Services*** -> ***Credentials*** and create OAuth 2.0 Client ID\n\t 1. Click on Create Credentials on the top and select Oauth client Id.\n\t 2. Select Web Application from the Application Type drop down.\n\t 3. Provide a suitable name to the Web App and add the Redirect URI in the form below as the Authorized redirect URIs.\n\t 4. Once you click Create, you will be provided with the Client ID and Client Secret. \n\tCopy these values and use them in the configuration steps below."
+                                        "content": "#### Configuration steps for the Google Reports API\n\n1. Login to Google cloud console with your Workspace Admin credentials https://console.cloud.google.com.\n2. Using the search option (available at the top middle), Search for ***APIs & Services***\n3. From ***APIs & Services*** -> ***Enabled APIs & Services***, enable **Admin SDK API** for this project.\n 4. Go to ***APIs & Services*** -> ***OAuth Consent Screen***. If not already configured, create a OAuth Consent Screen with the following steps:\n\t 1. Provide App Name and other mandatory information.\n\t 2. Pick External as User Type for the Audience.\n 5. Go to ***APIs & Services*** -> ***Credentials*** and create OAuth 2.0 Client ID\n\t 1. Click on Create Credentials on the top and select Oauth client Id.\n\t 2. Select Web Application from the Application Type drop down.\n\t 3. Provide a suitable name to the Web App and add the Redirect URI in the form below as the Authorized redirect URIs.\n\t 4. Once you click Create, you will be provided with the Client ID and Client Secret. \n\tCopy these values and use them in the configuration steps below.\n 6. Go to ***Google Auth Platform*** -> ***Data Access***: Add ***Admin SDK API*** scope"
                                     }
                                 },
                                 {
@@ -1814,7 +1814,7 @@
                 "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectorDefinitions', 'GoogleWorkspaceCCPDefinition')]",
                 "contentId": "GoogleWorkspaceCCPDefinition",
                 "kind": "DataConnector",
-                "version": "1.0.0",
+                "version": "3.0.4",
                 "source": {
                     "sourceId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                     "name": "GoogleWorkspaceReports",
@@ -1833,7 +1833,7 @@
                 "dependencies": {
                     "criteria": [
                         {
-                            "version": "1.0.0",
+                            "version": "3.0.4",
                             "contentId": "GoogleWorkspaceCCPDefinitionConnections",
                             "kind": "ResourcesDataConnector"
                         }
@@ -1844,7 +1844,7 @@
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
             "apiVersion": "2023-04-01-preview",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', concat(parameters('workspace'),'-dc-',uniquestring('GoogleWorkspaceCCPDefinitionConnections')), '1.0.0')]",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', concat(parameters('workspace'),'-dc-',uniquestring('GoogleWorkspaceCCPDefinitionConnections')), '3.0.4')]",
             "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-googleworkspacereports')]"
@@ -1855,7 +1855,7 @@
                 "contentKind": "ResourcesDataConnector",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0",
+                    "contentVersion": "3.0.4",
                     "parameters": {
                         "guidValue": {
                             "defaultValue": "[[newGuid()]",
@@ -1914,7 +1914,7 @@
                                 "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'GoogleWorkspaceCCPDefinitionConnections')]",
                                 "contentId": "GoogleWorkspaceCCPDefinitionConnections",
                                 "kind": "ResourcesDataConnector",
-                                "version": "1.0.0",
+                                "version": "3.0.4",
                                 "source": {
                                     "sourceId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                                     "name": "GoogleWorkspaceReports",
@@ -3384,13 +3384,13 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "GoogleWorkspaceReports",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-googleworksp-rdc-lbulbncd5hdwm",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-googleworksp-rdc-kmsfcjgwopll2",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
-                "version": "1.0.0",
-                "id": "azuresentinel.azure-sentinel-solution-googleworksp-rdc-lbulbncd5hdwm",
+                "version": "3.0.4",
+                "id": "azuresentinel.azure-sentinel-solution-googleworksp-rdc-kmsfcjgwopll2",
                 "isDeprecated": false,
                 "description": ""
             }
@@ -3413,7 +3413,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2022-10-01",
+                            "apiVersion": "2025-07-01",
                             "name": "GoogleWorkspaceReports_Hunting_Query_1",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -3468,7 +3468,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -3499,7 +3499,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2022-10-01",
+                            "apiVersion": "2025-07-01",
                             "name": "GoogleWorkspaceReports_Hunting_Query_2",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -3554,7 +3554,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -3585,7 +3585,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2022-10-01",
+                            "apiVersion": "2025-07-01",
                             "name": "GoogleWorkspaceReports_Hunting_Query_3",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -3640,7 +3640,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -3671,7 +3671,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2022-10-01",
+                            "apiVersion": "2025-07-01",
                             "name": "GoogleWorkspaceReports_Hunting_Query_4",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -3726,7 +3726,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -3757,7 +3757,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2022-10-01",
+                            "apiVersion": "2025-07-01",
                             "name": "GoogleWorkspaceReports_Hunting_Query_5",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -3812,7 +3812,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -3843,7 +3843,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2022-10-01",
+                            "apiVersion": "2025-07-01",
                             "name": "GoogleWorkspaceReports_Hunting_Query_6",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -3898,7 +3898,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -3929,7 +3929,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2022-10-01",
+                            "apiVersion": "2025-07-01",
                             "name": "GoogleWorkspaceReports_Hunting_Query_7",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -3984,7 +3984,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -4015,7 +4015,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2022-10-01",
+                            "apiVersion": "2025-07-01",
                             "name": "GoogleWorkspaceReports_Hunting_Query_8",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -4070,7 +4070,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -4101,7 +4101,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2022-10-01",
+                            "apiVersion": "2025-07-01",
                             "name": "GoogleWorkspaceReports_Hunting_Query_9",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -4156,7 +4156,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -4187,7 +4187,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2022-10-01",
+                            "apiVersion": "2025-07-01",
                             "name": "GoogleWorkspaceReports_Hunting_Query_10",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -4242,7 +4242,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -4273,7 +4273,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2022-10-01",
+                            "apiVersion": "2025-07-01",
                             "name": "GoogleWorkspaceReports_Hunting_Query_11",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -4328,7 +4328,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -4359,7 +4359,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2022-10-01",
+                            "apiVersion": "2025-07-01",
                             "name": "GoogleWorkspaceReports_Hunting_Query_12",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -4414,7 +4414,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.3",
+                "packageVersion": "3.0.4",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -4432,16 +4432,16 @@
             "apiVersion": "2023-04-01-preview",
             "location": "[parameters('workspace-location')]",
             "properties": {
-                "version": "3.0.3",
+                "version": "3.0.4",
                 "kind": "Solution",
                 "contentSchemaVersion": "3.0.0",
                 "displayName": "Google Workspace Reports",
                 "publisherDisplayName": "Microsoft Sentinel, Microsoft Corporation",
                 "descriptionHtml": "<p><strong>Note:</strong> Please refer to the following before installing the solution:</p><p>\u2022 Review the solution <a target=\"_blank\" href=\"https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/GoogleWorkspaceReports/ReleaseNotes.md\" rel=\"noopener\">Release Notes</a></p><p>The <a target=\"_blank\" href=\"https://workspace.google.com/\" rel=\"noopener\">Google Workspace</a> solution for Microsoft Sentinel enables you to ingest Google Workspace Activity events into Microsoft Sentinel.</p><p><strong>Underlying Microsoft Technologies used:</strong></p><p>This solution takes a dependency on the following technologies, and some of these dependencies either may be in <a target=\"_blank\" href=\"https://azure.microsoft.com/support/legal/preview-supplemental-terms/\" rel=\"noopener\">Preview</a> state or might result in additional ingestion or operational costs:</p><p>\u2022 <a target=\"_blank\" href=\"https://aka.ms/Sentinel-CCP_Platform\" rel=\"noopener\">Microsoft Sentinel Codeless Connector Framework</a></p><p><strong>Data Connectors:</strong> 1, <strong>Parsers:</strong> 1, <strong>Workbooks:</strong> 1, <strong>Analytic Rules:</strong> 10, <strong>Hunting Queries:</strong> 12</p><p><a target=\"_blank\" href=\"https://aka.ms/azuresentinel\" rel=\"noopener\">Learn more about Microsoft Sentinel</a> | <a target=\"_blank\" href=\"https://aka.ms/azuresentinelsolutionsdoc\" rel=\"noopener\">Learn more about Solutions</a></p>",
                 "contentKind": "Solution",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-googleworksp-sl-6a5l6f2lvlre4",
-                "id": "azuresentinel.azure-sentinel-solution-googleworksp-sl-6a5l6f2lvlre4",
-                "icon": "https://store-images.s-microsoft.com/image/apps.6107.7aa78aae-c722-4dc0-993c-3401b43c13d7.04302653-1009-4206-84fc-54ae9ec5b67c.98790eca-f40c-4dc5-8691-2813c64d99ff",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-googleworksp-sl-fcnhbdaccdtjs",
+                "id": "azuresentinel.azure-sentinel-solution-googleworksp-sl-fcnhbdaccdtjs",
+                "icon": "https://catalogartifact.azureedge.net/publicartifacts/azuresentinel.azure-sentinel-solution-googleworkspacereports-ccb85372-7cc9-4d92-9a6d-a707161d4b8c/64279d67-d22d-4a83-8da9-91505e2b63ea_Googleworkspace.png",
                 "contentId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "parentId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "source": {
@@ -4525,7 +4525,7 @@
                         {
                             "kind": "DataConnector",
                             "contentId": "GoogleWorkspaceCCPDefinitionConnections",
-                            "version": "1.0.0"
+                            "version": "3.0.4"
                         },
                         {
                             "kind": "HuntingQuery",
