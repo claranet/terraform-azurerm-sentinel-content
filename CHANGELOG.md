@@ -1,3 +1,9 @@
+## 8.6.5 (2026-05-15)
+
+### Code Refactoring
+
+* replace old Cloudflare package with the new one (Cloudflare CCF) 4ccbb9d
+
 ## 8.6.4 (2026-05-15)
 
 ### Code Refactoring
