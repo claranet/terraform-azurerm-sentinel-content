@@ -113,8 +113,8 @@
                                         "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "FullName",
-                                                "columnName": "actor_alternateId_s"
+                                                "columnName": "actor_alternateId_s",
+                                                "identifier": "FullName"
                                             }
                                         ]
                                     },
@@ -122,8 +122,8 @@
                                         "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Address",
-                                                "columnName": "ClientIP"
+                                                "columnName": "ClientIP",
+                                                "identifier": "Address"
                                             }
                                         ]
                                     }
@@ -160,7 +160,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.4",
+                "packageVersion": "3.1.7",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -257,8 +257,8 @@
                                         "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "FullName",
-                                                "columnName": "actor_alternateId_s"
+                                                "columnName": "actor_alternateId_s",
+                                                "identifier": "FullName"
                                             }
                                         ]
                                     }
@@ -295,7 +295,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.4",
+                "packageVersion": "3.1.7",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -392,8 +392,8 @@
                                         "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Address",
-                                                "columnName": "client_ipAddress_s"
+                                                "columnName": "client_ipAddress_s",
+                                                "identifier": "Address"
                                             }
                                         ]
                                     }
@@ -430,7 +430,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.4",
+                "packageVersion": "3.1.7",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -524,12 +524,12 @@
                                         "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "actor_alternateId_s"
+                                                "columnName": "actor_alternateId_s",
+                                                "identifier": "Name"
                                             },
                                             {
-                                                "identifier": "DisplayName",
-                                                "columnName": "actor_displayName_s"
+                                                "columnName": "actor_displayName_s",
+                                                "identifier": "DisplayName"
                                             }
                                         ]
                                     },
@@ -537,8 +537,8 @@
                                         "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Address",
-                                                "columnName": "client_ipAddress_s"
+                                                "columnName": "client_ipAddress_s",
+                                                "identifier": "Address"
                                             }
                                         ]
                                     }
@@ -579,7 +579,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.4",
+                "packageVersion": "3.1.7",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -675,12 +675,12 @@
                                         "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "actor_alternateId_s"
+                                                "columnName": "actor_alternateId_s",
+                                                "identifier": "Name"
                                             },
                                             {
-                                                "identifier": "DisplayName",
-                                                "columnName": "actor_displayName_s"
+                                                "columnName": "actor_displayName_s",
+                                                "identifier": "DisplayName"
                                             }
                                         ]
                                     },
@@ -688,8 +688,8 @@
                                         "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Address",
-                                                "columnName": "client_ipAddress_s"
+                                                "columnName": "client_ipAddress_s",
+                                                "identifier": "Address"
                                             }
                                         ]
                                     }
@@ -734,7 +734,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.4",
+                "packageVersion": "3.1.7",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -777,7 +777,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-okta')]"
             ],
             "properties": {
-                "description": "MFA fatigue attack is a cybersecurity threat where attackers exploit user exhaustion from multi-factor authentication prompts to trick them into providing their MFA details thus compromising their own security. The query identifies MFA fatigue attempts in the Okta data. \n Ref: www.okta.com/blog/identity-security/mfa-fatigue-growing-security-concern/.",
+                "description": "MFA fatigue attack is a cybersecurity threat where attackers exploit user exhaustion from multi-factor authentication prompts to trick them into providing their MFA details thus compromising their own security. The query identifies MFA fatigue attempts in the Okta data. \n Ref: https://www.okta.com/blog/identity-security/mfa-fatigue-growing-security-concern/.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.1.2",
@@ -791,7 +791,7 @@
                             "kind": "Scheduled",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
-                                "description": "MFA fatigue attack is a cybersecurity threat where attackers exploit user exhaustion from multi-factor authentication prompts to trick them into providing their MFA details thus compromising their own security. The query identifies MFA fatigue attempts in the Okta data. \n Ref: www.okta.com/blog/identity-security/mfa-fatigue-growing-security-concern/.",
+                                "description": "MFA fatigue attack is a cybersecurity threat where attackers exploit user exhaustion from multi-factor authentication prompts to trick them into providing their MFA details thus compromising their own security. The query identifies MFA fatigue attempts in the Okta data. \n Ref: https://www.okta.com/blog/identity-security/mfa-fatigue-growing-security-concern/.",
                                 "displayName": "MFA Fatigue (OKTA)",
                                 "enabled": false,
                                 "query": "let PushThreshold = 10;\nOktaSSO\n| where ((eventType_s ==\"user.authentication.auth_via_mfa\" and column_ifexists('debugContext_debugData_factor_s', '') == \"OKTA_VERIFY_PUSH\") or eventType_s == \"system.push.send_factor_verify_push\" or eventType_s == \"user.mfa.okta_verify.deny_push\") \n| summarize IPAddress = make_set(client_ipAddress_s,100), City = make_set(client_geographicalContext_city_s,100),\n          successes = countif(eventType_s == \"user.authentication.auth_via_mfa\"),\n          denies = countif(eventType_s == \"user.mfa.okta_verify.deny_push\"),\n          pushes = countif(eventType_s == \"system.push.send_factor_verify_push\") by TimeGenerated, authenticationContext_externalSessionId_s, actor_alternateId_s,actor_displayName_s, outcome_result_s \n| summarize lasttime = max(TimeGenerated), firsttime = min(TimeGenerated),\n          successes = sum(successes), failures = sum(denies), pushes = sum(pushes) by  authenticationContext_externalSessionId_s, actor_alternateId_s,actor_displayName_s, outcome_result_s \n| extend seconds = lasttime - firsttime\n| where pushes >  (PushThreshold)\n| extend totalattempts = successes + failures\n| extend finding = case(\n            failures == pushes and pushes > 1, \"Authentication attempts not successful because multiple pushes denied\",\n            totalattempts == 0, \"Multiple pushes sent and ignored\",\n            successes > 0 and pushes > 3, \"Multiple pushes sent, eventual successful authentication!\",\n            \"Normal authentication pattern\")\n",
@@ -828,12 +828,12 @@
                                         "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "actor_alternateId_s"
+                                                "columnName": "actor_alternateId_s",
+                                                "identifier": "Name"
                                             },
                                             {
-                                                "identifier": "DisplayName",
-                                                "columnName": "actor_displayName_s"
+                                                "columnName": "actor_displayName_s",
+                                                "identifier": "DisplayName"
                                             }
                                         ]
                                     }
@@ -870,7 +870,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.4",
+                "packageVersion": "3.1.7",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -964,12 +964,12 @@
                                         "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "actor_alternateId_s"
+                                                "columnName": "actor_alternateId_s",
+                                                "identifier": "Name"
                                             },
                                             {
-                                                "identifier": "DisplayName",
-                                                "columnName": "actor_displayName_s"
+                                                "columnName": "actor_displayName_s",
+                                                "identifier": "DisplayName"
                                             }
                                         ]
                                     },
@@ -977,8 +977,8 @@
                                         "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Address",
-                                                "columnName": "client_ipAddress_s"
+                                                "columnName": "client_ipAddress_s",
+                                                "identifier": "Address"
                                             }
                                         ]
                                     }
@@ -1018,7 +1018,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.4",
+                "packageVersion": "3.1.7",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -1112,12 +1112,12 @@
                                         "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "actor_alternateId_s"
+                                                "columnName": "actor_alternateId_s",
+                                                "identifier": "Name"
                                             },
                                             {
-                                                "identifier": "DisplayName",
-                                                "columnName": "actor_displayName_s"
+                                                "columnName": "actor_displayName_s",
+                                                "identifier": "DisplayName"
                                             }
                                         ]
                                     },
@@ -1125,8 +1125,8 @@
                                         "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Address",
-                                                "columnName": "client_ipAddress_s"
+                                                "columnName": "client_ipAddress_s",
+                                                "identifier": "Address"
                                             }
                                         ]
                                     }
@@ -1163,7 +1163,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.4",
+                "packageVersion": "3.1.7",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -1209,7 +1209,7 @@
                 "description": "A user has started a session impersonation, gaining access with the impersonated users permissions. This typically signifies Okta admin access and should only happen if anticipated and requested.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0",
+                    "contentVersion": "1.1.0",
                     "parameters": {},
                     "variables": {},
                     "resources": [
@@ -1223,7 +1223,7 @@
                                 "description": "A user has started a session impersonation, gaining access with the impersonated users permissions. This typically signifies Okta admin access and should only happen if anticipated and requested.",
                                 "displayName": "User Session Impersonation(Okta)",
                                 "enabled": false,
-                                "query": "Okta_CL\n| where eventType_s == \"user.session.impersonation.initiate\" and outcome_result_s == \"SUCCESS\"\n// Expand the JSON array in 'target_s' field to extract detailed information about the event\n| mv-expand parsed_json = todynamic(target_s) // Unpack and understand the details from the 'target_s' JSON array\n// Enhance visibility by extending columns with extracted details for better analysis\n| extend TargetUser_id = tostring(parsed_json.id), \n         TargetUser_type = tostring(parsed_json.type), \n         TargetUser_alternateId = tostring(parsed_json.alternateId), \n         TargetUser_displayName = tostring(parsed_json.displayName), \n         Target_detailEntry = tostring(parsed_json.detailEntry) \n// Project event details to gain insights into the security context, including actor and target user information\n| project TimeGenerated, actor_alternateId_s, actor_displayName_s, TargetUser_alternateId, \n               TargetUser_displayName, TargetUser_type, TargetUser_id, \n               eventType_s, outcome_result_s\n",
+                                "query": "OktaSSO\n| where eventType_s == \"user.session.impersonation.initiate\" and outcome_result_s == \"SUCCESS\"\n// Expand the JSON array in 'target_s' field to extract detailed information about the event\n| mv-expand parsed_json = todynamic(target_s) // Unpack and understand the details from the 'target_s' JSON array\n// Enhance visibility by extending columns with extracted details for better analysis\n| extend TargetUser_id = tostring(parsed_json.id), \n         TargetUser_type = tostring(parsed_json.type), \n         TargetUser_alternateId = tostring(parsed_json.alternateId), \n         TargetUser_displayName = tostring(parsed_json.displayName), \n         Target_detailEntry = tostring(parsed_json.detailEntry) \n// Project event details to gain insights into the security context, including actor and target user information\n| project TimeGenerated, actor_alternateId_s, actor_displayName_s, TargetUser_alternateId, \n               TargetUser_displayName, TargetUser_type, TargetUser_id, \n               eventType_s, outcome_result_s\n",
                                 "queryFrequency": "PT6H",
                                 "queryPeriod": "PT6H",
                                 "severity": "Medium",
@@ -1261,12 +1261,12 @@
                                         "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "identifier": "Name",
-                                                "columnName": "actor_alternateId_s"
+                                                "columnName": "actor_alternateId_s",
+                                                "identifier": "Name"
                                             },
                                             {
-                                                "identifier": "DisplayName",
-                                                "columnName": "actor_displayName_s"
+                                                "columnName": "actor_displayName_s",
+                                                "identifier": "DisplayName"
                                             }
                                         ]
                                     }
@@ -1282,7 +1282,7 @@
                                 "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '35846296-4052-4de2-8098-beb6bb5f2203')]",
                                 "contentId": "35846296-4052-4de2-8098-beb6bb5f2203",
                                 "kind": "AnalyticsRule",
-                                "version": "1.0.0",
+                                "version": "1.1.0",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "Okta Single Sign-On",
@@ -1303,16 +1303,16 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.4",
+                "packageVersion": "3.1.7",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "35846296-4052-4de2-8098-beb6bb5f2203",
                 "contentKind": "AnalyticsRule",
                 "displayName": "User Session Impersonation(Okta)",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-okta-ar-apg4kuur5spmg",
-                "id": "azuresentinel.azure-sentinel-solution-okta-ar-apg4kuur5spmg",
-                "version": "1.0.0",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-okta-ar-ylh4xndpivfpa",
+                "id": "azuresentinel.azure-sentinel-solution-okta-ar-ylh4xndpivfpa",
+                "version": "1.1.0",
                 "isDeprecated": false,
                 "dependencies": {
                     "operator": "AND",
@@ -1346,7 +1346,7 @@
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-okta')]"
             ],
             "properties": {
-                "description": "The [Okta Single Sign-On (SSO)](https://www.okta.com/products/single-sign-on/) connector provides the capability to ingest audit and event logs from the Okta API into Microsoft Sentinel. The connector provides visibility into these log types in Microsoft Sentinel to view dashboards. create custom alerts. and to improve monitoring and investigation capabilities.",
+                "description": "The [Okta Single Sign-On (SSO) (using Azure Function)](https://www.okta.com/products/single-sign-on/) connector provides the capability to ingest audit and event logs from the Okta API into Microsoft Sentinel. The connector provides visibility into these log types in Microsoft Sentinel to view dashboards. create custom alerts. and to improve monitoring and investigation capabilities.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0",
@@ -1362,9 +1362,9 @@
                             "properties": {
                                 "connectorUiConfig": {
                                     "id": "OktaSSO",
-                                    "title": "Okta Single Sign-On (using Azure Functions)",
+                                    "title": "[DEPRECATED] Okta Single Sign-On (using Azure Function) (using Azure Functions)",
                                     "publisher": "Okta",
-                                    "descriptionMarkdown": "The [Okta Single Sign-On (SSO)](https://www.okta.com/products/single-sign-on/) connector provides the capability to ingest audit and event logs from the Okta API into Microsoft Sentinel. The connector provides visibility into these log types in Microsoft Sentinel to view dashboards, create custom alerts, and to improve monitoring and investigation capabilities.",
+                                    "descriptionMarkdown": "The [Okta Single Sign-On (SSO) (using Azure Function)](https://www.okta.com/products/single-sign-on/) connector provides the capability to ingest audit and event logs from the Okta API into Microsoft Sentinel. The connector provides visibility into these log types in Microsoft Sentinel to view dashboards, create custom alerts, and to improve monitoring and investigation capabilities.",
                                     "graphQueries": [
                                         {
                                             "metricName": "Total data received",
@@ -1542,13 +1542,13 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.4",
+                "packageVersion": "3.1.7",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "OktaSSO",
                 "contentKind": "DataConnector",
-                "displayName": "Okta Single Sign-On (using Azure Functions)",
+                "displayName": "[DEPRECATED] Okta Single Sign-On (using Azure Function) (using Azure Functions)",
                 "contentProductId": "azuresentinel.azure-sentinel-solution-okta-dc-h35aqwdl4omxw",
                 "id": "azuresentinel.azure-sentinel-solution-okta-dc-h35aqwdl4omxw",
                 "version": "1.0.0",
@@ -1593,9 +1593,9 @@
             "kind": "GenericUI",
             "properties": {
                 "connectorUiConfig": {
-                    "title": "Okta Single Sign-On (using Azure Functions)",
+                    "title": "[DEPRECATED] Okta Single Sign-On (using Azure Function) (using Azure Functions)",
                     "publisher": "Okta",
-                    "descriptionMarkdown": "The [Okta Single Sign-On (SSO)](https://www.okta.com/products/single-sign-on/) connector provides the capability to ingest audit and event logs from the Okta API into Microsoft Sentinel. The connector provides visibility into these log types in Microsoft Sentinel to view dashboards, create custom alerts, and to improve monitoring and investigation capabilities.",
+                    "descriptionMarkdown": "The [Okta Single Sign-On (SSO) (using Azure Function)](https://www.okta.com/products/single-sign-on/) connector provides the capability to ingest audit and event logs from the Okta API into Microsoft Sentinel. The connector provides visibility into these log types in Microsoft Sentinel to view dashboards, create custom alerts, and to improve monitoring and investigation capabilities.",
                     "graphQueries": [
                         {
                             "metricName": "Total data received",
@@ -1748,18 +1748,18 @@
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
             "apiVersion": "2023-04-01-preview",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', concat(parameters('workspace'),'-dc-',uniquestring('OktaSSOv2')), '1.0.0')]",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', concat(parameters('workspace'),'-dc-',uniquestring('OktaSSOv2')), '3.1.7')]",
             "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-okta')]"
             ],
             "properties": {
                 "contentId": "OktaSSOv2",
-                "displayName": "Okta Single Sign-On",
+                "displayName": "Okta Single Sign-On (via Codeless Connector Framework)",
                 "contentKind": "DataConnector",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0",
+                    "contentVersion": "3.1.7",
                     "parameters": {},
                     "variables": {},
                     "resources": [
@@ -1772,7 +1772,7 @@
                             "properties": {
                                 "connectorUiConfig": {
                                     "id": "OktaSSOv2",
-                                    "title": "Okta Single Sign-On",
+                                    "title": "Okta Single Sign-On (via Codeless Connector Framework)",
                                     "publisher": "Microsoft",
                                     "logo": "OktaLogo.svg",
                                     "descriptionMarkdown": "The [Okta Single Sign-On (SSO)](https://www.okta.com/products/single-sign-on/) data connector provides the capability to ingest audit and event logs from the Okta Sysem Log API into Microsoft Sentinel. The data connector is built on Microsoft Sentinel Codeless Connector Platform and uses the Okta System Log API to fetch the events. The connector supports DCR-based [ingestion time transformations](https://docs.microsoft.com/azure/azure-monitor/logs/custom-logs-overview) that parses the received security event data into a custom columns so that queries don't need to parse it again, thus resulting in better performance.",
@@ -1895,7 +1895,7 @@
                                 "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectorDefinitions', 'OktaSSOv2')]",
                                 "contentId": "OktaSSOv2",
                                 "kind": "DataConnector",
-                                "version": "1.0.0",
+                                "version": "3.1.7",
                                 "source": {
                                     "sourceId": "azuresentinel.azure-sentinel-solution-okta",
                                     "name": "Okta Single Sign-On",
@@ -1914,7 +1914,7 @@
                                 "dependencies": {
                                     "criteria": [
                                         {
-                                            "version": "1.0.0",
+                                            "version": "3.1.7",
                                             "contentId": "OktaSSOv2Connections",
                                             "kind": "ResourcesDataConnector"
                                         }
@@ -2390,13 +2390,13 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.4",
+                "packageVersion": "3.1.7",
                 "packageName": "Okta Single Sign-On",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-okta-dc-aabcn6l2oqasy",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-okta-dc-5zl2bnfxm74gs",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
-                "version": "1.0.0",
-                "id": "azuresentinel.azure-sentinel-solution-okta-dc-aabcn6l2oqasy",
+                "version": "3.1.7",
+                "id": "azuresentinel.azure-sentinel-solution-okta-dc-5zl2bnfxm74gs",
                 "isDeprecated": false,
                 "description": ""
             }
@@ -2410,7 +2410,7 @@
             "properties": {
                 "connectorUiConfig": {
                     "id": "OktaSSOv2",
-                    "title": "Okta Single Sign-On",
+                    "title": "Okta Single Sign-On (via Codeless Connector Framework)",
                     "publisher": "Microsoft",
                     "logo": "OktaLogo.svg",
                     "descriptionMarkdown": "The [Okta Single Sign-On (SSO)](https://www.okta.com/products/single-sign-on/) data connector provides the capability to ingest audit and event logs from the Okta Sysem Log API into Microsoft Sentinel. The data connector is built on Microsoft Sentinel Codeless Connector Platform and uses the Okta System Log API to fetch the events. The connector supports DCR-based [ingestion time transformations](https://docs.microsoft.com/azure/azure-monitor/logs/custom-logs-overview) that parses the received security event data into a custom columns so that queries don't need to parse it again, thus resulting in better performance.",
@@ -2533,7 +2533,7 @@
                 "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectorDefinitions', 'OktaSSOv2')]",
                 "contentId": "OktaSSOv2",
                 "kind": "DataConnector",
-                "version": "1.0.0",
+                "version": "3.1.7",
                 "source": {
                     "sourceId": "azuresentinel.azure-sentinel-solution-okta",
                     "name": "Okta Single Sign-On",
@@ -2552,7 +2552,7 @@
                 "dependencies": {
                     "criteria": [
                         {
-                            "version": "1.0.0",
+                            "version": "3.1.7",
                             "contentId": "OktaSSOv2Connections",
                             "kind": "ResourcesDataConnector"
                         }
@@ -2563,41 +2563,35 @@
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
             "apiVersion": "2023-04-01-preview",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', concat(parameters('workspace'),'-dc-',uniquestring('OktaSSOv2Connections')), '1.0.0')]",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', concat(parameters('workspace'),'-dc-',uniquestring('OktaSSOv2Connections')), '3.1.7')]",
             "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-okta')]"
             ],
             "properties": {
                 "contentId": "OktaSSOv2Connections",
-                "displayName": "Okta Single Sign-On",
+                "displayName": "Okta Single Sign-On (via Codeless Connector Framework)",
                 "contentKind": "ResourcesDataConnector",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0",
+                    "contentVersion": "3.1.7",
                     "parameters": {
+                        "guidValue": {
+                            "defaultValue": "[[newGuid()]",
+                            "type": "securestring"
+                        },
                         "innerWorkspace": {
                             "defaultValue": "[parameters('workspace')]",
-                            "type": "string"
-                        },
-                        "domainname": {
-                            "defaultValue": "Enter domainname value",
-                            "type": "String",
-                            "minLength": 1
-                        },
-                        "apikey": {
-                            "defaultValue": "-NA-",
-                            "type": "securestring",
-                            "minLength": 4
+                            "type": "securestring"
                         },
                         "connectorDefinitionName": {
-                            "defaultValue": "Okta Single Sign-On",
-                            "type": "String",
+                            "defaultValue": "Okta Single Sign-On (via Codeless Connector Framework)",
+                            "type": "securestring",
                             "minLength": 1
                         },
                         "workspace": {
                             "defaultValue": "[parameters('workspace')]",
-                            "type": "string"
+                            "type": "securestring"
                         },
                         "dcrConfig": {
                             "defaultValue": {
@@ -2605,6 +2599,16 @@
                                 "dataCollectionRuleImmutableId": "data collection rule immutableId"
                             },
                             "type": "object"
+                        },
+                        "domainname": {
+                            "defaultValue": "domainname",
+                            "type": "securestring",
+                            "minLength": 1
+                        },
+                        "apikey": {
+                            "defaultValue": "apikey",
+                            "type": "securestring",
+                            "minLength": 1
                         }
                     },
                     "variables": {
@@ -2619,7 +2623,7 @@
                                 "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'OktaSSOv2Connections')]",
                                 "contentId": "OktaSSOv2Connections",
                                 "kind": "ResourcesDataConnector",
-                                "version": "1.0.0",
+                                "version": "3.1.7",
                                 "source": {
                                     "sourceId": "azuresentinel.azure-sentinel-solution-okta",
                                     "name": "Okta Single Sign-On",
@@ -2638,7 +2642,7 @@
                             }
                         },
                         {
-                            "name": "[[concat(parameters('innerWorkspace'), '/Microsoft.SecurityInsights', '/OktaDCV1_', parameters('domainname'))]",
+                            "name": "[[concat(parameters('innerWorkspace'), '/Microsoft.SecurityInsights', '/OktaDCV1_', parameters('domainname'), parameters('guidValue'))]",
                             "apiVersion": "2023-02-01-preview",
                             "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
                             "location": "[parameters('workspace-location')]",
@@ -2670,7 +2674,7 @@
                                     "type": "APIKey"
                                 },
                                 "request": {
-                                    "apiEndpoint": "[[concat('https://', parameters('domainname'), '/api/v1/logs')]",
+                                    "apiEndpoint": "[[concat('https://',parameters('domainname'),'/api/v1/logs')]",
                                     "rateLimitQPS": 10,
                                     "queryWindowInMin": 5,
                                     "httpMethod": "GET",
@@ -2689,13 +2693,13 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.4",
+                "packageVersion": "3.1.7",
                 "packageName": "Okta Single Sign-On",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-okta-rdc-lhzkfmfydnqwm",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-okta-rdc-nbztlbklhhi2k",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
-                "version": "1.0.0",
-                "id": "azuresentinel.azure-sentinel-solution-okta-rdc-lhzkfmfydnqwm",
+                "version": "3.1.7",
+                "id": "azuresentinel.azure-sentinel-solution-okta-rdc-nbztlbklhhi2k",
                 "isDeprecated": false,
                 "description": ""
             }
@@ -2718,7 +2722,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2022-10-01",
+                            "apiVersion": "2025-07-01",
                             "name": "Okta_Single_Sign-On_Hunting_Query_1",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -2773,7 +2777,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.4",
+                "packageVersion": "3.1.7",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -2804,7 +2808,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2022-10-01",
+                            "apiVersion": "2025-07-01",
                             "name": "Okta_Single_Sign-On_Hunting_Query_2",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -2859,7 +2863,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.4",
+                "packageVersion": "3.1.7",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -2890,7 +2894,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2022-10-01",
+                            "apiVersion": "2025-07-01",
                             "name": "Okta_Single_Sign-On_Hunting_Query_3",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -2945,7 +2949,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.4",
+                "packageVersion": "3.1.7",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -2976,7 +2980,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2022-10-01",
+                            "apiVersion": "2025-07-01",
                             "name": "Okta_Single_Sign-On_Hunting_Query_4",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -3031,7 +3035,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.4",
+                "packageVersion": "3.1.7",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -3062,7 +3066,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2022-10-01",
+                            "apiVersion": "2025-07-01",
                             "name": "Okta_Single_Sign-On_Hunting_Query_5",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -3117,7 +3121,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.4",
+                "packageVersion": "3.1.7",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -3148,7 +3152,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2022-10-01",
+                            "apiVersion": "2025-07-01",
                             "name": "Okta_Single_Sign-On_Hunting_Query_6",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -3203,7 +3207,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.4",
+                "packageVersion": "3.1.7",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -3234,7 +3238,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2022-10-01",
+                            "apiVersion": "2025-07-01",
                             "name": "Okta_Single_Sign-On_Hunting_Query_7",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -3289,7 +3293,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.4",
+                "packageVersion": "3.1.7",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -3320,7 +3324,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2022-10-01",
+                            "apiVersion": "2025-07-01",
                             "name": "Okta_Single_Sign-On_Hunting_Query_8",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -3375,7 +3379,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.4",
+                "packageVersion": "3.1.7",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -3406,7 +3410,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2022-10-01",
+                            "apiVersion": "2025-07-01",
                             "name": "Okta_Single_Sign-On_Hunting_Query_9",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -3461,7 +3465,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.4",
+                "packageVersion": "3.1.7",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -3492,7 +3496,7 @@
                     "resources": [
                         {
                             "type": "Microsoft.OperationalInsights/savedSearches",
-                            "apiVersion": "2022-10-01",
+                            "apiVersion": "2025-07-01",
                             "name": "Okta_Single_Sign-On_Hunting_Query_10",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -3547,7 +3551,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.4",
+                "packageVersion": "3.1.7",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -4832,7 +4836,7 @@
                     ],
                     "metadata": {
                         "comments": "This OKTA connector uses okta API to perform different actions on the user accounts.",
-                        "lastUpdateTime": "2025-01-30T12:53:51.44Z",
+                        "lastUpdateTime": "2026-04-28T15:34:12.054Z",
                         "releaseNotes": {
                             "version": "1.0",
                             "title": "[replace('b', 'b', '')]",
@@ -4843,7 +4847,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.4",
+                "packageVersion": "3.1.7",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -5203,7 +5207,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.4",
+                "packageVersion": "3.1.7",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -5655,7 +5659,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.4",
+                "packageVersion": "3.1.7",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -6163,7 +6167,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.4",
+                "packageVersion": "3.1.7",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -6260,7 +6264,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.4",
+                "packageVersion": "3.1.7",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -6291,7 +6295,7 @@
                     "resources": [
                         {
                             "name": "[concat(parameters('workspace'),'/','OktaSSO')]",
-                            "apiVersion": "2022-10-01",
+                            "apiVersion": "2025-07-01",
                             "type": "Microsoft.OperationalInsights/workspaces/savedSearches",
                             "location": "[parameters('workspace-location')]",
                             "properties": {
@@ -6342,7 +6346,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.1.4",
+                "packageVersion": "3.1.7",
                 "packageName": "Okta Single Sign-On",
                 "packageId": "azuresentinel.azure-sentinel-solution-okta",
                 "contentSchemaVersion": "3.0.0",
@@ -6357,7 +6361,7 @@
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/savedSearches",
-            "apiVersion": "2022-10-01",
+            "apiVersion": "2025-07-01",
             "name": "[concat(parameters('workspace'),'/','OktaSSO')]",
             "location": "[parameters('workspace-location')]",
             "properties": {
@@ -6411,16 +6415,16 @@
             "apiVersion": "2023-04-01-preview",
             "location": "[parameters('workspace-location')]",
             "properties": {
-                "version": "3.1.4",
+                "version": "3.1.7",
                 "kind": "Solution",
                 "contentSchemaVersion": "3.0.0",
                 "displayName": "Okta Single Sign-On",
                 "publisherDisplayName": "Microsoft Sentinel, Microsoft Corporation",
                 "descriptionHtml": "<p><strong>Note:</strong> Please refer to the following before installing the solution:</p><p>\u2022 Review the solution <a target=\"_blank\" href=\"https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Okta%20Single%20Sign-On/ReleaseNotes.md\" rel=\"noopener\">Release Notes</a></p><p>The <a target=\"_blank\" href=\"https://www.okta.com/products/single-sign-on\" rel=\"noopener\">Okta Single Sign-On (SSO)</a> solution for Microsoft Sentinel provides the capability to ingest <a target=\"_blank\" href=\"https://www.okta.com/integrate/documentation/isv-syslog-references/\" rel=\"noopener\">audit and event logs</a> into Microsoft Sentinel using the Okta API.</p><p><strong>Underlying Microsoft Technologies used:</strong></p><p>This solution takes a dependency on the following technologies, and some of these dependencies either may be in <a target=\"_blank\" href=\"https://azure.microsoft.com/support/legal/preview-supplemental-terms/\" rel=\"noopener\">Preview</a> state or might result in additional ingestion or operational costs:</p><p>a. <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/azure-monitor/logs/data-collector-api?WT.mc_id=Portal-fx\" rel=\"noopener\">Azure Monitor HTTP Data Collector API</a></p><p>b. <a target=\"_blank\" href=\"https://azure.microsoft.com/services/functions/#overview\" rel=\"noopener\">Azure Functions</a></p><p>c. <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/sentinel/create-codeless-connector?tabs=deploy-via-arm-template%2Cconnect-via-the-azure-portal&amp;WT.mc_id=Portal-fx\" rel=\"noopener\">Codeless Connector Platform (CCP)</a></p><p><strong>Data Connectors:</strong> 2, <strong>Parsers:</strong> 1, <strong>Workbooks:</strong> 1, <strong>Analytic Rules:</strong> 9, <strong>Hunting Queries:</strong> 10, <strong>Custom Azure Logic Apps Connectors:</strong> 1, <strong>Playbooks:</strong> 3</p><p><a target=\"_blank\" href=\"https://aka.ms/azuresentinel\" rel=\"noopener\">Learn more about Microsoft Sentinel</a> | <a target=\"_blank\" href=\"https://aka.ms/azuresentinelsolutionsdoc\" rel=\"noopener\">Learn more about Solutions</a></p>",
                 "contentKind": "Solution",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-okta-sl-626skbuqxajse",
-                "id": "azuresentinel.azure-sentinel-solution-okta-sl-626skbuqxajse",
-                "icon": "https://store-images.s-microsoft.com/image/apps.34108.b239392b-efc9-4022-9c36-fed4f0ded1e3.323909ea-f2e8-42ce-8010-8db7d28f23cd.47066c0b-5d4e-4c49-9321-8ce6822828c8",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-okta-sl-fwfq5xg4sb56i",
+                "id": "azuresentinel.azure-sentinel-solution-okta-sl-fwfq5xg4sb56i",
+                "icon": "https://catalogartifact.azureedge.net/publicartifacts/azuresentinel.azure-sentinel-solution-okta-48ee5c5f-e7f5-48bb-a357-91f5d4622a96/image2_okt.png",
                 "contentId": "azuresentinel.azure-sentinel-solution-okta",
                 "parentId": "azuresentinel.azure-sentinel-solution-okta",
                 "source": {
@@ -6484,7 +6488,7 @@
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "35846296-4052-4de2-8098-beb6bb5f2203",
-                            "version": "1.0.0"
+                            "version": "1.1.0"
                         },
                         {
                             "kind": "DataConnector",
@@ -6494,7 +6498,7 @@
                         {
                             "kind": "DataConnector",
                             "contentId": "OktaSSOv2Connections",
-                            "version": "1.0.0"
+                            "version": "3.1.7"
                         },
                         {
                             "kind": "HuntingQuery",
