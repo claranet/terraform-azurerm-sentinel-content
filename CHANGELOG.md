@@ -1,3 +1,17 @@
+## 8.6.6 (2026-05-27)
+
+### Code Refactoring
+
+* bump `AWS` package template version to 3.0.9 751a939
+* bump `Azure Firewall` package template version to 3.0.6 935ed5b
+
+### Miscellaneous Chores
+
+* **deps:** update dependency opentofu to v1.11.7 e6395f0
+* **deps:** update dependency opentofu to v1.12.0 86e00f9
+* **deps:** update dependency terraform-docs to v0.24.0 2792adf
+* **deps:** update dependency tflint to v0.62.1 ca695f7
+
 ## 8.6.5 (2026-05-15)
 
 ### Code Refactoring
