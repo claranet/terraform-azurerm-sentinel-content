@@ -133,7 +133,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -243,23 +243,27 @@
                                     "graphQueries": [
                                         {
                                             "metricName": "Total data received",
-                                            "legend": "AWSGuardDuty",
-                                            "baseQuery": "AWSGuardDuty"
+                                            "legend": "AWSGuardDuty (MBytes)",
+                                            "baseQuery": "AWSGuardDuty\n | extend Quantity = todecimal((estimate_data_size(*))) / 1024 / 1024",
+                                            "nonAnalyticsTierBaseQuery": "Usage\n | where DataType == 'AWSGuardDuty'"
                                         },
                                         {
                                             "metricName": "Total data received",
-                                            "legend": "AWSVPCFlow",
-                                            "baseQuery": "AWSVPCFlow"
+                                            "legend": "AWSVPCFlow (MBytes)",
+                                            "baseQuery": "AWSVPCFlow\n | extend Quantity = todecimal((estimate_data_size(*))) / 1024 / 1024",
+                                            "nonAnalyticsTierBaseQuery": "Usage\n | where DataType == 'AWSVPCFlow'"
                                         },
                                         {
                                             "metricName": "Total data received",
-                                            "legend": "AWSCloudTrail",
-                                            "baseQuery": "AWSCloudTrail"
+                                            "legend": "AWSCloudTrail (MBytes)",
+                                            "baseQuery": "AWSCloudTrail\n | extend Quantity = todecimal((estimate_data_size(*))) / 1024 / 1024",
+                                            "nonAnalyticsTierBaseQuery": "Usage\n | where DataType == 'AWSCloudTrail'"
                                         },
                                         {
                                             "metricName": "Total data received",
-                                            "legend": "AWSCloudWatch",
-                                            "baseQuery": "AWSCloudWatch"
+                                            "legend": "AWSCloudWatch (MBytes)",
+                                            "baseQuery": "AWSCloudWatch\n | extend Quantity = todecimal((estimate_data_size(*))) / 1024 / 1024",
+                                            "nonAnalyticsTierBaseQuery": "Usage\n | where DataType == 'AWSCloudWatch'"
                                         }
                                     ],
                                     "sampleQueries": [
@@ -287,19 +291,23 @@
                                     "dataTypes": [
                                         {
                                             "name": "AWSGuardDuty",
-                                            "lastDataReceivedQuery": "AWSGuardDuty\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)"
+                                            "lastDataReceivedQuery": "AWSGuardDuty\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)",
+                                            "nonAnalyticsTierLastDataReceivedQuery": "Usage\n | where DataType == 'AWSGuardDuty'\n | summarize Time = max(TimeGenerated)\n | where isnotempty(Time)"
                                         },
                                         {
                                             "name": "AWSVPCFlow",
-                                            "lastDataReceivedQuery": "AWSVPCFlow\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)"
+                                            "lastDataReceivedQuery": "AWSVPCFlow\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)",
+                                            "nonAnalyticsTierLastDataReceivedQuery": "Usage\n | where DataType == 'AWSVPCFlow'\n | summarize Time = max(TimeGenerated)\n | where isnotempty(Time)"
                                         },
                                         {
                                             "name": "AWSCloudTrail",
-                                            "lastDataReceivedQuery": "AWSCloudTrail\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)"
+                                            "lastDataReceivedQuery": "AWSCloudTrail\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)",
+                                            "nonAnalyticsTierLastDataReceivedQuery": "Usage\n | where DataType == 'AWSCloudTrail'\n | summarize Time = max(TimeGenerated)\n | where isnotempty(Time)"
                                         },
                                         {
                                             "name": "AWSCloudWatch",
-                                            "lastDataReceivedQuery": "AWSCloudWatch\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)"
+                                            "lastDataReceivedQuery": "AWSCloudWatch\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)",
+                                            "nonAnalyticsTierLastDataReceivedQuery": "Usage\n | where DataType == 'AWSCloudWatch'\n | summarize Time = max(TimeGenerated)\n | where isnotempty(Time)"
                                         }
                                     ],
                                     "availability": {
@@ -425,7 +433,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -481,41 +489,49 @@
                     "graphQueries": [
                         {
                             "metricName": "Total data received",
-                            "legend": "AWSGuardDuty",
-                            "baseQuery": "AWSGuardDuty"
+                            "legend": "AWSGuardDuty (MBytes)",
+                            "baseQuery": "AWSGuardDuty\n | extend Quantity = todecimal((estimate_data_size(*))) / 1024 / 1024",
+                            "nonAnalyticsTierBaseQuery": "Usage\n | where DataType == 'AWSGuardDuty'"
                         },
                         {
                             "metricName": "Total data received",
-                            "legend": "AWSVPCFlow",
-                            "baseQuery": "AWSVPCFlow"
+                            "legend": "AWSVPCFlow (MBytes)",
+                            "baseQuery": "AWSVPCFlow\n | extend Quantity = todecimal((estimate_data_size(*))) / 1024 / 1024",
+                            "nonAnalyticsTierBaseQuery": "Usage\n | where DataType == 'AWSVPCFlow'"
                         },
                         {
                             "metricName": "Total data received",
-                            "legend": "AWSCloudTrail",
-                            "baseQuery": "AWSCloudTrail"
+                            "legend": "AWSCloudTrail (MBytes)",
+                            "baseQuery": "AWSCloudTrail\n | extend Quantity = todecimal((estimate_data_size(*))) / 1024 / 1024",
+                            "nonAnalyticsTierBaseQuery": "Usage\n | where DataType == 'AWSCloudTrail'"
                         },
                         {
                             "metricName": "Total data received",
-                            "legend": "AWSCloudWatch",
-                            "baseQuery": "AWSCloudWatch"
+                            "legend": "AWSCloudWatch (MBytes)",
+                            "baseQuery": "AWSCloudWatch\n | extend Quantity = todecimal((estimate_data_size(*))) / 1024 / 1024",
+                            "nonAnalyticsTierBaseQuery": "Usage\n | where DataType == 'AWSCloudWatch'"
                         }
                     ],
                     "dataTypes": [
                         {
                             "name": "AWSGuardDuty",
-                            "lastDataReceivedQuery": "AWSGuardDuty\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)"
+                            "lastDataReceivedQuery": "AWSGuardDuty\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)",
+                            "nonAnalyticsTierLastDataReceivedQuery": "Usage\n | where DataType == 'AWSGuardDuty'\n | summarize Time = max(TimeGenerated)\n | where isnotempty(Time)"
                         },
                         {
                             "name": "AWSVPCFlow",
-                            "lastDataReceivedQuery": "AWSVPCFlow\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)"
+                            "lastDataReceivedQuery": "AWSVPCFlow\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)",
+                            "nonAnalyticsTierLastDataReceivedQuery": "Usage\n | where DataType == 'AWSVPCFlow'\n | summarize Time = max(TimeGenerated)\n | where isnotempty(Time)"
                         },
                         {
                             "name": "AWSCloudTrail",
-                            "lastDataReceivedQuery": "AWSCloudTrail\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)"
+                            "lastDataReceivedQuery": "AWSCloudTrail\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)",
+                            "nonAnalyticsTierLastDataReceivedQuery": "Usage\n | where DataType == 'AWSCloudTrail'\n | summarize Time = max(TimeGenerated)\n | where isnotempty(Time)"
                         },
                         {
                             "name": "AWSCloudWatch",
-                            "lastDataReceivedQuery": "AWSCloudWatch\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)"
+                            "lastDataReceivedQuery": "AWSCloudWatch\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)",
+                            "nonAnalyticsTierLastDataReceivedQuery": "Usage\n | where DataType == 'AWSCloudWatch'\n | summarize Time = max(TimeGenerated)\n | where isnotempty(Time)"
                         }
                     ],
                     "connectivityCriterias": [
@@ -639,7 +655,7 @@
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
             "apiVersion": "2023-04-01-preview",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', concat(parameters('workspace'),'-dc-',uniquestring('AwsS3WafCcpDefinition')), '3.0.9')]",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', concat(parameters('workspace'),'-dc-',uniquestring('AwsS3WafCcpDefinition')), '3.0.10')]",
             "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-amazonwebservices')]"
@@ -650,7 +666,7 @@
                 "contentKind": "DataConnector",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "3.0.9",
+                    "contentVersion": "3.0.10",
                     "parameters": {},
                     "variables": {},
                     "resources": [
@@ -831,7 +847,7 @@
                                 "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectorDefinitions', 'AwsS3WafCcpDefinition')]",
                                 "contentId": "AwsS3WafCcpDefinition",
                                 "kind": "DataConnector",
-                                "version": "3.0.9",
+                                "version": "3.0.10",
                                 "source": {
                                     "sourceId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                                     "name": "Amazon Web Services",
@@ -849,7 +865,7 @@
                                 "dependencies": {
                                     "criteria": [
                                         {
-                                            "version": "3.0.9",
+                                            "version": "3.0.10",
                                             "contentId": "AwsS3WafCcpDefinitionConnections",
                                             "kind": "ResourcesDataConnector"
                                         }
@@ -888,13 +904,13 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-amazonwebser-dc-ycgotmkgm3ng2",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-amazonwebser-dc-pmsxqi7qwtefs",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
-                "version": "3.0.9",
-                "id": "azuresentinel.azure-sentinel-solution-amazonwebser-dc-ycgotmkgm3ng2",
+                "version": "3.0.10",
+                "id": "azuresentinel.azure-sentinel-solution-amazonwebser-dc-pmsxqi7qwtefs",
                 "isDeprecated": false,
                 "description": ""
             }
@@ -1076,7 +1092,7 @@
                 "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectorDefinitions', 'AwsS3WafCcpDefinition')]",
                 "contentId": "AwsS3WafCcpDefinition",
                 "kind": "DataConnector",
-                "version": "3.0.9",
+                "version": "3.0.10",
                 "source": {
                     "sourceId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                     "name": "Amazon Web Services",
@@ -1094,7 +1110,7 @@
                 "dependencies": {
                     "criteria": [
                         {
-                            "version": "3.0.9",
+                            "version": "3.0.10",
                             "contentId": "AwsS3WafCcpDefinitionConnections",
                             "kind": "ResourcesDataConnector"
                         }
@@ -1105,7 +1121,7 @@
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
             "apiVersion": "2023-04-01-preview",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', concat(parameters('workspace'),'-dc-',uniquestring('AwsS3WafCcpDefinitionConnections')), '3.0.9')]",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', concat(parameters('workspace'),'-dc-',uniquestring('AwsS3WafCcpDefinitionConnections')), '3.0.10')]",
             "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-amazonwebservices')]"
@@ -1116,7 +1132,7 @@
                 "contentKind": "ResourcesDataConnector",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "3.0.9",
+                    "contentVersion": "3.0.10",
                     "parameters": {
                         "guidValue": {
                             "defaultValue": "[[newGuid()]",
@@ -1165,7 +1181,7 @@
                                 "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'AwsS3WafCcpDefinitionConnections')]",
                                 "contentId": "AwsS3WafCcpDefinitionConnections",
                                 "kind": "ResourcesDataConnector",
-                                "version": "3.0.9",
+                                "version": "3.0.10",
                                 "source": {
                                     "sourceId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                                     "name": "Amazon Web Services",
@@ -1215,13 +1231,13 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-amazonwebser-rdc-vla5qnew3ujpg",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-amazonwebser-rdc-zikfskhid2wdg",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
-                "version": "3.0.9",
-                "id": "azuresentinel.azure-sentinel-solution-amazonwebser-rdc-vla5qnew3ujpg",
+                "version": "3.0.10",
+                "id": "azuresentinel.azure-sentinel-solution-amazonwebser-rdc-zikfskhid2wdg",
                 "isDeprecated": false,
                 "description": ""
             }
@@ -1301,7 +1317,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -1389,7 +1405,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -1439,16 +1455,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     },
                                     {
-                                        "connectorId": "AWSS3",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWSS3"
                                     }
                                 ],
                                 "tactics": [
@@ -1493,11 +1509,11 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
                                     "EventType": "EventTypeName",
+                                    "UserAgent": "UserAgent",
                                     "AWSRegion": "AWSRegion",
                                     "EventSource": "EventSource",
-                                    "UserAgent": "UserAgent"
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "Event {{EventName}} change in RDS security settings by {{AccountName}} from {{SourceIpAddress}}.",
@@ -1534,7 +1550,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -1601,16 +1617,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     },
                                     {
-                                        "connectorId": "AWSS3",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWSS3"
                                     }
                                 ],
                                 "tactics": [
@@ -1653,10 +1669,10 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
-                                    "EventSource": "EventSource",
                                     "AWSRegion": "AWSRegion",
-                                    "RecipientAccountId": "RecipientAccountId"
+                                    "RecipientAccountId": "RecipientAccountId",
+                                    "EventSource": "EventSource",
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "Event {{EventName}} executed by {{AccountName}} from {{SourceIpAddress}}.",
@@ -1693,7 +1709,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -1760,16 +1776,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     },
                                     {
-                                        "connectorId": "AWSS3",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWSS3"
                                     }
                                 ],
                                 "tactics": [
@@ -1807,11 +1823,11 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
-                                    "EventTypeName": "EventTypeName",
-                                    "AWSRegion": "AWSRegion",
                                     "EventSource": "EventSource",
-                                    "UserAgent": "UserAgent"
+                                    "UserAgent": "UserAgent",
+                                    "AWSRegion": "AWSRegion",
+                                    "EventTypeName": "EventTypeName",
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "Event {{EventName}} occurred in {{AWSRegion}} for account {{RecipientAccountId}}",
@@ -1848,7 +1864,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -1915,16 +1931,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     },
                                     {
-                                        "connectorId": "AWSS3",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWSS3"
                                     }
                                 ],
                                 "tactics": [
@@ -1965,10 +1981,10 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
-                                    "EventTypeName": "EventTypeName",
+                                    "EventSource": "EventSource",
                                     "AWSRegion": "AWSRegion",
-                                    "EventSource": "EventSource"
+                                    "EventTypeName": "EventTypeName",
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "Detected {{EventName}} in {{AWSRegion}} affecting account {{RecipientAccountId}}.",
@@ -2005,7 +2021,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -2072,16 +2088,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     },
                                     {
-                                        "connectorId": "AWSS3",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWSS3"
                                     }
                                 ],
                                 "tactics": [
@@ -2122,11 +2138,11 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
+                                    "LoginResult": "LoginResult",
                                     "MFAUsed": "MFAUsed",
                                     "AWSRegion": "AWSRegion",
-                                    "LoginResult": "LoginResult",
-                                    "UserAgent": "UserAgent"
+                                    "UserAgent": "UserAgent",
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "Successful ConsoleLogin without MFA for {{AccountName}} from {{SourceIpAddress}} in account {{RecipientAccountId}}.",
@@ -2163,7 +2179,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -2230,16 +2246,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     },
                                     {
-                                        "connectorId": "AWSS3",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWSS3"
                                     }
                                 ],
                                 "tactics": [
@@ -2277,10 +2293,10 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
+                                    "EventType": "EventTypeName",
                                     "AWSRegion": "AWSRegion",
                                     "EventSource": "EventSource",
-                                    "EventType": "EventTypeName"
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "GetCallerIdentity invoked by {{AccountName}} from {{SourceIpAddress}} in {{AWSRegion}}.",
@@ -2317,7 +2333,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -2384,16 +2400,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     },
                                     {
-                                        "connectorId": "AWSS3",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWSS3"
                                     }
                                 ],
                                 "tactics": [
@@ -2431,10 +2447,10 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
                                     "UserIdentityArn": "UserIdentityArn",
                                     "RecipientAccountId": "RecipientAccountId",
-                                    "PolicyName": "PolicyName"
+                                    "PolicyName": "PolicyName",
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "Detected {{EventName}} for policy {{PolicyName}} in account {{RecipientAccountId}}.",
@@ -2471,7 +2487,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -2538,16 +2554,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     },
                                     {
-                                        "connectorId": "AWSS3",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWSS3"
                                     }
                                 ],
                                 "tactics": [
@@ -2588,12 +2604,12 @@
                                     }
                                 ],
                                 "customDetails": {
+                                    "AWSRegion": "AWSRegion",
+                                    "UserIdentityType": "UserIdentityType",
+                                    "UserIdentityUserName": "UserIdentityUserName",
                                     "EventName": "EventName",
                                     "UserAgent": "UserAgent",
-                                    "AWSRegion": "AWSRegion",
-                                    "UserIdentityArn": "UserIdentityArn",
-                                    "UserIdentityType": "UserIdentityType",
-                                    "UserIdentityUserName": "UserIdentityUserName"
+                                    "UserIdentityArn": "UserIdentityArn"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "AWS Security Group ingress/egress change activity {{EventName}} was detected for {{AccountName}} from {{SourceIpAddress}}.",
@@ -2630,7 +2646,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -2697,16 +2713,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     },
                                     {
-                                        "connectorId": "AWSS3",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWSS3"
                                     }
                                 ],
                                 "tactics": [
@@ -2747,10 +2763,10 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
+                                    "UserAgent": "UserAgent",
                                     "AWSRegion": "AWSRegion",
                                     "EventSource": "EventSource",
-                                    "UserAgent": "UserAgent"
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "Detected {{EventName}} from {{SourceIpAddress}} for account {{RecipientAccountId}} affecting ELB security group settings.",
@@ -2787,7 +2803,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -2850,16 +2866,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     },
                                     {
-                                        "connectorId": "AWSS3",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWSS3"
                                     }
                                 ],
                                 "tactics": [
@@ -2930,7 +2946,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -2997,10 +3013,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWSS3",
                                         "dataTypes": [
                                             "AWSGuardDuty"
-                                        ]
+                                        ],
+                                        "connectorId": "AWSS3"
                                     }
                                 ],
                                 "entityMappings": [
@@ -3050,17 +3066,17 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "ResourceTypeAffected": "ResourceTypeAffected",
+                                    "Artifact": "Artifact",
                                     "ThreatFamilyName": "ThreatFamilyName",
                                     "ThreatPurpose": "ThreatPurpose",
-                                    "DetectionMechanism": "DetectionMechanism",
-                                    "Artifact": "Artifact"
+                                    "ResourceTypeAffected": "ResourceTypeAffected",
+                                    "DetectionMechanism": "DetectionMechanism"
                                 },
                                 "alertDetailsOverride": {
-                                    "alertSeverityColumnName": "Severity",
-                                    "alertDescriptionFormat": "{{Description}}",
                                     "alertDisplayNameFormat": "{{Title}}",
-                                    "alertTacticsColumnName": "ThreatPurpose"
+                                    "alertTacticsColumnName": "ThreatPurpose",
+                                    "alertDescriptionFormat": "{{Description}}",
+                                    "alertSeverityColumnName": "Severity"
                                 }
                             }
                         },
@@ -3093,7 +3109,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -3156,10 +3172,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -3197,10 +3213,10 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "Repository": "repoName",
                                     "ImageDigest": "imageId",
-                                    "CriticalFindings": "Critical",
-                                    "HighFindings": "High"
+                                    "HighFindings": "High",
+                                    "Repository": "repoName",
+                                    "CriticalFindings": "Critical"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "ECR image {{imageId}} in repository {{repoName}} returned critical and high findings.",
@@ -3237,7 +3253,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -3300,10 +3316,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -3341,9 +3357,9 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "AWSRegion": "AWSRegion",
+                                    "S3Bucket": "s3bucket",
                                     "ExecutionId": "executionId",
-                                    "S3Bucket": "s3bucket"
+                                    "AWSRegion": "AWSRegion"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "User {{AccountName}} sent a remote command to EC2 (execution ID {{executionId}}) with output directed to external S3 bucket {{s3bucket}}.",
@@ -3380,7 +3396,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -3443,10 +3459,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -3484,10 +3500,10 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
-                                    "UserIdentityArn": "UserIdentityArn",
                                     "AWSRegion": "AWSRegion",
-                                    "EventSource": "EventSource"
+                                    "UserIdentityArn": "UserIdentityArn",
+                                    "EventSource": "EventSource",
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "A successful AWS API call was observed from TOR exit node IP {{SourceIpAddress}} for account {{AccountName}}.",
@@ -3524,7 +3540,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -3587,10 +3603,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -3628,10 +3644,10 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
-                                    "UserIdentityArn": "UserIdentityArn",
                                     "UserName": "UserName",
-                                    "SourceIpAddress": "SourceIpAddress"
+                                    "SourceIpAddress": "SourceIpAddress",
+                                    "UserIdentityArn": "UserIdentityArn",
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "AWS GuardDuty detector activity {{EventName}} was detected for {{AccountName}} from {{SourceIpAddress}}.",
@@ -3668,7 +3684,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -3731,10 +3747,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -3778,10 +3794,10 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
                                     "UserIdentityArn": "UserIdentityArn",
                                     "RecipientAccountId": "RecipientAccountId",
-                                    "PolicyName": "PolicyName"
+                                    "PolicyName": "PolicyName",
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "Detected {{EventName}} for policy {{PolicyName}} from {{SourceIpAddress}}.",
@@ -3818,7 +3834,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -3881,10 +3897,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -3928,10 +3944,10 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
                                     "UserIdentityArn": "UserIdentityArn",
                                     "RecipientAccountId": "RecipientAccountId",
-                                    "PolicyName": "PolicyName"
+                                    "PolicyName": "PolicyName",
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "Detected {{EventName}} for policy {{PolicyName}} from {{SourceIpAddress}}.",
@@ -3968,7 +3984,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -4031,10 +4047,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -4078,10 +4094,10 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
                                     "UserIdentityArn": "UserIdentityArn",
                                     "RecipientAccountId": "RecipientAccountId",
-                                    "PolicyName": "PolicyName"
+                                    "PolicyName": "PolicyName",
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "Detected {{EventName}} for policy {{PolicyName}} in account {{RecipientAccountId}}.",
@@ -4118,7 +4134,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -4181,10 +4197,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -4228,10 +4244,10 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
                                     "UserIdentityArn": "UserIdentityArn",
                                     "RecipientAccountId": "RecipientAccountId",
-                                    "PolicyName": "PolicyName"
+                                    "PolicyName": "PolicyName",
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "Detected {{EventName}} for policy {{PolicyName}} in account {{RecipientAccountId}}.",
@@ -4268,7 +4284,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -4331,10 +4347,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -4378,10 +4394,10 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
                                     "UserIdentityArn": "UserIdentityArn",
                                     "RecipientAccountId": "RecipientAccountId",
-                                    "PolicyName": "PolicyName"
+                                    "PolicyName": "PolicyName",
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "Detected {{EventName}} for policy {{PolicyName}} in account {{RecipientAccountId}}.",
@@ -4418,7 +4434,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -4481,10 +4497,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -4528,10 +4544,10 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
                                     "UserIdentityArn": "UserIdentityArn",
                                     "RecipientAccountId": "RecipientAccountId",
-                                    "PolicyName": "PolicyName"
+                                    "PolicyName": "PolicyName",
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "Detected {{EventName}} for policy {{PolicyName}} in account {{RecipientAccountId}}.",
@@ -4568,7 +4584,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -4631,10 +4647,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -4678,10 +4694,10 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
                                     "UserIdentityArn": "UserIdentityArn",
                                     "RecipientAccountId": "RecipientAccountId",
-                                    "PolicyName": "PolicyName"
+                                    "PolicyName": "PolicyName",
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "Detected {{EventName}} for policy {{PolicyName}} in account {{RecipientAccountId}}.",
@@ -4718,7 +4734,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -4781,10 +4797,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -4828,10 +4844,10 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
                                     "UserIdentityArn": "UserIdentityArn",
                                     "RecipientAccountId": "RecipientAccountId",
-                                    "PolicyName": "PolicyName"
+                                    "PolicyName": "PolicyName",
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "Detected {{EventName}} for policy {{PolicyName}} in account {{RecipientAccountId}}.",
@@ -4868,7 +4884,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -4931,10 +4947,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -4978,10 +4994,10 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
                                     "UserIdentityArn": "UserIdentityArn",
                                     "RecipientAccountId": "RecipientAccountId",
-                                    "PolicyName": "PolicyName"
+                                    "PolicyName": "PolicyName",
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "Detected {{EventName}} for policy {{PolicyName}} in account {{RecipientAccountId}}.",
@@ -5018,7 +5034,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -5081,10 +5097,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -5128,10 +5144,10 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
                                     "UserIdentityArn": "UserIdentityArn",
                                     "RecipientAccountId": "RecipientAccountId",
-                                    "PolicyName": "PolicyName"
+                                    "PolicyName": "PolicyName",
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "Detected {{EventName}} for policy {{PolicyName}} in account {{RecipientAccountId}}.",
@@ -5168,7 +5184,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -5231,10 +5247,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -5278,10 +5294,10 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
                                     "UserIdentityArn": "UserIdentityArn",
                                     "RecipientAccountId": "RecipientAccountId",
-                                    "PolicyName": "PolicyName"
+                                    "PolicyName": "PolicyName",
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "Detected {{EventName}} for policy {{PolicyName}} in account {{RecipientAccountId}}.",
@@ -5318,7 +5334,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -5381,10 +5397,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -5422,9 +5438,9 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
+                                    "UserIdentityArn": "UserIdentityArn",
                                     "AwsEventId": "AwsEventId",
-                                    "UserIdentityArn": "UserIdentityArn"
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "KMS key creation or policy update by {{AccountName}} without MFA resulted in permissive encrypt access. AwsEventId: {{AwsEventId}}",
@@ -5461,7 +5477,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -5524,10 +5540,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -5561,11 +5577,11 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
                                     "AWSRegion": "AWSRegion",
-                                    "EventSource": "EventSource",
                                     "EventType": "EventTypeName",
-                                    "InstanceId": "instanceId_"
+                                    "InstanceId": "instanceId_",
+                                    "EventSource": "EventSource",
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "EC2 startup script changed on {{instanceId_}} by {{UserName}} in {{AWSRegion}}.",
@@ -5602,7 +5618,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -5665,10 +5681,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -5740,7 +5756,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -5803,10 +5819,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -5847,10 +5863,10 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
-                                    "UserIdentityArn": "UserIdentityArn",
+                                    "UserIdentityUserName": "UserIdentityUserName",
                                     "RecipientAccountId": "RecipientAccountId",
-                                    "UserIdentityUserName": "UserIdentityUserName"
+                                    "UserIdentityArn": "UserIdentityArn",
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "Amazon ECR image scanning was disabled by {{AccountName}} from {{SourceIpAddress}} in account {{RecipientAccountId}}",
@@ -5887,7 +5903,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -5950,10 +5966,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -5994,10 +6010,10 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
-                                    "EventTypeName": "EventTypeName",
+                                    "EventSource": "EventSource",
                                     "AWSRegion": "AWSRegion",
-                                    "EventSource": "EventSource"
+                                    "EventTypeName": "EventTypeName",
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "Detected {{EventName}} in {{AWSRegion}} affecting account {{RecipientAccountId}} logging telemetry.",
@@ -6034,7 +6050,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -6097,10 +6113,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -6141,10 +6157,10 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
-                                    "AclProtocol": "aclProtocol",
                                     "RuleAction": "ruleAction",
-                                    "AWSRegion": "AWSRegion"
+                                    "AclProtocol": "aclProtocol",
+                                    "AWSRegion": "AWSRegion",
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "Detected {{EventName}} from {{SourceIpAddress}} that opened broad Network ACL access in account {{RecipientAccountId}}.",
@@ -6181,7 +6197,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -6244,10 +6260,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -6285,10 +6301,10 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
-                                    "UserIdentityArn": "UserIdentityArn",
                                     "AWSRegion": "AWSRegion",
-                                    "EventSource": "EventSource"
+                                    "UserIdentityArn": "UserIdentityArn",
+                                    "EventSource": "EventSource",
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "Detected {{EventName}} from {{SourceIpAddress}} creating a broadly permissive KMS policy in account {{RecipientAccountId}}.",
@@ -6325,7 +6341,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -6388,10 +6404,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -6433,10 +6449,10 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
-                                    "UserIdentityArn": "UserIdentityArn",
                                     "AWSRegion": "AWSRegion",
-                                    "EventSource": "EventSource"
+                                    "UserIdentityArn": "UserIdentityArn",
+                                    "EventSource": "EventSource",
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "Detected {{EventName}} from {{SourceIpAddress}} attaching AdministratorAccess in account {{RecipientAccountId}}.",
@@ -6473,7 +6489,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -6536,10 +6552,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -6581,10 +6597,10 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
-                                    "UserIdentityArn": "UserIdentityArn",
                                     "AWSRegion": "AWSRegion",
-                                    "EventSource": "EventSource"
+                                    "UserIdentityArn": "UserIdentityArn",
+                                    "EventSource": "EventSource",
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "Detected {{EventName}} from {{SourceIpAddress}} attaching admin-related managed policy in account {{RecipientAccountId}}.",
@@ -6621,7 +6637,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -6684,10 +6700,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -6729,10 +6745,10 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
-                                    "UserIdentityArn": "UserIdentityArn",
                                     "AWSRegion": "AWSRegion",
-                                    "EventSource": "EventSource"
+                                    "UserIdentityArn": "UserIdentityArn",
+                                    "EventSource": "EventSource",
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "Detected {{EventName}} from {{SourceIpAddress}} attaching FullAccess managed policy in account {{RecipientAccountId}}.",
@@ -6769,7 +6785,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -6832,10 +6848,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -6876,10 +6892,10 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
                                     "UserIdentityArn": "UserIdentityArn",
                                     "RecipientAccountId": "RecipientAccountId",
-                                    "PolicyName": "PolicyName"
+                                    "PolicyName": "PolicyName",
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "Detected {{EventName}} Event, updating inline CloudFormation escalation policy {{PolicyName}} in account {{RecipientAccountId}}.",
@@ -6916,7 +6932,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -6979,10 +6995,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -7023,10 +7039,10 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
                                     "UserIdentityArn": "UserIdentityArn",
                                     "RecipientAccountId": "RecipientAccountId",
-                                    "PolicyName": "PolicyName"
+                                    "PolicyName": "PolicyName",
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "Detected {{EventName}} Event, updating inline DynamoDB escalation policy {{PolicyName}} in account {{RecipientAccountId}}.",
@@ -7063,7 +7079,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -7126,10 +7142,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -7170,10 +7186,10 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
                                     "UserIdentityArn": "UserIdentityArn",
                                     "RecipientAccountId": "RecipientAccountId",
-                                    "PolicyName": "PolicyName"
+                                    "PolicyName": "PolicyName",
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "Detected {{EventName}} Event, updating inline IAM escalation policy {{PolicyName}} in account {{RecipientAccountId}}.",
@@ -7210,7 +7226,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -7273,10 +7289,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -7317,10 +7333,10 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
                                     "UserIdentityArn": "UserIdentityArn",
                                     "RecipientAccountId": "RecipientAccountId",
-                                    "PolicyName": "PolicyName"
+                                    "PolicyName": "PolicyName",
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "Detected {{EventName}} Event, updating inline KMS escalation policy {{PolicyName}} in account {{RecipientAccountId}}.",
@@ -7357,7 +7373,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -7420,10 +7436,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -7464,10 +7480,10 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
                                     "UserIdentityArn": "UserIdentityArn",
                                     "RecipientAccountId": "RecipientAccountId",
-                                    "PolicyName": "PolicyName"
+                                    "PolicyName": "PolicyName",
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "Detected {{EventName}} Event, updating inline Lambda escalation policy {{PolicyName}} in account {{RecipientAccountId}}.",
@@ -7504,7 +7520,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -7567,10 +7583,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -7611,10 +7627,10 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
                                     "UserIdentityArn": "UserIdentityArn",
                                     "RecipientAccountId": "RecipientAccountId",
-                                    "PolicyName": "PolicyName"
+                                    "PolicyName": "PolicyName",
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "Detected {{EventName}} Event, updating inline S3 escalation policy {{PolicyName}} in account {{RecipientAccountId}}.",
@@ -7651,7 +7667,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -7714,10 +7730,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -7758,10 +7774,10 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
                                     "UserIdentityArn": "UserIdentityArn",
                                     "RecipientAccountId": "RecipientAccountId",
-                                    "PolicyName": "PolicyName"
+                                    "PolicyName": "PolicyName",
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "Detected {{EventName}} Event, updating inline Data Pipeline escalation policy {{PolicyName}} in account {{RecipientAccountId}}.",
@@ -7798,7 +7814,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -7861,10 +7877,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -7905,10 +7921,10 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
                                     "UserIdentityArn": "UserIdentityArn",
                                     "RecipientAccountId": "RecipientAccountId",
-                                    "PolicyName": "PolicyName"
+                                    "PolicyName": "PolicyName",
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "Detected {{EventName}} Event, updating inline EC2 escalation policy {{PolicyName}} in account {{RecipientAccountId}}.",
@@ -7945,7 +7961,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -8008,10 +8024,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -8052,10 +8068,10 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
                                     "UserIdentityArn": "UserIdentityArn",
                                     "RecipientAccountId": "RecipientAccountId",
-                                    "PolicyName": "PolicyName"
+                                    "PolicyName": "PolicyName",
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "Detected {{EventName}} Event, updating inline Glue escalation policy {{PolicyName}} in account {{RecipientAccountId}}.",
@@ -8092,7 +8108,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -8155,10 +8171,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -8199,10 +8215,10 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
                                     "UserIdentityArn": "UserIdentityArn",
                                     "RecipientAccountId": "RecipientAccountId",
-                                    "PolicyName": "PolicyName"
+                                    "PolicyName": "PolicyName",
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "Detected {{EventName}} Event, updating inline Lambda escalation policy {{PolicyName}} in account {{RecipientAccountId}}.",
@@ -8239,7 +8255,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -8302,10 +8318,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -8346,10 +8362,10 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
                                     "UserIdentityArn": "UserIdentityArn",
                                     "RecipientAccountId": "RecipientAccountId",
-                                    "PolicyName": "PolicyName"
+                                    "PolicyName": "PolicyName",
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "Detected {{EventName}} Event, updating inline SSM escalation policy {{PolicyName}} in account {{RecipientAccountId}}.",
@@ -8386,7 +8402,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -8449,10 +8465,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -8490,10 +8506,10 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
-                                    "UserIdentityArn": "UserIdentityArn",
+                                    "RecipientAccountId": "RecipientAccountId",
                                     "AWSRegion": "AWSRegion",
-                                    "RecipientAccountId": "RecipientAccountId"
+                                    "UserIdentityArn": "UserIdentityArn",
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "Detected {{EventName}} event from {{SourceIpAddress}} setting RDS publicly accessible in account {{RecipientAccountId}}.",
@@ -8530,7 +8546,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -8593,10 +8609,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -8634,10 +8650,10 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "failed_keys": "failed_keys",
                                     "success_keys": "success_keys",
                                     "RecipientAccountId": "RecipientAccountId",
-                                    "bucketName": "bucketName"
+                                    "bucketName": "bucketName",
+                                    "failed_keys": "failed_keys"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "Detected repeated failed and then successful S3 GetObject access for bucket {{bucketName}} in account {{RecipientAccountId}}.",
@@ -8674,7 +8690,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -8737,10 +8753,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -8778,9 +8794,9 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
+                                    "RecipientAccountId": "RecipientAccountId",
                                     "UserIdentityArn": "UserIdentityArn",
-                                    "RecipientAccountId": "RecipientAccountId"
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "Detected {{EventName}} from {{SourceIpAddress}} creating public S3 access point exposure in account {{RecipientAccountId}}.",
@@ -8817,7 +8833,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -8880,10 +8896,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -8921,10 +8937,10 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
-                                    "xamzacl": "xamzacl",
+                                    "URI": "URI",
                                     "RecipientAccountId": "RecipientAccountId",
-                                    "URI": "URI"
+                                    "xamzacl": "xamzacl",
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "Detected {{EventName}} from {{SourceIpAddress}} applying public or broad ACL on S3 bucket in account {{RecipientAccountId}}.",
@@ -8961,7 +8977,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -9024,10 +9040,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -9065,9 +9081,9 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
+                                    "RecipientAccountId": "RecipientAccountId",
                                     "UserIdentityArn": "UserIdentityArn",
-                                    "RecipientAccountId": "RecipientAccountId"
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "Detected {{EventName}} from {{SourceIpAddress}} creating public bucket policy exposure in account {{RecipientAccountId}}.",
@@ -9104,7 +9120,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -9167,10 +9183,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -9208,10 +9224,10 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
-                                    "xamzacl": "xamzacl",
+                                    "URI": "URI",
                                     "RecipientAccountId": "RecipientAccountId",
-                                    "URI": "URI"
+                                    "xamzacl": "xamzacl",
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "Detected {{EventName}} event from {{SourceIpAddress}} applying public object ACL settings in account {{RecipientAccountId}}.",
@@ -9248,7 +9264,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -9311,10 +9327,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -9352,9 +9368,9 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "keyName": "keyName",
-                                    "RecipientAccountId": "RecipientAccountId",
                                     "kmsId": "kmsId",
+                                    "RecipientAccountId": "RecipientAccountId",
+                                    "keyName": "keyName",
                                     "bucketName": "bucketName"
                                 },
                                 "alertDetailsOverride": {
@@ -9392,7 +9408,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -9455,10 +9471,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -9496,10 +9512,10 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
-                                    "UserIdentityArn": "UserIdentityArn",
                                     "AWSRegion": "AWSRegion",
-                                    "EventSource": "EventSource"
+                                    "UserIdentityArn": "UserIdentityArn",
+                                    "EventSource": "EventSource",
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "Detected UpdateSAMLProvider from {{SourceIpAddress}} in account {{RecipientAccountId}}.",
@@ -9536,7 +9552,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -9599,10 +9615,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -9643,10 +9659,10 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
-                                    "UserIdentityArn": "UserIdentityArn",
                                     "AWSRegion": "AWSRegion",
-                                    "EventSource": "EventSource"
+                                    "UserIdentityArn": "UserIdentityArn",
+                                    "EventSource": "EventSource",
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "Detected SetDefaultPolicyVersion from {{SourceIpAddress}} in account {{RecipientAccountId}}.",
@@ -9683,7 +9699,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -9746,10 +9762,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -9787,10 +9803,10 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
+                                    "UserAgent": "UserAgent",
                                     "AWSRegion": "AWSRegion",
                                     "RequestParameters": "RequestParameters",
-                                    "UserAgent": "UserAgent"
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "User {{AccountName}} modified SSM document permissions to expose it publicly from {{SourceIpAddress}} in region {{AWSRegion}}.",
@@ -9827,7 +9843,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -9890,10 +9906,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -9933,9 +9949,9 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "AWSUser": "UserIdentityUserName",
                                     "SuspiciousCommand": "commands",
-                                    "AWSUserIp": "SourceIpAddress"
+                                    "AWSUserIp": "SourceIpAddress",
+                                    "AWSUser": "UserIdentityUserName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "User {{AccountName}} executed {{CommadCount}} suspicious AWS CLI reconnaissance commands from {{SourceIpAddress}} within 1 minute window.",
@@ -9972,7 +9988,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -10035,10 +10051,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -10076,10 +10092,10 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "SourceIpAddress": "SourceIpAddress",
-                                    "AWSUser": "UserIdentityArn",
+                                    "TotalCoreCount": "totalgpu",
                                     "UserAgent": "UserAgent",
-                                    "TotalCoreCount": "totalgpu"
+                                    "SourceIpAddress": "SourceIpAddress",
+                                    "AWSUser": "UserIdentityArn"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "User {{AccountName}} deployed {{totalgpu}} total CPU cores across EC2 instances from {{SourceIpAddress}} within an 8-hour window, suggesting potential cryptocurrency mining activity.",
@@ -10116,7 +10132,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -10179,10 +10195,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -10219,9 +10235,9 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "EventName": "EventName",
+                                    "UserAgent": "UserAgent",
                                     "AWSRegion": "AWSRegion",
-                                    "UserAgent": "UserAgent"
+                                    "EventName": "EventName"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "User {{Name}} (principal {{UserIdentityPrincipalid}}) created a new IAM access key in region {{AWSRegion}}.",
@@ -10258,7 +10274,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -10321,10 +10337,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -10359,8 +10375,8 @@
                                 ],
                                 "customDetails": {
                                     "EventCount": "count_",
-                                    "PrincipalId": "UserIdentityPrincipalid",
-                                    "AWSAccountId": "UserIdentityAccountId"
+                                    "AWSAccountId": "UserIdentityAccountId",
+                                    "PrincipalId": "UserIdentityPrincipalid"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "User {{UserIdentityPrincipalid}} performed {{count_}} IAM enumeration API calls within a 10-minute window from account {{UserIdentityAccountId}}.",
@@ -10397,7 +10413,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -10460,10 +10476,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AWS",
                                         "dataTypes": [
                                             "AWSCloudTrail"
-                                        ]
+                                        ],
+                                        "connectorId": "AWS"
                                     }
                                 ],
                                 "tactics": [
@@ -10497,10 +10513,10 @@
                                     }
                                 ],
                                 "customDetails": {
+                                    "ErrorMessage": "ErrorMessage",
                                     "UserIdentityType": "UserIdentityType",
-                                    "AWSRegion": "AWSRegion",
                                     "UserAgent": "UserAgent",
-                                    "ErrorMessage": "ErrorMessage"
+                                    "AWSRegion": "AWSRegion"
                                 },
                                 "alertDetailsOverride": {
                                     "alertDescriptionFormat": "User {{UserIdentityPrincipalid}} (type {{UserIdentityType}}) attempted an unauthorized EC2 instance launch in region {{AWSRegion}}.",
@@ -10537,7 +10553,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -10635,7 +10651,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -10720,7 +10736,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -10805,7 +10821,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -10890,7 +10906,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -10975,7 +10991,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -11060,7 +11076,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -11145,7 +11161,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -11230,7 +11246,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -11315,7 +11331,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -11400,7 +11416,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -11485,7 +11501,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -11570,7 +11586,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -11655,7 +11671,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -11740,7 +11756,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -11825,7 +11841,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -11910,7 +11926,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -11995,7 +12011,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -12080,7 +12096,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -12165,7 +12181,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -12250,7 +12266,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -12335,7 +12351,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -12420,7 +12436,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -12505,7 +12521,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -12590,7 +12606,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -12675,7 +12691,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -12760,7 +12776,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -12845,7 +12861,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -12930,7 +12946,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -13015,7 +13031,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -13100,7 +13116,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -13185,7 +13201,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -13270,7 +13286,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -13355,7 +13371,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -13440,7 +13456,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -13525,7 +13541,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -13610,7 +13626,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.9",
+                "packageVersion": "3.0.10",
                 "packageName": "Amazon Web Services",
                 "packageId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "contentSchemaVersion": "3.0.0",
@@ -13628,16 +13644,16 @@
             "apiVersion": "2023-04-01-preview",
             "location": "[parameters('workspace-location')]",
             "properties": {
-                "version": "3.0.9",
+                "version": "3.0.10",
                 "kind": "Solution",
                 "contentSchemaVersion": "3.0.0",
                 "displayName": "Amazon Web Services",
                 "publisherDisplayName": "Microsoft Sentinel, Microsoft Corporation",
                 "descriptionHtml": "<p><strong>Note:</strong> Please refer to the following before installing the solution:</p><p>\u2022 Review the solution <a target=\"_blank\" href=\"https://ms.portal.azure.com/verifyLink?href=https%3A%2F%2Fgithub.com%2FAzure%2FAzure-Sentinel%2Ftree%2Fmaster%2FSolutions%2FAmazon%2520Web%2520Services%2FReleaseNotes.md&amp;id=fx\" rel=\"noopener\">Release Notes</a></p><p>\u2022 There may be <a target=\"_blank\" href=\"https://ms.portal.azure.com/verifyLink?href=https%3A%2F%2Faka.ms%2Fsentinelsolutionsknownissues&amp;id=fx\" rel=\"noopener\">known issues</a> pertaining to this Solution, please refer to them before installing.</p><p>The Amazon Web Services solution for Microsoft Sentinel allows you to enable Security monitoring of AWS services by allowing ingestion of logs from the AWS CloudTrail platform, VPC Flow Logs, AWS GuardDuty and AWS CloudWatch.</p><p><strong>Data Connectors:</strong> 3, <strong>Workbooks:</strong> 2, <strong>Analytic Rules:</strong> 62, <strong>Hunting Queries:</strong> 36</p><p><a target=\"_blank\" href=\"https://ms.portal.azure.com/verifyLink?href=https%3A%2F%2Faka.ms%2Fazuresentinel&amp;id=fx\" rel=\"noopener\">Learn more about Microsoft Sentinel</a> | <a target=\"_blank\" href=\"https://ms.portal.azure.com/verifyLink?href=https%3A%2F%2Faka.ms%2Fazuresentinelsolutionsdoc&amp;id=fx\" rel=\"noopener\">Learn more about Solutions</a></p>",
                 "contentKind": "Solution",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-amazonwebser-sl-kxdn7irm37muc",
-                "id": "azuresentinel.azure-sentinel-solution-amazonwebser-sl-kxdn7irm37muc",
-                "icon": "https://catalogartifact.azureedge.net/publicartifacts/azuresentinel.azure-sentinel-solution-amazonwebservices-b8d6ba5d-eae3-4463-8fc0-6c7a565857bd/image2_Aws.png",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-amazonwebser-sl-74syncdy3sxwu",
+                "id": "azuresentinel.azure-sentinel-solution-amazonwebser-sl-74syncdy3sxwu",
+                "icon": "https://catalogartifact.azureedge.net/publicartifacts/azuresentinel.azure-sentinel-solution-amazonwebservices-e9f2495a-10f4-47d7-9875-558694384054/image2_Aws.png",
                 "contentId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "parentId": "azuresentinel.azure-sentinel-solution-amazonwebservices",
                 "source": {
@@ -13670,7 +13686,7 @@
                         {
                             "kind": "DataConnector",
                             "contentId": "AwsS3WafCcpDefinitionConnections",
-                            "version": "3.0.9"
+                            "version": "3.0.10"
                         },
                         {
                             "kind": "Workbook",
