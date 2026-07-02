@@ -1,3 +1,26 @@
+## 8.6.7 (2026-07-02)
+
+### Code Refactoring
+
+* bump `AWS` package template version to 3.0.10 e46d305
+* bump `Azure Key Vault` package template version to 3.0.3 b3b207a
+* bump `Cisco Meraki` package template version to 3.0.6 8d77474
+* bump `Cloudflare` package template version to 3.0.3 71ed60f
+* bump `Darktrace` package template version to 3.0.0 47e0ae1
+* bump `Fortigate` package template version to 3.0.9 404d162
+* bump `Microsoft Entra ID` package template version to 3.3.13 9b23016
+* bump `Microsoft XDR` package template version to 3.0.15 8dc1798
+
+### Miscellaneous Chores
+
+* **deps:** update dependency opentofu to v1.12.1 65921bd
+* **deps:** update dependency opentofu to v1.12.2 17029ab
+* **deps:** update dependency opentofu to v1.12.3 1b0d7bc
+* **deps:** update dependency tflint to v0.63.1 37f951b
+* **deps:** update pre-commit hook tofuutils/pre-commit-opentofu to v2.4.0 205841f
+* **deps:** update pre-commit hook tofuutils/pre-commit-opentofu to v2.4.1 9782287
+* **deps:** update pre-commit hook tofuutils/pre-commit-opentofu to v2.4.2 36879a4
+
 ## 8.6.6 (2026-05-27)
 
 ### Code Refactoring
