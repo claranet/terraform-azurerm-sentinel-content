@@ -129,7 +129,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.0",
+                "packageVersion": "3.1.1",
                 "packageName": "Darktrace",
                 "packageId": "darktrace1655286944672.darktrace_for_sentinel",
                 "contentSchemaVersion": "3.0.0",
@@ -238,7 +238,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.0",
+                "packageVersion": "3.1.1",
                 "packageName": "Darktrace",
                 "packageId": "darktrace1655286944672.darktrace_for_sentinel",
                 "contentSchemaVersion": "3.0.0",
@@ -284,10 +284,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "DarktraceRESTConnector",
                                         "dataTypes": [
                                             "darktrace_model_alerts_CL"
-                                        ]
+                                        ],
+                                        "connectorId": "DarktraceRESTConnector"
                                     }
                                 ],
                                 "tactics": [
@@ -307,8 +307,8 @@
                                         "entityType": "Host",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "SrcHostname",
-                                                "identifier": "HostName"
+                                                "identifier": "HostName",
+                                                "columnName": "SrcHostname"
                                             }
                                         ]
                                     },
@@ -316,8 +316,8 @@
                                         "entityType": "Host",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "DstHostname",
-                                                "identifier": "HostName"
+                                                "identifier": "HostName",
+                                                "columnName": "DstHostname"
                                             }
                                         ]
                                     },
@@ -325,8 +325,8 @@
                                         "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "SrcIpAddr",
-                                                "identifier": "Address"
+                                                "identifier": "Address",
+                                                "columnName": "SrcIpAddr"
                                             }
                                         ]
                                     },
@@ -334,8 +334,8 @@
                                         "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "DstIpAddr",
-                                                "identifier": "Address"
+                                                "identifier": "Address",
+                                                "columnName": "DstIpAddr"
                                             }
                                         ]
                                     }
@@ -344,48 +344,48 @@
                                     "aggregationKind": "AlertPerResult"
                                 },
                                 "customDetails": {
-                                    "EventSeverity": "EventSeverity",
-                                    "SrcPortNumber": "SrcPortNumber",
+                                    "ThreatIdentifier": "ThreatIdentifier",
                                     "NetworkRuleName": "NetworkRuleName",
+                                    "DstPortNumber": "DstPortNumber",
+                                    "DtCategory": "DtCategory",
+                                    "NetworkRuleNumber": "NetworkRuleNumber",
+                                    "DtDeviceIdentifier": "DtDeviceIdentifier",
+                                    "SrcPortNumber": "SrcPortNumber",
+                                    "DstMacAddr": "DstMacAddr",
                                     "DtDescription": "DtDescription",
                                     "DtSentinelCategory": "DtSentinelCategory",
-                                    "DtCategory": "DtCategory",
                                     "SrcMacAddr": "SrcMacAddr",
-                                    "NetworkRuleNumber": "NetworkRuleNumber",
-                                    "ThreatIdentifier": "ThreatIdentifier",
-                                    "DstMacAddr": "DstMacAddr",
                                     "DtCompliance": "DtCompliance",
-                                    "DtDeviceIdentifier": "DtDeviceIdentifier",
-                                    "DstPortNumber": "DstPortNumber",
-                                    "EventStartTime": "EventStartTime"
+                                    "EventStartTime": "EventStartTime",
+                                    "EventSeverity": "EventSeverity"
                                 },
                                 "alertDetailsOverride": {
-                                    "alertDisplayNameFormat": "Darktrace: {{ThreatRiskLevel}} - {{NetworkRuleName}}",
-                                    "alertTacticsColumnName": null,
-                                    "alertSeverityColumnName": null,
                                     "alertDynamicProperties": [
                                         {
-                                            "alertProperty": "AlertLink",
-                                            "value": "DtBreachURL"
+                                            "value": "DtBreachURL",
+                                            "alertProperty": "AlertLink"
                                         },
                                         {
-                                            "alertProperty": "ProviderName",
-                                            "value": "EventVendor"
+                                            "value": "EventVendor",
+                                            "alertProperty": "ProviderName"
                                         },
                                         {
-                                            "alertProperty": "ProductName",
-                                            "value": "EventProduct"
+                                            "value": "EventProduct",
+                                            "alertProperty": "ProductName"
                                         },
                                         {
-                                            "alertProperty": "ProductComponentName",
-                                            "value": "ThreatCategory"
+                                            "value": "ThreatCategory",
+                                            "alertProperty": "ProductComponentName"
                                         },
                                         {
-                                            "alertProperty": "Severity",
-                                            "value": "DtSentinelCategory"
+                                            "value": "DtSentinelCategory",
+                                            "alertProperty": "Severity"
                                         }
                                     ],
-                                    "alertDescriptionFormat": "{{DtMessage}}"
+                                    "alertDescriptionFormat": "{{DtMessage}}",
+                                    "alertTacticsColumnName": null,
+                                    "alertDisplayNameFormat": "Darktrace: {{ThreatRiskLevel}} - {{NetworkRuleName}}",
+                                    "alertSeverityColumnName": null
                                 }
                             }
                         },
@@ -419,7 +419,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.0",
+                "packageVersion": "3.1.1",
                 "packageName": "Darktrace",
                 "packageId": "darktrace1655286944672.darktrace_for_sentinel",
                 "contentSchemaVersion": "3.0.0",
@@ -478,10 +478,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "DarktraceRESTConnector",
                                         "dataTypes": [
                                             "darktrace_model_alerts_CL"
-                                        ]
+                                        ],
+                                        "connectorId": "DarktraceRESTConnector"
                                     }
                                 ],
                                 "tactics": [
@@ -501,8 +501,8 @@
                                         "entityType": "Host",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "SrcHostname",
-                                                "identifier": "HostName"
+                                                "identifier": "HostName",
+                                                "columnName": "SrcHostname"
                                             }
                                         ]
                                     },
@@ -510,8 +510,8 @@
                                         "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "SrcIpAddr",
-                                                "identifier": "Address"
+                                                "identifier": "Address",
+                                                "columnName": "SrcIpAddr"
                                             }
                                         ]
                                     }
@@ -522,44 +522,44 @@
                                 "customDetails": {
                                     "DtCurrentGroup": "DtCurrentGroup",
                                     "DtGroupCategory": "DtGroupCategory",
-                                    "ThreatRiskLevel": "ThreatRiskLevel",
-                                    "DtSeverity": "DtSeverity",
-                                    "DtSummary": "DtSummary",
-                                    "DtNewEvent": "DtNewEvent",
-                                    "EventEndTime": "EventEndTime",
-                                    "DtGroupScore": "DtGroupScore",
                                     "DtSrcDeviceName": "DtSrcDeviceName",
                                     "EventStartTime": "EventStartTime",
+                                    "DtSentinelCategory": "DtSentinelCategory",
+                                    "DtNewEvent": "DtNewEvent",
+                                    "DtSummary": "DtSummary",
+                                    "DtGroupScore": "DtGroupScore",
+                                    "DtSeverity": "DtSeverity",
                                     "NetworkRuleName": "NetworkRuleName",
-                                    "DtSentinelCategory": "DtSentinelCategory"
+                                    "ThreatRiskLevel": "ThreatRiskLevel",
+                                    "EventEndTime": "EventEndTime"
                                 },
                                 "alertDetailsOverride": {
-                                    "alertDisplayNameFormat": "Darktrace: {{ThreatRiskLevel}} - {{NetworkRuleName}}",
-                                    "alertTacticsColumnName": null,
-                                    "alertSeverityColumnName": null,
                                     "alertDynamicProperties": [
                                         {
-                                            "alertProperty": "AlertLink",
-                                            "value": "DtURL"
+                                            "value": "DtURL",
+                                            "alertProperty": "AlertLink"
                                         },
                                         {
-                                            "alertProperty": "ProviderName",
-                                            "value": "EventVendor"
+                                            "value": "EventVendor",
+                                            "alertProperty": "ProviderName"
                                         },
                                         {
-                                            "alertProperty": "ProductName",
-                                            "value": "EventProduct"
+                                            "value": "EventProduct",
+                                            "alertProperty": "ProductName"
                                         },
                                         {
-                                            "alertProperty": "ProductComponentName",
-                                            "value": "ThreatCategory"
+                                            "value": "ThreatCategory",
+                                            "alertProperty": "ProductComponentName"
                                         },
                                         {
-                                            "alertProperty": "Severity",
-                                            "value": "DtSentinelCategory"
+                                            "value": "DtSentinelCategory",
+                                            "alertProperty": "Severity"
                                         }
                                     ],
-                                    "alertDescriptionFormat": "{{DtSummary}}"
+                                    "alertDescriptionFormat": "{{DtSummary}}",
+                                    "alertTacticsColumnName": null,
+                                    "alertDisplayNameFormat": "Darktrace: {{ThreatRiskLevel}} - {{NetworkRuleName}}",
+                                    "alertSeverityColumnName": null
                                 }
                             }
                         },
@@ -593,7 +593,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.0",
+                "packageVersion": "3.1.1",
                 "packageName": "Darktrace",
                 "packageId": "darktrace1655286944672.darktrace_for_sentinel",
                 "contentSchemaVersion": "3.0.0",
@@ -656,10 +656,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "DarktraceRESTConnector",
                                         "dataTypes": [
                                             "darktrace_model_alerts_CL"
-                                        ]
+                                        ],
+                                        "connectorId": "DarktraceRESTConnector"
                                     }
                                 ],
                                 "tactics": [
@@ -675,8 +675,8 @@
                                         "entityType": "Host",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "SrcHostname",
-                                                "identifier": "HostName"
+                                                "identifier": "HostName",
+                                                "columnName": "SrcHostname"
                                             }
                                         ]
                                     },
@@ -684,8 +684,8 @@
                                         "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "SrcIpAddr",
-                                                "identifier": "Address"
+                                                "identifier": "Address",
+                                                "columnName": "SrcIpAddr"
                                             }
                                         ]
                                     }
@@ -694,38 +694,38 @@
                                     "aggregationKind": "AlertPerResult"
                                 },
                                 "customDetails": {
-                                    "ThreatRiskLevel": "ThreatRiskLevel",
-                                    "DtSeverity": "DtSeverity",
                                     "DtMessage": "DtMessage",
-                                    "DtName": "DtName",
                                     "ThreatRiskCategory": "ThreatRiskCategory",
                                     "EventStartTime": "EventStartTime",
+                                    "DtName": "DtName",
+                                    "DtSeverity": "DtSeverity",
                                     "NetworkRuleName": "NetworkRuleName",
+                                    "ThreatRiskLevel": "ThreatRiskLevel",
                                     "DtStatus": "DtStatus"
                                 },
                                 "alertDetailsOverride": {
-                                    "alertDisplayNameFormat": "Darktrace: {{ThreatRiskLevel}} - {{NetworkRuleName}}",
-                                    "alertTacticsColumnName": null,
-                                    "alertSeverityColumnName": null,
                                     "alertDynamicProperties": [
                                         {
-                                            "alertProperty": "AlertLink",
-                                            "value": "DtURL"
+                                            "value": "DtURL",
+                                            "alertProperty": "AlertLink"
                                         },
                                         {
-                                            "alertProperty": "ProviderName",
-                                            "value": "EventVendor"
+                                            "value": "EventVendor",
+                                            "alertProperty": "ProviderName"
                                         },
                                         {
-                                            "alertProperty": "ProductName",
-                                            "value": "EventProduct"
+                                            "value": "EventProduct",
+                                            "alertProperty": "ProductName"
                                         },
                                         {
-                                            "alertProperty": "ProductComponentName",
-                                            "value": "ThreatCategory"
+                                            "value": "ThreatCategory",
+                                            "alertProperty": "ProductComponentName"
                                         }
                                     ],
-                                    "alertDescriptionFormat": "{{DtMessage}}"
+                                    "alertDescriptionFormat": "{{DtMessage}}",
+                                    "alertTacticsColumnName": null,
+                                    "alertDisplayNameFormat": "Darktrace: {{ThreatRiskLevel}} - {{NetworkRuleName}}",
+                                    "alertSeverityColumnName": null
                                 }
                             }
                         },
@@ -759,7 +759,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.0",
+                "packageVersion": "3.1.1",
                 "packageName": "Darktrace",
                 "packageId": "darktrace1655286944672.darktrace_for_sentinel",
                 "contentSchemaVersion": "3.0.0",
@@ -797,7 +797,7 @@
                 "description": "This query searches for Darktrace incident events and creates a Microsoft Sentinel incident for each matching result.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0",
+                    "contentVersion": "1.1.0",
                     "parameters": {},
                     "variables": {},
                     "resources": [
@@ -818,10 +818,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "DarktraceActiveAISecurityPlatform",
                                         "dataTypes": [
                                             "DarktraceIncidents_CL"
-                                        ]
+                                        ],
+                                        "connectorId": "DarktraceActiveAISecurityPlatform"
                                     }
                                 ],
                                 "tactics": [
@@ -838,11 +838,20 @@
                                 ],
                                 "entityMappings": [
                                     {
+                                        "entityType": "Account",
+                                        "fieldMappings": [
+                                            {
+                                                "identifier": "FullName",
+                                                "columnName": "accountName"
+                                            }
+                                        ]
+                                    },
+                                    {
                                         "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "deviceIp",
-                                                "identifier": "Address"
+                                                "identifier": "Address",
+                                                "columnName": "deviceIp"
                                             }
                                         ]
                                     },
@@ -850,8 +859,8 @@
                                         "entityType": "Host",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "deviceHostname",
-                                                "identifier": "HostName"
+                                                "identifier": "HostName",
+                                                "columnName": "deviceHostname"
                                             }
                                         ]
                                     }
@@ -860,42 +869,43 @@
                                     "aggregationKind": "AlertPerResult"
                                 },
                                 "customDetails": {
-                                    "IncidentEventScore": "aiaScore",
-                                    "CurrentGroup": "currentGroup",
-                                    "PreviousGroups": "groupPreviousGroups",
-                                    "StartTime": "startTime",
                                     "Asset": "bestAssetName",
+                                    "StartTime": "startTime",
+                                    "IncidentScore": "groupScore",
+                                    "ModelBreaches": "modelBreaches",
                                     "CustomLabel": "customLabel",
                                     "AssetDetails": "devices",
-                                    "IncidentScore": "groupScore",
-                                    "EndTime": "endTime"
+                                    "PreviousGroups": "groupPreviousGroups",
+                                    "IncidentEventScore": "aiaScore",
+                                    "EndTime": "endTime",
+                                    "CurrentGroup": "currentGroup"
                                 },
                                 "alertDetailsOverride": {
-                                    "alertDisplayNameFormat": "Darktrace Incident Event: {{incidentEventTitle}} ",
-                                    "alertSeverityColumnName": "SentinelSeverity",
                                     "alertDynamicProperties": [
                                         {
-                                            "alertProperty": "AlertLink",
-                                            "value": "url"
+                                            "value": "url",
+                                            "alertProperty": "AlertLink"
                                         },
                                         {
-                                            "alertProperty": "ProductName",
-                                            "value": "darktraceProduct"
+                                            "value": "darktraceProduct",
+                                            "alertProperty": "ProductName"
                                         },
                                         {
-                                            "alertProperty": "ProviderName",
-                                            "value": "ProviderName"
+                                            "value": "ProviderName",
+                                            "alertProperty": "ProviderName"
                                         }
                                     ],
-                                    "alertDescriptionFormat": "{{summary}}"
+                                    "alertDescriptionFormat": "{{summary}}",
+                                    "alertSeverityColumnName": "SentinelSeverity",
+                                    "alertDisplayNameFormat": "Darktrace Incident Event: {{incidentEventTitle}} "
                                 },
                                 "incidentConfiguration": {
                                     "createIncident": true,
                                     "groupingConfiguration": {
-                                        "enabled": false,
-                                        "lookbackDuration": "PT5M",
+                                        "reopenClosedIncident": false,
                                         "matchingMethod": "AllEntities",
-                                        "reopenClosedIncident": false
+                                        "enabled": false,
+                                        "lookbackDuration": "PT5M"
                                     }
                                 }
                             }
@@ -909,7 +919,7 @@
                                 "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '05de0eaf-01bc-4615-99fc-2ec769864b34')]",
                                 "contentId": "05de0eaf-01bc-4615-99fc-2ec769864b34",
                                 "kind": "AnalyticsRule",
-                                "version": "1.0.0",
+                                "version": "1.1.0",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "Darktrace",
@@ -930,16 +940,16 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.0",
+                "packageVersion": "3.1.1",
                 "packageName": "Darktrace",
                 "packageId": "darktrace1655286944672.darktrace_for_sentinel",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "05de0eaf-01bc-4615-99fc-2ec769864b34",
                 "contentKind": "AnalyticsRule",
                 "displayName": "Darktrace Incident Event",
-                "contentProductId": "darktrace1655286944672.darktrace_for_sentinel-ar-tayjfn7vyakzu",
-                "id": "darktrace1655286944672.darktrace_for_sentinel-ar-tayjfn7vyakzu",
-                "version": "1.0.0",
+                "contentProductId": "darktrace1655286944672.darktrace_for_sentinel-ar-kzwqkbul5xpr6",
+                "id": "darktrace1655286944672.darktrace_for_sentinel-ar-kzwqkbul5xpr6",
+                "version": "1.1.0",
                 "isDeprecated": false,
                 "dependencies": {
                     "operator": "AND",
@@ -968,7 +978,7 @@
                 "description": "This query searches for Darktrace model alerts and creates a Microsoft Sentinel alert\nfrom each matching event. Edit this analytic rule if you would like it to create\nMicrosoft Sentinel incidents.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0",
+                    "contentVersion": "1.1.0",
                     "parameters": {},
                     "variables": {},
                     "resources": [
@@ -989,10 +999,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "DarktraceActiveAISecurityPlatform",
                                         "dataTypes": [
                                             "DarktraceModelAlerts_CL"
-                                        ]
+                                        ],
+                                        "connectorId": "DarktraceActiveAISecurityPlatform"
                                     }
                                 ],
                                 "tactics": [
@@ -1009,11 +1019,11 @@
                                 ],
                                 "entityMappings": [
                                     {
-                                        "entityType": "IP",
+                                        "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "sourceIp",
-                                                "identifier": "Address"
+                                                "identifier": "FullName",
+                                                "columnName": "accountName"
                                             }
                                         ]
                                     },
@@ -1021,8 +1031,17 @@
                                         "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "destIp",
-                                                "identifier": "Address"
+                                                "identifier": "Address",
+                                                "columnName": "sourceIp"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "entityType": "IP",
+                                        "fieldMappings": [
+                                            {
+                                                "identifier": "Address",
+                                                "columnName": "destIp"
                                             }
                                         ]
                                     },
@@ -1030,8 +1049,8 @@
                                         "entityType": "Host",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "destHost",
-                                                "identifier": "HostName"
+                                                "identifier": "HostName",
+                                                "columnName": "destHost"
                                             }
                                         ]
                                     },
@@ -1039,8 +1058,8 @@
                                         "entityType": "Host",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "sourceHost",
-                                                "identifier": "HostName"
+                                                "identifier": "HostName",
+                                                "columnName": "sourceHost"
                                             }
                                         ]
                                     }
@@ -1050,42 +1069,42 @@
                                 },
                                 "customDetails": {
                                     "DeviceCredentials": "deviceCredentials",
-                                    "Category": "category",
-                                    "Compliance": "compliance",
+                                    "DeviceHostname": "deviceHostname",
                                     "CustomLabel": "customLabel",
+                                    "Category": "category",
                                     "Score": "score",
-                                    "DeviceHostname": "deviceHostname"
+                                    "Compliance": "compliance"
                                 },
                                 "alertDetailsOverride": {
-                                    "alertDisplayNameFormat": "Darktrace Model Alert: {{modelName}}  ",
-                                    "alertSeverityColumnName": "SentinelSeverity",
                                     "alertDynamicProperties": [
                                         {
-                                            "alertProperty": "AlertLink",
-                                            "value": "alertUrl"
+                                            "value": "alertUrl",
+                                            "alertProperty": "AlertLink"
                                         },
                                         {
-                                            "alertProperty": "ProductName",
-                                            "value": "darktraceProduct"
+                                            "value": "darktraceProduct",
+                                            "alertProperty": "ProductName"
                                         },
                                         {
-                                            "alertProperty": "ProviderName",
-                                            "value": "ProviderName"
+                                            "value": "ProviderName",
+                                            "alertProperty": "ProviderName"
                                         },
                                         {
-                                            "alertProperty": "Techniques",
-                                            "value": "techniqueIdArray"
+                                            "value": "techniqueIdArray",
+                                            "alertProperty": "Techniques"
                                         }
                                     ],
-                                    "alertDescriptionFormat": "{{message}}"
+                                    "alertDescriptionFormat": "{{message}}",
+                                    "alertSeverityColumnName": "SentinelSeverity",
+                                    "alertDisplayNameFormat": "Darktrace Model Alert: {{modelName}}  "
                                 },
                                 "incidentConfiguration": {
                                     "createIncident": false,
                                     "groupingConfiguration": {
-                                        "enabled": false,
-                                        "lookbackDuration": "PT5H",
+                                        "reopenClosedIncident": false,
                                         "matchingMethod": "AllEntities",
-                                        "reopenClosedIncident": false
+                                        "enabled": false,
+                                        "lookbackDuration": "PT5H"
                                     }
                                 }
                             }
@@ -1099,7 +1118,7 @@
                                 "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '9392a06f-63a4-4a5d-8ca3-647064b13c28')]",
                                 "contentId": "9392a06f-63a4-4a5d-8ca3-647064b13c28",
                                 "kind": "AnalyticsRule",
-                                "version": "1.0.0",
+                                "version": "1.1.0",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "Darktrace",
@@ -1120,16 +1139,16 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.0",
+                "packageVersion": "3.1.1",
                 "packageName": "Darktrace",
                 "packageId": "darktrace1655286944672.darktrace_for_sentinel",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "9392a06f-63a4-4a5d-8ca3-647064b13c28",
                 "contentKind": "AnalyticsRule",
                 "displayName": "Darktrace Model Alert",
-                "contentProductId": "darktrace1655286944672.darktrace_for_sentinel-ar-ncxasnynzsg6a",
-                "id": "darktrace1655286944672.darktrace_for_sentinel-ar-ncxasnynzsg6a",
-                "version": "1.0.0",
+                "contentProductId": "darktrace1655286944672.darktrace_for_sentinel-ar-ewpmepncqa4jo",
+                "id": "darktrace1655286944672.darktrace_for_sentinel-ar-ewpmepncqa4jo",
+                "version": "1.1.0",
                 "isDeprecated": false,
                 "dependencies": {
                     "operator": "AND",
@@ -1337,7 +1356,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.0",
+                "packageVersion": "3.1.1",
                 "packageName": "Darktrace",
                 "packageId": "darktrace1655286944672.darktrace_for_sentinel",
                 "contentSchemaVersion": "3.0.0",
@@ -1512,7 +1531,7 @@
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
             "apiVersion": "2023-04-01-preview",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', concat(parameters('workspace'),'-dc-',uniquestring('DarktraceActiveAISecurityPlatform')), '3.0.0')]",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', concat(parameters('workspace'),'-dc-',uniquestring('DarktraceActiveAISecurityPlatform')), '3.1.1')]",
             "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'darktrace1655286944672.darktrace_for_sentinel')]"
@@ -1523,7 +1542,7 @@
                 "contentKind": "DataConnector",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "3.0.0",
+                    "contentVersion": "3.1.1",
                     "parameters": {},
                     "variables": {},
                     "resources": [
@@ -1777,7 +1796,7 @@
                                 "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectorDefinitions', 'DarktraceActiveAISecurityPlatform')]",
                                 "contentId": "DarktraceActiveAISecurityPlatform",
                                 "kind": "DataConnector",
-                                "version": "3.0.0",
+                                "version": "3.1.1",
                                 "source": {
                                     "sourceId": "darktrace1655286944672.darktrace_for_sentinel",
                                     "name": "Darktrace",
@@ -1796,7 +1815,7 @@
                                 "dependencies": {
                                     "criteria": [
                                         {
-                                            "version": "3.0.0",
+                                            "version": "3.1.1",
                                             "contentId": "DarktraceActiveAISecurityPlatformConnections",
                                             "kind": "ResourcesDataConnector"
                                         }
@@ -1969,6 +1988,10 @@
                                             },
                                             {
                                                 "name": "uuid",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "accountName",
                                                 "type": "string"
                                             }
                                         ]
@@ -2269,6 +2292,14 @@
                                             },
                                             {
                                                 "name": "url",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "modelBreaches",
+                                                "type": "dynamic"
+                                            },
+                                            {
+                                                "name": "accountName",
                                                 "type": "string"
                                             }
                                         ]
@@ -2688,6 +2719,10 @@
                                         {
                                             "name": "uuid",
                                             "type": "string"
+                                        },
+                                        {
+                                            "name": "accountName",
+                                            "type": "string"
                                         }
                                     ]
                                 }
@@ -3021,6 +3056,14 @@
                                         {
                                             "name": "url",
                                             "type": "string"
+                                        },
+                                        {
+                                            "name": "modelBreaches",
+                                            "type": "dynamic"
+                                        },
+                                        {
+                                            "name": "accountName",
+                                            "type": "string"
                                         }
                                     ]
                                 }
@@ -3227,13 +3270,13 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.0",
+                "packageVersion": "3.1.1",
                 "packageName": "Darktrace",
-                "contentProductId": "darktrace1655286944672.darktrace_for_sentinel-dc-z7u3xuh6pzsum",
+                "contentProductId": "darktrace1655286944672.darktrace_for_sentinel-dc-nztpfwymdjauk",
                 "packageId": "darktrace1655286944672.darktrace_for_sentinel",
                 "contentSchemaVersion": "3.0.0",
-                "version": "3.0.0",
-                "id": "darktrace1655286944672.darktrace_for_sentinel-dc-z7u3xuh6pzsum",
+                "version": "3.1.1",
+                "id": "darktrace1655286944672.darktrace_for_sentinel-dc-nztpfwymdjauk",
                 "isDeprecated": false,
                 "description": ""
             }
@@ -3488,7 +3531,7 @@
                 "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectorDefinitions', 'DarktraceActiveAISecurityPlatform')]",
                 "contentId": "DarktraceActiveAISecurityPlatform",
                 "kind": "DataConnector",
-                "version": "3.0.0",
+                "version": "3.1.1",
                 "source": {
                     "sourceId": "darktrace1655286944672.darktrace_for_sentinel",
                     "name": "Darktrace",
@@ -3507,7 +3550,7 @@
                 "dependencies": {
                     "criteria": [
                         {
-                            "version": "3.0.0",
+                            "version": "3.1.1",
                             "contentId": "DarktraceActiveAISecurityPlatformConnections",
                             "kind": "ResourcesDataConnector"
                         }
@@ -3518,7 +3561,7 @@
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
             "apiVersion": "2023-04-01-preview",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', concat(parameters('workspace'),'-dc-',uniquestring('DarktraceActiveAISecurityPlatformConnections')), '3.0.0')]",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', concat(parameters('workspace'),'-dc-',uniquestring('DarktraceActiveAISecurityPlatformConnections')), '3.1.1')]",
             "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'darktrace1655286944672.darktrace_for_sentinel')]"
@@ -3529,7 +3572,7 @@
                 "contentKind": "ResourcesDataConnector",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "3.0.0",
+                    "contentVersion": "3.1.1",
                     "parameters": {
                         "guidValue": {
                             "defaultValue": "[[newGuid()]",
@@ -3575,7 +3618,7 @@
                                 "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'DarktraceActiveAISecurityPlatformConnections')]",
                                 "contentId": "DarktraceActiveAISecurityPlatformConnections",
                                 "kind": "ResourcesDataConnector",
-                                "version": "3.0.0",
+                                "version": "3.1.1",
                                 "source": {
                                     "sourceId": "darktrace1655286944672.darktrace_for_sentinel",
                                     "name": "Darktrace",
@@ -3624,13 +3667,13 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.0",
+                "packageVersion": "3.1.1",
                 "packageName": "Darktrace",
-                "contentProductId": "darktrace1655286944672.darktrace_for_sentinel-rdc-rwonhjhyhejtk",
+                "contentProductId": "darktrace1655286944672.darktrace_for_sentinel-rdc-koatokxnj3rag",
                 "packageId": "darktrace1655286944672.darktrace_for_sentinel",
                 "contentSchemaVersion": "3.0.0",
-                "version": "3.0.0",
-                "id": "darktrace1655286944672.darktrace_for_sentinel-rdc-rwonhjhyhejtk",
+                "version": "3.1.1",
+                "id": "darktrace1655286944672.darktrace_for_sentinel-rdc-koatokxnj3rag",
                 "isDeprecated": false,
                 "description": ""
             }
@@ -3640,16 +3683,16 @@
             "apiVersion": "2023-04-01-preview",
             "location": "[parameters('workspace-location')]",
             "properties": {
-                "version": "3.0.0",
+                "version": "3.1.1",
                 "kind": "Solution",
                 "contentSchemaVersion": "3.0.0",
                 "displayName": "Darktrace",
                 "publisherDisplayName": "Darktrace plc",
                 "descriptionHtml": "<p>Please note, this solution is replacing \u201cAI Analyst Darktrace\u201d Microsoft Sentinel solution which will not be supported from 01 Dec, 2022. For full installation guidance please visit the <a href=\"https://customerportal.darktrace.com/login\">Darktrace Customer Portal</a>.</p><p> </p><p><b>Overview</b></p><p>The new Darktrace solution for Microsoft Sentinel brings unparalleled Self-Learning AI insights from Darktrace to be analyzed and correlated against the Microsoft product suite data in Microsoft Sentinel SIEM. Microsoft Sentinel users will find a detailed Darktrace Workbook which graphs a broad set of Darktrace data, including AI Analyst, apps, network and email alerting. Alongside that, Analytic Rule templates are provided to assist with automatic Microsoft Sentinel incident creation from AI Analyst breaches and Alert creation from Darktrace Model Breaches and System Alerts.</p><p>The setup is greatly simplified with the Darktrace Data Connector. This outbound REST API connector only requires authentication details and web connectivity between Darktrace and Microsoft Sentinel, allowing users to connect Darktrace data to their SIEM in minutes, without having to rely on complex log-forwarding scenarios.</p><p><b></b></p><p><b>Changes and improvements</b></p><p><b></b></p><p><b>New Data Connector</b></p><p>The Darktrace solution for Microsoft Sentinel moves away from using limited CEF Syslog data and pushes all Darktrace information directly into Microsoft Sentinel using Azure Monitor API over HTTPs. Not only does this greatly simplify initial setup and troubleshooting, but it also ensures that more context-rich data is collected in Microsoft Sentinel minimizing analyst context-switching.</p><p>With the added flexibility of consuming JSON data, additional new data categories are now brought to Microsoft Sentinel:</p><ul type=\"disc\"><li>Darktrace/Email</li><li>AI Analyst Incidents</li><li>Darktrace/Endpoint</li><li>System Status Alerts</li></ul><p>All data ingested from Darktrace is now placed in the custom log table.</p><p> </p><p><b>Redesigned Workbook</b></p><p>The Darktrace workbook has been redesigned from the ground up, ensuring Microsoft Sentinel analysts can get a comprehensive overview of Darktrace data at a glance:</p><ul type=\"disc\"><li>AI Analyst data now ingested into Microsoft Sentinel. A queue of AI Analyst incidents is displayed with a one-click pivot into a list of AI Analyst Incident Events belonging to the current incident grouping</li><li>Darktrace/Email data now ingested which provides a breakdown of actions over emails in a specified timeframe as well as a recipient search allowing to quickly locate held emails and evaluate specific users for threats</li><li>Data from Darktrace DETECT, graphed and organized based on new model breach tags \u2013 Compliance, Information, Suspicious, Critical</li><li>A dedicated tab for Darktrace RESPOND for a quick review of the latest autonomous response actions</li><li>Darktrace/Endpoint data graphed in a separate tab, allowing a quick overview of threats beyond the perimeter</li><li>System Status alerts tab ensuring Darktrace users can stay on top of system health</li></ul><p> </p><p><b>Analytic Rule Templates</b></p><p>The new solution ships with a selection of Analytics Rules templates which automate the creation of Microsoft Sentinel Incidents and Alerts from Darktrace data.</p><ul type=\"disc\"><li>AI Analyst Incidents - runs as a Near-Real-Time (NRT) rule, a Microsoft Sentinel Incident is created with a dynamic severity setting for AI Analyst Incidents</li><li>Model Breaches - runs as a Near-Real-Time (NRT) rule, a Microsoft Sentinel alert is created with a dynamic severity based on Model Breach </li><li>System Status Alerts - runs as a scheduled rule with 5 minute frequency and creates Microsoft Sentinel Alerts out of Darktrace System Status Alerts</li></ul><p>The Microsoft Sentinel analysts can pick which rules to activate and can modify the severities of resulting events according to the workflow standards for their organization.</p><p></p>",
                 "contentKind": "Solution",
-                "contentProductId": "darktrace1655286944672.darktrace_for_sentinel-sl-e3c4entbbx2lq",
-                "id": "darktrace1655286944672.darktrace_for_sentinel-sl-e3c4entbbx2lq",
-                "icon": "https://catalogartifact.azureedge.net/publicartifacts/darktrace1655286944672.darktrace_for_sentinel-568f4c6f-d87e-4b5b-afb2-19e08a0991a1/image1_dt.png",
+                "contentProductId": "darktrace1655286944672.darktrace_for_sentinel-sl-dvl533pjoe7dg",
+                "id": "darktrace1655286944672.darktrace_for_sentinel-sl-dvl533pjoe7dg",
+                "icon": "https://catalogartifact.azureedge.net/publicartifacts/darktrace1655286944672.darktrace_for_sentinel-ae50991a-3c29-48d7-b417-663edf420021/image1_dt.png",
                 "contentId": "darktrace1655286944672.darktrace_for_sentinel",
                 "parentId": "darktrace1655286944672.darktrace_for_sentinel",
                 "source": {
@@ -3698,12 +3741,12 @@
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "05de0eaf-01bc-4615-99fc-2ec769864b34",
-                            "version": "1.0.0"
+                            "version": "1.1.0"
                         },
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "9392a06f-63a4-4a5d-8ca3-647064b13c28",
-                            "version": "1.0.0"
+                            "version": "1.1.0"
                         },
                         {
                             "kind": "DataConnector",
@@ -3713,7 +3756,7 @@
                         {
                             "kind": "DataConnector",
                             "contentId": "DarktraceActiveAISecurityPlatformConnections",
-                            "version": "3.0.0"
+                            "version": "3.1.1"
                         }
                     ]
                 },
