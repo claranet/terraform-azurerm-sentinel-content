@@ -1,3 +1,11 @@
+## 8.6.8 (2026-07-09)
+
+### Code Refactoring
+
+* bump `Darktrace` package template version to 3.0.1 68a73d3
+* bump `Google Workspace` package template version to 3.0.5 446b1c2
+* bump `Microsoft Entra ID` package template version to 3.3.14 ef462c8
+
 ## 8.6.7 (2026-07-02)
 
 ### Code Refactoring
