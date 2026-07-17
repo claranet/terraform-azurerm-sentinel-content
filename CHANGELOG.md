@@ -1,3 +1,10 @@
+## 8.6.9 (2026-07-17)
+
+### Code Refactoring
+
+* bump `SentinelOne` package template version to 3.1.0 2ff3a7c
+* update `Threat Intelligence` package to use the new one d4cc9d4
+
 ## 8.6.8 (2026-07-09)
 
 ### Code Refactoring
