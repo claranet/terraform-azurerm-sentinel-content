@@ -1,3 +1,13 @@
+## 8.6.10 (2026-07-20)
+
+### Bug Fixes
+
+* **tflint:** 🐛 bump Azure rules version, fix signature bug 16959aa
+
+### Miscellaneous Chores
+
+* **deps:** update dependency opentofu to v1.12.4 8e061f4
+
 ## 8.6.9 (2026-07-17)
 
 ### Code Refactoring
