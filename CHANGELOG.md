@@ -1,3 +1,14 @@
+## 8.6.11 (2026-07-22)
+
+### Code Refactoring
+
+* bump `Microsoft Entra ID` package template version to 3.3.15 90ffa70
+* bump `Okta` package template version to 3.1.8 a5e2172
+
+### Miscellaneous Chores
+
+* **ti:** fix parameter typo a2c16f2
+
 ## 8.6.10 (2026-07-20)
 
 ### Bug Fixes
