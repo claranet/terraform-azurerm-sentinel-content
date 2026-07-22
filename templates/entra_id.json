@@ -238,7 +238,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -503,7 +503,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -592,7 +592,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -693,7 +693,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -743,10 +743,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "SigninLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -879,7 +879,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -942,10 +942,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -1039,7 +1039,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -1102,10 +1102,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -1199,7 +1199,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -1262,10 +1262,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "ADFSSignInLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -1317,7 +1317,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -1380,10 +1380,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -1514,7 +1514,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -1577,16 +1577,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "SigninLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     },
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AADNonInteractiveUserSignInLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -1630,8 +1630,8 @@
                                     "Application": "AppDisplayName"
                                 },
                                 "alertDetailsOverride": {
-                                    "alertDescriptionFormat": "This query over Microsoft Entra ID sign-in considers all user sign-ins for each Microsoft Entra ID application and picks out the most anomalous change in location profile for a user within an\nindividual application. This has detected {{UserPrincipalName}} signing into {{AppDisplayName}} from {{CountOfLocations}} \ndifferent locations.\n",
-                                    "alertDisplayNameFormat": "Anomalous sign-in location by {{UserPrincipalName}} to {{AppDisplayName}}"
+                                    "alertDisplayNameFormat": "Anomalous sign-in location by {{UserPrincipalName}} to {{AppDisplayName}}",
+                                    "alertDescriptionFormat": "This query over Microsoft Entra ID sign-in considers all user sign-ins for each Microsoft Entra ID application and picks out the most anomalous change in location profile for a user within an\nindividual application. This has detected {{UserPrincipalName}} signing into {{AppDisplayName}} from {{CountOfLocations}} \ndifferent locations.\n"
                                 }
                             }
                         },
@@ -1665,7 +1665,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -1736,16 +1736,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     },
                                     {
-                                        "connectorId": "BehaviorAnalytics",
                                         "dataTypes": [
                                             "IdentityInfo"
-                                        ]
+                                        ],
+                                        "connectorId": "BehaviorAnalytics"
                                     }
                                 ],
                                 "tactics": [
@@ -1836,7 +1836,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -1907,16 +1907,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "SigninLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     },
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AADNonInteractiveUserSignInLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -1994,7 +1994,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -2065,10 +2065,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -2178,7 +2178,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -2241,10 +2241,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "SigninLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -2291,8 +2291,8 @@
                                     }
                                 ],
                                 "alertDetailsOverride": {
-                                    "alertDescriptionFormat": "This query looks for successful sign in attempts to the Azure Portal where the user who is signing in from another Azure tenant,\nand the IP address the login attempt is from is an Azure IP. A threat actor who compromises an Azure tenant may look\nto pivot to other tenants leveraging cross-tenant delegated access in this manner.\nIn this instance {{UserPrincipalName}} logged in at {{FirstSeen}} from IP Address {{IPAddress}}.\n",
-                                    "alertDisplayNameFormat": "Azure Portal sign in by {{UserPrincipalName}} from another Azure Tenant with IP Address {{IPAddress}}"
+                                    "alertDisplayNameFormat": "Azure Portal sign in by {{UserPrincipalName}} from another Azure Tenant with IP Address {{IPAddress}}",
+                                    "alertDescriptionFormat": "This query looks for successful sign in attempts to the Azure Portal where the user who is signing in from another Azure tenant,\nand the IP address the login attempt is from is an Azure IP. A threat actor who compromises an Azure tenant may look\nto pivot to other tenants leveraging cross-tenant delegated access in this manner.\nIn this instance {{UserPrincipalName}} logged in at {{FirstSeen}} from IP Address {{IPAddress}}.\n"
                                 }
                             }
                         },
@@ -2326,7 +2326,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -2389,16 +2389,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "SigninLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     },
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AADNonInteractiveUserSignInLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -2476,7 +2476,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -2547,10 +2547,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "SigninLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -2628,7 +2628,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -2691,10 +2691,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -2774,8 +2774,8 @@
                                     }
                                 ],
                                 "customDetails": {
-                                    "InitiatedByUser": "InitiatedByUser",
-                                    "TargetUser": "TargetUserPrincipalName"
+                                    "TargetUser": "TargetUserPrincipalName",
+                                    "InitiatedByUser": "InitiatedByUser"
                                 }
                             }
                         },
@@ -2809,7 +2809,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -2872,16 +2872,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "SigninLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     },
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AADNonInteractiveUserSignInLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -2961,7 +2961,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -3032,10 +3032,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -3177,7 +3177,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -3240,10 +3240,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -3343,7 +3343,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -3406,10 +3406,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -3509,7 +3509,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -3572,10 +3572,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -3675,7 +3675,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -3738,10 +3738,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -3841,7 +3841,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -3904,10 +3904,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -4007,7 +4007,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -4070,10 +4070,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -4173,7 +4173,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -4236,16 +4236,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "SigninLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     },
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AADNonInteractiveUserSignInLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -4314,7 +4314,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -4385,16 +4385,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "SigninLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     },
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AADNonInteractiveUserSignInLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -4454,7 +4454,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -4525,22 +4525,22 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "SigninLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     },
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AADNonInteractiveUserSignInLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     },
                                     {
-                                        "connectorId": "MicrosoftThreatProtection",
                                         "dataTypes": [
                                             "DeviceInfo"
-                                        ]
+                                        ],
+                                        "connectorId": "MicrosoftThreatProtection"
                                     }
                                 ],
                                 "tactics": [
@@ -4631,7 +4631,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -4710,10 +4710,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -4772,13 +4772,13 @@
                                     }
                                 ],
                                 "customDetails": {
+                                    "UserAgent": "InitiatingUserAgent",
                                     "OAuthApplication": "OAuthAppName",
-                                    "OAuthAppId": "AppId",
-                                    "UserAgent": "InitiatingUserAgent"
+                                    "OAuthAppId": "AppId"
                                 },
                                 "alertDetailsOverride": {
-                                    "alertDescriptionFormat": "This detection looks for the full_access_as_app permission being granted to an OAuth application with Admin Consent.\nThis permission provide access to all Exchange mailboxes via the EWS API can could be exploited to access sensitive data \nby being added to a compromised application. The application granted this permission should be reviewed to ensure that it \nis absolutely necessary for the applications function.\nIn this case {{GrantInitiatedBy}} granted full_access_as_app to {{OAuthAppName}} from {{InitiatingIpAddress}}\nRef: https://learn.microsoft.com/graph/auth-limit-mailbox-access\n",
-                                    "alertDisplayNameFormat": "User or App {{GrantInitiatedBy}} granted full_access_as_app to {{OAuthAppName}}"
+                                    "alertDisplayNameFormat": "User or App {{GrantInitiatedBy}} granted full_access_as_app to {{OAuthAppName}}",
+                                    "alertDescriptionFormat": "This detection looks for the full_access_as_app permission being granted to an OAuth application with Admin Consent.\nThis permission provide access to all Exchange mailboxes via the EWS API can could be exploited to access sensitive data \nby being added to a compromised application. The application granted this permission should be reviewed to ensure that it \nis absolutely necessary for the applications function.\nIn this case {{GrantInitiatedBy}} granted full_access_as_app to {{OAuthAppName}} from {{InitiatingIpAddress}}\nRef: https://learn.microsoft.com/graph/auth-limit-mailbox-access\n"
                                 }
                             }
                         },
@@ -4812,7 +4812,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -4875,16 +4875,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "SigninLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     },
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AADNonInteractiveUserSignInLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -4953,7 +4953,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -5024,10 +5024,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -5126,7 +5126,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -5189,10 +5189,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -5318,7 +5318,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -5381,10 +5381,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -5471,7 +5471,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -5534,10 +5534,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -5635,7 +5635,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -5698,10 +5698,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -5790,7 +5790,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -5853,22 +5853,22 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "SigninLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     },
                                     {
-                                        "connectorId": "BehaviorAnalytics",
                                         "dataTypes": [
                                             "BehaviorAnalytics"
-                                        ]
+                                        ],
+                                        "connectorId": "BehaviorAnalytics"
                                     },
                                     {
-                                        "connectorId": "BehaviorAnalytics",
                                         "dataTypes": [
                                             "IdentityInfo"
-                                        ]
+                                        ],
+                                        "connectorId": "BehaviorAnalytics"
                                     }
                                 ],
                                 "tactics": [
@@ -5949,7 +5949,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -6028,10 +6028,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "SigninLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -6100,7 +6100,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -6163,10 +6163,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -6270,7 +6270,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -6333,10 +6333,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -6407,8 +6407,8 @@
                                     "aggregationKind": "SingleAlert"
                                 },
                                 "alertDetailsOverride": {
-                                    "alertDescriptionFormat": "This detection looks for new onmicrosoft domains being added to a tenant. An attacker who compromises a tenant may register a new onmicrosoft domain in order to masquerade as a service provider for launching phishing accounts. Domain additions are not a common occurrence and users should validate that {{ActionInitiatedBy}} added {{DomainAdded}} with a legitimate purpose.",
-                                    "alertDisplayNameFormat": "{{DomainAdded}} added to tenant by {{ActionInitiatedBy}}"
+                                    "alertDisplayNameFormat": "{{DomainAdded}} added to tenant by {{ActionInitiatedBy}}",
+                                    "alertDescriptionFormat": "This detection looks for new onmicrosoft domains being added to a tenant. An attacker who compromises a tenant may register a new onmicrosoft domain in order to masquerade as a service provider for launching phishing accounts. Domain additions are not a common occurrence and users should validate that {{ActionInitiatedBy}} added {{DomainAdded}} with a legitimate purpose."
                                 }
                             }
                         },
@@ -6442,7 +6442,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -6505,10 +6505,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -6598,7 +6598,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -6657,10 +6657,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -6750,7 +6750,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -6809,10 +6809,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -6916,7 +6916,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -6975,10 +6975,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -7068,7 +7068,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -7127,10 +7127,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -7221,7 +7221,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -7280,10 +7280,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -7390,7 +7390,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -7449,10 +7449,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -7559,7 +7559,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -7618,10 +7618,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -7727,7 +7727,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -7790,10 +7790,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -7900,7 +7900,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -7963,11 +7963,11 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "SigninLogs",
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -8001,13 +8001,13 @@
                                     }
                                 ],
                                 "customDetails": {
+                                    "ModifiedProperties": "ModifiedProperties",
+                                    "DomainAdded": "DomainName",
                                     "ResourceDisplayName": "ResourceDisplayName",
+                                    "InitiatedBy": "InitiatedBy",
                                     "DomainAddedTime": "DomainAddedTime",
                                     "SignInTime": "SignInTime",
-                                    "ModifiedProperties": "ModifiedProperties",
-                                    "AppDisplayName": "AppDisplayName",
-                                    "InitiatedBy": "InitiatedBy",
-                                    "DomainAdded": "DomainName"
+                                    "AppDisplayName": "AppDisplayName"
                                 }
                             }
                         },
@@ -8041,7 +8041,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -8108,22 +8108,22 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "SigninLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     },
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AADNonInteractiveUserSignInLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     },
                                     {
-                                        "connectorId": "BehaviorAnalytics",
                                         "dataTypes": [
                                             "IdentityInfo"
-                                        ]
+                                        ],
+                                        "connectorId": "BehaviorAnalytics"
                                     }
                                 ],
                                 "tactics": [
@@ -8195,7 +8195,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -8274,10 +8274,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -8384,7 +8384,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -8447,10 +8447,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -8530,7 +8530,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -8593,10 +8593,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AADNonInteractiveUserSignInLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -8665,7 +8665,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -8728,16 +8728,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "SigninLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     },
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AADNonInteractiveUserSignInLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -8797,7 +8797,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -8843,7 +8843,7 @@
                 "description": "Identifies IPs with failed attempts to sign in to one or more disabled accounts using the IP through which successful signins from other accounts have happened.\nThis could indicate an attacker who obtained credentials for a list of accounts and is attempting to login with those accounts, some of which may have already been disabled.\nReferences: https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-sign-ins-error-codes\n50057 - User account is disabled. The account has been disabled by an administrator.\nThis query has also been updated to include UEBA logs IdentityInfo and BehaviorAnalytics for contextual information around the results.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "2.1.3",
+                    "contentVersion": "2.1.4",
                     "parameters": {},
                     "variables": {},
                     "resources": [
@@ -8857,7 +8857,7 @@
                                 "description": "Identifies IPs with failed attempts to sign in to one or more disabled accounts using the IP through which successful signins from other accounts have happened.\nThis could indicate an attacker who obtained credentials for a list of accounts and is attempting to login with those accounts, some of which may have already been disabled.\nReferences: https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-sign-ins-error-codes\n50057 - User account is disabled. The account has been disabled by an administrator.\nThis query has also been updated to include UEBA logs IdentityInfo and BehaviorAnalytics for contextual information around the results.",
                                 "displayName": "Sign-ins from IPs that attempt sign-ins to disabled accounts",
                                 "enabled": false,
-                                "query": "let aadFunc = (tableName: string) {\nlet failed_signins = table(tableName)\n| where ResultType == \"50057\"\n| where ResultDescription == \"User account is disabled. The account has been disabled by an administrator.\";\nlet disabled_users = failed_signins | summarize by UserPrincipalName;\ntable(tableName)\n  | where ResultType == 0\n  | where isnotempty(UserPrincipalName)\n  | where UserPrincipalName !in (disabled_users)\n| summarize\n        successfulAccountsTargettedCount = dcount(UserPrincipalName),\n        successfulAccountSigninSet = make_set(UserPrincipalName, 100),\n        successfulApplicationSet = make_set(AppDisplayName, 100)\n    by IPAddress, Type\n    // Assume IPs associated with sign-ins from 100+ distinct user accounts are safe\n    | where successfulAccountsTargettedCount < 50\n    | where isnotempty(successfulAccountsTargettedCount)\n  | join kind=inner (failed_signins\n| summarize\n    StartTime = min(TimeGenerated),\n    EndTime = max(TimeGenerated),\n    totalDisabledAccountLoginAttempts = count(),\n    disabledAccountsTargettedCount = dcount(UserPrincipalName),\n    applicationsTargeted = dcount(AppDisplayName),\n    disabledAccountSet = make_set(UserPrincipalName, 100),\n    disabledApplicationSet = make_set(AppDisplayName, 100)\nby IPAddress, Type\n| order by totalDisabledAccountLoginAttempts desc) on IPAddress\n| project StartTime, EndTime, IPAddress, totalDisabledAccountLoginAttempts, disabledAccountsTargettedCount, disabledAccountSet, disabledApplicationSet, successfulApplicationSet, successfulAccountsTargettedCount, successfulAccountSigninSet, Type\n| order by totalDisabledAccountLoginAttempts};\nlet aadSignin = aadFunc(\"SigninLogs\");\nlet aadNonInt = aadFunc(\"AADNonInteractiveUserSignInLogs\");\nunion isfuzzy=true aadSignin, aadNonInt\n| join kind=leftouter (\n    BehaviorAnalytics\n    | where ActivityType in (\"FailedLogOn\", \"LogOn\")\n    | where EventSource =~ \"Azure AD\"\n    | project UsersInsights, DevicesInsights, ActivityInsights, InvestigationPriority, SourceIPAddress, UserPrincipalName\n    | project-rename IPAddress = SourceIPAddress\n    | summarize\n        Users = make_set(UserPrincipalName, 100),\n        UsersInsights = make_set(UsersInsights, 100),\n        DevicesInsights = make_set(DevicesInsights, 100),\n        IPInvestigationPriority = sum(InvestigationPriority)\n    by IPAddress\n) on IPAddress\n| extend SFRatio = toreal(toreal(disabledAccountsTargettedCount)/toreal(successfulAccountsTargettedCount))\n| where SFRatio >= 0.5\n| sort by IPInvestigationPriority desc\n",
+                                "query": "let aadFunc = (tableName: string) {\nlet failed_signins = table(tableName)\n| where ResultType == \"50057\"\n| where ResultDescription in (\"User account is disabled. The account has been disabled by an administrator.\", \"The user account is disabled.\");\nlet disabled_users = failed_signins | summarize by UserPrincipalName;\ntable(tableName)\n  | where ResultType == 0\n  | where isnotempty(UserPrincipalName)\n  | where UserPrincipalName !in (disabled_users)\n| summarize\n        successfulAccountsTargettedCount = dcount(UserPrincipalName),\n        successfulAccountSigninSet = make_set(UserPrincipalName, 100),\n        successfulApplicationSet = make_set(AppDisplayName, 100)\n    by IPAddress, Type\n    // Assume IPs associated with sign-ins from 100+ distinct user accounts are safe\n    | where successfulAccountsTargettedCount < 50\n    | where isnotempty(successfulAccountsTargettedCount)\n  | join kind=inner (failed_signins\n| summarize\n    StartTime = min(TimeGenerated),\n    EndTime = max(TimeGenerated),\n    totalDisabledAccountLoginAttempts = count(),\n    disabledAccountsTargettedCount = dcount(UserPrincipalName),\n    applicationsTargeted = dcount(AppDisplayName),\n    disabledAccountSet = make_set(UserPrincipalName, 100),\n    disabledApplicationSet = make_set(AppDisplayName, 100)\nby IPAddress, Type\n| order by totalDisabledAccountLoginAttempts desc) on IPAddress\n| project StartTime, EndTime, IPAddress, totalDisabledAccountLoginAttempts, disabledAccountsTargettedCount, disabledAccountSet, disabledApplicationSet, successfulApplicationSet, successfulAccountsTargettedCount, successfulAccountSigninSet, Type\n| order by totalDisabledAccountLoginAttempts};\nlet aadSignin = aadFunc(\"SigninLogs\");\nlet aadNonInt = aadFunc(\"AADNonInteractiveUserSignInLogs\");\nunion isfuzzy=true aadSignin, aadNonInt\n| join kind=leftouter (\n    BehaviorAnalytics\n    | where ActivityType in (\"FailedLogOn\", \"LogOn\")\n    | where EventSource =~ \"Azure AD\"\n    | project UsersInsights, DevicesInsights, ActivityInsights, InvestigationPriority, SourceIPAddress, UserPrincipalName\n    | project-rename IPAddress = SourceIPAddress\n    | summarize\n        Users = make_set(UserPrincipalName, 100),\n        UsersInsights = make_set(UsersInsights, 100),\n        DevicesInsights = make_set(DevicesInsights, 100),\n        IPInvestigationPriority = sum(InvestigationPriority)\n    by IPAddress\n) on IPAddress\n| extend SFRatio = toreal(toreal(disabledAccountsTargettedCount)/toreal(successfulAccountsTargettedCount))\n| where SFRatio >= 0.5\n| sort by IPInvestigationPriority desc\n",
                                 "queryFrequency": "P1D",
                                 "queryPeriod": "P1D",
                                 "severity": "Medium",
@@ -8868,22 +8868,22 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "SigninLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     },
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AADNonInteractiveUserSignInLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     },
                                     {
-                                        "connectorId": "BehaviorAnalytics",
                                         "dataTypes": [
                                             "BehaviorAnalytics"
-                                        ]
+                                        ],
+                                        "connectorId": "BehaviorAnalytics"
                                     }
                                 ],
                                 "tactics": [
@@ -8916,7 +8916,7 @@
                                 "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '500c103a-0319-4d56-8e99-3cec8d860757')]",
                                 "contentId": "500c103a-0319-4d56-8e99-3cec8d860757",
                                 "kind": "AnalyticsRule",
-                                "version": "2.1.3",
+                                "version": "2.1.4",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "Microsoft Entra ID",
@@ -8937,16 +8937,16 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "500c103a-0319-4d56-8e99-3cec8d860757",
                 "contentKind": "AnalyticsRule",
                 "displayName": "Sign-ins from IPs that attempt sign-ins to disabled accounts",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-azureactived-ar-gjhkokvirhtjk",
-                "id": "azuresentinel.azure-sentinel-solution-azureactived-ar-gjhkokvirhtjk",
-                "version": "2.1.3",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-azureactived-ar-t3imowvtnincq",
+                "id": "azuresentinel.azure-sentinel-solution-azureactived-ar-t3imowvtnincq",
+                "version": "2.1.4",
                 "isDeprecated": false,
                 "dependencies": {
                     "operator": "AND",
@@ -9016,16 +9016,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "SigninLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     },
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AADNonInteractiveUserSignInLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -9103,7 +9103,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -9174,16 +9174,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "SigninLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     },
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AADNonInteractiveUserSignInLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -9235,7 +9235,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -9306,28 +9306,28 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "SigninLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     },
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AADNonInteractiveUserSignInLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     },
                                     {
-                                        "connectorId": "BehaviorAnalytics",
                                         "dataTypes": [
                                             "BehaviorAnalytics"
-                                        ]
+                                        ],
+                                        "connectorId": "BehaviorAnalytics"
                                     },
                                     {
-                                        "connectorId": "BehaviorAnalytics",
                                         "dataTypes": [
                                             "IdentityInfo"
-                                        ]
+                                        ],
+                                        "connectorId": "BehaviorAnalytics"
                                     }
                                 ],
                                 "tactics": [
@@ -9407,7 +9407,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -9494,10 +9494,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -9580,8 +9580,8 @@
                                     }
                                 ],
                                 "alertDetailsOverride": {
-                                    "alertDescriptionFormat": "This query looks for suspicious updates to an Microsoft Entra ID joined device where the device name is changed and the device falls out of compliance.\nIn this case {{OldDeviceName}} was renamed to {{NewDeviceName}} and {{UpdatedPropertiesCount}} properties were changed.\nThis could occur when a threat actor updates the details of an Autopilot provisioned device using a stolen device ticket, in order to access certificates and keys.\nRef: https://dirkjanm.io/assets/raw/Insomnihack%20Breaking%20and%20fixing%20Azure%20AD%20device%20identity%20security.pdf\n",
-                                    "alertDisplayNameFormat": "Suspicious Entra ID Joined Device Update {{OldDeviceName}} renamed to {{NewDeviceName}} and {{UpdatedPropertiesCount}} properties changed"
+                                    "alertDisplayNameFormat": "Suspicious Entra ID Joined Device Update {{OldDeviceName}} renamed to {{NewDeviceName}} and {{UpdatedPropertiesCount}} properties changed",
+                                    "alertDescriptionFormat": "This query looks for suspicious updates to an Microsoft Entra ID joined device where the device name is changed and the device falls out of compliance.\nIn this case {{OldDeviceName}} was renamed to {{NewDeviceName}} and {{UpdatedPropertiesCount}} properties were changed.\nThis could occur when a threat actor updates the details of an Autopilot provisioned device using a stolen device ticket, in order to access certificates and keys.\nRef: https://dirkjanm.io/assets/raw/Insomnihack%20Breaking%20and%20fixing%20Azure%20AD%20device%20identity%20security.pdf\n"
                                 }
                             }
                         },
@@ -9615,7 +9615,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -9678,10 +9678,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -9768,7 +9768,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -9831,11 +9831,11 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs",
                                             "AADServicePrincipalSignInLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -9933,7 +9933,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -10000,16 +10000,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     },
                                     {
-                                        "connectorId": "BehaviorAnalytics",
                                         "dataTypes": [
                                             "BehaviorAnalytics"
-                                        ]
+                                        ],
+                                        "connectorId": "BehaviorAnalytics"
                                     }
                                 ],
                                 "tactics": [
@@ -10100,8 +10100,8 @@
                                     "aggregationKind": "AlertPerResult"
                                 },
                                 "alertDetailsOverride": {
-                                    "alertDescriptionFormat": "This query looks uses Microsoft Sentinel's UEBA features to look for suspicious logons followed by modifications to MFA settings by that user.\nIn this case {{InitiatorUPN}} logged in followed by a modification to MFA settings for {{TargetUPN}}.\nThe sign in was from {{SourceIPAddress}}.\n",
-                                    "alertDisplayNameFormat": "Suspicious Sign In by {{InitiatorUPN}} Followed by MFA Modification to {{TargetUPN}}"
+                                    "alertDisplayNameFormat": "Suspicious Sign In by {{InitiatorUPN}} Followed by MFA Modification to {{TargetUPN}}",
+                                    "alertDescriptionFormat": "This query looks uses Microsoft Sentinel's UEBA features to look for suspicious logons followed by modifications to MFA settings by that user.\nIn this case {{InitiatorUPN}} logged in followed by a modification to MFA settings for {{TargetUPN}}.\nThe sign in was from {{SourceIPAddress}}.\n"
                                 }
                             }
                         },
@@ -10135,7 +10135,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -10206,16 +10206,16 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     },
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "SigninLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -10328,7 +10328,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -10399,28 +10399,28 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "SigninLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     },
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AADNonInteractiveUserSignInLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     },
                                     {
-                                        "connectorId": "BehaviorAnalytics",
                                         "dataTypes": [
                                             "BehaviorAnalytics"
-                                        ]
+                                        ],
+                                        "connectorId": "BehaviorAnalytics"
                                     },
                                     {
-                                        "connectorId": "BehaviorAnalytics",
                                         "dataTypes": [
                                             "IdentityInfo"
-                                        ]
+                                        ],
+                                        "connectorId": "BehaviorAnalytics"
                                     }
                                 ],
                                 "tactics": [
@@ -10492,7 +10492,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -10579,10 +10579,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -10688,7 +10688,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -10751,10 +10751,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -10861,7 +10861,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -10924,10 +10924,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -11034,7 +11034,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -11097,10 +11097,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -11173,7 +11173,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -11236,10 +11236,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -11310,7 +11310,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -11373,10 +11373,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -11444,7 +11444,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -11507,10 +11507,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -11581,7 +11581,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -11644,10 +11644,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -11718,7 +11718,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -11781,10 +11781,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -11855,7 +11855,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -11918,10 +11918,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -11989,7 +11989,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -12052,10 +12052,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -12126,7 +12126,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -12189,10 +12189,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -12263,7 +12263,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -12326,10 +12326,10 @@
                                 "status": "Available",
                                 "requiredDataConnectors": [
                                     {
-                                        "connectorId": "AzureActiveDirectory",
                                         "dataTypes": [
                                             "AuditLogs"
-                                        ]
+                                        ],
+                                        "connectorId": "AzureActiveDirectory"
                                     }
                                 ],
                                 "tactics": [
@@ -12397,7 +12397,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -12855,7 +12855,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -13282,7 +13282,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -13719,7 +13719,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -14139,7 +14139,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -14541,7 +14541,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -14926,7 +14926,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -15389,7 +15389,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -15796,7 +15796,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -16130,7 +16130,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -16442,7 +16442,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -16659,7 +16659,7 @@
                     }
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.3.14",
+                "packageVersion": "3.3.15",
                 "packageName": "Microsoft Entra ID",
                 "packageId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "contentSchemaVersion": "3.0.0",
@@ -16699,16 +16699,16 @@
             "apiVersion": "2023-04-01-preview",
             "location": "[parameters('workspace-location')]",
             "properties": {
-                "version": "3.3.14",
+                "version": "3.3.15",
                 "kind": "Solution",
                 "contentSchemaVersion": "3.0.0",
                 "displayName": "Microsoft Entra ID",
                 "publisherDisplayName": "Microsoft Sentinel, Microsoft Corporation",
                 "descriptionHtml": "<p><strong>Note:</strong> Please refer to the following before installing the solution:</p><p>\u2022 Review the solution <a target=\"_blank\" href=\"https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Microsoft%20Entra%20ID/ReleaseNotes.md\" rel=\"noopener\">Release Notes</a></p><p>The <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis?WT.mc_id=Portal-fx\" rel=\"noopener\">Microsoft Entra ID</a> solution for Microsoft Sentinel enables you to ingest Microsoft Entra ID <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/active-directory/reports-monitoring/concept-audit-logs?WT.mc_id=Portal-fx\" rel=\"noopener\">Audit</a>, <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins?WT.mc_id=Portal-fx\" rel=\"noopener\">Sign-in</a>, <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs?WT.mc_id=Portal-fx\" rel=\"noopener\">Provisioning</a>, <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-investigate-risk?WT.mc_id=Portal-fx#risky-users\" rel=\"noopener\">Risk Events and Risky User/Service Principal</a> logs using Diagnostic Settings into Microsoft Sentinel.</p><p><strong>Data Connectors:</strong> 1, <strong>Workbooks:</strong> 3, <strong>Analytic Rules:</strong> 73, <strong>Watchlists:</strong> 1, <strong>Playbooks:</strong> 11</p><p><a target=\"_blank\" href=\"https://aka.ms/azuresentinel\" rel=\"noopener\">Learn more about Microsoft Sentinel</a> | <a target=\"_blank\" href=\"https://aka.ms/azuresentinelsolutionsdoc\" rel=\"noopener\">Learn more about Solutions</a></p>",
                 "contentKind": "Solution",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-azureactived-sl-i5kteekl3csei",
-                "id": "azuresentinel.azure-sentinel-solution-azureactived-sl-i5kteekl3csei",
-                "icon": "https://catalogartifact.azureedge.net/publicartifacts/azuresentinel.azure-sentinel-solution-azureactivedirectory-6e6c302e-d4ff-4eb1-90c6-b1dbe1dc57a1/image1_EntraIDLogo.png",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-azureactived-sl-duhl4enckuuba",
+                "id": "azuresentinel.azure-sentinel-solution-azureactived-sl-duhl4enckuuba",
+                "icon": "https://catalogartifact.azureedge.net/publicartifacts/azuresentinel.azure-sentinel-solution-azureactivedirectory-bbf6d855-8501-47ce-9edd-272534b3f340/image1_EntraIDLogo.png",
                 "contentId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "parentId": "azuresentinel.azure-sentinel-solution-azureactivedirectory",
                 "source": {
@@ -17002,7 +17002,7 @@
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "500c103a-0319-4d56-8e99-3cec8d860757",
-                            "version": "2.1.3"
+                            "version": "2.1.4"
                         },
                         {
                             "kind": "AnalyticsRule",
@@ -17172,7 +17172,7 @@
                         {
                             "kind": "Watchlist",
                             "contentId": "ConditionalAccessBenignStatusCodes",
-                            "version": "3.3.14"
+                            "version": "3.3.15"
                         }
                     ]
                 },
