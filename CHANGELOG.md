@@ -1,3 +1,15 @@
+## 8.6.12 (2026-07-29)
+
+### Code Refactoring
+
+* bump `Threat Intelligence Okta` package template version to 3.0.20 7b61f28
+
+### Miscellaneous Chores
+
+* **deps:** update dependency opentofu to v1.12.5 8b982ff
+* **deps:** update dependency tflint to v0.64.0 13a5cc5
+* **ti:** remove metadata key 3455b88
+
 ## 8.6.11 (2026-07-22)
 
 ### Code Refactoring
