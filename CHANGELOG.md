@@ -1,3 +1,10 @@
+## 8.6.13 (2026-08-05)
+
+### Code Refactoring
+
+* bump `Okta` package template version to 3.1.9 ad47fc7
+* bump `Threat Intelligence` package template version to 3.0.21 f7c3791
+
 ## 8.6.12 (2026-07-29)
 
 ### Code Refactoring
