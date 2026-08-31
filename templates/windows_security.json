@@ -60,7 +60,7 @@
                             "apiVersion": "2021-03-01-preview",
                             "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
                             "location": "[parameters('workspace-location')]",
-                            "kind": "StaticUI",
+                            "kind": "GenericUI",
                             "properties": {
                                 "connectorUiConfig": {
                                     "id": "SecurityEvents",
@@ -74,6 +74,12 @@
                                             "baseQuery": "SecurityEvent"
                                         }
                                     ],
+                                    "sampleQueries": [
+                                        {
+                                            "description": "All logs",
+                                            "query": "SecurityEvent\n            | sort by TimeGenerated"
+                                        }
+                                    ],
                                     "connectivityCriterias": [
                                         {
                                             "type": "SecurityEvents",
@@ -84,6 +90,84 @@
                                         {
                                             "name": "SecurityEvents",
                                             "lastDataReceivedQuery": "SecurityEvent\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)"
+                                        }
+                                    ],
+                                    "availability": {
+                                        "status": 1,
+                                        "isPreview": false
+                                    },
+                                    "permissions": {
+                                        "resourceProvider": [
+                                            {
+                                                "provider": "Microsoft.OperationalInsights/workspaces",
+                                                "permissionsDisplayText": "read and write permissions.",
+                                                "providerDisplayName": "Workspace",
+                                                "scope": "Workspace",
+                                                "requiredPermissions": {
+                                                    "read": true,
+                                                    "write": true,
+                                                    "delete": true
+                                                }
+                                            },
+                                            {
+                                                "provider": "Microsoft.OperationalInsights/workspaces/datasources",
+                                                "permissionsDisplayText": "read and write permissions.",
+                                                "providerDisplayName": "Workspace data sources",
+                                                "scope": "Workspace",
+                                                "requiredPermissions": {
+                                                    "read": true,
+                                                    "write": true
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "instructionSteps": [
+                                        {
+                                            "description": ">  Security Events logs are collected only from **Windows** agents.",
+                                            "instructions": [
+                                                {
+                                                    "parameters": {
+                                                        "title": "Choose where to install the agent:",
+                                                        "instructionSteps": [
+                                                            {
+                                                                "title": "Install agent on Azure Windows Virtual Machine",
+                                                                "description": "Download the agent on the relevant machine and follow the instructions.",
+                                                                "instructions": [
+                                                                    {
+                                                                        "parameters": {
+                                                                            "linkType": "InstallAgentOnVirtualMachine"
+                                                                        },
+                                                                        "type": "InstallAgent"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "title": "Install agent on non-Azure Windows Machine",
+                                                                "description": "Select the machine to install the agent and then click **Connect**.",
+                                                                "instructions": [
+                                                                    {
+                                                                        "parameters": {
+                                                                            "linkType": "InstallAgentOnNonAzure"
+                                                                        },
+                                                                        "type": "InstallAgent"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    },
+                                                    "type": "InstructionStepsGroup"
+                                                }
+                                            ],
+                                            "title": "1. Download and install the agent"
+                                        },
+                                        {
+                                            "description": "- All events - All Windows security and AppLocker events.\n- Common - A standard set of events for auditing purposes.\n- Minimal - A small set of events that might indicate potential threats. By enabling this option, you won't be able to have a full audit trail.\n- None - No security or AppLocker events.",
+                                            "instructions": [
+                                                {
+                                                    "type": "SecurityEvents"
+                                                }
+                                            ],
+                                            "title": "2. Select which events to stream"
                                         }
                                     ]
                                 }
@@ -118,7 +202,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -166,7 +250,7 @@
             "apiVersion": "2021-03-01-preview",
             "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
             "location": "[parameters('workspace-location')]",
-            "kind": "StaticUI",
+            "kind": "GenericUI",
             "properties": {
                 "connectorUiConfig": {
                     "title": "Security Events via Legacy Agent",
@@ -189,6 +273,90 @@
                         {
                             "type": "SecurityEvents",
                             "value": null
+                        }
+                    ],
+                    "sampleQueries": [
+                        {
+                            "description": "All logs",
+                            "query": "SecurityEvent\n            | sort by TimeGenerated"
+                        }
+                    ],
+                    "availability": {
+                        "status": 1,
+                        "isPreview": false
+                    },
+                    "permissions": {
+                        "resourceProvider": [
+                            {
+                                "provider": "Microsoft.OperationalInsights/workspaces",
+                                "permissionsDisplayText": "read and write permissions.",
+                                "providerDisplayName": "Workspace",
+                                "scope": "Workspace",
+                                "requiredPermissions": {
+                                    "read": true,
+                                    "write": true,
+                                    "delete": true
+                                }
+                            },
+                            {
+                                "provider": "Microsoft.OperationalInsights/workspaces/datasources",
+                                "permissionsDisplayText": "read and write permissions.",
+                                "providerDisplayName": "Workspace data sources",
+                                "scope": "Workspace",
+                                "requiredPermissions": {
+                                    "read": true,
+                                    "write": true
+                                }
+                            }
+                        ]
+                    },
+                    "instructionSteps": [
+                        {
+                            "description": ">  Security Events logs are collected only from **Windows** agents.",
+                            "instructions": [
+                                {
+                                    "parameters": {
+                                        "title": "Choose where to install the agent:",
+                                        "instructionSteps": [
+                                            {
+                                                "title": "Install agent on Azure Windows Virtual Machine",
+                                                "description": "Download the agent on the relevant machine and follow the instructions.",
+                                                "instructions": [
+                                                    {
+                                                        "parameters": {
+                                                            "linkType": "InstallAgentOnVirtualMachine"
+                                                        },
+                                                        "type": "InstallAgent"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "title": "Install agent on non-Azure Windows Machine",
+                                                "description": "Select the machine to install the agent and then click **Connect**.",
+                                                "instructions": [
+                                                    {
+                                                        "parameters": {
+                                                            "linkType": "InstallAgentOnNonAzure"
+                                                        },
+                                                        "type": "InstallAgent"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    "type": "InstructionStepsGroup"
+                                }
+                            ],
+                            "title": "1. Download and install the agent"
+                        },
+                        {
+                            "description": "- All events - All Windows security and AppLocker events.\n- Common - A standard set of events for auditing purposes.\n- Minimal - A small set of events that might indicate potential threats. By enabling this option, you won't be able to have a full audit trail.\n- None - No security or AppLocker events.",
+                            "instructions": [
+                                {
+                                    "type": "SecurityEvents"
+                                }
+                            ],
+                            "title": "2. Select which events to stream"
                         }
                     ],
                     "id": "SecurityEvents"
@@ -216,7 +384,7 @@
                             "apiVersion": "2021-03-01-preview",
                             "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
                             "location": "[parameters('workspace-location')]",
-                            "kind": "StaticUI",
+                            "kind": "GenericUI",
                             "properties": {
                                 "connectorUiConfig": {
                                     "id": "WindowsSecurityEvents",
@@ -230,6 +398,12 @@
                                             "baseQuery": "SecurityEvent"
                                         }
                                     ],
+                                    "sampleQueries": [
+                                        {
+                                            "description": "All logs",
+                                            "query": "SecurityEvent\n            | sort by TimeGenerated"
+                                        }
+                                    ],
                                     "connectivityCriterias": [
                                         {
                                             "type": "WindowsSecurityEvents",
@@ -240,6 +414,63 @@
                                         {
                                             "name": "SecurityEvents",
                                             "lastDataReceivedQuery": "SecurityEvent\n            | summarize Time = max(TimeGenerated)\n            | where isnotempty(Time)"
+                                        }
+                                    ],
+                                    "availability": {
+                                        "status": 2,
+                                        "featureFlag": {
+                                            "feature": "WindowsSecurityEventsFeature",
+                                            "featureStates": {
+                                                "1": 2,
+                                                "2": 2,
+                                                "3": 2,
+                                                "4": 2,
+                                                "5": 2,
+                                                "6": 1,
+                                                "7": 1
+                                            }
+                                        },
+                                        "isPreview": false
+                                    },
+                                    "permissions": {
+                                        "resourceProvider": [
+                                            {
+                                                "provider": "Microsoft.OperationalInsights/workspaces/datasources",
+                                                "permissionsDisplayText": "read and write permissions.",
+                                                "providerDisplayName": "Workspace data sources",
+                                                "scope": "Workspace",
+                                                "requiredPermissions": {
+                                                    "read": true,
+                                                    "write": true
+                                                }
+                                            }
+                                        ],
+                                        "customs": [
+                                            {
+                                                "description": "To collect data from non-Azure VMs, they must have Azure Arc installed and enabled. [Learn more](https://docs.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-install?tabs=ARMAgentPowerShell,PowerShellWindows,PowerShellWindowsArc,CLIWindows,CLIWindowsArc)"
+                                            }
+                                        ]
+                                    },
+                                    "instructionSteps": [
+                                        {
+                                            "description": ">  Security Events logs are collected only from **Windows** agents.",
+                                            "instructions": [
+                                                {
+                                                    "type": "WindowsSecurityEvents"
+                                                }
+                                            ],
+                                            "title": "Enable data collection rule\u200b"
+                                        },
+                                        {
+                                            "instructions": [
+                                                {
+                                                    "parameters": {
+                                                        "linkType": "OpenCreateDataCollectionRule",
+                                                        "dataCollectionRuleType": 0
+                                                    },
+                                                    "type": "InstallAgent"
+                                                }
+                                            ]
                                         }
                                     ]
                                 }
@@ -274,7 +505,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -322,7 +553,7 @@
             "apiVersion": "2021-03-01-preview",
             "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
             "location": "[parameters('workspace-location')]",
-            "kind": "StaticUI",
+            "kind": "GenericUI",
             "properties": {
                 "connectorUiConfig": {
                     "title": "Windows Security Events via AMA",
@@ -345,6 +576,69 @@
                         {
                             "type": "WindowsSecurityEvents",
                             "value": null
+                        }
+                    ],
+                    "sampleQueries": [
+                        {
+                            "description": "All logs",
+                            "query": "SecurityEvent\n            | sort by TimeGenerated"
+                        }
+                    ],
+                    "availability": {
+                        "status": 2,
+                        "featureFlag": {
+                            "feature": "WindowsSecurityEventsFeature",
+                            "featureStates": {
+                                "1": 2,
+                                "2": 2,
+                                "3": 2,
+                                "4": 2,
+                                "5": 2,
+                                "6": 1,
+                                "7": 1
+                            }
+                        },
+                        "isPreview": false
+                    },
+                    "permissions": {
+                        "resourceProvider": [
+                            {
+                                "provider": "Microsoft.OperationalInsights/workspaces/datasources",
+                                "permissionsDisplayText": "read and write permissions.",
+                                "providerDisplayName": "Workspace data sources",
+                                "scope": "Workspace",
+                                "requiredPermissions": {
+                                    "read": true,
+                                    "write": true
+                                }
+                            }
+                        ],
+                        "customs": [
+                            {
+                                "description": "To collect data from non-Azure VMs, they must have Azure Arc installed and enabled. [Learn more](https://docs.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-install?tabs=ARMAgentPowerShell,PowerShellWindows,PowerShellWindowsArc,CLIWindows,CLIWindowsArc)"
+                            }
+                        ]
+                    },
+                    "instructionSteps": [
+                        {
+                            "description": ">  Security Events logs are collected only from **Windows** agents.",
+                            "instructions": [
+                                {
+                                    "type": "WindowsSecurityEvents"
+                                }
+                            ],
+                            "title": "Enable data collection rule\u200b"
+                        },
+                        {
+                            "instructions": [
+                                {
+                                    "parameters": {
+                                        "linkType": "OpenCreateDataCollectionRule",
+                                        "dataCollectionRuleType": 0
+                                    },
+                                    "type": "InstallAgent"
+                                }
+                            ]
                         }
                     ],
                     "id": "WindowsSecurityEvents"
@@ -474,7 +768,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -636,7 +930,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -798,7 +1092,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -960,7 +1254,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -1113,7 +1407,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -1266,7 +1560,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -1419,7 +1713,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -1581,7 +1875,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -1719,7 +2013,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -1884,7 +2178,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -2036,7 +2330,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -2188,7 +2482,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -2337,7 +2631,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -2499,7 +2793,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -2655,7 +2949,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -2810,7 +3104,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -2963,7 +3257,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -3116,7 +3410,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -3281,7 +3575,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -3434,7 +3728,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -3459,6 +3753,172 @@
                         {
                             "contentKind": "DataConnector",
                             "contentId": "WindowsSecurityEvents"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
+            "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-ar-',uniquestring('3c8e5f0b-1d4a-4b69-9c2e-7f0d3a5e8b1f')))]",
+            "location": "[parameters('workspace-location')]",
+            "dependsOn": [
+                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-securityevents')]"
+            ],
+            "properties": {
+                "description": "Detects WmiPrvSE.exe (the WMI Provider Host) spawning high-risk processes\nsuch as PowerShell, cmd.exe, cscript, or other LOLBins.\nWMI requires no external tools, generates minimal disk artifacts, and can\nexecute code on remote systems over DCOM/RPC while bypassing many controls.\nTune AllowlistedCmdPatterns for known-safe management tools such as SCCM.",
+                "mainTemplate": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.5",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.SecurityInsights/AlertRuleTemplates",
+                            "name": "3c8e5f0b-1d4a-4b69-9c2e-7f0d3a5e8b1f",
+                            "apiVersion": "2023-02-01-preview",
+                            "kind": "Scheduled",
+                            "location": "[parameters('workspace-location')]",
+                            "properties": {
+                                "description": "Detects WmiPrvSE.exe (the WMI Provider Host) spawning high-risk processes\nsuch as PowerShell, cmd.exe, cscript, or other LOLBins.\nWMI requires no external tools, generates minimal disk artifacts, and can\nexecute code on remote systems over DCOM/RPC while bypassing many controls.\nTune AllowlistedCmdPatterns for known-safe management tools such as SCCM.",
+                                "displayName": "WMI Spawning Suspicious Child Process (Living off the Land)",
+                                "enabled": false,
+                                "query": "let Lookback = 1h;\nlet SuspiciousChildProcesses = dynamic([\n  \"powershell.exe\", \"pwsh.exe\", \"cmd.exe\", \"cscript.exe\", \"wscript.exe\",\n  \"mshta.exe\", \"certutil.exe\", \"bitsadmin.exe\", \"regsvr32.exe\",\n  \"rundll32.exe\", \"msiexec.exe\", \"installutil.exe\", \"cmstp.exe\",\n  \"msbuild.exe\", \"wmic.exe\", \"net.exe\", \"net1.exe\", \"nltest.exe\",\n  \"whoami.exe\", \"ipconfig.exe\", \"tasklist.exe\", \"schtasks.exe\",\n  \"at.exe\", \"sc.exe\", \"reg.exe\"\n]);\nlet AllowlistedCmdPatterns = dynamic([\n  \"ccmexec\", \"SMSAgent\", \"MOMAgent\", \"nessus\", \"qualys\"\n]);\nlet NetworkIndicators = dynamic([\n  \"http://\", \"https://\", \"ftp://\", \"Net.WebClient\",\n  \"DownloadString\", \"IEX\", \"Invoke-Expression\", \"/transfer\", \"-urlcache\"\n]);\nlet CredentialIndicators = dynamic([\n  \"lsass\", \"mimikatz\", \"sekurlsa\", \"dump\", \"sam\", \"ntds\"\n]);\nlet MDE_Results =\n  DeviceProcessEvents\n  | where Timestamp >= ago(Lookback)\n  | where InitiatingProcessFileName =~ \"WmiPrvSE.exe\"\n  | where FileName in~ (SuspiciousChildProcesses)\n  | where not(ProcessCommandLine has_any (AllowlistedCmdPatterns))\n  | extend\n      ChildProcess       = FileName,\n      ChildCmdLine       = ProcessCommandLine,\n      AccountName        = InitiatingProcessAccountName,\n      AccountDomain      = InitiatingProcessAccountDomain,\n      HostName           = DeviceName,\n      EventTime          = Timestamp,\n      NetworkActivity    = ProcessCommandLine has_any (NetworkIndicators),\n      CredentialActivity = ProcessCommandLine has_any (CredentialIndicators)\n  | project EventTime, HostName, AccountName, AccountDomain, ChildProcess,\n      ChildCmdLine, NetworkActivity, CredentialActivity;\nlet SecEvent_Results =\n  SecurityEvent\n  | where TimeGenerated >= ago(Lookback)\n  | where EventID == 4688\n  | where ParentProcessName endswith \"\\\\WmiPrvSE.exe\"\n  | extend ChildProcess = tostring(split(NewProcessName, \"\\\\\")[-1])\n  | where ChildProcess in~ (SuspiciousChildProcesses)\n  | where not(CommandLine has_any (AllowlistedCmdPatterns))\n  | extend\n      ChildCmdLine       = CommandLine,\n      AccountName        = SubjectUserName,\n      AccountDomain      = SubjectDomainName,\n      HostName           = Computer,\n      EventTime          = TimeGenerated,\n      NetworkActivity    = CommandLine has_any (NetworkIndicators),\n      CredentialActivity = CommandLine has_any (CredentialIndicators)\n  | project EventTime, HostName, AccountName, AccountDomain, ChildProcess,\n      ChildCmdLine, NetworkActivity, CredentialActivity;\nunion MDE_Results, SecEvent_Results\n| extend RiskScore = iif(CredentialActivity == true, 3, iif(NetworkActivity == true, 2, 1))\n| sort by RiskScore desc, EventTime desc\n",
+                                "queryFrequency": "PT1H",
+                                "queryPeriod": "PT1H",
+                                "severity": "High",
+                                "suppressionDuration": "PT1H",
+                                "suppressionEnabled": false,
+                                "triggerOperator": "GreaterThan",
+                                "triggerThreshold": 0,
+                                "status": "Available",
+                                "requiredDataConnectors": [
+                                    {
+                                        "dataTypes": [
+                                            "DeviceProcessEvents"
+                                        ],
+                                        "connectorId": "MicrosoftThreatProtection"
+                                    },
+                                    {
+                                        "dataTypes": [
+                                            "SecurityEvent"
+                                        ],
+                                        "connectorId": "SecurityEvents"
+                                    }
+                                ],
+                                "tactics": [
+                                    "Execution",
+                                    "LateralMovement",
+                                    "Persistence"
+                                ],
+                                "subTechniques": [
+                                    "T1021.006",
+                                    "T1059.001",
+                                    "T1059.003",
+                                    "T1059.005"
+                                ],
+                                "techniques": [
+                                    "T1047",
+                                    "T1021",
+                                    "T1059",
+                                    "T1059",
+                                    "T1059"
+                                ],
+                                "entityMappings": [
+                                    {
+                                        "entityType": "Host",
+                                        "fieldMappings": [
+                                            {
+                                                "columnName": "HostName",
+                                                "identifier": "FullName"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "entityType": "Account",
+                                        "fieldMappings": [
+                                            {
+                                                "columnName": "AccountName",
+                                                "identifier": "Name"
+                                            },
+                                            {
+                                                "columnName": "AccountDomain",
+                                                "identifier": "NTDomain"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "entityType": "Process",
+                                        "fieldMappings": [
+                                            {
+                                                "columnName": "ChildCmdLine",
+                                                "identifier": "CommandLine"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
+                            "apiVersion": "2022-01-01-preview",
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('AnalyticsRule-', last(split(resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '3c8e5f0b-1d4a-4b69-9c2e-7f0d3a5e8b1f'),'/'))))]",
+                            "properties": {
+                                "description": "Windows Security Events Analytics Rule 21",
+                                "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', '3c8e5f0b-1d4a-4b69-9c2e-7f0d3a5e8b1f')]",
+                                "contentId": "3c8e5f0b-1d4a-4b69-9c2e-7f0d3a5e8b1f",
+                                "kind": "AnalyticsRule",
+                                "version": "1.0.5",
+                                "source": {
+                                    "kind": "Solution",
+                                    "name": "Windows Security Events",
+                                    "sourceId": "azuresentinel.azure-sentinel-solution-securityevents"
+                                },
+                                "author": {
+                                    "name": "Microsoft",
+                                    "email": "support@microsoft.com"
+                                },
+                                "support": {
+                                    "name": "Microsoft Corporation",
+                                    "email": "support@microsoft.com",
+                                    "tier": "Microsoft",
+                                    "link": "https://support.microsoft.com"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "packageKind": "Solution",
+                "packageVersion": "3.0.13",
+                "packageName": "Windows Security Events",
+                "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "3c8e5f0b-1d4a-4b69-9c2e-7f0d3a5e8b1f",
+                "contentKind": "AnalyticsRule",
+                "displayName": "WMI Spawning Suspicious Child Process (Living off the Land)",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-securityeven-ar-gbqawbub5qls4",
+                "id": "azuresentinel.azure-sentinel-solution-securityeven-ar-gbqawbub5qls4",
+                "version": "1.0.5",
+                "isDeprecated": false,
+                "dependencies": {
+                    "operator": "AND",
+                    "criteria": [
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "DeviceProcessEvents"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "MicrosoftThreatProtection"
+                        },
+                        {
+                            "contentKind": "DataType",
+                            "contentId": "SecurityEvent"
+                        },
+                        {
+                            "contentKind": "DataConnector",
+                            "contentId": "SecurityEvents"
                         }
                     ]
                 }
@@ -3544,7 +4004,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -3637,7 +4097,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -3723,7 +4183,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -3809,7 +4269,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -3891,7 +4351,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -3973,7 +4433,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -4059,7 +4519,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -4145,7 +4605,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -4227,7 +4687,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -4313,7 +4773,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -4399,7 +4859,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -4485,7 +4945,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -4571,7 +5031,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -4657,7 +5117,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -4743,7 +5203,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -4825,7 +5285,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -4907,7 +5367,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -4989,7 +5449,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -5071,7 +5531,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -5157,7 +5617,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -5243,7 +5703,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -5329,7 +5789,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -5411,7 +5871,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -5497,7 +5957,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -5583,7 +6043,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -5669,7 +6129,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -5751,7 +6211,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -5833,7 +6293,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -5915,7 +6375,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -5997,7 +6457,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -6079,7 +6539,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -6161,7 +6621,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -6243,7 +6703,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -6329,7 +6789,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -6415,7 +6875,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -6501,7 +6961,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -6587,7 +7047,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -6669,7 +7129,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -6755,7 +7215,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -6841,7 +7301,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -6927,7 +7387,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -7013,7 +7473,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -7099,7 +7559,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -7185,7 +7645,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -7271,7 +7731,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -7357,7 +7817,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -7443,7 +7903,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -7529,7 +7989,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -7615,7 +8075,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -7701,7 +8161,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -7787,7 +8247,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -7873,7 +8333,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.12",
+                "packageVersion": "3.0.13",
                 "packageName": "Windows Security Events",
                 "packageId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "contentSchemaVersion": "3.0.0",
@@ -7891,16 +8351,16 @@
             "apiVersion": "2023-04-01-preview",
             "location": "[parameters('workspace-location')]",
             "properties": {
-                "version": "3.0.12",
+                "version": "3.0.13",
                 "kind": "Solution",
                 "contentSchemaVersion": "3.0.0",
                 "displayName": "Windows Security Events",
                 "publisherDisplayName": "Microsoft Sentinel, Microsoft Corporation",
-                "descriptionHtml": "<p><strong>Note:</strong> Please refer to the following before installing the solution:</p><p>\u2022 Review the solution <a target=\"_blank\" href=\"https://ms.portal.azure.com/verifyLink?href=https%3A%2F%2Fgithub.com%2FAzure%2FAzure-Sentinel%2Ftree%2Fmaster%2FSolutions%2FWindows%2520Security%2520Events%2FReleaseNotes.md&amp;id=fx&amp;viewUsed=defaultView\" rel=\"noopener\">Release Notes</a></p><p>\u2022 There may be <a target=\"_blank\" href=\"https://ms.portal.azure.com/verifyLink?href=https%3A%2F%2Faka.ms%2Fsentinelsolutionsknownissues&amp;id=fx&amp;viewUsed=defaultView\" rel=\"noopener\">known issues</a> pertaining to this Solution, please refer to them before installing.</p><p>The Windows Security Events solution for Microsoft Sentinel allows you to ingest Security events from your Windows machines using the Windows Agent into Microsoft Sentinel. This solution includes two (2) data connectors to help ingest the logs.</p><ol><li><p><strong>Windows Security Events via AMA</strong> - This data connector helps in ingesting Security Events logs into your Log Analytics Workspace using the new Azure Monitor Agent. Learn more about ingesting using the new Azure Monitor Agent <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/sentinel/connect-cef-ama?WT.mc_id=Portal-fx\" rel=\"noopener\">here</a>. <strong>Microsoft recommends using this Data Connector</strong>.</p></li><li><p><strong>Security Events via Legacy Agent</strong> - This data connector helps in ingesting Security Events logs into your Log Analytics Workspace using the legacy Log Analytics agent.</p></li></ol><p><strong>Data Connectors:</strong> 2, <strong>Workbooks:</strong> 2, <strong>Analytic Rules:</strong> 20, <strong>Hunting Queries:</strong> 50</p><p><a target=\"_blank\" href=\"https://ms.portal.azure.com/verifyLink?href=https%3A%2F%2Faka.ms%2Fazuresentinel&amp;id=fx&amp;viewUsed=defaultView\" rel=\"noopener\">Learn more about Microsoft Sentinel</a> | <a target=\"_blank\" href=\"https://ms.portal.azure.com/verifyLink?href=https%3A%2F%2Faka.ms%2Fazuresentinelsolutionsdoc&amp;id=fx&amp;viewUsed=defaultView\" rel=\"noopener\">Learn more about Solutions</a></p>",
+                "descriptionHtml": "<p><strong>Note:</strong> Please refer to the following before installing the solution:</p><p>\u2022 Review the solution <a target=\"_blank\" href=\"https://ms.portal.azure.com/verifyLink?href=https%3A%2F%2Fgithub.com%2FAzure%2FAzure-Sentinel%2Ftree%2Fmaster%2FSolutions%2FWindows%2520Security%2520Events%2FReleaseNotes.md&amp;id=fx&amp;viewUsed=defaultView\" rel=\"noopener\">Release Notes</a></p><p>\u2022 There may be <a target=\"_blank\" href=\"https://ms.portal.azure.com/verifyLink?href=https%3A%2F%2Faka.ms%2Fsentinelsolutionsknownissues&amp;id=fx&amp;viewUsed=defaultView\" rel=\"noopener\">known issues</a> pertaining to this Solution, please refer to them before installing.</p><p>The Windows Security Events solution for Microsoft Sentinel allows you to ingest Security events from your Windows machines using the Windows Agent into Microsoft Sentinel. This solution includes two (2) data connectors to help ingest the logs.</p><ol><li><p><strong>Windows Security Events via AMA</strong> - This data connector helps in ingesting Security Events logs into your Log Analytics Workspace using the new Azure Monitor Agent. Learn more about ingesting using the new Azure Monitor Agent <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/sentinel/connect-cef-ama?WT.mc_id=Portal-fx\" rel=\"noopener\">here</a>. <strong>Microsoft recommends using this Data Connector</strong>.</p></li><li><p><strong>Security Events via Legacy Agent</strong> - This data connector helps in ingesting Security Events logs into your Log Analytics Workspace using the legacy Log Analytics agent.</p></li></ol><p><strong>Data Connectors:</strong> 2, <strong>Workbooks:</strong> 2, <strong>Analytic Rules:</strong> 21, <strong>Hunting Queries:</strong> 50</p><p><a target=\"_blank\" href=\"https://ms.portal.azure.com/verifyLink?href=https%3A%2F%2Faka.ms%2Fazuresentinel&amp;id=fx&amp;viewUsed=defaultView\" rel=\"noopener\">Learn more about Microsoft Sentinel</a> | <a target=\"_blank\" href=\"https://ms.portal.azure.com/verifyLink?href=https%3A%2F%2Faka.ms%2Fazuresentinelsolutionsdoc&amp;id=fx&amp;viewUsed=defaultView\" rel=\"noopener\">Learn more about Solutions</a></p>",
                 "contentKind": "Solution",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-securityeven-sl-jypyqymaiysly",
-                "id": "azuresentinel.azure-sentinel-solution-securityeven-sl-jypyqymaiysly",
-                "icon": "https://store-images.s-microsoft.com/image/apps.64133.cfc82dab-62e7-4f61-a971-259213533680.96cba4a9-2262-4418-a53b-a53c83b161b4.87282b99-43e5-4194-bae9-f4c41b36e9fb",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-securityeven-sl-afxlzt3zqhody",
+                "id": "azuresentinel.azure-sentinel-solution-securityeven-sl-afxlzt3zqhody",
+                "icon": "https://catalogartifact.azureedge.net/publicartifacts/azuresentinel.azure-sentinel-solution-securityevents-64a182f2-0265-4543-bf93-742c9ad43558/image0_48x48.png",
                 "contentId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "parentId": "azuresentinel.azure-sentinel-solution-securityevents",
                 "source": {
@@ -8030,6 +8490,11 @@
                             "kind": "AnalyticsRule",
                             "contentId": "2c55fe7a-b06f-4029-a5b9-c54a2320d7b8",
                             "version": "1.0.6"
+                        },
+                        {
+                            "kind": "AnalyticsRule",
+                            "contentId": "3c8e5f0b-1d4a-4b69-9c2e-7f0d3a5e8b1f",
+                            "version": "1.0.5"
                         },
                         {
                             "kind": "Workbook",
