@@ -1,3 +1,16 @@
+## 9.0.1 (2026-08-31)
+
+### Code Refactoring
+
+* bump `Microsoft Entra Id` package template version to 3.3.16 7ddd5e4
+* bump `Microsoft XDR` package template version to 3.0.16 2ae56dc
+* bump `SentinelOne` package template version to 3.1.1 cfebeb1
+* bump `Windows Security` package template version to 3.0.13 3efc47e
+
+### Miscellaneous Chores
+
+* **deps:** ⬆️ update tools 🔗 7f69980
+
 ## 9.0.0 (2026-08-24)
 
 ### ⚠ BREAKING CHANGES
