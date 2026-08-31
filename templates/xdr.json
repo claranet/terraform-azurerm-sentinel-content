@@ -291,7 +291,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -771,7 +771,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -1011,7 +1011,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -1155,7 +1155,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -1319,7 +1319,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -1497,7 +1497,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -1657,7 +1657,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -1783,7 +1783,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -1918,7 +1918,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -2053,7 +2053,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -2207,20 +2207,20 @@
                                     "aggregationKind": "SingleAlert"
                                 },
                                 "alertDetailsOverride": {
-                                    "alertDynamicProperties": [],
-                                    "alertDisplayNameFormat": "Possible exploitation of CVE-2023-4863"
+                                    "alertDisplayNameFormat": "Possible exploitation of CVE-2023-4863",
+                                    "alertDynamicProperties": []
                                 },
                                 "incidentConfiguration": {
+                                    "createIncident": false,
                                     "groupingConfiguration": {
                                         "reopenClosedIncident": false,
-                                        "matchingMethod": "Selected",
                                         "lookbackDuration": "PT5H",
                                         "groupByEntities": [
                                             "Account"
                                         ],
+                                        "matchingMethod": "Selected",
                                         "enabled": false
-                                    },
-                                    "createIncident": false
+                                    }
                                 }
                             }
                         },
@@ -2254,7 +2254,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -2396,7 +2396,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -2517,7 +2517,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -2630,7 +2630,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -2756,7 +2756,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -2882,7 +2882,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -3008,7 +3008,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -3136,7 +3136,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -3262,7 +3262,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -3421,7 +3421,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -3584,7 +3584,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -3719,7 +3719,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -3862,7 +3862,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -4005,7 +4005,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -4151,7 +4151,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -4304,7 +4304,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -4447,7 +4447,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -4485,7 +4485,7 @@
                 "description": "This query looks for users performing file deletion activities. Spikes in file deletion observed from risky sign-in sessions are flagged here.\nThis applies to SharePoint and OneDrive users.\nAudit event and Cloud application identifier references.\nReference - https://learn.microsoft.com/microsoft-365/compliance/audit-log-activities?view=o365-worldwide\nReference - https://learn.microsoft.com/azure/sentinel/entities-reference#cloud-application-identifiers",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.1",
+                    "contentVersion": "1.0.2",
                     "parameters": {},
                     "variables": {},
                     "resources": [
@@ -4499,7 +4499,7 @@
                                 "description": "This query looks for users performing file deletion activities. Spikes in file deletion observed from risky sign-in sessions are flagged here.\nThis applies to SharePoint and OneDrive users.\nAudit event and Cloud application identifier references.\nReference - https://learn.microsoft.com/microsoft-365/compliance/audit-log-activities?view=o365-worldwide\nReference - https://learn.microsoft.com/azure/sentinel/entities-reference#cloud-application-identifiers",
                                 "displayName": "Unusual Volume of file deletion by users",
                                 "enabled": false,
-                                "query": "let relevantOperations = pack_array(\"FileDeleted\", \"FileRecycled\", \"FileDeletedFirstStageRecycleBin\", \"FileDeletedSecondStageRecycleBin\", \"FileVersionsAllMinorsRecycled\", \"FileVersionRecycled\", \"FileVersionsAllRecycled\");\nlet relevantAppIds = pack_array(int(20892), int(15600)); // App Ids for SharePoint and OneDrive\nlet timeWindow = 7d;\nlet timeNow = now();\n//\nlet riskyUsers= // Look for users with risky sign-ins\n  SigninLogs    \n  | where CreatedDateTime between ((timeNow - timeWindow) .. (timeNow))\n  | where isnotempty(UserId) and isnotempty(OriginalRequestId)\n  | where ResultType == '0'\n  | where RiskLevelDuringSignIn == 'high'\n  | project RiskLevelDuringSignIn, UserId, CreatedDateTime, SessionId=OriginalRequestId\n  ;\nlet hasUsers = isnotempty(toscalar(riskyUsers));\n//\nlet deleteEvents = // look for file deletion activity and scope it to risky users\n  CloudAppEvents\n  | where hasUsers\n  | where TimeGenerated between ((timeNow - timeWindow) .. (timeNow))\n  | where ApplicationId in (relevantAppIds)\n  | where isnotempty(AccountObjectId)\n  | where AccountObjectId in (riskyUsers)\n  | where ActionType in (relevantOperations)\n  | extend SessionId= tostring(RawEventData.AppAccessContext.AADSessionId)\n  | where isnotempty(SessionId)\n  | project UserId=AccountObjectId, AccountDisplayName, ApplicationId, SessionId, ActionType, TimeGenerated, ReportId\n  ;   \n //\ndeleteEvents  \n| join kind=leftsemi riskyUsers on UserId, SessionId\n| summarize Count=count() , (Timestamp, ReportId)=arg_min(TimeGenerated, ReportId) by UserId, AccountDisplayName, ApplicationId, ActionType, Time=bin(TimeGenerated, 5m)\n// look for only those scoped users who have generated an increase in file deletion activity.\n| summarize TotalCount= countif(Count > 50), (Timestamp, ReportId)=arg_min(Timestamp, ReportId) by UserId, AccountDisplayName, ApplicationId \n| where TotalCount >= 3\n| project UserId, AccountDisplayName, ApplicationId, TotalCount, ReportId, Timestamp\n| extend NTDomain = tostring(split(AccountDisplayName,'\\\\',0)[0]), Name = tostring(split(AccountDisplayName,'\\\\',1)[0])\n",
+                                "query": "let relevantOperations = pack_array(\"FileDeleted\", \"FileRecycled\", \"FileDeletedFirstStageRecycleBin\", \"FileDeletedSecondStageRecycleBin\", \"FileVersionsAllMinorsRecycled\", \"FileVersionRecycled\", \"FileVersionsAllRecycled\");\nlet relevantAppIds = pack_array(int(20892), int(15600)); // App Ids for SharePoint and OneDrive\nlet timeWindow = 7d;\nlet timeNow = now();\n//\nlet riskyUsers= // Look for users with risky sign-ins\n  SigninLogs    \n  | where CreatedDateTime between ((timeNow - timeWindow) .. (timeNow))\n  | where isnotempty(UserId) and isnotempty(OriginalRequestId)\n  | where ResultType == '0'\n  | where RiskLevelDuringSignIn == 'high'\n  | project UserId, RiskLevelDuringSignIn, CreatedDateTime, SessionId=OriginalRequestId\n  ;\nlet hasUsers = isnotempty(toscalar(riskyUsers));\n//\nlet deleteEvents = // look for file deletion activity and scope it to risky users\n  CloudAppEvents\n  | where hasUsers\n  | where TimeGenerated between ((timeNow - timeWindow) .. (timeNow))\n  | where ApplicationId in (relevantAppIds)\n  | where isnotempty(AccountObjectId)\n  | where AccountObjectId in (riskyUsers)\n  | where ActionType in (relevantOperations)\n  | extend SessionId= tostring(RawEventData.AppAccessContext.AADSessionId)\n  | where isnotempty(SessionId)\n  | project UserId=AccountObjectId, AccountDisplayName, ApplicationId, SessionId, ActionType, TimeGenerated, ReportId\n  ;   \n //\ndeleteEvents  \n| join kind=leftsemi riskyUsers on UserId, SessionId\n| summarize Count=count() , (Timestamp, ReportId)=arg_min(TimeGenerated, ReportId) by UserId, AccountDisplayName, ApplicationId, ActionType, Time=bin(TimeGenerated, 5m)\n// look for only those scoped users who have generated an increase in file deletion activity.\n| summarize TotalCount= countif(Count > 50), (Timestamp, ReportId)=arg_min(Timestamp, ReportId) by UserId, AccountDisplayName, ApplicationId \n| where TotalCount >= 3\n| project UserId, AccountDisplayName, ApplicationId, TotalCount, ReportId, Timestamp\n| extend NTDomain = tostring(split(AccountDisplayName,'\\\\',0)[0]), Name = tostring(split(AccountDisplayName,'\\\\',1)[0])\n",
                                 "queryFrequency": "PT1H",
                                 "queryPeriod": "PT1H",
                                 "severity": "High",
@@ -4570,7 +4570,7 @@
                                 "parentId": "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', 'e5f8e196-3544-4a8b-96a9-17c1b6a49710')]",
                                 "contentId": "e5f8e196-3544-4a8b-96a9-17c1b6a49710",
                                 "kind": "AnalyticsRule",
-                                "version": "1.0.1",
+                                "version": "1.0.2",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "Microsoft Defender XDR",
@@ -4591,16 +4591,16 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "e5f8e196-3544-4a8b-96a9-17c1b6a49710",
                 "contentKind": "AnalyticsRule",
                 "displayName": "Unusual Volume of file deletion by users",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-microsoft365-ar-o2qv7vmqtjv72",
-                "id": "azuresentinel.azure-sentinel-solution-microsoft365-ar-o2qv7vmqtjv72",
-                "version": "1.0.1",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-microsoft365-ar-kk4565hmzz52u",
+                "id": "azuresentinel.azure-sentinel-solution-microsoft365-ar-kk4565hmzz52u",
+                "version": "1.0.2",
                 "isDeprecated": false,
                 "dependencies": {
                     "operator": "AND",
@@ -4721,7 +4721,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -4865,7 +4865,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -5008,7 +5008,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -5152,7 +5152,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -5302,7 +5302,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -5470,7 +5470,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -5596,7 +5596,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -5735,7 +5735,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -5861,7 +5861,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -5987,7 +5987,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -6147,7 +6147,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -6285,7 +6285,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -6441,7 +6441,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -6540,7 +6540,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -6622,7 +6622,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -6708,7 +6708,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -6790,7 +6790,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -6872,7 +6872,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -6954,7 +6954,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -7036,7 +7036,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -7118,7 +7118,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -7200,7 +7200,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -7282,7 +7282,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -7364,7 +7364,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -7446,7 +7446,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -7528,7 +7528,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -7614,7 +7614,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -7696,7 +7696,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -7778,7 +7778,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -7860,7 +7860,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -7942,7 +7942,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -8024,7 +8024,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -8106,7 +8106,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -8188,7 +8188,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -8270,7 +8270,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -8356,7 +8356,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -8442,7 +8442,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -8528,7 +8528,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -8610,7 +8610,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -8688,7 +8688,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -8774,7 +8774,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -8860,7 +8860,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -8946,7 +8946,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -9032,7 +9032,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -9118,7 +9118,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -9204,7 +9204,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -9290,7 +9290,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -9376,7 +9376,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -9462,7 +9462,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -9548,7 +9548,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -9634,7 +9634,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -9720,7 +9720,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -9806,7 +9806,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -9892,7 +9892,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -9978,7 +9978,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -10064,7 +10064,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -10150,7 +10150,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -10236,7 +10236,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -10322,7 +10322,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -10408,7 +10408,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -10494,7 +10494,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -10580,7 +10580,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -10666,7 +10666,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -10752,7 +10752,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -10838,7 +10838,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -10924,7 +10924,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -11010,7 +11010,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -11096,7 +11096,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -11182,7 +11182,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -11268,7 +11268,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -11354,7 +11354,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -11440,7 +11440,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -11526,7 +11526,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -11612,7 +11612,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -11698,7 +11698,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -11784,7 +11784,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -11870,7 +11870,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -11956,7 +11956,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -12042,7 +12042,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -12124,7 +12124,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -12210,7 +12210,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -12296,7 +12296,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -12382,7 +12382,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -12468,7 +12468,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -12554,7 +12554,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -12640,7 +12640,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -12726,7 +12726,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -12812,7 +12812,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -12898,7 +12898,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -12984,7 +12984,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -13070,7 +13070,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -13156,7 +13156,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -13242,7 +13242,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -13328,7 +13328,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -13414,7 +13414,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -13500,7 +13500,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -13586,7 +13586,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -13672,7 +13672,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -13758,7 +13758,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -13844,7 +13844,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -13930,7 +13930,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -14016,7 +14016,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -14102,7 +14102,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -14188,7 +14188,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -14274,7 +14274,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -14360,7 +14360,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -14446,7 +14446,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -14532,7 +14532,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -14618,7 +14618,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -14704,7 +14704,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -14790,7 +14790,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -14876,7 +14876,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -14962,7 +14962,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -15048,7 +15048,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -15134,7 +15134,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -15220,7 +15220,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -15306,7 +15306,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -15392,7 +15392,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -15478,7 +15478,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -15564,7 +15564,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -15650,7 +15650,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -15736,7 +15736,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -15822,7 +15822,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -15908,7 +15908,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -15994,7 +15994,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -16080,7 +16080,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -16166,7 +16166,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -16252,7 +16252,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -16338,7 +16338,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -16424,7 +16424,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -16510,7 +16510,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -16596,7 +16596,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -16682,7 +16682,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -16768,7 +16768,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -16854,7 +16854,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -16940,7 +16940,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -17026,7 +17026,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -17112,7 +17112,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -17198,7 +17198,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -17284,7 +17284,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -17370,7 +17370,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -17456,7 +17456,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -17542,7 +17542,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -17628,7 +17628,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -17714,7 +17714,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -17800,7 +17800,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -17886,7 +17886,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -17972,7 +17972,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -18058,7 +18058,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -18144,7 +18144,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -18230,7 +18230,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -18316,7 +18316,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -18402,7 +18402,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -18488,7 +18488,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -18574,7 +18574,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -18660,7 +18660,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -18746,7 +18746,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -18832,7 +18832,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -18918,7 +18918,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -19004,7 +19004,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -19090,7 +19090,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -19176,7 +19176,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -19262,7 +19262,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -19348,7 +19348,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -19434,7 +19434,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -19520,7 +19520,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -19606,7 +19606,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -19692,7 +19692,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -19778,7 +19778,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -19864,7 +19864,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -19950,7 +19950,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -20036,7 +20036,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -20122,7 +20122,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -20208,7 +20208,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -20294,7 +20294,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -20380,7 +20380,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -20466,7 +20466,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -20552,7 +20552,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -20638,7 +20638,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -20724,7 +20724,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -20810,7 +20810,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -20896,7 +20896,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -20982,7 +20982,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -21068,7 +21068,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -21154,7 +21154,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -21240,7 +21240,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -21326,7 +21326,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -21412,7 +21412,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -21498,7 +21498,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -21584,7 +21584,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -21670,7 +21670,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -21756,7 +21756,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -21842,7 +21842,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -21928,7 +21928,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -22014,7 +22014,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -22100,7 +22100,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -22186,7 +22186,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -22272,7 +22272,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -22358,7 +22358,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -22444,7 +22444,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -22530,7 +22530,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -22616,7 +22616,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -22702,7 +22702,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -22788,7 +22788,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -22874,7 +22874,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -22960,7 +22960,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -23046,7 +23046,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -23132,7 +23132,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -23218,7 +23218,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -23304,7 +23304,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -23390,7 +23390,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -23476,7 +23476,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -23562,7 +23562,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -23648,7 +23648,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -23734,7 +23734,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -23820,7 +23820,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -23906,7 +23906,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -23992,7 +23992,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -24078,7 +24078,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -24164,7 +24164,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -24250,7 +24250,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -24336,7 +24336,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -24422,7 +24422,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -24508,7 +24508,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -24594,7 +24594,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -24680,7 +24680,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -24766,7 +24766,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -24852,7 +24852,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -24938,7 +24938,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -25024,7 +25024,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -25110,7 +25110,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -25196,7 +25196,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -25282,7 +25282,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -25368,7 +25368,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -25454,7 +25454,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -25540,7 +25540,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -25626,7 +25626,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -25712,7 +25712,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -25798,7 +25798,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -25884,7 +25884,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -25970,7 +25970,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -26056,7 +26056,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -26142,7 +26142,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -26228,7 +26228,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -26314,7 +26314,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -26400,7 +26400,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -26486,7 +26486,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -26572,7 +26572,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -26658,7 +26658,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -26744,7 +26744,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -26830,7 +26830,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -26916,7 +26916,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -27002,7 +27002,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -27088,7 +27088,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -27174,7 +27174,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -27260,7 +27260,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -27346,7 +27346,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -27432,7 +27432,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -27518,7 +27518,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -27604,7 +27604,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -27690,7 +27690,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -27776,7 +27776,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -27862,7 +27862,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -27948,7 +27948,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -28034,7 +28034,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -28120,7 +28120,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -28206,7 +28206,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -28292,7 +28292,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -28378,7 +28378,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -28464,7 +28464,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -28550,7 +28550,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -28636,7 +28636,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -28722,7 +28722,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -28808,7 +28808,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -28894,7 +28894,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -28980,7 +28980,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -29066,7 +29066,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -29152,7 +29152,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -29238,7 +29238,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -29324,7 +29324,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -29410,7 +29410,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -29496,7 +29496,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -29582,7 +29582,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -29668,7 +29668,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -29754,7 +29754,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -29840,7 +29840,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -29926,7 +29926,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -30012,7 +30012,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -30098,7 +30098,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -30184,7 +30184,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -30270,7 +30270,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -30356,7 +30356,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -30442,7 +30442,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -30528,7 +30528,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -30614,7 +30614,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -30700,7 +30700,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -30786,7 +30786,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -30868,7 +30868,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -30950,7 +30950,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -31032,7 +31032,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -31114,7 +31114,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -31200,7 +31200,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -31282,7 +31282,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -31364,7 +31364,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -31446,7 +31446,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -31528,7 +31528,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -31614,7 +31614,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -31696,7 +31696,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -31778,7 +31778,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -31860,7 +31860,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -31942,7 +31942,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -32024,7 +32024,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -32106,7 +32106,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -32192,7 +32192,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -32270,7 +32270,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -32295,7 +32295,7 @@
                 "description": "This query looks for users performing file deletion activities. Spikes in file deletion observed from risky sign-in sessions are flagged here.",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.1",
+                    "contentVersion": "1.0.2",
                     "parameters": {},
                     "variables": {},
                     "resources": [
@@ -32308,7 +32308,7 @@
                                 "eTag": "*",
                                 "displayName": "Unusual Volume of file deletion by users",
                                 "category": "Hunting Queries",
-                                "query": "let relevantOperations = pack_array(\"FileDeleted\", \"FileRecycled\", \"FileDeletedFirstStageRecycleBin\", \"FileDeletedSecondStageRecycleBin\", \"FileVersionsAllMinorsRecycled\", \"FileVersionRecycled\", \"FileVersionsAllRecycled\");\nlet relevantAppIds = pack_array(int(20892), int(15600)); // App Ids for SharePoint and OneDrive\nlet timeWindow = 7d;\nlet timeNow = now();\n//\nlet riskyUsers= // Look for users with risky sign-ins\n  SigninLogs    \n  | where CreatedDateTime between ((timeNow - timeWindow) .. (timeNow))\n  | where isnotempty(UserId) and isnotempty(OriginalRequestId)\n  | where ResultType == '0'\n  | where RiskLevelDuringSignIn == 'high'\n  | project RiskLevelDuringSignIn, UserId, CreatedDateTime, SessionId=OriginalRequestId\n  ;\nlet hasUsers = isnotempty(toscalar(riskyUsers));\n //\nlet deleteEvents = // look for file deletion activity and scope it to risky users\n  CloudAppEvents\n  | where hasUsers\n  | where TimeGenerated between ((timeNow - timeWindow) .. (timeNow))\n  | where ApplicationId in (relevantAppIds)\n  | where isnotempty(AccountObjectId)\n  | where AccountObjectId in (riskyUsers)\n  | where ActionType in (relevantOperations)\n  | extend SessionId= tostring(RawEventData.AppAccessContext.AADSessionId)\n  | where isnotempty(SessionId)\n  | project UserId=AccountObjectId, AccountDisplayName, ApplicationId, SessionId, ActionType, TimeGenerated, ReportId\n  ;   \n //\ndeleteEvents  \n| join kind=leftsemi riskyUsers on UserId, SessionId\n| summarize Count=count() , (Timestamp, ReportId)=arg_min(TimeGenerated, ReportId) by UserId, AccountDisplayName, ApplicationId, ActionType, Time=bin(TimeGenerated, 5m)\n// look for only those scoped users who have generated an increase in file deletion activity.\n| summarize TotalCount= countif(Count > 50), (Timestamp, ReportId)=arg_min(Timestamp, ReportId) by UserId, AccountDisplayName, ApplicationId \n| where TotalCount >= 3\n| project UserId, AccountDisplayName, ApplicationId, TotalCount, ReportId, Timestamp\n| extend NTDomain = tostring(split(AccountDisplayName,'\\\\',0)[0]), Name = tostring(split(AccountDisplayName,'\\\\',1)[0])\n| extend Account_0_Name = Name\n| extend Account_0_NTDomain = NTDomain\n| extend Account_0_AadUserId = UserId\n| extend CloudApplication_0_AppId = ApplicationId\n",
+                                "query": "let relevantOperations = pack_array(\"FileDeleted\", \"FileRecycled\", \"FileDeletedFirstStageRecycleBin\", \"FileDeletedSecondStageRecycleBin\", \"FileVersionsAllMinorsRecycled\", \"FileVersionRecycled\", \"FileVersionsAllRecycled\");\nlet relevantAppIds = pack_array(int(20892), int(15600)); // App Ids for SharePoint and OneDrive\nlet timeWindow = 7d;\nlet timeNow = now();\n//\nlet riskyUsers= // Look for users with risky sign-ins\n  SigninLogs    \n  | where CreatedDateTime between ((timeNow - timeWindow) .. (timeNow))\n  | where isnotempty(UserId) and isnotempty(OriginalRequestId)\n  | where ResultType == '0'\n  | where RiskLevelDuringSignIn == 'high'\n  | project UserId, RiskLevelDuringSignIn, CreatedDateTime, SessionId=OriginalRequestId\n  ;\nlet hasUsers = isnotempty(toscalar(riskyUsers));\n //\nlet deleteEvents = // look for file deletion activity and scope it to risky users\n  CloudAppEvents\n  | where hasUsers\n  | where TimeGenerated between ((timeNow - timeWindow) .. (timeNow))\n  | where ApplicationId in (relevantAppIds)\n  | where isnotempty(AccountObjectId)\n  | where AccountObjectId in (riskyUsers)\n  | where ActionType in (relevantOperations)\n  | extend SessionId= tostring(RawEventData.AppAccessContext.AADSessionId)\n  | where isnotempty(SessionId)\n  | project UserId=AccountObjectId, AccountDisplayName, ApplicationId, SessionId, ActionType, TimeGenerated, ReportId\n  ;   \n //\ndeleteEvents  \n| join kind=leftsemi riskyUsers on UserId, SessionId\n| summarize Count=count() , (Timestamp, ReportId)=arg_min(TimeGenerated, ReportId) by UserId, AccountDisplayName, ApplicationId, ActionType, Time=bin(TimeGenerated, 5m)\n// look for only those scoped users who have generated an increase in file deletion activity.\n| summarize TotalCount= countif(Count > 50), (Timestamp, ReportId)=arg_min(Timestamp, ReportId) by UserId, AccountDisplayName, ApplicationId \n| where TotalCount >= 3\n| project UserId, AccountDisplayName, ApplicationId, TotalCount, ReportId, Timestamp\n| extend NTDomain = tostring(split(AccountDisplayName,'\\\\',0)[0]), Name = tostring(split(AccountDisplayName,'\\\\',1)[0])\n",
                                 "version": 2,
                                 "tags": [
                                     {
@@ -32331,7 +32331,7 @@
                                 "parentId": "[resourceId('Microsoft.OperationalInsights/savedSearches', '2bdd260c-c687-4cb2-9992-87e5ce677678')]",
                                 "contentId": "2bdd260c-c687-4cb2-9992-87e5ce677678",
                                 "kind": "HuntingQuery",
-                                "version": "1.0.1",
+                                "version": "1.0.2",
                                 "source": {
                                     "kind": "Solution",
                                     "name": "Microsoft Defender XDR",
@@ -32352,16 +32352,16 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "2bdd260c-c687-4cb2-9992-87e5ce677678",
                 "contentKind": "HuntingQuery",
                 "displayName": "Unusual Volume of file deletion by users",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-microsoft365-hq-ewcyrozbcvsg4",
-                "id": "azuresentinel.azure-sentinel-solution-microsoft365-hq-ewcyrozbcvsg4",
-                "version": "1.0.1",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-microsoft365-hq-vrbbzsglcg6s2",
+                "id": "azuresentinel.azure-sentinel-solution-microsoft365-hq-vrbbzsglcg6s2",
+                "version": "1.0.2",
                 "isDeprecated": false
             }
         },
@@ -32434,7 +32434,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -32512,7 +32512,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -32594,7 +32594,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -32676,7 +32676,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -32754,7 +32754,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -32836,7 +32836,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -32922,7 +32922,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -33004,7 +33004,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -33086,7 +33086,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -33168,7 +33168,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -33250,7 +33250,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -33332,7 +33332,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -33414,7 +33414,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -33496,7 +33496,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -33578,7 +33578,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -33660,7 +33660,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -33742,7 +33742,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -33824,7 +33824,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -33906,7 +33906,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -33988,7 +33988,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -34074,7 +34074,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -34156,7 +34156,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -34238,7 +34238,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -34324,7 +34324,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -34410,7 +34410,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -34496,7 +34496,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -34582,7 +34582,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -34687,7 +34687,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -34763,7 +34763,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -34860,7 +34860,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.15",
+                "packageVersion": "3.0.16",
                 "packageName": "Microsoft Defender XDR",
                 "packageId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "contentSchemaVersion": "3.0.0",
@@ -34878,16 +34878,16 @@
             "apiVersion": "2023-04-01-preview",
             "location": "[parameters('workspace-location')]",
             "properties": {
-                "version": "3.0.15",
+                "version": "3.0.16",
                 "kind": "Solution",
                 "contentSchemaVersion": "3.0.0",
                 "displayName": "Microsoft Defender XDR",
                 "publisherDisplayName": "Microsoft Sentinel, Microsoft Corporation",
                 "descriptionHtml": "<p><strong>Note:</strong> Please refer to the following before installing the solution:</p><p>\u2022 Review the solution <a target=\"_blank\" href=\"https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Microsoft%20Defender%20XDR/ReleaseNotes.md\" rel=\"noopener\">Release Notes</a></p><p>The <a target=\"_blank\" href=\"https://www.microsoft.com/security/business/threat-protection/microsoft-365-defender\" rel=\"noopener\">Microsoft Defender XDR</a> solution for Microsoft Sentinel enables you to ingest Security Alerts/Incidents and raw logs from the products within Microsoft Defender XDR suite into Microsoft Sentinel.</p><p>Additional Hunting Queries to support proactive and reactive hunting for the Microsoft Defender XDR solution can be found on <a target=\"_blank\" href=\"https://github.com/Azure/Azure-Sentinel/tree/master/Hunting%20Queries/Microsoft%20365%20Defender\" rel=\"noopener\">GitHub</a>. This repository has a collection of queries developed by Microsoft Security Research and Microsoft Sentinel community contributions.</p><p><strong>Underlying Microsoft Technologies used:</strong></p><p>This solution takes a dependency on the following technologies, and some of these dependencies either may be in <a target=\"_blank\" href=\"https://azure.microsoft.com/support/legal/preview-supplemental-terms/\" rel=\"noopener\">Preview</a> state or might result in additional ingestion or operational costs:</p><p>a. <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/azure-monitor/logs/data-collector-api?WT.mc_id=Portal-fx\" rel=\"noopener\">Azure Monitor HTTP Data Collector API</a></p><p><strong>Data Connectors:</strong> 1, <strong>Workbooks:</strong> 3, <strong>Analytic Rules:</strong> 40, <strong>Hunting Queries:</strong> 330</p><p><a target=\"_blank\" href=\"https://aka.ms/azuresentinel\" rel=\"noopener\">Learn more about Microsoft Sentinel</a> | <a target=\"_blank\" href=\"https://aka.ms/azuresentinelsolutionsdoc\" rel=\"noopener\">Learn more about Solutions</a></p>",
                 "contentKind": "Solution",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-microsoft365-sl-ly2pizzgu22as",
-                "id": "azuresentinel.azure-sentinel-solution-microsoft365-sl-ly2pizzgu22as",
-                "icon": "https://catalogartifact.azureedge.net/publicartifacts/azuresentinel.azure-sentinel-solution-microsoft365defender-80cc39da-98b2-4681-a50b-9d1dfb1d72c4/image3_48x48a.png",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-microsoft365-sl-wwqlos4ymh34s",
+                "id": "azuresentinel.azure-sentinel-solution-microsoft365-sl-wwqlos4ymh34s",
+                "icon": "https://catalogartifact.azureedge.net/publicartifacts/azuresentinel.azure-sentinel-solution-microsoft365defender-1ef36f78-60d1-4c1e-8841-df4df50ef2cf/image3_48x48a.png",
                 "contentId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "parentId": "azuresentinel.azure-sentinel-solution-microsoft365defender",
                 "source": {
@@ -35046,7 +35046,7 @@
                         {
                             "kind": "AnalyticsRule",
                             "contentId": "e5f8e196-3544-4a8b-96a9-17c1b6a49710",
-                            "version": "1.0.1"
+                            "version": "1.0.2"
                         },
                         {
                             "kind": "AnalyticsRule",
@@ -36626,7 +36626,7 @@
                         {
                             "kind": "HuntingQuery",
                             "contentId": "2bdd260c-c687-4cb2-9992-87e5ce677678",
-                            "version": "1.0.1"
+                            "version": "1.0.2"
                         },
                         {
                             "kind": "HuntingQuery",
