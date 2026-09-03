@@ -1,3 +1,12 @@
+## 9.0.2 (2026-09-03)
+
+### Code Refactoring
+
+* bump `Cloudflare` package template version to 3.0.4 67fcf89
+* bump `Google Workspace` package template version to 3.0.6 527a3ac
+* bump `Microsoft XDR` package template version to 3.0.17 0a86e81
+* bump `SentinelOne` package template version to 3.1.2 c970307
+
 ## 9.0.1 (2026-08-31)
 
 ### Code Refactoring
