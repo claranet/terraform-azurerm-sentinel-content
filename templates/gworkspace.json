@@ -149,7 +149,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.1.0",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -174,7 +174,7 @@
                 "description": "",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0",
+                    "contentVersion": "1.1.0",
                     "parameters": {},
                     "variables": {},
                     "resources": [
@@ -188,7 +188,7 @@
                                 "displayName": "Parser for GWorkspaceActivityReports",
                                 "category": "Microsoft Sentinel Parser",
                                 "functionAlias": "GWorkspaceActivityReports",
-                                "query": "let GWorkspace_ReportsAPI_view  = view () { \nunion isfuzzy=true  GWorkspace_ReportsAPI_access_transparency_CL, GWorkspace_ReportsAPI_admin_CL,\n                    GWorkspace_ReportsAPI_calendar_CL, GWorkspace_ReportsAPI_chat_CL,\n                    GWorkspace_ReportsAPI_drive_CL, GWorkspace_ReportsAPI_gcp_CL,\n                    GWorkspace_ReportsAPI_gplus_CL, GWorkspace_ReportsAPI_groups_CL,\n                    GWorkspace_ReportsAPI_groups_enterprise_CL, GWorkspace_ReportsAPI_jamboard_CL,\n                    GWorkspace_ReportsAPI_login_CL, GWorkspace_ReportsAPI_meet_CL,\n                    GWorkspace_ReportsAPI_mobile_CL, GWorkspace_ReportsAPI_rules_CL,\n                    GWorkspace_ReportsAPI_saml_CL, GWorkspace_ReportsAPI_token_CL,\n                    GWorkspace_ReportsAPI_user_accounts_CL, GWorkspace_ReportsAPI_context_aware_access_CL,\n                    GWorkspace_ReportsAPI_chrome_CL, GWorkspace_ReportsAPI_data_studio_CL,\n                    GWorkspace_ReportsAPI_keep_CL\n| extend \n        AccountState=column_ifexists('ACCOUNT_STATE_s', ''),\n        ActorCallerType=column_ifexists('actor_callerType_s', ''),\n        ActorEmail=column_ifexists('actor_email_s', ''),\n        ActorIsCollaboratorAccount=column_ifexists('actor_is_collaborator_account_b', ''),\n        ActorKey=column_ifexists('actor_key_s', ''),\n        ActorProfileId=column_ifexists('actor_profileId_s', ''),\n        ApiKind=column_ifexists('api_kind_s', ''),\n        AppName=column_ifexists('app_name_s', ''),\n        ApplicationEdition=column_ifexists('APPLICATION_EDITION_s', ''),\n        ApplicationName=column_ifexists('APPLICATION_NAME_s', ''),\n        Billable=column_ifexists('billable_b', ''),\n        CalendarId=column_ifexists('calendar_id_s', ''),\n        ClientId=column_ifexists('client_id_s', ''),\n        ClientType=column_ifexists('client_type_s', ''),\n        DestinationFolderId=column_ifexists('destination_folder_id_s', ''),\n        DestinationFolderTitle=column_ifexists('destination_folder_title_s', ''),\n        DocId=column_ifexists('doc_id_s', ''),\n        DocTitle=column_ifexists('doc_title_s', ''),\n        DocType=column_ifexists('doc_type_s', ''),\n        DstUserUpn=column_ifexists('USER_EMAIL_s', ''),\n        DestUserUpn=column_ifexists('recipient_email_s', ''),\n        DvcGuid=column_ifexists('DEVICE_ID_g', ''),\n        DvcInterfaceGuid=column_ifexists('DEVICE_ID_s', ''),\n        DvcModelName=column_ifexists('DEVICE_MODEL_s', ''),\n        DvcModelNumber=column_ifexists('OS_VERSION_s', ''),\n        DvcType=column_ifexists('DEVICE_TYPE_s', ''),\n        Etag=column_ifexists('etag_s', ''),\n        EventCategoryType=column_ifexists('kind_s', ''),\n        EventEndTime=column_ifexists('end_time_s', ''),\n        EventGuest=column_ifexists('event_guest_s', ''),\n        EventId=column_ifexists('id_uniqueQualifier_s', ''),\n        EventMessage=column_ifexists('event_name_s', ''),\n        EventOriginalMessage=column_ifexists('events_s', ''),\n        EventProduct=\"Google Workspace Activity Reports\",\n        EventResponseStatus=column_ifexists('event_response_status_s', ''),\n        EventStartTime=column_ifexists('start_time_s', ''),\n        EventTitle=column_ifexists('event_title_s', ''),\n        EventType=column_ifexists('event_type_s', ''),\n        EventUid=column_ifexists('event_id_s', ''),\n        EventVendor=\"Google\",\n        GroupDomain=column_ifexists('ORG_UNIT_NAME_s', ''),\n        IdApplicationName=column_ifexists('id_applicationName_s', ''),\n        IosVendorId=column_ifexists('IOS_VENDOR_ID_s', ''),\n        IosVendorUID=column_ifexists('IOS_VENDOR_ID_g', ''),\n        IsSecondFactor=column_ifexists('is_second_factor_b', ''),\n        IsSuspicious=column_ifexists('is_suspicious_b', ''),\n        Kind=column_ifexists('kind_s', ''),\n        LastSyncAuditDate=column_ifexists('LAST_SYNC_AUDIT_DATE_s', ''),\n        LoginChallengeMethod=column_ifexists('login_challenge_method_s', ''),\n        LoginChallengeStatus=column_ifexists('login_challenge_status_s', ''),\n        LoginType=column_ifexists('login_type_s', ''),\n        ModuleName=column_ifexists('PRODUCT_NAME_s', ''),\n        NeqValue=column_ifexists('NEW_VALUE_s', ''),\n        Newvalue=column_ifexists('new_value_s', ''),\n        NotificationMessageId=column_ifexists('notification_message_id_s', ''),\n        NotificationMethod=column_ifexists('notification_method_s', ''),\n        NotificationType=column_ifexists('notification_type_s', ''),\n        OldEventTitle=column_ifexists('old_event_title_s', ''),\n        OldValue=column_ifexists('OLD_VALUE_s', ''),\n        Oldvalue=column_ifexists('old_value_s', ''),\n        OldVisibility=column_ifexists('old_visibility_s', ''),\n        OrganizerCalendarId=column_ifexists('organizer_calendar_id_s', ''),\n        OriginatingAppId=column_ifexists('originating_app_id_s', ''),\n        OsProperty=column_ifexists('OS_PROPERTY_s', ''),\n        Owner=column_ifexists('owner_s', ''),\n        OwnerDomain=column_ifexists('ownerDomain_s', ''),\n        OwnerIsSharedDrive=column_ifexists('owner_is_shared_drive_b', ''),\n        OwnerIsTeamDrive=column_ifexists('owner_is_team_drive_b', ''),\n        PrimaryEvent=column_ifexists('primary_event_b', ''),\n        ProcessName=column_ifexists('SETTING_NAME_s', ''),\n        RegisterPrivelege=column_ifexists('REGISTER_PRIVILEGE_s', ''),\n        ResourceId=column_ifexists('RESOURCE_ID_s', ''),\n        RoleName=column_ifexists('ROLE_NAME_s', ''),\n        Scope=column_ifexists('scope_s', ''),\n        ScopeData=column_ifexists('scope_data_s', ''),\n        SerialNumber=column_ifexists('SERIAL_NUMBER_s', ''),\n        SharedDriveId=column_ifexists('shared_drive_id_s', ''),\n        SourceFolderId=column_ifexists('source_folder_id_s', ''),\n        SourceFolderTitle=column_ifexists('source_folder_title_s', ''),\n        SrcIpAddr=column_ifexists('IPAddress', ''),\n        TargetCalendarId=column_ifexists('target_calendar_id_s', ''),\n        TargetUserDomain=column_ifexists('target_domain_s', ''),\n        TargetUserName=column_ifexists('target_user_s', ''),\n        TeamDriveId=column_ifexists('team_drive_id_s', ''),\n        UserAadid=column_ifexists('id_customerId_s', ''),\n        UserAgentOriginal=column_ifexists('user_agent_s', ''),\n        UserEmail=column_ifexists('USER_EMAIL_s', ''),\n        Visibility=column_ifexists('visibility_s', ''),\n        VisibilityChange=column_ifexists('visibility_change_s', '')\n| project \n        TimeGenerated,\n        AccountState,\n        ActorCallerType,\n        ActorEmail,\n        ActorIsCollaboratorAccount,\n        ActorKey,\n        ActorProfileId,\n        ApiKind,\n        AppName,\n        ApplicationEdition,\n        ApplicationName,\n        Billable,\n        CalendarId,\n        ClientId,\n        ClientType,\n        DestinationFolderId,\n        DestinationFolderTitle,\n        DocId,\n        DocTitle,\n        DocType,\n        DstUserUpn,\n        DestUserUpn,\n        DvcGuid,\n        DvcInterfaceGuid,\n        DvcModelName,\n        DvcModelNumber,\n        DvcType,\n        Etag,\n        EventCategoryType,\n        EventEndTime,\n        EventGuest,\n        EventId,\n        EventMessage,\n        EventOriginalMessage,\n        EventProduct,\n        EventResponseStatus,\n        EventStartTime,\n        EventTitle,\n        EventType,\n        EventUid,\n        EventVendor,\n        GroupDomain,\n        IdApplicationName,\n        IosVendorId,\n        IosVendorUID,\n        IsSecondFactor,\n        IsSuspicious,\n        Kind,\n        LastSyncAuditDate,\n        LoginChallengeMethod,\n        LoginChallengeStatus,\n        LoginType,\n        ModuleName,\n        NeqValue,\n        Newvalue,\n        NotificationMessageId,\n        NotificationMethod,\n        NotificationType,\n        OldEventTitle,\n        OldValue,\n        Oldvalue,\n        OldVisibility,\n        OrganizerCalendarId,\n        OriginatingAppId,\n        OsProperty,\n        Owner,\n        OwnerDomain,\n        OwnerIsSharedDrive,\n        OwnerIsTeamDrive,\n        PrimaryEvent,\n        ProcessName,\n        RegisterPrivelege,\n        ResourceId,\n        RoleName,\n        Scope,\n        ScopeData,\n        SerialNumber,\n        SharedDriveId,\n        SourceFolderId,\n        SourceFolderTitle,\n        SrcIpAddr,\n        TargetCalendarId,\n        TargetUserDomain,\n        TargetUserName,\n        TeamDriveId,\n        UserAadid,\n        UserAgentOriginal,\n        UserEmail,\n        Visibility,\n        VisibilityChange\n};\nGWorkspace_ReportsAPI_view\n| union isfuzzy=true GoogleWorkspaceReports_CL, GWorkspace_ReportsAPI_view\n",
+                                "query": "let GWorkspace_ReportsAPI_view  = view () { \nunion isfuzzy=true  GWorkspace_ReportsAPI_access_transparency_CL, GWorkspace_ReportsAPI_admin_CL,\n                    GWorkspace_ReportsAPI_calendar_CL, GWorkspace_ReportsAPI_chat_CL,\n                    GWorkspace_ReportsAPI_drive_CL, GWorkspace_ReportsAPI_gcp_CL,\n                    GWorkspace_ReportsAPI_gplus_CL, GWorkspace_ReportsAPI_groups_CL,\n                    GWorkspace_ReportsAPI_groups_enterprise_CL, GWorkspace_ReportsAPI_jamboard_CL,\n                    GWorkspace_ReportsAPI_login_CL, GWorkspace_ReportsAPI_meet_CL,\n                    GWorkspace_ReportsAPI_mobile_CL, GWorkspace_ReportsAPI_rules_CL,\n                    GWorkspace_ReportsAPI_saml_CL, GWorkspace_ReportsAPI_token_CL,\n                    GWorkspace_ReportsAPI_user_accounts_CL, GWorkspace_ReportsAPI_context_aware_access_CL,\n                    GWorkspace_ReportsAPI_chrome_CL, GWorkspace_ReportsAPI_data_studio_CL,\n                    GWorkspace_ReportsAPI_keep_CL\n| extend \n        AccountState=column_ifexists('ACCOUNT_STATE_s', ''),\n        ActorCallerType=column_ifexists('actor_callerType_s', ''),\n        ActorEmail=column_ifexists('actor_email_s', ''),\n        ActorIsCollaboratorAccount=column_ifexists('actor_is_collaborator_account_b', ''),\n        ActorKey=column_ifexists('actor_key_s', ''),\n        ActorProfileId=column_ifexists('actor_profileId_s', ''),\n        ApiKind=column_ifexists('api_kind_s', ''),\n        AppName=column_ifexists('app_name_s', ''),\n        ApplicationEdition=column_ifexists('APPLICATION_EDITION_s', ''),\n        ApplicationName=column_ifexists('APPLICATION_NAME_s', ''),\n        Billable=column_ifexists('billable_b', ''),\n        CalendarId=column_ifexists('calendar_id_s', ''),\n        ClientId=column_ifexists('client_id_s', ''),\n        ClientType=column_ifexists('client_type_s', ''),\n        DestinationFolderId=column_ifexists('destination_folder_id_s', ''),\n        DestinationFolderTitle=column_ifexists('destination_folder_title_s', ''),\n        DocId=column_ifexists('doc_id_s', ''),\n        DocTitle=column_ifexists('doc_title_s', ''),\n        DocType=column_ifexists('doc_type_s', ''),\n        DstUserUpn=column_ifexists('USER_EMAIL_s', ''),\n        DestUserUpn=column_ifexists('recipient_email_s', ''),\n        DvcGuid=column_ifexists('DEVICE_ID_g', ''),\n        DvcInterfaceGuid=column_ifexists('DEVICE_ID_s', ''),\n        DvcModelName=column_ifexists('DEVICE_MODEL_s', ''),\n        DvcModelNumber=column_ifexists('OS_VERSION_s', ''),\n        DvcType=column_ifexists('DEVICE_TYPE_s', ''),\n        Etag=column_ifexists('etag_s', ''),\n        EventCategoryType=column_ifexists('kind_s', ''),\n        EventEndTime=column_ifexists('end_time_s', ''),\n        EventGuest=column_ifexists('event_guest_s', ''),\n        EventId=column_ifexists('id_uniqueQualifier_s', ''),\n        EventMessage=column_ifexists('event_name_s', ''),\n        EventOriginalMessage=column_ifexists('events_s', ''),\n        EventProduct=\"Google Workspace Activity Reports\",\n        EventResponseStatus=column_ifexists('event_response_status_s', ''),\n        EventStartTime=column_ifexists('start_time_s', ''),\n        EventTitle=column_ifexists('event_title_s', ''),\n        EventType=column_ifexists('event_type_s', ''),\n        EventUid=column_ifexists('event_id_s', ''),\n        EventVendor=\"Google\",\n        GroupDomain=column_ifexists('ORG_UNIT_NAME_s', ''),\n        IdApplicationName=column_ifexists('id_applicationName_s', ''),\n        IosVendorId=column_ifexists('IOS_VENDOR_ID_s', ''),\n        IosVendorUID=column_ifexists('IOS_VENDOR_ID_g', ''),\n        IsSecondFactor=column_ifexists('is_second_factor_b', ''),\n        IsSuspicious=column_ifexists('is_suspicious_b', ''),\n        Kind=column_ifexists('kind_s', ''),\n        LastSyncAuditDate=column_ifexists('LAST_SYNC_AUDIT_DATE_s', ''),\n        LoginChallengeMethod=column_ifexists('login_challenge_method_s', ''),\n        LoginChallengeStatus=column_ifexists('login_challenge_status_s', ''),\n        LoginType=column_ifexists('login_type_s', ''),\n        ModuleName=column_ifexists('PRODUCT_NAME_s', ''),\n        NeqValue=column_ifexists('NEW_VALUE_s', ''),\n        Newvalue=column_ifexists('new_value_s', ''),\n        NotificationMessageId=column_ifexists('notification_message_id_s', ''),\n        NotificationMethod=column_ifexists('notification_method_s', ''),\n        NotificationType=column_ifexists('notification_type_s', ''),\n        OldEventTitle=column_ifexists('old_event_title_s', ''),\n        OldValue=column_ifexists('OLD_VALUE_s', ''),\n        Oldvalue=column_ifexists('old_value_s', ''),\n        OldVisibility=column_ifexists('old_visibility_s', ''),\n        OrganizerCalendarId=column_ifexists('organizer_calendar_id_s', ''),\n        OriginatingAppId=column_ifexists('originating_app_id_s', ''),\n        OsProperty=column_ifexists('OS_PROPERTY_s', ''),\n        Owner=column_ifexists('owner_s', ''),\n        OwnerDomain=column_ifexists('ownerDomain_s', ''),\n        OwnerIsSharedDrive=column_ifexists('owner_is_shared_drive_b', ''),\n        OwnerIsTeamDrive=column_ifexists('owner_is_team_drive_b', ''),\n        PrimaryEvent=column_ifexists('primary_event_b', ''),\n        ProcessName=column_ifexists('SETTING_NAME_s', ''),\n        RegisterPrivelege=column_ifexists('REGISTER_PRIVILEGE_s', ''),\n        ResourceId=column_ifexists('RESOURCE_ID_s', ''),\n        RoleName=column_ifexists('ROLE_NAME_s', ''),\n        Scope=column_ifexists('scope_s', ''),\n        ScopeData=column_ifexists('scope_data_s', ''),\n        SerialNumber=column_ifexists('SERIAL_NUMBER_s', ''),\n        SharedDriveId=column_ifexists('shared_drive_id_s', ''),\n        SourceFolderId=column_ifexists('source_folder_id_s', ''),\n        SourceFolderTitle=column_ifexists('source_folder_title_s', ''),\n        SrcIpAddr=column_ifexists('IPAddress', ''),\n        TargetCalendarId=column_ifexists('target_calendar_id_s', ''),\n        TargetUserDomain=column_ifexists('target_domain_s', ''),\n        TargetUserName=column_ifexists('target_user_s', ''),\n        TeamDriveId=column_ifexists('team_drive_id_s', ''),\n        UserAadid=column_ifexists('id_customerId_s', ''),\n        UserAgentOriginal=column_ifexists('user_agent_s', ''),\n        UserEmail=column_ifexists('USER_EMAIL_s', ''),\n        Visibility=column_ifexists('visibility_s', ''),\n        VisibilityChange=column_ifexists('visibility_change_s', '')\n| project \n        TimeGenerated,\n        AccountState,\n        ActorCallerType,\n        ActorEmail,\n        ActorIsCollaboratorAccount,\n        ActorKey,\n        ActorProfileId,\n        ApiKind,\n        AppName,\n        ApplicationEdition,\n        ApplicationName,\n        Billable,\n        CalendarId,\n        ClientId,\n        ClientType,\n        DestinationFolderId,\n        DestinationFolderTitle,\n        DocId,\n        DocTitle,\n        DocType,\n        DstUserUpn,\n        DestUserUpn,\n        DvcGuid,\n        DvcInterfaceGuid,\n        DvcModelName,\n        DvcModelNumber,\n        DvcType,\n        Etag,\n        EventCategoryType,\n        EventEndTime,\n        EventGuest,\n        EventId,\n        EventMessage,\n        EventOriginalMessage,\n        EventProduct,\n        EventResponseStatus,\n        EventStartTime,\n        EventTitle,\n        EventType,\n        EventUid,\n        EventVendor,\n        GroupDomain,\n        IdApplicationName,\n        IosVendorId,\n        IosVendorUID,\n        IsSecondFactor,\n        IsSuspicious,\n        Kind,\n        LastSyncAuditDate,\n        LoginChallengeMethod,\n        LoginChallengeStatus,\n        LoginType,\n        ModuleName,\n        NeqValue,\n        Newvalue,\n        NotificationMessageId,\n        NotificationMethod,\n        NotificationType,\n        OldEventTitle,\n        OldValue,\n        Oldvalue,\n        OldVisibility,\n        OrganizerCalendarId,\n        OriginatingAppId,\n        OsProperty,\n        Owner,\n        OwnerDomain,\n        OwnerIsSharedDrive,\n        OwnerIsTeamDrive,\n        PrimaryEvent,\n        ProcessName,\n        RegisterPrivelege,\n        ResourceId,\n        RoleName,\n        Scope,\n        ScopeData,\n        SerialNumber,\n        SharedDriveId,\n        SourceFolderId,\n        SourceFolderTitle,\n        SrcIpAddr,\n        TargetCalendarId,\n        TargetUserDomain,\n        TargetUserName,\n        TeamDriveId,\n        UserAadid,\n        UserAgentOriginal,\n        UserEmail,\n        Visibility,\n        VisibilityChange\n};\nGWorkspace_ReportsAPI_view\n| union isfuzzy=true GoogleWorkspaceReports, GoogleWorkspaceReports_CL\n",
                                 "functionParameters": "",
                                 "version": 2,
                                 "tags": [
@@ -210,7 +210,7 @@
                                 "parentId": "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches', parameters('workspace'), 'GWorkspaceActivityReports')]",
                                 "contentId": "GWorkspaceActivityReports-Parser",
                                 "kind": "Parser",
-                                "version": "1.0.0",
+                                "version": "1.1.0",
                                 "source": {
                                     "name": "GoogleWorkspaceReports",
                                     "kind": "Solution",
@@ -231,16 +231,16 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.1.0",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
                 "contentId": "GWorkspaceActivityReports-Parser",
                 "contentKind": "Parser",
                 "displayName": "Parser for GWorkspaceActivityReports",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-googleworksp-pr-qyw5n3nfyxebq",
-                "id": "azuresentinel.azure-sentinel-solution-googleworksp-pr-qyw5n3nfyxebq",
-                "version": "1.0.0",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-googleworksp-pr-iiqlptgkt67us",
+                "id": "azuresentinel.azure-sentinel-solution-googleworksp-pr-iiqlptgkt67us",
+                "version": "1.1.0",
                 "isDeprecated": false
             }
         },
@@ -254,7 +254,7 @@
                 "displayName": "Parser for GWorkspaceActivityReports",
                 "category": "Microsoft Sentinel Parser",
                 "functionAlias": "GWorkspaceActivityReports",
-                "query": "let GWorkspace_ReportsAPI_view  = view () { \nunion isfuzzy=true  GWorkspace_ReportsAPI_access_transparency_CL, GWorkspace_ReportsAPI_admin_CL,\n                    GWorkspace_ReportsAPI_calendar_CL, GWorkspace_ReportsAPI_chat_CL,\n                    GWorkspace_ReportsAPI_drive_CL, GWorkspace_ReportsAPI_gcp_CL,\n                    GWorkspace_ReportsAPI_gplus_CL, GWorkspace_ReportsAPI_groups_CL,\n                    GWorkspace_ReportsAPI_groups_enterprise_CL, GWorkspace_ReportsAPI_jamboard_CL,\n                    GWorkspace_ReportsAPI_login_CL, GWorkspace_ReportsAPI_meet_CL,\n                    GWorkspace_ReportsAPI_mobile_CL, GWorkspace_ReportsAPI_rules_CL,\n                    GWorkspace_ReportsAPI_saml_CL, GWorkspace_ReportsAPI_token_CL,\n                    GWorkspace_ReportsAPI_user_accounts_CL, GWorkspace_ReportsAPI_context_aware_access_CL,\n                    GWorkspace_ReportsAPI_chrome_CL, GWorkspace_ReportsAPI_data_studio_CL,\n                    GWorkspace_ReportsAPI_keep_CL\n| extend \n        AccountState=column_ifexists('ACCOUNT_STATE_s', ''),\n        ActorCallerType=column_ifexists('actor_callerType_s', ''),\n        ActorEmail=column_ifexists('actor_email_s', ''),\n        ActorIsCollaboratorAccount=column_ifexists('actor_is_collaborator_account_b', ''),\n        ActorKey=column_ifexists('actor_key_s', ''),\n        ActorProfileId=column_ifexists('actor_profileId_s', ''),\n        ApiKind=column_ifexists('api_kind_s', ''),\n        AppName=column_ifexists('app_name_s', ''),\n        ApplicationEdition=column_ifexists('APPLICATION_EDITION_s', ''),\n        ApplicationName=column_ifexists('APPLICATION_NAME_s', ''),\n        Billable=column_ifexists('billable_b', ''),\n        CalendarId=column_ifexists('calendar_id_s', ''),\n        ClientId=column_ifexists('client_id_s', ''),\n        ClientType=column_ifexists('client_type_s', ''),\n        DestinationFolderId=column_ifexists('destination_folder_id_s', ''),\n        DestinationFolderTitle=column_ifexists('destination_folder_title_s', ''),\n        DocId=column_ifexists('doc_id_s', ''),\n        DocTitle=column_ifexists('doc_title_s', ''),\n        DocType=column_ifexists('doc_type_s', ''),\n        DstUserUpn=column_ifexists('USER_EMAIL_s', ''),\n        DestUserUpn=column_ifexists('recipient_email_s', ''),\n        DvcGuid=column_ifexists('DEVICE_ID_g', ''),\n        DvcInterfaceGuid=column_ifexists('DEVICE_ID_s', ''),\n        DvcModelName=column_ifexists('DEVICE_MODEL_s', ''),\n        DvcModelNumber=column_ifexists('OS_VERSION_s', ''),\n        DvcType=column_ifexists('DEVICE_TYPE_s', ''),\n        Etag=column_ifexists('etag_s', ''),\n        EventCategoryType=column_ifexists('kind_s', ''),\n        EventEndTime=column_ifexists('end_time_s', ''),\n        EventGuest=column_ifexists('event_guest_s', ''),\n        EventId=column_ifexists('id_uniqueQualifier_s', ''),\n        EventMessage=column_ifexists('event_name_s', ''),\n        EventOriginalMessage=column_ifexists('events_s', ''),\n        EventProduct=\"Google Workspace Activity Reports\",\n        EventResponseStatus=column_ifexists('event_response_status_s', ''),\n        EventStartTime=column_ifexists('start_time_s', ''),\n        EventTitle=column_ifexists('event_title_s', ''),\n        EventType=column_ifexists('event_type_s', ''),\n        EventUid=column_ifexists('event_id_s', ''),\n        EventVendor=\"Google\",\n        GroupDomain=column_ifexists('ORG_UNIT_NAME_s', ''),\n        IdApplicationName=column_ifexists('id_applicationName_s', ''),\n        IosVendorId=column_ifexists('IOS_VENDOR_ID_s', ''),\n        IosVendorUID=column_ifexists('IOS_VENDOR_ID_g', ''),\n        IsSecondFactor=column_ifexists('is_second_factor_b', ''),\n        IsSuspicious=column_ifexists('is_suspicious_b', ''),\n        Kind=column_ifexists('kind_s', ''),\n        LastSyncAuditDate=column_ifexists('LAST_SYNC_AUDIT_DATE_s', ''),\n        LoginChallengeMethod=column_ifexists('login_challenge_method_s', ''),\n        LoginChallengeStatus=column_ifexists('login_challenge_status_s', ''),\n        LoginType=column_ifexists('login_type_s', ''),\n        ModuleName=column_ifexists('PRODUCT_NAME_s', ''),\n        NeqValue=column_ifexists('NEW_VALUE_s', ''),\n        Newvalue=column_ifexists('new_value_s', ''),\n        NotificationMessageId=column_ifexists('notification_message_id_s', ''),\n        NotificationMethod=column_ifexists('notification_method_s', ''),\n        NotificationType=column_ifexists('notification_type_s', ''),\n        OldEventTitle=column_ifexists('old_event_title_s', ''),\n        OldValue=column_ifexists('OLD_VALUE_s', ''),\n        Oldvalue=column_ifexists('old_value_s', ''),\n        OldVisibility=column_ifexists('old_visibility_s', ''),\n        OrganizerCalendarId=column_ifexists('organizer_calendar_id_s', ''),\n        OriginatingAppId=column_ifexists('originating_app_id_s', ''),\n        OsProperty=column_ifexists('OS_PROPERTY_s', ''),\n        Owner=column_ifexists('owner_s', ''),\n        OwnerDomain=column_ifexists('ownerDomain_s', ''),\n        OwnerIsSharedDrive=column_ifexists('owner_is_shared_drive_b', ''),\n        OwnerIsTeamDrive=column_ifexists('owner_is_team_drive_b', ''),\n        PrimaryEvent=column_ifexists('primary_event_b', ''),\n        ProcessName=column_ifexists('SETTING_NAME_s', ''),\n        RegisterPrivelege=column_ifexists('REGISTER_PRIVILEGE_s', ''),\n        ResourceId=column_ifexists('RESOURCE_ID_s', ''),\n        RoleName=column_ifexists('ROLE_NAME_s', ''),\n        Scope=column_ifexists('scope_s', ''),\n        ScopeData=column_ifexists('scope_data_s', ''),\n        SerialNumber=column_ifexists('SERIAL_NUMBER_s', ''),\n        SharedDriveId=column_ifexists('shared_drive_id_s', ''),\n        SourceFolderId=column_ifexists('source_folder_id_s', ''),\n        SourceFolderTitle=column_ifexists('source_folder_title_s', ''),\n        SrcIpAddr=column_ifexists('IPAddress', ''),\n        TargetCalendarId=column_ifexists('target_calendar_id_s', ''),\n        TargetUserDomain=column_ifexists('target_domain_s', ''),\n        TargetUserName=column_ifexists('target_user_s', ''),\n        TeamDriveId=column_ifexists('team_drive_id_s', ''),\n        UserAadid=column_ifexists('id_customerId_s', ''),\n        UserAgentOriginal=column_ifexists('user_agent_s', ''),\n        UserEmail=column_ifexists('USER_EMAIL_s', ''),\n        Visibility=column_ifexists('visibility_s', ''),\n        VisibilityChange=column_ifexists('visibility_change_s', '')\n| project \n        TimeGenerated,\n        AccountState,\n        ActorCallerType,\n        ActorEmail,\n        ActorIsCollaboratorAccount,\n        ActorKey,\n        ActorProfileId,\n        ApiKind,\n        AppName,\n        ApplicationEdition,\n        ApplicationName,\n        Billable,\n        CalendarId,\n        ClientId,\n        ClientType,\n        DestinationFolderId,\n        DestinationFolderTitle,\n        DocId,\n        DocTitle,\n        DocType,\n        DstUserUpn,\n        DestUserUpn,\n        DvcGuid,\n        DvcInterfaceGuid,\n        DvcModelName,\n        DvcModelNumber,\n        DvcType,\n        Etag,\n        EventCategoryType,\n        EventEndTime,\n        EventGuest,\n        EventId,\n        EventMessage,\n        EventOriginalMessage,\n        EventProduct,\n        EventResponseStatus,\n        EventStartTime,\n        EventTitle,\n        EventType,\n        EventUid,\n        EventVendor,\n        GroupDomain,\n        IdApplicationName,\n        IosVendorId,\n        IosVendorUID,\n        IsSecondFactor,\n        IsSuspicious,\n        Kind,\n        LastSyncAuditDate,\n        LoginChallengeMethod,\n        LoginChallengeStatus,\n        LoginType,\n        ModuleName,\n        NeqValue,\n        Newvalue,\n        NotificationMessageId,\n        NotificationMethod,\n        NotificationType,\n        OldEventTitle,\n        OldValue,\n        Oldvalue,\n        OldVisibility,\n        OrganizerCalendarId,\n        OriginatingAppId,\n        OsProperty,\n        Owner,\n        OwnerDomain,\n        OwnerIsSharedDrive,\n        OwnerIsTeamDrive,\n        PrimaryEvent,\n        ProcessName,\n        RegisterPrivelege,\n        ResourceId,\n        RoleName,\n        Scope,\n        ScopeData,\n        SerialNumber,\n        SharedDriveId,\n        SourceFolderId,\n        SourceFolderTitle,\n        SrcIpAddr,\n        TargetCalendarId,\n        TargetUserDomain,\n        TargetUserName,\n        TeamDriveId,\n        UserAadid,\n        UserAgentOriginal,\n        UserEmail,\n        Visibility,\n        VisibilityChange\n};\nGWorkspace_ReportsAPI_view\n| union isfuzzy=true GoogleWorkspaceReports_CL, GWorkspace_ReportsAPI_view\n",
+                "query": "let GWorkspace_ReportsAPI_view  = view () { \nunion isfuzzy=true  GWorkspace_ReportsAPI_access_transparency_CL, GWorkspace_ReportsAPI_admin_CL,\n                    GWorkspace_ReportsAPI_calendar_CL, GWorkspace_ReportsAPI_chat_CL,\n                    GWorkspace_ReportsAPI_drive_CL, GWorkspace_ReportsAPI_gcp_CL,\n                    GWorkspace_ReportsAPI_gplus_CL, GWorkspace_ReportsAPI_groups_CL,\n                    GWorkspace_ReportsAPI_groups_enterprise_CL, GWorkspace_ReportsAPI_jamboard_CL,\n                    GWorkspace_ReportsAPI_login_CL, GWorkspace_ReportsAPI_meet_CL,\n                    GWorkspace_ReportsAPI_mobile_CL, GWorkspace_ReportsAPI_rules_CL,\n                    GWorkspace_ReportsAPI_saml_CL, GWorkspace_ReportsAPI_token_CL,\n                    GWorkspace_ReportsAPI_user_accounts_CL, GWorkspace_ReportsAPI_context_aware_access_CL,\n                    GWorkspace_ReportsAPI_chrome_CL, GWorkspace_ReportsAPI_data_studio_CL,\n                    GWorkspace_ReportsAPI_keep_CL\n| extend \n        AccountState=column_ifexists('ACCOUNT_STATE_s', ''),\n        ActorCallerType=column_ifexists('actor_callerType_s', ''),\n        ActorEmail=column_ifexists('actor_email_s', ''),\n        ActorIsCollaboratorAccount=column_ifexists('actor_is_collaborator_account_b', ''),\n        ActorKey=column_ifexists('actor_key_s', ''),\n        ActorProfileId=column_ifexists('actor_profileId_s', ''),\n        ApiKind=column_ifexists('api_kind_s', ''),\n        AppName=column_ifexists('app_name_s', ''),\n        ApplicationEdition=column_ifexists('APPLICATION_EDITION_s', ''),\n        ApplicationName=column_ifexists('APPLICATION_NAME_s', ''),\n        Billable=column_ifexists('billable_b', ''),\n        CalendarId=column_ifexists('calendar_id_s', ''),\n        ClientId=column_ifexists('client_id_s', ''),\n        ClientType=column_ifexists('client_type_s', ''),\n        DestinationFolderId=column_ifexists('destination_folder_id_s', ''),\n        DestinationFolderTitle=column_ifexists('destination_folder_title_s', ''),\n        DocId=column_ifexists('doc_id_s', ''),\n        DocTitle=column_ifexists('doc_title_s', ''),\n        DocType=column_ifexists('doc_type_s', ''),\n        DstUserUpn=column_ifexists('USER_EMAIL_s', ''),\n        DestUserUpn=column_ifexists('recipient_email_s', ''),\n        DvcGuid=column_ifexists('DEVICE_ID_g', ''),\n        DvcInterfaceGuid=column_ifexists('DEVICE_ID_s', ''),\n        DvcModelName=column_ifexists('DEVICE_MODEL_s', ''),\n        DvcModelNumber=column_ifexists('OS_VERSION_s', ''),\n        DvcType=column_ifexists('DEVICE_TYPE_s', ''),\n        Etag=column_ifexists('etag_s', ''),\n        EventCategoryType=column_ifexists('kind_s', ''),\n        EventEndTime=column_ifexists('end_time_s', ''),\n        EventGuest=column_ifexists('event_guest_s', ''),\n        EventId=column_ifexists('id_uniqueQualifier_s', ''),\n        EventMessage=column_ifexists('event_name_s', ''),\n        EventOriginalMessage=column_ifexists('events_s', ''),\n        EventProduct=\"Google Workspace Activity Reports\",\n        EventResponseStatus=column_ifexists('event_response_status_s', ''),\n        EventStartTime=column_ifexists('start_time_s', ''),\n        EventTitle=column_ifexists('event_title_s', ''),\n        EventType=column_ifexists('event_type_s', ''),\n        EventUid=column_ifexists('event_id_s', ''),\n        EventVendor=\"Google\",\n        GroupDomain=column_ifexists('ORG_UNIT_NAME_s', ''),\n        IdApplicationName=column_ifexists('id_applicationName_s', ''),\n        IosVendorId=column_ifexists('IOS_VENDOR_ID_s', ''),\n        IosVendorUID=column_ifexists('IOS_VENDOR_ID_g', ''),\n        IsSecondFactor=column_ifexists('is_second_factor_b', ''),\n        IsSuspicious=column_ifexists('is_suspicious_b', ''),\n        Kind=column_ifexists('kind_s', ''),\n        LastSyncAuditDate=column_ifexists('LAST_SYNC_AUDIT_DATE_s', ''),\n        LoginChallengeMethod=column_ifexists('login_challenge_method_s', ''),\n        LoginChallengeStatus=column_ifexists('login_challenge_status_s', ''),\n        LoginType=column_ifexists('login_type_s', ''),\n        ModuleName=column_ifexists('PRODUCT_NAME_s', ''),\n        NeqValue=column_ifexists('NEW_VALUE_s', ''),\n        Newvalue=column_ifexists('new_value_s', ''),\n        NotificationMessageId=column_ifexists('notification_message_id_s', ''),\n        NotificationMethod=column_ifexists('notification_method_s', ''),\n        NotificationType=column_ifexists('notification_type_s', ''),\n        OldEventTitle=column_ifexists('old_event_title_s', ''),\n        OldValue=column_ifexists('OLD_VALUE_s', ''),\n        Oldvalue=column_ifexists('old_value_s', ''),\n        OldVisibility=column_ifexists('old_visibility_s', ''),\n        OrganizerCalendarId=column_ifexists('organizer_calendar_id_s', ''),\n        OriginatingAppId=column_ifexists('originating_app_id_s', ''),\n        OsProperty=column_ifexists('OS_PROPERTY_s', ''),\n        Owner=column_ifexists('owner_s', ''),\n        OwnerDomain=column_ifexists('ownerDomain_s', ''),\n        OwnerIsSharedDrive=column_ifexists('owner_is_shared_drive_b', ''),\n        OwnerIsTeamDrive=column_ifexists('owner_is_team_drive_b', ''),\n        PrimaryEvent=column_ifexists('primary_event_b', ''),\n        ProcessName=column_ifexists('SETTING_NAME_s', ''),\n        RegisterPrivelege=column_ifexists('REGISTER_PRIVILEGE_s', ''),\n        ResourceId=column_ifexists('RESOURCE_ID_s', ''),\n        RoleName=column_ifexists('ROLE_NAME_s', ''),\n        Scope=column_ifexists('scope_s', ''),\n        ScopeData=column_ifexists('scope_data_s', ''),\n        SerialNumber=column_ifexists('SERIAL_NUMBER_s', ''),\n        SharedDriveId=column_ifexists('shared_drive_id_s', ''),\n        SourceFolderId=column_ifexists('source_folder_id_s', ''),\n        SourceFolderTitle=column_ifexists('source_folder_title_s', ''),\n        SrcIpAddr=column_ifexists('IPAddress', ''),\n        TargetCalendarId=column_ifexists('target_calendar_id_s', ''),\n        TargetUserDomain=column_ifexists('target_domain_s', ''),\n        TargetUserName=column_ifexists('target_user_s', ''),\n        TeamDriveId=column_ifexists('team_drive_id_s', ''),\n        UserAadid=column_ifexists('id_customerId_s', ''),\n        UserAgentOriginal=column_ifexists('user_agent_s', ''),\n        UserEmail=column_ifexists('USER_EMAIL_s', ''),\n        Visibility=column_ifexists('visibility_s', ''),\n        VisibilityChange=column_ifexists('visibility_change_s', '')\n| project \n        TimeGenerated,\n        AccountState,\n        ActorCallerType,\n        ActorEmail,\n        ActorIsCollaboratorAccount,\n        ActorKey,\n        ActorProfileId,\n        ApiKind,\n        AppName,\n        ApplicationEdition,\n        ApplicationName,\n        Billable,\n        CalendarId,\n        ClientId,\n        ClientType,\n        DestinationFolderId,\n        DestinationFolderTitle,\n        DocId,\n        DocTitle,\n        DocType,\n        DstUserUpn,\n        DestUserUpn,\n        DvcGuid,\n        DvcInterfaceGuid,\n        DvcModelName,\n        DvcModelNumber,\n        DvcType,\n        Etag,\n        EventCategoryType,\n        EventEndTime,\n        EventGuest,\n        EventId,\n        EventMessage,\n        EventOriginalMessage,\n        EventProduct,\n        EventResponseStatus,\n        EventStartTime,\n        EventTitle,\n        EventType,\n        EventUid,\n        EventVendor,\n        GroupDomain,\n        IdApplicationName,\n        IosVendorId,\n        IosVendorUID,\n        IsSecondFactor,\n        IsSuspicious,\n        Kind,\n        LastSyncAuditDate,\n        LoginChallengeMethod,\n        LoginChallengeStatus,\n        LoginType,\n        ModuleName,\n        NeqValue,\n        Newvalue,\n        NotificationMessageId,\n        NotificationMethod,\n        NotificationType,\n        OldEventTitle,\n        OldValue,\n        Oldvalue,\n        OldVisibility,\n        OrganizerCalendarId,\n        OriginatingAppId,\n        OsProperty,\n        Owner,\n        OwnerDomain,\n        OwnerIsSharedDrive,\n        OwnerIsTeamDrive,\n        PrimaryEvent,\n        ProcessName,\n        RegisterPrivelege,\n        ResourceId,\n        RoleName,\n        Scope,\n        ScopeData,\n        SerialNumber,\n        SharedDriveId,\n        SourceFolderId,\n        SourceFolderTitle,\n        SrcIpAddr,\n        TargetCalendarId,\n        TargetUserDomain,\n        TargetUserName,\n        TeamDriveId,\n        UserAadid,\n        UserAgentOriginal,\n        UserEmail,\n        Visibility,\n        VisibilityChange\n};\nGWorkspace_ReportsAPI_view\n| union isfuzzy=true GoogleWorkspaceReports, GoogleWorkspaceReports_CL\n",
                 "functionParameters": "",
                 "version": 2,
                 "tags": [
@@ -277,7 +277,7 @@
                 "parentId": "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches', parameters('workspace'), 'GWorkspaceActivityReports')]",
                 "contentId": "GWorkspaceActivityReports-Parser",
                 "kind": "Parser",
-                "version": "1.0.0",
+                "version": "1.1.0",
                 "source": {
                     "kind": "Solution",
                     "name": "GoogleWorkspaceReports",
@@ -349,8 +349,8 @@
                                         "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "AccountCustomEntity",
-                                                "identifier": "Name"
+                                                "identifier": "Name",
+                                                "columnName": "AccountCustomEntity"
                                             }
                                         ]
                                     }
@@ -387,7 +387,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.1.0",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -468,8 +468,8 @@
                                         "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "AccountCustomEntity",
-                                                "identifier": "Name"
+                                                "identifier": "Name",
+                                                "columnName": "AccountCustomEntity"
                                             }
                                         ]
                                     }
@@ -506,7 +506,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.1.0",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -587,8 +587,8 @@
                                         "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "AccountCustomEntity",
-                                                "identifier": "Name"
+                                                "identifier": "Name",
+                                                "columnName": "AccountCustomEntity"
                                             }
                                         ]
                                     }
@@ -625,7 +625,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.1.0",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -705,8 +705,8 @@
                                         "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "AccountCustomEntity",
-                                                "identifier": "Name"
+                                                "identifier": "Name",
+                                                "columnName": "AccountCustomEntity"
                                             }
                                         ]
                                     }
@@ -743,7 +743,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.1.0",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -825,8 +825,8 @@
                                         "entityType": "IP",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "IPCustomEntity",
-                                                "identifier": "Address"
+                                                "identifier": "Address",
+                                                "columnName": "IPCustomEntity"
                                             }
                                         ]
                                     }
@@ -863,7 +863,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.1.0",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -943,8 +943,8 @@
                                         "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "AccountCustomEntity",
-                                                "identifier": "Name"
+                                                "identifier": "Name",
+                                                "columnName": "AccountCustomEntity"
                                             }
                                         ]
                                     }
@@ -981,7 +981,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.1.0",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -1061,8 +1061,8 @@
                                         "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "AccountCustomEntity",
-                                                "identifier": "Name"
+                                                "identifier": "Name",
+                                                "columnName": "AccountCustomEntity"
                                             }
                                         ]
                                     }
@@ -1099,7 +1099,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.1.0",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -1179,8 +1179,8 @@
                                         "entityType": "File",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "FileCustomEntity",
-                                                "identifier": "Name"
+                                                "identifier": "Name",
+                                                "columnName": "FileCustomEntity"
                                             }
                                         ]
                                     },
@@ -1188,8 +1188,8 @@
                                         "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "AccountCustomEntity",
-                                                "identifier": "Name"
+                                                "identifier": "Name",
+                                                "columnName": "AccountCustomEntity"
                                             }
                                         ]
                                     }
@@ -1226,7 +1226,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.1.0",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -1306,8 +1306,8 @@
                                         "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "AccountCustomEntity",
-                                                "identifier": "Name"
+                                                "identifier": "Name",
+                                                "columnName": "AccountCustomEntity"
                                             }
                                         ]
                                     }
@@ -1344,7 +1344,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.1.0",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -1426,8 +1426,8 @@
                                         "entityType": "Account",
                                         "fieldMappings": [
                                             {
-                                                "columnName": "AccountCustomEntity",
-                                                "identifier": "Name"
+                                                "identifier": "Name",
+                                                "columnName": "AccountCustomEntity"
                                             }
                                         ]
                                     }
@@ -1464,7 +1464,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.1.0",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -1493,7 +1493,7 @@
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
             "apiVersion": "2023-04-01-preview",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', concat(parameters('workspace'),'-dc-',uniquestring('GoogleWorkspaceCCPDefinition')), '3.0.6')]",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', concat(parameters('workspace'),'-dc-',uniquestring('GoogleWorkspaceCCPDefinition')), '3.1.0')]",
             "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-googleworkspacereports')]"
@@ -1504,7 +1504,7 @@
                 "contentKind": "DataConnector",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "3.0.6",
+                    "contentVersion": "3.1.0",
                     "parameters": {},
                     "variables": {},
                     "resources": [
@@ -1519,7 +1519,7 @@
                                     "id": "GoogleWorkspaceCCPDefinition",
                                     "title": "Google Workspace Activities (via Codeless Connector Framework)",
                                     "publisher": "Microsoft",
-                                    "descriptionMarkdown": "The [Google Workspace](https://workspace.google.com/) Activities data connector provides the capability to ingest Activity Events from [Google Workspace API](https://developers.google.com/admin-sdk/reports/reference/rest/v1/activities/list) into Microsoft Sentinel.",
+                                    "descriptionMarkdown": "The [Google Workspace](https://workspace.google.com/) Activities data connector provides the capability to ingest Activity Events, including Gmail audit events, from the [Google Workspace API](https://developers.google.com/admin-sdk/reports/reference/rest/v1/activities/list) into Microsoft Sentinel.",
                                     "graphQueriesTableName": "GoogleWorkspaceReports",
                                     "graphQueries": [
                                         {
@@ -1626,7 +1626,7 @@
                                 "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectorDefinitions', 'GoogleWorkspaceCCPDefinition')]",
                                 "contentId": "GoogleWorkspaceCCPDefinition",
                                 "kind": "DataConnector",
-                                "version": "3.0.6",
+                                "version": "3.1.0",
                                 "source": {
                                     "sourceId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                                     "name": "GoogleWorkspaceReports",
@@ -1645,7 +1645,7 @@
                                 "dependencies": {
                                     "criteria": [
                                         {
-                                            "version": "3.0.6",
+                                            "version": "3.1.0",
                                             "contentId": "GoogleWorkspaceCCPDefinitionConnections",
                                             "kind": "ResourcesDataConnector"
                                         }
@@ -1686,13 +1686,13 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.1.0",
                 "packageName": "GoogleWorkspaceReports",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-googleworksp-dc-lrfegocbcbo7i",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-googleworksp-dc-tgvftt3zrnvhc",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
-                "version": "3.0.6",
-                "id": "azuresentinel.azure-sentinel-solution-googleworksp-dc-lrfegocbcbo7i",
+                "version": "3.1.0",
+                "id": "azuresentinel.azure-sentinel-solution-googleworksp-dc-tgvftt3zrnvhc",
                 "isDeprecated": false,
                 "description": ""
             }
@@ -1708,7 +1708,7 @@
                     "id": "GoogleWorkspaceCCPDefinition",
                     "title": "Google Workspace Activities (via Codeless Connector Framework)",
                     "publisher": "Microsoft",
-                    "descriptionMarkdown": "The [Google Workspace](https://workspace.google.com/) Activities data connector provides the capability to ingest Activity Events from [Google Workspace API](https://developers.google.com/admin-sdk/reports/reference/rest/v1/activities/list) into Microsoft Sentinel.",
+                    "descriptionMarkdown": "The [Google Workspace](https://workspace.google.com/) Activities data connector provides the capability to ingest Activity Events, including Gmail audit events, from the [Google Workspace API](https://developers.google.com/admin-sdk/reports/reference/rest/v1/activities/list) into Microsoft Sentinel.",
                     "graphQueriesTableName": "GoogleWorkspaceReports",
                     "graphQueries": [
                         {
@@ -1815,7 +1815,7 @@
                 "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectorDefinitions', 'GoogleWorkspaceCCPDefinition')]",
                 "contentId": "GoogleWorkspaceCCPDefinition",
                 "kind": "DataConnector",
-                "version": "3.0.6",
+                "version": "3.1.0",
                 "source": {
                     "sourceId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                     "name": "GoogleWorkspaceReports",
@@ -1834,7 +1834,7 @@
                 "dependencies": {
                     "criteria": [
                         {
-                            "version": "3.0.6",
+                            "version": "3.1.0",
                             "contentId": "GoogleWorkspaceCCPDefinitionConnections",
                             "kind": "ResourcesDataConnector"
                         }
@@ -1845,7 +1845,7 @@
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
             "apiVersion": "2023-04-01-preview",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', concat(parameters('workspace'),'-dc-',uniquestring('GoogleWorkspaceCCPDefinitionConnections')), '3.0.6')]",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', concat(parameters('workspace'),'-dc-',uniquestring('GoogleWorkspaceCCPDefinitionConnections')), '3.1.0')]",
             "location": "[parameters('workspace-location')]",
             "dependsOn": [
                 "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-googleworkspacereports')]"
@@ -1856,7 +1856,7 @@
                 "contentKind": "ResourcesDataConnector",
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "3.0.6",
+                    "contentVersion": "3.1.0",
                     "parameters": {
                         "guidValue": {
                             "defaultValue": "[[newGuid()]",
@@ -1915,7 +1915,7 @@
                                 "parentId": "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/dataConnectors', 'GoogleWorkspaceCCPDefinitionConnections')]",
                                 "contentId": "GoogleWorkspaceCCPDefinitionConnections",
                                 "kind": "ResourcesDataConnector",
-                                "version": "3.0.6",
+                                "version": "3.1.0",
                                 "source": {
                                     "sourceId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                                     "name": "GoogleWorkspaceReports",
@@ -3315,6 +3315,76 @@
                             }
                         },
                         {
+                            "name": "[[concat(parameters('innerWorkspace'),'/Microsoft.SecurityInsights/', 'GoogleWorkspaceGmail', parameters('guidValue'))]",
+                            "apiVersion": "2023-02-01-preview",
+                            "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
+                            "location": "[parameters('workspace-location')]",
+                            "kind": "RestApiPoller",
+                            "properties": {
+                                "connectorDefinitionName": "GoogleWorkspaceCCPDefinition",
+                                "dataType": "GoogleWorkspaceReports",
+                                "dcrConfig": {
+                                    "streamName": "SENTINEL_GOOGLEWORKSPACEREPORTS",
+                                    "dataCollectionEndpoint": "[[parameters('dcrConfig').dataCollectionEndpoint]",
+                                    "dataCollectionRuleImmutableId": "[[parameters('dcrConfig').dataCollectionRuleImmutableId]"
+                                },
+                                "auth": {
+                                    "type": "OAuth2",
+                                    "IsClientSecretInHeader": "true",
+                                    "IsCredentialsInHeaders": "true",
+                                    "ClientSecret": "[[parameters('clientSecret')]",
+                                    "ClientId": "[[parameters('clientId')]",
+                                    "AuthorizationCode": "[[parameters('authorizationCode')]",
+                                    "GrantType": "authorization_code",
+                                    "TokenEndpoint": "https://accounts.google.com/o/oauth2/token",
+                                    "TokenEndpointHeaders": {
+                                        "Accept": "application/json",
+                                        "Content-Type": "application/x-www-form-urlencoded"
+                                    },
+                                    "AuthorizationEndpoint": "https://accounts.google.com/o/oauth2/auth",
+                                    "TokenEndpointQueryParameters": {
+                                        "prompt": "consent",
+                                        "access_type": "offline"
+                                    },
+                                    "scope": "https://www.googleapis.com/auth/admin.reports.audit.readonly",
+                                    "redirectUri": "[[parameters('redirectUri')]"
+                                },
+                                "request": {
+                                    "apiEndpoint": "https://admin.googleapis.com/admin/reports/v1/activity/users/all/applications/gmail",
+                                    "httpMethod": "GET",
+                                    "queryParameters": {
+                                        "maxResults": 1000,
+                                        "startTime": "{_QueryWindowStartTime}",
+                                        "endTime": "{_QueryWindowEndTime}"
+                                    },
+                                    "queryWindowInMin": 10,
+                                    "queryWindowDelayInMin": 10,
+                                    "queryTimeFormat": "yyyy-MM-ddTHH:mm:ss.000000+00:00",
+                                    "startTimeAttributeName": "startTime",
+                                    "endTimeAttributeName": "endTime",
+                                    "rateLimitQps": 10,
+                                    "retryCount": 3,
+                                    "timeoutInSeconds": 60,
+                                    "headers": {
+                                        "Accept": "application/json"
+                                    }
+                                },
+                                "extra": {
+                                    "transformName": "/ASI/GoogleWorkspace/OneDetectionPerRow"
+                                },
+                                "response": {
+                                    "eventsJsonPaths": [
+                                        "$.items"
+                                    ]
+                                },
+                                "paging": {
+                                    "pagingType": "NextPageToken",
+                                    "nextPageTokenJsonPath": "$.nextPageToken",
+                                    "nextPageParaName": "pageToken"
+                                }
+                            }
+                        },
+                        {
                             "name": "[[concat(parameters('innerWorkspace'),'/Microsoft.SecurityInsights/', 'GoogleWorkspaceKeep', parameters('guidValue'))]",
                             "apiVersion": "2023-02-01-preview",
                             "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
@@ -3386,13 +3456,13 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.1.0",
                 "packageName": "GoogleWorkspaceReports",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-googleworksp-rdc-krzsczndq66gc",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-googleworksp-rdc-wh2aljdjuflfy",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
-                "version": "3.0.6",
-                "id": "azuresentinel.azure-sentinel-solution-googleworksp-rdc-krzsczndq66gc",
+                "version": "3.1.0",
+                "id": "azuresentinel.azure-sentinel-solution-googleworksp-rdc-wh2aljdjuflfy",
                 "isDeprecated": false,
                 "description": ""
             }
@@ -3470,7 +3540,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.1.0",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -3556,7 +3626,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.1.0",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -3642,7 +3712,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.1.0",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -3728,7 +3798,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.1.0",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -3814,7 +3884,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.1.0",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -3900,7 +3970,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.1.0",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -3986,7 +4056,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.1.0",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -4072,7 +4142,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.1.0",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -4158,7 +4228,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.1.0",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -4244,7 +4314,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.1.0",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -4330,7 +4400,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.1.0",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -4416,7 +4486,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.1.0",
                 "packageName": "GoogleWorkspaceReports",
                 "packageId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "contentSchemaVersion": "3.0.0",
@@ -4434,16 +4504,16 @@
             "apiVersion": "2023-04-01-preview",
             "location": "[parameters('workspace-location')]",
             "properties": {
-                "version": "3.0.6",
+                "version": "3.1.0",
                 "kind": "Solution",
                 "contentSchemaVersion": "3.0.0",
                 "displayName": "Google Workspace Reports",
                 "publisherDisplayName": "Microsoft Sentinel, Microsoft Corporation",
                 "descriptionHtml": "<p><strong>Note:</strong> Please refer to the following before installing the solution:</p><p>\u2022 Review the solution <a target=\"_blank\" href=\"https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/GoogleWorkspaceReports/ReleaseNotes.md\" rel=\"noopener\">Release Notes</a></p><p>The <a target=\"_blank\" href=\"https://workspace.google.com/\" rel=\"noopener\">Google Workspace</a> solution for Microsoft Sentinel enables you to ingest Google Workspace Activity events into Microsoft Sentinel.</p><p><strong>Underlying Microsoft Technologies used:</strong></p><p>This solution takes a dependency on the following technologies, and some of these dependencies either may be in <a target=\"_blank\" href=\"https://azure.microsoft.com/support/legal/preview-supplemental-terms/\" rel=\"noopener\">Preview</a> state or might result in additional ingestion or operational costs:</p><p>\u2022 <a target=\"_blank\" href=\"https://aka.ms/Sentinel-CCP_Platform\" rel=\"noopener\">Microsoft Sentinel Codeless Connector Framework</a></p><p><strong>Data Connectors:</strong> 1, <strong>Parsers:</strong> 1, <strong>Workbooks:</strong> 1, <strong>Analytic Rules:</strong> 10, <strong>Hunting Queries:</strong> 12</p><p><a target=\"_blank\" href=\"https://aka.ms/azuresentinel\" rel=\"noopener\">Learn more about Microsoft Sentinel</a> | <a target=\"_blank\" href=\"https://aka.ms/azuresentinelsolutionsdoc\" rel=\"noopener\">Learn more about Solutions</a></p>",
                 "contentKind": "Solution",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-googleworksp-sl-pv6aftrd2bro2",
-                "id": "azuresentinel.azure-sentinel-solution-googleworksp-sl-pv6aftrd2bro2",
-                "icon": "https://catalogartifact.azureedge.net/publicartifacts/azuresentinel.azure-sentinel-solution-googleworkspacereports-d5c33d64-5b8d-494f-a02f-20d57426f3e9/image0_Googleworkspace.png",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-googleworksp-sl-yxuezq754nsac",
+                "id": "azuresentinel.azure-sentinel-solution-googleworksp-sl-yxuezq754nsac",
+                "icon": "https://catalogartifact.azureedge.net/publicartifacts/azuresentinel.azure-sentinel-solution-googleworkspacereports-a65cc82d-9ca2-474c-af83-b16d5254b32a/image0_Googleworkspace.png",
                 "contentId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "parentId": "azuresentinel.azure-sentinel-solution-googleworkspacereports",
                 "source": {
@@ -4472,7 +4542,7 @@
                         {
                             "kind": "Parser",
                             "contentId": "GWorkspaceActivityReports-Parser",
-                            "version": "1.0.0"
+                            "version": "1.1.0"
                         },
                         {
                             "kind": "AnalyticsRule",
@@ -4527,7 +4597,7 @@
                         {
                             "kind": "DataConnector",
                             "contentId": "GoogleWorkspaceCCPDefinitionConnections",
-                            "version": "3.0.6"
+                            "version": "3.1.0"
                         },
                         {
                             "kind": "HuntingQuery",
