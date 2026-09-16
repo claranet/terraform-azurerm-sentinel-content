@@ -1,3 +1,13 @@
+## 9.0.3 (2026-09-16)
+
+### Code Refactoring
+
+* bump `Google Workspace` package template version to 3.1.0 d7f0644
+* bump `Microsoft Entra Id` package template version to 3.3.17 704fafb
+* bump `Microsoft XDR` package template version to 3.0.18 1964653
+* bump `Okta` package template version to 3.1.10 293f17b
+* bump `SentinelOne` package template version to 3.1.3 077da1b
+
 ## 9.0.2 (2026-09-03)
 
 ### Code Refactoring
