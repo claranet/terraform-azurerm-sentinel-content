@@ -23,22 +23,30 @@
             "metadata": {
                 "description": "Workspace name for Log Analytics where Microsoft Sentinel is setup"
             }
+        },
+        "DeployWorkbook": {
+            "type": "bool",
+            "defaultValue": true,
+            "metadata": {
+                "description": "Deploy the Microsoft Sentinel workbook content and its Content Hub registration carried by this solution (ContentKind Workbook and WorkbookTemplate)."
+            }
+        },
+        "DeployDefenderWorkbook": {
+            "type": "bool",
+            "defaultValue": false,
+            "metadata": {
+                "description": "Deploy Defender Workbooks and their Content Hub registrations independently of Microsoft Sentinel DeployWorkbook. Candidate provider contract requires approved lab installation, readback and update verification."
+            }
+        },
+        "DeployDataConnector": {
+            "type": "bool",
+            "defaultValue": true,
+            "metadata": {
+                "description": "Deploy the data connectors carried by this solution, together with their metadata and catalog entries (ContentKind DataConnector, ResourceDataConnector and DataType)."
+            }
         }
     },
     "resources": [
-        {
-            "name": "pid-04050cde-d5d0-47ee-8577-c53e3dd96f3e-partnercenter",
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2020-10-01",
-            "properties": {
-                "mode": "Incremental",
-                "template": {
-                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0.0",
-                    "resources": []
-                }
-            }
-        },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
             "apiVersion": "2023-04-01-preview",
@@ -206,7 +214,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.2.2",
                 "packageName": "Common Event Format",
                 "packageId": "azuresentinel.azure-sentinel-solution-commoneventformat",
                 "contentSchemaVersion": "3.0.0",
@@ -217,7 +225,8 @@
                 "id": "azuresentinel.azure-sentinel-solution-commoneventf-dc-4hq43gtvy72xa",
                 "version": "1.0.0",
                 "isDeprecated": false
-            }
+            },
+            "condition": "[parameters('DeployDataConnector')]"
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
@@ -247,7 +256,8 @@
                     "link": "https://support.microsoft.com",
                     "email": "support@microsoft.com"
                 }
-            }
+            },
+            "condition": "[parameters('DeployDataConnector')]"
         },
         {
             "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/','CEF')]",
@@ -369,7 +379,8 @@
                     ],
                     "id": "CEF"
                 }
-            }
+            },
+            "condition": "[parameters('DeployDataConnector')]"
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
@@ -450,7 +461,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.2.2",
                 "packageName": "Common Event Format",
                 "packageId": "azuresentinel.azure-sentinel-solution-commoneventformat",
                 "contentSchemaVersion": "3.0.0",
@@ -461,7 +472,8 @@
                 "id": "azuresentinel.azure-sentinel-solution-commoneventf-dc-zh6jxy6yyd5ei",
                 "version": "1.0.0",
                 "isDeprecated": false
-            }
+            },
+            "condition": "[parameters('DeployDataConnector')]"
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/metadata",
@@ -491,7 +503,8 @@
                     "link": "https://support.microsoft.com",
                     "email": "support@microsoft.com"
                 }
-            }
+            },
+            "condition": "[parameters('DeployDataConnector')]"
         },
         {
             "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/','CefAma')]",
@@ -525,7 +538,8 @@
                     ],
                     "id": "CefAma"
                 }
-            }
+            },
+            "condition": "[parameters('DeployDataConnector')]"
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
@@ -554,7 +568,7 @@
                             },
                             "properties": {
                                 "displayName": "Common Event Format Logs Overview",
-                                "serializedData": "{\"version\":\"Notebook/1.0\",\"items\":[{\"type\":1,\"content\":{\"json\":\"# Common Event Format Logs Overview\\n---\\n\\nThis Workbook gives an overview of ingestion of logs in the CommonSecurityLog table\"},\"name\":\"text - 2\"},{\"type\":1,\"content\":{\"json\":\"## Log Ingestion Overview (Kb)\\r\\n---\"},\"name\":\"text - 3\"},{\"type\":3,\"content\":{\"version\":\"KqlItem/1.0\",\"query\":\"CommonSecurityLog\\n| where TimeGenerated >= ago(30d)\\n| summarize TotalVolumeIngested = round(sum(_BilledSize)/(1024)) by DeviceProduct\",\"size\":1,\"queryType\":0,\"resourceType\":\"microsoft.operationalinsights/workspaces\",\"visualization\":\"tiles\",\"tileSettings\":{\"titleContent\":{\"columnMatch\":\"TotalVolumeIngested\"},\"subtitleContent\":{\"columnMatch\":\"DeviceProduct\"},\"showBorder\":true}},\"name\":\"query - 2\"},{\"type\":12,\"content\":{\"version\":\"NotebookGroup/1.0\",\"groupType\":\"editable\",\"items\":[{\"type\":9,\"content\":{\"version\":\"KqlParameterItem/1.0\",\"parameters\":[{\"id\":\"37fd3af4-5d65-41e2-81ae-0720f281eb04\",\"version\":\"KqlParameterItem/1.0\",\"name\":\"Subscription\",\"type\":6,\"isRequired\":true,\"multiSelect\":true,\"quote\":\"'\",\"delimiter\":\",\",\"typeSettings\":{\"additionalResourceOptions\":[\"value::all\"],\"includeAll\":true},\"timeContext\":{\"durationMs\":86400000},\"value\":[\"/subscriptions/5733bcb3-7fde-4caf-8629-41dc15e3b352\",\"/subscriptions/ebb79bc0-aa86-44a7-8111-cabbe0c43993\"]},{\"id\":\"0407e413-4562-4a87-b660-72facb921954\",\"version\":\"KqlParameterItem/1.0\",\"name\":\"TimeRange\",\"type\":4,\"isRequired\":true,\"typeSettings\":{\"selectableValues\":[{\"durationMs\":300000},{\"durationMs\":900000},{\"durationMs\":1800000},{\"durationMs\":3600000},{\"durationMs\":14400000},{\"durationMs\":43200000},{\"durationMs\":86400000},{\"durationMs\":172800000},{\"durationMs\":259200000},{\"durationMs\":604800000},{\"durationMs\":1209600000},{\"durationMs\":2419200000},{\"durationMs\":2592000000},{\"durationMs\":5184000000},{\"durationMs\":7776000000}]},\"timeContext\":{\"durationMs\":86400000},\"value\":{\"durationMs\":1800000}},{\"id\":\"f5f6d366-40c3-4b51-a62f-06665d374327\",\"version\":\"KqlParameterItem/1.0\",\"name\":\"ConnectedStatus\",\"type\":2,\"isRequired\":true,\"multiSelect\":true,\"quote\":\"'\",\"delimiter\":\",\",\"query\":\"CommonSecurityLog  \\r\\n| summarize EventCount_TimeRange =  countif(TimeGenerated {TimeRange}), EventCount_Last30Days = countif(TimeGenerated > ago(30d)) by  DeviceProduct\\r\\n| project ConnectedStatus = iff(EventCount_Last30Days > 0, \\\"Connected\\\", \\\"Not-Connected\\\")\\r\\n| distinct ConnectedStatus\\r\\n| order by ConnectedStatus asc\",\"typeSettings\":{\"showDefault\":false},\"timeContext\":{\"durationMs\":2592000000},\"queryType\":0,\"resourceType\":\"microsoft.operationalinsights/workspaces\",\"value\":[\"Connected\"]}],\"style\":\"pills\",\"queryType\":0,\"resourceType\":\"microsoft.operationalinsights/workspaces\"},\"name\":\"parameters - 0\"},{\"type\":3,\"content\":{\"version\":\"KqlItem/1.0\",\"query\":\"let All_DeviceProduct_Table = CommonSecurityLog | summarize by DeviceProduct;\\r\\nlet OOTBSources = externaldata(ProductName: string)\\r\\n[@\\\"https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEFConnectors.csv\\\"]\\r\\nwith (format=\\\"csv\\\", ignoreFirstRecord=true);\\r\\nAll_DeviceProduct_Table | join kind=fullouter \\r\\n(CommonSecurityLog  \\r\\n| summarize EventCount_TimeRange =  countif(TimeGenerated {TimeRange}), EventCount_Last30Days = countif(TimeGenerated > ago(30d)) by  DeviceProduct\\r\\n| extend ConnectionStatus = iff(EventCount_Last30Days > 0, \\\"Connected\\\", \\\"Not-Connected\\\")\\r\\n| extend OutofBoxSupport = iif(DeviceProduct in (OOTBSources), \\\"Available\\\", \\\"Unavailable\\\")\\r\\n)\\r\\non DeviceProduct\\r\\n| where ConnectionStatus in ({ConnectedStatus}) \\r\\n| extend DeviceProduct = coalesce(DeviceProduct, DeviceProduct1)\\r\\n| extend EventCount_TimeRange = coalesce(EventCount_TimeRange, 0)\\r\\n| extend EventCount_Last30Days = coalesce(EventCount_Last30Days, 0)\\r\\n| extend ConnectionStatus = coalesce(ConnectionStatus, \\\"Not-Connected\\\")\\r\\n| project-away DeviceProduct1, EventCount_TimeRange\\r\\n//| project DeviceProduct, EventCount_Last30Days, OutofBoxSupport\",\"size\":0,\"timeContext\":{\"durationMs\":2592000000},\"exportFieldName\":\"DeviceProduct\",\"exportParameterName\":\"DeviceProduct\",\"queryType\":0,\"resourceType\":\"microsoft.operationalinsights/workspaces\",\"gridSettings\":{\"formatters\":[{\"columnMatch\":\"ConnectionStatus\",\"formatter\":18,\"formatOptions\":{\"thresholdsOptions\":\"icons\",\"thresholdsGrid\":[{\"operator\":\"==\",\"thresholdValue\":\"Connected\",\"representation\":\"success\",\"text\":\"{0}{1}\"},{\"operator\":\"!=\",\"thresholdValue\":\"Connected\",\"representation\":\"error\",\"text\":\"{0}{1}\"},{\"operator\":\"Default\",\"representation\":\"success\",\"text\":\"{0}{1}\"}]},\"numberFormat\":{\"unit\":0,\"options\":{\"style\":\"decimal\"}}},{\"columnMatch\":\"OutofBox\",\"formatter\":18,\"formatOptions\":{\"thresholdsOptions\":\"icons\",\"thresholdsGrid\":[{\"operator\":\"==\",\"thresholdValue\":\"Available\",\"representation\":\"Available\",\"text\":\"{0}{1}\"},{\"operator\":\"!=\",\"thresholdValue\":\"Yes\",\"representation\":\"Unavailable\",\"text\":\"{0}{1}\"},{\"operator\":\"Default\",\"representation\":\"success\",\"text\":\"{0}{1}\"}]}}],\"labelSettings\":[{\"columnId\":\"DeviceProduct\",\"label\":\"Device Product\"}]}},\"customWidth\":\"50\",\"name\":\"query - 1 - Copy\"},{\"type\":3,\"content\":{\"version\":\"KqlItem/1.0\",\"query\":\" let Now = now();\\r\\n(range TimeGenerated from ago(7d) to Now - 1d step 1d\\r\\n| extend Count = 0\\r\\n| union isfuzzy=true\\r\\n    (CommonSecurityLog\\r\\n    | where DeviceProduct == \\\"{DeviceProduct}\\\"\\r\\n    //| where DeviceProduct has \\\"PAN-OS\\\"\\r\\n    | summarize Count = count() by bin_at(TimeGenerated, 1d, Now))\\r\\n| summarize Count=max(Count) by bin_at(TimeGenerated, 1d, Now)\\r\\n| sort by TimeGenerated\\r\\n| project\\r\\n    Value = iff(isnull(Count), 0, Count),\\r\\n    Time = TimeGenerated,\\r\\n    Legend = \\\"{DeviceProduct}\\\")\\r\\n| render timechart \",\"size\":0,\"timeContext\":{\"durationMs\":604800000},\"queryType\":0,\"resourceType\":\"microsoft.operationalinsights/workspaces\",\"visualization\":\"timechart\",\"chartSettings\":{\"showMetrics\":false}},\"customWidth\":\"50\",\"name\":\"query - 2\"}]},\"name\":\"IngestedLogs\"}],\"fromTemplateId\":\"CEFOverview\",\"$schema\":\"https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json\"}\r\n",
+                                "serializedData": "{\"version\":\"Notebook/1.0\",\"items\":[{\"type\":1,\"content\":{\"json\":\"# Common Event Format Logs Overview\\n---\\n\\nThis Workbook gives an overview of ingestion of logs in the CommonSecurityLog table\"},\"name\":\"text - 2\"},{\"type\":1,\"content\":{\"json\":\"## Log Ingestion Overview (Kb)\\r\\n---\"},\"name\":\"text - 3\"},{\"type\":3,\"content\":{\"version\":\"KqlItem/1.0\",\"query\":\"CommonSecurityLog\\n| where TimeGenerated >= ago(30d)\\n| summarize TotalVolumeIngested = round(sum(_BilledSize)/(1024)) by DeviceProduct\",\"size\":1,\"queryType\":0,\"resourceType\":\"microsoft.operationalinsights/workspaces\",\"visualization\":\"tiles\",\"tileSettings\":{\"titleContent\":{\"columnMatch\":\"TotalVolumeIngested\"},\"subtitleContent\":{\"columnMatch\":\"DeviceProduct\"},\"showBorder\":true}},\"name\":\"query - 2\"},{\"type\":12,\"content\":{\"version\":\"NotebookGroup/1.0\",\"groupType\":\"editable\",\"items\":[{\"type\":9,\"content\":{\"version\":\"KqlParameterItem/1.0\",\"parameters\":[{\"id\":\"37fd3af4-5d65-41e2-81ae-0720f281eb04\",\"version\":\"KqlParameterItem/1.0\",\"name\":\"Subscription\",\"type\":6,\"isRequired\":true,\"multiSelect\":true,\"quote\":\"'\",\"delimiter\":\",\",\"typeSettings\":{\"additionalResourceOptions\":[\"value::all\"],\"includeAll\":true},\"timeContext\":{\"durationMs\":86400000},\"value\":[\"value::all\"]},{\"id\":\"0407e413-4562-4a87-b660-72facb921954\",\"version\":\"KqlParameterItem/1.0\",\"name\":\"TimeRange\",\"type\":4,\"isRequired\":true,\"typeSettings\":{\"selectableValues\":[{\"durationMs\":300000},{\"durationMs\":900000},{\"durationMs\":1800000},{\"durationMs\":3600000},{\"durationMs\":14400000},{\"durationMs\":43200000},{\"durationMs\":86400000},{\"durationMs\":172800000},{\"durationMs\":259200000},{\"durationMs\":604800000},{\"durationMs\":1209600000},{\"durationMs\":2419200000},{\"durationMs\":2592000000},{\"durationMs\":5184000000},{\"durationMs\":7776000000}]},\"timeContext\":{\"durationMs\":86400000},\"value\":{\"durationMs\":1800000}},{\"id\":\"f5f6d366-40c3-4b51-a62f-06665d374327\",\"version\":\"KqlParameterItem/1.0\",\"name\":\"ConnectedStatus\",\"type\":2,\"isRequired\":true,\"multiSelect\":true,\"quote\":\"'\",\"delimiter\":\",\",\"query\":\"CommonSecurityLog  \\r\\n| summarize EventCount_TimeRange =  countif(TimeGenerated {TimeRange}), EventCount_Last30Days = countif(TimeGenerated > ago(30d)) by  DeviceProduct\\r\\n| project ConnectedStatus = iff(EventCount_Last30Days > 0, \\\"Connected\\\", \\\"Not-Connected\\\")\\r\\n| distinct ConnectedStatus\\r\\n| order by ConnectedStatus asc\",\"typeSettings\":{\"showDefault\":false},\"timeContext\":{\"durationMs\":2592000000},\"queryType\":0,\"resourceType\":\"microsoft.operationalinsights/workspaces\",\"value\":[\"Connected\"]}],\"style\":\"pills\",\"queryType\":0,\"resourceType\":\"microsoft.operationalinsights/workspaces\"},\"name\":\"parameters - 0\"},{\"type\":3,\"content\":{\"version\":\"KqlItem/1.0\",\"query\":\"let All_DeviceProduct_Table = CommonSecurityLog | summarize by DeviceProduct;\\r\\nlet OOTBSources = externaldata(ProductName: string)\\r\\n[@\\\"https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEFConnectors.csv\\\"]\\r\\nwith (format=\\\"csv\\\", ignoreFirstRecord=true);\\r\\nAll_DeviceProduct_Table | join kind=fullouter \\r\\n(CommonSecurityLog  \\r\\n| summarize EventCount_TimeRange =  countif(TimeGenerated {TimeRange}), EventCount_Last30Days = countif(TimeGenerated > ago(30d)) by  DeviceProduct\\r\\n| extend ConnectionStatus = iff(EventCount_Last30Days > 0, \\\"Connected\\\", \\\"Not-Connected\\\")\\r\\n| extend OutofBoxSupport = iif(DeviceProduct in (OOTBSources), \\\"Available\\\", \\\"Unavailable\\\")\\r\\n)\\r\\non DeviceProduct\\r\\n| where ConnectionStatus in ({ConnectedStatus}) \\r\\n| extend DeviceProduct = coalesce(DeviceProduct, DeviceProduct1)\\r\\n| extend EventCount_TimeRange = coalesce(EventCount_TimeRange, 0)\\r\\n| extend EventCount_Last30Days = coalesce(EventCount_Last30Days, 0)\\r\\n| extend ConnectionStatus = coalesce(ConnectionStatus, \\\"Not-Connected\\\")\\r\\n| project-away DeviceProduct1, EventCount_TimeRange\\r\\n//| project DeviceProduct, EventCount_Last30Days, OutofBoxSupport\",\"size\":0,\"timeContext\":{\"durationMs\":2592000000},\"exportFieldName\":\"DeviceProduct\",\"exportParameterName\":\"DeviceProduct\",\"queryType\":0,\"resourceType\":\"microsoft.operationalinsights/workspaces\",\"gridSettings\":{\"formatters\":[{\"columnMatch\":\"ConnectionStatus\",\"formatter\":18,\"formatOptions\":{\"thresholdsOptions\":\"icons\",\"thresholdsGrid\":[{\"operator\":\"==\",\"thresholdValue\":\"Connected\",\"representation\":\"success\",\"text\":\"{0}{1}\"},{\"operator\":\"!=\",\"thresholdValue\":\"Connected\",\"representation\":\"error\",\"text\":\"{0}{1}\"},{\"operator\":\"Default\",\"representation\":\"success\",\"text\":\"{0}{1}\"}]},\"numberFormat\":{\"unit\":0,\"options\":{\"style\":\"decimal\"}}},{\"columnMatch\":\"OutofBox\",\"formatter\":18,\"formatOptions\":{\"thresholdsOptions\":\"icons\",\"thresholdsGrid\":[{\"operator\":\"==\",\"thresholdValue\":\"Available\",\"representation\":\"Available\",\"text\":\"{0}{1}\"},{\"operator\":\"!=\",\"thresholdValue\":\"Yes\",\"representation\":\"Unavailable\",\"text\":\"{0}{1}\"},{\"operator\":\"Default\",\"representation\":\"success\",\"text\":\"{0}{1}\"}]}}],\"labelSettings\":[{\"columnId\":\"DeviceProduct\",\"label\":\"Device Product\"}]}},\"customWidth\":\"50\",\"name\":\"query - 1 - Copy\"},{\"type\":3,\"content\":{\"version\":\"KqlItem/1.0\",\"query\":\" let Now = now();\\r\\n(range TimeGenerated from ago(7d) to Now - 1d step 1d\\r\\n| extend Count = 0\\r\\n| union isfuzzy=true\\r\\n    (CommonSecurityLog\\r\\n    | where DeviceProduct == \\\"{DeviceProduct}\\\"\\r\\n    //| where DeviceProduct has \\\"PAN-OS\\\"\\r\\n    | summarize Count = count() by bin_at(TimeGenerated, 1d, Now))\\r\\n| summarize Count=max(Count) by bin_at(TimeGenerated, 1d, Now)\\r\\n| sort by TimeGenerated\\r\\n| project\\r\\n    Value = iff(isnull(Count), 0, Count),\\r\\n    Time = TimeGenerated,\\r\\n    Legend = \\\"{DeviceProduct}\\\")\\r\\n| render timechart \",\"size\":0,\"timeContext\":{\"durationMs\":604800000},\"queryType\":0,\"resourceType\":\"microsoft.operationalinsights/workspaces\",\"visualization\":\"timechart\",\"chartSettings\":{\"showMetrics\":false}},\"customWidth\":\"50\",\"name\":\"query - 2\"}]},\"name\":\"IngestedLogs\"}],\"fromTemplateId\":\"CEFOverview\",\"$schema\":\"https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json\"}\r\n",
                                 "version": "1.0",
                                 "sourceId": "[resourceId('microsoft.OperationalInsights/Workspaces', parameters('workspace'))]",
                                 "category": "sentinel"
@@ -599,7 +613,7 @@
                     ]
                 },
                 "packageKind": "Solution",
-                "packageVersion": "3.0.6",
+                "packageVersion": "3.2.2",
                 "packageName": "Common Event Format",
                 "packageId": "azuresentinel.azure-sentinel-solution-commoneventformat",
                 "contentSchemaVersion": "3.0.0",
@@ -610,23 +624,24 @@
                 "id": "azuresentinel.azure-sentinel-solution-commoneventf-wb-3qfrl2wffxmse",
                 "version": "1.0.0",
                 "isDeprecated": false
-            }
+            },
+            "condition": "[parameters('DeployWorkbook')]"
         },
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentPackages",
             "apiVersion": "2023-04-01-preview",
             "location": "[parameters('workspace-location')]",
             "properties": {
-                "version": "3.0.6",
+                "version": "3.2.2",
                 "kind": "Solution",
                 "contentSchemaVersion": "3.0.0",
                 "displayName": "Common Event Format",
                 "publisherDisplayName": "Microsoft Sentinel, Microsoft Corporation",
-                "descriptionHtml": "<p><strong>Note:</strong> Please refer to the following before installing the solution:</p><p>\u2022 Review the solution <a target=\"_blank\" href=\"https://ms.portal.azure.com/verifyLink?href=https%3A%2F%2Fgithub.com%2FAzure%2FAzure-Sentinel%2Ftree%2Fmaster%2FSolutions%2FCommon%2520Event%2520Format%2FReleaseNotes.md&amp;id=fx\" rel=\"noopener\">Release Notes</a></p><p>\u2022 There may be <a target=\"_blank\" href=\"https://ms.portal.azure.com/verifyLink?href=https%3A%2F%2Faka.ms%2Fsentinelsolutionsknownissues&amp;id=fx\" rel=\"noopener\">known issues</a> pertaining to this Solution, please refer to them before installing.</p><p>The Common Event Format (CEF) solution for Microsoft Sentinel allows you to ingest logs from any product and/or appliance that can send logs in the <a target=\"_blank\" href=\"https://docs.microsoft.com/azure/sentinel/connect-common-event-format?WT.mc_id=Portal-fx\" rel=\"noopener\">Common Event Format (CEF) over Syslog messages</a>.</p><p>Installing this solution will deploy two data connectors,</p><ol><li><b>Common Event Format via AMA</b> - This data connector helps in ingesting CEF formatted logs into your Log Analytics Workspace using the new Azure Monitor Agent. Learn more about ingesting using the new Azure Monitor Agent <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/sentinel/connect-cef-ama\" rel=\"noopener\">here</a>. Microsoft recommends using this Data Connector</li><li><b>Common Event Format via Legacy Agent</b> - This data connector helps in ingesting CEF formatted logs into your Log Analytics Workspace using the legacy Log Analytics agent.</li></ol><p><b>NOTE:</b> After the solution is installed, Microsoft recommends configuring and leveraging the <b>Common Event Format via AMA</b> connector for log ingestion. Legacy connector uses the Log Analytics agent, which is deprecated on <b>Aug 31, 2024,</b> and thus should only be installed where AMA is not supported.</p><p></p><p><b>Underlying Microsoft Technologies used:</b></p><p>This solution takes a dependency on the following technologies, and some of these dependencies either may be in <a target=\"_blank\" href=\"https://azure.microsoft.com/support/legal/preview-supplemental-terms/\" rel=\"noopener\">Preview</a> state or might result in additional ingestion or operational costs:</p><p>a. <a target=\"_blank\" href=\"https://docs.microsoft.com/azure/sentinel/connect-common-event-format?WT.mc_id=Portal-fx\" rel=\"noopener\">Agent-based log collection (CEF over Syslog)</a></p><p><strong>Data Connectors:</strong> 2, <strong>Workbooks:</strong> 1</p><p><a target=\"_blank\" href=\"https://aka.ms/azuresentinel\" rel=\"noopener\">Learn more about Microsoft Sentinel</a> | <a target=\"_blank\" href=\"https://aka.ms/azuresentinelsolutionsdoc\" rel=\"noopener\">Learn more about Solutions</a></p>",
+                "descriptionHtml": "<p><strong>Note:</strong> Please refer to the following before installing the solution:</p><p>\u2022 Review the solution <a target=\"_blank\" href=\"https://ms.portal.azure.com/verifyLink?href=https%3A%2F%2Fgithub.com%2FAzure%2FAzure-Sentinel%2Ftree%2Fmaster%2FSolutions%2FCommon%2520Event%2520Format%2FReleaseNotes.md&amp;id=fx\" rel=\"noopener\">Release Notes</a></p><p>\u2022 There may be <a target=\"_blank\" href=\"https://ms.portal.azure.com/verifyLink?href=https%3A%2F%2Faka.ms%2Fsentinelsolutionsknownissues&amp;id=fx\" rel=\"noopener\">known issues</a> pertaining to this Solution, please refer to them before installing.</p><p>The Common Event Format (CEF) solution for Microsoft Sentinel allows you to ingest logs from any product and/or appliance that can send logs in the <a target=\"_blank\" href=\"https://docs.microsoft.com/azure/sentinel/connect-common-event-format?WT.mc_id=Portal-fx\" rel=\"noopener\">Common Event Format (CEF) over Syslog messages</a>.</p><p>Installing this solution will deploy two data connectors,</p><ol><li><b>Common Event Format via AMA</b> - This data connector helps in ingesting CEF formatted logs into your Log Analytics Workspace using the new Azure Monitor Agent. Learn more about ingesting using the new Azure Monitor Agent <a target=\"_blank\" href=\"https://learn.microsoft.com/azure/sentinel/connect-cef-ama\" rel=\"noopener\">here</a>. Microsoft recommends using this Data Connector</li><li><b>Common Event Format via Legacy Agent</b> - This data connector helps in ingesting CEF formatted logs into your Log Analytics Workspace using the legacy Log Analytics agent.</li></ol><p><b>NOTE:</b> After the solution is installed, Microsoft recommends configuring and leveraging the <b>Common Event Format via AMA</b> connector for log ingestion. Legacy connector uses the Log Analytics agent, which was deprecated on <b>Aug 31, 2024,</b> and thus should only be installed where AMA is not supported.</p><p></p><p><b>Underlying Microsoft Technologies used:</b></p><p>This solution takes a dependency on the following technologies, and some of these dependencies either may be in <a target=\"_blank\" href=\"https://azure.microsoft.com/support/legal/preview-supplemental-terms/\" rel=\"noopener\">Preview</a> state or might result in additional ingestion or operational costs:</p><p>a. <a target=\"_blank\" href=\"https://docs.microsoft.com/azure/sentinel/connect-common-event-format?WT.mc_id=Portal-fx\" rel=\"noopener\">Agent-based log collection (CEF over Syslog)</a></p><p><strong>Data Connectors:</strong> 2, <strong>Workbooks:</strong> 1, <strong>XDR Workbooks:</strong> 1</p><p><a target=\"_blank\" href=\"https://aka.ms/azuresentinel\" rel=\"noopener\">Learn more about Microsoft Sentinel</a> | <a target=\"_blank\" href=\"https://aka.ms/azuresentinelsolutionsdoc\" rel=\"noopener\">Learn more about Solutions</a></p>",
                 "contentKind": "Solution",
-                "contentProductId": "azuresentinel.azure-sentinel-solution-commoneventf-sl-3tocv4gk7s74g",
-                "id": "azuresentinel.azure-sentinel-solution-commoneventf-sl-3tocv4gk7s74g",
-                "icon": "https://store-images.s-microsoft.com/image/apps.64828.04050cde-d5d0-47ee-8577-c53e3dd96f3e.8d36a8ed-a609-4719-ad1b-1581269ebbc5.4a81323c-9d10-401e-b36a-c8150a48ac34",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-commoneventf-sl-azk5ya2iazdfg",
+                "id": "azuresentinel.azure-sentinel-solution-commoneventf-sl-azk5ya2iazdfg",
+                "icon": "https://catalogartifact.azureedge.net/publicartifacts/azuresentinel.azure-sentinel-solution-commoneventformat-9fd39016-1763-4b79-86c7-f55eb920b4f0/image0_3013882940631742861.png",
                 "contentId": "azuresentinel.azure-sentinel-solution-commoneventformat",
                 "parentId": "azuresentinel.azure-sentinel-solution-commoneventformat",
                 "source": {
@@ -661,6 +676,11 @@
                             "kind": "Workbook",
                             "contentId": "CEFOverview",
                             "version": "1.0.0"
+                        },
+                        {
+                            "kind": "DefenderWorkbook",
+                            "contentId": "4853d78c-69eb-517f-8dcc-174533b6dbeb",
+                            "version": "3.2.2"
                         }
                     ]
                 },
@@ -678,6 +698,635 @@
                 "migratedToPackageId": null
             },
             "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', 'azuresentinel.azure-sentinel-solution-commoneventformat')]"
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2025-04-01",
+            "name": "DefenderWorkbook-3c79620f27ad2bfb7ec88a0c01d90155",
+            "dependsOn": [
+                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-commoneventformat')]"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "expressionEvaluationOptions": {
+                    "scope": "inner"
+                },
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "languageVersion": "2.0",
+                    "contentVersion": "1.0.0.0",
+                    "imports": {
+                        "MicrosoftSecurity": {
+                            "provider": "MicrosoftSecurity",
+                            "version": "1.0.0"
+                        }
+                    },
+                    "resources": {
+                        "workbook": {
+                            "import": "MicrosoftSecurity",
+                            "type": "Microsoft.Security/workbooks@2026-06-01-preview",
+                            "properties": {
+                                "id": "08d865db-fc42-5ad5-b438-7dcbfd2563ee",
+                                "name": "Common Event Format Logs Overview",
+                                "content": {
+                                    "version": "Notebook/1.0",
+                                    "items": [
+                                        {
+                                            "type": 1,
+                                            "content": {
+                                                "json": "# Common Event Format Logs Overview\n---\n\nThis Workbook gives an overview of ingestion of logs in the CommonSecurityLog table"
+                                            },
+                                            "name": "text - 2"
+                                        },
+                                        {
+                                            "type": 1,
+                                            "content": {
+                                                "json": "## Log Ingestion Overview (Kb)\r\n---"
+                                            },
+                                            "name": "text - 3"
+                                        },
+                                        {
+                                            "type": 3,
+                                            "content": {
+                                                "version": "KqlItem/1.0",
+                                                "query": "CommonSecurityLog\n| where TimeGenerated >= ago(30d)\n| summarize TotalVolumeIngested = round(sum(_BilledSize)/(1024)) by DeviceProduct",
+                                                "size": 1,
+                                                "queryType": "advancedHunting",
+                                                "visualization": "tiles",
+                                                "tileSettings": {
+                                                    "titleContent": {
+                                                        "columnMatch": "TotalVolumeIngested"
+                                                    },
+                                                    "subtitleContent": {
+                                                        "columnMatch": "DeviceProduct"
+                                                    },
+                                                    "showBorder": true
+                                                }
+                                            },
+                                            "name": "query - 2"
+                                        },
+                                        {
+                                            "type": 12,
+                                            "content": {
+                                                "version": "NotebookGroup/1.0",
+                                                "groupType": "editable",
+                                                "items": [
+                                                    {
+                                                        "type": 9,
+                                                        "content": {
+                                                            "version": "KqlParameterItem/1.0",
+                                                            "parameters": [
+                                                                {
+                                                                    "id": "0407e413-4562-4a87-b660-72facb921954",
+                                                                    "version": "KqlParameterItem/1.0",
+                                                                    "name": "TimeRange",
+                                                                    "type": 4,
+                                                                    "isRequired": true,
+                                                                    "typeSettings": {
+                                                                        "selectableValues": [
+                                                                            {
+                                                                                "durationMs": 300000
+                                                                            },
+                                                                            {
+                                                                                "durationMs": 900000
+                                                                            },
+                                                                            {
+                                                                                "durationMs": 1800000
+                                                                            },
+                                                                            {
+                                                                                "durationMs": 3600000
+                                                                            },
+                                                                            {
+                                                                                "durationMs": 14400000
+                                                                            },
+                                                                            {
+                                                                                "durationMs": 43200000
+                                                                            },
+                                                                            {
+                                                                                "durationMs": 86400000
+                                                                            },
+                                                                            {
+                                                                                "durationMs": 172800000
+                                                                            },
+                                                                            {
+                                                                                "durationMs": 259200000
+                                                                            },
+                                                                            {
+                                                                                "durationMs": 604800000
+                                                                            },
+                                                                            {
+                                                                                "durationMs": 1209600000
+                                                                            },
+                                                                            {
+                                                                                "durationMs": 2419200000
+                                                                            },
+                                                                            {
+                                                                                "durationMs": 2592000000
+                                                                            },
+                                                                            {
+                                                                                "durationMs": 5184000000
+                                                                            },
+                                                                            {
+                                                                                "durationMs": 7776000000
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    "timeContext": {
+                                                                        "durationMs": 86400000
+                                                                    },
+                                                                    "value": {
+                                                                        "durationMs": 1800000
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "id": "f5f6d366-40c3-4b51-a62f-06665d374327",
+                                                                    "version": "KqlParameterItem/1.0",
+                                                                    "name": "ConnectedStatus",
+                                                                    "type": 2,
+                                                                    "isRequired": true,
+                                                                    "multiSelect": true,
+                                                                    "quote": "'",
+                                                                    "delimiter": ",",
+                                                                    "query": "CommonSecurityLog  \r\n| summarize EventCount_TimeRange =  countif(TimeGenerated {TimeRange}), EventCount_Last30Days = countif(TimeGenerated > ago(30d)) by  DeviceProduct\r\n| project ConnectedStatus = iff(EventCount_Last30Days > 0, \"Connected\", \"Not-Connected\")\r\n| distinct ConnectedStatus\r\n| order by ConnectedStatus asc",
+                                                                    "typeSettings": {
+                                                                        "additionalResourceOptions": [],
+                                                                        "showDefault": false
+                                                                    },
+                                                                    "timeContext": {
+                                                                        "durationMs": 2592000000
+                                                                    },
+                                                                    "queryType": "advancedHunting",
+                                                                    "value": [
+                                                                        "Connected"
+                                                                    ]
+                                                                }
+                                                            ],
+                                                            "style": "pills"
+                                                        },
+                                                        "name": "parameters - 0"
+                                                    },
+                                                    {
+                                                        "type": 3,
+                                                        "content": {
+                                                            "version": "KqlItem/1.0",
+                                                            "query": "let All_DeviceProduct_Table = CommonSecurityLog | summarize by DeviceProduct;\r\nlet OOTBSources = externaldata(ProductName: string)\r\n[@\"https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEFConnectors.csv\"]\r\nwith (format=\"csv\", ignoreFirstRecord=true);\r\nAll_DeviceProduct_Table | join kind=fullouter \r\n(CommonSecurityLog  \r\n| summarize EventCount_TimeRange =  countif(TimeGenerated {TimeRange}), EventCount_Last30Days = countif(TimeGenerated > ago(30d)) by  DeviceProduct\r\n| extend ConnectionStatus = iff(EventCount_Last30Days > 0, \"Connected\", \"Not-Connected\")\r\n| extend OutofBoxSupport = iif(DeviceProduct in (OOTBSources), \"Available\", \"Unavailable\")\r\n)\r\non DeviceProduct\r\n| where ConnectionStatus in ({ConnectedStatus}) \r\n| extend DeviceProduct = coalesce(DeviceProduct, DeviceProduct1)\r\n| extend EventCount_TimeRange = coalesce(EventCount_TimeRange, 0)\r\n| extend EventCount_Last30Days = coalesce(EventCount_Last30Days, 0)\r\n| extend ConnectionStatus = coalesce(ConnectionStatus, \"Not-Connected\")\r\n| project-away DeviceProduct1, EventCount_TimeRange\r\n//| project DeviceProduct, EventCount_Last30Days, OutofBoxSupport",
+                                                            "size": 0,
+                                                            "timeContext": {
+                                                                "durationMs": 2592000000
+                                                            },
+                                                            "exportFieldName": "DeviceProduct",
+                                                            "exportParameterName": "DeviceProduct",
+                                                            "queryType": "advancedHunting",
+                                                            "gridSettings": {
+                                                                "formatters": [
+                                                                    {
+                                                                        "columnMatch": "ConnectionStatus",
+                                                                        "formatter": 18,
+                                                                        "formatOptions": {
+                                                                            "thresholdsOptions": "icons",
+                                                                            "thresholdsGrid": [
+                                                                                {
+                                                                                    "operator": "==",
+                                                                                    "thresholdValue": "Connected",
+                                                                                    "representation": "success",
+                                                                                    "text": "{0}{1}"
+                                                                                },
+                                                                                {
+                                                                                    "operator": "!=",
+                                                                                    "thresholdValue": "Connected",
+                                                                                    "representation": "error",
+                                                                                    "text": "{0}{1}"
+                                                                                },
+                                                                                {
+                                                                                    "operator": "Default",
+                                                                                    "thresholdValue": null,
+                                                                                    "representation": "success",
+                                                                                    "text": "{0}{1}"
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        "numberFormat": {
+                                                                            "unit": 0,
+                                                                            "options": {
+                                                                                "style": "decimal"
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "columnMatch": "OutofBox",
+                                                                        "formatter": 18,
+                                                                        "formatOptions": {
+                                                                            "thresholdsOptions": "icons",
+                                                                            "thresholdsGrid": [
+                                                                                {
+                                                                                    "operator": "==",
+                                                                                    "thresholdValue": "Available",
+                                                                                    "representation": "Available",
+                                                                                    "text": "{0}{1}"
+                                                                                },
+                                                                                {
+                                                                                    "operator": "!=",
+                                                                                    "thresholdValue": "Yes",
+                                                                                    "representation": "Unavailable",
+                                                                                    "text": "{0}{1}"
+                                                                                },
+                                                                                {
+                                                                                    "operator": "Default",
+                                                                                    "thresholdValue": null,
+                                                                                    "representation": "success",
+                                                                                    "text": "{0}{1}"
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "labelSettings": [
+                                                                    {
+                                                                        "columnId": "DeviceProduct",
+                                                                        "label": "Device Product"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        "customWidth": "50",
+                                                        "name": "query - 1 - Copy"
+                                                    },
+                                                    {
+                                                        "type": 3,
+                                                        "content": {
+                                                            "version": "KqlItem/1.0",
+                                                            "query": " let Now = now();\r\n(range TimeGenerated from ago(7d) to Now - 1d step 1d\r\n| extend Count = 0\r\n| union isfuzzy=true\r\n    (CommonSecurityLog\r\n    | where DeviceProduct == \"{DeviceProduct}\"\r\n    //| where DeviceProduct has \"PAN-OS\"\r\n    | summarize Count = count() by bin_at(TimeGenerated, 1d, Now))\r\n| summarize Count=max(Count) by bin_at(TimeGenerated, 1d, Now)\r\n| sort by TimeGenerated\r\n| project\r\n    Value = iff(isnull(Count), 0, Count),\r\n    Time = TimeGenerated,\r\n    Legend = \"{DeviceProduct}\")\r\n| render timechart ",
+                                                            "size": 0,
+                                                            "timeContext": {
+                                                                "durationMs": 604800000
+                                                            },
+                                                            "queryType": "advancedHunting",
+                                                            "visualization": "timechart",
+                                                            "chartSettings": {
+                                                                "showMetrics": false
+                                                            }
+                                                        },
+                                                        "customWidth": "50",
+                                                        "name": "query - 2"
+                                                    }
+                                                ]
+                                            },
+                                            "name": "IngestedLogs"
+                                        }
+                                    ],
+                                    "fromTemplateId": "CEFOverview",
+                                    "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json",
+                                    "contentProvenance": {
+                                        "packageId": "azuresentinel.azure-sentinel-solution-commoneventformat",
+                                        "packageVersion": "3.2.2",
+                                        "contentId": "4853d78c-69eb-517f-8dcc-174533b6dbeb",
+                                        "contentVersion": "3.2.2"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "condition": "[parameters('DeployDefenderWorkbook')]"
+        },
+        {
+            "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
+            "apiVersion": "2023-04-01-preview",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat(parameters('workspace'),'-dwb-',uniqueString('4853d78c-69eb-517f-8dcc-174533b6dbeb')))]",
+            "location": "[parameters('workspace-location')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Resources/deployments', 'DefenderWorkbook-3c79620f27ad2bfb7ec88a0c01d90155')]",
+                "[extensionResourceId(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspace')), 'Microsoft.SecurityInsights/contentPackages', 'azuresentinel.azure-sentinel-solution-commoneventformat')]"
+            ],
+            "properties": {
+                "description": "Defender Workbook: Common Event Format Logs Overview",
+                "mainTemplate": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "languageVersion": "2.0",
+                    "contentVersion": "1.0.0.0",
+                    "imports": {
+                        "MicrosoftSecurity": {
+                            "provider": "MicrosoftSecurity",
+                            "version": "1.0.0"
+                        }
+                    },
+                    "resources": {
+                        "workbook": {
+                            "import": "MicrosoftSecurity",
+                            "type": "Microsoft.Security/workbooks@2026-06-01-preview",
+                            "properties": {
+                                "id": "08d865db-fc42-5ad5-b438-7dcbfd2563ee",
+                                "name": "Common Event Format Logs Overview",
+                                "content": {
+                                    "version": "Notebook/1.0",
+                                    "items": [
+                                        {
+                                            "type": 1,
+                                            "content": {
+                                                "json": "# Common Event Format Logs Overview\n---\n\nThis Workbook gives an overview of ingestion of logs in the CommonSecurityLog table"
+                                            },
+                                            "name": "text - 2"
+                                        },
+                                        {
+                                            "type": 1,
+                                            "content": {
+                                                "json": "## Log Ingestion Overview (Kb)\r\n---"
+                                            },
+                                            "name": "text - 3"
+                                        },
+                                        {
+                                            "type": 3,
+                                            "content": {
+                                                "version": "KqlItem/1.0",
+                                                "query": "CommonSecurityLog\n| where TimeGenerated >= ago(30d)\n| summarize TotalVolumeIngested = round(sum(_BilledSize)/(1024)) by DeviceProduct",
+                                                "size": 1,
+                                                "queryType": "advancedHunting",
+                                                "visualization": "tiles",
+                                                "tileSettings": {
+                                                    "titleContent": {
+                                                        "columnMatch": "TotalVolumeIngested"
+                                                    },
+                                                    "subtitleContent": {
+                                                        "columnMatch": "DeviceProduct"
+                                                    },
+                                                    "showBorder": true
+                                                }
+                                            },
+                                            "name": "query - 2"
+                                        },
+                                        {
+                                            "type": 12,
+                                            "content": {
+                                                "version": "NotebookGroup/1.0",
+                                                "groupType": "editable",
+                                                "items": [
+                                                    {
+                                                        "type": 9,
+                                                        "content": {
+                                                            "version": "KqlParameterItem/1.0",
+                                                            "parameters": [
+                                                                {
+                                                                    "id": "0407e413-4562-4a87-b660-72facb921954",
+                                                                    "version": "KqlParameterItem/1.0",
+                                                                    "name": "TimeRange",
+                                                                    "type": 4,
+                                                                    "isRequired": true,
+                                                                    "typeSettings": {
+                                                                        "selectableValues": [
+                                                                            {
+                                                                                "durationMs": 300000
+                                                                            },
+                                                                            {
+                                                                                "durationMs": 900000
+                                                                            },
+                                                                            {
+                                                                                "durationMs": 1800000
+                                                                            },
+                                                                            {
+                                                                                "durationMs": 3600000
+                                                                            },
+                                                                            {
+                                                                                "durationMs": 14400000
+                                                                            },
+                                                                            {
+                                                                                "durationMs": 43200000
+                                                                            },
+                                                                            {
+                                                                                "durationMs": 86400000
+                                                                            },
+                                                                            {
+                                                                                "durationMs": 172800000
+                                                                            },
+                                                                            {
+                                                                                "durationMs": 259200000
+                                                                            },
+                                                                            {
+                                                                                "durationMs": 604800000
+                                                                            },
+                                                                            {
+                                                                                "durationMs": 1209600000
+                                                                            },
+                                                                            {
+                                                                                "durationMs": 2419200000
+                                                                            },
+                                                                            {
+                                                                                "durationMs": 2592000000
+                                                                            },
+                                                                            {
+                                                                                "durationMs": 5184000000
+                                                                            },
+                                                                            {
+                                                                                "durationMs": 7776000000
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    "timeContext": {
+                                                                        "durationMs": 86400000
+                                                                    },
+                                                                    "value": {
+                                                                        "durationMs": 1800000
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "id": "f5f6d366-40c3-4b51-a62f-06665d374327",
+                                                                    "version": "KqlParameterItem/1.0",
+                                                                    "name": "ConnectedStatus",
+                                                                    "type": 2,
+                                                                    "isRequired": true,
+                                                                    "multiSelect": true,
+                                                                    "quote": "'",
+                                                                    "delimiter": ",",
+                                                                    "query": "CommonSecurityLog  \r\n| summarize EventCount_TimeRange =  countif(TimeGenerated {TimeRange}), EventCount_Last30Days = countif(TimeGenerated > ago(30d)) by  DeviceProduct\r\n| project ConnectedStatus = iff(EventCount_Last30Days > 0, \"Connected\", \"Not-Connected\")\r\n| distinct ConnectedStatus\r\n| order by ConnectedStatus asc",
+                                                                    "typeSettings": {
+                                                                        "additionalResourceOptions": [],
+                                                                        "showDefault": false
+                                                                    },
+                                                                    "timeContext": {
+                                                                        "durationMs": 2592000000
+                                                                    },
+                                                                    "queryType": "advancedHunting",
+                                                                    "value": [
+                                                                        "Connected"
+                                                                    ]
+                                                                }
+                                                            ],
+                                                            "style": "pills"
+                                                        },
+                                                        "name": "parameters - 0"
+                                                    },
+                                                    {
+                                                        "type": 3,
+                                                        "content": {
+                                                            "version": "KqlItem/1.0",
+                                                            "query": "let All_DeviceProduct_Table = CommonSecurityLog | summarize by DeviceProduct;\r\nlet OOTBSources = externaldata(ProductName: string)\r\n[@\"https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEFConnectors.csv\"]\r\nwith (format=\"csv\", ignoreFirstRecord=true);\r\nAll_DeviceProduct_Table | join kind=fullouter \r\n(CommonSecurityLog  \r\n| summarize EventCount_TimeRange =  countif(TimeGenerated {TimeRange}), EventCount_Last30Days = countif(TimeGenerated > ago(30d)) by  DeviceProduct\r\n| extend ConnectionStatus = iff(EventCount_Last30Days > 0, \"Connected\", \"Not-Connected\")\r\n| extend OutofBoxSupport = iif(DeviceProduct in (OOTBSources), \"Available\", \"Unavailable\")\r\n)\r\non DeviceProduct\r\n| where ConnectionStatus in ({ConnectedStatus}) \r\n| extend DeviceProduct = coalesce(DeviceProduct, DeviceProduct1)\r\n| extend EventCount_TimeRange = coalesce(EventCount_TimeRange, 0)\r\n| extend EventCount_Last30Days = coalesce(EventCount_Last30Days, 0)\r\n| extend ConnectionStatus = coalesce(ConnectionStatus, \"Not-Connected\")\r\n| project-away DeviceProduct1, EventCount_TimeRange\r\n//| project DeviceProduct, EventCount_Last30Days, OutofBoxSupport",
+                                                            "size": 0,
+                                                            "timeContext": {
+                                                                "durationMs": 2592000000
+                                                            },
+                                                            "exportFieldName": "DeviceProduct",
+                                                            "exportParameterName": "DeviceProduct",
+                                                            "queryType": "advancedHunting",
+                                                            "gridSettings": {
+                                                                "formatters": [
+                                                                    {
+                                                                        "columnMatch": "ConnectionStatus",
+                                                                        "formatter": 18,
+                                                                        "formatOptions": {
+                                                                            "thresholdsOptions": "icons",
+                                                                            "thresholdsGrid": [
+                                                                                {
+                                                                                    "operator": "==",
+                                                                                    "thresholdValue": "Connected",
+                                                                                    "representation": "success",
+                                                                                    "text": "{0}{1}"
+                                                                                },
+                                                                                {
+                                                                                    "operator": "!=",
+                                                                                    "thresholdValue": "Connected",
+                                                                                    "representation": "error",
+                                                                                    "text": "{0}{1}"
+                                                                                },
+                                                                                {
+                                                                                    "operator": "Default",
+                                                                                    "thresholdValue": null,
+                                                                                    "representation": "success",
+                                                                                    "text": "{0}{1}"
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        "numberFormat": {
+                                                                            "unit": 0,
+                                                                            "options": {
+                                                                                "style": "decimal"
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "columnMatch": "OutofBox",
+                                                                        "formatter": 18,
+                                                                        "formatOptions": {
+                                                                            "thresholdsOptions": "icons",
+                                                                            "thresholdsGrid": [
+                                                                                {
+                                                                                    "operator": "==",
+                                                                                    "thresholdValue": "Available",
+                                                                                    "representation": "Available",
+                                                                                    "text": "{0}{1}"
+                                                                                },
+                                                                                {
+                                                                                    "operator": "!=",
+                                                                                    "thresholdValue": "Yes",
+                                                                                    "representation": "Unavailable",
+                                                                                    "text": "{0}{1}"
+                                                                                },
+                                                                                {
+                                                                                    "operator": "Default",
+                                                                                    "thresholdValue": null,
+                                                                                    "representation": "success",
+                                                                                    "text": "{0}{1}"
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "labelSettings": [
+                                                                    {
+                                                                        "columnId": "DeviceProduct",
+                                                                        "label": "Device Product"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        "customWidth": "50",
+                                                        "name": "query - 1 - Copy"
+                                                    },
+                                                    {
+                                                        "type": 3,
+                                                        "content": {
+                                                            "version": "KqlItem/1.0",
+                                                            "query": " let Now = now();\r\n(range TimeGenerated from ago(7d) to Now - 1d step 1d\r\n| extend Count = 0\r\n| union isfuzzy=true\r\n    (CommonSecurityLog\r\n    | where DeviceProduct == \"{DeviceProduct}\"\r\n    //| where DeviceProduct has \"PAN-OS\"\r\n    | summarize Count = count() by bin_at(TimeGenerated, 1d, Now))\r\n| summarize Count=max(Count) by bin_at(TimeGenerated, 1d, Now)\r\n| sort by TimeGenerated\r\n| project\r\n    Value = iff(isnull(Count), 0, Count),\r\n    Time = TimeGenerated,\r\n    Legend = \"{DeviceProduct}\")\r\n| render timechart ",
+                                                            "size": 0,
+                                                            "timeContext": {
+                                                                "durationMs": 604800000
+                                                            },
+                                                            "queryType": "advancedHunting",
+                                                            "visualization": "timechart",
+                                                            "chartSettings": {
+                                                                "showMetrics": false
+                                                            }
+                                                        },
+                                                        "customWidth": "50",
+                                                        "name": "query - 2"
+                                                    }
+                                                ]
+                                            },
+                                            "name": "IngestedLogs"
+                                        }
+                                    ],
+                                    "fromTemplateId": "CEFOverview",
+                                    "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json",
+                                    "contentProvenance": {
+                                        "packageId": "azuresentinel.azure-sentinel-solution-commoneventformat",
+                                        "packageVersion": "3.2.2",
+                                        "contentId": "4853d78c-69eb-517f-8dcc-174533b6dbeb",
+                                        "contentVersion": "3.2.2"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "packageKind": "Solution",
+                "packageVersion": "3.2.2",
+                "packageName": "Common Event Format",
+                "packageId": "azuresentinel.azure-sentinel-solution-commoneventformat",
+                "contentSchemaVersion": "3.0.0",
+                "contentId": "4853d78c-69eb-517f-8dcc-174533b6dbeb",
+                "contentKind": "DefenderWorkbook",
+                "displayName": "Common Event Format Logs Overview",
+                "contentProductId": "azuresentinel.azure-sentinel-solution-commoneventf-dwb-7z54ptq7td7yq",
+                "id": "azuresentinel.azure-sentinel-solution-commoneventf-dwb-7z54ptq7td7yq",
+                "version": "3.2.2",
+                "contentProvenance": {
+                    "packageId": "azuresentinel.azure-sentinel-solution-commoneventformat",
+                    "packageVersion": "3.2.2",
+                    "contentId": "4853d78c-69eb-517f-8dcc-174533b6dbeb",
+                    "contentVersion": "3.2.2",
+                    "requiredWorkloads": [
+                        {
+                            "workload": "sentinel",
+                            "dataTypes": [
+                                "CommonSecurityLog"
+                            ]
+                        }
+                    ],
+                    "requiredDataConnectors": [
+                        {
+                            "connectorId": "CefAma",
+                            "dataTypes": [
+                                "CommonSecurityLog"
+                            ]
+                        }
+                    ],
+                    "requiredWorkspaceFunctions": []
+                },
+                "isDeprecated": false
+            },
+            "condition": "[parameters('DeployDefenderWorkbook')]"
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2025-04-01",
+            "name": "pid-04050cde-d5d0-47ee-8577-c53e3dd96f3e-partnercenter",
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "resources": []
+                }
+            }
         }
     ],
     "variables": {}
