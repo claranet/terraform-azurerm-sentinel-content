@@ -1,3 +1,34 @@
+## 9.0.4 (2026-11-12)
+
+### Code Refactoring
+
+* bump `Azure Activity` package template version to 3.2.2 e9dcc14
+* bump `Azure Key Vault` package template version to 3.2.2 95cd1cd
+* bump `CEF` package template version to 3.2.2 73af528
+* bump `Fortigate` package template version to 3.2.2 0796b5f
+* bump `Google Workspace` package template version to 3.2.2 6cdedae
+* bump `Microsoft 365` package template version to 3.2.2 7c5105b
+* bump `Microsoft Entra Id` package template version to 3.3.20 7072450
+* bump `Microsoft XDR` package template version to 3.2.2 3979643
+* bump `Okta` package template version to 3.2.2 2554a0a
+* bump `SentinelOne` package template version to 3.2.2 52c7d5e
+* bump `Sophos Endpoint` package template version to 3.2.2 ed94c47
+* bump `Syslog` package template version to 3.2.3 d92535d
+* bump `Threat Intelligence` package template version to 3.2.2 3d67529
+* bump `Windows Security` package template version to 3.2.1 c0853dd
+
+### Continuous Integration
+
+* **release:** drop semantic-release-slack-bot, the receiver posts releases eef53d1
+
+### Miscellaneous Chores
+
+* **deps:** update dependency opentofu to v1.13.0 3293044
+* **deps:** update dependency opentofu to v1.13.1 7594c8f
+* **deps:** update dependency opentofu to v1.13.2 091fe05
+* **deps:** update dependency tflint to v0.65.0 e8f9226
+* **deps:** update pre-commit hook crate-ci/committed to v1.1.12 7dd92cd
+
 ## 9.0.3 (2026-09-16)
 
 ### Code Refactoring
