@@ -1,3 +1,13 @@
+## 9.0.5 (2026-11-13)
+
+### Bug Fixes
+
+* align bool parameter type casing with Azure to avoid drift 0a703d9
+
+### Miscellaneous Chores
+
+* **deps:** update dependency opentofu to v1.13.9 c5f50d7
+
 ## 9.0.4 (2026-11-12)
 
 ### Code Refactoring
