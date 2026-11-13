@@ -39,14 +39,14 @@
             }
         },
         "DeployDataConnector": {
-            "type": "bool",
+            "type": "Bool",
             "defaultValue": true,
             "metadata": {
                 "description": "Deploy the data connectors carried by this solution, together with their metadata and catalog entries (ContentKind DataConnector, ResourceDataConnector and DataType)."
             }
         },
         "DeployParser": {
-            "type": "bool",
+            "type": "Bool",
             "defaultValue": true,
             "metadata": {
                 "description": "Deploy the parsers and their registrations carried by this solution."
